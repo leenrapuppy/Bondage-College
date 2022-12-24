@@ -56,6 +56,10 @@ Top
 上部
 Design
 样式
+Upper Gradient
+上部渐变
+Lower Gradient
+下部渐变
 Holder
 包装
 Flowers
@@ -68,6 +72,14 @@ Bib
 围嘴
 Text
 文字
+Base
+打底
+Stains
+污渍
+Rope
+绳子
+Chains
+锁链
 Chain
 锁链
 Lock
@@ -90,12 +102,12 @@ Ball
 球
 Strap
 束带
-Chains
-锁链
 Choker
 颈环
 Zip
 拉链
+Catsuit
+紧身衣
 Fabric
 布料
 Straps
@@ -138,6 +150,10 @@ Pollen
 花蕊
 Frill
 褶边
+Lock Icon
+锁标志
+Catsuit Panties
+紧身衣内裤
 Diaper
 尿裤
 Plastic Cover
@@ -150,8 +166,6 @@ Waist Band
 腰带
 Panties
 内裤
-Base
-打底
 Sock
 袜子
 Light Stripes
@@ -180,8 +194,6 @@ Badge
 徽记
 Insignia
 徽章
-Rope
-绳子
 Brim
 帽檐
 Roses
@@ -402,6 +414,8 @@ Below Breast Belt
 胸下皮带
 Shorts
 短裤
+Zippers
+拉链
 Slime Girl
 史莱姆女孩
 Seams
@@ -714,8 +728,6 @@ Pussy Toy
 阴部玩具
 Clitoris Toy
 阴蒂玩具
-Lock Icon
-锁标志
 Lid
 盖子
 Restraint Frame
@@ -738,8 +750,6 @@ Glass
 玻璃
 Wooden Frame
 木质框架
-Stains
-污渍
  Ropes
 绳子
 Arm Stocks
@@ -802,3 +812,5 @@ Crotch Straps
 胯部束带
 Arm Strap
 手臂束带
+Fade
+变暗

@@ -68,9 +68,6 @@ const ModularItemChatSetting = {
 	PER_OPTION: "perOption",
 };
 
-/** Memoized requirements check function */
-const ModularItemRequirementCheckMessageMemo = CommonMemoize(ModularItemRequirementMessageCheck);
-
 /**
  * Registers a modular extended item. This automatically creates the item's load, draw and click functions. It will
  * also generate the asset's AllowType array, as AllowType arrays on modular items can get long due to the
@@ -86,6 +83,7 @@ function ModularItemRegister(asset, config) {
 	ModularItemCreateDrawFunction(data);
 	ModularItemCreateClickFunction(data);
 	ModularItemCreateExitFunction(data);
+	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate, data.changeWhenLocked);
 	ModularItemGenerateValidationProperties(data);
 }
 
@@ -198,12 +196,13 @@ function ModularItemCreateModularData(asset, {
 	Dialog,
 	ScriptHooks,
 	BaselineProperty=null,
+	DrawImages=null,
 }) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
 	const ModulesParsed = ModularItemUpdateModules(Modules);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
-	const BaseDrawImages = ModulesParsed.every((m) => m.DrawImages);
+	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 
 	const key = `${asset.Group.Name}${asset.Name}`;
 	Dialog = Dialog || {};
@@ -374,7 +373,6 @@ function ModularItemCreateClickBaseFunction(data) {
 			DrawData,
 			() => {
 				ExtendedItemExit();
-				ModularItemRequirementCheckMessageMemo.clearCache();
 				// The item's lock may have been automatically removed in a module change, so rebuild buttons
 				DialogInventoryBuild(CharacterGetCurrent(), DialogInventoryOffset);
 				DialogMenuButtonBuild(CharacterGetCurrent());
@@ -501,7 +499,7 @@ function ModularItemModuleTransition(newModule, data) {
  */
 function ModularItemParseCurrent({ asset, modules }, type=null) {
 	if (type == null) {
-		type = (DialogFocusItem.Property && DialogFocusItem.Property.Type) || ModularItemConstructType(modules);
+		type = (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.Type) || ModularItemConstructType(modules);
 	}
 	return modules.map(module => {
 		const index = type.indexOf(module.Key);
@@ -643,7 +641,7 @@ function ModularItemSetType(module, index, data) {
 	const currentOption = module.Options[currentModuleValues[moduleIndex]];
 
 	// Make a final requirement check before actually modifying the item
-	const requirementMessage = ModularItemRequirementMessageCheck(option, currentOption, data.changeWhenLocked);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(option, currentOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
@@ -840,25 +838,6 @@ function ModularItemGenerateLayerAllowTypes(layer, data) {
 		if (allowedModuleCombinations.find(arr => arr.find(combo => combo[1] === 0))) {
 			layer.AllowTypes.push("");
 		}
-	}
-}
-
-/**
- * Checks whether the given option can be selected on the currently selected modular item
- * @param {ModularItemOption} option - The selected option
- * @param {ModularItemOption} currentOption - The currently active option
- * @param {boolean} changeWhenLocked - Whether or not the item can be changed when locked
- * @returns {string|null} - Returns a string user message if the option's requirements have not been met, otherwise
- * returns nothing
- */
-function ModularItemRequirementMessageCheck(option, currentOption, changeWhenLocked) {
-	const C = CharacterGetCurrent();
-	// Lock check - cannot change type if you can't unlock the item
-	const itemLocked = DialogFocusItem.Property && DialogFocusItem.Property.LockedBy;
-	if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, DialogFocusItem)) {
-		return DialogFindPlayer("CantChangeWhileLocked");
-	} else {
-		return ExtendedItemRequirementCheckMessage(option, currentOption);
 	}
 }
 

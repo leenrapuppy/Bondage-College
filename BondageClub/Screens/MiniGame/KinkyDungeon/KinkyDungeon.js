@@ -136,6 +136,9 @@ let KDJourney = "";
 
 let KDOptOut = false;
 
+let KinkyDungeonPlayerNeedsRefresh = false;
+let KinkyDungeonNextRefreshCheck = 0;
+
 /**
 *  @typedef {{
 * KeysNeeded: boolean,
@@ -493,6 +496,7 @@ function KinkyDungeonLoad() {
 	KDLoadPerks();
 
 	CurrentDarkFactor = 0;
+	KinkyDungeonPlayerNeedsRefresh = false;
 
 	KinkyDungeonInitTime = CommonTime();
 	KinkyDungeonGameKey.load();
@@ -691,6 +695,9 @@ function KinkyDungeonRun() {
 		KinkyDungeonCanvas.width = KinkyDungeonGridSizeDisplay * KinkyDungeonGridWidthDisplay;
 		KinkyDungeonCanvas.height = KinkyDungeonGridSizeDisplay * KinkyDungeonGridHeightDisplay;
 	}
+
+	// Check to see whether the player (outside of KD) needs a refresh
+	KinkyDungeonCheckPlayerRefresh();
 
 	// Draw the characters
 	if ((KinkyDungeonState != "Game" || KinkyDungeonDrawState != "Game") && KinkyDungeonState != "Stats")
@@ -1233,6 +1240,27 @@ function KinkyDungeonRun() {
 	}
 
 	MainCanvas.textBaseline = "middle";
+}
+
+function KinkyDungeonCheckPlayerRefresh() {
+	if (!ArcadeDeviousChallenge || CommonTime() < KinkyDungeonNextRefreshCheck) {
+		return;
+	}
+
+	// We've exceeded the refresh check time - check again in 1 second
+	KinkyDungeonNextRefreshCheck = CommonTime() + 1000;
+
+	if (!KinkyDungeonPlayerNeedsRefresh) {
+		return;
+	}
+
+	KinkyDungeonPlayerNeedsRefresh = false;
+
+	if (ServerPlayerIsInChatRoom()) {
+		ChatRoomCharacterUpdate(Player);
+	} else {
+		CharacterRefresh(Player);
+	}
 }
 
 /**
@@ -1958,6 +1986,15 @@ function KinkyDungeonClick() {
  */
 function KinkyDungeonExit() {
 	CommonDynamicFunction(MiniGameReturnFunction + "()");
+
+	// Refresh the player character if needed
+	if (ArcadeDeviousChallenge && KinkyDungeonPlayerNeedsRefresh) {
+		if (ServerPlayerIsInChatRoom()) {
+			ChatRoomCharacterUpdate(Player);
+		} else {
+			CharacterRefresh(Player);
+		}
+	}
 
 	if (CharacterAppearancePreviousEmoticon) {
 		CharacterSetFacialExpression(Player, "Emoticon", CharacterAppearancePreviousEmoticon);

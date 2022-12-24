@@ -1640,6 +1640,14 @@ interface NPCTrait {
 
 //#region Extended items
 
+/** A struct-type that maps archetypes to their respective extended item data.  */
+interface ExtendedDataLookupStruct {
+	[ExtendedArchetype.TYPED]: TypedItemData;
+	[ExtendedArchetype.MODULAR]: ModularItemData;
+	[ExtendedArchetype.VIBRATING]: VibratingItemData;
+	[ExtendedArchetype.VARIABLEHEIGHT]: VariableHeightData;
+}
+
 interface AssetOverrideHeight {
 	Height: number;
 	Priority: number;
@@ -2185,6 +2193,8 @@ interface ModularItemConfig {
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
 	 */
 	BaselineProperty?: ItemProperties;
+	/** A boolean indicating whether or not images should be drawn for the module selection screen. */
+	DrawImages?: boolean;
 }
 
 interface ModularItemDialogConfig {
@@ -2228,7 +2238,7 @@ interface ModularItemModuleBase {
 	AllowSelfSelect?: boolean;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "ModularItemModule";
-	/** A boolean indicating whether or not images should be drawn for this particular module. */
+	/** A boolean indicating whether or not images should be drawn within this particular module. */
 	DrawImages?: boolean;
 }
 
@@ -2238,7 +2248,7 @@ interface ModularItemModule extends ModularItemModuleBase {
 	OptionType: "ModularItemModule";
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOption[];
-	/** A boolean indicating whether or not images should be drawn for this particular module. */
+	/** A boolean indicating whether or not images should be drawn within this particular module. */
 	DrawImages: boolean;
 }
 
@@ -2377,7 +2387,10 @@ interface ModularItemData {
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;
-	/** A boolean indicating whether or not images should be drawn in this item's extended item menu. Automatically generated based on {@link ModularItemModule.drawImage} */
+	/**
+	 * A boolean indicating whether or not images should be drawn for the module selection screen.
+	 * Automatically generated based on {@link ModularItemModule.DrawImages} if not explicitly specified.
+	 */
 	drawImages: boolean;
 }
 
@@ -2423,11 +2436,6 @@ interface TypedItemConfig {
 	 * item is locked (if set to `false`, the player must be able to unlock the item to change its type). Defaults to `true`
 	 */
 	ChangeWhenLocked?: boolean;
-	/**
-	 * An optional validation callback function which can be used by
-	 * items to run additional validation for cases that aren't covered by configuration
-	 */
-	Validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
 	 * Contains custom dictionary entries in the event that the base ones do not suffice.
 	 */
@@ -2524,11 +2532,6 @@ interface TypedItemData {
 	 * item is locked (if set to false, the player must be able to unlock the item to change its type). Defaults to `true`
 	 */
 	changeWhenLocked?: boolean;
-	/**
-	 * An optional validation callback function which can be used by
-	 * items to run additional validation for cases that aren't covered by configuration
-	 */
-	validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.

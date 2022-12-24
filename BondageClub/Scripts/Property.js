@@ -208,9 +208,10 @@ function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOptio
 /**
  * A set of group names whose auto-punishment has successfully been handled by {@link PropertyAutoPunishDetectSpeech}.
  * If a group name is absent from the set then it's eligible for action-based punishment triggers.
+ * The initial set is populated by {@link AssetLoadAll} after all asset groups are defined.
  * @type {Set<AssetGroupName>}
  */
- let PropertyAutoPunishHandled = new Set(AssetGroup.map((a) => a.Name));
+let PropertyAutoPunishHandled = new Set();
 
 /**
  * A list of keywords that can trigger automatic punishment when included in `/me`- or `*`-based messages
@@ -239,10 +240,9 @@ const PropertyAutoPunishKeywords = [
  * Check if a given message warants automatic punishment given the provided sensitivety level
  * @param {0 | 1 | 2 | 3} Sensitivity - The auto-punishment sensitivety
  * @param {string} msg - The to-be checked message
- * @param {boolean} GagAction - Whether a noisy gag action was used or not
  * @returns {boolean} Whether the passed message should trigger automatic speech-based punishment
  */
-function PropertyAutoPunishParseMessage(Sensitivity, msg, GagAction=false) {
+function PropertyAutoPunishParseMessage(Sensitivity, msg) {
 	// Conditions which are never punishable
 	if (msg.startsWith("(")) {
 		return false;
@@ -274,10 +274,6 @@ function PropertyAutoPunishParseMessage(Sensitivity, msg, GagAction=false) {
 				)
 			);
 		case 3:
-			if (GagAction) {
-				return true;
-			}
-
 			PunishableKeywords = PropertyAutoPunishKeywords.some((k) => msg.includes(k));
 			if (PunishableKeywords && (msg.startsWith("/me") || msg.startsWith("*"))) {
 				return true;
@@ -304,16 +300,21 @@ function PropertyAutoPunishDetectSpeech(Item, LastMessageLen=null) {
 	const GagAction = !PropertyAutoPunishHandled.has(GroupName);
 	PropertyAutoPunishHandled.add(GroupName);
 
-	// Abort on whispers or if the item does not
-	if (ChatRoomTargetMemberNumber != null || !Item.Property || !Item.Property.AutoPunish) {
+	// Abort the item does not have `AutoPunish` set
+	if (!Item.Property || !Item.Property.AutoPunish) {
 		return false;
 	}
 
-	// Abort if no new messages have been submitted
-	if (!ChatRoomLastMessage || ChatRoomLastMessage.length === LastMessageLen) {
+	// Gag actions at maximum `AutoPunish` values always inflate
+	if (Item.Property.AutoPunish === 3 && GagAction) {
+		return true;
+	}
+
+	// Abort on whispers or if no new messages have been submitted
+	if (ChatRoomTargetMemberNumber != null || !ChatRoomLastMessage || ChatRoomLastMessage.length === LastMessageLen) {
 		return false;
 	}
 
 	const msg = ChatRoomLastMessage.at(-1);
-	return PropertyAutoPunishParseMessage(Item.Property.AutoPunish, msg, GagAction);
+	return PropertyAutoPunishParseMessage(Item.Property.AutoPunish, msg);
 }

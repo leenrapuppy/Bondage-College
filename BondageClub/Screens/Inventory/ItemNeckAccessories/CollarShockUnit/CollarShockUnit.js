@@ -5,7 +5,7 @@
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemNeckAccessoriesCollarShockUnitDraw(OriginalFunction) {
+function InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction) {
 	OriginalFunction();
 
 	MainCanvas.textAlign = "right";
@@ -25,7 +25,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitDraw(OriginalFunction) {
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemNeckAccessoriesCollarShockUnitClick(OriginalFunction) {
+function InventoryItemNeckAccessoriesCollarShockUnitClickFunc(OriginalFunction) {
 	OriginalFunction();
 
 	if (!DialogFocusItem) {

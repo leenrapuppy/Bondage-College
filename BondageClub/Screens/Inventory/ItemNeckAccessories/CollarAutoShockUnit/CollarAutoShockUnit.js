@@ -8,7 +8,10 @@
 function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
 	OriginalFunction();
 	if (ModularItemModuleIsActive(ModularItemBase)) {
-		const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+        const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+        if (Data == null) {
+            return;
+        }
 		const [ShockLevel, AutoPunish] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information

@@ -1,35 +1,27 @@
 "use strict";
 
-// Loads the item extension properties
-function InventoryItemArmsPrisonLockdownSuitShockModule1Load() {
-	InventoryItemNeckAccessoriesCollarShockUnitLoad();
-}
-
-// Draw the item extension screen
-function InventoryItemArmsPrisonLockdownSuitShockModule1Draw() {
-	if (DialogFocusItem && DialogFocusItem.Property) {
-		if (DialogFocusItem.Property.ShockLevel == null) DialogFocusItem.Property.ShockLevel = 0;
-		if (DialogFocusItem.Property.TriggerCount == null) DialogFocusItem.Property.TriggerCount = 0;
-	}
-	InventoryItemNeckAccessoriesCollarShockUnitDraw();
-}
-
-// Catches the item extension clicks
-function InventoryItemArmsPrisonLockdownSuitShockModule1Click() {
-	// Exits the screen
-	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemArmsPrisonLockdownSuitShockModule1Exit();
+/**
+ * Draw the item extension screen
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @returns {void} Nothing
+ */
+function InventoryItemArmsPrisonLockdownSuitDraw(OriginalFunction) {
+	if (ModularItemModuleIsActive("ShockModule")) {
+		InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction);
 	} else {
-		InventoryItemNeckAccessoriesCollarShockUnitClick();
+		OriginalFunction();
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
-function AssetsItemNeckTechnoCollarShockModule1ScriptDraw(data) {
-	AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data);
-}
-
-// Leaves the extended screen
-function InventoryItemArmsPrisonLockdownSuitShockModule1Exit() {
-	ExtendedItemSubscreen = null;
+/**
+ * Catches the item extension clicks
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @returns {void} Nothing
+ */
+function InventoryItemArmsPrisonLockdownSuitClick(OriginalFunction) {
+	if (ModularItemModuleIsActive("ShockModule")) {
+		InventoryItemNeckAccessoriesCollarShockUnitClickFunc(OriginalFunction);
+	} else {
+		OriginalFunction();
+	}
 }

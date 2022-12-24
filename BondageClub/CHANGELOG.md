@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-12-09
-* Last recorded PR: [#3774](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3774)
-* Last recorded commit hash: `92b946069f6357803262a3f4351574234880b3ae`
+* Changelog last updated: 2022-12-17
+* Last recorded PR: [#3795](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3795)
+* Last recorded commit hash: `be9d3a47fd137adaeb4d4f6d111e11260fadfffb`
 
 ## [R87]
 
@@ -22,6 +22,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Bluesilv - Added a buttoned shirt item for males ([#3773](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3773))
 * Ben987 - Added support for a player-provided list of words to censor
 * Ben987 - Lots of updates to the NPC Private Room: no more spurious Pandora kidnappings, collars can be changed, Asylum punishment, get engaged with owner, subs, or regular NPCs, NPC marriage & wedding
+* Bluesilv - Added Sleepsack, fixed a ButtonShirt capitalization issue ([#3784](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3784))
+* Luna - Added Slave Rags clothing ([#3776](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3776))
+
 
 ### [Removed]
 
@@ -41,6 +44,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Bluesilv - Made more assets available for males with the creator's permission. ([#3768](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3768))
 * KyraObscura - Updated most of the gags' strap to the new head shape ([#3771](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3771))
 * MAKeevchanin - Updated Russian Translations
+* Da'Inihlus - Chinese translation ([#3788](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3788))
 
 ### [Fixed]
 * Ben987 - Fixed a crash with the HighSecurityPadlock
@@ -65,6 +69,25 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 
 ### [Beta Fixes]
+
+* Estsanatlehi - Fix a crashing bug with the vibes ([#3777](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3777))
+* Estsanatlehi - Fix a pronoun misuse on gag kisses ([#3778](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3778))
+* Estsanatlehi - Remove the penis layer from the cock ring ([#3779](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3779))
+* Sepia Oulomenohn - Fixed typo and added requested module for respirator ([#3780](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3780))
+* bananarama92 - Fixed the extended item menu not opening after equipping typed items ([#3781](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3781))
+* bananarama92 - Changed `CraftingBackground` back to a `var` ([#3782](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3782))
+* bananarama92 - Ensure that out-of-bounds indices do not raise when setting the type of Modular crafted items ([#3783](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3783))
+* bananarama92 - BUG: Check whether `DialogFocusItem` is actually set in `ModularItemParseCurrent` ([#3785](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3785))
+* bananarama92 - BUG: Always check whether extended item table lookups are successful ([#3786](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3786))
+* bananarama92 - BUG: Add missing `DEST_CHAR_NAME` chat tags ([#3787](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3787))
+* bananarama92 - BUG: Mark the `Shoes`-based variant of the futuristic heels as non-lockable ([#3789](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3789))
+* Luna - Properly disable Slave Rags on males ([#3790](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3790))
+* Sepia Oulomenohn - A couple minor bug fixes to the Latex Respirator ([#3791](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3791))
+* KyraObscura - Re-Add Layer Name for HairFront45 ([#3792](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3792))
+* Luna - Fixed problems with XLarge poses and Slave Rags. Also added Suspension pose ([#3793](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3793))
+* Bluesilv - Fixed Sleepsack not slowing on leaving room. ([#3794](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3794))
+* bananarama92 - Fixed incorrect dialog + image paths for the full latex suit wand ([#3795](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3795))
+
 ## [R86]
 
 ### [Added]

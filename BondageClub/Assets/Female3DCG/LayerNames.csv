@@ -70,6 +70,10 @@ ClothAccessoryBibBase,Bib
 ClothAccessoryBibTrim,Trim
 ClothAccessoryBibPacis,Pattern
 ClothAccessoryBibText,Text
+ClothSlaveRagsBase,Base
+ClothSlaveRagsBaseStains,Stains
+ClothSlaveRagsRope,Rope
+ClothSlaveRagsChains,Chains
 NecklaceNecklaceLockChain,Chain
 NecklaceNecklaceLockLock,Lock
 NecklaceNecklaceKeyChain,Chain
@@ -181,6 +185,8 @@ SocksSocksStriped1Light,Light Stripes
 SocksSocksStriped1Dark,Dark Stripes
 SocksHaremStockingsFabric,Fabric
 SocksHaremStockingsBands,Bands
+SocksGradientPantyhoseUpper,Upper
+SocksGradientPantyhoseLower,Lower
 HatSanta1Fabric,Hat
 HatSanta1Fur,Fur
 HatBonnet1Base,Bonnet
@@ -1353,6 +1359,7 @@ HairFrontHairFront44Main,Main
 HairFrontHairFront44Fade,Fade
 HairFrontHairFront45Main,Main
 HairFrontHairFront45Fade,Fade
+HairFrontHairFront45Tint,Tint
 HairFrontHairFront46Main,Main
 HairFrontHairFront46Fade,Fade
 HairFrontHairFront47Main,Main

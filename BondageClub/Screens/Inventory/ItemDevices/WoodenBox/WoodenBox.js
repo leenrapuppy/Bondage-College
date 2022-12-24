@@ -39,7 +39,10 @@ function InventoryItemDevicesWoodenBoxLoad(OriginalFunction) {
  */
 function InventoryItemDevicesWoodenBoxDraw(OriginalFunction) {
 	PropertyOpacityDraw(OriginalFunction);
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
+		return;
+	}
 
 	MainCanvas.textAlign = "right";
 	DrawTextFit(DialogFindPlayer(`${Data.dialog.typePrefix}TextLabel`), 1375, 850, 400, "#fff", "#000");
@@ -62,14 +65,15 @@ function InventoryItemDevicesWoodenBoxExit() {
 	if (DynamicDrawTextRegex.test(text)) item.Property.Text = text;
 
 	if (CurrentScreen === "ChatRoom" && text !== InventoryItemDevicesWoodenBoxOriginalText) {
-		const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+		const Prefix = (Data == null) ? "" : TypedItemCustomChatPrefix("Text", Data);
 		const dictionary = [
 			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "NewText", Text: text },
 			{ Tag: "AssetName", AssetName: item.Asset.Name },
 		];
-		const msg = text === "" ? `${Data.dialog.chatPrefix}TextRemove` : `${Data.dialog.chatPrefix}TextChange`;
+		const msg = text === "" ? `${Prefix}TextRemove` : `${Prefix}TextChange`;
 		ChatRoomPublishCustomAction(msg, false, dictionary);
 	}
 

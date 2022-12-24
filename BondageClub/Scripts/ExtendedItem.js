@@ -601,13 +601,14 @@ function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption
 }
 
 /**
- * Simple getter for the function prefix used for the currently focused extended item - used for calling standard
+ * Simple getter for the function prefix used for the passed extended item - used for calling standard
  * extended item functions (e.g. if the currently focused it is the hemp rope arm restraint, this will return
  * "InventoryItemArmsHempRope", allowing functions like InventoryItemArmsHempRopeLoad to be called)
+ * @param {Item} Item - The extended item in question; defaults to {@link DialogFocusItem}
  * @returns {string} The extended item function prefix for the currently focused item
  */
-function ExtendedItemFunctionPrefix() {
-	var Asset = DialogFocusItem.Asset;
+function ExtendedItemFunctionPrefix(Item=DialogFocusItem) {
+	const Asset = Item.Asset;
 	return "Inventory" + Asset.Group.Name + Asset.Name;
 }
 
@@ -705,6 +706,35 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
 }
 
 /**
+ * Creates an asset's extended item validation function.
+ * @param {string} functionPrefix - The prefix of the new `Validate` function
+ * @param {null | ExtendedItemValidateScriptHookCallback<any>} ValidationCallback - A custom validation callback
+ * @param {boolean} changeWhenLocked - whether or not the item's type can be changed while the item is locked
+ * @returns {void} Nothing
+ */
+function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, changeWhenLocked) {
+	const validateFunctionName = `${functionPrefix}Validate`;
+
+	/** @type {ExtendedItemValidateCallback<ModularItemOption | ExtendedItemOption>} */
+	const validateFunction = function (C, item, option, currentOption) {
+		const itemLocked = item && item.Property && item.Property.LockedBy;
+		if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, item)) {
+			return DialogFindPlayer("CantChangeWhileLocked");
+		} else {
+			return ExtendedItemValidate(C, item, option, currentOption)
+		}
+	}
+
+	if (ValidationCallback) {
+		window[validateFunctionName] = function (C, item, option, currentOption) {
+			ValidationCallback(validateFunction, C, item, option, currentOption);
+		};
+	} else {
+		window[validateFunctionName] = validateFunction;
+	}
+}
+
+/**
  * Helper click function for creating custom buttons, including extended item permission support.
  * @param {string} Name - The name of the button and its pseudo-type
  * @param {number} X - The X coordinate of the button
@@ -794,4 +824,45 @@ function ExtendedItemDrawHeader(X=1387, Y=55, Item=DialogFocusItem) {
 	const Vibrating = Item.Property && Item.Property.Intensity != null && Item.Property.Intensity >= 0;
 	const Locked = InventoryItemHasEffect(Item, "Lock", true);
 	DrawAssetPreview(X, Y, Item.Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
+}
+
+/**
+ * Extract the passed item's data from one of the extended item lookup tables
+ * @template {ExtendedArchetype} Archetype
+ * @param {Item} Item - The item whose data should be extracted
+ * @param {Archetype} Archetype - The archetype corresponding to the lookup table
+ * @returns {null | ExtendedDataLookupStruct[Archetype]} The item's data or `null` if the lookup failed
+ */
+function ExtendedItemGetData(Item, Archetype) {
+	if (Item == null) {
+		return null;
+	}
+
+	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
+	let Data;
+	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}`;
+	switch (Archetype) {
+		case ExtendedArchetype.TYPED:
+			Data = TypedItemDataLookup[Key];
+			break;
+		case ExtendedArchetype.MODULAR:
+			Data = ModularItemDataLookup[Key];
+			break;
+		case ExtendedArchetype.VIBRATING:
+			Data = VibratorModeDataLookup[Key];
+			break;
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			Data = VariableHeightDataLookup[Key];
+			break;
+		default:
+			console.warn(`Unsupported archetype: "${Archetype}"`);
+			return null;
+	}
+
+	if (Data === undefined) {
+		console.warn(`No key "${Key}" in "${Archetype}" lookup table`);
+		return null;
+	} else {
+		return Data;
+	}
 }

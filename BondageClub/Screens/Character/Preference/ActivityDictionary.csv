@@ -54,6 +54,7 @@ ActivitySit,Sit
 ActivityStruggleArms,Struggle
 ActivityStruggleLegs,Struggle
 ActivityStep,Step
+ActivityKick,Kick
 OrgasmFailResist0,"SourceCharacter is tormented by the vibrations, struggling to keep PronounPossessive cool."
 OrgasmFailResist1,"SourceCharacter struggles against the intense vibrations, hardly able to control PronounPossessiveself."
 OrgasmFailResist2,SourceCharacter resists the stimulation until it finally cuts off abruptly.
@@ -104,6 +105,7 @@ Label-ChatOther-ItemArms-Tickle,Tickle Arms
 Label-ChatOther-ItemArms-TickleItem,Tickle Arm
 Label-ChatOther-ItemBoots-Bite,Bite Foot
 Label-ChatOther-ItemBoots-GaggedKiss,Touch Foot with Gag
+Label-ChatOther-ItemBoots-Kick,Kick Foot
 Label-ChatOther-ItemBoots-Kiss,Kiss Foot
 Label-ChatOther-ItemBoots-Lick,Lick Feet
 Label-ChatOther-ItemBoots-MassageFeet,Play with Feet
@@ -144,6 +146,7 @@ Label-ChatOther-ItemButt-Caress,Caress Butt
 Label-ChatOther-ItemButt-GaggedKiss,Rub Gag on Butt
 Label-ChatOther-ItemButt-Grope,Grope Butt
 Label-ChatOther-ItemButt-Inject,Inject Butt
+Label-ChatOther-ItemButt-Kick,Kick Butt
 Label-ChatOther-ItemButt-Kiss,Kiss Butt
 Label-ChatOther-ItemButt-MasturbateFist,Fist Ass
 Label-ChatOther-ItemButt-MasturbateHand,Finger Ass
@@ -175,6 +178,7 @@ Label-ChatOther-ItemFeet-Caress,Caress Leg
 Label-ChatOther-ItemFeet-GaggedKiss,Touch Leg with Gag
 Label-ChatOther-ItemFeet-Grope,Grope Leg
 Label-ChatOther-ItemFeet-Inject,Inject Legs
+Label-ChatOther-ItemFeet-Kick,Kick Legs
 Label-ChatOther-ItemFeet-Kiss,Kiss Leg
 Label-ChatOther-ItemFeet-Lick,Lick Leg
 Label-ChatOther-ItemFeet-MassageHands,Massage Leg
@@ -191,6 +195,7 @@ Label-ChatOther-ItemFeet-TickleItem,Tickle Leg
 Label-ChatOther-ItemGlans-Caress,Caress Glans
 Label-ChatOther-ItemGlans-GaggedKiss,Gag Kiss Glans
 Label-ChatOther-ItemGlans-Inject,Inject Glans
+Label-ChatOther-ItemGlans-Kick,Kick Glans
 Label-ChatOther-ItemGlans-Kiss,Kiss Glans
 Label-ChatOther-ItemGlans-Lick,Lick Glans
 Label-ChatOther-ItemGlans-MasturbateFoot,Foot Masturbate Glans
@@ -231,6 +236,7 @@ Label-ChatOther-ItemLegs-Caress,Caress Thighs
 Label-ChatOther-ItemLegs-GaggedKiss,Rub Gag on Thighs
 Label-ChatOther-ItemLegs-Grope,Grope Thigh
 Label-ChatOther-ItemLegs-Inject,Inject Legs
+Label-ChatOther-ItemLegs-Kick,Kick Thigh
 Label-ChatOther-ItemLegs-Kiss,Kiss Thigh
 Label-ChatOther-ItemLegs-Lick,Lick Thigh
 Label-ChatOther-ItemLegs-MassageHands,Massage Thighs
@@ -332,6 +338,7 @@ Label-ChatOther-ItemPenis-ReversePenetrateAss,Take in Ass
 Label-ChatOther-ItemPenis-Caress,Caress Penis
 Label-ChatOther-ItemPenis-ReversePenetratePussy,Take in Penis
 Label-ChatOther-ItemPenis-GaggedKiss,Push Gag in Penis
+Label-ChatOther-ItemPenis-Kick,Kick Penis
 Label-ChatOther-ItemPenis-Kiss,Kiss Penis
 Label-ChatOther-ItemPenis-Lick,Lick Penis
 Label-ChatOther-ItemPenis-MasturbateFoot,Foot Masturbate Penis
@@ -369,6 +376,7 @@ Label-ChatOther-ItemVulva-ReversePenetrateAss,Take in Ass
 Label-ChatOther-ItemVulva-Caress,Caress Pussy
 Label-ChatOther-ItemVulva-ReversePenetratePussy,Take in Pussy
 Label-ChatOther-ItemVulva-GaggedKiss,Push Gag in Pussy
+Label-ChatOther-ItemVulva-Kick,Kick Pussy
 Label-ChatOther-ItemVulva-Kiss,Kiss Pussy Lips
 Label-ChatOther-ItemVulva-Lick,Lick Pussy Lips
 Label-ChatOther-ItemVulva-MasturbateFist,Fist Pussy
@@ -388,6 +396,7 @@ Label-ChatOther-ItemVulva-TickleItem,Tickle Vulva
 Label-ChatOther-ItemVulvaPiercings-Caress,Caress Clitoris
 Label-ChatOther-ItemVulvaPiercings-GaggedKiss,Gag Kiss Clitoris
 Label-ChatOther-ItemVulvaPiercings-Inject,Inject Clitoris
+Label-ChatOther-ItemVulvaPiercings-Kick,Kick Clitoris
 Label-ChatOther-ItemVulvaPiercings-Kiss,Kiss Clitoris
 Label-ChatOther-ItemVulvaPiercings-Lick,Lick Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateFoot,Foot Masturbate Clitoris
@@ -647,6 +656,7 @@ ChatOther-ItemArms-Tickle,SourceCharacter tickles TargetCharacter's arms.
 ChatOther-ItemArms-TickleItem,SourceCharacter tickles TargetCharacter's arm with PronounPossessive UsedAsset.
 ChatOther-ItemBoots-Bite,SourceCharacter bites TargetCharacter's foot.
 ChatOther-ItemBoots-GaggedKiss,SourceCharacter touches TargetCharacter's feet with PronounPossessive gag.
+ChatOther-ItemBoots-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive foot.
 ChatOther-ItemBoots-Kiss,SourceCharacter kisses TargetCharacter's foot.
 ChatOther-ItemBoots-Lick,SourceCharacter licks TargetCharacter's foot.
 ChatOther-ItemBoots-MassageFeet,SourceCharacter plays with TargetCharacter's feet using PronounPossessive own feet.
@@ -687,6 +697,7 @@ ChatOther-ItemButt-Caress,SourceCharacter caresses TargetCharacter's butt.
 ChatOther-ItemButt-GaggedKiss,SourceCharacter rubs PronounPossessive gag on TargetCharacter's butt.
 ChatOther-ItemButt-Grope,SourceCharacter gropes TargetCharacter's butt.
 ChatOther-ItemButt-Inject,SourceCharacter injects TargetCharacter's butt.
+ChatOther-ItemButt-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive butt.
 ChatOther-ItemButt-Kiss,SourceCharacter kisses TargetCharacter's butt.
 ChatOther-ItemButt-MasturbateFist,SourceCharacter uses PronounPossessive fist to masturbate TargetCharacter's ass.
 ChatOther-ItemButt-MasturbateHand,SourceCharacter uses PronounPossessive fingers to masturbate TargetCharacter's ass.
@@ -718,6 +729,7 @@ ChatOther-ItemFeet-Caress,SourceCharacter caresses TargetCharacter's leg.
 ChatOther-ItemFeet-GaggedKiss,SourceCharacter touches PronounPossessive gag to TargetCharacter's leg.
 ChatOther-ItemFeet-Grope,SourceCharacter gropes TargetCharacter's leg.
 ChatOther-ItemFeet-Inject,SourceCharacter injects TargetCharacter's leg.
+ChatOther-ItemFeet-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive leg.
 ChatOther-ItemFeet-Kiss,SourceCharacter kisses TargetCharacter's leg.
 ChatOther-ItemFeet-Lick,SourceCharacter licks TargetCharacter's leg.
 ChatOther-ItemFeet-MassageHands,SourceCharacter massages TargetCharacter's leg.
@@ -734,6 +746,7 @@ ChatOther-ItemFeet-TickleItem,SourceCharacter tickles TargetCharacter's leg with
 ChatOther-ItemGlans-Caress,SourceCharacter caresses TargetCharacter's glans with PronounPossessive fingers.
 ChatOther-ItemGlans-GaggedKiss,SourceCharacter gags kiss TargetCharacter's glans.
 ChatOther-ItemGlans-Inject,SourceCharacter injects TargetCharacter's glans.
+ChatOther-ItemGlans-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive glans.
 ChatOther-ItemGlans-Kiss,SourceCharacter kisses TargetCharacter's glans.
 ChatOther-ItemGlans-Lick,SourceCharacter licks TargetCharacter's glans.
 ChatOther-ItemGlans-MasturbateFoot,SourceCharacter masturbates TargetCharacter's glans with PronounPossessive foot.
@@ -773,6 +786,7 @@ ChatOther-ItemLegs-Caress,SourceCharacter caresses TargetCharacter's thigh.
 ChatOther-ItemLegs-GaggedKiss,SourceCharacter rubs PronounPossessive gag on TargetCharacter's thigh.
 ChatOther-ItemLegs-Grope,SourceCharacter gropes TargetCharacter's thigh.
 ChatOther-ItemLegs-Inject,SourceCharacter injects TargetCharacter's thigh.
+ChatOther-ItemLegs-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive thigh.
 ChatOther-ItemLegs-Kiss,SourceCharacter kisses TargetCharacter's thigh.
 ChatOther-ItemLegs-Lick,SourceCharacter licks TargetCharacter's thigh.
 ChatOther-ItemLegs-MassageHands,SourceCharacter massages TargetCharacter's thigh.
@@ -792,7 +806,7 @@ ChatOther-ItemMouth-Bite,SourceCharacter bites TargetCharacter's lips.
 ChatOther-ItemMouth-Caress,SourceCharacter caresses and cleans TargetCharacter's mouth.
 ChatOther-ItemMouth-FrenchKiss,SourceCharacter shares a long French kiss with TargetCharacter.
 ChatOther-ItemMouth-GaggedKiss,SourceCharacter gives a gagged kiss on TargetCharacter's cheek.
-ChatOther-ItemMouth-GagKiss,SourceCharacter gives TargetCharacter a kiss on PronounPossessive gag.
+ChatOther-ItemMouth-GagKiss,SourceCharacter gives TargetCharacter a kiss on TargetPronounPossessive gag.
 ChatOther-ItemMouth-HandGag,SourceCharacter clamps PronounPossessive hand over TargetCharacter's mouth.
 ChatOther-ItemMouth-Kiss,SourceCharacter kisses TargetCharacter's lips.
 ChatOther-ItemMouth-Lick,SourceCharacter licks TargetCharacter's lips.
@@ -874,6 +888,7 @@ ChatOther-ItemPenis-ReversePenetrateAss,SourceCharacter fucks TargetCharacter's 
 ChatOther-ItemPenis-Caress,SourceCharacter caresses TargetCharacter's penis base with PronounPossessive fingers.
 ChatOther-ItemPenis-ReversePenetratePussy,SourceCharacter fucks TargetCharacter's UsedAsset with PronounPossessive penis.
 ChatOther-ItemPenis-GaggedKiss,SourceCharacter presses PronounPossessive gag into TargetCharacter's penis base.
+ChatOther-ItemPenis-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive penis.
 ChatOther-ItemPenis-Kiss,SourceCharacter kisses TargetCharacter's penis base.
 ChatOther-ItemPenis-Lick,SourceCharacter licks TargetCharacter's penis base.
 ChatOther-ItemPenis-MasturbateFoot,SourceCharacter masturbates TargetCharacter's penis with PronounPossessive foot.
@@ -909,6 +924,7 @@ ChatOther-ItemVulva-ReversePenetrateAss,SourceCharacter fucks TargetCharacter's 
 ChatOther-ItemVulva-Caress,SourceCharacter caresses TargetCharacter's pussy with PronounPossessive fingers.
 ChatOther-ItemVulva-ReversePenetratePussy,SourceCharacter fucks TargetCharacter's UsedAsset with PronounPossessive pussy.
 ChatOther-ItemVulva-GaggedKiss,SourceCharacter pushes PronounPossessive gag into TargetCharacter's vagina.
+ChatOther-ItemVulva-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive pussy.
 ChatOther-ItemVulva-Kiss,SourceCharacter kisses TargetCharacter's pussy lips.
 ChatOther-ItemVulva-Lick,SourceCharacter licks TargetCharacter's pussy lips.
 ChatOther-ItemVulva-MasturbateFist,SourceCharacter masturbates TargetCharacter's vagina with PronounPossessive full fist.
@@ -928,6 +944,7 @@ ChatOther-ItemVulva-TickleItem,SourceCharacter tickles TargetCharacter's vulva w
 ChatOther-ItemVulvaPiercings-Caress,SourceCharacter caresses TargetCharacter's clitoris with PronounPossessive fingers.
 ChatOther-ItemVulvaPiercings-GaggedKiss,SourceCharacter gags kiss TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-Inject,SourceCharacter injects TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive clitoris.
 ChatOther-ItemVulvaPiercings-Kiss,SourceCharacter kisses TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-Lick,SourceCharacter licks TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-MasturbateFoot,SourceCharacter masturbates TargetCharacter's clitoris with PronounPossessive foot.

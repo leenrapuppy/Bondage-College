@@ -374,6 +374,12 @@ function InventoryPrerequisiteConflictingGags(C, BlockingPrereqs) {
 		GagIndex = Number(C.FocusGroup.Name.replace("ItemMouth", "") || 1);
 	}
 	const MouthItems = [InventoryGet(C, "ItemMouth"), InventoryGet(C, "ItemMouth2"), InventoryGet(C, "ItemMouth3")];
+
+	// If first gag slot is unoccupied, check instead with collar slot
+	// Adds support for collars that include gag to only use first slot
+	const NeckItem = InventoryGet(C, "ItemNeck");
+	if (!MouthItems[0] && NeckItem) MouthItems[0] = NeckItem;
+
 	let MinBlockingIndex = 0;
 	for (let i = 0; i < MouthItems.length && !MinBlockingIndex; i++) {
 		// Find the lowest indexed slot in which there is a gag with a prerequisite that blocks the new gag
@@ -568,7 +574,8 @@ function InventoryWearCraftModular(Item, Type) {
 	const PreviousModuleValues = NewModuleValues.map((value) => 0);
 	NewModuleValues.forEach((value, i) => {
 		const Options = Data.modules[i].Options;
-		if (ExtendedItemRequirementCheckMessage(Options[value], Options[0])) {
+		const NewOption = Options[value];
+		if (!NewOption || ExtendedItemRequirementCheckMessage(NewOption, Options[0])) {
 			NewModuleValues[i] = 0;
 		}
 	});

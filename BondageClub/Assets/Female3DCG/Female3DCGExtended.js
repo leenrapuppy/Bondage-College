@@ -394,6 +394,30 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // Jacket
+		SlaveRags: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Cloth", Key: "c",
+						Options: [
+						{}, //c0 - Base
+						{}, //c1 - BaseStained
+						{}, //c2 - Torn1
+						{}, //c3 - Torn1Stained
+						],
+					},
+					{
+						Name: "Belt", Key: "b",
+						Options: [
+						{}, //b0
+						{}, //b1
+						{}, //b2
+						],
+					},
+				],
+			},
+		}, //SlaveRags
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
@@ -2307,12 +2331,20 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "ShockModule", Key: "s",
+						DrawImages: false,
 						Options: [
-							{}, // s0 No Shock Module
-							{ HasSubscreen: true }, // s1 Shock Module
+							{ Property: { ShockLevel: 0 } },
+							{ Property: { ShockLevel: 1 } },
+							{ Property: { ShockLevel: 2 } },
 						],
 					},
 				],
+				BaselineProperty: { TriggerCount: 0, ShowText: true },
+				ScriptHooks: {
+					Click: InventoryItemArmsPrisonLockdownSuitClick,
+					Draw: InventoryItemArmsPrisonLockdownSuitDraw,
+				},
+				DrawImages: true,
 			},
 		}, // PrisonLockdownSuit
 		SmoothLeatherArmbinder1: {
@@ -2360,6 +2392,7 @@ var AssetFemale3DCGExtended = {
 				ChatTags: [
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
 					CommonChatTags.ASSET_NAME,
 				],
 				Options: [
@@ -2437,13 +2470,20 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "ShockModule", Key: "s",
+						DrawImages: false,
 						Options: [
-							{}, // s0 No Shock Module
-							{ HasSubscreen: true }, // s1 Shock Module
+							{ Property: { ShockLevel: 0 } },
+							{ Property: { ShockLevel: 1 } },
+							{ Property: { ShockLevel: 2 } },
 						],
 					},
 				],
-				ChangeWhenLocked: false,
+				BaselineProperty: { TriggerCount: 0, ShowText: true },
+				ScriptHooks: {
+					Click: InventoryItemArmsPrisonLockdownSuitClick,
+					Draw: InventoryItemArmsPrisonLockdownSuitDraw,
+				},
+				DrawImages: true,
 			},
 		}, //TechnoCollar
 		ComboHarness: {
@@ -2663,11 +2703,11 @@ var AssetFemale3DCGExtended = {
 					{ Name: "High", Property: { Type: "High", ShockLevel: 2 } },
 				],
 				ScriptHooks: {
-					Draw: InventoryItemNeckAccessoriesCollarShockUnitDraw,
-					Click: InventoryItemNeckAccessoriesCollarShockUnitClick,
+					Draw: InventoryItemNeckAccessoriesCollarShockUnitDrawFunc,
+					Click: InventoryItemNeckAccessoriesCollarShockUnitClickFunc,
 				},
 				DrawImages: false,
-				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false }
+				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false },
 			},
 		}, // CollarShockUnit
 		CollarAutoShockUnit: {
@@ -3260,30 +3300,35 @@ var AssetFemale3DCGExtended = {
 							}, // No gags or blindfolds visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2","ItemHead"],
 									Hide: ["ItemMouth", "ItemMouth2","ItemHead"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
-									Block: ["ItemMouth", "ItemHead"],
-									Hide: ["ItemMouth", "ItemHead"],
+									OverridePriority: 12,									
+									Block: ["ItemHead"],
+									Hide: ["ItemHead"],
 								}
 							}, // All gags visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 								}
 							}, // Blindfold items visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2",],
 									Hide: ["ItemMouth", "ItemMouth2",],
 								}
 							}, // Blindfold and highest layer gag
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: [],
 									Hide: [],
 								}
@@ -4416,6 +4461,7 @@ var AssetFemale3DCGExtended = {
 		ClitAndDildoVibratorbelt: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME],
 				Modules: [
 					{
 						Name: "DildoIntensity",
@@ -4469,7 +4515,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Base",
 						Property: {
-							Type: "",
+							Type: null,
 							Effect: [],
 						},
 					},
@@ -4705,7 +4751,12 @@ var AssetFemale3DCGExtended = {
 		InflVibeButtPlug: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
+					CommonChatTags.ASSET_NAME,
+				],
 				Modules: [
 					{
 						Name: "InflateLevel",
@@ -5992,6 +6043,7 @@ var AssetFemale3DCGExtended = {
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.ASSET_NAME,
 					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
 				],
 				Modules: [
 					{
@@ -6264,8 +6316,17 @@ var AssetFemale3DCGExtended = {
                     },
                     {
                         Name: "Mask", Key: "m",
-                        Options: [ {}, {},] // Mask, No Mask
+                        Options: [ 
+							{Property: {Effect: ["BlockMouth"]}}, 
+							{Property: {Effect: ["BlockMouth", "GagVeryLight"]}}, 
+							{Property: {Effect:[""]}},
+					
+						] // Mask, Thick Filters, No Mask
                     },
+					{
+						Name: "Length", Key: "l",
+						Options: [{},{}] // Behind Hair, Over Hair
+					},
                 ]
             }
         }, //LatexRespirator
@@ -7409,6 +7470,11 @@ var AssetFemale3DCGExtended = {
 		SciFiPleasurePanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
+				],
 				Modules: [
 					{
 						Name: "CrotchShield", Key: "c",
@@ -7452,7 +7518,7 @@ var AssetFemale3DCGExtended = {
 						Options: [
 							{}, // o0 - Normal
 							{ Property: { Effect: ["DenialMode"] } }, // o1 - Edge
-							{ Property: { Effect: ["RuinOrgasms"] } }, // o2 - Deny
+							{ Property: { Effect: ["DenialMode", "RuinOrgasms"] } }, // o2 - Deny
 						],
 					},
 					{
@@ -8527,12 +8593,14 @@ var AssetFemale3DCGExtended = {
 							}, // No gags visible
 							{
 								Property:{
+									OverridePriority: 12,
 									Block: ["ItemMouth", "ItemMouth2"],
 									Hide: ["ItemMouth", "ItemMouth2"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
+									OverridePriority: 12,
 									Block: [],
 									Hide: [],
 								}

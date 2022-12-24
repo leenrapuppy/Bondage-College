@@ -11,9 +11,8 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 	}
 
 	// Manually call `ExtendedItemDraw` (rather than `OriginalFunction`) for tighter control over the button positions
-	const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
-	const Data = TypedItemDataLookup[Prefix];
-	if (Data === undefined) {
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
 		return;
 	}
 	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
@@ -21,7 +20,7 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 
 	const C = CharacterGetCurrent();
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
-	ExtendedItemCustomDraw("Wand", ...ExtendedXY[6][4], true, !CanEquip)
+	ExtendedItemCustomDraw(`${Data.dialog.typePrefix}Wand`, ...ExtendedXY[6][4], true, !CanEquip);
 }
 
 /**
@@ -35,8 +34,8 @@ function InventoryItemArmsFullLatexSuitClick(OriginalFunction) {
 	}
 
 	// Manually call `ExtendedItemDraw` (rather than `OriginalFunction`) for tighter control over the button positions
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
-	if (Data === undefined) {
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
 		return;
 	}
 	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
@@ -56,11 +55,12 @@ function InventoryItemArmsFullLatexSuitSetWand(C) {
 	ChatRoomCharacterItemUpdate(C, "ItemVulva");
 	CharacterRefresh(C);
 
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	const Prefix = (Data == null) ? "" : TypedItemCustomChatPrefix("Wand", Data);
 	const Dictionary = [
 		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
 	]
 
-	ExtendedItemCustomExit(`${Data.chatTags}SetWand`, C, Dictionary)
+	ExtendedItemCustomExit(`${Prefix}Wand`, C, Dictionary)
 }

@@ -642,6 +642,8 @@ Rub on Penis
 摩擦阴茎
 Shock Penis
 电击阴茎
+Slap Penis
+拍打阴茎
 Spank Penis
 拍打阴茎
 Suck On
@@ -802,8 +804,6 @@ Wiggle Hips
 摇晃屁股
 Fist Penis
 拳交阴茎
-Slap Penis
-拍打阴茎
 Caress Ribs
 轻抚肋部
 Spank Ribs
@@ -1148,8 +1148,8 @@ SourceCharacter shares a long French kiss with TargetCharacter.
 SourceCharacter和TargetCharacter进行了一次法式热吻.
 SourceCharacter gives a gagged kiss on TargetCharacter's cheek.
 SourceCharacter带着口塞亲吻TargetCharacter的脸颊.
-SourceCharacter gives TargetCharacter a kiss on PronounPossessive gag.
-SourceCharacter隔着口塞亲吻TargetCharacter。
+SourceCharacter gives TargetCharacter a kiss on TargetPronounPossessive gag.
+SourceCharacter亲吻TargetCharacter的口塞。
 SourceCharacter clamps PronounPossessive hand over TargetCharacter's mouth.
 SourceCharacter捂住了TargetCharacter的嘴.
 SourceCharacter kisses TargetCharacter's lips.
@@ -1886,3 +1886,9 @@ SourceCharacter hits PronounPossessive clitoris with PronounPossessive UsedAsset
 SourceCharacter用UsedAsset击打自己的阴蒂。
 SourceCharacter tickles PronounPossessive own clitoris with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠自己的阴蒂。
+
+########################
+### DEPRECATED LINES ###
+########################
+SourceCharacter gives TargetCharacter a kiss on PronounPossessive gag.
+SourceCharacter隔着口塞亲吻TargetCharacter。

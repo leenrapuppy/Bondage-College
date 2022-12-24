@@ -8,7 +8,10 @@
 function InventoryItemVulvaClitAndDildoVibratorbeltDraw(OriginalFunction) {
 	OriginalFunction();
     if (ModularItemModuleIsActive(ModularItemBase)) {
-        const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+        const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+        if (Data == null) {
+            return;
+        }
         const [DildoIntensity, EggIntensity] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
         // Display option information
@@ -28,7 +31,10 @@ function InventoryItemVulvaClitAndDildoVibratorbeltDraw(OriginalFunction) {
  */
 function InventoryItemVulvaClitAndDildoVibratorbeltExit() {
 	// Ensure that the vibrator intensity is set to the maximum of the egg and dildo intensity
-	const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+    const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+    if (Data == null) {
+        return;
+    }
 	const CurrentModuleValues = ModularItemParseCurrent(Data);
 	const Intensities = Data.modules.map((m, i) => m.Options[CurrentModuleValues[i]].Property.Intensity);
 	DialogFocusItem.Property.Intensity = /** @type {VibratorIntensity}*/(Math.max(...Intensities));
