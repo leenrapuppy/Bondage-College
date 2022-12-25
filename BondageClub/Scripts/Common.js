@@ -918,8 +918,7 @@ function CommonStringSubstitute(msg, substitutions) {
 
 	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
 	for (const [tag, subst] of substitutions) {
-		while (msg.includes(tag))
-			msg = msg.replace(tag, subst);
+		msg = msg.split(tag).join(subst);
 	}
 	return msg;
 }
