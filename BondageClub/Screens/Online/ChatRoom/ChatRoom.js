@@ -2412,7 +2412,8 @@ var ChatRoomMessageHandlers = [
 			if (data.Type === "Action" && metadata.ShockIntensity >= 0) {
 				intensity = metadata.ShockIntensity;
 			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
-				let item = InventoryGet(Player, metadata.ActivityGroup);
+				const focusGroupName = metadata.FocusGroup && metadata.FocusGroup.Name;
+				let item = InventoryGet(Player, focusGroupName);
 				if (item && item.Property && item.Property.ShockLevel != null) {
 					intensity = 1.5 * item.Property.ShockLevel;
 				} else {
@@ -2459,20 +2460,29 @@ var ChatRoomMessageHandlers = [
 		Description: "Arousal processing",
 		Priority: 210,
 		Callback: (data, sender, msg, metadata) => {
-			if (!["Action", "ServerMessage", "Activity"].includes(data.Type))
+			if (
+				!["Action", "ServerMessage", "Activity"].includes(data.Type)
+				|| !metadata.ActivityName
+				|| !metadata.FocusGroup
+			) {
 				return false;
-			const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active == "Hybrid" || Player.ArousalSettings.Active == "Automatic"));
+			}
 
-			// Because the handhelds go through GroupName, we have to check both keys
-			const ActivityGroup = metadata.ActivityGroup || metadata.GroupName;
+			const {ActivityCounter, ActivityName, ActivityAsset, FocusGroup, TargetMemberNumber} = metadata;
 
-			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
+			const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active === "Hybrid" || Player.ArousalSettings.Active === "Automatic"));
+
+			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, FocusGroup.Name, metadata.ActivityCounter);
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
-			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
-				&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber)) {
-				const UsedAsset = AssetGet("Female3DCG", metadata.ActivityAssetGroup, metadata.ActivityAsset);
-				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter, UsedAsset);
+			if (
+				arousalEnabled
+				&& ActivityName
+				&& TargetMemberNumber
+				&& TargetMemberNumber === Player.MemberNumber
+				&& sender.MemberNumber !== Player.MemberNumber
+			) {
+				ActivityEffect(sender, Player, ActivityName, FocusGroup.Name, ActivityCounter, ActivityAsset);
 			}
 			return false;
 		}
@@ -2676,144 +2686,214 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  */
 function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 	/** @type {[string, string][]} */
-	let substitutions = [];
+	const substitutions = [];
 	/** @type {IChatRoomMessageMetadata} */
 	const meta = {};
 
 	meta.senderName = CharacterNickname(SenderCharacter);
 
-	if (!data.Dictionary)
-		return { metadata: meta, substitutions: substitutions };
-
-
-	// First pass to extract anything metadata-related
-	for (let entry of data.Dictionary) {
-		if (entry.MemberNumber) {
-			const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
-
-			switch (entry.Tag) {
-				case "DestinationCharacter":
-				case "DestinationCharacterName":
-					meta.TargetMemberNumber = entry.MemberNumber;
-					if (C)
-						meta.TargetCharacter = C;
-					break;
-
-				case "TargetCharacter":
-				case "TargetCharacterName":
-					meta.TargetMemberNumber = entry.MemberNumber;
-					if (C)
-						meta.TargetCharacter = C;
-					break;
-
-				case "SourceCharacter":
-					if (C)
-						meta.SourceCharacter = C;
-					break;
-			}
-		}
-
-		if (entry.AssetName) {
-			if (!meta.Assets) meta.Assets = {};
-			meta.Assets[entry.Tag] = Asset.find(a => a.Name === entry.AssetName && (!entry.GroupName || a.Group.Name === entry.GroupName));
-		} else if (entry.GroupName) {
-			if (!meta.Groups) meta.Groups = {};
-			meta.Groups[entry.Tag] = AssetGroup.find(g => g.Name === entry.GroupName);
-		}
-
-		if (entry.FocusGroupName || entry.AssetGroupName) {
-			meta.GroupName = entry.FocusGroupName || entry.AssetGroupName;
-		}
-
-		if (entry.Tag === "ActivityName") meta.ActivityName = entry.Text;
-		else if (entry.Tag === "ActivityGroup") meta.ActivityGroup = entry.Text;
-		else if (entry.Tag === "ChatRoomName") {
-			meta.ChatRoomName = ChatSearchMuffle(entry.Text);
-		}
-		else if (entry.Tag === "ActivityAsset") meta.ActivityAsset = entry.Text;
-		else if (entry.Tag === "ActivityAssetGroup") meta.ActivityAssetGroup = entry.Text;
-		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
-		else if (entry.Automatic) meta.Automatic = true;
-		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
+	if (!data.Dictionary) {
+		return { metadata: meta, substitutions };
 	}
 
-	// Now go over once more and collect substitutions
+
+	// Loop through dictionary entries and extract message metadata & collect substitutions where possible
 	for (let entry of data.Dictionary) {
-		// Ignore entries that don't have a substitution tag set
-		if (typeof entry.Tag !== "string") continue;
-
-		// Alter server messages to show both the name and the nick
-		if (["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content)) {
-			if (meta.SourceCharacter) {
-				let Nick = CharacterNickname(meta.SourceCharacter);
-				if (Nick != meta.SourceCharacter.Name) Nick = Nick + " [" + meta.SourceCharacter.Name + "]";
-				substitutions.push([entry.Tag, Nick]);
+		if (IsSourceCharacterDictionaryEntry(entry)) {
+			const {SourceCharacter} = entry;
+			const C = ChatRoomCharacter.find((c) => c.MemberNumber === SourceCharacter);
+			if (C) {
+				meta.SourceCharacter = C;
 			}
-		}
-
-		else if (entry.Tag == "DestinationCharacter" || entry.Tag == "DestinationCharacterName") {
-			const hideIdentity = ChatRoomHideIdentity(meta.TargetCharacter);
-			const repl = ((SenderCharacter.MemberNumber == meta.TargetMemberNumber) && (entry.Tag == "DestinationCharacter"))
-				? CharacterPronoun(meta.TargetCharacter, "Possessive", hideIdentity)
-				: hideIdentity
-					? DialogFindPlayer("Someone").toLowerCase()
-					: entry.Text + DialogFindPlayer("'s");
-			substitutions.push([entry.Tag, repl]);
-
-			const pronounRepls = ChatRoomPronounSubstitutions(meta.TargetCharacter, "TargetPronoun", hideIdentity);
-			substitutions = substitutions.concat(pronounRepls);
-		}
-		else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
-			const hideIdentity = ChatRoomHideIdentity(meta.TargetCharacter);
-			const repl = ((SenderCharacter.MemberNumber == meta.TargetMemberNumber) && (entry.Tag == "TargetCharacter"))
-				? CharacterPronoun(meta.TargetCharacter, "Self", hideIdentity)
-				: hideIdentity
-					? DialogFindPlayer("Someone").toLowerCase()
-					: entry.Text;
-			substitutions.push([entry.Tag, repl]);
-
-			const pronounRepls = ChatRoomPronounSubstitutions(meta.TargetCharacter, "TargetPronoun", hideIdentity);
-			substitutions = substitutions.concat(pronounRepls);
-		}
-		else if (entry.Tag == "SourceCharacter") {
-			const hideIdentity = ChatRoomHideIdentity(meta.SourceCharacter);
-			const repl = hideIdentity
-				? DialogFindPlayer("Someone")
-				: entry.Text;
-			substitutions.push([entry.Tag, repl]);
-
-			const pronounRepls = ChatRoomPronounSubstitutions(meta.SourceCharacter, "Pronoun", hideIdentity);
-			substitutions = substitutions.concat(pronounRepls);
-		}
-		else if (entry.TextToLookUp) {
-			const repl = DialogFindPlayer(entry.TextToLookUp).toLowerCase();
-			substitutions.push([entry.Tag, repl]);
-		}
-		else if (entry.AssetName) {
-			const A = meta.Assets && meta.Assets[entry.Tag];
-			if (A) {
-				meta.ActivityName = A.DynamicActivity(meta.SourceCharacter || Player);
-				if (entry.Tag) {
-					const repl = A.DynamicDescription(meta.SourceCharacter || Player).toLowerCase();
-					substitutions.push([entry.Tag, repl]);
+		} else if (IsTargetCharacterDictionaryEntry(entry)) {
+			const {TargetCharacter} = entry;
+			const C = ChatRoomCharacter.find((c) => c.MemberNumber === TargetCharacter);
+			if (C) {
+				meta.TargetCharacter = C;
+				meta.TargetMemberNumber = C.MemberNumber;
+			}
+		} else if (IsCharacterReferenceDictionaryEntry(entry)) {
+			const {Tag, MemberNumber} = entry;
+			const C = ChatRoomCharacter.find((c) => c.MemberNumber === MemberNumber);
+			if (C) {
+				switch (Tag) {
+					case "SourceCharacter":
+						meta.SourceCharacter = C;
+						break;
+					case "TargetCharacter":
+					case "TargetCharacterName":
+					case "DestinationCharacter":
+					case "DestinationCharacterName":
+						meta.TargetCharacter = C;
+						meta.TargetMemberNumber = C.MemberNumber;
 				}
 			}
-		}
-		else if (entry.FocusGroupName || entry.AssetGroupName) {
-			const G = AssetGroupGet('Female3DCG', meta.GroupName);
-			if (G) {
-				let repl = DialogActualNameForGroup(meta.TargetCharacter, G);
-				substitutions.push([entry.Tag, repl.toLowerCase()]);
+		} else if (IsAssetReferenceDictionaryEntry(entry)) {
+			const {Tag, GroupName, AssetName} = entry;
+			const asset = Asset.find(a => a.Name === AssetName && (!GroupName || a.Group.Name === GroupName));
+			if (asset) {
+				if (!meta.Assets) meta.Assets = {};
+				meta.Assets[Tag] = asset;
 			}
+		} else if (IsGroupReferenceDictionaryEntry(entry)) {
+			const group = AssetGroupGet("Female3DCG", entry.GroupName);
+			if (group) {
+				if (!meta.Groups) meta.Groups = {};
+				meta.Groups[entry.Tag] = group;
+			}
+		} else if (IsFocusGroupDictionaryEntry(entry)) {
+			const group = AssetGroupGet("Female3DCG", entry.FocusGroupName);
+			if (group) {
+				meta.FocusGroup = group;
+				meta.GroupName = group.Name;
+			}
+		} else if (IsAssetGroupNameDictionaryEntry(entry)) {
+			const group = AssetGroupGet("Female3DCG", entry.AssetGroupName);
+			if (group) {
+				meta.FocusGroup = group;
+				meta.GroupName = group.Name;
+			}
+		} else if (IsAutomaticEventDictionaryEntry(entry)) {
+			meta.Automatic = true;
+		} else if (IsShockEventDictionaryEntry(entry)) {
+			meta.ShockIntensity = entry.ShockIntensity;
+		} else if (IsActivityCounterDictionaryEntry(entry)) {
+			meta.ActivityCounter = entry.ActivityCounter;
+		} else if (IsActivityNameDictionaryEntry(entry)) {
+			meta.ActivityName = entry.ActivityName;
+		} else if (IsTextDictionaryEntry(entry)) {
+			let {Tag, Text} = entry;
+			if (Tag === "ChatRoomName") {
+				Text = ChatSearchMuffle(Text);
+				meta.ChatRoomName = Text;
+			}
+			substitutions.push([Tag, Text]);
+		} else if (IsTextLookupDictionaryEntry(entry)) {
+			substitutions.push([entry.Tag, DialogFindPlayer(entry.TextToLookUp).toLowerCase()]);
 		}
-		else if (entry.Tag === "ChatRoomName") {
-			const repl = ChatSearchMuffle(entry.Text);
-			substitutions.push([entry.Tag, repl]);
-		}
-		else if (entry.Text)
-			substitutions.push([entry.Tag, entry.Text]);
 	}
-	return { metadata: meta, substitutions: substitutions };
+
+	// Now collect any additional substitutions from the complete metadata
+
+	// If there's a source character, add substitutions for the SourceCharacter tag
+	if (meta.SourceCharacter) {
+		substitutions.push(...ChatRoomGetSourceCharacterSubstitutions(data, meta.SourceCharacter));
+	}
+
+	// If there's a target character, add substitutions for the various target character tags
+	if (meta.TargetCharacter) {
+		const isSelf = SenderCharacter.MemberNumber === meta.TargetMemberNumber;
+		substitutions.push(...ChatRoomGetTargetCharacterSubstitutions(meta.TargetCharacter, isSelf));
+	}
+
+	// If there's a focus group, add a substitution for the group name
+	if (meta.FocusGroup) {
+		substitutions.push(...ChatRoomGetFocusGroupSubstitutions(data, meta.FocusGroup, meta.TargetCharacter));
+	}
+
+	// If there are referenced assets, substitute asset names
+	if (meta.Assets) {
+		const character = meta.SourceCharacter || Player;
+		// Go over the asset references and collect appropriate substitutions
+		for (const [tag, asset] of Object.entries(meta.Assets)) {
+			if (tag === "ActivityAsset") {
+				meta.ActivityAsset = asset;
+				meta.ActivityName = asset.DynamicActivity(character);
+			}
+			substitutions.push([tag, asset.DynamicDescription(character).toLowerCase()]);
+		}
+	}
+
+	return { metadata: meta, substitutions };
+}
+
+/**
+ * Gets a set of dictionary substitutions used when the given character is the source character of a chat message.
+ * @param {IChatRoomMessage} data - The raw message data
+ * @param {Character} character - The source character
+ * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
+ */
+function ChatRoomGetSourceCharacterSubstitutions(data, character) {
+	/** @type {[string, string][]} */
+	const substitutions = [];
+	const isServerEnterLeave = ["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content);
+	let name = CharacterNickname(character);
+	const hideIdentity = ChatRoomHideIdentity(character);
+
+	// Alter server messages to show both the name and the nickname
+	if (isServerEnterLeave) {
+		if (name !== character.Name) {
+			name += ` [${character.Name}]`;
+		}
+		substitutions.push(["SourceCharacter", name]);
+	} else if (hideIdentity) {
+		name = DialogFindPlayer("Someone");
+	}
+
+	substitutions.push(["SourceCharacter", name]);
+
+	const pronounRepls = ChatRoomPronounSubstitutions(character, "Pronoun", hideIdentity);
+	substitutions.push(...pronounRepls);
+	return substitutions;
+}
+
+/**
+ * Gets a set of dictionary substitutions used when the given character is the target character of a chat message.
+ * @param {Character} character - The target character
+ * @param {boolean} isSelf - If true, indicates that the target character is also the sender of the message (i.e. is
+ * doing something to themselves)
+ * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
+ */
+function ChatRoomGetTargetCharacterSubstitutions(character, isSelf) {
+	/** @type {[string, string][]} */
+	const substitutions = [];
+	const hideIdentity = ChatRoomHideIdentity(character);
+	const pronounPossessive = CharacterPronoun(character, "Possessive", hideIdentity);
+	const pronounSelf = CharacterPronoun(character, "Self", hideIdentity);
+	let destinationCharacter;
+	let destinationCharacterName;
+	let targetCharacter;
+	let targetCharacterName;
+	if (hideIdentity) {
+		const someone = DialogFindPlayer("Someone").toLowerCase();
+		destinationCharacter = isSelf ? pronounPossessive : someone;
+		destinationCharacterName = someone;
+		targetCharacter = isSelf ? pronounSelf : someone;
+		targetCharacterName = someone;
+	} else {
+		const name = CharacterNickname(character);
+		destinationCharacterName = `${name}${DialogFindPlayer("'s")}`;
+		destinationCharacter = isSelf ? pronounPossessive : destinationCharacterName;
+		targetCharacter = isSelf ? pronounSelf : name;
+		targetCharacterName = name;
+	}
+
+	substitutions.push(
+		["DestinationCharacter", destinationCharacter],
+		["DestinationCharacterName", destinationCharacterName],
+		["TargetCharacter", targetCharacter],
+		["TargetCharacterName", targetCharacterName],
+	);
+
+	const pronounRepls = ChatRoomPronounSubstitutions(character, "TargetPronoun", hideIdentity);
+	substitutions.push(...pronounRepls);
+	return substitutions;
+}
+
+/**
+ * Gets a set of dictionary substitutions used for the focus group
+ * @param {IChatRoomMessage} data - The raw message data
+ * @param {AssetGroup} focusGroup - The group being acted upon by the chat message
+ * @param {Character} targetCharacter - The target character of the message
+ * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
+ */
+function ChatRoomGetFocusGroupSubstitutions(data, focusGroup, targetCharacter) {
+	if (targetCharacter) {
+		return [["FocusAssetGroup", DialogActualNameForGroup(targetCharacter, focusGroup).toLowerCase()]];
+	} else {
+		console.warn(`Received message "${data.Content}" with focus group but no target character, assuming target's biology...`);
+		return [["FocusAssetGroup", focusGroup.Description]];
+	}
 }
 
 /**

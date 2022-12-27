@@ -399,6 +399,15 @@ type CommonChatTags =
 	| "AssetName";
 
 /**
+ * A dictionary entry containing a replacement tag to be replaced by some value. The replacement strategy depends on
+ * the type of dictionary entry.
+ */
+interface TaggedDictionaryEntry {
+	/** The tag that will be replaced in the message */
+	Tag: string;
+}
+
+/**
  * A dictionary entry used to reference a character. The character reference tag will be replaced with the provided
  * character's name or pronoun. The display format will depend on the tag chosen.
  * Example substitutions for each tag (assuming the character name is Ben987):
@@ -407,14 +416,34 @@ type CommonChatTags =
  * * DestinationCharacterName: "Ben987's"
  * * TargetCharacter: "Ben987" (if character is not self), "herself"/"himself" (if character is self)
  * * TargetCharacterName: "Ben987"
+ * @deprecated Use {@link SourceCharacterDictionaryEntry} and {@link TargetCharacterDictionaryEntry} instead.
  */
-interface CharacterReferenceDictionaryEntry {
+interface CharacterReferenceDictionaryEntry extends TaggedDictionaryEntry {
 	/** The member number of the referenced character */
 	MemberNumber: number;
 	/** The character reference tag, determining how the character's name or pronoun will be interpreted */
 	Tag: CharacterReferenceTag;
-	/** The nickname of the referenced character */
-	Text: string;
+	/**
+	 * The nickname of the referenced character
+	 * @deprecated Redundant information
+	 */
+	Text?: string;
+}
+
+/**
+ * A dictionary entry used to indicate the source character of a chat message or action (i.e. the character initiating
+ * the message or action).
+ */
+interface SourceCharacterDictionaryEntry {
+	SourceCharacter: number;
+}
+
+/**
+ * A dictionary entry used to indicate the target character of a chat message or action (i.e. the character that is
+ * being acted upon as part of the message or action).
+ */
+interface TargetCharacterDictionaryEntry {
+	TargetCharacter: number;
 }
 
 /**
@@ -424,8 +453,11 @@ interface CharacterReferenceDictionaryEntry {
  * group name.
  */
 interface FocusGroupDictionaryEntry {
-	/** The tag to be replaced - this is always FocusAssetGroup. This may be deprecated in the future. */
-	Tag: "FocusAssetGroup";
+	/**
+	 * The tag to be replaced - this is always FocusAssetGroup.
+	 * @deprecated Redundant information.
+	 */
+	Tag?: "FocusAssetGroup";
 	/** The group name representing focused group for the purposes of the sent message */
 	FocusGroupName: AssetGroupName;
 }
@@ -446,9 +478,7 @@ interface FocusGroupDictionaryEntry {
  * Life is like a box of chocolates.
  * ```
  */
-interface TextDictionaryEntry {
-	/** The tag that will be replaced in the message */
-	Tag: string;
+interface TextDictionaryEntry extends TaggedDictionaryEntry {
 	/** The text that will be substituted for the tag */
 	Text: string;
 }
@@ -476,9 +506,7 @@ interface TextDictionaryEntry {
  * Hello, World!
  * ```
  */
-interface TextLookupDictionaryEntry {
-	/** The tag that will be replaced in the message */
-	Tag: string;
+interface TextLookupDictionaryEntry extends TaggedDictionaryEntry {
 	/** The text whose lookup will be substituted for the tag */
 	TextToLookUp: string;
 }
@@ -502,9 +530,7 @@ interface TextLookupDictionaryEntry {
  * Use your Hands!
  * ```
  */
-interface GroupReferenceDictionaryEntry {
-	/** The tag which should be replaced with the group name */
-	Tag: string;
+interface GroupReferenceDictionaryEntry extends TaggedDictionaryEntry {
 	/** The name of the asset group to reference */
 	GroupName: AssetGroupName;
 }
@@ -517,6 +543,14 @@ interface GroupReferenceDictionaryEntry {
 interface AssetReferenceDictionaryEntry extends GroupReferenceDictionaryEntry {
 	/** The name of the asset being referenced */
 	AssetName: string;
+}
+
+/**
+ * A special instance of an {@link AssetReferenceDictionaryEntry} which indicates that this asset was used to carry
+ * out an activity.
+ */
+interface ActivityAssetReferenceDictionaryEntry extends AssetReferenceDictionaryEntry {
+	Tag: "ActivityAsset";
 }
 
 /**
@@ -554,21 +588,34 @@ interface ActivityCounterDictionaryEntry {
  * @deprecated Use {@link FocusGroupDictionaryEntry}/{@link GroupReferenceDictionaryEntry}
  */
 interface AssetGroupNameDictionaryEntry {
-	Tag?: string;
+	Tag?: "FocusAssetGroup";
 	AssetGroupName: AssetGroupName;
+}
+
+/**
+ * A dictionary entry indicating the name of an activity. Sent with chat messages to indicate that an activity was
+ * carried out as part of the message.
+ */
+interface ActivityNameDictionaryEntry {
+	/** The name of the activity carried out */
+	ActivityName: string;
 }
 
 type ChatMessageDictionaryEntry =
 	| CharacterReferenceDictionaryEntry
+	| SourceCharacterDictionaryEntry
+	| TargetCharacterDictionaryEntry
 	| FocusGroupDictionaryEntry
 	| TextDictionaryEntry
 	| TextLookupDictionaryEntry
 	| GroupReferenceDictionaryEntry
 	| AssetReferenceDictionaryEntry
+	| ActivityAssetReferenceDictionaryEntry
 	| ShockEventDictionaryEntry
 	| AutomaticEventDictionaryEntry
 	| ActivityCounterDictionaryEntry
-	| AssetGroupNameDictionaryEntry;
+	| AssetGroupNameDictionaryEntry
+	| ActivityNameDictionaryEntry;
 
 type ChatMessageDictionary = ChatMessageDictionaryEntry[];
 
@@ -602,7 +649,9 @@ interface IChatRoomMessageMetadata {
 	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
 	Automatic?: boolean;
 	/** The group that has been interacted with to trigger the message */
-	GroupName?: string;
+	FocusGroup?: AssetGroup;
+	/** The name of the group that has been interacted with to trigger the message */
+	GroupName?: AssetGroupName;
 	/** The assets referenced in the message */
 	Assets?: Record<string, Asset>;
 	/** The groups referenced in the message */
@@ -612,12 +661,8 @@ interface IChatRoomMessageMetadata {
 	ActivityCounter?: number;
 	/** The triggered activity */
 	ActivityName?: string;
-	/** The group where the activity is triggered */
-	ActivityGroup?: string;
 	/** The name of the asset used for the activity */
-	ActivityAsset?: string;
-	/** The group the asset used is in */
-	ActivityAssetGroup?: string;
+	ActivityAsset?: Asset;
 	/** The name of the chatroom, appropriately garbled */
 	ChatRoomName?: string;
 }

@@ -73,10 +73,10 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		if (ReplacementWord)
 			Dictionary.push({ Tag: "ReplacementWord", Text: ReplacementWord });
-		Dictionary.push({Tag: "AssetName", AssetName: Item.Asset.Name});
-		Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
-		Dictionary.push({ Tag: "ActivityGroup", Text: Item.Asset.Group.Name });
-		Dictionary.push({ AssetName: Item.Asset.Name });
+		Dictionary.push({Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name});
+		Dictionary.push({ ActivityName: "ShockItem" });
+		Dictionary.push({ FocusGroupName: Item.Asset.Group.Name });
+		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name });
 		Dictionary.push({ AssetGroupName: Item.Asset.Group.Name });
 		let ShockPhrase = !NoShock ? "Shock" : "Punish"
 		if (!NoShock) Dictionary.push({ ShockIntensity : 2});

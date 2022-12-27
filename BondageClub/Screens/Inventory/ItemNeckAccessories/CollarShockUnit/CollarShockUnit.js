@@ -47,7 +47,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitResetCount() {
 	const Dictionary = [
 		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
+		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name, GroupName: DialogFocusItem.Asset.Group.Name },
 	];
 
 	if (DialogFocusItem.Property.ShowText) {

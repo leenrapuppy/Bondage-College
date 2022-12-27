@@ -897,13 +897,12 @@ function ActivityRun(C, ItemActivity) {
 		const Dictionary = [
 			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 			{ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "ActivityGroup", Text: group.Name },
-			{ Tag: "ActivityName", Text: Activity.Name },
+			{ FocusGroupName: group.Name },
+			{ ActivityName: Activity.Name },
 		];
 		if (ItemActivity.Item) {
 			const A = ItemActivity.Item.Asset;
-			Dictionary.push({ Tag: "ActivityAssetGroup", Text: A.Group.Name });
-			Dictionary.push({ Tag: "ActivityAsset", Text: A.Name });
+			Dictionary.push({ Tag: "ActivityAsset", AssetName: A.Name, GroupName: A.Group.Name });
 			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(Player).toLowerCase() });
 		}
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });

@@ -173,9 +173,8 @@ function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOptio
 	/** @type {ChatMessageDictionary} */
 	const Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name },
+		{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
 		{ ShockIntensity : ShockLevel * 1.5 },
-		{ AssetName: Item.Asset.Name },
 		{ FocusGroupName: Item.Asset.Group.Name },
 	];
 	if (Automatic) {

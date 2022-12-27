@@ -405,7 +405,7 @@ function VibratorModeSetMode(Option) {
 	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
+		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name, GroupName: DialogFocusItem.Asset.Group.Name },
 	];
 
 	if (DialogFocusItem.Property.Intensity !== OldIntensity) {
@@ -725,7 +725,7 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name },
+		{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
 		{ Automatic: true },
 	];
 	if (Item.Property.ItemMemberNumber) Dictionary.push({ Tag: "ItemMemberNumber", MemberNumber: Item.Property.ItemMemberNumber });

@@ -90,7 +90,7 @@ function InventoryItemArmsTransportJacketExit(ID=InventoryItemArmsTransportJacke
 		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "NewText", Text: text },
-		{ Tag: "AssetName", AssetName: item.Asset.Name },
+		{ Tag: "AssetName", AssetName: item.Asset.Name, GroupName: item.Asset.Group.Name },
 	];
 	const ActionTag = text === "" ? `${Prefix}TextRemove` : `${Prefix}TextChange`;
 	ChatRoomPublishCustomAction(ActionTag, false, dictionary);

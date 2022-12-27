@@ -73,7 +73,7 @@ function InventoryItemHeadDroneMaskPattern5SaveAndExit(OriginalText) {
 			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "NewText", Text: text },
-			{ Tag: "AssetName", AssetName: item.Asset.Name },
+			{ Tag: "AssetName", AssetName: item.Asset.Name, GroupName: item.Asset.Group.Name },
 		];
 		const msg = text === "" ? "ItemHeadDroneMaskTextRemove" : "ItemHeadDroneMaskTextChange";
 		ChatRoomPublishCustomAction(msg, false, dictionary);

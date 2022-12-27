@@ -44,7 +44,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	sourceCharacter(character) {
-		return this._addCharacterReference("SourceCharacter", character);
+		return this._addEntry({SourceCharacter: character.MemberNumber});
 	}
 
 	/**
@@ -71,7 +71,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	targetCharacter(character) {
-		return this._addCharacterReference("TargetCharacter", character);
+		return this._addEntry({TargetCharacter: character.MemberNumber});
 	}
 
 	/**
@@ -90,7 +90,7 @@ class DictionaryBuilder {
 	 */
 	focusGroup(groupName) {
 		if (groupName) {
-			return this._addEntry({Tag: "FocusAssetGroup", FocusGroupName: groupName})
+			return this._addEntry({Tag: "FocusAssetGroup", FocusGroupName: groupName});
 		}
 		return this;
 	}
@@ -186,4 +186,138 @@ class ConditionalDictionaryBuilder extends DictionaryBuilder {
 		}
 		return this;
 	}
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is TaggedDictionaryEntry}
+ */
+function IsTaggedDictionaryEntry(entry) {
+	return CommonIsObject(entry) && !!entry.Tag && typeof entry.Tag === "string";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is CharacterReferenceDictionaryEntry}
+ */
+function IsCharacterReferenceDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& (entry.Tag === "SourceCharacter"
+			|| entry.Tag === "TargetCharacter"
+			|| entry.Tag === "TargetCharacterName"
+			|| entry.Tag === "DestinationCharacter"
+			|| entry.Tag === "DestinationCharacterName")
+		&& CommonIsNonNegativeInteger(entry.MemberNumber);
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is SourceCharacterDictionaryEntry}
+ */
+function IsSourceCharacterDictionaryEntry(entry) {
+	return CommonIsObject(entry) && CommonIsNonNegativeInteger(entry.SourceCharacter);
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is TargetCharacterDictionaryEntry}
+ */
+function IsTargetCharacterDictionaryEntry(entry) {
+	return CommonIsObject(entry) && CommonIsNonNegativeInteger(entry.TargetCharacter);
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is FocusGroupDictionaryEntry}
+ */
+function IsFocusGroupDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& (!entry.Tag || entry.Tag === "FocusAssetGroup")
+		&& !!entry.FocusGroupName && typeof entry.FocusGroupName === "string";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is TextDictionaryEntry}
+ */
+function IsTextDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& !!entry.Tag && typeof entry.Tag === "string"
+		&& !!entry.Text && typeof entry.Text === "string";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is TextLookupDictionaryEntry}
+ */
+function IsTextLookupDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& !!entry.Tag && typeof entry.Tag === "string"
+		&& !!entry.TextToLookUp && typeof entry.TextToLookUp === "string";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is GroupReferenceDictionaryEntry}
+ */
+function IsGroupReferenceDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& !!entry.Tag && typeof entry.Tag === "string"
+		&& !!entry.GroupName && typeof entry.GroupName === "string"
+		&& !entry.AssetName;
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is AssetReferenceDictionaryEntry}
+ */
+function IsAssetReferenceDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& !!entry.Tag && typeof entry.Tag === "string"
+		&& !!entry.GroupName && typeof entry.GroupName === "string"
+		&& !!entry.AssetName && typeof entry.AssetName === "string";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is ShockEventDictionaryEntry}
+ */
+function IsShockEventDictionaryEntry(entry) {
+	return CommonIsObject(entry) && typeof entry.ShockIntensity === "number";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is AutomaticEventDictionaryEntry}
+ */
+function IsAutomaticEventDictionaryEntry(entry) {
+	return CommonIsObject(entry) && entry.Automatic === true;
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is ActivityCounterDictionaryEntry}
+ */
+function IsActivityCounterDictionaryEntry(entry) {
+	return CommonIsObject(entry) && typeof entry.ActivityCounter === "number";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is AssetGroupNameDictionaryEntry}
+ * @deprecated
+ */
+function IsAssetGroupNameDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& !!entry.Tag && typeof entry.Tag === "string"
+		&& !!entry.AssetGroupName && typeof entry.AssetGroupName === "string";
+}
+
+/**
+ * @param {ChatMessageDictionaryEntry} entry
+ * @returns {entry is ActivityNameDictionaryEntry}
+ */
+function IsActivityNameDictionaryEntry(entry) {
+	return CommonIsObject(entry)
+		&& !!entry.ActivityName && typeof entry.ActivityName === "string";
 }
