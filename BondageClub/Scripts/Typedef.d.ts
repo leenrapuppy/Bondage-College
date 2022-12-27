@@ -1373,6 +1373,7 @@ interface Character {
 		GameVersion: string;
 		ItemsAffectExpressions: boolean;
 		ScriptPermissions: ScriptPermissions;
+		LuckyWheel: string;
 	};
 	Game?: {
 		LARP?: GameLARPParameters,

@@ -571,6 +571,15 @@ const CommonCommands = [
 		},
 	},
 	{
+		Tag: "wheelconfigure",
+		Action: () => {
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			CommonSetScreen("Online", "LuckyWheelCustomize");
+		},
+	},
+	{
 		Tag: "release",
 		Action: args => {
 			let MemberNumber = parseInt(args);
