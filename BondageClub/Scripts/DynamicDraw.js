@@ -223,7 +223,7 @@ function DynamicDrawText(text, ctx, x, y, options) {
  * @returns {void} - Nothing
  */
 function DynamicDrawTextFromTo(text, ctx, from, to, options) {
-	const { fontSize, contain } = options = DynamicDrawParseOptions(options);
+	const { fontSize, contain, width } = options = DynamicDrawParseOptions(options);
 
 	// From coordinate (x0, y0)
 	const x0 = from[0];
@@ -235,11 +235,14 @@ function DynamicDrawTextFromTo(text, ctx, from, to, options) {
 	const dx = x1 - x0;
 	const dy = y1 - y0;
 	// Diagonal distance
-	options.width = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-	if (contain && dx !== 0) {
-		// If the text should be fully contained withing the [x0, y0], [x1, y1] box, subtract appropriately
-		options.width -= 2 * Math.abs(dy / dx) * (fontSize / 2);
+	if (!width) {
+		options.width = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+		if (contain && dx != 0) {
+			// If the text should be fully contained withing the [x0, y0], [x1, y1] box, subtract appropriately
+			options.width -= 2 * Math.abs(dy / dx) * (fontSize / 2);
+		}
 	}
+	
 	// Center point (cx, cy)
 	const cx = x0 + 0.5 * dx;
 	const cy = y0 + 0.5 * dy;
@@ -254,6 +257,8 @@ function DynamicDrawTextFromTo(text, ctx, from, to, options) {
 	}
 	// If dx < 0, then we need to rotate 180 degrees to respect directionality
 	if (dx < 0) angle += Math.PI;
+
+
 
 	// Save the canvas state and rotate by the calculated angle about the center point
 	ctx.save();

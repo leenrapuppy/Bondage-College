@@ -700,6 +700,19 @@ ItemDevicesSnowmanButtons,Buttons
 ItemDevicesSnowmanStickHands,Arms
 ItemDevicesWoodenHorseFrame,Frame
 ItemDevicesWoodenHorseWood,Wood
+ItemDevicesLuckyWheelBase,Wooden Stand
+ItemDevicesLuckyWheelBase2,MetalStand
+ItemDevicesLuckyWheelBase2Metal,Metal Stand Frame
+ItemDevicesLuckyWheelBase2Text,Metal Stand Text
+ItemDevicesLuckyWheelBack,Wheel Border
+ItemDevicesLuckyWheelMisc,Toys
+ItemDevicesLuckyWheelMiscFlogger,Flogger
+ItemDevicesLuckyWheelMiscGag,Gag
+ItemDevicesLuckyWheelText,Text
+ItemDevicesLuckyWheelArrow,Arrow
+ItemDevicesLuckyWheelSection1,Rope Sections
+ItemDevicesLuckyWheelSection2,Chain Sections
+ItemDevicesLuckyWheelSection3,Gag Sections
 ItemAddonCoversOuter,Outer
 ItemAddonCoversInner,Inner
 ItemNoseNoseHookBand,Strap

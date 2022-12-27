@@ -4206,6 +4206,41 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // TransportWoodenBox
+		LuckyWheel: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules: [
+					{
+						Name: "Game", Key: "g",
+						Options: [
+							{ HasSubscreen: true },
+						],
+					},
+					{
+						Name: "Stand", Key: "s",
+						Options: [
+							{}, {}, //b0 - WoodenBase, b2 - MetalBase
+						],
+					},
+					{
+						Name: "Misc", Key: "m",
+						Options: [
+							{}, {},//m0 - MiscOn, m1 - MiscOff
+						],
+					},
+					{
+						Name: "Arrow", Key: "a",
+						Options: [
+							{}, {}, {}, //a0 - DefaultArrow, a1 - AlternateArrow, a2 - PlugArrow
+						],
+					},
+				],
+				ScriptHooks: {
+					Draw: (n) => InventoryItemDevicesLuckyWheelDrawHook(n),
+					Click: (n) => InventoryItemDevicesLuckyWheelClickHook(n),
+				}
+			},
+		}, //LuckyWheel
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {

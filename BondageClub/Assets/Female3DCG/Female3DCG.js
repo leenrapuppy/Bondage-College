@@ -7908,6 +7908,39 @@ var AssetFemale3DCG = [
 					{ Name: "Wood" }
 				]
 			},
+			/**
+			 * TODO:
+			 * - menu spin button + input to select 2-8 texts
+			 * - menu option to send to front/back
+			 * - csv for chataction, name, layer colors, menu texts
+			 *
+			 * Assets: preview, stand, invisible logical image for Text layer, add a pen font
+			 */
+			{
+				Name: "LuckyWheel", Priority: 62, Top: 0, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [],
+				/* RemoveAtLogin: true, */ FixedPosition: true, Extended: true, DynamicAfterDraw: true, DynamicScriptDraw: true,
+				DefaultColor: ["#7F4141", "#881818", "#FFA8DD", "#2C2C2C", "Default", "#7B3D9E", "#FF3F3F", "#343434", "#F2F2F2", "#D43434", "#C2B556", "#81DA88", "#E18DC3"],
+				HasType: false,
+				Layer: [
+					{ Name: "Base", AllowModuleTypes: ["s0"], ColorGroup: "Stand", },
+					{ Name: "Base2", AllowModuleTypes: ["s1"], ColorGroup: "Stand", },
+					{ Name: "Base2Text", AllowModuleTypes: ["s1"], },
+					{ Name: "Base2Metal", AllowModuleTypes: ["s1"], ColorGroup: "Stand", },
+					{ Name: "Misc", AllowModuleTypes: ["m0"], ColorGroup: "Misc", },
+					{ Name: "MiscFlogger", AllowModuleTypes: ["m0"], ColorGroup: "Misc", },
+					{ Name: "MiscGag", AllowModuleTypes: ["m0"], ColorGroup: "Misc", },
+					{ Name: "Back", Top: 190, },
+					{ Name: "LightsBase", Top: 190, AllowColorize: false, },
+					{ Name: "BlinkingLights", Top: 190, HasImage: false, AllowColorize: false, },
+					{ Name: "Text", Top: 190, HasImage: false, },
+					{ Name: "Arrow", AllowModuleTypes: ["a0"], },
+					{ Name: "Arrow2", CopyLayerColor: "Arrow", AllowModuleTypes: ["a1"], },
+					{ Name: "Arrow3", CopyLayerColor: "Arrow", AllowModuleTypes: ["a2"], },
+					{ Name: "Section1", HasImage: false, ColorGroup: "Section", },
+					{ Name: "Section2", HasImage: false, ColorGroup: "Section", },
+					{ Name: "Section3", HasImage: false, ColorGroup: "Section", },
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
