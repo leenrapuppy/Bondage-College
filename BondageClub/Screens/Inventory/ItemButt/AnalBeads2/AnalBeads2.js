@@ -19,9 +19,9 @@ function InventoryItemButtAnalBeads2PublishAction(C, Option, PreviousOption) {
 	const Dictionary = [];
 	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "ActivityName", Text: "MasturbateItem" });
-	Dictionary.push({ Tag: "ActivityGroup", Text: "ItemButt" });
-	Dictionary.push({ AssetName: "AnalBeads2" });
+	Dictionary.push({ ActivityName: "MasturbateItem" });
+	Dictionary.push({ FocusGroupName: "ItemButt" });
+	Dictionary.push({ Tag: "AssetName", AssetName: "AnalBeads2", GroupName: "ItemButt" });
 	Dictionary.push({ AssetGroupName: "ItemButt" });
 	Dictionary.push({ ActivityCounter: Math.min(BeadsChange, 0) });
 

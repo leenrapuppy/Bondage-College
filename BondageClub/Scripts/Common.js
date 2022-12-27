@@ -956,3 +956,21 @@ function CommonCensor(S) {
 	return S;
 
 }
+
+/**
+ * Type guard which checks that a value is a simple object (i.e. a non-null object which is not an array)
+ * @param {unknown} value - The value to test
+ * @returns {value is Record<string, unknown>}
+ */
+function CommonIsObject(value) {
+	return !!value && typeof value === "object" && !Array.isArray(value);
+}
+
+/**
+ * Type guard which checks that a value is a non-negative (i.e. positive or zero) integer
+ * @param {unknown} value - The value to test
+ * @returns {value is number}
+ */
+function CommonIsNonNegativeInteger(value) {
+	return typeof value === "number" && Number.isInteger(value) && value >= 0;
+}

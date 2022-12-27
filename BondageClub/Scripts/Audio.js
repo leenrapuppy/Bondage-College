@@ -504,19 +504,20 @@ function AudioGetFileName(sound) {
 /**
  * Processes which sound should be played for items
  * @param {IChatRoomMessage} data - Data content triggering the potential sound
- * @returns {AudioSoundEffect?} - The name of the sound to play, followed by the noise modifier
+ * @param {IChatRoomMessageMetadata} metadata - The chat message metadata
+ * @returns {AudioSoundEffect | undefined} - The name of the sound to play, followed by the noise modifier
  */
 function AudioGetSoundFromChatMessage(data, metadata) {
 	const sender = metadata.SourceCharacter;
 	if (!data || !sender) return null;
 
-	if (data.Type === "Activity") {
-		let item = InventoryGet(sender, metadata.ActivityAssetGroup);
-		if (!item || item.Asset.Name !== metadata.ActivityAsset) return;
+	if (data.Type === "Activity" && metadata.ActivityAsset) {
+		let item = InventoryGet(sender, metadata.ActivityAsset.Group.Name);
+		if (!item || item.Asset.Name !== metadata.ActivityAsset.Name) return;
 
 		// Workaround for the shock remote; select the item on the target instead
-		if (item.Asset.Name === "ShockRemote") {
-			item = InventoryGet(metadata.TargetCharacter, metadata.ActivityGroup);
+		if (item.Asset.Name === "ShockRemote" && metadata.FocusGroup) {
+			item = InventoryGet(metadata.TargetCharacter, metadata.FocusGroup.Name);
 		}
 
 		if (!item || !item.Asset.ActivityAudio) return;
@@ -528,10 +529,10 @@ function AudioGetSoundFromChatMessage(data, metadata) {
 
 		return [soundEffect, 0];
 	} else if (data.Type === "Action") {
-		const NextAsset = data.Dictionary.find((el) => el.Tag == "NextAsset");
-		const NextAssetGroup = data.Dictionary.find((el) => el.Tag == "FocusAssetGroup");
+		const NextAsset = data.Dictionary.find((entry) => entry.Tag == "NextAsset");
+		const NextAssetGroup = data.Dictionary.find((entry) => entry.Tag == "FocusAssetGroup");
 
-		if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return null;
+		if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return;
 
 		return AudioGetSoundFromAsset(sender, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
 	}

@@ -175,7 +175,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 		/** @type {ChatMessageDictionary} */
 		var Dictionary = [
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "AssetName", AssetName: Item.Asset.Name },
+			{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
 		];
 
 		if (Item.Property.Intensity !== OldIntensity) {

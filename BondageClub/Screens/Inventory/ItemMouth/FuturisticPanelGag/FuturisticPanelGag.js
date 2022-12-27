@@ -83,7 +83,7 @@ function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, Optio
 	/** @type {ChatMessageDictionary} */
 	const Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name },
+		{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
 		{ Automatic: true },
 	];
 	if (Item.Property.ItemMemberNumber) {

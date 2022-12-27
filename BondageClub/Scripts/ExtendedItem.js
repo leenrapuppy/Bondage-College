@@ -654,7 +654,7 @@ function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
 		case CommonChatTags.TARGET_CHAR_NAME:
 			return { Tag: tag, Text: CharacterNickname(C), MemberNumber: C.MemberNumber };
 		case CommonChatTags.ASSET_NAME:
-			return { Tag: tag, AssetName: asset.Name };
+			return { Tag: tag, AssetName: asset.Name, GroupName: asset.Group.Name };
 		default:
 			return null;
 	}
