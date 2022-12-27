@@ -7283,7 +7283,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20, DefaultColor: ["#1C1C1C", , "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10, AllowLock: true, DrawLocks: false, Extended: true, DynamicAfterDraw: true,
+				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20, DefaultColor: ["#1C1C1C", , "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10, AllowLock: true, DrawLocks: false, Extended: true, DynamicAfterDraw: true, AllowColorizeAll: false,
 				Attribute: ["ShortHair"],
 				Top: 31, Left: 166.5,
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
@@ -7359,6 +7359,21 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m3f4","m7f4"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3f1","m7f1","m3f2","m7f2","m3f3","m7f3","m3f4","m7f4"], Color: ["#888888"], AllowColorize: false },
 				],
+			},
+			{
+				Name: "HarnessCatMask", Fetish: ["Pet"], Random: false, Value: 50, Difficulty: 3, Top: 32, Left: 166.5, DefaultColor: ["#202020","#202020","#ADADAD"],
+				DrawLocks: true,
+				AllowLock: true,
+				Hide: [],
+				Block: [],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "EarsUnder", HasType: false, AllowTypes: ["Ear"], },
+					{ Name: "EarsOver", HasType: false, AllowTypes: ["Ear"], Priority: 53, CopyLayerColor: "EarsUnder" },
+					{ Name: "Metal", HasType: false, },
+					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false }
+				]
+
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
