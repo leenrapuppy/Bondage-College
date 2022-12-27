@@ -8086,6 +8086,7 @@ var AssetFemale3DCG = [
 	},
 	{
 		Group: "ItemScript",
+		Category: 'Script',
 		Priority: 0,
 		AllowColorize: false,
 		Asset: [{Name: "Script", Visible: false}],

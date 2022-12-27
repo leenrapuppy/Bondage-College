@@ -266,6 +266,7 @@ type CraftingPropertyType =
 
 type AssetAttribute =
 	"Skirt" |
+	"ShortHair" |
 	"CanAttachMittens"
 	;
 
@@ -774,7 +775,7 @@ interface AssetGroup {
 	Description: string;
 	Asset: Asset[];
 	ParentGroupName: string;
-	Category: 'Appearance' | 'Item';
+	Category: 'Appearance' | 'Item' | 'Script';
 	IsDefault: boolean;
 	IsRestraint: boolean;
 	AllowNone: boolean;

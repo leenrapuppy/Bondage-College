@@ -2,7 +2,7 @@ interface AssetGroupDefinition {
 	Asset: (AssetDefinition | string)[];
 	Group: AssetGroupName;
 	ParentGroup?: string;
-	Category?: 'Appearance' | 'Item';
+	Category?: 'Appearance' | 'Item' | 'Script';
 	/** Whether the group should have an asset selected at random at character creation. */
 	Default?: boolean;
 	IsRestraint?: boolean;
