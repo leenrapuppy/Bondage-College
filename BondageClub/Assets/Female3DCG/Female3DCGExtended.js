@@ -3340,6 +3340,175 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // DroneMask
+		CustomLatexHood: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "MPanel", Key: "m", DrawImages: false,
+						Options:[
+							{ // m0 - No Mouth
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m1 - Hole Only
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m2 - Round Mouth
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m3 - Shaped Mouth
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m4 - No Mouth Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m5 - Hole Only Transparent
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m6 - Round Mouth Transparent
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m7 - Shaped Mouth Transparent
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m8 - Open
+								Property: { Effect: ["OpenMouth"] }
+							},
+						]
+					},
+					{
+						Name: "EPanel", Key: "e", DrawImages: false,
+						Options:[
+							{ // e0 - No Eyes
+								Property: { Effect: ["BlindTotal"]
+								}
+							},
+							{ // e1 - Hole Only
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e2 - Round Eyes
+								Property: { Effect: []}
+							},
+							{ // e3 - Shaped Eyes
+								Property: { Effect: []}
+							},
+							{ // e4 - No Eyes Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e5 - Hole Only Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e6 - Round Eyes Transparent
+								Property: { Effect: []}
+							},
+							{ // e7 - Shaped Eyes Transparent
+								Property: { Effect: []}
+							}
+
+						]
+					},
+					{
+						Name: "HeadT", Key: "x", DrawImages: false,
+						Options:[{},{},] // Opaque, Transparent
+					},
+					//{ //separate keys to control transparency, may be useful later
+					//	Name: "Mouth Transparency", Key: "y", DrawImages: false,
+					//	Options:[{},{},] // Opaque, Transparent
+					//},
+					//{
+					//	Name: "Eye Transparency", Key: "z", DrawImages: false,
+					//	Options:[{},{},] // Opaque, Transparent
+					//},
+					{
+						Name: "MFill", Key: "f", DrawImages: false,
+						Options: [
+							{// f0 - Open
+								Property: { Effect: [""] }
+							},
+							{// f1 - Opaque
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38 
+								}
+							},
+							{// f2 - Transparent
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38 
+								}
+							},
+							{// f3 - Opaque Hole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38 
+								}
+							},
+							{// f4 - Transparent Hole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38
+								}
+							},
+						] 
+					},
+					{
+						Name: "EFill", Key: "s", DrawImages: false,
+						Options: [
+							{ // s0 - Open
+								Property: { Effect: [""]
+								}
+							},
+							{ // s1 - Opaque
+								Property: { Effect: ["BlindLight"] 
+								}
+							},
+							{ // s2 - Transparent
+								Property: { Effect: [""]
+								}
+							},
+							{ // s3 - Opaque Hole
+								Property: { Effect: [""]
+								}
+							},
+							{ // s4 - Transparent Hole
+								Property: { Effect: [""]
+								}
+							},
+						]
+					},
+					{
+						Name: "HairShow", Key: "h", DrawImages: false,
+						Options: [
+							{}, // h0 - Show Hair
+							{
+								Property: {
+									Hide: ["HairFront", "HairBack",],
+								},
+							},  // h1 - Hide Hair
+							{
+								Property: {
+									Hide: ["HairFront"],
+								},
+							}, // h2 - Show Back Hair
+						]
+					},
+				],
+				ChangeWhenLocked: false,
+				DrawImages: false,
+			}
+		}, // CustomLatexHood
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
