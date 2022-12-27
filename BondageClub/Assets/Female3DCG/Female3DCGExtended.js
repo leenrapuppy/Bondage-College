@@ -4202,7 +4202,7 @@ var AssetFemale3DCGExtended = {
 				Dialog: {
 					Load: "ItemDevicesWoodenBoxSelect",
 					TypePrefix: "ItemDevicesWoodenBox",
-					ChatPrefix: "ItemDeviceWoodenBoxSet",
+					ChatPrefix: "ItemDevicesWoodenBoxSet",
 				},
 			},
 		}, // TransportWoodenBox
