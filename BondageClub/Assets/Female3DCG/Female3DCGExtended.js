@@ -3509,6 +3509,16 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			}
 		}, // CustomLatexHood
+		HarnessCatMask: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{ Name: "NoEars", Property: { Type: null } },
+					{ Name: "Ears", Property: { Type: "Ear" } },
+				],
+				ChangeWhenLocked: false,
+			}
+		}, // HarnessCatMask
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
