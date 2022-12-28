@@ -32,5 +32,6 @@ unban,[MemberNumber]: Remove a ban on a player
 whitelistadd,[MemberNumber]: Add a player to your whitelist
 whitelistremove,[MemberNumber]: Remove a player from your whitelist
 forbiddenwords,Display your forbidden words set by your owner
+wheelspin,Spin the lucky wheel
 wheelconfigure,Configure your lucky wheel options
 release,[MemberNumber]: Release a submissive from your ownership

@@ -518,6 +518,22 @@ function CommonConvertStringToArray(s) {
 }
 
 /**
+ * Shuffles all characters in a string
+ * @param {string} string - The string to shuffle
+ * @returns {string} - The shuffled string
+ */
+function CommonStringShuffle(string) {
+	var parts = string.split('');
+	for (var i = parts.length; i > 0;) {
+		var random = parseInt(Math.random() * i);
+		var temp = parts[--i];
+		parts[i] = parts[random];
+		parts[random] = temp;
+	}
+	return parts.join('');
+}
+
+/**
  * Converts an array to a string separated by commas (equivalent of .join(","))
  * @param {Array} Arr - Array to convert to a joined string
  * @returns {string} - String of all the array items joined together

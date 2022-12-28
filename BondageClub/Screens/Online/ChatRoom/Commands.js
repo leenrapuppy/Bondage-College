@@ -571,6 +571,17 @@ const CommonCommands = [
 		},
 	},
 	{
+		Tag: "wheelspin",
+		Action: () => {
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			LuckyWheelBackground = ChatRoomData.Background;
+			LuckyWheelList = Player.OnlineSharedSettings.LuckyWheel;
+			CommonSetScreen("MiniGame", "LuckyWheel");
+		},
+	},
+	{
 		Tag: "wheelconfigure",
 		Action: () => {
 			document.getElementById("InputChat").style.display = "none";
