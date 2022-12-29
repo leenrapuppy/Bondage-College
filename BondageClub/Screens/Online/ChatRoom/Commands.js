@@ -578,6 +578,7 @@ const CommonCommands = [
 			ChatRoomChatHidden = true;
 			LuckyWheelBackground = ChatRoomData.Background;
 			LuckyWheelList = Player.OnlineSharedSettings.LuckyWheel;
+			LuckyWheelCharacterName = CharacterNickname(Player);
 			CommonSetScreen("MiniGame", "LuckyWheel");
 		},
 	},

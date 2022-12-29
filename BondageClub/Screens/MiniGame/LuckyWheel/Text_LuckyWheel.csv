@@ -1,7 +1,12 @@
 Title,Use your mouse or finger to grab and spin the wheel
+Wait,Hold your breath
 Roleplay,Roleplay mode
 Random,Random Spin
 Exit,Don't spin the wheel
+Spin,spins CharacterName lucky wheel
+SpinRoleplay,spins CharacterName roleplay lucky wheel
+Result,lucky wheel lands on:
+ResultRoleplay,roleplay lucky wheel lands on:
 OptionA,Gagged
 OptionB,Gagged for 5 minutes
 OptionC,Gagged for 15 minutes

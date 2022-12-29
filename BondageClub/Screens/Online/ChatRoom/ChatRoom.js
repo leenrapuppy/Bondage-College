@@ -323,6 +323,27 @@ function ChatRoomCurrentCharacterIsAdmin() { return ((CurrentCharacter != null) 
  * @returns {boolean} - TRUE if the player can take a photo.
  */
 function DialogCanTakePhotos() { return (ChatRoomData && ChatRoomData.BlockCategory && !ChatRoomData.BlockCategory.includes("Photos")) || !ChatRoomData; }
+/**
+ * Checks if the current character has a lucky wheel to spin
+ * @returns {boolean} - TRUE if the player can take a photo.
+ */
+function ChatRoomCanStartLuckyWheel() { return (CurrentCharacter != null) && InventoryIsWorn(CurrentCharacter, "LuckyWheel", "ItemDevices"); }
+/**
+ * Starts the current character lucky wheel
+ * @returns {void} - Nothing
+ */
+function ChatRoomStartLuckyWheel() {
+	if ((CurrentCharacter == null) || !InventoryIsWorn(CurrentCharacter, "LuckyWheel", "ItemDevices")) return;
+	document.getElementById("InputChat").style.display = "none";
+	document.getElementById("TextAreaChatLog").style.display = "none";
+	ChatRoomChatHidden = true;
+	LuckyWheelBackground = ChatRoomData.Background;
+	LuckyWheelList = "";
+	LuckyWheelCharacterName = CharacterNickname(CurrentCharacter);
+	if ((CurrentCharacter.OnlineSharedSettings != null) && (CurrentCharacter.OnlineSharedSettings.LuckyWheel != null)) LuckyWheelList = CurrentCharacter.OnlineSharedSettings.LuckyWheel;
+	DialogLeave();
+	CommonSetScreen("MiniGame", "LuckyWheel");
+}
 
 /**
  * Checks if the player can start searching a player
@@ -463,8 +484,6 @@ function ChatRoomGiveHighSecurityKeysAll() {
 	ChatRoomCharacterUpdate(Player);
 }
 
-
-
 /**
  * Checks if the player can help the current character by giving them a lockpick
  * @returns {boolean} - TRUE if the player can interact and is allowed to interact with the current character.
@@ -477,11 +496,13 @@ function ChatRoomCanGiveLockpicks() {
 			}
 	return false;
 }
+
 /**
  * Checks if the player can help the current character by giving her lockpicks
  * @returns {boolean} - TRUE if the player can interact and is allowed to interact with the current character.
  */
 function ChatRoomCanAssistStruggle() { return CurrentCharacter.AllowItem && !CurrentCharacter.CanInteract(); }
+
 /**
  * Checks if the character options menu is available.
  * @returns {boolean} - Whether or not the player can interact with the target character
@@ -495,6 +516,7 @@ function DialogCanPerformCharacterAction() {
 		DialogHasGamingHeadset() || DialogCanWatchKinkyDungeon()
 	);
 }
+
 /**
  * Checks if the target character can be helped back on her feet. This is different than CurrentCharacter.CanKneel()
  * because it listens for the current active pose and removes certain checks that are not required for someone else to
@@ -504,6 +526,7 @@ function DialogCanPerformCharacterAction() {
 function ChatRoomCanAssistStand() {
 	return Player.CanInteract() && CurrentCharacter.AllowItem && CharacterItemsHavePoseAvailable(CurrentCharacter, "BodyLower", "Kneel") && !CharacterDoItemsSetPose(CurrentCharacter, "Kneel") && CurrentCharacter.IsKneeling();
 }
+
 /**
  * Checks if the target character can be helped down on her knees. This is different than CurrentCharacter.CanKneel()
  * because it listens for the current active pose and removes certain checks that are not required for someone else to

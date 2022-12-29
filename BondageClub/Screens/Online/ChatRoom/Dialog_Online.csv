@@ -23,7 +23,7 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 10,,(Remove from friendlist.),(This member is not longer considered to be a friend by you.),"ListManage(""Remove"", ""FriendList"")",CanRemoveFriend()
 10,,(Ghost and ignore her.),(This member is now ghosted and ignored by you.  Nothing she says or does will appear in your chat log.),"ListManage(""Add"", ""GhostList"")",CanAddGhost()
 10,,(Stop ghosting her.),(This member is no longer ghosted by you.  You will see what she says or does in your chat log.),"ListManage(""Remove"", ""GhostList"")",CanRemoveGhost()
-10,RelationshipSubmenu,"(Manage Ownership & Lovership)","(You can ask her to become your lover or submissive or advance the relationship.)",CheckRelationships(),
+10,RelationshipSubmenu,(Manage Ownership & Lovership),(You can ask her to become your lover or submissive or advance the relationship.),CheckRelationships(),
 10,100,"(Owner rules, restrictions & punishments.)","(Select the owner rule, restriction or punishment that you want to enforce.)",,IsCollaredByPlayer()
 10,200,"(Lover rules, restrictions & punishments.)","(Select the lover rule, restriction or punishment that you want to enforce on your lover.)",,IsLoverOfPlayer()
 10,,(Give her the money envelope.),,GiveMoneyForOwner(),CanGiveMoneyForOwner()
@@ -95,12 +95,13 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 40,0,(Lend her some lockpicks.),(You give her some lockpicks to struggle out with until she leaves the room),GiveLockpicks(),CanGiveLockpicks()
 40,0,(Give her a spare key to your locks.),(You give her an extra key to your private padlocks),GiveHighSecurityKeys(),CanGiveHighSecurityKeys()
 40,0,(Hand over the keys to your locks.),(You give her the keys to your private padlocks),GiveHighSecurityKeysAll(),CanGiveHighSecurityKeysAll()
+40,0,(Spin her lucky wheel.),,StartLuckyWheel(),CanStartLuckyWheel()
 40,0,(Back to main menu.),(Main menu.),,
-50,0,(Generate a new GGTS task.),,DialogGGTSInteraction("NewTask"),
-50,0,(Give her a five minutes pause.),,DialogGGTSInteraction("Pause5"),
-50,0,(Slow pace for GGTS demands.),,DialogGGTSInteraction("Speed20"),
-50,0,(Normal pace for GGTS demands.),,DialogGGTSInteraction("Speed10"),
-50,0,(Fast pace for GGTS demands.),,DialogGGTSInteraction("Speed5"),
+50,0,(Generate a new GGTS task.),,"DialogGGTSInteraction(""NewTask"")",
+50,0,(Give her a five minutes pause.),,"DialogGGTSInteraction(""Pause5"")",
+50,0,(Slow pace for GGTS demands.),,"DialogGGTSInteraction(""Speed20"")",
+50,0,(Normal pace for GGTS demands.),,"DialogGGTSInteraction(""Speed10"")",
+50,0,(Fast pace for GGTS demands.),,"DialogGGTSInteraction(""Speed5"")",
 50,0,(Back to main menu.),(Main menu.),,
 100,110,(Wardrobe access.),(Select her wardrobe access.),,
 100,120,(Owner presence rules.),(Select the rules that will be enforced when you two are in the same room.),,
@@ -146,7 +147,7 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 140,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 140,0,(Back to main menu.),(Main menu.),,
 150,151,(Timed cell.),"(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)",,
-150,152,(Good Girl Training System.),"(How many minutes of Good Girl Training System will she be forced to do?)",,
+150,152,(Good Girl Training System.),(How many minutes of Good Girl Training System will she be forced to do?),,
 150,100,(Force her to serve drinks as a maid.),(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.),"SendOwnerRule(""LaborMaidDrinks"", ""Quest"")",CanServeDrink()
 150,,(Force her to serve drinks as a maid.),"(She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)",,!CanServeDrink()
 150,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
@@ -174,7 +175,7 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 170,100,(Restrict Bondage Club areas.),(The areas you've selected will be blocked for your submissive.),"AdvancedRule(""BlockScreen"")",
 170,100,(Lock specific appearance zones.),(The appearance zones you've selected will be locked for your submissive.),"AdvancedRule(""BlockAppearance"")",
 170,100,(Lock specific item zones.),(The item zones you've selected will be locked for your submissive.),"AdvancedRule(""BlockItemGroup"")",
-170,100,(Forbidden words list.),(The forbidden words list for your submissive has been updated.),"ForbiddenWords()",
+170,100,(Forbidden words list.),(The forbidden words list for your submissive has been updated.),ForbiddenWords(),
 170,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 170,0,(Back to main menu.),(Main menu.),,
 200,200,(Allow her to use lovers locks on herself.),(She will be able to use lovers locks on herself.),"SendLoverRule(""SelfLoverLockAllow"")","GetLoverRule(""BlockLoverLockSelf"")"
