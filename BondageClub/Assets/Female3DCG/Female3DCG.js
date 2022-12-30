@@ -1496,7 +1496,7 @@ var AssetFemale3DCG = [
 					{ Name: "Bow", Priority: 6, HasType: false, HideForAttribute: ["ShortHair"] },
 					{ Name: "BandPattern", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], HideForAttribute: ["ShortHair"] },
 					{ Name: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], HideForAttribute: ["ShortHair"] },
-					{ Name: "BandShort", CopyLayerColor: "Band", HasType: false, CopyLayerColor: "Bow", ShowForAttribute: ["ShortHair"], Top: -5 },
+					{ Name: "BandShort", CopyLayerColor: "Band", HasType: false, ShowForAttribute: ["ShortHair"], Top: -5 },
 					{ Name: "BowShort", CopyLayerColor: "Bow", Priority: 6, HasType: false, ShowForAttribute: ["ShortHair"] },
 					{ Name: "BandPatternShort", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], ShowForAttribute: ["ShortHair"], Top: -5 },
 					{ Name: "BowPatternShort", CopyLayerColor: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], ShowForAttribute: ["ShortHair"] },
