@@ -886,9 +886,6 @@ function ActivityRun(C, ItemActivity) {
 	// If the player does the activity on someone else, we calculate the progress for the player right away
 	ActivityRunSelf(Player, C, Activity, group, UsedAsset);
 
-	// Trigger the used item's expression
-	InventoryExpressionTrigger(Player, ItemActivity.Item);
-
 	// The text result can be outputted in the chatroom or in the NPC dialog
 	if (CurrentScreen == "ChatRoom") {
 

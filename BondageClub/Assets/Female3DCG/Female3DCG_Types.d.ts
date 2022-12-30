@@ -230,7 +230,6 @@ interface AssetDefinition {
 	DynamicDescription?: (C: Character) => string;
 	DynamicPreviewImage?: (C: Character) => string;
 	DynamicAllowInventoryAdd?: (C: Character) => boolean;
-	DynamicExpressionTrigger?: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName?: (C: Character) => string;
 
 	/** The real group name used when building the file paths for the asset's layers */
