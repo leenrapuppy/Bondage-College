@@ -451,6 +451,7 @@ function ModularItemClickCommon({ paginate, positions, drawImages }, exitCallbac
 		// Permission toggle button
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
 			ChatRoomCharacterUpdate(Player);
+			ExtendedItemRequirementCheckMessageMemo.clearCache();
 		}
 		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
 		return;

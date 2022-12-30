@@ -356,7 +356,10 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 
 	// Permission toggle button
 	if (MouseIn(1775, 25, 90, 90)) {
-		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
+		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
+			ChatRoomCharacterUpdate(Player);
+			ExtendedItemRequirementCheckMessageMemo.clearCache();
+		}
 		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
 	}
 
