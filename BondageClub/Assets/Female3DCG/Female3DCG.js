@@ -7275,7 +7275,9 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20, DefaultColor: ["#1C1C1C", , "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10, AllowLock: true, DrawLocks: false, Extended: true, DynamicAfterDraw: true, AllowColorizeAll: false,
+				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20,
+				DefaultColor: ["#1C1C1C", , "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
+				AllowLock: true, DrawLocks: false, Extended: true, AllowColorizeAll: false,
 				Attribute: ["ShortHair"],
 				Top: 31, Left: 166.5,
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
