@@ -174,7 +174,9 @@ function InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, Angle) {
 	const nbTexts = Math.max(Math.min(ItemDevicesLuckyWheelMaxTextLength, storedTexts.length), ItemDevicesLuckyWheelMinTexts);
 	const sectorAngleSize = 360 / nbTexts;
 
-	const landedIn = Math.round((Angle + 270) / sectorAngleSize);
+
+	const startingAngle = sectorAngleSize * (Math.floor(nbTexts / 2) - 1);
+	const landedIn = (nbTexts - Math.floor((Angle - startingAngle) / sectorAngleSize)) % nbTexts;
 	const section = storedTexts[landedIn];
 
 	/** @type {ChatMessageDictionary} */
