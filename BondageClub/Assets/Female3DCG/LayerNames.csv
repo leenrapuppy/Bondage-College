@@ -843,6 +843,7 @@ ItemMouthBambooGagRod,Rod
 ItemMouthBambooGagRope,Rope
 ItemMouthHarnessBallGag1Ball,Ball
 ItemMouthHarnessBallGag1Strap,Strap
+ItemMouthHarnessBallGag1Metal,Metal
 ItemMouthBallGagBall,Ball
 ItemMouthBallGagStrap,Strap
 ItemMouthBallBase,Ball
@@ -1379,3 +1380,7 @@ ItemHoodCustomLatexHoodHairUnder,Hair Inside Hood
 ItemHoodHarnessCatMaskBase,Harness
 ItemHoodHarnessCatMaskEarsUnder,Ears
 ItemHoodHarnessCatMaskMetal,Metal
+ClothLowerCrossSkirtBase,Base
+ClothLowerCrossSkirtBelt,Belt
+ClothLowerCrossSkirtCross,Crosses
+ClothLowerCrossSkirtMetal,Metal
