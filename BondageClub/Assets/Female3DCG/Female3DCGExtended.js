@@ -4413,6 +4413,17 @@ var AssetFemale3DCGExtended = {
 							{}, {}, {}, // a0 - DefaultArrow, a1 - AlternateArrow, a2 - PlugArrow
 						],
 					},
+					{
+						Name: "Position", Key: "p",
+						Options: [
+							{}, // p0 - WheelFront
+							{ // p1 - WheelBack
+								Property: {
+									OverridePriority: 0,
+								},
+							},
+						]
+					},
 				],
 				ScriptHooks: {
 					Draw: (n) => InventoryItemDevicesLuckyWheelDrawHook(n),
