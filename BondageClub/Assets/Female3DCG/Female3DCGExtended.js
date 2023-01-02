@@ -4398,19 +4398,19 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Stand", Key: "s",
 						Options: [
-							{}, {}, //b0 - WoodenBase, b2 - MetalBase
+							{}, {}, // s0 - WoodenBase, s1 - MetalBase
 						],
 					},
 					{
 						Name: "Misc", Key: "m",
 						Options: [
-							{}, {},//m0 - MiscOn, m1 - MiscOff
+							{}, {}, // m0 - MiscOn, m1 - MiscOff
 						],
 					},
 					{
 						Name: "Arrow", Key: "a",
 						Options: [
-							{}, {}, {}, //a0 - DefaultArrow, a1 - AlternateArrow, a2 - PlugArrow
+							{}, {}, {}, // a0 - DefaultArrow, a1 - AlternateArrow, a2 - PlugArrow
 						],
 					},
 				],
