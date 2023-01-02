@@ -22,7 +22,8 @@ function ItemDevicesLuckyWheelLabelForNum(num) {
  * Modular item hook to draw the spin button on every subscreeen
  */
 function InventoryItemDevicesLuckyWheelDrawHook(next) {
-	DrawButton(1380, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
+	if (ModularItemDataLookup.ItemDevicesLuckyWheel.currentModule === "Game")
+		DrawButton(1370, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
 	next();
 }
 
@@ -30,9 +31,11 @@ function InventoryItemDevicesLuckyWheelDrawHook(next) {
  * Modular item hook to handle clicks on the spin button on every subscreeen
  */
 function InventoryItemDevicesLuckyWheelClickHook(next) {
-	if (MouseIn(1380, 800, 260, 64)) {
-		InventoryItemDevicesLuckyWheelTrigger();
-		return;
+	if (ModularItemDataLookup.ItemDevicesLuckyWheel.currentModule === "Game") {
+		if (MouseIn(1370, 800, 260, 64)) {
+			InventoryItemDevicesLuckyWheelTrigger();
+			return;
+		}
 	}
 
 	next();
