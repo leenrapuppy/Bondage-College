@@ -332,11 +332,12 @@ function VibratorModeLoad(Options) {
 /**
  * Common draw function for vibrators
  * @param {VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
-function VibratorModeDraw(Options) {
+function VibratorModeDraw(Options, Y=450) {
 	ExtendedItemDrawHeader(1387, 100);
-	VibratorModeDrawControls(Options);
+	VibratorModeDrawControls(Options, Y);
 }
 
 /**
@@ -345,8 +346,7 @@ function VibratorModeDraw(Options) {
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
-function VibratorModeDrawControls(Options, Y) {
-	Y = typeof Y === "number" ? Y : 450;
+function VibratorModeDrawControls(Options, Y=450) {
 	let C = CharacterGetCurrent();
 	Options = Options || [VibratorModeSet.STANDARD];
 	var Property = DialogFocusItem.Property;

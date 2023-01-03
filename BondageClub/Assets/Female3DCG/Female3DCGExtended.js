@@ -4695,6 +4695,15 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ClitAndDildoVibratorbelt
+		LoversVibrator: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				ScriptHooks: {
+					Draw: InventoryItemVulvaLoversVibratorDrawHook,
+					Click: InventoryItemVulvaLoversVibratorClickHook,
+				},
+			},
+		}, // LoversVibrator
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
