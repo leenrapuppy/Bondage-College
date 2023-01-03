@@ -11,157 +11,223 @@ var LuckyWheelInitY = 0;
 var LuckyWheelInitTime = 0;
 var LuckyWheelValue = "";
 var LuckyWheelList = "";
+var LuckyWheelPasswordChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var LuckyWheelDefault = "ABCFGHKLMNPQRSUVWabcfgj$!-()0123456";
 var LuckyWheelOption = [
 	{
 		// Gagged
 		ID: "A",
 		Color: "Yellow",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 0);
+		}
 	},
 	{
 		// Gagged for 5 minutes
 		ID: "B",
 		Color: "Yellow",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 5);
+		}
 	},
 	{
 		// Gagged for 15 minutes
 		ID: "C",
 		Color: "Yellow",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 15);
+		}
 	},
 	{
 		// Gagged for 60 minutes
 		ID: "D",
 		Color: "Yellow",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 60);
+		}
 	},
 	{
 		// Gagged for 4 hours
 		ID: "E",
 		Color: "Yellow",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 240);
+		}
 	},
 	{
 		// Blindfolded
 		ID: "F",
 		Color: "Purple",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemHead", 0);
+		}
 	},
 	{
 		// Blindfolded for 5 minutes
 		ID: "G",
 		Color: "Purple",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemHead", 5);
+		}
 	},
 	{
 		// Blindfolded for 15 minutes
 		ID: "H",
 		Color: "Purple",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemHead", 15);
+		}
 	},
 	{
 		// Blindfolded for 60 minutes
 		ID: "I",
 		Color: "Purple",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemHead", 60);
+		}
 	},
 	{
 		// Blindfolded for 4 hours
 		ID: "J",
 		Color: "Purple",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemHead", 240);
+		}
 	},
 	{
 		// Arms bound
 		ID: "K",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemArms", 0);
+		}
 	},
 	{
 		// Arms bound for 5 minutes
 		ID: "L",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemArms", 5);
+		}
 	},
 	{
 		// Arms bound for 15 minutes
 		ID: "M",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemArms", 15);
+		}
 	},
 	{
 		// Arms bound for 60 minutes
 		ID: "N",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemArms", 60);
+		}
 	},
 	{
 		// Arms bound for 4 hours
 		ID: "O",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemArms", 240);
+		}
 	},
 	{
 		// Legs bound
 		ID: "P",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemFeet", 0);
+		}
 	},
 	{
 		// Legs bound for 5 minutes
 		ID: "Q",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemFeet", 5);
+		}
 	},
 	{
 		// Legs bound for 15 minutes
 		ID: "R",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemFeet", 15);
+		}
 	},
 	{
 		// Legs bound for 60 minutes
 		ID: "S",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemFeet", 60);
+		}
 	},
 	{
 		// Legs bound for 4 hours
 		ID: "T",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemFeet", 240);
+		}
 	},
 	{
 		// Full bondage
 		ID: "U",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 0);
+			LuckyWheelInventoryWear("ItemHead", 0);
+			LuckyWheelInventoryWear("ItemArms", 0);
+			LuckyWheelInventoryWear("ItemFeet", 0);
+		}
 	},
 	{
 		// Full bondage for 5 minutes
 		ID: "V",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 5);
+			LuckyWheelInventoryWear("ItemHead", 5);
+			LuckyWheelInventoryWear("ItemArms", 5);
+			LuckyWheelInventoryWear("ItemFeet", 5);
+		}
 	},
 	{
 		// Full bondage for 15 minutes
 		ID: "W",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 15);
+			LuckyWheelInventoryWear("ItemHead", 15);
+			LuckyWheelInventoryWear("ItemArms", 15);
+			LuckyWheelInventoryWear("ItemFeet", 15);
+		}
 	},
 	{
 		// Full bondage for 60 minutes
 		ID: "X",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 60);
+			LuckyWheelInventoryWear("ItemHead", 60);
+			LuckyWheelInventoryWear("ItemArms", 60);
+			LuckyWheelInventoryWear("ItemFeet", 60);
+		}
 	},
 	{
 		// Full bondage for 4 hours
 		ID: "Y",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemMouth", 240);
+			LuckyWheelInventoryWear("ItemHead", 240);
+			LuckyWheelInventoryWear("ItemArms", 240);
+			LuckyWheelInventoryWear("ItemFeet", 240);
+		}
 	},
 	{
 		// Encased
@@ -356,6 +422,50 @@ var LuckyWheelOption = [
 		Script: function() {}
 	},
 ];
+
+/**
+ * Wears an item from the lucky wheel spin
+ * @returns {void} - Nothing
+ */
+function LuckyWheelInventoryWear(Group, Minutes) {
+
+	// If the item is already locked with a timer lock, we extend the time and exit
+	let Item = InventoryGet(Player, Group);
+	if ((Item != null) && (InventoryGetLock(Item) != null)) {
+		if ((Item.Property != null) && (Item.Property.LockedBy === "TimerPasswordPadlock")) {
+			Item.Property.RemoveTimer = Item.Property.RemoveTimer + Minutes * 60000;
+			if (Item.Property.RemoveTimer > CurrentTime + 240 * 60000) Item.Property.RemoveTimer = CurrentTime + 240 * 60000;
+			CharacterRefresh(Player);
+			ChatRoomCharacterUpdate(Player);
+		}
+		return;
+	}
+
+	// Tries to wear a random item that locks, 20 tries max
+	let Try = 0;
+	while (((Item == null) || (Item.Asset == null) || (Item.Asset.AllowLock == false)) && (Try <= 20)) {
+		InventoryRemove(Player, Group, false);
+		InventoryWearRandom(Player, Group, null, false);
+		Item = InventoryGet(Player, Group);
+		Try++;
+	}
+
+	// Applies a lock if needed
+	Item = InventoryGet(Player, Group);
+	if ((Minutes != null) && (Minutes > 0) && Item.Asset.AllowLock) {
+		InventoryLock(Player, Item, "TimerPasswordPadlock", null, true);
+		if (Item.Property == null) Item.Property = {};
+		Item.Property.RemoveTimer = CurrentTime + Minutes * 60000;
+		Item.Property.RemoveItem = true;
+		Item.Property.LockSet = true;
+		Item.Property.Password = CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar);
+	}
+
+	// Refresh the character to the whole chat room
+	CharacterRefresh(Player);
+	ChatRoomCharacterUpdate(Player);
+
+}
 
 /**
  * Loads the lucky wheel mini game and builds the wheel
@@ -555,6 +665,11 @@ function LuckyWheelResult() {
 	let Msg = TextGet("Result" + (LuckyWheelRoleplay ? "Roleplay" : "")) + " " + TextGet("Option" + LuckyWheelValue);
 	ServerSend("ChatRoomChat", { Content: Msg, Type: "Emote" });
 	CommonSetScreen("Online", "ChatRoom");
+	if (!LuckyWheelRoleplay)
+		for (let O of LuckyWheelOption)
+			if (O.ID == LuckyWheelValue)
+				if (O.Script != null)
+					O.Script();
 }
 
 /**
