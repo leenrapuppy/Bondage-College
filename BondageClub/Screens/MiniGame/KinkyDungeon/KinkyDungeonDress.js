@@ -449,7 +449,6 @@ function KDInventoryWear(AssetName, AssetGroup,par) {
 	if (!A) return;
 	CharacterAppearanceSetItem(KinkyDungeonPlayer, AssetGroup, A, A.DefaultColor,0,-1, false);
 	CharacterRefresh(KinkyDungeonPlayer, true);
-	InventoryExpressionTrigger(KinkyDungeonPlayer, InventoryGet(KinkyDungeonPlayer, AssetGroup));
 }
 
 function KDCharacterNaked() {

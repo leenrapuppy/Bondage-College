@@ -1557,9 +1557,6 @@ function DialogMenuButtonClick() {
  * @returns {void} - Nothing
  */
 function DialogPublishAction(C, ClickItem) {
-
-	InventoryExpressionTrigger(C, ClickItem);
-
 	// TODO: The shock triggers can trigger items that can shock the wearer
 
 	// Publishes the item result

@@ -992,7 +992,6 @@ interface Asset {
 	DynamicDescription: (C: Character) => string;
 	DynamicPreviewImage: (C: Character) => string;
 	DynamicAllowInventoryAdd: (C: Character) => boolean;
-	DynamicExpressionTrigger: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName: (C: Character) => string;
 	DynamicGroupName: AssetGroupName;
 	DynamicActivity: (C: Character) => string | null | undefined;
@@ -2347,6 +2346,8 @@ interface ModularItemOptionBase {
 	Name?: string;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "ModularItemOption";
+	/** Trigger this expression when changing to this option */
+	Expression?: ExpressionTrigger[];
 }
 
 /** An object describing a single option within a module for a modular item. */

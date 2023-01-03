@@ -356,7 +356,10 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 
 	// Permission toggle button
 	if (MouseIn(1775, 25, 90, 90)) {
-		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
+		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
+			ChatRoomCharacterUpdate(Player);
+			ExtendedItemRequirementCheckMessageMemo.clearCache();
+		}
 		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
 	}
 
@@ -727,7 +730,7 @@ function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, 
 
 	if (ValidationCallback) {
 		window[validateFunctionName] = function (C, item, option, currentOption) {
-			ValidationCallback(validateFunction, C, item, option, currentOption);
+			return ValidationCallback(validateFunction, C, item, option, currentOption);
 		};
 	} else {
 		window[validateFunctionName] = validateFunction;

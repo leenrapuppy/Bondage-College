@@ -3300,35 +3300,35 @@ var AssetFemale3DCGExtended = {
 							}, // No gags or blindfolds visible
 							{
 								Property:{
-									OverridePriority: 12,									
+									OverridePriority: 12,
 									Block: ["ItemMouth", "ItemMouth2","ItemHead"],
 									Hide: ["ItemMouth", "ItemMouth2","ItemHead"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
-									OverridePriority: 12,									
+									OverridePriority: 12,
 									Block: ["ItemHead"],
 									Hide: ["ItemHead"],
 								}
 							}, // All gags visible
 							{
 								Property:{
-									OverridePriority: 12,									
+									OverridePriority: 12,
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 								}
 							}, // Blindfold items visible
 							{
 								Property:{
-									OverridePriority: 12,									
+									OverridePriority: 12,
 									Block: ["ItemMouth", "ItemMouth2",],
 									Hide: ["ItemMouth", "ItemMouth2",],
 								}
 							}, // Blindfold and highest layer gag
 							{
 								Property:{
-									OverridePriority: 12,									
+									OverridePriority: 12,
 									Block: [],
 									Hide: [],
 								}
@@ -3443,17 +3443,17 @@ var AssetFemale3DCGExtended = {
 							},
 							{// f1 - Opaque
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38 
+											OverridePriority: 38
 								}
 							},
 							{// f2 - Transparent
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38 
+											OverridePriority: 38
 								}
 							},
 							{// f3 - Opaque Hole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38 
+											OverridePriority: 38
 								}
 							},
 							{// f4 - Transparent Hole
@@ -3461,7 +3461,7 @@ var AssetFemale3DCGExtended = {
 											OverridePriority: 38
 								}
 							},
-						] 
+						]
 					},
 					{
 						Name: "EFill", Key: "s", DrawImages: false,
@@ -3471,7 +3471,7 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{ // s1 - Opaque
-								Property: { Effect: ["BlindLight"] 
+								Property: { Effect: ["BlindLight"]
 								}
 							},
 							{ // s2 - Transparent
@@ -6495,11 +6495,11 @@ var AssetFemale3DCGExtended = {
                     },
                     {
                         Name: "Mask", Key: "m",
-                        Options: [ 
-							{Property: {Effect: ["BlockMouth"]}}, 
-							{Property: {Effect: ["BlockMouth", "GagVeryLight"]}}, 
+                        Options: [
+							{Property: {Effect: ["BlockMouth"]}},
+							{Property: {Effect: ["BlockMouth", "GagVeryLight"]}},
 							{Property: {Effect:[""]}},
-					
+
 						] // Mask, Thick Filters, No Mask
                     },
 					{
@@ -7653,6 +7653,7 @@ var AssetFemale3DCGExtended = {
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.DEST_CHAR,
 					CommonChatTags.DEST_CHAR_NAME,
+					CommonChatTags.ASSET_NAME,
 				],
 				Modules: [
 					{
@@ -7713,28 +7714,100 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { ShowText: true },
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
-					Click: InventoryItemPelvisSciFiPleasurePantiesClick,
+					Click: InventoryItemPelvisSciFiPleasurePantiesClickHook,
 					Draw: InventoryItemPelvisSciFiPleasurePantiesDraw,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
 				Dialog: {
-					ChatPrefix: ({previousOption, newOption}) => {
-						if (DialogFocusItem == null) {
-							return "";
-						}
-						const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
-						const IntensityPattern = /^(i)(\d+)$/g;
-						if (!IntensityPattern.test(newOption.Name)) {
-							return Prefix;
-						}
-						const Change = Number.parseInt(newOption.Name.slice(1)) - Number.parseInt(previousOption.Name.slice(1));
-						const StateChange = (Change > 0) ? "Increase" : "Decrease";
-						return `${Prefix}${StateChange}`;
-					},
+					ChatPrefix: InventoryItemPelvisSciFiPleasurePantiesChatPrefix,
 				},
 			},
 		},
+		LoveChastityBelt: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
+				Modules: [
+					{
+						Name: "FrontShield", Key: "f",
+						DrawImages: false,
+						Options: [
+							{ // 0 - open
+								Expression: [{ Name: "Low", Group: "Blush", Timer: 10 }],
+							},
+							{ // 1 - close front
+								Expression: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings"],
+								},
+							},
+							{ // 2 - close front & vibrator
+								Expression: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+								Property: {
+									Effect: ["Chaste", "Egged"],
+									Block: ["ItemVulva", "ItemVulvaPiercings"],
+								},
+							},
+							{ // 3 - close front & shock unit
+								Expression: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings"],
+								},
+							},
+						],
+					},
+					{
+						Name: "BackShield", Key: "b",
+						DrawImages: false,
+						Options: [
+							{}, // 0 - open
+							{ // 1 - closed
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemButt"],
+								},
+							},
+						],
+					},
+					{
+						Name: "Intensity", Key: "i",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1 } }, // i0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Vibrating"] } }, // i1 - Low
+							{ Property: { Intensity: 1, Effect: ["Vibrating"] } }, // i2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Vibrating"] } }, // i3 - High
+							{ Property: { Intensity: 3, Effect: ["Vibrating"] } }, // i4 - Maximum
+						],
+					},
+					{
+						Name: "ShockLevel", Key: "s",
+						DrawImages: false,
+						Options: [
+							{ Property: { ShockLevel: 0 } }, // s0 - Level 1
+							{ Property: { ShockLevel: 1 } }, // s1 - Level 2
+							{ Property: { ShockLevel: 2 } }, // s2 - Level 3
+						],
+					},
+				],
+				BaselineProperty: { ShowText: true },
+				ScriptHooks: {
+					Click: InventoryItemPelvisLoveChastityBeltClick,
+					Draw: InventoryItemPelvisLoveChastityBeltDraw,
+					Validate: InventoryItemPelvisLoveChastityBeltValidate,
+				},
+				Dialog: {
+					ChatPrefix: InventoryItemPelvisSciFiPleasurePantiesChatPrefix,
+				},
+			},
+		}, // LoveChastityBelt
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {

@@ -231,6 +231,7 @@ function ModularItemCreateModularData(asset, {
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 		},
 		drawFunctions: {},
 		clickFunctions: {},
@@ -450,6 +451,7 @@ function ModularItemClickCommon({ paginate, positions, drawImages }, exitCallbac
 		// Permission toggle button
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
 			ChatRoomCharacterUpdate(Player);
+			ExtendedItemRequirementCheckMessageMemo.clearCache();
 		}
 		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
 		return;
@@ -663,6 +665,11 @@ function ModularItemSetType(module, index, data) {
 
 		if (!IsCloth) {
 			const groupName = data.asset.Group.Name;
+
+			// If the item triggers an expression, start the expression change
+			if (option.Expression) {
+				InventoryExpressionTriggerApply(C, option.Expression);
+			}
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, groupName);
 
