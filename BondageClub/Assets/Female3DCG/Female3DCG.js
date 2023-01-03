@@ -765,6 +765,14 @@ var AssetFemale3DCG = [
 					{ Pose: ["KneelingSpread"], Group: ["BodyLower", "Socks", "Shoes", "SuitLower", "Garters"], Masks: [[0, 462, 500, 538]] }
 				]
 			},
+			{
+				Name: "CrossSkirt", Value: 60, Alpha: [{ Group: ["Panties", "ItemPelvis"], Masks: [[0, 0, 500, 580]] }], AllowPose: ["KneelingSpread"], HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], Layer: [
+					{ Name: "Base" },
+					{ Name: "Belt" },
+					{ Name: "Cross" },
+					{ Name: "Metal" },
+				],
+			},
 			// Penis Compatible Clothing
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5593,6 +5601,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Ball" },
 					{ Name: "Strap", HasType: false },
+					{ Name: "Metal", HasType: false },
 				]
 			},
 			{
