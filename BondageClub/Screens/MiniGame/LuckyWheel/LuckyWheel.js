@@ -233,79 +233,105 @@ var LuckyWheelOption = [
 		// Encased
 		ID: "a",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemDevices", 0);
+		}
 	},
 	{
 		// Encased for 5 minutes
 		ID: "b",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemDevices", 5);
+		}
 	},
 	{
 		// Encased for 15 minutes
 		ID: "c",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemDevices", 15);
+		}
 	},
 	{
 		// Encased for 60 minutes
 		ID: "d",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemDevices", 60);
+		}
 	},
 	{
 		// Encased for 4 hours
 		ID: "e",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelInventoryWear("ItemDevices", 240);
+		}
 	},
 	{
 		// No wardrobe for 5 minutes
 		ID: "f",
 		Color: "Gray",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelBlockWardrobe(5);
+		}
 	},
 	{
 		// No wardrobe for 15 minutes
 		ID: "g",
 		Color: "Gray",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelBlockWardrobe(15);
+		}
 	},
 	{
 		// No wardrobe for 60 minutes
 		ID: "h",
 		Color: "Gray",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelBlockWardrobe(60);
+		}
 	},
 	{
 		// No wardrobe for 4 hours
 		ID: "i",
 		Color: "Gray",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelBlockWardrobe(240);
+		}
 	},
 	{
 		// Isolation cell for 5 minutes
 		ID: "j",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelIsolationCell(5);
+		}
 	},
 	{
 		// Isolation cell for 15 minutes
 		ID: "k",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelIsolationCell(15);
+		}
+	},
+	{
+		// Isolation cell for 30 minutes
+		ID: "l",
+		Color: "Red",
+		Script: function() {
+			LuckyWheelIsolationCell(30);
+		}
 	},
 	{
 		// Isolation cell for 60 minutes
-		ID: "l",
-		Color: "Red",
-		Script: function() {}
-	},
-	{
-		// Isolation cell for 4 hours
 		ID: "m",
 		Color: "Red",
-		Script: function() {}
+		Script: function() {
+			LuckyWheelIsolationCell(60);
+		}
 	},
 	{
 		// Hogtie bondage
@@ -364,67 +390,89 @@ var LuckyWheelOption = [
 	{
 		// Everyone should cheer for you
 		ID: "0",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should pat your head
 		ID: "1",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should hug you
 		ID: "2",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should tickle you
 		ID: "3",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should kiss you
 		ID: "4",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should pinch you
 		ID: "5",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should spank you
 		ID: "6",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should caress you
 		ID: "7",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should grope you
 		ID: "8",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 	{
 		// Everyone should masturbate you
 		ID: "9",
-		Color: "Green",
-		Script: function() {}
+		Color: "Green"
 	},
 ];
 
 /**
+ * Sends the player to the isolation for a number of minutes
+ * @param {number} Minutes - The number of minutes
+ * @returns {void} - Nothing
+ */
+function LuckyWheelIsolationCell(Minutes) {
+	ChatRoomSlowtimer = 0;
+	ChatRoomSlowStop = false;
+	ChatRoomClearAllElements();
+	ChatRoomSetLastChatRoom("");
+	ServerSend("ChatRoomLeave", "");
+	LogAdd("Locked", "Cell", CurrentTime + Minutes * 60000);
+	CommonSetScreen("Room", "Cell");
+}
+
+/**
+ * Block the wardrobe for the user for a set time, or add to the current blocked time
+ * @param {number} Minutes - The number of minutes
+ * @returns {void} - Nothing
+ */
+function LuckyWheelBlockWardrobe(Minutes) {
+	let Time = LogValue("BlockChange", "Rule");
+	if (Time == null) Time = 0;
+	if (Time > CurrentTime + 240 * 60000) return;
+	if (Time < CurrentTime) Time = CurrentTime;
+	Time = Time + Minutes * 60000;
+	if (Time > CurrentTime + 240 * 60000) Time = CurrentTime + 240 * 60000;
+	LogAdd("BlockChange", "Rule", Time);
+}
+
+/**
  * Wears an item from the lucky wheel spin
+ * @param {string} Group - The asset group to focus
+ * @param {number} Minutes - The number of minutes
  * @returns {void} - Nothing
  */
 function LuckyWheelInventoryWear(Group, Minutes) {
@@ -441,9 +489,9 @@ function LuckyWheelInventoryWear(Group, Minutes) {
 		return;
 	}
 
-	// Tries to wear a random item that locks, 20 tries max
+	// Tries to wear a random item that locks, 30 tries max
 	let Try = 0;
-	while (((Item == null) || (Item.Asset == null) || (Item.Asset.AllowLock == false)) && (Try <= 20)) {
+	while (((Item == null) || (Item.Asset == null) || (Item.Asset.AllowLock == false)) && (Try <= 30)) {
 		InventoryRemove(Player, Group, false);
 		InventoryWearRandom(Player, Group, null, false);
 		Item = InventoryGet(Player, Group);
