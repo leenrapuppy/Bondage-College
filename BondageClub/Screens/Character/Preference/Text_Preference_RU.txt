@@ -28,6 +28,8 @@
 - Настройки уведомлений -
 - Gender Preferences -
 - Гендерные настройки -
+- Script Permission Preferences -
+- Настройки разрешений для скриптов -
 General
 Общие
 Difficulty
@@ -36,6 +38,8 @@ Restriction
 Ограничение
 Chat
 Чат
+Censored Words
+Цензурированные слова
 Audio
 Аудио
 Arousal
@@ -56,6 +60,8 @@ Notifications
 Уведомления
 Gender
 Пол
+Scripts
+Скрипты
 The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
 Режим сложности применяет ограничения БДСМ только в многопользовательской игре. Нажми для деталей.
 Roleplay
@@ -614,12 +620,18 @@ Name Mentioned
 Упомянутое имя
 Players entering chat rooms
 Игроки, заходящие в чаты
+Self
+Я
 Owner
 Хозяйка
 Lovers
 Возлюбленные
 Friends
-друзья
+Друзья
+Whitelist
+Белый список
+Public
+Все остальные
 Owned Subs
 Собственные сабы
 Disconnect from the game
@@ -646,3 +658,34 @@ Automatically enter the chatroom area for:
 Автоматически входить в зону чата для:
 Hide shop items exclusively for:
 Скрыть товары в магазине исключительно для:
+Apply the censoring
+Применение цензуры
+Select the censorship to apply and the words to censor in both the chat and room labels.
+Выберите цензуру для применения и слова для цензуры как в чате, так и в метках комнат.
+Censorship:
+Цензура:
+Replace the word by ***
+Заменить слово на ***
+Replace the phrase by ***
+Заменить фразу на ***
+Hide the phrase or room
+Скрыть фразу или комнату
+Censored words:
+Цензурирован. слова:
+Add
+Добавить
+WARNING!
+ВНИМАНИЕ!
+Changing the settings on this page can allow people to modify your items and appearance using scripts in ways that are not possible in the core game. If you don't want this, or if you don't know what you're doing, don't touch these settings!
+Изменение настроек на этой странице может позволить людям изменять ваши предметы и внешний вид с помощью скриптов способами, которые невозможны в основной игре. Если вы этого не хотите, или если вы не знаете, что делаете, не прикасайтесь к этим настройкам!
+I Accept
+Я принимаю
+Specify who can modify your worn items using scripts, and what they're allowed to do.
+Укажите, кто может изменять ваши носимые предметы с помощью сценариев и что им разрешено делать.
+Specify who can modify your worn items using scripts, and what they're allowed to do."
+To reduce issues and maintain a baseline level of visual coherence, the Bondage Club contains a series of measures which prevents people from modifying your items in ways that might cause clipping or graphical issues. On this screen you can choose to allow certain people to bypass those restrictions via custom scripts or addons. This can allow for a higher degree of visual customisation for items, but be aware that it can also open the door to severe visual glitches, including invisible items or characters, so use these options at your own risk. To find out more about the properties that you can assign permissions for and what each might do and the associated risks, click the '?' icon next to each one. Be aware that setting permissions to public means that anyone will be able to modify that feature, even trolls, so please use this with caution. Remember that you can remove unwanted script effects at any time by removing all permissions for that effect (including 'Self').
+Чтобы уменьшить количество проблем и поддерживать базовый уровень визуальной согласованности, Bondage Club содержит ряд мер, которые не позволяют людям изменять ваши предметы таким образом, чтобы это могло вызвать проблемы с движением или графикой. На этом экране вы можете разрешить определенным людям обходить эти ограничения с помощью пользовательских скриптов или аддонов. Это может обеспечить более высокую степень визуальной настройки для предметов, но имейте в виду, что это также может открыть дверь для серьезных визуальных сбоев, включая невидимые предметы или персонажей, поэтому используйте эти параметры на свой страх и риск. Чтобы узнать больше о свойствах, для которых можно назначить разрешения, и о том, что каждый из них может делать, а также о связанных с ним рисках, щелкните значок '?' рядом с каждым из них. Имейте в виду, что установка разрешений для общедоступных означает, что любой сможет изменить эту функцию, даже тролли, поэтому, пожалуйста, используйте это с осторожностью. Помните, что вы можете удалить нежелательные эффекты скрипта в любое время, удалив все разрешения для этого эффекта (включая «Я»).
+Permits scripts to override the default item-hiding behaviour of Bondage Club. This can enhance your game by allowing item combinations that wouldn't normally be possible, or by allowing items to be hidden to achieve a particular look that doesn't necessarily reflect exactly what you're wearing. However, it can also be used to create severe visual glitches, including making items or even your whole character invisible. Use with caution!
+Разрешает сценариям переопределять поведение скрытия предметов по умолчанию в Bondage Club. Это может улучшить вашу игру, позволяя комбинировать предметы, которые обычно были бы невозможны, или позволяя скрывать предметы для достижения определенного вида, который не обязательно точно отражает то, что вы носите. Однако его также можно использовать для создания серьезных визуальных сбоев, включая невидимость предметов или даже всего вашего персонажа. Используйте с осторожностью!
+Permits scripts to override the default item-blocking behaviour of Bondage Club. This is the functionality that prevents you from equipping items on others, or can prevent sexual activities on blocked zones. Allowing scripts to add custom blocking behaviour can allow for additional restriction, preventing players from removing worn items or adding new ones in a given slot, but can also result in items that you can't remove yourself without the help of a script (or by removing this permission).
+Разрешает сценариям переопределять поведение блокировки предметов по умолчанию в Bondage Club. Это функция, которая не позволяет вам надевать предметы на других или может предотвратить сексуальные действия в заблокированных зонах. Разрешение сценариям добавлять настраиваемое поведение блокировки может разрешить дополнительные ограничения, запрещающие игрокам удалять изношенные предметы или добавлять новые в заданный слот, но также может привести к тому, что предметы, которые вы не сможете удалить самостоятельно без помощи сценария (или с помощью удаление этого разрешения).

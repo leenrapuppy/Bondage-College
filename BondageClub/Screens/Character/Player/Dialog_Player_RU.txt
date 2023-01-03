@@ -330,7 +330,7 @@ Must remove shackles first.
 Must remove face mask first.
 Сначала необходимо снять маску с лица.
 Must empty vulva first.
-Сначала нужно опорожнить вульву.
+Сначала нужно освободить вульву.
 Must remove clitoris piercings first
 Сначала необходимо удалить пирсинг клитора
 Must empty butt first.
@@ -851,7 +851,7 @@ Boutique Shop
 Shop Dressing Rooms
 Примерочные магазина
 Confessions
-Исповедь
+Исповедальня
 Desolate Village
 Пустынная деревня
 Lost Wages Casino
@@ -997,7 +997,7 @@ The Bondage Club объявляет, что SourceCharacter отменил пр�
 The Bondage Club announces that SourceCharacter released TargetCharacter from PronounPossessive ownership.
 The Bondage Club объявляет, что SourceCharacter освободил TargetCharacter от PronounPossessive владения.
 The Bondage Club is proud to announce that SourceCharacter is now fully collared.  PronounPossessive fate is in PronounPossessive owners hands.
-The Bondage Club с гордостью сообщает, что SourceCharacter теперь полностью в ошейнике. PronounPossessive судьба в руках PronounPossessive owners Госпожи.
+The Bondage Club с гордостью сообщает, что SourceCharacter теперь полностью в ошейнике. PronounPossessive судьба в руках PronounPossessive Хозяйки.
 Your owner is now allowing you to access your wardrobe and change clothes.
 Ваша хозяйка теперь позволяет вам получить доступ к своему гардеробу и переодеться.
 Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
@@ -1129,31 +1129,33 @@ The kidnappers opened your suitcase, which contains a laptop with a bunch of sec
 The kidnappers have stolen even more data using your laptop.
 Похитители украли еще больше данных с помощью вашего ноутбука.
 You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.
-Вы отключили OOC/whispers с кляпом во рту. Вы можете изменить это на экране настроек погружения.
-You choke momentarily on the gag inside your throat.
-Ты на мгновение задыхаешься от кляпа в горле.
-It is difficult to breath with the gag pushing inside your throat.
-Трудно дышать из-за кляпа, застрявшего в горле.
-Your jaw aches from the gag shoved down your throat.
-Твоя челюсть болит от кляпа, засунутого тебе в горло.
+Вы отключили OOC/шепот с кляпом во рту. Вы можете изменить это на экране настроек погружения.
+You choke momentarily on the AssetName inside your throat.
+Ты на мгновение задыхаешься от AssetName в горле.
+It is difficult to breath with the AssetName pushing inside your throat.
+Трудно дышать когда AssetName застряет в твоем горле.
+Your jaw aches from the AssetName shoved down your throat.
+Твоя челюсть болит от AssetName, засунутого тебе в горло.
+Your AssetName rubs against your vulva.
+Твой AssetName трется о твою вульву.
 Your crotch rope rubs against your vulva.
 Твоя веревка в промежности трется о твою вульву.
-The knot on your crotch rope rubs against your clitoris.
-Узел на веревке в промежности трется о ваш клитор.
-The rope between your legs digs into your crotch.
-Веревка между ног впивается в промежность.
-You feel the dildo shift around inside of you.
-Вы чувствуете, как фаллоимитатор перемещается внутри вас.
-You notice the large plug stuffed between your legs.
-Вы замечаете большую пробку, засунутую у вас между ног.
-The dildo inside of you teases you constantly.
-Фаллоимитатор внутри тебя постоянно дразнит тебя.
-The plug inside of you shifts around as you move.
-Пробка внутри вас смещается по мере того, как вы двигаетесь.
-Your butt plug stimulates you constantly as you move around.
-Ваша анальная пробка постоянно стимулирует вас, когда вы двигаетесь.
-The plug inside your butt feels awkward as you move.
-Пробка внутри вашей задницы кажется неудобной, когда вы двигаетесь.
+The knot on your AssetName rubs against your clitoris.
+Узел на твоей AssetName трется о твой клитор.
+The AssetName between your legs digs into your crotch.
+AssetName между ног впивается в твою промежность.
+You feel the AssetName shift around inside your AssetGroup.
+Ты чувствуешь, как AssetName перемещается внутри твоей AssetGroup.
+You notice the AssetName stuffed between your legs.
+Ты замечаешь AssetName, засунутую у тебя между ног.
+The AssetName inside of you teases you constantly.
+AssetName внутри тебя постоянно дразнит тебя.
+The AssetName inside of you shifts around as you move.
+AssetName внутри тебя перемещается по мере того, как ты двигаешься.
+Your AssetName stimulates you constantly as you move around.
+Твой AssetName постоянно стимулирует тебя, когда ты двигаешься.
+The AssetName inside your AssetGroup feels awkward as you move.
+AssetName внутри твоей AssetGroup кажется неудобной, когда ты двигаешься.
 The plugs keep reminding you of their presence.
 Пробки постоянно напоминают тебе о своем присутствии.
 Your plugs torment you endlessly.
@@ -1162,22 +1164,34 @@ The plugs stuffed inside you keep you constantly on edge.
 Пробки, засунутые внутрь вас, постоянно держат вас на взводе.
 The vibration in your sensitive areas is impossible to ignore.
 Вибрацию в ваших чувствительных зонах невозможно игнорировать.
-Your body trembles from the vibrators' constant stimulation.
-Ваше тело дрожит от постоянной стимуляции вибраторов.
-You can't stop noticing the vibrators teasing you.
-Вы не можете перестать замечать вибраторы, дразнящие вас.
-The vibration deep inside of you teases you relentlessly.
-Вибрация глубоко внутри вас безжалостно дразнит вас.
-The plug inside of you vibrates endlessly.
-Пробка внутри вас бесконечно вибрирует.
-The vibrator inside of you keeps you on edge.
-Вибратор внутри тебя держит тебя на взводе.
-Your butt feels numb from the vibrations.
-Ваша задница немеет от вибраций.
-The vibrations in your butt leave you panting without release.
-Вибрации в вашей заднице заставляют вас задыхаться без разрядки.
-The vibrator inside your butt teases you constantly.
-Вибратор внутри твоей задницы постоянно дразнит тебя.
+Your body trembles from the AssetName' constant stimulation.
+Твое тело дрожит от постоянной стимуляции AssetName'.
+You can't stop noticing the AssetName teasing you.
+Ты не можешь перестать замечать AssetName, дразнящие тебя.
+The bloated AssetName in your AssetGroup makes you squirm.
+Раздутый AssetName в твоей AssetGroup заставляет тебя корчиться.
+You can't help but squeeze the bulging AssetName as you move.
+Ты не можешь не сжать выпуклость AssetName когда ты двигаешься.
+You bite your lips as you're reminded of the AssetName filling your AssetGroup.
+Ты кусаешь губы, когда чувствуешь что AssetName заполняет твою AssetGroup.
+The vibration deep inside your AssetGroup teases you relentlessly.
+Вибрация глубоко внутри твоей AssetGroup безжалостно дразнит тебя.
+The AssetName inside of you vibrates endlessly.
+AssetNam внутри тебя бесконечно вибрирует.
+The AssetName inside of you keeps you on edge.
+AssetName внутри тебя держит тебя на взводе.
+Your AssetGroup feels numb from the vibrations.
+Твоя AssetGroup немеет от вибраций.
+The vibrations in your AssetGroup leave you panting without release.
+Вибрации в твоей AssetGroup заставляют тебя тяжело дышать.
+The vibrator inside your AssetGroup teases you constantly.
+Вибратор внутри твоей AssetGroup постоянно дразнит тебя.
+Your AssetName wiggles from your AssetGroup as you move.
+Твой AssetName ерзает в твоей AssetGroup когда ты движешься.
+You feel a sharp pain in your AssetGroup as the AssetName wiggle slightly.
+Ты чувствуешь острую боль в своей AssetGroup, когда AssetName слегка покачивается.
+The AssetName hanging from your AssetGroup get shuffled as you move around.
+AssetName висящий на твоей AssetGroup сдвигается, когда ты движешься.
 Type /help for a list of commands
 Введите /help для получения списка команд
 You are not on that member's friendlist; ask TargetPronounObject to friend you before leashing TargetPronounObject.
@@ -1247,7 +1261,7 @@ SourceCharacter встаёт на пути TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter пытается помочь TargetCharacter освободится.
 SourceCharacter gives TargetCharacter some lockpicks to help TargetType2Pronouns with.
-SourceCharacter даёт TargetCharacter несколько отмычек, чтобы помочь TargetType2Pronouns.
+SourceCharacter даёт TargetCharacter несколько отмычек, чтобы помочь.
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter хватает поводок на TargetCharacter.
 SourceCharacter releases the leash of TargetCharacter.
@@ -1345,7 +1359,7 @@ SourceCharacter изменяет настройки голосовых кома�
 DestinationCharacterName vibrator switches modes!
 DestinationCharacterName вибратор переключает режимы!
 DestinationCharacterName vibrator lets out a sharp jolt!
-DestinationCharacterName вибратор выпускает резкий толчок!
+DestinationCharacterName вибратор испускает резкий удар!
 Anyone
 Кто угодно
 Others
@@ -1836,7 +1850,7 @@ SourceCharacter removes the background on DestinationCharacter headset.
 SourceCharacter удаляет фон на гарнитуре DestinationCharacter .
 SourceCharacter sets the background on DestinationCharacter headset to a virtual realm.
 SourceCharacter устанавливает фон виртуальный мир на гарнитуру DestinationCharacter .
-SourceCharacter sets the background on DestinationCharacter headset headset to a dark dungeon.
+SourceCharacter sets the background on DestinationCharacter headset to a dark dungeon.
 SourceCharacter устанавливает фон тёмное подземелье на гарнитуру DestinationCharacter headset .
 SourceCharacter sets the background on DestinationCharacter headset to a high-tech environment.
 SourceCharacter устанавливает фон высокотехнологичная среда на гарнитуру DestinationCharacter .
@@ -2158,6 +2172,14 @@ SourceCharacter configures DestinationCharacter gag to deflate 1 hour after trig
 SourceCharacter настраивает кляп DestinationCharacter чтобы он сдувался через 1 час после срабатывания.
 SourceCharacter configures DestinationCharacter gag to deflate 20 hours after triggering.
 SourceCharacter настраивает кляп DestinationCharacter чтобы он сдувался через 20 часов после срабатывания.
+SourceCharacter configures DestinationCharacter gag to not punish her for speaking.
+SourceCharacter настраивает кляп DestinationCharacter, чтобы не наказывать ее за высказывания.
+SourceCharacter configures DestinationCharacter gag to punish her for shouting.
+SourceCharacter настраивает кляп DestinationCharacter, чтобы наказать ее за крик.
+SourceCharacter configures DestinationCharacter gag to punish her for saying long sentences.
+SourceCharacter настраивает кляп DestinationCharacter, чтобы наказать ее за произнесение длинных предложений.
+SourceCharacter configures DestinationCharacter gag to punish her for speaking.
+SourceCharacter настраивает кляп DestinationCharacter, чтобы наказать ее за разговор.
 SourceCharacter plugs up DestinationCharacter mouth with the dildo plug.
 SourceCharacter затыкает рот DestinationCharacter заглушкой для фаллоимитатора.
 SourceCharacter pulls out DestinationCharacter dildo plug from TargetPronounPossessive gag.
@@ -2344,7 +2366,7 @@ DestinationCharacterName belt detects an orgasm and shocks TargetPronounObject!
 Пояс на DestinationCharacterName обнаруживает оргазм и шокирует TargetPronounObject!
 DestinationCharacterName belt detects tampering and shocks TargetPronounObject!
 Пояс на DestinationCharacterName обнаруживает вмешательство и бьет TargetPronounObject током!
-DestinationCharacterName belt detects TargetPronounObject struggling and delivers an intense shock!
+DestinationCharacterName belt detects TargetPronounPossessive struggling and delivers an intense shock!
 Пояс на DestinationCharacterName обнаруживает TargetPronounObject борьбу и наносит сильный удар!
 DestinationCharacterName bindings tighten around TargetPronounObject body with a hiss as they lock themselves automatically.
 Привязки на DestinationCharacterName затягиваются вокруг TargetPronounObject тела с шипением, автоматически фиксируясь.
@@ -2491,15 +2513,19 @@ Current Breathing:
 Steady
 Стабильное
 Shaky
-Шаткое
+Нетвердое
 Excited
 Взволнованное
 Current Heart Rate:
 Текущий пульс:
+BPM
+Ударов в минуту
 Current Training Level:
 Текущий уровень обучения:
-Tracking Signal: Good
-Сигнал отслеживания: хороший
+Tracking Signal:
+Уровень сигнала:
+Good
+Хороший
 Cover Display
 Закрыть дисплей
 Show Display
@@ -2826,8 +2852,8 @@ Extra padding is added to DestinationCharacterName poofy diaper. Making it crink
 К пушистому подгузнику DestinationCharacterName добавлено дополнительное наполнение. Заставляя его шуршать громче и заставляя ребенка ходить вразвалку.
 Reset trigger count
 Сбросить счетчик триггеров
-Trigger count: ShockCount
-Количество триггеров: ShockCount
+Trigger count:
+Количество триггеров:
 SourceCharacter resets DestinationCharacter AssetName trigger count.
 SourceCharacter сбрасывает количество триггеров у DestinationCharacter AssetName.
 Item intensity: Disabled
@@ -2850,6 +2876,12 @@ Item sensitivity: High
 Чувствительность предмета: высокая
 Item sensitivity: Maximum
 Чувствительность предмета: максимальная
+Egg Intensity
+Интенсивность Яйца
+Egg intensity:
+Интенсивность яйца:
+Select egg intensity
+Выберите интенсивность яйца
 Egg item intensity: Disabled
 Интенсивность яйца: отключено
 Egg item intensity: Low
@@ -2860,6 +2892,12 @@ Egg item intensity: High
 Интенсивность яица: высокая
 Egg item intensity: Maximum
 Интенсивность яица: максимальная
+Dildo Intensity
+Интенсивность Дилдо
+Dildo intensity:
+Интенсивность дилдо:
+Select dildo intensity
+Выберите интенсивность дилдо
 Dildo item intensity: Disabled
 Интенсивность фаллоимитатора: отключено
 Dildo item intensity: Low
@@ -2876,6 +2914,16 @@ Decrease
 Уменьшить
 Show chat message
 Показать сообщение чата
+Shock Intensity
+Сила шока
+Select shock intensity
+Выберите силу шока
+Auto-shock Sensitivity
+Чувствительность автошока
+Select auto-shock sensitivity
+Выберите чувствительность автошока
+Sensitivity:
+Чувствительность:
 SourceCharacter sets DestinationCharacter AssetName to low intensity.
 SourceCharacter устанавливает для DestinationCharacter AssetName низкую интенсивность.
 SourceCharacter sets DestinationCharacter AssetName to moderate intensity.
@@ -2893,7 +2941,7 @@ SourceCharacter устанавливает для DestinationCharacter AssetName
 DestinationCharacterName AssetName gives TargetPronounObject a light shock.
 DestinationCharacterName AssetName вызывает у TargetPronounObject легкий шок.
 DestinationCharacterName AssetName lets out a sharp jolt!
-DestinationCharacterName AssetName производит резкий толчок!
+DestinationCharacterName AssetName производит резкий удар!
 DestinationCharacterName AssetName delivers an intense shock!
 DestinationCharacterName AssetName доставляет сильный шок!
 DestinationCharacterName collar gives her a light shock.
@@ -3158,22 +3206,22 @@ DestinationCharacterName inflatable vibrating butt plug starts buzzing strongly!
 Надувная вибрирующая анальная пробка в DestinationCharacterName начинает сильно гудеть!
 DestinationCharacterName inflatable vibrating butt plug jumps up to maximum intensity!
 Надувная вибрирующая анальная пробка в DestinationCharacterName подпрыгивает до максимальной интенсивности!
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till it's empty.
-SourceCharacter сдувает надувную вибрирующую пробку в DestinationCharacter , пока она не опустеет.
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till only slightly filled.
-SourceCharacter сдувает надувную вибрирующую анальную пробку в DestinationCharacter , пока она лишь слегка не наполнится.
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till it's half full.
-SourceCharacter сдувает надувную вибрирующую пробку в DestinationCharacter до половины.
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug only a tiny bit.
-SourceCharacter сдувает надувную вибрирующую анальную пробку в DestinationCharacter лишь немного.
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug only slightly.
-SourceCharacter лишь слегка надувает надувную вибрирующую анальную пробку в DestinationCharacter.
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug till it's half full.
-SourceCharacter надувает надувную вибрирующую анальную пробку в DestinationCharacter до половины.
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug till three quarters filled.
-SourceCharacter надувает надувную вибрирующую анальную пробку в DestinationCharacter на три четверти.
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug to it's maximum amount.
-SourceCharacter надувает надувную вибрирующую пробку в DestinationCharacter до максимального размера.
+SourceCharacter deflates DestinationCharacter AssetName till it's empty.
+SourceCharacter сдувает AssetName в DestinationCharacter, пока она не опустеет.
+SourceCharacter deflates DestinationCharacter AssetName till only slightly filled.
+SourceCharacter сдувает AssetName в DestinationCharacter, пока она лишь слегка не наполнится.
+SourceCharacter deflates DestinationCharacter AssetName till it's half full.
+SourceCharacter сдувает AssetName в DestinationCharacter до половины.
+SourceCharacter deflates DestinationCharacter AssetName only a tiny bit.
+SourceCharacter сдувает AssetName в DestinationCharacter лишь немного.
+SourceCharacter inflates DestinationCharacter AssetName only slightly.
+SourceCharacter лишь слегка надувает AssetName в DestinationCharacter.
+SourceCharacter inflates DestinationCharacter AssetName till it's half full.
+SourceCharacter надувает AssetName в DestinationCharacter до половины.
+SourceCharacter inflates DestinationCharacter AssetName till three quarters filled.
+SourceCharacter надувает AssetName в DestinationCharacter на три четверти.
+SourceCharacter inflates DestinationCharacter AssetName to it's maximum amount.
+SourceCharacter надувает AssetName в DestinationCharacter до максимального размера.
 Nothing
 Ничего
 Short Chain
@@ -3310,8 +3358,60 @@ SourceCharacter attaches a tube to DestinationCharacter gas mask.
 SourceCharacter прикрепляет трубку к противогазу на DestinationCharacter.
 SourceCharacter attaches a rebreather to DestinationCharacter gas mask.
 SourceCharacter прикрепляет ребризер к противогазу на DestinationCharacter.
+Select Options
+Выберите Параметры
+Select Gag Inflation
+Выберите Надувание Кляпа
+Select Auto-Inflation Sensitivity:
+Выберите Чувствительность Автонадувания:
+Select Deflation Timer
+Выберите Таймер Сдувания
+Gag Inflation
+Надувание Кляпа
+Auto-Inflation
+Автонадувание
+Deflation Timer
+Таймер Сдутия
+2 Min
+2 Мин.
+5 Min
+5 Мин.
+15 Min
+15 Мин.
+1 Hour
+1 Час
+20 Hours
+20 Часов
 Select options
 Выберите параметры
+Select intensity
+Выберите интенсивность
+Select crotch shield
+Выберите щит промежности
+Select orgasm lock
+Выберите блокировку оргазма
+Select shock level
+Выберите уровень шока
+Intensity
+Интенсивность
+Intensity:
+Интенсивность:
+Inflate Level
+Уровень надутия
+Inflation level:
+Уровень надутия:
+Crotch Shield:
+Паховый Щиток:
+Crotch shield:
+Паховый щиток:
+Orgasm Lock
+Блокировка оргазма
+Denial Mode
+Режим отказа
+Shock Level
+Уровень Шока
+Shock level:
+Уровень шока:
 Select blindfold
 Выберите повязку на глаза
 Select gag
@@ -3360,6 +3460,10 @@ Use Remote
 Использовать удаленный доступ
 Change Layers
 Изменить слои
+Penis
+Пенис
+Glans
+Головка
 (You clumsily whip your own breast and tummy.  It would be more painful if someone else did it.)
 (Ты неуклюже хлещешь себя по груди и животу. Было бы больнее, если бы это делал кто-то другой.)
 (You swing the crop on yourself a few times.  You can feel your breast and tummy becoming more sensitive.)
@@ -3522,12 +3626,16 @@ Zipped Up
 Застегнутый
 Unzipped
 Расстегнутый
+Exposed
+Обнаженный
 Wand Attachment
 Насадка для жезла
 SourceCharacter zips up DestinationCharacter suit.
 SourceCharacter застегивает костюм DestinationCharacter .
 SourceCharacter unzips DestinationCharacter suit.
 SourceCharacter распаковывает костюм DestinationCharacter .
+SourceCharacter unzips DestinationCharacter suit and fully exposes her breasts and pussy.
+SourceCharacter расстегивает костюм DestinationCharacter и полностью обнажает ее грудь и киску.
 SourceCharacter attaches a wand to DestinationCharacter suit.
 SourceCharacter прикрепляет жезл к костюму DestinationCharacter .
 Configure suit
@@ -3601,7 +3709,7 @@ SourceCharacter устанавливает высокую интенсивнос
 DestinationCharacterName love chastity belt gives TargetPronounObject a light shock.
 Любовный пояс верности на DestinationCharacterName вызывает у TargetPronounObject легкий шок.
 DestinationCharacterName love chastity belt lets out a sharp jolt!
-Любовный пояс верности на DestinationCharacterName испускает резкий толчок!
+Любовный пояс верности на DestinationCharacterName испускает резкий удар!
 DestinationCharacterName love chastity belt delivers an intense shock!
 Пояс верности любви на DestinationCharacterName доставляет сильный шок!
 SourceCharacter removes shield from DestinationCharacter love chastity belt.
@@ -3612,48 +3720,42 @@ SourceCharacter locks vibe to DestinationCharacter love chastity belt.
 SourceCharacter приклепляет вибратор к поясу верности DestinationCharacter.
 SourceCharacter locks shock device to DestinationCharacter love chastity belt.
 SourceCharacter приклепляет шокер к поясу верности DestinationCharacter .
-The rear chastity shield on DestinationCharacterName sci-fi pleasure panties opens.
-Задний щит целомудрия на научно-фантастических трусиках для удовольствия DestinationCharacterName открывается.
-The rear chastity shield on DestinationCharacterName sci-fi pleasure panties closes.
-Задний щит целомудрия на научно-фантастических трусиках для удовольствия DestinationCharacterName закрывается.
+The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties open.
+Передние и задние щиты целомудрия на DestinationCharacter научно-фантастических трусиках открыты.
+The front chastity shields on DestinationCharacter sci-fi pleasure panties closes.
+Передний щит целомудрия на DestinationCharacter научно-фантастических трусиках закрыты.
+The read chastity shields on DestinationCharacter sci-fi pleasure panties closes.
+Задний щит целомудрия на  DestinationCharacter научно-фантастических трусиках удовольствия закрыт.
+The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties close.
+Передние и задние щиты целомудрия на DestinationCharacter научно-фантастических трусиках закрыты.
 DestinationCharacterName sci-fi pleasure panties activates tease vibe mode.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName активируют дразнящий режим вибрации.
+На научно-фантастических трусиках удовольствия DestinationCharacterName  активируется дразнящей режим вибрации.
 DestinationCharacterName sci-fi pleasure panties builds up to vibration level 1.
-Научно-фантастические трусики для удовольствий DestinationCharacterName создают вибрацию до уровня 1.
+Вибрация на научно-фантастических трусиках удовольствия DestinationCharacterName увиличивается до уровня 1.
 DestinationCharacterName sci-fi pleasure panties starts buzzing at vibration level 2!
-На 2 уровне вибрации научно-фантастические трусики для удовольствия на DestinationCharacterName начинают гудеть!
+Вибрация на научно-фантастических трусиках удовольствия DestinationCharacterName увиличивается до уровня 2!
 DestinationCharacterName sci-fi pleasure panties jumps up to vibration level 3!
-DestinationCharacterName научно-фантастические трусики удовольствия подпрыгивают до уровня вибрации 3!
+Вибрация на научно-фантастических трусиках удовольствия DestinationCharacterName увиличивается до уровня 3!
 DestinationCharacterName sci-fi pleasure panties vibration mode is deactivated.
-DestinationCharacterName режим вибрации научно-фантастических трусиков отключен.
+На научно-фантастических трусиках удовольствия DestinationCharacterName деактивируется режим вибрации.
 DestinationCharacterName sci-fi pleasure panties slows down to tease vibe mode.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName замедляются, чтобы дразнить в режиме вибрации.
+Научно-фантастические трусики удовольствия DestinationCharacterName замедляются, до дразнящего режима вибрации.
 DestinationCharacterName sci-fi pleasure panties returns to vibration level 1.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName возвращаются к уровню вибрации 1.
+Научно-фантастические трусики удовольствия DestinationCharacterName возвращаются к уровню вибрации 1.
 DestinationCharacterName sci-fi pleasure panties slows down to vibration level 2.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName замедляются до уровня вибрации 2.
-DestinationCharacterName sci-fi pleasure panties are set to shock level 1.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName настроены на уровень шока 1.
-DestinationCharacterName sci-fi pleasure panties are set to shock level 2.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName настроены на уровень шока 2.
-DestinationCharacterName sci-fi pleasure panties are set to shock level 3.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName настроены на уровень шока 3.
-DestinationCharacterName sci-fi pleasure panties gives TargetPronounObject a light shock.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName вызывают у TargetPronounObject легкий шок.
-DestinationCharacterName sci-fi pleasure panties lets out a sharp jolt!
-Научно-фантастические трусики удовольствия на DestinationCharacterName выпускают резкий толчок!
-DestinationCharacterName sci-fi pleasure panties delivers an intense shock!
-Научно-фантастические трусики для удовольствия на DestinationCharacterName доставляют сильный шок!
-The crotch chastity shield on DestinationCharacterName sci-fi pleasure panties opens.
-Щит целомудрия в промежности на научно-фантастических трусиках для удовольствия на DestinationCharacterName открывается.
-The crotch chastity shield on DestinationCharacterName sci-fi pleasure panties closes.
-Щит целомудрия в промежности на научно-фантастических трусиках для удовольствия на DestinationCharacterName закрывается.
-The denial mode on DestinationCharacterName sci-fi pleasure panties activates, teasing them endlessly.
-Режим запрета на научно-фантастических трусиках для удовольствия DestinationCharacterName активируется, дразня её бесконечно.
-The edging mode on DestinationCharacterName sci-fi pleasure panties activates, preventing orgasms no matter what.
-Активируется режим окантовки научно-фантастических трусиков для удовольствия на DestinationCharacterName , предотвращающий оргазм, несмотря ни на что.
-The special mode on DestinationCharacterName sci-fi pleasure panties deactivates, allowing orgasms again.
-Специальный режим на научно-фантастических трусиках для удовольствия на DestinationCharacterName деактивируется, позволяя снова испытать оргазм.
+Научно-фантастические трусики удовольствия DestinationCharacterName замедляются до уровня вибрации 2.
+The special mode on DestinationCharacter sci-fi pleasure panties deactivates, allowing orgasms again.
+Специальный режим на научно-фантастических трусиках удовольствия DestinationCharacter деактивируется, позволяя снова испытать оргазм.
+The edging mode on DestinationCharacter sci-fi pleasure panties activates, preventing orgasms no matter what.
+На научно-фантастических трусиках удовольствия DestinationCharacter активируется режим удержания, предотвращающий оргазм, несмотря ни на что.
+The denial mode on DestinationCharacter sci-fi pleasure panties activates, teasing them endlessly.
+Режим запрета на научно-фантастических трусиках DestinationCharacter активируется, дразня бесконечно.
+DestinationCharacter sci-fi pleasure panties are set to shock level 1.
+Научно-фантастические трусики удовольствия DestinationCharacter настроены на уровень шока 1.
+DestinationCharacter sci-fi pleasure panties are set to shock level 2.
+Научно-фантастические трусики удовольствия DestinationCharacter настроены на уровень шока 2.
+DestinationCharacter sci-fi pleasure panties are set to shock level 3.
+Научно-фантастические трусики удовольствия DestinationCharacter настроены на уровень шока 3.
 Normal Mode
 Нормальный режим
 Edge Mode
@@ -6099,3 +6201,43 @@ Select body overlay.
 Выберите наложение тела.
 Default
 По умолчанию
+Configure Respirator
+Настроить респиратор
+Switch Attachments
+Изменить насадки
+Filter
+Фильтр
+Big Filters
+Большие фильтры
+Small Tubes
+Маленькие трубки
+Large Tubes
+Большие трубки
+SourceCharacter changes the attachments on DestinationCharacter respirator.
+SourceCharacter изменяет насадки на респираторе DestinationCharacter.
+Strap Options
+Варианты ремней
+No Straps
+Без ремней
+SourceCharacter adjusts the straps on DestinationCharacter respirator.
+SourceCharacter регулирует ремни респиратора DestinationCharacter.
+Thick Filters
+Толстые фильтры
+SourceCharacter flicks the glow switch on DestinationCharacter respirator.
+SourceCharacter щелкает переключателем свечения на респираторе DestinationCharacter.
+Use Mask
+Использовать маску
+No Mask
+Без маски
+SourceCharacter changes the mask on DestinationCharacter respirator.
+SourceCharacter меняет маску на респираторе DestinationCharacter.
+Select Filter Position
+Выберите положение фильтра
+Filter Position
+Позиция фильтра
+Beneath Hair
+Под волосами
+Over Hair
+Поверх волос
+SourceCharacter adjusts the fit of the filters on DestinationCharacter respirator
+SourceCharacter регулирует посадку фильтров на респираторе DestinationCharacter
