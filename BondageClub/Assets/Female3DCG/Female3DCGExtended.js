@@ -3393,7 +3393,7 @@ var AssetFemale3DCGExtended = {
 						Name: "EPanel", Key: "e", DrawImages: false,
 						Options:[
 							{ // e0 - No Eyes
-								Property: { Effect: ["BlindTotal"]
+								Property: { Effect: ["BlindHeavy"]
 								}
 							},
 							{ // e1 - Hole Only
