@@ -327,22 +327,22 @@ function DialogCanTakePhotos() { return (ChatRoomData && ChatRoomData.BlockCateg
  * Checks if the current character has a lucky wheel to spin
  * @returns {boolean} - TRUE if the player can take a photo.
  */
-function ChatRoomCanStartLuckyWheel() { return (CurrentCharacter != null) && InventoryIsWorn(CurrentCharacter, "LuckyWheel", "ItemDevices"); }
+function ChatRoomCanStartWheelFortune() { return (CurrentCharacter != null) && InventoryIsWorn(CurrentCharacter, "WheelFortune", "ItemDevices"); }
 /**
  * Starts the current character lucky wheel
  * @returns {void} - Nothing
  */
-function ChatRoomStartLuckyWheel() {
-	if ((CurrentCharacter == null) || !InventoryIsWorn(CurrentCharacter, "LuckyWheel", "ItemDevices")) return;
+function ChatRoomStartWheelFortune() {
+	if ((CurrentCharacter == null) || !InventoryIsWorn(CurrentCharacter, "WheelFortune", "ItemDevices")) return;
 	document.getElementById("InputChat").style.display = "none";
 	document.getElementById("TextAreaChatLog").style.display = "none";
 	ChatRoomChatHidden = true;
-	LuckyWheelBackground = ChatRoomData.Background;
-	LuckyWheelList = "";
-	LuckyWheelCharacterName = CharacterNickname(CurrentCharacter);
-	if ((CurrentCharacter.OnlineSharedSettings != null) && (CurrentCharacter.OnlineSharedSettings.LuckyWheel != null)) LuckyWheelList = CurrentCharacter.OnlineSharedSettings.LuckyWheel;
+	WheelFortuneEntryModule = CurrentModule;
+	WheelFortuneEntryScreen = CurrentScreen;
+	WheelFortuneBackground = ChatRoomData.Background;
+	WheelFortuneCharacter = CurrentCharacter;
 	DialogLeave();
-	CommonSetScreen("MiniGame", "LuckyWheel");
+	CommonSetScreen("MiniGame", "WheelFortune");
 }
 
 /**

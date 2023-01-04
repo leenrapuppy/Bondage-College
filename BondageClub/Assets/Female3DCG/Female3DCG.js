@@ -8027,6 +8027,12 @@ var AssetFemale3DCG = [
 					{ Name: "Section3", HasImage: false, ColorGroup: "Section", },
 				]
 			},
+			{
+				Name: "WheelFortune", Priority: 62, Top: 0, Left: 350, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [],
+				FixedPosition: true, Extended: true,
+				DefaultColor: ["Default", "#7F4141", "#881818", "#FFA8DD", "#2C2C2C", "Default", "#7B3D9E", "#FF3F3F", "#343434", "#F2F2F2", "#D43434", "#C2B556", "#81DA88", "#E18DC3"],
+				HasType: false
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

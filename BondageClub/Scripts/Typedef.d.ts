@@ -1372,7 +1372,7 @@ interface Character {
 		GameVersion: string;
 		ItemsAffectExpressions: boolean;
 		ScriptPermissions: ScriptPermissions;
-		LuckyWheel: string;
+		WheelFortune: string;
 	};
 	Game?: {
 		LARP?: GameLARPParameters,

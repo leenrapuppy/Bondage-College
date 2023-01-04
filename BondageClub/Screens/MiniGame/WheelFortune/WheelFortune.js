@@ -1,25 +1,27 @@
 "use strict";
-var LuckyWheelBackground = "Black";
-var LuckyWheelCharacterName = "";
-var LuckyWheelRoleplay = false;
-var LuckyWheelPos = 0;
-var LuckyWheelPosMax = 0;
-var LuckyWheelVelocity = 0;
-var LuckyWheelVelocityTime = 0;
-var LuckyWheelPosY = null;
-var LuckyWheelInitY = 0;
-var LuckyWheelInitTime = 0;
-var LuckyWheelValue = "";
-var LuckyWheelList = "";
-var LuckyWheelPasswordChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var LuckyWheelDefault = "ABCFGHKLMNPQRSUVWabcfgj$!-()0123456";
-var LuckyWheelOption = [
+var WheelFortuneBackground = "Black";
+var WheelFortuneEntryModule = "";
+var WheelFortuneEntryScreen = "";
+var WheelFortuneCharacter = null;
+var WheelFortuneRoleplay = false;
+var WheelFortunePos = 0;
+var WheelFortunePosMax = 0;
+var WheelFortuneVelocity = 0;
+var WheelFortuneVelocityTime = 0;
+var WheelFortunePosY = null;
+var WheelFortuneInitY = 0;
+var WheelFortuneInitTime = 0;
+var WheelFortuneValue = "";
+var WheelFortuneList = "";
+var WheelFortunePasswordChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var WheelFortuneDefault = "ABCFGHKLMNPQRSUVWabcfgj$!-()0123456";
+var WheelFortuneOption = [
 	{
 		// Gagged
 		ID: "A",
 		Color: "Yellow",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 0);
+			WheelFortuneInventoryWear("ItemMouth", 0);
 		}
 	},
 	{
@@ -27,7 +29,7 @@ var LuckyWheelOption = [
 		ID: "B",
 		Color: "Yellow",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 5);
+			WheelFortuneInventoryWear("ItemMouth", 5);
 		}
 	},
 	{
@@ -35,7 +37,7 @@ var LuckyWheelOption = [
 		ID: "C",
 		Color: "Yellow",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 15);
+			WheelFortuneInventoryWear("ItemMouth", 15);
 		}
 	},
 	{
@@ -43,7 +45,7 @@ var LuckyWheelOption = [
 		ID: "D",
 		Color: "Yellow",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 60);
+			WheelFortuneInventoryWear("ItemMouth", 60);
 		}
 	},
 	{
@@ -51,7 +53,7 @@ var LuckyWheelOption = [
 		ID: "E",
 		Color: "Yellow",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 240);
+			WheelFortuneInventoryWear("ItemMouth", 240);
 		}
 	},
 	{
@@ -59,7 +61,7 @@ var LuckyWheelOption = [
 		ID: "F",
 		Color: "Purple",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemHead", 0);
+			WheelFortuneInventoryWear("ItemHead", 0);
 		}
 	},
 	{
@@ -67,7 +69,7 @@ var LuckyWheelOption = [
 		ID: "G",
 		Color: "Purple",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemHead", 5);
+			WheelFortuneInventoryWear("ItemHead", 5);
 		}
 	},
 	{
@@ -75,7 +77,7 @@ var LuckyWheelOption = [
 		ID: "H",
 		Color: "Purple",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemHead", 15);
+			WheelFortuneInventoryWear("ItemHead", 15);
 		}
 	},
 	{
@@ -83,7 +85,7 @@ var LuckyWheelOption = [
 		ID: "I",
 		Color: "Purple",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemHead", 60);
+			WheelFortuneInventoryWear("ItemHead", 60);
 		}
 	},
 	{
@@ -91,7 +93,7 @@ var LuckyWheelOption = [
 		ID: "J",
 		Color: "Purple",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemHead", 240);
+			WheelFortuneInventoryWear("ItemHead", 240);
 		}
 	},
 	{
@@ -99,7 +101,7 @@ var LuckyWheelOption = [
 		ID: "K",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemArms", 0);
+			WheelFortuneInventoryWear("ItemArms", 0);
 		}
 	},
 	{
@@ -107,7 +109,7 @@ var LuckyWheelOption = [
 		ID: "L",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemArms", 5);
+			WheelFortuneInventoryWear("ItemArms", 5);
 		}
 	},
 	{
@@ -115,7 +117,7 @@ var LuckyWheelOption = [
 		ID: "M",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemArms", 15);
+			WheelFortuneInventoryWear("ItemArms", 15);
 		}
 	},
 	{
@@ -123,7 +125,7 @@ var LuckyWheelOption = [
 		ID: "N",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemArms", 60);
+			WheelFortuneInventoryWear("ItemArms", 60);
 		}
 	},
 	{
@@ -131,7 +133,7 @@ var LuckyWheelOption = [
 		ID: "O",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemArms", 240);
+			WheelFortuneInventoryWear("ItemArms", 240);
 		}
 	},
 	{
@@ -139,7 +141,7 @@ var LuckyWheelOption = [
 		ID: "P",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemFeet", 0);
+			WheelFortuneInventoryWear("ItemFeet", 0);
 		}
 	},
 	{
@@ -147,7 +149,7 @@ var LuckyWheelOption = [
 		ID: "Q",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemFeet", 5);
+			WheelFortuneInventoryWear("ItemFeet", 5);
 		}
 	},
 	{
@@ -155,7 +157,7 @@ var LuckyWheelOption = [
 		ID: "R",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemFeet", 15);
+			WheelFortuneInventoryWear("ItemFeet", 15);
 		}
 	},
 	{
@@ -163,7 +165,7 @@ var LuckyWheelOption = [
 		ID: "S",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemFeet", 60);
+			WheelFortuneInventoryWear("ItemFeet", 60);
 		}
 	},
 	{
@@ -171,7 +173,7 @@ var LuckyWheelOption = [
 		ID: "T",
 		Color: "Blue",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemFeet", 240);
+			WheelFortuneInventoryWear("ItemFeet", 240);
 		}
 	},
 	{
@@ -179,10 +181,10 @@ var LuckyWheelOption = [
 		ID: "U",
 		Color: "Orange",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 0);
-			LuckyWheelInventoryWear("ItemHead", 0);
-			LuckyWheelInventoryWear("ItemArms", 0);
-			LuckyWheelInventoryWear("ItemFeet", 0);
+			WheelFortuneInventoryWear("ItemMouth", 0);
+			WheelFortuneInventoryWear("ItemHead", 0);
+			WheelFortuneInventoryWear("ItemArms", 0);
+			WheelFortuneInventoryWear("ItemFeet", 0);
 		}
 	},
 	{
@@ -190,10 +192,10 @@ var LuckyWheelOption = [
 		ID: "V",
 		Color: "Orange",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 5);
-			LuckyWheelInventoryWear("ItemHead", 5);
-			LuckyWheelInventoryWear("ItemArms", 5);
-			LuckyWheelInventoryWear("ItemFeet", 5);
+			WheelFortuneInventoryWear("ItemMouth", 5);
+			WheelFortuneInventoryWear("ItemHead", 5);
+			WheelFortuneInventoryWear("ItemArms", 5);
+			WheelFortuneInventoryWear("ItemFeet", 5);
 		}
 	},
 	{
@@ -201,10 +203,10 @@ var LuckyWheelOption = [
 		ID: "W",
 		Color: "Orange",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 15);
-			LuckyWheelInventoryWear("ItemHead", 15);
-			LuckyWheelInventoryWear("ItemArms", 15);
-			LuckyWheelInventoryWear("ItemFeet", 15);
+			WheelFortuneInventoryWear("ItemMouth", 15);
+			WheelFortuneInventoryWear("ItemHead", 15);
+			WheelFortuneInventoryWear("ItemArms", 15);
+			WheelFortuneInventoryWear("ItemFeet", 15);
 		}
 	},
 	{
@@ -212,10 +214,10 @@ var LuckyWheelOption = [
 		ID: "X",
 		Color: "Orange",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 60);
-			LuckyWheelInventoryWear("ItemHead", 60);
-			LuckyWheelInventoryWear("ItemArms", 60);
-			LuckyWheelInventoryWear("ItemFeet", 60);
+			WheelFortuneInventoryWear("ItemMouth", 60);
+			WheelFortuneInventoryWear("ItemHead", 60);
+			WheelFortuneInventoryWear("ItemArms", 60);
+			WheelFortuneInventoryWear("ItemFeet", 60);
 		}
 	},
 	{
@@ -223,10 +225,10 @@ var LuckyWheelOption = [
 		ID: "Y",
 		Color: "Orange",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemMouth", 240);
-			LuckyWheelInventoryWear("ItemHead", 240);
-			LuckyWheelInventoryWear("ItemArms", 240);
-			LuckyWheelInventoryWear("ItemFeet", 240);
+			WheelFortuneInventoryWear("ItemMouth", 240);
+			WheelFortuneInventoryWear("ItemHead", 240);
+			WheelFortuneInventoryWear("ItemArms", 240);
+			WheelFortuneInventoryWear("ItemFeet", 240);
 		}
 	},
 	{
@@ -234,7 +236,7 @@ var LuckyWheelOption = [
 		ID: "a",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemDevices", 0);
+			WheelFortuneInventoryWear("ItemDevices", 0);
 		}
 	},
 	{
@@ -242,7 +244,7 @@ var LuckyWheelOption = [
 		ID: "b",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemDevices", 5);
+			WheelFortuneInventoryWear("ItemDevices", 5);
 		}
 	},
 	{
@@ -250,7 +252,7 @@ var LuckyWheelOption = [
 		ID: "c",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemDevices", 15);
+			WheelFortuneInventoryWear("ItemDevices", 15);
 		}
 	},
 	{
@@ -258,7 +260,7 @@ var LuckyWheelOption = [
 		ID: "d",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemDevices", 60);
+			WheelFortuneInventoryWear("ItemDevices", 60);
 		}
 	},
 	{
@@ -266,7 +268,7 @@ var LuckyWheelOption = [
 		ID: "e",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelInventoryWear("ItemDevices", 240);
+			WheelFortuneInventoryWear("ItemDevices", 240);
 		}
 	},
 	{
@@ -274,7 +276,7 @@ var LuckyWheelOption = [
 		ID: "f",
 		Color: "Gray",
 		Script: function() {
-			LuckyWheelBlockWardrobe(5);
+			WheelFortuneBlockWardrobe(5);
 		}
 	},
 	{
@@ -282,7 +284,7 @@ var LuckyWheelOption = [
 		ID: "g",
 		Color: "Gray",
 		Script: function() {
-			LuckyWheelBlockWardrobe(15);
+			WheelFortuneBlockWardrobe(15);
 		}
 	},
 	{
@@ -290,7 +292,7 @@ var LuckyWheelOption = [
 		ID: "h",
 		Color: "Gray",
 		Script: function() {
-			LuckyWheelBlockWardrobe(60);
+			WheelFortuneBlockWardrobe(60);
 		}
 	},
 	{
@@ -298,7 +300,7 @@ var LuckyWheelOption = [
 		ID: "i",
 		Color: "Gray",
 		Script: function() {
-			LuckyWheelBlockWardrobe(240);
+			WheelFortuneBlockWardrobe(240);
 		}
 	},
 	{
@@ -306,7 +308,7 @@ var LuckyWheelOption = [
 		ID: "j",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelIsolationCell(5);
+			WheelFortuneIsolationCell(5);
 		}
 	},
 	{
@@ -314,7 +316,7 @@ var LuckyWheelOption = [
 		ID: "k",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelIsolationCell(15);
+			WheelFortuneIsolationCell(15);
 		}
 	},
 	{
@@ -322,7 +324,7 @@ var LuckyWheelOption = [
 		ID: "l",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelIsolationCell(30);
+			WheelFortuneIsolationCell(30);
 		}
 	},
 	{
@@ -330,7 +332,7 @@ var LuckyWheelOption = [
 		ID: "m",
 		Color: "Red",
 		Script: function() {
-			LuckyWheelIsolationCell(60);
+			WheelFortuneIsolationCell(60);
 		}
 	},
 	{
@@ -444,7 +446,7 @@ var LuckyWheelOption = [
  * @param {number} Minutes - The number of minutes
  * @returns {void} - Nothing
  */
-function LuckyWheelIsolationCell(Minutes) {
+function WheelFortuneIsolationCell(Minutes) {
 	ChatRoomSlowtimer = 0;
 	ChatRoomSlowStop = false;
 	ChatRoomClearAllElements();
@@ -459,7 +461,7 @@ function LuckyWheelIsolationCell(Minutes) {
  * @param {number} Minutes - The number of minutes
  * @returns {void} - Nothing
  */
-function LuckyWheelBlockWardrobe(Minutes) {
+function WheelFortuneBlockWardrobe(Minutes) {
 	let Time = LogValue("BlockChange", "Rule");
 	if (Time == null) Time = 0;
 	if (Time > CurrentTime + 240 * 60000) return;
@@ -475,7 +477,7 @@ function LuckyWheelBlockWardrobe(Minutes) {
  * @param {number} Minutes - The number of minutes
  * @returns {void} - Nothing
  */
-function LuckyWheelInventoryWear(Group, Minutes) {
+function WheelFortuneInventoryWear(Group, Minutes) {
 
 	// If the item is already locked with a timer lock, we extend the time and exit
 	let Item = InventoryGet(Player, Group);
@@ -506,7 +508,7 @@ function LuckyWheelInventoryWear(Group, Minutes) {
 		Item.Property.RemoveTimer = CurrentTime + Minutes * 60000;
 		Item.Property.RemoveItem = true;
 		Item.Property.LockSet = true;
-		Item.Property.Password = CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar) + CommonRandomItemFromList("", LuckyWheelPasswordChar);
+		Item.Property.Password = CommonRandomItemFromList("", WheelFortunePasswordChar) + CommonRandomItemFromList("", WheelFortunePasswordChar) + CommonRandomItemFromList("", WheelFortunePasswordChar) + CommonRandomItemFromList("", WheelFortunePasswordChar) + CommonRandomItemFromList("", WheelFortunePasswordChar) + CommonRandomItemFromList("", WheelFortunePasswordChar);
 	}
 
 	// Refresh the character to the whole chat room
@@ -519,27 +521,29 @@ function LuckyWheelInventoryWear(Group, Minutes) {
  * Loads the lucky wheel mini game and builds the wheel
  * @returns {void} - Nothing
  */
-function LuckyWheelLoad() {
+function WheelFortuneLoad() {
 
-	// Resets to the default wheel if the options are incorrect
-	if ((LuckyWheelList == null) || (typeof LuckyWheelList !== "string") || (LuckyWheelList.length < 2)) LuckyWheelList = LuckyWheelDefault;
+	// Resets to the default wheel if the character wheel is incorrect
+	WheelFortuneList = "";
+	if ((WheelFortuneCharacter.OnlineSharedSettings != null) && (WheelFortuneCharacter.OnlineSharedSettings.WheelFortune != null)) WheelFortuneList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
+	if ((WheelFortuneList == null) || (typeof WheelFortuneList !== "string") || (WheelFortuneList.length < 2)) WheelFortuneList = WheelFortuneDefault;
 
 	// Shuffles the wheel to give a random order
-	LuckyWheelPos = Math.floor(Math.random() * 80);
-	LuckyWheelVelocity = 0;
-	LuckyWheelList = CommonStringShuffle(LuckyWheelList);
+	WheelFortunePos = Math.floor(Math.random() * 80);
+	WheelFortuneVelocity = 0;
+	WheelFortuneList = CommonStringShuffle(WheelFortuneList);
 
 	// Gets the maximum position after which the wheel resets
-	LuckyWheelPosMax = LuckyWheelList.length;
-	while (LuckyWheelPosMax < 12)
-		LuckyWheelPosMax = LuckyWheelPosMax + LuckyWheelPosMax;
-	LuckyWheelPosMax = LuckyWheelPosMax * 83;
+	WheelFortunePosMax = WheelFortuneList.length;
+	while (WheelFortunePosMax < 12)
+		WheelFortunePosMax = WheelFortunePosMax + WheelFortunePosMax;
+	WheelFortunePosMax = WheelFortunePosMax * 83;
 
 	// Create events to spin the wheel for mobile or not
-	if (!CommonIsMobile) document.getElementById("MainCanvas").addEventListener("mousedown", LuckyWheelMouseDown);
-	if (!CommonIsMobile) document.getElementById("MainCanvas").addEventListener("mouseup", LuckyWheelMouseUp);
-	if (CommonIsMobile) document.getElementById("MainCanvas").addEventListener("touchstart", LuckyWheelMouseDown);
-	if (CommonIsMobile) document.getElementById("MainCanvas").addEventListener("touchend", LuckyWheelMouseUp);
+	if (!CommonIsMobile) document.getElementById("MainCanvas").addEventListener("mousedown", WheelFortuneMouseDown);
+	if (!CommonIsMobile) document.getElementById("MainCanvas").addEventListener("mouseup", WheelFortuneMouseUp);
+	if (CommonIsMobile) document.getElementById("MainCanvas").addEventListener("touchstart", WheelFortuneMouseDown);
+	if (CommonIsMobile) document.getElementById("MainCanvas").addEventListener("touchend", WheelFortuneMouseUp);
 
 }
 
@@ -547,7 +551,7 @@ function LuckyWheelLoad() {
  * Draws the full lucky wheel
  * @returns {void} - Nothing
  */
- function LuckyWheelDraw(FullWheel, Pos, MaxPos, X, Y, Zoom) {
+ function WheelFortuneDraw(FullWheel, Pos, MaxPos, X, Y, Zoom) {
 
 	// Draw the black background
 	DrawRect(X + 2, Y, 496 * Zoom, 1000 * Zoom, "Black");
@@ -566,7 +570,7 @@ function LuckyWheelLoad() {
 
 			// Gets the wheel option image color
 			let Color;
-			for (let O of LuckyWheelOption)
+			for (let O of WheelFortuneOption)
 				if (O.ID == Wheel[W])
 					Color = O.Color;
 			if ((Color == null) || (Color == "")) Color = "Green";
@@ -574,12 +578,12 @@ function LuckyWheelLoad() {
 			// Draw the wheel option image
 			let TextColor = "Black";
 			if ((PosY >= 417 * Zoom) && (PosY <= 500 * Zoom)) {
-				LuckyWheelValue = Wheel[W];
+				WheelFortuneValue = Wheel[W];
 				TextColor = "White";
 			}
 
 			// Draw the text
-			DrawImageResize("Screens/MiniGame/LuckyWheel/" + Color + ".png", X + 3, PosY, 494 * Zoom, 83 * Zoom);
+			DrawImageResize("Screens/MiniGame/WheelFortune/" + Color + ".png", X + 3, PosY, 494 * Zoom, 83 * Zoom);
 			DrawTextFit(TextGet("Option" + Wheel[W]), X + 250 * Zoom, PosY + 44 * Zoom, 440, TextColor, "Silver");
 
 		}
@@ -587,9 +591,9 @@ function LuckyWheelLoad() {
     }
 
 	// Draw the border and arrow
-	DrawEmptyRect(X - 2, Y - 2, 504, 1004 * Zoom, (LuckyWheelVelocity == 0) ? "White" : "Gold", 2);
-	DrawImageResize("Screens/MiniGame/LuckyWheel/WheelArrowLeft.png", X - 100, Y + 450 * Zoom, 100 * Zoom, 100 * Zoom);
-	DrawImageResize("Screens/MiniGame/LuckyWheel/WheelArrowRight.png", X + 500, Y + 450 * Zoom, 100 * Zoom, 100 * Zoom);
+	DrawEmptyRect(X - 2, Y - 2, 504, 1004 * Zoom, (WheelFortuneVelocity == 0) ? "White" : "Gold", 2);
+	DrawImageResize("Screens/MiniGame/WheelFortune/WheelArrowLeft.png", X - 100, Y + 450 * Zoom, 100 * Zoom, 100 * Zoom);
+	DrawImageResize("Screens/MiniGame/WheelFortune/WheelArrowRight.png", X + 500, Y + 450 * Zoom, 100 * Zoom, 100 * Zoom);
 
 }
 
@@ -597,51 +601,52 @@ function LuckyWheelLoad() {
  * Runs the lucky wheel mini game
  * @returns {void} - Nothing
  */
-function LuckyWheelRun() {
+function WheelFortuneRun() {
 
 	// If the mouse position changed to spin the wheel
-    if (MouseY < 0) LuckyWheelMouseUp();
-	if ((LuckyWheelPosY != null) && (LuckyWheelPosY != MouseY) && (MouseY != -1) && (LuckyWheelVelocity == 0)) {
-		LuckyWheelPos = LuckyWheelPos - LuckyWheelPosY + MouseY;
-		LuckyWheelPosY = MouseY;
+    if (MouseY < 0) WheelFortuneMouseUp();
+	if ((WheelFortunePosY != null) && (WheelFortunePosY != MouseY) && (MouseY != -1) && (WheelFortuneVelocity == 0)) {
+		WheelFortunePos = WheelFortunePos - WheelFortunePosY + MouseY;
+		WheelFortunePosY = MouseY;
 	}
 
 	// In a top to bottom spin
-	if (LuckyWheelVelocity > 0) {
-		let Diff = CommonTime() - LuckyWheelVelocityTime;
-		LuckyWheelVelocityTime = LuckyWheelVelocityTime + Diff;
-		Diff = (LuckyWheelVelocity * Diff / 1500) + Diff / 40;
-		if (Diff > LuckyWheelVelocity) Diff = LuckyWheelVelocity;
-		LuckyWheelPos = LuckyWheelPos + Diff;
-		LuckyWheelVelocity = LuckyWheelVelocity - Diff;
-		if (LuckyWheelVelocity <= 0) LuckyWheelResult();
+	if (WheelFortuneVelocity > 0) {
+		let Diff = CommonTime() - WheelFortuneVelocityTime;
+		WheelFortuneVelocityTime = WheelFortuneVelocityTime + Diff;
+		Diff = (WheelFortuneVelocity * Diff / 1500) + Diff / 40;
+		if (Diff > WheelFortuneVelocity) Diff = WheelFortuneVelocity;
+		WheelFortunePos = WheelFortunePos + Diff;
+		WheelFortuneVelocity = WheelFortuneVelocity - Diff;
+		if (WheelFortuneVelocity <= 0) WheelFortuneResult();
 	}
 
 	// In a bottom to top spin
-	if (LuckyWheelVelocity < 0) {
-		let Diff = CommonTime() - LuckyWheelVelocityTime;
-		LuckyWheelVelocityTime = LuckyWheelVelocityTime + Diff;
-		Diff = (LuckyWheelVelocity * Diff * -1 / 1500) + Diff / 40;
-		if (Diff > LuckyWheelVelocity * -1) Diff = LuckyWheelVelocity * -1;
-		LuckyWheelPos = LuckyWheelPos - Diff;
-		LuckyWheelVelocity = LuckyWheelVelocity + Diff;
-		if (LuckyWheelVelocity >= 0) LuckyWheelResult();
+	if (WheelFortuneVelocity < 0) {
+		let Diff = CommonTime() - WheelFortuneVelocityTime;
+		WheelFortuneVelocityTime = WheelFortuneVelocityTime + Diff;
+		Diff = (WheelFortuneVelocity * Diff * -1 / 1500) + Diff / 40;
+		if (Diff > WheelFortuneVelocity * -1) Diff = WheelFortuneVelocity * -1;
+		WheelFortunePos = WheelFortunePos - Diff;
+		WheelFortuneVelocity = WheelFortuneVelocity + Diff;
+		if (WheelFortuneVelocity >= 0) WheelFortuneResult();
 	}
 
 	// Resets the wheel if max position is reached
-	LuckyWheelPos = LuckyWheelPos % LuckyWheelPosMax;
+	WheelFortunePos = WheelFortunePos % WheelFortunePosMax;
 
 	// Draw the character and buttons
 	DrawRect(0, 0, 2000, 1000, "#00000080")
 	DrawCharacter(Player, 100, 0, 1, true);
-	let BackColor = (LuckyWheelVelocity == 0) ? "White" : "Silver";
+	let BackColor = (WheelFortuneVelocity == 0) ? "White" : "Silver";
 	DrawButton(1885, 25, 90, 90, "", BackColor, "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1770, 25, 90, 90, "", BackColor, "Icons/Random.png", TextGet("Random"));
-	LuckyWheelDraw(LuckyWheelList, LuckyWheelPos, LuckyWheelPosMax, 750, 0, 1);
-	DrawTextWrap(TextGet((LuckyWheelVelocity == 0) ? "Title" : "Wait"), 1375, 200, 560, 200, "White");
+	WheelFortuneDraw(WheelFortuneList, WheelFortunePos, WheelFortunePosMax, 750, 0, 1);
+	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? "Title" : "Wait"), 1375, 200, 550, 200, "White");
 	MainCanvas.textAlign = "left";
-	DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), LuckyWheelRoleplay, (LuckyWheelVelocity != 0), "White");
+	DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
 	MainCanvas.textAlign = "center";
+	if (WheelFortuneCharacter.IsPlayer()) DrawButton(1400, 800, 440, 80, TextGet("Customize"), BackColor);
 
 }
 
@@ -649,25 +654,29 @@ function LuckyWheelRun() {
  * Handles clicks during the mini game
  * @returns {void} - Nothing
  */
-function LuckyWheelClick() {
+function WheelFortuneClick() {
 
 	// No more clicks if the wheel is spinning
-	if (LuckyWheelVelocity != 0) return;
+	if (WheelFortuneVelocity != 0) return;
 
 	// When the user wishes to exit
-	if (MouseIn(1885, 25, 90, 90)) LuckyWheelExit();
+	if (MouseIn(1885, 25, 90, 90)) WheelFortuneExit();
 
 	// When the user wishes to do a random spin
 	if (MouseIn(1770, 25, 90, 90)) {
-		LuckyWheelVelocity = LuckyWheelVelocity + 3000 + (Math.random() * 3000);
-		LuckyWheelVelocityTime = CommonTime();
-		let Msg = TextGet("Spin" + (LuckyWheelRoleplay ? "Roleplay" : ""));
-		Msg = Msg.replace("CharacterName", LuckyWheelCharacterName);
+		WheelFortuneVelocity = WheelFortuneVelocity + 3000 + (Math.random() * 3000);
+		WheelFortuneVelocityTime = CommonTime();
+		let Msg = TextGet("Spin" + (WheelFortuneRoleplay ? "Roleplay" : ""));
+		Msg = Msg.replace("CharacterName", CharacterNickname(WheelFortuneCharacter));
 		ServerSend("ChatRoomChat", { Content: Msg, Type: "Emote" });
 	}
 
+	// When the user wants to customize the wheel
+	if (MouseIn(1400, 800, 440, 80) && WheelFortuneCharacter.IsPlayer())
+		CommonSetScreen("Online", "WheelFortuneCustomize");
+
 	// Roleplay check box
-	if (MouseIn(1436, 468, 64, 64)) LuckyWheelRoleplay = !LuckyWheelRoleplay;
+	if (MouseIn(1436, 468, 64, 64)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
 
 }
 
@@ -675,11 +684,11 @@ function LuckyWheelClick() {
  * If the user clicks to spin the wheel, we keep the starting position
  * @returns {void} - Nothing
  */
-function LuckyWheelMouseDown() {
-	if (MouseIn(750, 0, 500, 1000) && (LuckyWheelVelocity == 0)) {
-		LuckyWheelPosY = MouseY;
-		LuckyWheelInitY = MouseY;
-		LuckyWheelInitTime = CommonTime();
+function WheelFortuneMouseDown() {
+	if (MouseIn(750, 0, 500, 1000) && (WheelFortuneVelocity == 0)) {
+		WheelFortunePosY = MouseY;
+		WheelFortuneInitY = MouseY;
+		WheelFortuneInitTime = CommonTime();
 		return;
 	}
 }
@@ -688,20 +697,20 @@ function LuckyWheelMouseDown() {
  * If the user releases the mouse/finger to spin the wheel
  * @returns {void} - Nothing
  */
-function LuckyWheelMouseUp() {
-    if ((LuckyWheelPosY != null) && (LuckyWheelVelocity == 0)) {
-		if ((LuckyWheelPosY < 400) && (MouseY == -1)) LuckyWheelPosY = -1;
-		if ((LuckyWheelPosY > 600) && (MouseY == -1)) LuckyWheelPosY = 1001;
-		if ((LuckyWheelInitTime + 1000 >= CommonTime()) && (Math.abs(LuckyWheelInitY - LuckyWheelPosY) > 300)) {
-			LuckyWheelVelocity = (LuckyWheelPosY - LuckyWheelInitY) * 3;
-			if (LuckyWheelVelocity > 0) LuckyWheelVelocity = LuckyWheelVelocity + 800 + (Math.random() * 800);
-			if (LuckyWheelVelocity < 0) LuckyWheelVelocity = LuckyWheelVelocity - 800 - (Math.random() * 800);
-			LuckyWheelVelocityTime = CommonTime();
-			let Msg = TextGet("Spin" + (LuckyWheelRoleplay ? "Roleplay" : ""));
-			Msg = Msg.replace("CharacterName", LuckyWheelCharacterName);
+function WheelFortuneMouseUp() {
+    if ((WheelFortunePosY != null) && (WheelFortuneVelocity == 0)) {
+		if ((WheelFortunePosY < 400) && (MouseY == -1)) WheelFortunePosY = -1;
+		if ((WheelFortunePosY > 600) && (MouseY == -1)) WheelFortunePosY = 1001;
+		if ((WheelFortuneInitTime + 1000 >= CommonTime()) && (Math.abs(WheelFortuneInitY - WheelFortunePosY) > 300)) {
+			WheelFortuneVelocity = (WheelFortunePosY - WheelFortuneInitY) * 3;
+			if (WheelFortuneVelocity > 0) WheelFortuneVelocity = WheelFortuneVelocity + 800 + (Math.random() * 800);
+			if (WheelFortuneVelocity < 0) WheelFortuneVelocity = WheelFortuneVelocity - 800 - (Math.random() * 800);
+			WheelFortuneVelocityTime = CommonTime();
+			let Msg = TextGet("Spin" + (WheelFortuneRoleplay ? "Roleplay" : ""));
+			Msg = Msg.replace("CharacterName", CharacterNickname(WheelFortuneCharacter));
 			ServerSend("ChatRoomChat", { Content: Msg, Type: "Emote" });
 		}
-		LuckyWheelPosY = null;
+		WheelFortunePosY = null;
 	}
 }
 
@@ -709,13 +718,15 @@ function LuckyWheelMouseUp() {
  * When the wheel result is set, we publish it and return to the chat room
  * @returns {void} - Nothing
  */
-function LuckyWheelResult() {
-	let Msg = TextGet("Result" + (LuckyWheelRoleplay ? "Roleplay" : "")) + " " + TextGet("Option" + LuckyWheelValue);
-	ServerSend("ChatRoomChat", { Content: Msg, Type: "Emote" });
-	CommonSetScreen("Online", "ChatRoom");
-	if (!LuckyWheelRoleplay)
-		for (let O of LuckyWheelOption)
-			if (O.ID == LuckyWheelValue)
+function WheelFortuneResult() {
+	if (WheelFortuneEntryScreen == "ChatRoom") {
+		let Msg = TextGet("Result" + (WheelFortuneRoleplay ? "Roleplay" : "")) + " " + TextGet("Option" + WheelFortuneValue);
+		ServerSend("ChatRoomChat", { Content: Msg, Type: "Emote" });
+	}
+	CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	if (!WheelFortuneRoleplay)
+		for (let O of WheelFortuneOption)
+			if (O.ID == WheelFortuneValue)
 				if (O.Script != null)
 					O.Script();
 }
@@ -724,6 +735,6 @@ function LuckyWheelResult() {
  * When the mini exits
  * @returns {void} - Nothing
  */
-function LuckyWheelExit() {
-	if (LuckyWheelVelocity == 0) CommonSetScreen("Online", "ChatRoom");
+function WheelFortuneExit() {
+	if (WheelFortuneVelocity == 0) CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
 }
