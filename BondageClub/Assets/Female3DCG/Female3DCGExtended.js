@@ -3432,7 +3432,7 @@ var AssetFemale3DCGExtended = {
 					//	Options:[{},{},] // Opaque, Transparent
 					//},
 					//{
-					//	Name: "Eye Transparency", Key: "z", DrawImages: false,
+					//	Name: "Eye Transparency", Key: "w", DrawImages: false,
 					//	Options:[{},{},] // Opaque, Transparent
 					//},
 					{
@@ -3502,6 +3502,40 @@ var AssetFemale3DCGExtended = {
 									Hide: ["HairFront"],
 								},
 							}, // h2 - Show Back Hair
+						]
+					},
+					{
+						Name: "ZHood", Key: "z", DrawImages: false,
+						Options: [
+							{// z0 - None
+								Property: { Effect: [""], }
+							},
+							{// z1 - Open
+								Property: { Effect: [""],
+								Hide: ["HairFront"],
+								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+								}
+							},
+							{// z2 - Closed
+								Property: { 
+								Effect: ["BlindHeavy","GagEasy","BlockMouth"],
+								Hide: ["HairFront","Mask"], 
+								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3","ItemHead","ItemNose"],
+								}
+							},
+							{// z3 - Open Transparent
+								Property: { Effect: [""], 
+								Hide: ["HairFront"],
+								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+								}
+							},
+							{// z4 - Closed Transparent
+								Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
+								Hide: ["HairFront"],
+								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3","ItemHead","ItemNose"],
+								}
+							},
 						]
 					},
 				],
