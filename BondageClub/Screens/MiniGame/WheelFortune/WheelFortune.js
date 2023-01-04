@@ -339,13 +339,17 @@ var WheelFortuneOption = [
 		// Hogtie bondage
 		ID: "$",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			WheelFortuneHogtie();
+		}
 	},
 	{
 		// Shibari bondage
 		ID: "!",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			WheelFortuneShibari();
+		}
 	},
 	{
 		// Futuristic bondage
@@ -440,6 +444,50 @@ var WheelFortuneOption = [
 		Color: "Green"
 	},
 ];
+
+/**
+ * Puts the player in random hogtie bondage
+ * @returns {void} - Nothing
+ */
+function WheelFortuneHogtie() {
+	let Item = InventoryGet(Player, "ItemArms");
+	if ((Item != null) && (InventoryGetLock(Item) != null)) return;
+	InventoryRemove(Player, "ItemArms");
+	let ItemName = CommonRandomItemFromList("", ["HempRope", "LeatherCuffs", "OrnateCuffs", "WoodenCuffs", "ThinLeatherStraps"]);
+	let Type = (ItemName == "ThinLeatherStraps") ? "Hogtie" : "Hogtied";
+	InventoryWear(Player, ItemName, "ItemArms", "Default", 5);
+	InventoryGet(Player, "ItemArms").Property = { Type: Type, SetPose: ["Hogtied"], Difficulty: 0, Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], Effect: ["Block", "Freeze", "Prone"] };
+	CharacterRefresh(Player);
+	ChatRoomCharacterUpdate(Player);
+}
+
+/**
+ * Puts the player in random shibari rope bondage
+ * @returns {void} - Nothing
+ */
+function WheelFortuneShibari() {
+	InventoryWear(Player, "HempRope", "ItemArms", "Default", 5);
+	InventoryWear(Player, "HempRope", "ItemLegs", "Default", 5);
+	InventoryWear(Player, "HempRope", "ItemFeet", "Default", 5);
+	if ((InventoryGet(Player, "Cloth") == null) && (InventoryGet(Player, "ItemTorso") == null)) {
+		InventoryWear(Player, "HempRopeHarness", "ItemTorso", "Default", 5);
+		if (Math.random() > 0.66) InventoryGet(Player, "ItemTorso").Property = { Type: "Diamond", Difficulty: 0, Effect: [] };
+		else if (Math.random() > 0.5) InventoryGet(Player, "ItemTorso").Property = { Type: "Harness", Difficulty: 0, Effect: [] };
+	}
+	if (Math.random() >= 0.5) InventoryWear(Player, "BambooGag", "ItemMouth");
+	let Level = Math.floor(Math.random() * 3);
+	if ((Level == 1) && InventoryIsWorn(Player, "HempRope", "ItemFeet")) InventoryGet(Player, "ItemFeet").Property = { Type: "Suspension", SetPose: ["Suspension", "LegsClosed"], Difficulty: 0, Effect: [] };
+	if ((Level == 2) && InventoryIsWorn(Player, "HempRope", "ItemArms")) {
+		let SuspensionHogtiedProperty = JSON.parse(JSON.stringify(TypedItemGetOption("ItemArms", "HempRope", "SuspensionHogtied").Property));
+		const height = 0.67 * Math.random();
+		SuspensionHogtiedProperty.Difficulty = 0;
+		SuspensionHogtiedProperty.OverrideHeight.Height = height * Pose.find(p => p.Name == "Hogtied").OverrideHeight.Height;
+		SuspensionHogtiedProperty.OverrideHeight.HeightRatioProportion = height;
+		InventoryGet(Player, "ItemArms").Property = SuspensionHogtiedProperty;
+	}
+	CharacterRefresh(Player);
+	ChatRoomCharacterUpdate(Player);
+}
 
 /**
  * Sends the player to the isolation for a number of minutes
