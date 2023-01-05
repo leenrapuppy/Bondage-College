@@ -7994,14 +7994,6 @@ var AssetFemale3DCG = [
 					{ Name: "Wood" }
 				]
 			},
-			/**
-			 * TODO:
-			 * - menu spin button + input to select 2-8 texts
-			 * - menu option to send to front/back
-			 * - csv for chataction, name, layer colors, menu texts
-			 *
-			 * Assets: preview, stand, invisible logical image for Text layer, add a pen font
-			 */
 			{
 				Name: "LuckyWheel", Priority: 62, Top: 0, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [],
 				FixedPosition: true, Extended: true, DynamicAfterDraw: true, DynamicScriptDraw: true,
