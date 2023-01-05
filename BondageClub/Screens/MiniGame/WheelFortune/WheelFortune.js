@@ -355,7 +355,9 @@ var WheelFortuneOption = [
 		// Futuristic bondage
 		ID: "&",
 		Color: "Orange",
-		Script: function() {}
+		Script: function() {
+			WheelFortuneFuturisticBondage();
+		}
 	},
 	{
 		// Maid outfit
@@ -376,22 +378,37 @@ var WheelFortuneOption = [
 		Script: function() {}
 	},
 	{
-		// Lingerie
+		// New clothes
 		ID: "-",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			CharacterNaked(Player);
+			CharacterAppearanceFullRandom(Player);
+			ChatRoomCharacterUpdate(Player);
+		}
 	},
 	{
 		// Underwear
 		ID: "(",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			if (CharacterIsInUnderwear(Player) || CharacterIsNaked(Player)) {
+				CharacterNaked(Player);
+				CharacterRandomUnderwear(Player);
+			} else {
+				CharacterUnderwear(Player, Player.Appearance.slice());
+			}
+			ChatRoomCharacterUpdate(Player);
+		}
 	},
 	{
 		// Naked
 		ID: ")",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			CharacterNaked(Player);
+			ChatRoomCharacterUpdate(Player);
+		}
 	},
 	{
 		// Everyone should cheer for you
@@ -444,6 +461,27 @@ var WheelFortuneOption = [
 		Color: "Green"
 	},
 ];
+
+/**
+ * Puts the player in random futuristic bondage
+ * @returns {void} - Nothing
+ */
+function WheelFortuneFuturisticBondage() {
+	CharacterNaked(Player);
+	InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticArmbinder", "FuturisticStraitjacket"]), "ItemArms", "Default", 5);
+	InventoryWear(Player, "FuturisticAnkleCuffs", "ItemFeet", "Default", 5);
+	InventoryWear(Player, "FuturisticLegCuffs", "ItemLegs", "Default", 5);
+	InventoryWear(Player, "FuturisticHeels2", "ItemBoots", "Default", 5);
+	InventoryWear(Player, "FuturisticTrainingBelt", "ItemPelvis", "Default", 5);
+	InventoryWear(Player, "FuturisticBra", "ItemBreast", "Default", 5);
+	InventoryWear(Player, "FuturisticHarness", "ItemTorso", "Default", 5);
+	InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticPanelGag", "FuturisticHarnessPanelGag", "FuturisticHarnessBallGag"]), "ItemMouth", "Default", 5);
+	InventoryWear(Player, "FuturisticMask", "ItemHead", "Default", 5);
+	if ((InventoryGet(Player, "ItemNeck") == null) || (Player.Ownership == null)) InventoryWear(Player, "FuturisticCollar", "ItemNeck", "Default", 5);
+	InventoryWear(Player, "FuturisticEarphones", "ItemEars", "Default", 5);
+	CharacterRefresh(Player);
+	ChatRoomCharacterUpdate(Player);
+}
 
 /**
  * Puts the player in random hogtie bondage
