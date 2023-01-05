@@ -363,19 +363,37 @@ var WheelFortuneOption = [
 		// Maid outfit
 		ID: "@",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			MaidQuartersWearMaidUniform();
+			ChatRoomCharacterUpdate(Player);
+		}
 	},
 	{
-		// ADBL outfit
+		// ABDL outfit
 		ID: "#",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			CharacterNaked(Player);
+			InventoryWear(Player, CommonRandomItemFromList("", ["", "AdultBabyDress1", "AdultBabyDress2", "AdultBabyDress3", "AdultBabyDress4"]), "Cloth");
+			InventoryWear(Player, CommonRandomItemFromList("", ["Diapers1", "Diapers2", "Diapers3", "Diapers4", "BulkyDiaper", "PoofyDiaper"]), "Panties");
+			if (Math.random() > 0.5) InventoryWear(Player, "Bib", "ClothAccessory");
+			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemMouth") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["PacifierGag", "HarnessPacifierGag", "MilkBottle", "PaciGag"]), "ItemMouth");
+			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemHands") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["PaddedMittens", "PawMittens"]), "ItemHands", "Default", 5);
+			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemMisc") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["TeddyBear"]), "ItemMisc");
+			ChatRoomCharacterUpdate(Player);
+		}
 	},
 	{
 		// Slave outfit
 		ID: "+",
 		Color: "Blue",
-		Script: function() {}
+		Script: function() {
+			CharacterNaked(Player);
+			InventoryWear(Player, "SlaveRags", "Cloth");
+			if (InventoryGet(Player, "ItemFeet") == null) InventoryWear(Player, CommonRandomItemFromList("", ["BallChain", "AnkleShackles"]), "ItemFeet", "Default", 5);
+			if (InventoryGet(Player, "ItemNeck") == null) InventoryWear(Player, CommonRandomItemFromList("", ["DogCollar", "LeatherChoker", "SpikeCollar", "ShinySteelCollar", "SlenderSteelCollar"]), "ItemNeck", "Default", 5);
+			ChatRoomCharacterUpdate(Player);
+		}
 	},
 	{
 		// New clothes
