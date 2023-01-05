@@ -7274,7 +7274,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20,
-				DefaultColor: ["#1C1C1C", "Default", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
+				DefaultColor: ["#1C1C1C", "Default", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
 				AllowLock: true, DrawLocks: false, Extended: true, AllowColorizeAll: false,
 				Attribute: ["ShortHair"],
 				Top: 31, Left: 166.5,
@@ -7283,7 +7283,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					// Head Panel Parts
 					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"] },
-					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
+					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
 					{ Name: "PanelHeadTransparent", HasType: false, AllowModuleTypes: ["x1"], CopyLayerColor: "PanelHead" },
 					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: true }, // master colour for highlighting
 
@@ -7350,6 +7350,16 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m3f3","m7f3"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m3f4","m7f4"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3f1","m7f1","m3f2","m7f2","m3f3","m7f3","m3f4","m7f4"], CopyLayerColor: "PanelHeadHighlight" },
+					
+					// Hood Cover
+					{ Name: "ZipperHoodOpen", Priority: 50, HasType: false, AllowModuleTypes: ["z1"] }, // master colour for hood cover
+					{ Name: "ZipperHoodClosed", Priority: 50, HasType: false, AllowModuleTypes: ["z2"], CopyLayerColor: "ZipperHoodOpen" },
+					{ Name: "ZipperHoodOpenTransparent", Priority: 50, HasType: false, AllowModuleTypes: ["z3"], CopyLayerColor: "ZipperHoodOpen" },
+					{ Name: "ZipperHoodClosedTransparent", Priority: 50, HasType: false, AllowModuleTypes: ["z4"], CopyLayerColor: "ZipperHoodOpen" },
+					{ Name: "ZipperHoodOpenHighlight", Priority: 50, HasType: false, AllowModuleTypes: ["z1","z3"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "ZipperHoodClosedHighlight", Priority: 50, HasType: false, AllowModuleTypes: ["z2","z4"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "ZipperHoodOpenZipper", Priority: 50, HasType: false, AllowModuleTypes: ["z1","z3"] }, // master colour for hood cover zipper
+					{ Name: "ZipperHoodClosedZipper", Priority: 50, HasType: false, AllowModuleTypes: ["z2","z4"], CopyLayerColor: "ZipperHoodOpenZipper" },
 				],
 			},
 			{
