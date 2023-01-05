@@ -1372,7 +1372,7 @@ interface Character {
 		GameVersion: string;
 		ItemsAffectExpressions: boolean;
 		ScriptPermissions: ScriptPermissions;
-		LuckyWheel: string;
+		WheelFortune: string;
 	};
 	Game?: {
 		LARP?: GameLARPParameters,
@@ -2694,6 +2694,17 @@ type VibratingItemAssetConfig = ExtendedItemAssetConfig<"vibrating", VibratingIt
 interface VibratingItemConfig {
 	/** The list of vibrator mode sets that are available on this item */
 	Options?: VibratorModeSet[];
+	/**
+	 * A record containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
+	 */
+	ScriptHooks?: {
+		Load?: (next: () => void) => void;
+		Click?: (next: () => void) => void;
+		Draw?: (next: () => void) => void;
+		Exit?: () => void;
+	};
 }
 
 interface VibratingItemData {
@@ -2707,6 +2718,17 @@ interface VibratingItemData {
 	functionPrefix: string;
 	/** The common prefix used for all dynamic asset hook functions for the asset */
 	dynamicAssetsFunctionPrefix: string;
+	/**
+	 * A record containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
+	 */
+	scriptHooks: {
+		load?: (next: () => void) => void;
+		click?: (next: () => void) => void;
+		draw?: (next: () => void) => void;
+		exit?: () => void;
+	};
 }
 
 /**
