@@ -407,6 +407,7 @@ function ExtendedItemExit() {
 	const FuncName = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "") + "Exit";
 	CommonCallFunctionByName(FuncName);
 	DialogFocusItem = null;
+	DialogExtendedMessage = "";
 }
 
 /**

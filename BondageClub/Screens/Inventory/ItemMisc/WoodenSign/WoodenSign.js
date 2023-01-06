@@ -1,11 +1,7 @@
 "use strict";
 
-const InventoryItemMiscWoodenSignFont = "'Calligraffitti', cursive";
-
 // Loads the item extension properties
 function InventoryItemMiscWoodenSignLoad() {
-	DynamicDrawLoadFont(InventoryItemMiscWoodenSignFont);
-
 	var C = CharacterGetCurrent();
 	var MustRefresh = false;
 
@@ -23,59 +19,26 @@ function InventoryItemMiscWoodenSignLoad() {
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 
-	const input1 = ElementCreateInput("WoodenSignText1", "text", DialogFocusItem.Property.Text, "12");
-	const input2 = ElementCreateInput("WoodenSignText2", "text", DialogFocusItem.Property.Text2, "12");
-	if (input1) input1.pattern = DynamicDrawTextInputPattern;
-	if (input2) input2.pattern = DynamicDrawTextInputPattern;
+	PropertyTextLoad();
 }
 
 // Draw the extension screen
 function InventoryItemMiscWoodenSignDraw() {
-	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
-
-	ElementPosition("WoodenSignText1", 1505, 600, 350);
-	ElementPosition("WoodenSignText2", 1505, 680, 350);
-	DrawButton(
-		1330, 731, 340, 64, DialogFindPlayer("SaveText"),
-		(ElementValue("WoodenSignText1") + ElementValue("WoodenSignText2")).match(DynamicDrawTextRegex) ? "White" : "#888", "",
-	);
+	ExtendedItemDrawHeader();
+	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
+	PropertyTextDraw();
 }
 
 // Catches the item extension clicks
 function InventoryItemMiscWoodenSignClick() {
-	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemMiscWoodenSignExit();
-	}
-
-	if (MouseIn(1330, 731, 340, 64) && (ElementValue("WoodenSignText1") + ElementValue("WoodenSignText2")).match(DynamicDrawTextRegex)) {
-		DialogFocusItem.Property.Text = ElementValue("WoodenSignText1");
-		DialogFocusItem.Property.Text2 = ElementValue("WoodenSignText2");
-		InventoryItemMiscWoodenSignChange();
+		ExtendedItemExit();
 	}
 }
 
 // Leaves the extended screen
 function InventoryItemMiscWoodenSignExit() {
-	ElementRemove("WoodenSignText1");
-	ElementRemove("WoodenSignText2");
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
-}
-
-// When the text is changed
-function InventoryItemMiscWoodenSignChange() {
-	var C = CharacterGetCurrent();
-	CharacterRefresh(C);
-	if (CurrentScreen == "ChatRoom") {
-		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "TargetCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		ChatRoomPublishCustomAction("WoodenSignChange", true, Dictionary);
-		InventoryItemMiscWoodenSignExit();
-	}
+	PropertyTextExit();
 }
 
 /** @type {DynamicAfterDrawCallback} */
@@ -90,13 +53,15 @@ function AssetsItemMiscWoodenSignAfterDraw({
 		const ctx = tempCanvas.getContext("2d");
 
 		// One line of text will be centered
-		const text1 = (Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "♠");
-		const text2 = (Property && typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2) ? Property.Text2 : "♠");
+		const MaxText1Length = A.TextMaxLength.Text;
+		const MaxText2Length = A.TextMaxLength.Text2;
+		const text1 = (Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text.substring(0, MaxText1Length) : "");
+		const text2 = (Property && typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2) ? Property.Text2.substring(0, MaxText2Length) : "");
 		const isAlone = !text1 || !text2;
 
 		const drawOptions = {
 			fontSize: 30,
-			fontFamily: InventoryItemMiscWoodenSignFont,
+			fontFamily: A.TextFont,
 			color: Color,
 			effect: DynamicDrawTextEffect.BURN,
 			width,

@@ -1,11 +1,7 @@
 "use strict";
 
-const InventoryItemDevicesDollBoxFont = "'Satisfy', cursive";
-
 // Loads the item extension properties
 function InventoryItemDevicesDollBoxLoad() {
-	DynamicDrawLoadFont(InventoryItemDevicesDollBoxFont);
-
 	var C = CharacterGetCurrent();
 	var MustRefresh = false;
 
@@ -23,59 +19,26 @@ function InventoryItemDevicesDollBoxLoad() {
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 
-	const input1 = ElementCreateInput("DollBoxText1", "text", DialogFocusItem.Property.Text, "22");
-	const input2 = ElementCreateInput("DollBoxText2", "text", DialogFocusItem.Property.Text2, "22");
-	if (input1) input1.pattern = DynamicDrawTextInputPattern;
-	if (input2) input2.pattern = DynamicDrawTextInputPattern;
+	PropertyTextLoad();
 }
 
 // Draw the extension screen
 function InventoryItemDevicesDollBoxDraw() {
-	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
-
-	ElementPosition("DollBoxText1", 1505, 600, 350);
-	ElementPosition("DollBoxText2", 1505, 680, 350);
-	DrawButton(
-		1330, 731, 340, 64, DialogFindPlayer("SaveText"),
-		(ElementValue("DollBoxText1") + ElementValue("DollBoxText2")).match(DynamicDrawTextRegex) ? "White" : "#888", "",
-	);
+	ExtendedItemDrawHeader();
+	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
+	PropertyTextDraw();
 }
 
 // Catches the item extension clicks
 function InventoryItemDevicesDollBoxClick() {
-	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemDevicesDollBoxExit();
-	}
-
-	if (MouseIn(1330, 731, 340, 64) && (ElementValue("DollBoxText1") + ElementValue("DollBoxText2")).match(DynamicDrawTextRegex)) {
-		DialogFocusItem.Property.Text = ElementValue("DollBoxText1");
-		DialogFocusItem.Property.Text2 = ElementValue("DollBoxText2");
-		InventoryItemDevicesDollBoxChange();
+		ExtendedItemExit();
 	}
 }
 
 // Leaves the extended screen
 function InventoryItemDevicesDollBoxExit() {
-	ElementRemove("DollBoxText1");
-	ElementRemove("DollBoxText2");
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
-}
-
-// When the text is changed
-function InventoryItemDevicesDollBoxChange() {
-	var C = CharacterGetCurrent();
-	CharacterRefresh(C);
-	if (CurrentScreen == "ChatRoom") {
-		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		ChatRoomPublishCustomAction("DollBoxChange", true, Dictionary);
-		InventoryItemDevicesDollBoxExit();
-	}
+	PropertyTextExit();
 }
 
 /** @type {DynamicAfterDrawCallback} */
@@ -88,13 +51,15 @@ function AssetsItemDevicesDollBoxAfterDraw({C, A, X, Y, L, Property, drawCanvas,
 		const ctx = tempCanvas.getContext("2d");
 
 		// One line of text will be centered
-		const text1 = (Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "♠");
-		const text2 = (Property && typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2) ? Property.Text2 : "♠");
+		const MaxText1Length = A.TextMaxLength.Text;
+		const MaxText2Length = A.TextMaxLength.Text2;
+		const text1 = (Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text.substring(0, MaxText1Length) : "");
+		const text2 = (Property && typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2) ? Property.Text2.substring(0, MaxText2Length) : "");
 		const isAlone = !text1 || !text2;
 
 		const drawOptions = {
 			fontSize: 40,
-			fontFamily: InventoryItemDevicesDollBoxFont,
+			fontFamily: A.TextFont,
 			color: Color,
 			effect: DynamicDrawTextEffect.BURN,
 			width,

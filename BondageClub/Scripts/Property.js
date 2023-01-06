@@ -38,12 +38,14 @@ function PropertyGetID(Name, Item=DialogFocusItem) {
 
 /**
  * Load function for items with opacity sliders. Constructs the opacity slider.
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {string} thumbIcon The icon to use for the range input's "thumb" (handle).
  * @returns {HTMLInputElement} - The new or pre-existing range input element of the opacity slider
  */
-function PropertyOpacityLoad(OriginalFunction, thumbIcon="blindfold") {
-	OriginalFunction();
+function PropertyOpacityLoad(OriginalFunction=null, thumbIcon="blindfold") {
+	if (OriginalFunction != null) {
+		OriginalFunction();
+	}
 	const ID = PropertyGetID("Opacity");
 	const Asset = DialogFocusItem.Asset;
 
@@ -70,14 +72,16 @@ function PropertyOpacityLoad(OriginalFunction, thumbIcon="blindfold") {
 
 /**
  * Draw function for items with opacity sliders. Draws the opacity slider and further opacity-related information.
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {number} XOffset - An offset for all text and slider X coordinates
  * @param {number} YOffset - An offset for all text and slider Y coordinates
  * @param {string} LabelKeyword - The keyword of the opacity label
  * @returns {void} Nothing
  */
-function PropertyOpacityDraw(OriginalFunction, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
-	OriginalFunction();
+function PropertyOpacityDraw(OriginalFunction=null, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
+	if (OriginalFunction != null) {
+		OriginalFunction();
+	}
 	const ID = PropertyGetID("Opacity");
 
 	MainCanvas.textAlign = "right";
@@ -316,4 +320,155 @@ function PropertyAutoPunishDetectSpeech(Item, LastMessageLen=null) {
 
 	const msg = ChatRoomLastMessage.at(-1);
 	return PropertyAutoPunishParseMessage(Item.Property.AutoPunish, msg);
+}
+
+/**
+ * Throttled callback for handling text changes.
+ * @type {PropertyTextEventListener}
+ */
+const PropertyTextChange = CommonLimitFunction((C, Item, PropName, Text) => {
+	if (DynamicDrawTextRegex.test(Text)) {
+		Item.Property[PropName] = Text;
+		CharacterLoadCanvas(C);
+	}
+});
+
+/**
+ * Throttled callback for handling text changes that do not require a canvas.
+ * @type {PropertyTextEventListener}
+ */
+const PropertyTextChangeNoCanvas = CommonLimitFunction((C, Item, PropName, Text) => {
+	if (DynamicDrawTextRegex.test(Text)) {
+		Item.Property[PropName] = Text;
+	}
+});
+
+/**
+ * Load function for items with text input fields.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
+ * @param {PropertyTextEventListenerRecord} EventListeners - A record with custom event listeners for one or more input fields.
+ * @returns {HTMLInputElement[]} An array with the new or pre-existing text input elements
+ */
+function PropertyTextLoad(OriginalFunction=null, EventListeners={}) {
+	if (!PropertyTextValidate(OriginalFunction)) {
+		return;
+	}
+	if (DialogFocusItem.Asset.TextFont != null) {
+		DynamicDrawLoadFont(DialogFocusItem.Asset.TextFont);
+	}
+
+	const Item = (DialogFocusItem.Asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
+	const Property = Item.Property;
+	const C = CharacterGetCurrent();
+	const TextLengths = Object.entries(DialogFocusItem.Asset.TextMaxLength);
+
+	return TextLengths.map(([propName, maxLength]) => {
+		const ID = PropertyGetID(propName, Item);
+		if (!PropertyOriginalValue.has(ID)) {
+			PropertyOriginalValue.set(ID, Property[propName]);
+		}
+
+		const textInput = ElementCreateInput(ID, "text", Property[propName], maxLength);
+		if (textInput) {
+			const Callback = EventListeners[propName] || PropertyTextChange;
+			textInput.pattern = DynamicDrawTextInputPattern;
+			textInput.addEventListener("input", (e) => {
+				const Item = (DialogFocusItem.Asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
+				Callback(C, Item, propName, e.target.value);
+			});
+			return textInput;
+		} else {
+			return /** @type {HTMLInputElement} */(document.getElementById(ID));
+		}
+	});
+}
+
+/**
+ * Draw handler for extended item screens with text input fields.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
+ * @param {number} X - Center point of the text input field(s) on the X axis
+ * @param {number} Y - Center point of the first text input field on the Y axis
+ * @param {number} YSpacing - The spacing of Y coordinates between multiple input fields
+ * @returns {HTMLInputElement[]} An array with all text input elements
+ */
+function PropertyTextDraw(OriginalFunction=null, X=1505, Y=600, YSpacing=80) {
+	if (!PropertyTextValidate(OriginalFunction)) {
+		return;
+	}
+
+	const Item = (DialogFocusItem.Asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
+	const PropNames = Object.keys(DialogFocusItem.Asset.TextMaxLength);
+	return PropNames.map((p) => {
+		// Position the element
+		const ID = PropertyGetID(p, Item);
+		ElementPosition(ID, X, Y, 400);
+		Y += YSpacing;
+
+		// Ensure that the element is not hidden
+		const Element = /** @type {HTMLInputElement} */(document.getElementById(ID));
+		Element.style.display = "block";
+		return Element;
+	});
+}
+
+/**
+ * Exit function for items with text input fields.
+ * @param {boolean} Refresh - Whether character parameters and the respective item should be refreshed or not
+ * @param {string} TextChange - The action tag for changing (but not removing) the text
+ * @param {string} TextRemove - The action tag for the complete removal of the text
+ * @returns {void} Nothing
+ */
+function PropertyTextExit(Refresh=true, TextChange="TextChange", TextRemove="TextRemove") {
+	const PropNames = Object.keys(DialogFocusItem.Asset.TextMaxLength);
+	const IDs = PropNames.map((p) => PropertyGetID(p, DialogFocusItem));
+	const C = CharacterGetCurrent();
+
+	const OldText = IDs.map((ID) => PropertyOriginalValue.get(ID)).filter(Boolean).join(" ");
+	const NewText = PropNames.map((p) => DialogFocusItem.Property[p]).filter(Boolean).join(" ");
+	if (OldText !== NewText) {
+		if (CurrentScreen === "ChatRoom") {
+			/** @type {ChatMessageDictionary} */
+			const Dictionary = [
+				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+				{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "AssetName", GroupName: DialogFocusItem.Asset.Group.Name, AssetName: DialogFocusItem.Asset.Name },
+				{ Tag: "NewText", Text: NewText },
+			];
+			const ActionTag = (NewText === "") ? TextRemove : TextChange;
+
+			// Avoid `ChatRoomPublishCustomAction` for tighter control over character refreshing
+			ServerSend("ChatRoomChat", { Content: ActionTag, Type: "Action", Dictionary: Dictionary });
+		}
+
+		// Remove the element after calling `CharacterRefresh`
+		// The latter will call `Load`, which would otherwise restore the slider again
+		if (Refresh) {
+			CharacterRefresh(C);
+			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
+		}
+	}
+
+	IDs.forEach((ID) => {
+		ElementRemove(ID);
+		PropertyOriginalValue.delete(ID);
+	});
+}
+
+/**
+ * Validation function for items with text input fields.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {Item} Item - The equipped item
+ * @returns {boolean} - Whether the validation was successful
+ */
+function PropertyTextValidate(OriginalFunction, Item=DialogFocusItem) {
+	if (Item == null) {
+		return false;
+	} else if (typeof Item.Asset.TextMaxLength !== "object") {
+		const Asset = Item.Asset;
+		console.warn(`[${Asset.Group.Name}:${Asset.Name}]: Invalid "Asset.TextMaxLength" value: ${Asset.TextMaxLength}`);
+		return false;
+	} else if (OriginalFunction != null) {
+		OriginalFunction();
+	}
+	return true;
 }

@@ -231,6 +231,10 @@ function loadCSV(path, expectedWidth) {
 			if (!localError) {
 				GroupAssets.push(Asset);
 			}
+
+			if (Asset.TextFont != null && Asset.DynamicAfterDraw !== true) {
+				error(`Asset ${Group.Group}:${Asset.Name}: Assets should only define "TextFont" if "DynamicAfterDraw" is set to true`);
+			}
 		}
 	}
 
