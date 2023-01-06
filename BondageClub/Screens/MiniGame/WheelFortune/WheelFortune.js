@@ -478,6 +478,11 @@ var WheelFortuneOption = [
 		ID: "9",
 		Color: "Green"
 	},
+	{
+		// Spin again twice
+		ID: "²",
+		Color: "Gold"
+	}
 ];
 
 /**
