@@ -265,7 +265,12 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 
 	if (!DrawCanvas) DrawCanvas = MainCanvas;
 
-	var OverrideDark = CurrentModule == "MiniGame" || ((Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars"))) || CurrentScreen == "InformationSheet";
+	var OverrideDark = (
+		CurrentModule == "MiniGame"
+		|| ((Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars")))
+		|| CurrentScreen == "InformationSheet"
+		|| CurrentScreen === "Crafting"
+	);
 
 	if ((C != null) && ((C.ID == 0) || (OverrideDark || Player.GetBlindLevel() < 3 ))) {
 
@@ -1329,7 +1334,7 @@ function DrawProcess(time) {
 	let B = window[CurrentScreen + "Background"];
 
 	if ((B != null) && (B != "")) {
-		const ValidScreenForVFX = CurrentModule != "Character" && B != "Sheet";
+		const ValidScreenForVFX = CurrentModule != "Character" && B != "Sheet" && CurrentScreen !== "Crafting";
 		const blurLevel = Player.GetBlurLevel();
 		if (ValidScreenForVFX && blurLevel > 0) {
 			MainCanvas.filter = `blur(${blurLevel}px)`;
