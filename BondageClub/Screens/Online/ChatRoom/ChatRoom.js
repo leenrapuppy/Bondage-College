@@ -2790,7 +2790,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				Text = ChatSearchMuffle(Text);
 				meta.ChatRoomName = Text;
 			}
-			substitutions.push([Tag, Text]);
+			substitutions.push([Tag, Text.toString()]);
 		} else if (IsTextLookupDictionaryEntry(entry)) {
 			substitutions.push([entry.Tag, DialogFindPlayer(entry.TextToLookUp).toLowerCase()]);
 		}
