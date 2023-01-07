@@ -52,3 +52,9 @@ Wood
 木质
 Addons
 配件
+Stand
+支架
+Misc
+杂项
+Wheel Sections
+转盘分区

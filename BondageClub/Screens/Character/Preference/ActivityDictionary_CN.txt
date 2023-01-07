@@ -104,6 +104,8 @@ Struggle
 挣扎
 Step
 踩
+Kick
+踢
 SourceCharacter is tormented by the vibrations, struggling to keep PronounPossessive cool.
 SourceCharacter在欲望和快感的交替中,苦苦保持着自己为数不多的清明和理智.
 SourceCharacter struggles against the intense vibrations, hardly able to control PronounPossessiveself.
@@ -200,6 +202,8 @@ Bite Foot
 咬脚
 Touch Foot with Gag
 用口塞触碰脚
+Kick Foot
+踢脚
 Kiss Foot
 亲吻脚
 Lick Feet
@@ -276,6 +280,8 @@ Grope Butt
 抚弄屁股
 Inject Butt
 注射屁股
+Kick Butt
+踢屁股
 Kiss Butt
 亲吻屁股
 Fist Ass
@@ -332,6 +338,8 @@ Grope Leg
 抚弄腿部
 Inject Legs
 注射腿部
+Kick Legs
+踢腿部
 Kiss Leg
 亲吻腿部
 Lick Leg
@@ -362,6 +370,8 @@ Gag Kiss Glans
 带着口塞亲吻龟头
 Inject Glans
 注射龟头
+Kick Glans
+踢龟头
 Kiss Glans
 亲吻龟头
 Lick Glans
@@ -440,6 +450,8 @@ Rub Gag on Thighs
 用口塞蹭大腿
 Grope Thigh
 抚弄大腿
+Kick Thigh
+踢大腿
 Kiss Thigh
 亲吻大腿
 Lick Thigh
@@ -624,6 +636,8 @@ Take in Penis
 送入自己的阴茎
 Push Gag in Penis
 用口塞按压阴茎
+Kick Penis
+踢阴茎
 Kiss Penis
 亲吻阴茎
 Lick Penis
@@ -688,6 +702,8 @@ Caress Pussy
 轻抚阴部
 Push Gag in Pussy
 将口塞塞入阴部
+Kick Pussy
+踢阴部
 Kiss Pussy Lips
 亲吻阴唇
 Lick Pussy Lips
@@ -720,6 +736,8 @@ Gag Kiss Clitoris
 带着口塞亲吻阴蒂
 Inject Clitoris
 注射阴蒂
+Kick Clitoris
+踢阴蒂
 Kiss Clitoris
 亲吻阴蒂
 Lick Clitoris
@@ -860,6 +878,8 @@ SourceCharacter bites TargetCharacter's foot.
 SourceCharacter咬了一口TargetCharacter的脚.
 SourceCharacter touches TargetCharacter's feet with PronounPossessive gag.
 SourceCharacter用口塞触碰TargetCharacter的脚.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive foot.
+SourceCharacter在TargetCharacter的脚上踢了一脚。
 SourceCharacter kisses TargetCharacter's foot.
 SourceCharacter亲吻TargetCharacter的脚.
 SourceCharacter licks TargetCharacter's foot.
@@ -940,6 +960,8 @@ SourceCharacter gropes TargetCharacter's butt.
 SourceCharacter抚弄TargetCharacter的臀部.
 SourceCharacter injects TargetCharacter's butt.
 SourceCharacter注射TargetCharacter的臀部。
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive butt.
+SourceCharacter在TargetCharacter的屁股上踢了一脚。
 SourceCharacter kisses TargetCharacter's butt.
 SourceCharacter亲吻TargetCharacter的臀部.
 SourceCharacter uses PronounPossessive fist to masturbate TargetCharacter's ass.
@@ -1002,6 +1024,8 @@ SourceCharacter gropes TargetCharacter's leg.
 SourceCharacter抚弄TargetCharacter的小腿。
 SourceCharacter injects TargetCharacter's leg.
 SourceCharacter注射TargetCharacter的小腿。
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive leg.
+SourceCharacter在TargetCharacter的小腿上踢了一脚。
 SourceCharacter kisses TargetCharacter's leg.
 SourceCharacter亲吻TargetCharacter的小腿.
 SourceCharacter licks TargetCharacter's leg.
@@ -1032,6 +1056,8 @@ SourceCharacter gags kiss TargetCharacter's glans.
 SourceCharacter带着口塞亲吻了TargetCharacter的龟头。
 SourceCharacter injects TargetCharacter's glans.
 SourceCharacter注射TargetCharacter's的龟头。
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive glans.
+SourceCharacter在TargetCharacter的龟头上踢了一脚。
 SourceCharacter kisses TargetCharacter's glans.
 SourceCharacter亲吻TargetCharacter的龟头。
 SourceCharacter licks TargetCharacter's glans.
@@ -1110,6 +1136,8 @@ SourceCharacter gropes TargetCharacter's thigh.
 SourceCharacter抚弄TargetCharacter的大腿.
 SourceCharacter injects TargetCharacter's thigh.
 SourceCharacter注射TargetCharacter的大腿。
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive thigh.
+SourceCharacter在TargetCharacter的大腿上踢了一脚。
 SourceCharacter kisses TargetCharacter's thigh.
 SourceCharacter亲吻TargetCharacter的大腿.
 SourceCharacter licks TargetCharacter's thigh.
@@ -1310,6 +1338,8 @@ SourceCharacter fucks TargetCharacter's UsedAsset with PronounPossessive penis.
 SourceCharacter用TargetCharacter的UsedAsset操PronounPossessive的阴茎。
 SourceCharacter presses PronounPossessive gag into TargetCharacter's penis base.
 SourceCharacter把口塞按进TargetCharacter的阴茎根部。
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive penis.
+SourceCharacter在TargetCharacter的阴茎上踢了一脚。
 SourceCharacter kisses TargetCharacter's penis base.
 SourceCharacter亲吻TargetCharacter的阴茎根部。
 SourceCharacter licks TargetCharacter's penis base.
@@ -1376,6 +1406,8 @@ SourceCharacter caresses TargetCharacter's pussy with PronounPossessive fingers.
 SourceCharacter用手指轻抚TargetCharacter的阴部.
 SourceCharacter pushes PronounPossessive gag into TargetCharacter's vagina.
 SourceCharacter将口塞推进TargetCharacter的阴道.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive pussy.
+SourceCharacter在TargetCharacter的阴道上踢了一脚。
 SourceCharacter kisses TargetCharacter's pussy lips.
 SourceCharacter亲吻TargetCharacter的阴唇.
 SourceCharacter licks TargetCharacter's pussy lips.
@@ -1412,6 +1444,8 @@ SourceCharacter gags kiss TargetCharacter's clitoris.
 SourceCharacter带着口塞亲吻了TargetCharacter的阴蒂。
 SourceCharacter injects TargetCharacter's clitoris.
 SourceCharacter注射TargetCharacter的阴蒂。
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive clitoris.
+SourceCharacter在TargetCharacter的阴蒂上踢了一脚。
 SourceCharacter kisses TargetCharacter's clitoris.
 SourceCharacter亲吻TargetCharacter的阴蒂。
 SourceCharacter licks TargetCharacter's clitoris.
@@ -1886,9 +1920,3 @@ SourceCharacter hits PronounPossessive clitoris with PronounPossessive UsedAsset
 SourceCharacter用UsedAsset击打自己的阴蒂。
 SourceCharacter tickles PronounPossessive own clitoris with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠自己的阴蒂。
-
-########################
-### DEPRECATED LINES ###
-########################
-SourceCharacter gives TargetCharacter a kiss on PronounPossessive gag.
-SourceCharacter隔着口塞亲吻TargetCharacter。

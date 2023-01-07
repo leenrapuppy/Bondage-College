@@ -300,6 +300,8 @@ Elegant Skirt
 优雅裙
 Ruffled Skirt
 荷叶裙
+Cross Skirt
+十字装饰裙
 Suit Lower
 套装(下身)
  Catsuit Panties
@@ -536,6 +538,8 @@ Reverse Bunny Suit Stockings
 反兔装长筒袜
 Short Leather Socks
 短皮革袜
+Gradient Pantyhose
+渐变裤袜
 Cow Printed Socks
 奶牛印花袜
 Harem Stockings
@@ -1592,8 +1596,6 @@ Bolero Straitjacket
 波蕾若拘束衣
 Pet Suit
 宠物拘束服
-Holding Leash
-牵引绳
 Strait Dress
 拘束连衣裙
 Open Crotch Strait Dress
@@ -1612,8 +1614,6 @@ Latex Box-Tie Armbinder
 乳胶箱式缚单手套
 Bondage Bouquet
 花束手铐
-Holding Chain Leash
-牵引链
 Pet Crawler
 宠物爬行训练器
 Mermaid Suit
@@ -1662,7 +1662,7 @@ Smooth Lacing Leather Armbinder
 平滑系带皮革单手套
 Canvas Straitjacket 1
 画布拘束衣1
-Sleep Sac
+SleepSac
 睡袋
 Padded Mittens
 衬套无指手套
@@ -1902,12 +1902,8 @@ Hitching Post
 马桩
 Leash
 牵引绳
-Pulled Leash
-牵拉绳
 Chain Leash
 牵引链
-Pulled Chain Leash
-牵拉链
 Medium Chain
 中锁链
 Long Rope
@@ -2184,6 +2180,10 @@ Latex Dog Hood
 乳胶狗狗头套
 Latex Open Mouth Plug Hood
 乳胶开口塞头套
+Custom Latex Hood
+定制乳胶头套
+Cat Mask Harness
+猫猫面具束带
 Light Duty Ear Plugs
 轻型耳塞
 Heavy Duty Ear Plugs
@@ -2364,6 +2364,10 @@ Wooden Rack
 木质拉肢刑具
 Wooden Horse
 木马
+Lucky Wheel
+幸运轮盘
+Wheel of Fortune
+命运之轮
 Blanket
 毛毯
 Bed Ropes
