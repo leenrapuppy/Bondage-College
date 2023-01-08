@@ -766,11 +766,13 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 	}
 
 	// Determine the icons to display in the preview image
+	/** @type {InventoryIcon[]} */
 	let icons = [];
 	if (favoriteStateDetails.Icon) icons.push(favoriteStateDetails.Icon);
 	if (InventoryItemHasEffect(item, "Lock", true)) icons.push(isWorn ? "Locked" : "Unlocked");
 	if (!C.IsPlayer() && InventoryIsAllowedLimited(C, item)) icons.push("AllowedLimited");
 	icons = icons.concat(DialogGetAssetIcons(asset));
+	icons = icons.concat(DialogGetEffectIcons(item));
 
 	/** @type {DialogInventoryItem} */
 	const inventoryItem = {
@@ -808,6 +810,39 @@ function DialogGetAssetIcons(asset) {
 	if (asset.OwnerOnly) icons.push("OwnerOnly");
 	if (asset.LoverOnly) icons.push("LoverOnly");
 	if (asset.AllowActivity && asset.AllowActivity.length > 0) icons.push("Handheld");
+	return icons;
+}
+
+/** @type {Partial<Record<InventoryIcon, EffectName[]>>} */
+const DialogEffectIconTable = {
+	"GagLight": ["GagVeryLight", "GagLight", "GagEasy"],
+	"GagNormal": ["GagNormal", "GagMedium"],
+	"GagHeavy": ["GagHeavy", "GagVeryHeavy"],
+	"GagTotal": ["GagTotal", "GagTotal2", "GagTotal3", "GagTotal4"],
+	"DeafLight": ["DeafLight"],
+	"DeafNormal": ["DeafNormal", "DeafHeavy"],
+	"DeafHeavy": ["DeafTotal"],
+	"BlindLight": ["BlindLight"],
+	"BlindNormal": ["BlindNormal", "BlindHeavy"],
+	"BlindHeavy": ["BlindTotal"],
+};
+
+/**
+ * Return icons for each "interesting" effect on the item.
+ * @param {Item} item
+ * @returns {InventoryIcon[]} - A list of icon names.
+ */
+function DialogGetEffectIcons(item) {
+	/** @type {InventoryIcon[]} */
+	let icons = [];
+	for (const [icon, effects] of /** @type {[InventoryIcon, EffectName[]][]} */(Object.entries(DialogEffectIconTable))) {
+		for (const effect of effects) {
+			if (InventoryItemHasEffect(item, effect, true)) {
+				icons.push(icon);
+				break;
+			}
+		}
+	}
 	return icons;
 }
 

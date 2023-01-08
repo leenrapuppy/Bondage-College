@@ -212,6 +212,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	const C = CharacterGetCurrent();
 	const ImageHeight = ShowImages ? 220 : 0;
 	const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
+	let Effect = null;
 
 	switch (Option.OptionType) {
 		case "ModularItemModule":
@@ -220,6 +221,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 			break;
 		case "ModularItemOption":
 			Type = Option.Name;
+			Effect = Option.Property && Option.Property.Effect || null;
 			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
@@ -228,6 +230,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 			break;
 		default:  // Assume we're dealing with `ExtendedItemOption` at this point
 			Type = (Option.Property && Option.Property.Type) || null;
+			Effect = Option.Property && Option.Property.Effect || null;
 			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
@@ -241,7 +244,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	if (ShowImages) {
 		DrawImageResize(AssetSource, X + 2, Y, 221, 221);
 		if (Option.OptionType !== "ModularItemModule") {
-			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type), X + 2, Y);
+			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type, Effect), X + 2, Y);
 		}
 	}
 	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
@@ -683,9 +686,10 @@ function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
  * @param {Character} C - The target character
  * @param {Asset} Asset - The asset for the typed item
  * @param {string | null} Type - The type of the asse
+ * @param {EffectName[]} [Effects]
  * @returns {InventoryIcon[]} - The inventory icons
  */
-function ExtendItemGetIcons(C, Asset, Type=null) {
+function ExtendItemGetIcons(C, Asset, Type=null, Effects=null) {
 	const IsBlocked = InventoryIsPermissionBlocked(C, Asset.Name, Asset.Group.Name, Type);
 	const IsLimited = InventoryIsPermissionLimited(C, Asset.Name, Asset.Group.Name, Type);
 
@@ -698,6 +702,18 @@ function ExtendItemGetIcons(C, Asset, Type=null) {
 	if (FavoriteDetails && FavoriteDetails.Icon) {
 		icons.push(FavoriteDetails.Icon);
 	}
+
+	if (Array.isArray(Effects)) {
+		for (const [icon, effects] of /** @type {[InventoryIcon, EffectName[]][]} */(Object.entries(DialogEffectIconTable))) {
+			for (const effect of effects) {
+				if (Effects.includes(effect)) {
+					icons.push(icon);
+					break;
+				}
+			}
+		}
+	}
+
 	return icons;
 }
 
