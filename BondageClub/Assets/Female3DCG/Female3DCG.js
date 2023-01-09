@@ -7311,7 +7311,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20,
-				DefaultColor: ["#1C1C1C", "Default", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
+				DefaultColor: ["Default", "#1C1C1C", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
 				AllowLock: true, DrawLocks: false, Extended: true, AllowColorizeAll: false,
 				Attribute: ["ShortHair"],
 				Top: 31, Left: 166.5,
@@ -7319,8 +7319,8 @@ var AssetFemale3DCG = [
 				Block: ["ItemEars"],
 				Layer: [
 					// Head Panel Parts
-					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"] },
 					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
+					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"] },
 					{ Name: "PanelHeadTransparent", HasType: false, AllowModuleTypes: ["x1"], CopyLayerColor: "PanelHead" },
 					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: true }, // master colour for highlighting
 
