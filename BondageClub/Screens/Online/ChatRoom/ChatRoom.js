@@ -2152,7 +2152,6 @@ function ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNext
 			else if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock) msg = "ActionSwap";
 			else if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.IsLock) msg = "ActionAddLock";
 			else if (InventoryItemHasEffect(StruggleProgressNextItem, "Lock", false)) msg = "ActionLock";
-			else if ((StruggleProgressNextItem != null) && (!StruggleProgressNextItem.Asset.Wear) && (StruggleProgressNextItem.Asset.DynamicActivity(Player) != null)) msg = "ActionActivity" + StruggleProgressNextItem.Asset.DynamicActivity(Player);
 			else if (StruggleProgressNextItem != null) msg = "ActionUse";
 			else if (InventoryItemHasEffect(StruggleProgressPrevItem, "Lock")) msg = "ActionUnlockAndRemove";
 			else msg = "ActionRemove";
@@ -2821,7 +2820,6 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		for (const [tag, asset] of Object.entries(meta.Assets)) {
 			if (tag === "ActivityAsset") {
 				meta.ActivityAsset = asset;
-				meta.ActivityName = asset.DynamicActivity(character);
 			}
 			substitutions.push([tag, asset.DynamicDescription(character).toLowerCase()]);
 		}
