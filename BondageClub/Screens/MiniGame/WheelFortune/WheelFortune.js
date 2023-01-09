@@ -13,6 +13,8 @@ var WheelFortuneInitY = 0;
 var WheelFortuneInitTime = 0;
 var WheelFortuneValue = "";
 var WheelFortuneList = "";
+var WheelFortuneEncaseList = ["Coffin", "VacBedDeluxe", "CryoCapsule", "DisplayCase", "DollBox", "WoodenBox", "SmallWoodenBox", "Locker", "SmallLocker", "Cage", "LowCage", "TransportWoodenBox", "TheDisplayFrame"];
+var WheelFortuneEncaseClosedList = ["Coffin", "CryoCapsule"];
 var WheelFortunePasswordChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var WheelFortuneDefault = "ABCFGHKLMNPQRSUVWabcfgj$!-()0123456";
 var WheelFortuneOption = [
@@ -618,8 +620,12 @@ function WheelFortuneInventoryWear(Group, Minutes) {
 	let Try = 0;
 	while (((Item == null) || (Item.Asset == null) || (Item.Asset.AllowLock == false)) && (Try <= 30)) {
 		InventoryRemove(Player, Group, false);
-		InventoryWearRandom(Player, Group, null, false);
+		if (Group == "ItemDevices")
+			InventoryWear(Player, CommonRandomItemFromList("", WheelFortuneEncaseList), "ItemDevices", "Default", 20);
+		else
+			InventoryWearRandom(Player, Group, null, false);
 		Item = InventoryGet(Player, Group);
+		if (Group == "ItemDevices") Item.Property = { Type: (WheelFortuneEncaseClosedList.includes(Item.Asset.Name)) ? "Closed" : null, Difficulty: 50, SelfUnlock: false, Effect:  ["Freeze", "Prone", "Enclose"]};
 		Try++;
 	}
 
