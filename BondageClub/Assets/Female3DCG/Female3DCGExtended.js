@@ -3505,6 +3505,11 @@ var AssetFemale3DCGExtended = {
 									Hide: ["HairFront"],
 								},
 							}, // h2 - Show Back Hair
+							{
+								Property: {
+									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"]
+								},
+							}, // h3 - Hide Hair and Accessories
 						]
 					},
 					{
