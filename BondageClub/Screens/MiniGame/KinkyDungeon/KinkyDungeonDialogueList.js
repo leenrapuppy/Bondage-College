@@ -14,6 +14,7 @@ let KDResertNGTags = [
 let KDShops = {};
 
 
+
 /**
  * @type {Record<string, {name: string, outfit: string, tags: string[], singletag: string[], excludeTags: string[], chance: number}>}
  */
@@ -121,7 +122,11 @@ let KDDialogue = {
 				prerequisiteFunction: (gagged) => {return false;},
 				options: {"Leave": {playertext: "Leave", exitDialogue: true}}},
 			"Deny": {gag: true, playertext: "WeaponFoundDeny", response: "Punishment", personalities: ["Dom", "Sub", "Robot"],
-				clickFunction: (gagged) => {KinkyDungeonStartChase(undefined, "Refusal"); return false;},
+				clickFunction: (gagged) => {
+					KinkyDungeonStartChase(undefined, "Refusal");
+					KDAggroSpeaker();
+					return false;
+				},
 				options: {"Leave": {playertext: "Leave", exitDialogue: true}}},
 			"Illusion": {gagDisabled: true, playertext: "WeaponFoundIllusion", response: "Disbelief", personalities: ["Dom", "Sub", "Robot"],
 				prerequisiteFunction: (gagged) => {return KinkyDungeonGoddessRep.Illusion >= 51;},
@@ -130,6 +135,7 @@ let KDDialogue = {
 						KDGameData.CurrentDialogStage = "Deny";
 						KDGameData.CurrentDialogMsg = "HeadMaidExcuseMe";
 						KinkyDungeonStartChase(undefined, "Refusal");
+						KDAggroSpeaker();
 					} else {
 						let diff = KDPersonalitySpread(40, 60, 80);
 						if (KDBasicCheck(["Illusion", "Ghost"], ["Prisoner"]) > diff) {
@@ -312,13 +318,13 @@ let KDDialogue = {
 	"OfferDress": KDYesNoBasic("OfferDress", ["Rope"], ["Ghost"], ["bindingDress"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferArmor": KDYesNoBasic("OfferArmor", ["Metal"], ["Ghost"], ["shackleGag"], [60, -10, 75, -20], [-35, -10, 25, -5]),
 	"OfferChain": KDYesNoBasic("OfferChain", ["Metal"], ["Ghost"], ["chainRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 2, 3),
-	"OfferVine": KDYesNoBasic("OfferVine", ["Metal"], ["Ghost"], ["vineRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 2, 3),
-	"OfferObsidian": KDYesNoBasic("OfferObsidian", ["Metal"], ["Ghost"], ["obsidianRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 1, 2),
+	"OfferVine": KDYesNoBasic("OfferVine", ["Will"], ["Ghost"], ["vineRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 2, 3),
+	"OfferObsidian": KDYesNoBasic("OfferObsidian", ["Elements"], ["Ghost"], ["obsidianRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 1, 2),
 	"OfferMaidRestraint": KDYesNoBasic("OfferMaidRestraint", ["Illusion"], ["Ghost"], ["maidRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 1, 2),
 	"OfferDragon": KDYesNoBasic("OfferDragon", ["Leather"], ["Ghost"], ["dragonRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15], 1, 2),
 	"OfferComfy": KDYesNoBasic("OfferComfy", ["Conjure"], ["Ghost"], ["comfyRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferShackles": KDYesNoBasic("OfferShackles", ["Metal"], ["Ghost"], ["shackleRestraints", "steelCuffs"], [55, 0, 75, 0], [-25, 0, 40, 15], 1, 3),
-	"OfferKitty": KDYesNoBasic("OfferKitty", ["Leather"], ["Ghost"], ["kittyRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15]),
+	"OfferKitty": KDYesNoBasic("OfferKitty", ["Will"], ["Ghost"], ["kittyRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferMithril": KDYesNoBasic("OfferMithril", ["Metal"], ["Ghost"], ["mithrilRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferMithrilRope": KDYesNoBasic("OfferMithrilRope", ["Rope"], ["Ghost"], ["mithrilRope","mithrilRopeHogtie"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferWolfRestraint": KDYesNoBasic("OfferWolfRestraint", ["Metal"], ["Ghost"], ["wolfRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15]),
@@ -330,8 +336,8 @@ let KDDialogue = {
 	"OfferLatex": KDYesNoBasic("OfferLatex", ["Latex"], ["Ghost"], ["latexRestraints", "latexRestraintsHeavy"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferKigu": KDYesNoBasic("OfferKigu", ["Conjure"], ["Ghost"], ["kiguRestraints"], [55, 0, 75, 0], [-25, 0, 40, 15]),
 	"OfferLeather": KDYesNoBasic("OfferLeather", ["Leather"], ["Ghost"], ["armbinderSpell", "straitjacketSpell", "legbinderSpell", "harnessSpell", "gagSpell", "blindfoldSpell", "leathercuffsSpell"], [55, 0, 75, 0], [-25, 0, 40, 15], 1, 3),
-	"OfferRopes": KDYesNoBasic("OfferRopes", ["Latex"], ["Ghost"], ["ropeRestraints", "ropeRestraints2", "ropeRestraintsHogtie", "ropeRestraintsWrist", "ropeAuxiliary"], [55, 0, 75, 0], [-25, 0, 40, 15],  3, 5, "Red"),
-	"OfferChastity": KDYesNoBasic("OfferChastity", ["Metal"], ["Ghost"], ["genericChastity"], [55, 0, 75, 0], [-25, 0, 40, 15],  1, 1, "Gold", true, [{name: "ChastityOffer", duration: 50}]),
+	"OfferRopes": KDYesNoBasic("OfferRopes", ["Rope"], ["Ghost"], ["ropeRestraints", "ropeRestraints2", "ropeRestraintsHogtie", "ropeRestraintsWrist", "ropeAuxiliary"], [55, 0, 75, 0], [-25, 0, 40, 15],  3, 5, "Red"),
+	"OfferChastity": KDYesNoBasic("OfferChastity", ["Metal"], ["Ghost"], ["genericChastity"], [55, 0, 75, 0], [-25, 0, 40, 15],  1, 1, "Gold", true, [{name: "ChastityOffer", duration: 300}]),
 
 
 
@@ -765,7 +771,7 @@ let KDDialogue = {
 	"PrisonerRescueMushy": KDPrisonerRescue("PrisonerRescueMushy", "Mushy", ["Fungal", "Mushy"]),
 	"PrisonerRescueAncientRobot": KDPrisonerRescue("PrisonerRescueAncientRobot", "AncientRobot", ["CaptureBot", "Drone"]),
 
-	"BlacksmithShop": KDSaleShop("BlacksmithShop", ["RedKey", "Knife", "Sword", "Axe", "Spear", "TrapCuffs"], [], ["blacksmith"], 0.4, 1.5),
+	"BlacksmithShop": KDSaleShop("BlacksmithShop", ["Lockpick", "Knife", "Sword", "Axe", "Spear", "TrapCuffs"], [], ["blacksmith"], 0.4, 1.5),
 	"PrisonerBandit": {
 		response: "Default",
 		personalities: ["Sub"],
