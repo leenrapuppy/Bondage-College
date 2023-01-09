@@ -27,7 +27,13 @@ const KinkyDungeonMapParams = {
 		"torchchance": 0.35,
 		"torchchanceboring": 1.0,
 
+		music: {
+			"AREA1-GRAVEYARD.ogg": 10,
+			"GENERIC-DOLLRACK.ogg": 4,
+		},
+
 		tagModifiers: {
+			"temple": 0.4,
 			"jungle": 0,
 			"cavern": 0,
 		},
@@ -39,7 +45,7 @@ const KinkyDungeonMapParams = {
 			{Type: "Graveyard", Weight: 6},
 			{Type: "Altar", Weight: 3},
 			{Type: "SmallAltar", Weight: 18},
-			{Type: "GuardedChest", Weight: 10},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "LargeGuardedChest", Weight: 20},
 			{Type: "QuadCell", Weight: 3},
 			{Type: "Storage", Weight: 5},
@@ -63,10 +69,10 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 1, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
+		"min_width" : 5,
+		"max_width" : 7,
 		"min_height" : 5,
-		"max_height" : 8,
+		"max_height" : 6,
 		"defeat_outfit": "Prisoner",
 		"shrines": [
 			//{Type: "Charms", Weight: 5},
@@ -108,7 +114,12 @@ const KinkyDungeonMapParams = {
 		"forbiddenGreaterChance" : 0.33,
 		cageChance: 0.8,
 		torchchance: 0.05,
-		torchchanceboring: 1.0,
+		torchchanceboring: 0.7,
+
+		music: {
+			"GENERIC-DOLLRACK.ogg": 10,
+			"AREA2-ANCIENTTOMBS.ogg": 2,
+		},
 
 		tagModifiers: {
 			"narrow": 2,
@@ -123,7 +134,7 @@ const KinkyDungeonMapParams = {
 			{Type: "QuadCell", Weight: 8},
 			{Type: "Storage", Weight: 5},
 			{Type: "SmallAltar", Weight: 18},
-			{Type: "GuardedChest", Weight: 10},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "LargeGuardedChest", Weight: 20},
 			{Type: "ExtraCell", Weight: 10},
 		],
@@ -150,10 +161,10 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 2, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
+		"min_width" : 5,
+		"max_width" : 7,
 		"min_height" : 5,
-		"max_height" : 8,
+		"max_height" : 6,
 
 		enemyTags: ["skeleton"],
 		"defeat_outfit": "Dungeon",
@@ -201,10 +212,14 @@ const KinkyDungeonMapParams = {
 			"cavern": 60,
 		},
 
+		music: {
+			"AREA5-UNDERGROUNDJUNGLE.ogg": 10,
+		},
+
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "LargeGuardedChest", Weight: 20},
 			{Type: "JungleLight", Weight: 8},
 			{Type: "Fireflies", Weight: 40},
@@ -228,10 +243,10 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
+		"min_width" : 5,
+		"max_width" : 6,
 		"min_height" : 5,
-		"max_height" : 8,
+		"max_height" : 5,
 
 		enemyTags: ["plant", "jungle"],
 		"defeat_outfit": "LatexPrisoner",
@@ -283,10 +298,18 @@ const KinkyDungeonMapParams = {
 			brightness: 6,
 		},
 
+		music: {
+			"AREA7-LOSTTEMPLE.ogg": 14,
+			"AREA8-BELLOWS.ogg": 2,
+		},
+
 		tagModifiers: {
 			"jungle": 0,
 			"cavern": 0,
 			"temple": 3,
+		},
+		globalTags: {
+			"temple": true,
 		},
 
 		shadowColor: 0x000703,
@@ -295,7 +318,7 @@ const KinkyDungeonMapParams = {
 			{Type: "Bedroom", Weight: 1},
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "LargeGuardedChest", Weight: 20},
 			{Type: "Magicflies", Weight: 12},
 		],
@@ -317,10 +340,10 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "HeavySkeleton", strict: true, Level: 0, Power: 1, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
+		"min_width" : 5,
+		"max_width" : 7,
 		"min_height" : 5,
-		"max_height" : 8,
+		"max_height" : 5,
 
 		enemyTags: ["skeleton", "temple", "ghost"],
 		"defeat_outfit": "LatexPrisoner",
@@ -365,10 +388,25 @@ const KinkyDungeonMapParams = {
 		torchchance: 0.1,
 		torchchanceboring: 0.1,
 
+		music: {
+			"AREA2-ANCIENTTOMBS.ogg": 10,
+		},
+
+		worldGenCode: () => {
+			for (let X = 1; X < KinkyDungeonGridWidth - 1; X++) {
+				for (let Y = 1; Y < KinkyDungeonGridHeight - 1; Y++) {
+					if (KinkyDungeonMapGet(X, Y) == 'X' && KDRandom() < 0.15 + 0.45 * Math.min(1, KinkyDungeonDifficulty/30)) {
+						KinkyDungeonMapSet(X, Y, '3');
+						DialogueCreateEnemy(X, Y, "MummyCursed");
+					}
+				}
+			}
+		},
+
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "LargeGuardedChest", Weight: 20},
 			{Type: "Storage", Weight: 7},
 		],
@@ -399,10 +437,10 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
+		"min_width" : 5,
+		"max_width" : 6,
 		"min_height" : 5,
-		"max_height" : 8,
+		"max_height" : 7,
 
 		enemyTags: ["mummy", "ghost"],
 		"defeat_outfit": "Bast",
@@ -439,7 +477,7 @@ const KinkyDungeonMapParams = {
 		"trapchance" : 0.3,
 		"grateChance" : 0.7,
 		"rubblechance" : 0.3,
-		"brickchance" : 0.03,
+		"brickchance" : 0.01,
 		"cacheInterval" : 1,
 		// Side routes have more high-value loot
 		"forbiddenChance" : 1.0,
@@ -450,6 +488,17 @@ const KinkyDungeonMapParams = {
 			sprite: "TorchOrb",
 			brightness: 4,
 		},
+
+		music: {
+			"AREA4-MAGICLIBRARY.ogg": 10,
+			"GENERIC-DOLLRACK.ogg": 4,
+		},
+
+		"setpieces": [
+			{Type: "SmallAltar", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
+			{Type: "LargeGuardedChest", Weight: 20},
+		],
 
 		tagModifiers: {
 			"urban": 2,
@@ -514,6 +563,11 @@ const KinkyDungeonMapParams = {
 		torchchance: 0.3,
 		torchchanceboring: 0.1,
 
+		music: {
+			"AREA6-CRYSTALCAVE.ogg": 10,
+			"AREA8-BELLOWS.ogg": 3,
+		},
+
 		shadowColor: 0x080311,
 
 		"gaschance" : 0.33, // Chance for gas to appear on the level
@@ -537,7 +591,7 @@ const KinkyDungeonMapParams = {
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "LargeGuardedChest", Weight: 20},
 			{Type: "Storage", Weight: 2},
 			{Type: "Magicflies", Weight: 40},
@@ -563,9 +617,9 @@ const KinkyDungeonMapParams = {
 		],
 
 		"min_width" : 4,
-		"max_width" : 8,
-		"min_height" : 4,
-		"max_height" : 8,
+		"max_width" : 5,
+		"min_height" : 5,
+		"max_height" : 7,
 
 		enemyTags: ["mushroom", "slimeBonus", "crystalline"],
 		"defeat_outfit": "Prisoner",

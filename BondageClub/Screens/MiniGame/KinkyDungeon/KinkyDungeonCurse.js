@@ -1,6 +1,6 @@
 "use strict";
 
-/** @type {Record<string, {condition: (item: item) => boolean, remove: (item: item, host: item) => void}>} */
+/** @type {Record<string, {onApply?: (item: item, host?: item) => void, condition: (item: item) => boolean, remove: (item: item, host: item) => void}>} */
 let KDCurses = {
 	"GhostLock" : {
 		condition: (item) => {
@@ -26,8 +26,86 @@ let KDCurses = {
 			KinkyDungeonRedKeys -= 5;
 		}
 	},
+	"Key" : {
+		condition: (item) => {
+			return KinkyDungeonRedKeys >= 1;
+		},
+		remove: (item, host) => {
+			KinkyDungeonRedKeys -= 1;
+		}
+	},
+	"Will" : {
+		onApply: (item, host) => {
+			KinkyDungeonChangeWill(-1);
+		},
+		condition: (item) => {
+			return KinkyDungeonStatWill >= KinkyDungeonStatWillMax*0.99;
+		},
+		remove: (item, host) => {
+			// For free!
+		}
+	},
 };
 
+/** Cursed variants of restraints
+ * @type {Record<string, KDCursedVar>}
+ */
+let KDCursedVars = {
+	"Tickle": {
+		level: 1,
+		variant: (restraint, newRestraintName) => {
+			return KDAddEventVariant(restraint, newRestraintName, [
+				{trigger: "tick", type: "tickleDrain", power: -0.02, inheritLinked: true},
+				{trigger: "drawSGTooltip", type: "curseInfo", msg: "Tickle", color: "#ff5555", inheritLinked: true}
+			]);
+		}
+	},
+	"Punish": {
+		level: 1,
+		variant: (restraint, newRestraintName) => {
+			return KDAddEventVariant(restraint, newRestraintName, [
+				{trigger: "playerAttack", type: "cursePunish", chance: 1, damage: "souldrain", power: 1, sfx: "SoftShield", msg: "KinkyDungeonPunishPlayerCurse", inheritLinked: true},
+				{trigger: "playerCast", type: "cursePunish", chance: 1, damage: "souldrain", power: 1, sfx: "SoftShield", msg: "KinkyDungeonPunishPlayerCurse", inheritLinked: true},
+				{trigger: "drawSGTooltip", type: "curseInfo", msg: "Punish", color: "#ff5555", inheritLinked: true}
+			]);
+		}
+	},
+};
+
+let KDBasicCurseUnlock = ["Key", "Will"];
+let KDBasicCurses = ["Tickle", "Punish"];
+
+/**
+ *
+ * @param {restraint} restraint
+ * @param {string} newRestraintName
+ * @param {KinkyDungeonEvent[]} ev
+ * @param {number} power
+ * @param {string} lock
+ * @returns {any}
+ */
+function KDAddEventVariant(restraint, newRestraintName, ev, power = 4, lock = "Purple") {
+	KinkyDungeonDupeRestraintText(restraint.name, newRestraintName);
+	/** @type {KinkyDungeonEvent[]} */
+	let events = ev.concat(restraint.events);
+	let escapeChance = {
+		Struggle: Math.min(restraint.escapeChance.Struggle, 0-.2),
+		Cut: Math.min(restraint.escapeChance.Cut || 1.0, -0.1),
+		Pick: Math.min(restraint.escapeChance.Pick || 1.0, 0.1),
+	};
+	return {
+		protectionCursed: true,
+		escapeChance: escapeChance,
+		DefaultLock: lock,
+		HideDefaultLock: true,
+		magic: true,
+		events: events,
+		power: power,
+		shrine: restraint.shrine?.concat(["Cursed"]),
+		inventoryAsSelf: restraint.inventoryAsSelf || restraint.inventoryAs || restraint.name,
+		displayPower: restraint.displayPower || restraint.power,
+	};
+}
 
 function KinkyDungeonCurseInfo(item, Curse) {
 	if (Curse == "MistressKey" && KinkyDungeonItemCount("MistressKey")) {
@@ -85,3 +163,4 @@ function KinkyDungeonCurseUnlock(group, index, Curse) {
 		}
 	}
 }
+
