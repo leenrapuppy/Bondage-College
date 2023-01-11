@@ -1,0 +1,72 @@
+[Message]: Send a message starting with /. Example: //message will send /message
+[Message]: 發送一條包含/的消息. 如: //message會發送 /message
+[Message]: Display the message as an action
+[Message]: 以動作來表現跟隨的訊息
+: Toggle AFK emote
+:切換AFK表情
+[MemberNumber]: Ban the player from the room
+[MemberNumber]:將玩家從本房間封禁
+[MemberNumber]: Send a beep to the player
+[MemberNumber]:對玩家發送一次好友私聊
+[MemberNumber]: Add the player to your blacklist
+[MemberNumber]:將玩家添加到黑名單
+[MemberNumber]: Remove the player from your blacklist
+[MemberNumber]:將玩家從黑名單移除
+"[0-5], ”+”, ”-” or ”b” or ”blue”: Remove blush with ”0”, set red blush intensity with ”1” to ”5” or increase and decrease it with ”+” and ”-”, or set blue blush with ”b” or ”blue”. Giving no blush opens the blush menu."
+[0-5]、“+”、“-”或者“b”或者“blue”: 使用“0”移除臉紅，使用“1”到“5”設置臉紅程度，或者使用“+”或者“-”來增減臉紅程度，或使用“b”或者“blue”設置為藍色。不提供臉紅會打開臉紅菜單。
+[Message]: sends hidden message to bots
+[Message]:對機器人發送隱藏消息
+: Toss a coin
+:丟一枚硬幣
+: Open the crafting menu
+: 打開製作物品菜單
+[MemberNumber]: Demote the player from room administrator
+[MemberNumber]:取消玩家房管權限
+[Number]: Roll a 6-sided die. Adding “[Number]” after the command for any number between 2 and 100 will roll a die of that many sides instead. Adding “[Number]d[Number]” will roll multiple dice and sum the total.
+[Number]:丟一個6面骰.追加一個“[Number]”在命令後將會丟一個D[Number]的骰子.添加“[Number]d[Number]”會丟出多枚多面骰.
+[0-5]: Clear or load facial expression. “0” after the command will clear current expression. “1” to “5” will load expression from the saved slot. Giving no number opens the saved expression menu.
+[0-5]: 清空或載入臉部表情。指令後的“0”會清空檔前的表情。“1”到“5”會從保存欄位載入表情。如果沒有提供數字，會打開已保存的表情菜單。
+[o|c][l|r] or [expression]: Open or close eyes or change expression. “c” will close, “o” will open, using “l” or “r” will target only one eye. Giving no action opens the expression menu, using one of “default”, “dazed”, “shy”, “sad”, “horny”, “lewd”, “verylewd”, “heart”, “heartpink”, “lewdheart”, “lewdheartpink”, “dizzy” (or “@@”), “daydream” (or “><”), “shylyhappy” (or “^^”), “angry” (or “èé”), “surprised” (or “éè”) or “scared” will change expression.
+[o|c][l|r] 或者 [expression]: 睜開或關閉眼睛，或者改變表情。“c”會閉眼，“o”會睜眼，使用“l”或者“r”來只針對一側的眼睛。如果沒有提供動作，會打開表情菜單，使用下列之一來改變表情：“defualt”、“dazed”、“shy”、“sad”、“horny”、“lewd”、“verylewd”、“heart”、“heartpink”、“lewdheartpink”、“dizzy”（或“@@”）、“daydream”（或者“><”）、“shylyhappy”（或者“^^”）、“angry”（或“èé”）、“surprised”（或“éè”）、“scared”。
+[MemberNumber]: Add the player to your friendlist
+[MemberNumber]:將玩家添加到好友列表
+[MemberNumber]: Remove the player from your friendlist
+[MemberNumber]:將玩家從好友列表移除
+[MemberNumber]: Add the player to your ghostlist
+[MemberNumber]:將玩家添加到忽視列表
+[MemberNumber]: Remove the player from your ghostlist
+[MemberNumber]:將玩家從忽視列表移除
+[Keyword]: Display help for the command with prefix Keyword. Exclude [Keyword] to view all valid commands
+[Keyword]:顯示符合本關鍵字前綴的命令,不輸入關鍵字可查看所有命令
+do nothing
+什麼都不做
+[MemberNumber]: Kick the player out of the room
+[MemberNumber]:將玩家踢出房間
+[Message]: Display “[PlayerName] Message” as an action. *[Message] does the same
+[Message]:顯示“[PlayerName] Message”為動作.*[Message]也是同樣的效果
+[MemberNumber]: Promote the user to room administrator
+[MemberNumber]:使玩家成為房管
+use safeword
+使用安全詞
+: View your blacklist
+:查看黑名單
+: View you friendlist
+:查看好友列表
+: View your ghostlist
+:查看忽視列表
+: View your whitelist
+:查看白名單
+: Open the friendlist screen
+:打開好友列表
+[MemberNumber]: Remove a ban on a player
+[MemberNumber]:移除玩家的封禁
+[MemberNumber]: Add a player to your whitelist
+[MemberNumber]:將玩家添加到白名單
+[MemberNumber]: Remove a player from your whitelist
+[MemberNumber]:將玩家從白名單移除
+Display your forbidden words set by your owner
+顯示你的主人設置的禁止詞
+Spin your Wheel of Fortune
+轉動你的命運之輪
+[MemberNumber]: Release a submissive from your ownership
+[MemberNumber]: 釋放一個被你擁有的順從者

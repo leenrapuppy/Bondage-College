@@ -1,0 +1,18 @@
+Apply to forbidden words
+應用禁止詞
+If your submissive uses a forbidden word, she will get a consequence.
+如果你的順從者使用了禁止詞，她會受到懲罰。
+Consequence:
+懲罰：
+Block the text from being sent
+阻止文本發送
+Silence her for 5 minutes
+禁言5分鐘
+Silence her for 15 minutes
+禁言15分鐘
+Silence her for 30 minutes
+禁言30分鐘
+Forbidden word:
+禁止詞：
+Add
+添加：
