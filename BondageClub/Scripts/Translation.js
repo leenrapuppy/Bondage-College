@@ -553,7 +553,7 @@ var TranslationDictionary = [
 			"Screens/Room/Stable/Text_Stable_CN.txt",
 		]
 	},
-	{
+                {
 		LanguageCode: "TW",
 		LanguageName: "繁體中文",
 		EnglishName: "TraditionalChinese",
@@ -830,7 +830,7 @@ function TranslationDialog(C) {
 
 		var OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
 		// Finds the full path of the translation file to use
-		var FullPath = (OnlinePlayer ? "Screens/Online/ChatRoom/Dialog_Online" : (C.ID == 0) ? "Screens/Character/Player/Dialog_Player" : "Screens/" + CurrentModule + "/" + CurrentScreen + "/Dialog_" + C.AccountName) + "_" + TranslationLanguage + ".txt";
+		var FullPath = (OnlinePlayer ? "Screens/Online/ChatRoom/Dialog_Online" :  (C.ID == 0) ? "Screens/Character/Player/Dialog_Player" : "Screens/" + CurrentModule + "/" + CurrentScreen + "/Dialog_" + C.AccountName) + "_" + TranslationLanguage + ".txt";
 
 		// If the translation file is already loaded, we translate from it
 		if (TranslationCache[FullPath]) {
@@ -840,7 +840,7 @@ function TranslationDialog(C) {
 
 		// If the translation is available, we open the txt file, parse it and returns the result to build the dialog
 		if (TranslationAvailable(FullPath))
-			CommonGet(FullPath, function () {
+			CommonGet(FullPath, function() {
 				if (this.status == 200) {
 					TranslationCache[FullPath] = TranslationParseTXT(this.responseText);
 					TranslationDialogArray(C, TranslationCache[FullPath]);
@@ -871,7 +871,7 @@ function TranslationText(Text) {
 
 		// If the translation is available, we open the txt file, parse it and returns the result to build the dialog
 		if (TranslationAvailable(FullPath))
-			CommonGet(FullPath, function () {
+			CommonGet(FullPath, function() {
 				if (this.status == 200) {
 					TranslationCache[FullPath] = TranslationParseTXT(this.responseText);
 					TranslationTextArray(Text, TranslationCache[FullPath]);
@@ -915,7 +915,7 @@ function TranslationAsset(Family) {
 
 		// If the translation is available, we open the txt file, parse it and returns the result to build the dialog
 		if (TranslationAvailable(FullPath))
-			CommonGet(FullPath, function () {
+			CommonGet(FullPath, function() {
 				if (this.status == 200) {
 					TranslationCache[FullPath] = TranslationParseTXT(this.responseText);
 					TranslationAssetProcess(TranslationCache[FullPath]);
