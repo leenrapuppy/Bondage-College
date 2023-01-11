@@ -553,7 +553,7 @@ var TranslationDictionary = [
 			"Screens/Room/Stable/Text_Stable_CN.txt",
 		]
 	},
-                {
+	{
 		LanguageCode: "TW",
 		LanguageName: "繁體中文",
 		EnglishName: "TraditionalChinese",
