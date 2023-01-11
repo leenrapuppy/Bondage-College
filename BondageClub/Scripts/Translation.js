@@ -553,7 +553,181 @@ var TranslationDictionary = [
 			"Screens/Room/Stable/Text_Stable_CN.txt",
 		]
 	},
-
+	{
+		LanguageCode: "TW",
+		LanguageName: "繁體中文",
+		EnglishName: "TraditionalChinese",
+		Files: [
+			"Assets/Female3DCG/ColorGroups_TW.txt",
+			"Assets/Female3DCG/Female3DCG_TW.txt",
+			"Assets/Female3DCG/LayerNames_TW.txt",
+			"Screens/Character/Appearance/Text_Appearance_TW.txt",
+			"Screens/Character/BackgroundSelection/Text_BackgroundSelection_TW.txt",
+			"Screens/Character/Cheat/Text_Cheat_TW.txt",
+			"Screens/Character/Creation/Text_Creation_TW.txt",
+		    "Screens/Character/Disclaimer/Text_Disclaimer_TW.txt",
+		    "Screens/Character/FriendList/Text_FriendList_TW.txt",
+			"Screens/Character/InformationSheet/Text_InformationSheet_TW.txt",
+			"Screens/Character/ItemColor/ItemColor_TW.txt",
+			"Screens/Character/Login/Text_Login_TW.txt",
+			"Screens/Character/OnlineProfile/Text_OnlineProfile_TW.txt",
+			"Screens/Character/PasswordReset/Text_PasswordReset_TW.txt",
+			"Screens/Character/Player/Dialog_Player_TW.txt",
+			"Screens/Character/Preference/ActivityDictionary_TW.txt",
+			"Screens/Character/Preference/Text_Preference_TW.txt",
+			"Screens/Character/Relog/Text_Relog_TW.txt",
+			"Screens/Character/Title/Text_Title_TW.txt",
+			"Screens/Character/Wardrobe/Text_Wardrobe_TW.txt",
+			"Screens/Cutscene/NPCCollaring/Text_NPCCollaring_TW.txt",
+			"Screens/Cutscene/NPCSlaveAuction/Text_NPCSlaveAuction_TW.txt",
+			"Screens/Cutscene/PlayerCollaring/Text_PlayerCollaring_TW.txt",
+			"Screens/Cutscene/PlayerMistress/Text_PlayerMistress_TW.txt",
+			"Screens/Cutscene/SarahIntro/Text_SarahIntro_TW.txt",
+			// "Screens/MiniGame/Chess/Text_Chess_TW.txt",
+			// "Screens/MiniGame/ChestLockpick/Text_ChestLockpick_TW.txt",
+			// "Screens/MiniGame/DojoStruggle/Text_DojoStruggle_TW.txt",
+			// "Screens/MiniGame/GetUp/Text_GetUp_TW.txt",
+			// "Screens/MiniGame/HorseWalk/Text_HorseWalk_TW.txt",
+			// "Screens/MiniGame/Kidnap/Text_Kidnap_TW.txt",
+			// "Screens/MiniGame/MaidCleaning/Text_MaidCleaning_TW.txt",
+			// "Screens/MiniGame/MaidDrinks/Text_MaidDrinks_TW.txt",
+			// "Screens/MiniGame/MagicBattle/Text_MagicBattle_TW.txt",
+			// "Screens/MiniGame/MagicPuzzle/Text_MagicPuzzle_TW.txt",
+			// "Screens/MiniGame/PuppyWalker/Text_PuppyWalker_TW.txt",
+			// "Screens/MiniGame/RhythmGame/Text_RhythmGame_TW.txt",
+			// "Screens/MiniGame/SlaveAuction/Text_SlaveAuction_TW.txt",
+			// "Screens/MiniGame/Tennis/Text_Tennis_TW.txt",
+			// "Screens/MiniGame/Therapy/Text_Therapy_TW.txt",
+			// "Screens/MiniGame/WheelFortune/Text_WheelFortune_TW.txt",
+			"Screens/Online/AdvancedRule/Text_AdvancedRule_TW.txt",
+			"Screens/Online/ChatAdmin/Text_ChatAdmin_TW.txt",
+			"Screens/Online/ChatBlockItem/Text_ChatBlockItem_TW.txt",
+			"Screens/Online/ChatCreate/Text_ChatCreate_TW.txt",
+			"Screens/Online/ChatRoom/Dialog_Online_TW.txt",
+			"Screens/Online/ChatRoom/Text_ChatRoom_TW.txt",
+			"Screens/Online/ChatRoom/Text_Commands_TW.txt",
+			"Screens/Online/ChatSearch/Text_ChatSearch_TW.txt",
+			"Screens/Online/ChatSelect/Text_ChatSelect_TW.txt",
+			"Screens/Online/ForbiddenWords/Text_ForbiddenWords_TW.txt",
+			 "Screens/Online/Game/OnlineGameDictionary_TW.txt",
+			"Screens/Online/GameLARP/Text_GameLARP_TW.txt",
+			"Screens/Online/GameMagicBattle/Text_GameMagicBattle_TW.txt",
+			"Screens/Online/WheelFortuneCustomize/Text_WheelFortuneCustomize_TW.txt",
+			// "Screens/Room/Arcade/Dialog_NPC_Arcade_Employee_TW.txt",
+			// "Screens/Room/Arcade/Dialog_NPC_Arcade_Player_TW.txt",
+			// "Screens/Room/AsylumBedroom/Text_AsylumBedroom_TW.txt",
+			// "Screens/Room/AsylumEntrance/Dialog_NPC_AsylumEntrance_EscapedPatient_TW.txt",
+			// "Screens/Room/AsylumEntrance/Dialog_NPC_AsylumEntrance_KidnapNurse_TW.txt",
+			// "Screens/Room/AsylumEntrance/Dialog_NPC_AsylumEntrance_Nurse_TW.txt",
+			// "Screens/Room/AsylumEntrance/Text_AsylumEntrance_TW.txt",
+			"Screens/Room/AsylumGGTS/Dialog_NPC_AsylumGGTS_Computer_TW.txt",
+			"Screens/Room/AsylumGGTS/Text_AsylumGGTS_TW.txt",
+			// "Screens/Room/AsylumMeeting/Dialog_NPC_AsylumMeeting_PatientLeft_TW.txt",
+			// "Screens/Room/AsylumMeeting/Dialog_NPC_AsylumMeeting_PatientRight_TW.txt",
+			// "Screens/Room/AsylumTherapy/Dialog_NPC_AsylumTherapy_Nurse_TW.txt",
+			// "Screens/Room/AsylumTherapy/Dialog_NPC_AsylumTherapy_Patient_TW.txt",
+			// "Screens/Room/Cafe/Text_Cafe_TW.txt",
+			// "Screens/Room/Cafe/Dialog_NPC_Cafe_Maid_TW.txt",
+			"Screens/Room/Cell/Dialog_NPC_Cell_KeyDepositStaff_TW.txt",
+			"Screens/Room/Cell/Text_Cell_TW.txt",
+			// "Screens/Room/Crafting/Text_Crafting_TW.txt",
+			// "Screens/Room/CollegeCafeteria/Dialog_NPC_CollegeCafeteria_FarRight_TW.txt",
+			// "Screens/Room/CollegeCafeteria/Dialog_NPC_CollegeCafeteria_Right_TW.txt",
+			// "Screens/Room/CollegeCafeteria/Dialog_NPC_CollegeCafeteria_Sidney_TW.txt",
+			// "Screens/Room/CollegeCafeteria/Text_CollegeCafeteria_TW.txt",
+			// "Screens/Room/CollegeChess/Dialog_NPC_CollegeChess_Opponent_TW.txt",
+			// "Screens/Room/CollegeChess/Text_CollegeChess_TW.txt",
+			// "Screens/Room/CollegeDetention/Dialog_NPC_CollegeDetention_Yuki_TW.txt",
+			// "Screens/Room/CollegeDetention/Text_CollegeDetention_TW.txt",
+			// "Screens/Room/CollegeEntrance/Dialog_NPC_CollegeEntrance_Student_TW.txt",
+			// "Screens/Room/CollegeEntrance/Text_CollegeEntrance_TW.txt",
+			// "Screens/Room/CollegeTeacher/Dialog_NPC_CollegeTeacher_Mildred_TW.txt",
+			// "Screens/Room/CollegeTeacher/Text_CollegeTeacher_TW.txt",
+			// "Screens/Room/CollegeTennis/Dialog_NPC_CollegeTennis_Jennifer_TW.txt",
+			// "Screens/Room/CollegeTennis/Text_CollegeTennis_TW.txt",
+			// "Screens/Room/CollegeTheater/Dialog_NPC_CollegeTheater_Julia_TW.txt",
+			// "Screens/Room/CollegeTheater/Text_CollegeTheater_TW.txt",
+			// "Screens/Room/Gambling/Dialog_NPC_Gambling_FirstSub_TW.txt",
+			// "Screens/Room/Gambling/Dialog_NPC_Gambling_SecondSub_TW.txt",
+			// "Screens/Room/Gambling/Text_Gambling_TW.txt",
+			// "Screens/Room/Magic/Dialog_NPC_Magic_Assistant_TW.txt",
+			// "Screens/Room/Magic/Dialog_NPC_Magic_Performer_TW.txt",
+			// "Screens/Room/MagicSchoolEscape/Dialog_NPC_MagicSchoolEscape_Instructor_TW.txt",
+			// "Screens/Room/MagicSchoolEscape/Text_MagicSchoolEscape_TW.txt",
+			// "Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_Master_TW.txt",
+			// "Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_Sister_TW.txt",
+			// "Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_Student_TW.txt",
+			// "Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_Teacher_TW.txt",
+			// "Screens/Room/MagicSchoolLaboratory/Text_MagicSchoolLaboratory_TW.txt",
+			// "Screens/Room/Nursery/Dialog_NPC_Nursery_ABDL1_TW.txt",
+			// "Screens/Room/Nursery/Dialog_NPC_Nursery_ABDL2_TW.txt",
+			// "Screens/Room/Nursery/Dialog_NPC_Nursery_Nurse_TW.txt",
+			// "Screens/Room/Nursery/Text_Nursery_TW.txt",
+			// "Screens/Room/KidnapLeague/Dialog_NPC_KidnapLeague_RandomKidnapper_TW.txt",
+			// "Screens/Room/KidnapLeague/Dialog_NPC_KidnapLeague_Trainer_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_EntranceMaid_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_KidnapTarget_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_NightGuard_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_PunishmentMistress_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomCosplay_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomGuard_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomMaid_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomMemberNew_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomMemberOld_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomMistress_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RandomSlave_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RescueGuard_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_RescueVictim_TW.txt",
+			// "Screens/Room/Pandora/Dialog_NPC_Pandora_TreasureChest_TW.txt",
+			// "Screens/Room/Pandora/Text_Pandora_TW.txt",
+			// "Screens/Room/PandoraPrison/Dialog_NPC_PandoraPrison_Guard_TW.txt",
+			// "Screens/Room/PandoraPrison/Dialog_NPC_PandoraPrison_Maid_TW.txt",
+			// "Screens/Room/PandoraPrison/Text_PandoraPrison_TW.txt",
+			// "Screens/Room/Prison/Dialog_NPC_Prison_Maid_TW.txt",
+			// "Screens/Room/Prison/Dialog_NPC_Prison_Sub_TW.txt",
+			// "Screens/Room/Prison/Dialog_NPC_Prison_Police_TW.txt",
+			// "Screens/Room/Prison/Text_Prison_TW.txt",
+			"Screens/Room/Private/Text_Private_TW.txt",
+			"Screens/Room/Private/Dialog_NPC_Private_Vendor_TW.txt",
+			"Screens/Room/Sarah/Dialog_NPC_Amanda_TW.txt",
+			"Screens/Room/Sarah/Dialog_NPC_Sarah_TW.txt",
+			"Screens/Room/Sarah/Dialog_NPC_Sophie_TW.txt",
+			"Screens/Room/Shibari/Dialog_NPC_Shibari_Student_TW.txt",
+			"Screens/Room/Shibari/Dialog_NPC_Shibari_Teacher_TW.txt",
+			// "Screens/Room/SlaveMarket/Dialog_NPC_SlaveMarket_Buyer_TW.txt",
+			// "Screens/Room/SlaveMarket/Dialog_NPC_SlaveMarket_Mistress_TW.txt",
+			// "Screens/Room/SlaveMarket/Dialog_NPC_SlaveMarket_Slave_TW.txt",
+			// "Screens/Room/SlaveMarket/Dialog_NPC_SlaveMarket_SlaveToTrain_TW.txt",
+			// "Screens/Room/Introduction/Dialog_NPC_Introduction_Sub_TW.txt",
+			// "Screens/Room/Introduction/Dialog_NPC_Introduction_Maid_TW.txt",
+			// "Screens/Room/LARP/Dialog_NPC_LARP_Organiser_TW.txt",
+			// "Screens/Room/LARP/Text_LARP_TW.txt",
+			// "Screens/Room/DailyJob/Dialog_NPC_DailyJob_DojoTeacher_TW.txt",
+			// "Screens/Room/DailyJob/Dialog_NPC_DailyJob_Opponent_TW.txt",
+			// "Screens/Room/DailyJob/Dialog_NPC_DailyJob_PuppyMistress_TW.txt",
+			// "Screens/Room/Infiltration/Dialog_NPC_Infiltration_Dominatrix_TW.txt",
+			// "Screens/Room/Infiltration/Dialog_NPC_Infiltration_Kidnapper_TW.txt",
+			// "Screens/Room/Infiltration/Dialog_NPC_Infiltration_Supervisor_TW.txt",
+			// "Screens/Room/InfiltrationPerks/Text_InfiltrationPerks_TW.txt",
+			"Screens/Room/MaidQuarters/Dialog_NPC_MaidQuarters_InitiationMaids_TW.txt",
+			"Screens/Room/MaidQuarters/Dialog_NPC_MaidQuarters_Maid_TW.txt",
+			"Screens/Room/MainHall/Dialog_NPC_MainHall_Maid_TW.txt",
+			"Screens/Room/MainHall/Text_MainHall_TW.txt",
+			"Screens/Room/Management/Dialog_NPC_Management_Mistress_TW.txt",
+			"Screens/Room/Management/Dialog_NPC_Management_RandomGirl_TW.txt",
+			"Screens/Room/Management/Dialog_NPC_Management_Sub_TW.txt",
+			"Screens/Room/Management/Text_Management_TW.txt",
+			// "Screens/Room/Photographic/Text_Photographic_TW.txt",
+			"Screens/Room/Shop/Dialog_NPC_Shop_Customer_TW.txt",
+			"Screens/Room/Shop/Dialog_NPC_Shop_Vendor_TW.txt",
+			"Screens/Room/Shop/Text_Shop_TW.txt",
+			// "Screens/MiniGame/KinkyDungeon/Text_KinkyDungeon_TW.txt",
+			// "Screens/Room/Poker/Text_Poker_TW.txt",
+			// "Screens/Room/Stable/Dialog_NPC_Stable_Pony_TW.txt",
+			// "Screens/Room/Stable/Dialog_NPC_Stable_Trainer_TW.txt",
+			// "Screens/Room/Stable/Text_Stable_TW.txt",
+		]
+	},
 ];
 
 /**
@@ -656,7 +830,7 @@ function TranslationDialog(C) {
 
 		var OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
 		// Finds the full path of the translation file to use
-		var FullPath = (OnlinePlayer ? "Screens/Online/ChatRoom/Dialog_Online" :  (C.ID == 0) ? "Screens/Character/Player/Dialog_Player" : "Screens/" + CurrentModule + "/" + CurrentScreen + "/Dialog_" + C.AccountName) + "_" + TranslationLanguage + ".txt";
+		var FullPath = (OnlinePlayer ? "Screens/Online/ChatRoom/Dialog_Online" : (C.ID == 0) ? "Screens/Character/Player/Dialog_Player" : "Screens/" + CurrentModule + "/" + CurrentScreen + "/Dialog_" + C.AccountName) + "_" + TranslationLanguage + ".txt";
 
 		// If the translation file is already loaded, we translate from it
 		if (TranslationCache[FullPath]) {
@@ -666,7 +840,7 @@ function TranslationDialog(C) {
 
 		// If the translation is available, we open the txt file, parse it and returns the result to build the dialog
 		if (TranslationAvailable(FullPath))
-			CommonGet(FullPath, function() {
+			CommonGet(FullPath, function () {
 				if (this.status == 200) {
 					TranslationCache[FullPath] = TranslationParseTXT(this.responseText);
 					TranslationDialogArray(C, TranslationCache[FullPath]);
@@ -697,7 +871,7 @@ function TranslationText(Text) {
 
 		// If the translation is available, we open the txt file, parse it and returns the result to build the dialog
 		if (TranslationAvailable(FullPath))
-			CommonGet(FullPath, function() {
+			CommonGet(FullPath, function () {
 				if (this.status == 200) {
 					TranslationCache[FullPath] = TranslationParseTXT(this.responseText);
 					TranslationTextArray(Text, TranslationCache[FullPath]);
@@ -741,7 +915,7 @@ function TranslationAsset(Family) {
 
 		// If the translation is available, we open the txt file, parse it and returns the result to build the dialog
 		if (TranslationAvailable(FullPath))
-			CommonGet(FullPath, function() {
+			CommonGet(FullPath, function () {
 				if (this.status == 200) {
 					TranslationCache[FullPath] = TranslationParseTXT(this.responseText);
 					TranslationAssetProcess(TranslationCache[FullPath]);
