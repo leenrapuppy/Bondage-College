@@ -243,7 +243,7 @@ function IsFocusGroupDictionaryEntry(entry) {
 function IsTextDictionaryEntry(entry) {
 	return CommonIsObject(entry)
 		&& !!entry.Tag && typeof entry.Tag === "string"
-		&& !!entry.Text && typeof entry.Text === "string";
+		&& !!entry.Text && (typeof entry.Text === "string" || typeof entry.Text === "number");
 }
 
 /**

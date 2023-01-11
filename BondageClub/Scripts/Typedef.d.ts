@@ -1024,6 +1024,8 @@ interface Asset {
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
+	TextFont: null | string;
 }
 
 //#endregion
@@ -3274,3 +3276,31 @@ interface ItemColorStateType {
 }
 
 //#end region
+
+// #region property
+
+// NOTE: Use the intersection operator to enforce that the it remains a `keyof ItemProperties` subtype
+/** Property keys of {@link ItemProperties} with text input fields */
+type PropertyTextNames = keyof ItemProperties & (
+	"Text" | "Text2" | "Text3"
+);
+
+/**
+ * A callback signature for handling (throttled) text changes.
+ * @param {Character} C - The character being modified
+ * @param {Item} item - The item being modified
+ * @param {PropertyTextNames} PropName - The property wherein the updated text should be stored
+ * @param {string} Text - The new text to be assigned to the item
+ * @returns {void} Nothing
+ */
+type PropertyTextEventListener = (
+	C: Character,
+	Item: Item,
+	PropName: PropertyTextNames,
+	Text: string,
+) => void;
+
+/** A record type with custom event listeners for one or more text input fields. */
+type PropertyTextEventListenerRecord = Partial<Record<PropertyTextNames, PropertyTextEventListener>>;
+
+// #end region

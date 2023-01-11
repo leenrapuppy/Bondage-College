@@ -367,7 +367,8 @@ var AssetFemale3DCG = [
 			{ Name: "FurBolero", Priority: 34, Value: 25, AllowPose: ["AllFours", "BackElbowTouch", "OverTheHead", "Hogtied", "Yoked", "BackCuffs"], },
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
 			{
-				Name: "Bib", Fetish: ["ABDL"], Priority: 34, Value: 5, Left: 179, Top: 220, Extended: true, DynamicAfterDraw: true,
+				Name: "Bib", Fetish: ["ABDL"], Priority: 34, Value: 5, Left: 179, Top: 220, Extended: true,
+				DynamicAfterDraw: true, TextMaxLength: { Text: 24, Text2: 24 }, TextFont: "Pacifico",
 				Layer: [
 					{Name: "Base", HasType: false},
 					{Name: "Trim", HasType: false},
@@ -1514,7 +1515,7 @@ var AssetFemale3DCG = [
 					{ Name: "Bow", Priority: 6, HasType: false, HideForAttribute: ["ShortHair"] },
 					{ Name: "BandPattern", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], HideForAttribute: ["ShortHair"] },
 					{ Name: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], HideForAttribute: ["ShortHair"] },
-					{ Name: "BandShort", CopyLayerColor: "Band", HasType: false, ShowForAttribute: ["ShortHair"], Top: -5 },
+					{ Name: "BandShort", CopyLayerColor: "Bow", HasType: false, ShowForAttribute: ["ShortHair"], Top: -5 },
 					{ Name: "BowShort", CopyLayerColor: "Bow", Priority: 6, HasType: false, ShowForAttribute: ["ShortHair"] },
 					{ Name: "BandPatternShort", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], ShowForAttribute: ["ShortHair"], Top: -5 },
 					{ Name: "BowPatternShort", CopyLayerColor: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], ShowForAttribute: ["ShortHair"] },
@@ -3684,7 +3685,15 @@ var AssetFemale3DCG = [
 					{ Name: "OLock", AllowColorize: true, CopyLayerColor: "Lock", HasType: true, ParentGroup: null, ModuleType: ["m"], AllowModuleTypes: ["o1"]},
 				]
 			},
-			{ Name: "FuturisticTrainingBelt", Gender: "F", Category: ["SciFi"], Fetish: ["Metal"], ArousalZone: "ItemVulva", Value: -1, Difficulty: 100, Time: 30, RemoveTime: 30, BuyGroup: "FuturisticChastityBelt", Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"], Audio: "FuturisticApply", Prerequisite: ["AccessVulva", "VulvaEmpty", "ClitEmpty", "ButtEmpty", "HasVagina"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"], FuturisticRecolor: true, Effect: ["FillVulva", "UseRemote", "Egged", "Chaste", "Edged"], AllowEffect: ["Vibrating", "DenialMode", "RuinOrgasms"], Block: ["ItemVulvaPiercings", "ItemButt", "ItemVulva"], AllowType: [], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true, HasType: false, DynamicScriptDraw: true,
+			{
+				Name: "FuturisticTrainingBelt", Gender: "F", Category: ["SciFi"], Fetish: ["Metal"], ArousalZone: "ItemVulva",
+				Value: -1, Difficulty: 100, Time: 30, RemoveTime: 30, BuyGroup: "FuturisticChastityBelt", Random: false,
+				AllowLock: true, DrawLocks: false, DefaultColor: ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"],
+				Audio: "FuturisticApply", Prerequisite: ["AccessVulva", "VulvaEmpty", "ClitEmpty", "ButtEmpty", "HasVagina"],
+				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"],
+				FuturisticRecolor: true, Effect: ["FillVulva", "UseRemote", "Egged", "Chaste", "Edged"], AllowEffect: ["Vibrating", "DenialMode", "RuinOrgasms"],
+				Block: ["ItemVulvaPiercings", "ItemButt", "ItemVulva"], AllowType: [], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }],
+				Extended: true, HasType: false, DynamicScriptDraw: true,
 				Layer: [
 					{ Name: "Display", AllowColorize: true , ParentGroup: null},
 					{ Name: "Mesh", AllowColorize: true},
@@ -3776,6 +3785,8 @@ var AssetFemale3DCG = [
 				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessVulva", "HasVagina"], AllowEffect: ["Chaste"],
 				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
 				AllowBlock: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+				TextMaxLength: { Text: 13 },
+				TextFont: "Arial, sans-serif",
 				Layer: [
 					{ Name: "Base", HasType: false, ColorGroup: "Metal", },
 					{ Name: "Trim", HasType: false, ColorGroup: "Metal", },
@@ -4663,6 +4674,8 @@ var AssetFemale3DCG = [
 				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "ClothAccessoryPoncho"],
 				HideItemExclude: ["ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerJeansShorts", "ClothLowerLatexPants1", "ClothLowerLeggings1", "ClothLowerLeggings2", "ClothLowerMistressBottom"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld", "ItemPelvis"],
+				TextMaxLength: { Text: 14 },
+				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
 				Layer: [
 					{ Name: "Shorts", ColorGroup: "Canvas", ParentGroup: "BodyLower", AllowTypes: ["Shorts", "ShortsAndStraps"], HasType: false, HideForPose: ["KneelingSpread", "Spread"] },
 					{ Name: "StripesLegs", ColorGroup: "Stripes", ParentGroup: null, AllowTypes: ["Shorts", "ShortsAndStraps"], HasType: false, HideForPose: ["KneelingSpread", "Spread"] },
@@ -5262,7 +5275,9 @@ var AssetFemale3DCG = [
 		MirrorActivitiesFrom: "ItemNeck",
 		Asset: [
 			{
-				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, DrawLocks: false,
+				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false,
+				AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true,
+				Extended: true, DrawLocks: false, TextMaxLength: { Text: 9 }, TextFont: "sans-serif",
 				Layer: [
 					{ Name: "Tag", ModuleType: ["t"], AllowModuleTypes: ["t0", "t1", "t2", "t3", "t4", "t5"] },
 					{ Name: "Text", HasImage: false },
@@ -5270,7 +5285,10 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "ElectronicTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#40812C", "Default", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, FuturisticRecolor: true,
+				Name: "ElectronicTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false,
+				AllowLock: true, DrawLocks: false, DefaultColor: ["#40812C", "Default", "#000000"], Prerequisite: "Collared",
+				DynamicAfterDraw: true, Extended: true, FuturisticRecolor: true, TextMaxLength: { Text: 9 },
+				TextFont: "sansserif",
 				Layer: [
 					{ Name: "Display" },
 					{ Name: "Tag" },
@@ -5362,7 +5380,15 @@ var AssetFemale3DCG = [
 					{ Name: "Plate", AllowColorize: false, },
 				],
 			},
-			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#237D22", "#F3F3F3", "#F3F3F3", "#FFF483", "#FFBCD6", "Default"], BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
+			{
+				Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false,
+				DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#237D22", "#F3F3F3", "#F3F3F3", "#FFF483", "#FFBCD6", "Default"],
+				BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["Collared", "NotSuspended", "NotMounted"],
+				AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
+				DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310,
+				FixedPosition: true,
+				TextMaxLength: { Text: 14, Text2: 14, Text3: 14 },
+				TextFont: "sans-serif",
 				Layer: [
 					//Pole Base
 					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
@@ -6813,6 +6839,8 @@ var AssetFemale3DCG = [
 				Block:["ItemNose"],
 				Hide: ["Glasses", "Blush"],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
+				TextMaxLength: { Text: 16 },
+				TextFont: "Impact",
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["h0"] },
 					{ Name: "Shine", HasType: false, AllowModuleTypes: ["h0"] },
@@ -7050,8 +7078,15 @@ var AssetFemale3DCG = [
 				Name: "LeatherHoodOpenMouth", Fetish: ["Leather"], Value: 50, Difficulty: 50, Time: 15, AllowLock: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], HideItem: ["ItemHeadSnorkel", "ItemNosePigNose", "ItemEarsFuturisticEarphones", "HatFurHeadband"], Effect: ["Prone", "BlindHeavy"], Block: ["ItemEars", "ItemHead", "ItemNose"],
 				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 217, 250], [282, 0, 218, 250]] }],
 			},
-			{ Name: "CanvasHood", Value: 50, Difficulty: 20, Time: 15, AllowLock: true, DefaultColor: ["#a5a095", "#ce7210"], Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["HatFurHeadband"], Effect: ["Prone", "BlindHeavy", "GagHeavy", "BlockMouth", "DeafLight"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose", "ItemHead"], Extended: true, DynamicAfterDraw: true,
+			{
+				Name: "CanvasHood", Value: 50, Difficulty: 20, Time: 15, AllowLock: true, DefaultColor: ["#a5a095", "#ce7210"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"],
+				HideItem: ["HatFurHeadband"], Effect: ["Prone", "BlindHeavy", "GagHeavy", "BlockMouth", "DeafLight"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose", "ItemHead"], Extended: true,
+				DynamicAfterDraw: true,
 				Prerequisite: ["NotProtrudingFromMouth"],
+				TextMaxLength: { Text: 12 },
+				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
 				Layer: [
 					{ Name: "Hood" },
 					{ Name: "Text" },
@@ -7236,6 +7271,8 @@ var AssetFemale3DCG = [
 				Block:["ItemNose"],
 				Hide: ["Glasses", "Blush"],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
+				TextMaxLength: { Text: 16 },
+				TextFont: "Impact",
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["h0"] },
 					{ Name: "Shine", HasType: false, AllowModuleTypes: ["h0"] },
@@ -7292,7 +7329,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20,
-				DefaultColor: ["#1C1C1C", "Default", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
+				DefaultColor: ["Default", "#1C1C1C", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
 				AllowLock: true, DrawLocks: false, Extended: true, AllowColorizeAll: false,
 				Attribute: ["ShortHair"],
 				Top: 31, Left: 166.5,
@@ -7300,8 +7337,8 @@ var AssetFemale3DCG = [
 				Block: ["ItemEars"],
 				Layer: [
 					// Head Panel Parts
-					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"] },
 					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
+					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"] },
 					{ Name: "PanelHeadTransparent", HasType: false, AllowModuleTypes: ["x1"], CopyLayerColor: "PanelHead" },
 					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: true }, // master colour for highlighting
 
@@ -7368,7 +7405,7 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m3f3","m7f3"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m3f4","m7f4"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3f1","m7f1","m3f2","m7f2","m3f3","m7f3","m3f4","m7f4"], CopyLayerColor: "PanelHeadHighlight" },
-					
+
 					// Hood Cover
 					{ Name: "ZipperHoodOpen", Priority: 50, HasType: false, AllowModuleTypes: ["z1"] }, // master colour for hood cover
 					{ Name: "ZipperHoodClosed", Priority: 50, HasType: false, AllowModuleTypes: ["z2"], CopyLayerColor: "ZipperHoodOpen" },
@@ -7381,7 +7418,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "HarnessCatMask", Fetish: ["Pet"], Random: false, Value: 50, Difficulty: 3, Top: 32, Left: 166.5, DefaultColor: ["#202020","#202020","#ADADAD"],
+				Name: "HarnessCatMask", Fetish: ["Pet"], Random: false, Value: 50, Difficulty: 3, Top: 32, Left: 166.5, DefaultColor: ["#202020","#202020","#ADADAD"], Priority: 34,
 				DrawLocks: true,
 				AllowLock: true,
 				Hide: [],
@@ -7467,7 +7504,12 @@ var AssetFemale3DCG = [
 			{ Name: "BountySuitcaseEmpty", Value: -1, Enable: false },
 			{ Name: "WoodenPaddle", Value: -1, Enable: false, RemoveAtLogin: true, },
 			{
-				Name: "WoodenSign", Value: 90, Top: 0, Left: 0, Priority: 57, Difficulty: 1, Time: 5, Random: false, Prerequisite: ["NoMaidTray"], Hide: ["ItemNipples", "ItemNipplesPiercings"], AllowPose: ["Suspension"], Extended: true, DynamicAfterDraw: true, Layer: [
+				Name: "WoodenSign", Value: 90, Top: 0, Left: 0, Priority: 57, Difficulty: 1, Time: 5,
+				Random: false, Prerequisite: ["NoMaidTray"], Hide: ["ItemNipples", "ItemNipplesPiercings"],
+				AllowPose: ["Suspension"], Extended: true, DynamicAfterDraw: true,
+				TextMaxLength: { Text: 12, Text2: 12 },
+				TextFont: "'Calligraffitti', cursive",
+				Layer: [
 					{ Name: "Sign" },
 					{ Name: "Rope" },
 					{ Name: "Text" },
@@ -7481,30 +7523,36 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "TeddyBear", Fetish: ["ABDL"], Priority: 34, Value: 50, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["AllFours", "Hogtied", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "OverTheHead"], Effect: [], Extended: true, RemoveAtLogin: true },
-			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#237D22", "#F3F3F3", "#F3F3F3", "#FFF483", "#FFBCD6", "Default"], BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
-					Layer: [
-						//Pole Base
-						{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
-						{ Name: "Pole", Priority: 54, AllowModuleTypes: ["d1"], HasType: false, },
-						{ Name: "PoleClean", Priority: 54, CopyLayerColor: "Pole", AllowModuleTypes: ["d0"], HasType: false},
-						//Plaque
-						{ Name: "Plaque", Priority: 54, AllowModuleTypes: ["d1"], HasType: false },
-						{ Name: "PlaqueClean", Priority: 54, CopyLayerColor: "Plaque",AllowModuleTypes: ["d0"], HasType: false },
-						{ Name: "PlaqueBorder", Priority: 54, AllowModuleTypes: ["p1d1"], HasType: false },
-						{ Name: "PlaqueBorderClean", Priority: 54, CopyLayerColor: "PlaqueBorder", AllowModuleTypes: ["p1d0"], HasType: false },
-						{ Name: "PlaqueBolts", Priority: 54, HasType: false },
-						//Details
-						{ Name: "Postit", Priority: 54, HasType: false, AllowModuleTypes: ["m0"] },
-						{ Name: "Text", HasImage: false, Priority: 55 },
-						{ Name: "Paw", Priority: 54, HasType: false, AllowModuleTypes: ["s0"] },
-						{ Name: "Triskel", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s1"] },
-						{ Name: "Moon", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s2"] },
-						{ Name: "LGBT", Priority: 54, HasType: false, AllowColorize: false, AllowModuleTypes: ["s3"] },
-						{ Name: "Trans", Priority: 54, HasType: false, AllowColorize: false, AllowModuleTypes: ["s4"] },
-						{ Name: "Bi", Priority: 54, HasType: false, AllowColorize: false, AllowModuleTypes: ["s5"] },
-						{ Name: "NoSwim", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s6"] },
-					]
-				},
+			{
+				Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false,
+				DefaultColor: ["Default", "#237D22", "#F3F3F3", "#F3F3F3", "#FFF483", "#FFBCD6", "Default"],
+				BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["Collared", "NotSuspended", "NotMounted"],
+				AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
+				DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310,
+				FixedPosition: true, TextMaxLength: { Text: 14, Text2: 14, Text3: 14 },
+				Layer: [
+					//Pole Base
+					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
+					{ Name: "Pole", Priority: 54, AllowModuleTypes: ["d1"], HasType: false, },
+					{ Name: "PoleClean", Priority: 54, CopyLayerColor: "Pole", AllowModuleTypes: ["d0"], HasType: false},
+					//Plaque
+					{ Name: "Plaque", Priority: 54, AllowModuleTypes: ["d1"], HasType: false },
+					{ Name: "PlaqueClean", Priority: 54, CopyLayerColor: "Plaque",AllowModuleTypes: ["d0"], HasType: false },
+					{ Name: "PlaqueBorder", Priority: 54, AllowModuleTypes: ["p1d1"], HasType: false },
+					{ Name: "PlaqueBorderClean", Priority: 54, CopyLayerColor: "PlaqueBorder", AllowModuleTypes: ["p1d0"], HasType: false },
+					{ Name: "PlaqueBolts", Priority: 54, HasType: false },
+					//Details
+					{ Name: "Postit", Priority: 54, HasType: false, AllowModuleTypes: ["m0"] },
+					{ Name: "Text", HasImage: false, Priority: 55 },
+					{ Name: "Paw", Priority: 54, HasType: false, AllowModuleTypes: ["s0"] },
+					{ Name: "Triskel", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s1"] },
+					{ Name: "Moon", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s2"] },
+					{ Name: "LGBT", Priority: 54, HasType: false, AllowColorize: false, AllowModuleTypes: ["s3"] },
+					{ Name: "Trans", Priority: 54, HasType: false, AllowColorize: false, AllowModuleTypes: ["s4"] },
+					{ Name: "Bi", Priority: 54, HasType: false, AllowColorize: false, AllowModuleTypes: ["s5"] },
+					{ Name: "NoSwim", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s6"] },
+				]
+			},
 		],
 		Color: ["Default"]
 	},
@@ -7525,6 +7573,8 @@ var AssetFemale3DCG = [
 				Block: ["ItemAddon"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotHorse", "NotLifted"],
 				Effect: ["Prone", "Enclose", "Freeze"],
+				TextMaxLength: { Text: 20 },
+				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Panel", CopyLayerColor: "Back", HasType: false },
@@ -7675,10 +7725,13 @@ var AssetFemale3DCG = [
 					{ Name: "StrapsLegsMesh", Priority: 2, CopyLayerColor: "StrapsArmsMesh", HasType: false, AllowModuleTypes:["l3"]},
 				],
 			},
-			{ Name: "DollBox", Priority: 58, Value: 20, Difficulty: -2, SelfBondage: 1, Time: 1, RemoveTime: 1, Left: -8, Top: -20, AllowLock: true, DrawLocks: false, Audio: "LockLarge", Prerequisite: ["NotSuspended", "NotLifted"], Effect: ["Freeze", "Prone", "Enclose"], HideItem: ["ShoesFlippers"],
+			{
+				Name: "DollBox", Priority: 58, Value: 20, Difficulty: -2, SelfBondage: 1, Time: 1, RemoveTime: 1, Left: -8, Top: -20, AllowLock: true, DrawLocks: false, Audio: "LockLarge", Prerequisite: ["NotSuspended", "NotLifted"], Effect: ["Freeze", "Prone", "Enclose"], HideItem: ["ShoesFlippers"],
 				Block: ["ItemAddon"], DynamicAfterDraw: true, HasType: false,
 				RemoveAtLogin: true, Extended: true, SetPose: ["BaseLower"],
 				DefaultColor: ["#530E50", "#DD2BD5","#A0A0A0", "#D8D8D8","#854DA5", "#9EDDFA"],
+				TextMaxLength: { Text: 22, Text2: 22 },
+				TextFont: "'Satisfy', cursive",
 				Layer: [
 					{ Name: "Back", Priority: 1, ColorGroup: "Box" },
 					{ Name: "Cover", Priority: 58, ColorGroup: "Box", Alpha: [{ Masks: [[0, 0, 100, 1000], [410, 0, 90, 1000], [0, 880, 500, 140], [0, 0, 500, 70], AssetUpperOverflowAlpha, AssetLowerOverflowAlpha] }] },
@@ -7871,6 +7924,8 @@ var AssetFemale3DCG = [
 				Block: ["ItemAddon"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotLifted"],
 				Effect: ["Prone", "Enclose", "Freeze", "Leash"],
+				TextMaxLength: { Text: 20 },
+				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Panel", CopyLayerColor: "Back", HasType: false },
@@ -7900,7 +7955,10 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PetBowl", Value: 20, Time: 5, IsRestraint: false, DefaultColor: ["Default", "#000000"], FixedPosition: true, Extended: true, DynamicAfterDraw: true, Layer: [
+				Name: "PetBowl", Value: 20, Time: 5, IsRestraint: false, DefaultColor: ["Default", "#000000"],
+				FixedPosition: true, Extended: true, DynamicAfterDraw: true, TextMaxLength: { Text: 12 },
+				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
+				Layer: [
 					{ Name: "Bowl", Top: 885, Left: 300 },
 					{ Name: "Text", HasImage: false, Top: 905, Left: 335 },
 				]

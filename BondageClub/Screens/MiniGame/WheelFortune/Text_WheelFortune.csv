@@ -4,10 +4,10 @@ Roleplay,Roleplay mode
 Customize,Customize your wheel
 Random,Random Spin
 Exit,Don't spin the wheel
-Spin,spins CharacterName lucky wheel
-SpinRoleplay,spins CharacterName roleplay lucky wheel
-Result,lucky wheel lands on:
-ResultRoleplay,roleplay lucky wheel lands on:
+Spin,spins CharacterName Wheel of Fortune
+SpinRoleplay,spins CharacterName roleplay Wheel of Fortune
+Result,Wheel of Fortune lands on:
+ResultRoleplay,roleplay Wheel of Fortune lands on:
 OptionA,Gagged
 OptionB,Gagged for 5 minutes
 OptionC,Gagged for 15 minutes
@@ -65,3 +65,4 @@ Option6,Others should spank you
 Option7,Others should caress you
 Option8,Others should grope you
 Option9,Others should masturbate you
+Option²,Spin again twice

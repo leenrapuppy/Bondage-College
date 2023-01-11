@@ -5,26 +5,23 @@
 // In the load function, add this before your load function, without changing functions from the
 // futuristic panel gag functions. Just make sure your item loads after the panel gag and not before in index.html:
 /*
- 	var C = CharacterGetCurrent();
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticLoadAccessDenied()
-	} else
+ 	if (!FuturisticAccessLoad()) {
+		return;
+	}
 */
 
 // In the draw function, add:
 /*
-	var C = CharacterGetCurrent();
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticDrawAccessDenied()
-	} else
+ 	if (!FuturisticAccessDraw()) {
+		return;
+	}
 */
 
 // In the click function, add:
 /*
-	var C = CharacterGetCurrent();
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticClickAccessDenied()
-	} else
+ 	if (!FuturisticAccessClick()) {
+		return;
+	}
 */
 
 // In the exit function, add:
@@ -46,7 +43,7 @@ var FuturisticAccessChastityGroups = ["ItemPelvis", "ItemTorso", "ItemButt", "It
 
 /**
  * Helper function for the futuristic hook scripts.
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {() => void} DeniedFunction - The function that is called when validation fails.
  * @returns {boolean} - Whether the validation was successful or not.
  */
@@ -56,35 +53,37 @@ function FuturisticAccess(OriginalFunction, DeniedFunction) {
 		DeniedFunction();
 		return false;
 	} else {
-		OriginalFunction();
+		if (OriginalFunction != null) {
+			OriginalFunction();
+		}
 		return true;
 	}
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessLoad(OriginalFunction) {
+function FuturisticAccessLoad(OriginalFunction=null) {
 	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticLoadAccessDenied);
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessClick(OriginalFunction) {
+function FuturisticAccessClick(OriginalFunction=null) {
 	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticClickAccessDenied);
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessDraw(OriginalFunction) {
+function FuturisticAccessDraw(OriginalFunction=null) {
 	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticDrawAccessDenied);
 }
 

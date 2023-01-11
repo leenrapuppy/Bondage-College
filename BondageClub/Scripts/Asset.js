@@ -210,6 +210,8 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
 		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
 		ExpressionPrerequisite: Array.isArray(AssetDef.ExpressionPrerequisite) ? AssetDef.ExpressionPrerequisite : Group.ExpressionPrerequisite,
+		TextMaxLength: typeof AssetDef.TextMaxLength === "object" ? AssetDef.TextMaxLength : null,
+		TextFont: typeof AssetDef.TextFont === "string" ? AssetDef.TextFont : null,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid

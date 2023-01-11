@@ -312,6 +312,15 @@ interface AssetDefinition {
 
 	/** A list of prerequisite checks that must pass for the group's expressions to be selectable */
 	ExpressionPrerequisite?: string[];
+
+	/** A record with the maximum length for each text-based properties with an input field. */
+	TextMaxLength?: null | Partial<Record<PropertyTextNames, number>>;
+
+	/**
+	 * The font used for dynamically drawing text.
+	 * Requires {@link AssetDefinition.DynamicAfterDraw} to be set.
+	 */
+	TextFont?: null | string;
 }
 
 interface AssetLayerDefinition {

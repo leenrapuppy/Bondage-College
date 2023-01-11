@@ -124,8 +124,12 @@ Lower Body
 下身
 Front Hair
 前发
+Facial Hair
+面部毛发
 Back Hair
 后发
+Eyebrow
+眉毛
 Left Eye
 左眼
 Right Eye
@@ -134,8 +138,10 @@ Mouth
 嘴
 Nipples
 乳头
-Pussy
-外阴
+Pussy/Penis
+外阴/阴茎
+Pronoun
+称谓
 Feet & Toes
 脚和脚趾
 Lower Legs

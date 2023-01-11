@@ -69,8 +69,8 @@ function KinkyDungeonDisableSpell(Name) {
 let KinkyDungeonSpellPress = "";
 
 function KinkyDungeonResetMagic() {
-	KinkyDungeonSpellChoices = [0, 1];
-	KinkyDungeonSpellChoicesToggle = [true, true];
+	KinkyDungeonSpellChoices = [0];
+	KinkyDungeonSpellChoicesToggle = [true];
 	KinkyDungeonSpellChoiceCount = 21;
 	KinkyDungeonSpells = [];
 	Object.assign(KinkyDungeonSpells, KinkyDungeonSpellsStart); // Copy the dictionary
@@ -79,6 +79,7 @@ function KinkyDungeonResetMagic() {
 	KinkyDungeonCurrentPage = 0;
 	KinkyDungeonCurrentSpellsPage = 0;
 	KinkyDungeonSpellPoints = 3;
+	KDSpellPage = 0;
 	if (KinkyDungeonStatsChoice.get("randomMode")) {
 		KinkyDungeonSpells.push({name: "ApprenticeFire", hideLearned: true, hideUnlearned: true, school: "Elements", manacost: 0, spellPointCost: 1, components: [], level:1, passive: true, type:"", onhit:"", time: 0, delay: 0, range: 0, lifetime: 0, power: 0, damage: "inert"},);
 		KinkyDungeonSpells.push({name: "ApprenticeWater", hideLearned: true, hideUnlearned: true, school: "Elements", manacost: 0, spellPointCost: 1, components: [], level:1, passive: true, type:"", onhit:"", time: 0, delay: 0, range: 0, lifetime: 0, power: 0, damage: "inert"},);
@@ -175,6 +176,7 @@ function KDCanUpcast() {
 	return false;
 }
 
+// @ts-ignore
 function KDEmpower(data, entity) {
 	let Level = KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SpellEmpower");
 	if (!KDCanUpcast()) {
@@ -346,9 +348,10 @@ function KinkyDungeonMakeNoise(radius, noiseX, noiseY) {
  * @param {*} player
  * @param {*} bullet
  * @param {string} [forceFaction]
+ * @param {any} [castData]
  * @returns {{result: string, data: any}}
  */
-function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, forceFaction) {
+function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, forceFaction, castData) {
 	let entity = KinkyDungeonPlayerEntity;
 	let moveDirection = KinkyDungeonMoveDirection;
 	let flags = {
@@ -378,7 +381,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 			gaggedMiscastFlag = true;
 	}
 
-	let data = {
+	let data = Object.assign({...castData}, {
 		spell: spell,
 		bulletfired: null,
 		target: null,
@@ -391,7 +394,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 		bullet: bullet,
 		player: player,
 		delta: 1,
-	};
+	});
 
 
 
@@ -570,7 +573,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 			}
 			let b = KinkyDungeonLaunchBullet(xx, yy,
 				tX-entity.x,tY - entity.y,
-				speed, {noSprite: spell.noSprite, faction: faction, name:spell.name, block: spell.block, width:size, height:size, summon:spell.summon, cast: cast, dot: spell.dot,
+				speed, {noSprite: spell.noSprite, faction: faction, name:spell.name, block: spell.block, width:size, height:size, summon:spell.summon, source: entity?.player ? -1 : entity?.id, cast: cast, dot: spell.dot,
 					bulletColor: spell.bulletColor, bulletLight: spell.bulletLight,
 					bulletSpin: spell.bulletSpin,
 					effectTile: spell.effectTile, effectTileDurationMod: spell.effectTileDurationMod,
@@ -592,7 +595,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 			let b = KinkyDungeonLaunchBullet(tX, tY,
 				moveDirection.x,moveDirection.y,
 				0, {
-					noSprite: spell.noSprite, faction: faction, name:spell.name, block: spell.block, width:sz, height:sz, summon:spell.summon, lifetime:spell.delay +
+					noSprite: spell.noSprite, faction: faction, name:spell.name, block: spell.block, width:sz, height:sz, summon:spell.summon, source: entity?.player ? -1 : entity?.id, lifetime:spell.delay +
 						(spell.delayRandom ? Math.floor(KDRandom() * spell.delayRandom) : 0), cast: cast, dot: spell.dot, events: spell.events, alwaysCollideTags: spell.alwaysCollideTags,
 					bulletColor: spell.bulletColor, bulletLight: spell.bulletLight,
 					bulletSpin: spell.bulletSpin,
@@ -609,7 +612,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 			}
 			let b = {x: tX, y:tY,
 				vx: moveDirection.x,vy: moveDirection.y, born: 1,
-				bullet: {noSprite: spell.noSprite, faction: faction, name:spell.name, block: spell.block, width:sz, height:sz, summon:spell.summon, lifetime:spell.lifetime, cast: cast, dot: spell.dot, events: spell.events, aoe: spell.aoe,
+				bullet: {noSprite: spell.noSprite, faction: faction, name:spell.name, block: spell.block, width:sz, height:sz, summon:spell.summon, source: entity?.player ? -1 : entity?.id, lifetime:spell.lifetime, cast: cast, dot: spell.dot, events: spell.events, aoe: spell.aoe,
 					passthrough:(spell.CastInWalls || spell.WallsOnly || spell.noTerrainHit), hit:spell.onhit, noDoubleHit: spell.noDoubleHit, effectTile: spell.effectTile, effectTileDurationMod: spell.effectTileDurationMod,
 					damage: {evadeable: spell.evadeable, damage:spell.power, type:spell.damage, distract: spell.distract, distractEff: spell.distractEff, bindEff: spell.bindEff, bind: spell.bind, bindType: spell.bindType, boundBonus: spell.boundBonus, time:spell.time, flags:spell.damageFlags}, spell: spell}};
 			KinkyDungeonBulletHit(b, 1);
@@ -620,18 +623,22 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 			if (!aoe) aoe = 0.1;
 			if (Math.sqrt((KinkyDungeonPlayerEntity.x - targetX) * (KinkyDungeonPlayerEntity.x - targetX) + (KinkyDungeonPlayerEntity.y - targetY) * (KinkyDungeonPlayerEntity.y - targetY)) <= aoe) {
 				for (let buff of spell.buffs) {
-					KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, buff);
-					if (KinkyDungeonPlayerEntity.x == targetX && KinkyDungeonPlayerEntity.y == targetY) data.target = KinkyDungeonPlayerEntity;
-					casted = true;
+					if (buff.player) {
+						KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, buff);
+						if (KinkyDungeonPlayerEntity.x == targetX && KinkyDungeonPlayerEntity.y == targetY) data.target = KinkyDungeonPlayerEntity;
+						casted = true;
+					}
 				}
 			}
 			for (let e of KinkyDungeonEntities) {
 				if (Math.sqrt((e.x - targetX) * (e.x - targetX) + (e.y - targetY) * (e.y - targetY)) <= aoe) {
 					for (let buff of spell.buffs) {
-						if (!e.buffs) e.buffs = [];
-						KinkyDungeonApplyBuff(e.buffs, buff);
-						if (e.x == targetX && e.y == targetY) data.target = e;
-						casted = true;
+						if (!spell.filterTags || KDMatchTags(spell.filterTags, e)) {
+							if (!e.buffs) e.buffs = {};
+							KinkyDungeonApplyBuff(e.buffs, buff);
+							if (e.x == targetX && e.y == targetY) data.target = e;
+							casted = true;
+						}
 					}
 				}
 			}
@@ -663,12 +670,12 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 	if (!enemy && !bullet && player) { // Costs for the player
 		KinkyDungeonSetFlag("PlayerCombat", 20);
 
-		if (KinkyDungeonTargetingSpellItem) {
+		if (data.targetingSpellItem) {
 			KinkyDungeonChangeConsumable(KinkyDungeonTargetingSpellItem, -(KinkyDungeonTargetingSpellItem.useQuantity ? KinkyDungeonTargetingSpellItem.useQuantity : 1));
 			KinkyDungeonTargetingSpellItem = null;
 			if (!spell.noAggro)
 				KinkyDungeonAggroAction('item', {});
-		} else if (KinkyDungeonTargetingSpellWeapon) {
+		} else if (data.targetingSpellWeapon) {
 			let special = KinkyDungeonPlayerDamage ? KinkyDungeonPlayerDamage.special : null;
 			if (special) {
 				let energyCost = KinkyDungeonPlayerDamage.special.energyCost;
@@ -700,6 +707,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 		KinkyDungeonChangeMana(-KinkyDungeonGetManaCost(spell));
 		if (spell.staminacost) KinkyDungeonChangeStamina(-spell.staminacost);
 		if (spell.channel) {
+			KinkyDungeonSetFlag("channeling", spell.channel);
 			KinkyDungeonSlowMoveTurns = Math.max(KinkyDungeonSlowMoveTurns, spell.channel);
 			KinkyDungeonSleepTime = CommonTime() + 200;
 		}
@@ -719,7 +727,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet, f
 function KinkyDungeonClickSpellChoice(I, CurrentSpell) {
 	// Set spell choice
 	KDSendInput("spellChoice", {I:I, CurrentSpell: CurrentSpell});
-	if (KinkyDungeonTextMessageTime > 0)
+	if (KinkyDungeonTextMessageTime > 0 && KinkyDungeonTextMessagePriority > 3)
 		KinkyDungeonDrawState = "Game";
 	if (KinkyDungeonSpellChoicesToggle[I] && KinkyDungeonSpells[KinkyDungeonSpellChoices[I]].cancelAutoMove) {
 		KinkyDungeonFastMove = false;
@@ -799,10 +807,42 @@ function KinkyDungeonCheckSpellPrerequisite(spell) {
 	}
 }
 
+// Patch un-translated english string display issue in chinese Language game mode
+// the using detect lib from https://github.com/richtr/guessLanguage.js
+// i rewrite the origin lib useless callback mode to return mode
+// now only fix chinese
+function KinkyDungeonDetectLanguageForMaxWidth(str, maxWidthTranslate, maxWidthEnglish) {
+	try {
+		// @ts-ignore
+		if (TranslationLanguage === 'CN' && guessLanguage) {
+			// @ts-ignore
+			let languageName = guessLanguage.name(str);
+			// console.log('KinkyDungeonDetectLanguageForMaxWidth languageName', languageName);
+			if (languageName === "unknown") {
+				return maxWidthTranslate;
+			} else if (languageName === "Chinese") {
+				return maxWidthTranslate;
+			} else if (languageName === "English") {
+				return maxWidthEnglish;
+			} else {
+				// if not Chinese then all are english fallback
+				return maxWidthEnglish;
+			}
+		} else {
+			return maxWidthTranslate;
+		}
+	} catch (e) {
+		return maxWidthTranslate;
+	}
+}
+
 // https://stackoverflow.com/questions/14484787/wrap-text-in-javascript
-function KinkyDungeonWordWrap(str, maxWidth) {
+function KinkyDungeonWordWrap(str, maxWidthTranslate, maxWidthEnglish) {
 	let newLineStr = "\n";
 	let res = '';
+	// console.log('KinkyDungeonDetectLanguageForMaxWidth before', str, maxWidth);
+	let maxWidth = KinkyDungeonDetectLanguageForMaxWidth(str, maxWidthTranslate, maxWidthEnglish);
+	// console.log('KinkyDungeonDetectLanguageForMaxWidth after', maxWidth);
 	while (str.length > maxWidth) {
 		let found = false;
 		// Inserts new line at first whitespace of the line
@@ -868,7 +908,7 @@ function KinkyDungeonDrawMagic() {
 		if (KinkyDungeonPreviewSpell) DrawTextKD(TextGet("KinkyDungeonMagicCost") + KinkyDungeonGetCost(spell), canvasOffsetX_ui + 640*KinkyDungeonBookScale/3.35, canvasOffsetY_ui + 483*KinkyDungeonBookScale/2 + 150, KDTextGray0, KDTextTan);
 		DrawTextKD(TextGet("KinkyDungeonMagicManaCost") + (spell.manacost * 10), canvasOffsetX_ui + 640*KinkyDungeonBookScale/3.35, canvasOffsetY_ui + 483*KinkyDungeonBookScale/2 + 195, KDTextGray0, KDTextTan);
 		let wrapAmount = TranslationLanguage == 'CN' ? 9 : 22;
-		let textSplit = KinkyDungeonWordWrap(TextGet("KinkyDungeonSpellDescription"+ spell.name).replace("DamageDealt", "" + (spell.power * 10)).replace("Duration", spell.time).replace("LifeTime", spell.lifetime).replace("DelayTime", spell.delay).replace("BlockAmount", "" + (10 * spell.block)), wrapAmount).split('\n');
+		let textSplit = KinkyDungeonWordWrap(TextGet("KinkyDungeonSpellDescription"+ spell.name).replace("DamageDealt", "" + (spell.power * 10)).replace("Duration", spell.time).replace("LifeTime", spell.lifetime).replace("DelayTime", spell.delay).replace("BlockAmount", "" + (10 * spell.block)), wrapAmount, 22).split('\n');
 		let i = 0;
 		for (let N = 0; N < textSplit.length; N++) {
 			DrawTextKD(textSplit[N],
@@ -897,6 +937,7 @@ function KinkyDungeonDrawMagic() {
 							Height: h,
 						});
 					DrawTextFitKD(`${1 + (I % KinkyDungeonSpellChoiceCountPerPage)}`, x - h, y + h*0.5, h*0.25, "#efefef", "#888888");
+					// @ts-ignore
 					DrawButtonKDEx("SpellSlotBook" + I, (bdata) => {
 						if (KinkyDungeonSpells[KinkyDungeonSpellChoices[I]] == spell) {
 							KDSendInput("spellRemove", {I:I});
@@ -968,6 +1009,7 @@ function KDFilterSpellPageNames() {
 	return pages;
 }
 
+// @ts-ignore
 function KDCorrectCurrentSpellPage(pages) {
 	let ret = 0;
 	for (let i = 0; i < KinkyDungeonCurrentSpellsPage; i++) {
@@ -1015,6 +1057,7 @@ function KinkyDungeonListSpells(Mode) {
 		// Now we have our total filters, time to draw
 		for (let f of filterlist) {
 			let ticked = selectedFilters.includes(f);
+			// @ts-ignore
 			DrawButtonKDEx("filter" + f, (bdata) => {
 				if (selectedFilters.includes(f))
 					selectedFilters.splice(selectedFilters.indexOf(f), 1);
@@ -1041,10 +1084,12 @@ function KinkyDungeonListSpells(Mode) {
 	}
 	if (KDSpellListIndex > longestList) KDSpellListIndex = 0;
 
+	// @ts-ignore
 	DrawButtonKDEx("spellsUp", (bdata) => {
 		KDSpellListIndex = Math.max(0, KDSpellListIndex - 3);
 		return true;
 	}, KDSpellListIndex > 0, 910, 800, 90, 40, "", KDSpellListIndex > 0 ? "white" : "#888888", KinkyDungeonRootDirectory + "Up.png");
+	// @ts-ignore
 	DrawButtonKDEx("spellsDown", (bdata) => {
 		KDSpellListIndex = Math.max(0, Math.min(longestList - KDMaxSpellPerColumn + 1, KDSpellListIndex + 3));
 		return true;
@@ -1151,12 +1196,14 @@ function KinkyDungeonListSpells(Mode) {
 	let right = adjLists.right;
 
 	drawVertList(left.reverse(), canvasOffsetX_ui + 200/2 + 100, 100, 200, 25, 5, 18, (data) => {
+		// @ts-ignore
 		return (bdata) => {
 			KinkyDungeonCurrentSpellsPage = procList.indexOf(data.name);
 			return true;
 		};
 	}, "KinkyDungeonSpellsPage");
 	drawVertList(right, canvasOffsetX_ui - 200/2 + 1050, 100, 200, 25, 5, 18, (data) => {
+		// @ts-ignore
 		return (bdata) => {
 			KinkyDungeonCurrentSpellsPage = procList.indexOf(data.name);
 			return true;
@@ -1302,13 +1349,13 @@ function KinkyDungeonGetCompList(spell) {
 	return ret;
 }
 
-function KinkyDungeonSendMagicEvent(Event, data) {
+function KinkyDungeonSendMagicEvent(Event, data, forceSpell) {
 	if (!KDMapHasEvent(KDEventMapSpell, Event)) return;
 	for (let i = 0; i < KinkyDungeonSpellChoices.length; i++) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[i]];
 		if (spell && spell.events) {
 			for (let e of spell.events) {
-				if (e.trigger == Event && (KinkyDungeonSpellChoicesToggle[i] || e.always)) {
+				if (e.trigger == Event && (KinkyDungeonSpellChoicesToggle[i] || e.always || spell.name == forceSpell?.name)) {
 					KinkyDungeonHandleMagicEvent(Event, e, spell, data);
 				}
 			}
@@ -1338,4 +1385,19 @@ function KDCastSpellToEnemies(fn, tX, tY, spell) {
 	}
 
 	return cast;
+}
+
+/**
+ * Returns true if the enemy matches one of the tags
+ * @param {string[]} tags
+ * @param {entity} entity
+ * @returns {boolean}
+ */
+function KDMatchTags(tags, entity) {
+	if (tags) {
+		for (let tag of tags) {
+			if (entity?.Enemy?.tags[tag]) return true;
+		}
+	}
+	return false;
 }
