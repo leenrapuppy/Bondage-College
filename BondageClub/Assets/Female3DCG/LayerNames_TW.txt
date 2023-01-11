@@ -1,0 +1,864 @@
+Dress
+裙子
+Buckle
+皮帶扣
+Shirt
+襯衫
+Bow
+領結
+Trim
+裝飾
+Sash
+腰帶
+Fur
+絨毛
+Corset
+束腰
+Main
+主體
+Tie
+領帶
+Pattern
+圖案
+Jacket
+外套
+Chest
+胸部
+Buttons
+扣子
+Arm Puffs
+肩部蓬鬆
+Main Dress
+裙子主體
+Inside Skirt
+裙子內側
+Dress Trim
+裙邊
+Belts
+皮帶
+Apron
+圍裙
+Frills
+花邊
+Print
+圖案
+Lace
+蕾絲
+Belt
+皮帶
+Collar
+領子
+Suit
+套裝
+Gloves
+手套
+Top
+上部
+Design
+樣式
+Upper Gradient
+上部漸變
+Lower Gradient
+下部漸變
+Holder
+包裝
+Flowers
+花朵
+Front
+前部
+Back
+後部
+Bib
+圍嘴
+Text
+文字
+Base
+打底
+Stains
+汙漬
+Rope
+繩子
+Chains
+鎖鏈
+Chain
+鎖鏈
+Lock
+鎖
+Key
+鑰匙
+Lanyard
+掛帶
+Card
+卡
+Necklace
+項鍊
+Jewels
+珠寶
+Center
+中部
+Petals
+花瓣
+Ball
+球
+Strap
+束帶
+Choker
+頸環
+Zip
+拉鏈
+Catsuit
+緊身衣
+Fabric
+布料
+Straps
+束帶
+Jewel
+珠寶
+Bra
+胸罩
+Shine
+高光
+Skirt
+裙子
+Cloth
+布料
+Stripe
+條紋
+ Pants
+褲子
+ Trim
+剪裁
+Panty
+內褲
+Veil
+面紗
+Panty Line
+內褲繩
+Waistband
+腕帶
+Layer 1
+第1層
+Layer 2
+第2層
+Layer 3
+第2層
+Layer 4
+第4層
+Leaves
+葉子
+Pollen
+花蕊
+Frill
+褶邊
+Lock Icon
+鎖標誌
+Catsuit Panties
+緊身衣內褲
+Diaper
+尿褲
+Plastic Cover
+塑膠外層
+Tape
+膠帶
+Crotch Padding
+跨部墊子
+Waist Band
+腰帶
+Panties
+內褲
+Sock
+襪子
+Light Stripes
+亮條紋
+Dark Stripes
+暗條紋
+Bands
+束帶
+Upper
+上半
+Lower
+下半
+Hat
+帽子
+Bonnet
+童帽
+Band
+束帶
+Bandana
+大頭巾
+Skull
+頭骨
+Dots
+圓點
+Patterns
+樣式
+Crown
+王冠
+Badge
+徽記
+Insignia
+徽章
+Brim
+帽簷
+Roses
+玫瑰
+Main Flowers
+主要花朵
+End Flowers
+邊緣花朵
+Main Flower
+主要花朵
+Side Flowers
+兩側花朵
+Flower Center
+中央花朵
+Shoulders
+肩膀
+Shawl
+頭巾
+Cowl
+面巾
+Button
+扣子
+Panel
+嵌板
+Side
+側邊
+Left Panel
+左面板
+Right Panel
+右面板
+Visor
+面罩
+Outer Ear
+耳朵外側
+Inner Ear
+耳朵內側
+Bell
+鈴鐺
+Outer
+外部
+Inner
+內部
+Glow
+亮光
+Body
+主體
+Core
+核心
+ Fluff
+絨毛
+ Base
+基礎
+ Tip
+頂端
+Bangs
+瀏海
+Tips
+頂端
+Left
+左側
+Right
+右側
+Glove
+手套
+Thumb Ring
+大拇指戒指
+Index Ring
+食指戒指
+Middle Finger Ring
+中指戒指
+Ring Finger Ring
+無名指戒指
+Wedding Ring
+結婚戒指
+Pinkie Ring
+小拇指戒指
+Honor Ring
+榮譽戒指
+Honor Ring Jewels
+榮譽戒指珠寶
+String
+繫繩
+Tail
+尾巴
+Ribbon
+絲帶
+Tails
+尾巴
+Heart
+心
+Tip
+頂端
+Primary
+主要
+Secondary
+次要
+Suckers
+吸盤
+Cuffs
+鎖銬
+Gems
+珠寶
+Display
+螢幕
+Rings
+環圈
+Bed Straps
+床束帶
+Lower Belt
+下部皮帶
+Upper Belt
+上部皮帶
+Feet Belt
+腳部皮帶
+Lower Rope
+下部繩子
+Upper Rope
+上部繩子
+Color 1
+顏色1
+Color 2
+顏色2
+Binder
+束縛
+Wand
+振動棒
+Remote
+遙控器
+Dildo
+假陽具
+End
+頂端
+Thread
+線條
+Ring
+環圈
+Egg
+跳蛋
+Leash
+牽繩
+Weight
+配重
+Harem Chain
+後宮鏈
+Harem Veil
+後宮紗
+Studs
+嵌釘
+Locks
+鎖
+Crotch Plate
+胯部擋板
+Rivets
+鉚釘
+Engraving
+刻字
+Crotch Shield
+胯部護盾
+Positive Wire
+陽極線
+Negative Wire
+陰極線
+Metal
+金屬
+Clamps
+夾子
+Left Vibe Egg
+左側跳彈
+Right Vibe Egg
+右側跳彈
+Left Tape Strip
+左側膠帶
+Right Tape Strip
+右側膠帶
+Frame
+框架
+Piercings
+穿刺
+Weights
+配重
+Piercing
+穿刺
+Lower Half
+下半部
+Upper Half
+上半部
+Laces
+系帶
+Buckle Hole
+搭扣孔
+Crotch Panel
+胯部遮擋
+Crotch
+胯部
+Bars
+杆子
+Wood
+木質
+Buckles
+搭扣
+Ropes
+繩子
+Suspension Rope
+懸掛繩
+Suspension Chain
+懸掛鎖鏈
+Mesh
+色調
+Material
+材質
+Sides
+兩側
+Waist Belt
+腰帶
+Above Breast Belt
+胸上皮帶
+Below Breast Belt
+胸下皮帶
+Shorts
+短褲
+Zippers
+拉鏈
+Slime Girl
+史萊姆女孩
+Seams
+接縫
+Binder Straps
+束手束帶
+Shoulder Straps
+肩部束帶
+Leather
+皮革
+Middle Ring
+中間環
+Left Ring
+左邊環
+Right Ring
+右邊環
+Brooch
+飾針
+Mesh (for copying to items)
+色調（用於複製到其他物品）
+Ornaments
+飾物
+Side Plates
+兩側面板
+Leather Strap
+皮束帶
+Heart Link
+心形環
+Tag
+標籤
+Plate
+底板
+Cap
+柱子頂蓋
+Post
+柱子
+Baseplate
+底板
+Pole
+杆子
+Plaque
+標牌
+PlaqueBorder
+標牌邊框
+Postit
+便條紙
+Sticker
+貼紙
+PlaqueBolts
+標牌螺栓
+Harness
+束帶
+Stripes
+條帶
+Stripes Shine
+條帶高光
+Sign
+牌子
+Pillow
+枕頭
+Mattress
+床墊
+Headboard
+床頭板
+Bench
+長椅
+Velvet
+絨墊
+Lid (open)
+蓋子（打開）
+Lid (closed)
+蓋子（關閉）
+Bottom
+底部
+Tint
+色調
+Padding
+墊子
+Tabletop
+桌面
+Pillow Trim
+枕頭裝飾
+Plushies
+絨毛玩具
+Cloak
+斗篷
+Kennel
+狗籠
+Front Frame
+前部框架
+Door
+門
+Bed
+床
+Bed Lining
+床內襯
+Blanket
+毛毯
+Blanket Lining
+毛毯內襯
+Wheel Holders
+輪子擋板
+Wheels
+輪子
+Bowl
+碗
+Sheet Back
+後部覆蓋物
+Sheet Front
+前部覆蓋物
+Sheet
+覆蓋物
+Caps
+蓋子
+Plastic
+塑膠
+Net
+網子
+Arms
+手臂
+Wooden Stand
+木質支架
+MetalStand
+金屬支架
+Metal Stand Frame
+金屬支架邊框
+Metal Stand Text
+金屬支架文本
+Wheel Border
+輪盤邊界
+Toys
+玩具
+Flogger
+鞭打
+Gag
+口塞
+Arrow
+箭頭
+Rope Sections
+繩子分區
+Chain Sections
+鎖鏈分區
+Gag Sections
+口塞分區
+Hook
+鉤子
+Nose
+鼻子
+Hair
+頭髮
+Hood
+頭套
+Snaps
+皮帶扣
+Face
+臉部
+Eyes
+眼睛
+Mouth
+嘴巴
+Blush
+腮紅
+Mouthpiece
+濾嘴
+Lens
+鏡片
+Mask
+面罩
+Edges
+邊緣
+Canvas
+畫布
+Blinding Lenses
+遮眼鏡片
+Breathing Attachment
+呼吸附件
+Chin Strap
+下巴束帶
+Helmet
+頭盔
+Side Pieces
+兩側組件
+Hypno Spiral Icon
+催眠旋渦標誌
+Interior
+內側
+Switch
+開關
+Exterior
+外部
+Spots
+斑點
+Inside
+內部
+Outside
+外部
+Linings
+內襯
+Forehead Panel
+額頭嵌板
+Openings
+開口
+Blindfold
+眼罩
+Drawings
+圖畫
+Lenses
+鏡片
+Plug
+塞子
+Boots
+靴子
+Heels
+鞋跟
+Mittens
+手套
+Vamp
+防水台
+Shoes
+鞋
+Soles
+腳底
+Fins
+鰭
+Inner & Laces
+內側和系帶
+ Metal
+金屬
+ Straps
+束帶
+ Bobble
+小絨球
+Cup
+杯子
+Close
+關閉
+Rod
+杆
+Carrot
+蘿蔔
+Pumpkin
+南瓜
+Bit
+嚼子
+Bone
+骨頭
+Harness Straps
+束帶帶子
+Metal Parts
+金屬組件
+Pacifier
+奶嘴
+Pacifier Ring
+奶嘴環
+Duster
+撣子
+Shoe
+鞋
+Lips
+嘴唇
+Muzzle
+口套
+Icon
+標誌
+Light
+亮色
+Highlights
+高光
+Cage
+籠子
+Lines
+線條
+Rubber Bit
+橡膠嚼子
+Ballgag
+口球
+Plume
+羽飾
+ManeBase
+鬃毛基部
+Mane
+鬃毛
+Horn
+角
+Ornament
+裝飾
+Reins
+繫繩
+Flags
+旗幟
+Blinders
+視野遮蔽
+Mouth Shine
+嘴部高光
+Panel Shine
+嵌板高光
+Fixing
+固定圈
+Tubes
+管子
+Cheeks
+面頰
+Nose Gloss
+鼻子光澤
+Whiskers
+鬍子
+Color One
+顏色1
+Color Two
+顏色2
+Clasps
+扣環
+Module
+模組
+Screen
+螢幕
+Plug Cap
+塞子蓋
+Interface
+螢幕
+Panty Base
+內褲打底
+Wires
+線路
+Metal Band
+金屬帶
+Pussy Toy
+陰部玩具
+Clitoris Toy
+陰蒂玩具
+Attachment
+附件
+Lid
+蓋子
+Restraint Frame
+束縛框架
+Harness Clamps
+束帶扣環
+Restraint Padding
+束縛墊子
+Actuator
+作動器
+Structure
+結構
+Window
+窗戶
+Label
+標籤
+Custom Text
+自訂文本
+Glass
+玻璃
+Wooden Frame
+木質框架
+ Ropes
+繩子
+Arm Stocks
+手枷
+Feet Stocks
+腳枷
+Underlayment
+襯底層
+Feet
+腳
+Dark
+深色
+Paws
+爪子
+Left Lens
+左鏡片
+Right Lens
+右鏡片
+HUD
+顯示器
+Thread Right
+右側線條
+Thread Left
+左側線條
+Ears
+耳朵
+Right Eye
+右眼
+Left Eye
+左眼
+Right Eye Sticker
+右眼貼
+Left Eye Sticker
+左眼貼
+Tray
+托盤
+Refreshments
+物件
+Details
+細節
+Spikes
+尖刺
+Gears
+齒輪
+Wings
+翅膀
+Veins
+脈絡
+Shade
+陰影
+Cock Ring
+陰莖環
+Penis
+陰莖
+Rubber Tips
+皮革頂端
+Vibe Egg
+跳蛋
+Crotch Straps
+胯部束帶
+Arm Strap
+手臂束帶
+Fade
+變暗
+Head
+頭部
+Face Lining
+臉部線條
+Eye Lining
+眼睛線條
+Mouth Lining
+嘴部線條
+Eye Panel
+眼睛遮罩
+Eye Fill Panels
+眼睛填充遮罩
+Mouth Panel
+嘴部遮罩
+Mouth Fill Panel
+嘴部填充遮罩
+Hair Inside Hood
+頭髮在頭套內
+Cover Hood
+覆蓋頭套
+Zipper
+拉鏈
+Crosses
+十字架
