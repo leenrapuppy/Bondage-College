@@ -1,0 +1,8 @@
+Load
+讀取
+Save
+儲存
+Return
+返回
+Save or load your favorite appearance
+儲存或讀取你喜愛的外觀
