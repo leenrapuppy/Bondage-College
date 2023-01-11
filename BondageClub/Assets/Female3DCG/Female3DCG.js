@@ -293,6 +293,24 @@ var AssetFemale3DCG = [
 				{Name: "Chains", HasType: false, AllowModuleTypes: ["b2"]},
 				],
 			},
+			{
+				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"],
+				Layer: [
+				{Name: "HoodDownBack", HasType: false, AllowModuleTypes: ["h0"], Priority: 6},
+				{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },]},
+				{Name: "Main", HasType: false, AllowModuleTypes: ["l0"]},
+				{Name: "MainBolero", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "Main"},
+				{Name: "HoodDownMid", HasType: false, AllowModuleTypes: ["h0"], CopyLayerColor: "HoodDownBack"},
+				{Name: "HoodDownTrim", HasType: false},
+				{Name: "HoodUpMid", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack"},
+				{Name: "HoodUpFront", HasType: false, AllowModuleTypes: ["h1"], Priority: 60},
+				{Name: "HoodUpFrontEars", HasType: false, AllowModuleTypes: ["h2"], CopyLayerColor: "HoodUpFront", Priority: 60},
+				{Name: "HoodUpTrim", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownTrim", Priority: 60},
+				{Name: "Laces", HasType: false},
+				{Name: "Waist", HasType: false, AllowModuleTypes: ["l0"]},
+				{Name: "Wrists", HasType: false, CopyLayerColor: "Waist"},
+				],
+			},
 			// Flat Chest Compatible Clothing
 			{
 				Name: "MaleTankTop1", Gender: "M", Prerequisite: ["HasFlatChest"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"]
@@ -2715,7 +2733,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "FacialHair",
-		Priority: 34,
+		Priority: 9,
 		Default: false,
 		ParentColor: "HairFront",
 		Left: 150,

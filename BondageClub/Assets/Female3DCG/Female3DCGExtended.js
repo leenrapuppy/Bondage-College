@@ -418,6 +418,36 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //SlaveRags
+		Hoodie: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Hood", Key: "h",
+						Options: [
+						{}, //h0 - Down
+						{}, //h1 - Up Regular
+						{}, //h2 - Up Ears
+						],
+					},
+					{
+						Name: "Length", Key: "l", DrawImages: false,
+						Options: [
+						{}, //l0 - Cropped
+						{}, //l1 - Bolero
+						//{}, //l2 - Full Length - not yet implemented
+						],
+					},
+					//{
+					//	Name: "Pouch", Key: "p", // Pouch option not yet implemented
+					//	Options: [
+					//	{}, //p0 - Hands Out
+					//	{}, //p1 - Hands In
+					//	],
+					//},
+				],
+			},
+		}, //Hoodie
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
