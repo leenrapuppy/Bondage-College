@@ -1,0 +1,18 @@
+Can I interest you in anything else?
+還有別的什麼感興趣的嗎？
+Select or search for an item to buy.
+選擇或搜索一件要購買的物品。
+Select the item to sell it for half price.
+選擇要以半價出售的物品
+There are no items to sell for this category.
+此類別中沒有可供出售的物品
+You already own this item.
+你已經擁有了這件物品
+You don't have enough money.
+你沒有足夠的錢
+Sorry, I cannot sell you keys.
+抱歉，我不能把鑰匙賣給你
+Sorry, I cannot sell you remotes.
+抱歉，我不能把遙控器賣給你
+Thank you!  Anything else?
+謝謝！還有什麼想要的嗎？

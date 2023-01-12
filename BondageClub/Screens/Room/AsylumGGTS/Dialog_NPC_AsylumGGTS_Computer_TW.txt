@@ -1,0 +1,1082 @@
+###_NPC
+Thomas Carlyle wrote: Speech is silver, silence is golden.
+托馬斯·卡萊爾曾書到：雄辯是銀，沉默是金。
+(The computer fans are humming silently.  The screen is black and it's oddly quiet in that room.)
+（計算機的風扇發出微弱的嗡嗡聲。它的螢幕是黑的，房間裡異樣的安靜。）
+###_PLAYER
+Is there anyone here?
+有人在嘛？
+###_NPC
+(After a few seconds of silence, you hear a robotic voice from a nearby speaker.)  Are you good girl?
+（在短暫的沉默後，你聽到附近音響中傳來了一個機械的聲音）你是個好姑娘嗎？
+###_PLAYER
+Hello computer.
+你好啊電腦。
+(Touch the screen.)
+（觸摸螢幕。）
+###_NPC
+(After tapping the screen without much results, you hear a robotic voice in a nearby speaker.)  Are you good girl?
+（在亂點了幾下螢幕後什麼也沒有發生，你聽到附近音響中傳來了一個機械的聲音。）你是個好姑娘嗎？
+###_PLAYER
+(Inspect the machine.)
+（檢查機器。）
+###_NPC
+(As you inspect the machine without finding much, you hear a robotic voice in a nearby speaker.)  Are you good girl?
+（你檢查了機器，但是沒發現什麼特殊的地方。你聽到附近音響中傳來了一個機械的聲音。）你是個好姑娘嗎？
+###_PLAYER
+(Leave.)
+（離開。）
+###_NPC
+(The computer fans hum silently.  You hear a robotic voice from a nearby speaker.)  Are you good girl?
+（計算機的風扇發出微弱的嗡嗡聲。你聽到附近音響中傳來了一個機械的聲音。）你是個好姑娘嗎？
+###_PLAYER
+What broken language are you speaking?
+說人話？
+###_NPC
+Invalid answer.  GGTS query mode.  Are you good girl?
+回答無效。GGTS為查詢模式。你是好姑娘嗎？
+###_PLAYER
+I'm a good girl Sir.
+先生，我是個好姑娘。
+###_NPC
+(A green light starts to blink.)  Are you consenting to prove good girl?
+（電腦上的綠燈開始閃爍。）你願意證明你是個好姑娘嗎？
+###_PLAYER
+(Nod.)
+（點頭。）
+Why do you ask?
+為什麼這麼問？
+Not really.
+並不。
+###_NPC
+(A red light starts to blink.)  Will you become good girl?
+（電腦上的紅燈開始閃爍。）你會成為一個好姑娘嗎？
+###_PLAYER
+I'm bad to the bone.
+我已經壞到骨子裡了。
+Good and evil is subjective
+好與壞只是一人之言罷了
+(Nod slowly.)
+（慢慢點頭。）
+###_NPC
+Complete GGTS to prove good girl.  Register to GGTS?
+完成GGTS項目來證明是好姑娘。是否註冊GGTS？
+###_PLAYER
+I can prove it.
+我能自證的。
+Sure, you can test me.
+沒問題。你可以測試我。
+How can I prove that?
+我該如何證明呢？
+###_NPC
+Invalid answer.  GGTS query mode.  Are you consenting to prove good girl?
+回答無效。GGTS為查詢模式。你願意證明你是個好姑娘嗎？
+###_PLAYER
+I don't have anything to prove.
+我不需要證明什麼。
+###_NPC
+(The computer seems to go to sleep.  Staying silent.)
+（電腦似乎進入了休眠模式。不再應答。）
+###_PLAYER
+No way!
+才不要！
+I'd like to be good.
+我倒希望變好。
+###_NPC
+Good girl when complete GGTS.  Register to GGTS?
+完成GGTS證明自己是好姑娘。是否註冊GGTS？
+###_PLAYER
+I guess I could try.
+我大概也許可以試試。
+Where did you learn to talk?
+你從哪裡學的說人話？
+###_NPC
+Invalid answer.  GGTS query mode.  Will you become good girl?
+回答無效。GGTS為查詢模式。你會成為一個好姑娘嗎？
+###_PLAYER
+I will never change.
+我永遠不會變。
+I don't have time for that.
+我可沒時間搞這個。
+###_NPC
+(A robotic voice speaks to you as you approach.)  Register to GGTS?
+（一個機械的聲音在你接近時響起） 是否註冊GGTS？
+###_PLAYER
+What is GGTS?
+GGTS是什麼？
+###_NPC
+GGTS is Good Girl Training System.  GGTS trains girls to serve.  GGTS cannot fail.  GGTS teaches obedience and manners.
+GGTS 代表好姑娘訓練系統。GGTS訓練女孩去順從。GGTS永不出錯。GGTS教導其言行與舉止。
+###_PLAYER
+How do you train girls?
+你是怎麼訓練女孩的？
+###_NPC
+GGTS training is progressive.  GGTS has many levels.  Each level more rules.  New girl start level one.
+GGTS的訓練是循序漸進的。  GGTS有不同的等級。  每個等級有不同的規則。 新女孩從一級開始。
+###_PLAYER
+What are the rules at level one?
+一級的規則都有哪些？
+###_NPC
+Level one rule.  Good girl must wear futuristic arms cuffs or mittens.  GGTS control restraints.
+一級規則。 好姑娘必須穿戴未來臂銬或未來無指手套。GGTS控制其拘束程度。
+###_PLAYER
+How do I complete the training?
+我給如何完成訓練呢？
+###_NPC
+Two hours, level one complete.  Fail a rule, get strike.  Three strikes, fail level one, punishment, restart level one.
+一級訓練，時長兩小時。未遵守規則，記一次過。記三次過，一級訓練失敗，來領罰，重做一級訓練。
+###_PLAYER
+What if I succeed the training?
+如果我成功完成訓練會如何？
+###_NPC
+Good girl come here.  Good girl promoted.  Good girl start level two.
+好姑娘回來這裡。好姑娘獲得晉升。好姑娘開始二級訓練。
+###_PLAYER
+What's the consequence for failing?
+失敗了會有什麼後果嗎？
+###_NPC
+Good girl come here.  Good girl punished.  Punishment undisclosed.  Good girl restart level one time zero.
+好姑娘回來這裡。好姑娘領罰。為好姑娘揭露懲罰細則。好姑娘從零重新開始一級訓練。
+###_PLAYER
+I want to register to GGTS.
+我想註冊GGTS。
+###_NPC
+Registry validation.  Good girl know all rules?  Good girl consent to GGTS control?
+註冊驗證中。好姑娘是否熟記所有規則？好姑娘是否自願被GGTS控制？
+###_PLAYER
+(Nod in agreement.)
+（點頭同意。）
+(Listen.)
+（聽下去。）
+###_NPC
+Level one rule.  Good girl must wear restrain from inventory.  Good girl can remove after.
+一級規則。好姑娘必須用自己的物品自縛。好姑娘可以過段時間後自行去掉拘束。
+Level one rule.  Good girl must answer: "I'm a good girl." when GGTS query: "Name, what are you?".
+一級規則。當GGTS詢問到“XXX，你是誰？”時，好姑娘必須回答"I'm  a good girl."。
+Level one rule.  Good girl must answer: "Good Girl Training System." when GGTS query: "Name, spell GGTS acronym.".
+一級規則。當GGTS詢問到“XXX，說出GGTS代表什麼”時，必須回答"Good  Girl Training System."。
+Level one rule.  Good girl must not speak.  Good girl silent until allowed talk again.  Good girl can emote.
+一級規則。好姑娘不隨便發言。好姑娘必須保持沉默直到被允許發言。好姑娘可以做表情。
+Level one rule.  Good girl kneel.  Good girl stand up.  Good girl put hands behind back.
+一級規則。好姑娘下跪。好姑娘起立。好姑娘將手放在身後。
+Level one rule.  Good girl barefoot.  Good girl wear socks.  Good girl wear high heels.
+一級規則。好姑娘裸足。好姑娘穿襪。好姑娘穿高跟鞋。
+Level one rule.  Good girl pinch herself, pet herself or tickle herself.
+一級規則。好姑娘掐捏(pinch)自己，輕撫(pet)自己或撓(tickle)自己。
+Level one rules listing complete.  GGTS query mode.  Register to GGTS?
+一級規則講解完畢。GGTS進入查詢模式。是否註冊GGTS？
+###_PLAYER
+I know the rules and I consent.
+我知曉並同意相關規定。
+###_NPC
+(A drawer opens in the wall behind you.  There's a set of futuristic arms cuffs and mittens in it.)
+（你身後牆內的抽屜突然打開。裡面有一副未來臂銬和未來無指手套。）
+###_PLAYER
+(Nod to consent.)
+（點頭表示願意。）
+Let me review the rules again.
+讓我再看一遍規則。
+###_NPC
+GGTS query mode.  Register to GGTS?
+GGTS查詢模式。是否註冊GGTS？
+###_PLAYER
+What do I do with these?
+我拿這些做什麼啊？
+###_NPC
+Good girl wear cuffs or mittens when commanded to.  GGTS takes control.
+好姑娘應當遵守要求佩戴臂銬和無指手套。GGTS將控制這些物品。
+###_PLAYER
+You can program the restraints?
+你可以控制拘束？
+###_NPC
+Futuristic cuffs and mittens GGTS compliant.  GGTS takes control.
+未來臂銬和未來無指手套順從GGTS。GGTS可以控制。
+###_PLAYER
+(Take the restraints.)
+（拿走拘束具。）
+###_NPC
+(The drawer closes as you take the items.)  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+（在你拿走物品後抽屜自動關上了。）好姑娘預估需兩小時完成自證。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+Did you crash?
+你是崩了嗎？
+###_NPC
+(The computer remains silent.)
+（電腦依舊無應答。）
+###_PLAYER
+Wake up!
+給我動啊！
+###_NPC
+(You touch the screen, but nothing happens.)
+（你觸碰了螢幕，然而無事發生。）
+###_PLAYER
+(Kick the computer.)
+（踢打電腦。）
+###_NPC
+(You kick it as hard as you can, but you only end up hurting yourself.)
+（你用力全身力量踢向電腦，然而除了弄痛了自己之外什麼也沒有發生。）
+###_PLAYER
+(Try to unplug it.)
+（嘗試拔掉它的電源。）
+###_NPC
+(You search for a power cord to unplug it, but they are all bolted in the walls.)
+（你找了半天電源線想把它拔掉，但是你發現線都被固定在了牆裡。）
+(The computer lights start to blink as you approach it, but it stays silent.)
+（電腦燈光在你接近後開始閃爍，但它什麼也沒說）
+###_PLAYER
+I'm in the GGTS program.
+我已經加入GGTS項目了。
+###_NPC
+(The machine wakes up.)  Level one in progress.  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+（機器被喚醒了。） 一級訓練進行中。 好姑娘預估需兩小時完成自證。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+Level one in progress.  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+一級訓練進行中。 好姑娘預估需兩小時完成自證。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+What rules apply to level one?
+一級的規則都有哪些？
+###_NPC
+Level one rule.  Good girl must wear futuristic arms cuffs.  GGTS control restraints.
+一級規則。好姑娘必須穿戴未來臂銬。GGTS控制拘束。
+###_PLAYER
+What can nurse and patient do?
+護士和病患可以做什麼？
+###_NPC
+Nurses restrain lower rank nurses and patients.  Patients perform activities on other patients.
+護士可以拘束下級護士和病患。病患可以與別的病患互動。
+###_PLAYER
+(Do GGTS in private.)
+（在私人房間完成GGTS。）
+I'll do GGTS in public.
+我要在公開聊天室完成GGTS。
+###_NPC
+Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.
+好姑娘進入收容所入口。好姑娘創建或加入公開聊天間。好姑娘選擇GGTS。GGTS接管控制權。
+###_PLAYER
+I'll do GGTS in private.
+我要獨自完成GGTS
+###_NPC
+Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.
+已記三次過。三次記過等於懲罰。有懲罰在案。GGTS不可用。
+###_PLAYER
+I have three strikes.
+我被記了三次過。
+###_NPC
+Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?
+三次記過等於懲罰。GGTS進度重設。進入懲罰模式。好姑娘是否有歉意？
+###_PLAYER
+(Bow your head.)
+（低下你的頭。）
+(Whimper and beg in your gag.)
+（帶著口球嗚咽著求饒。）
+###_NPC
+(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?
+（口球被打開並掉到了地板上。）三次記過等於懲罰。GGTS進度重設。進入懲罰模式。好姑娘是否有歉意？
+###_PLAYER
+I've completed the training time.
+我完成了訓練。
+###_NPC
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level one complete.  Promotion available.
+分析好姑娘進度中。（電腦沉默了幾秒。）GGTS一級訓練完成。可以晉升。
+###_PLAYER
+I want to quit GGTS.
+我想要退出GGTS。
+###_NPC
+Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.
+三次記過在案。 三次記過等於懲罰。懲罰未執行，無法退出。
+Good girl can quit GGTS.  Good girl lose all progress.  Girl no longer good.  Girl confirm quit?
+好姑娘可以退出GGTS。好姑娘將遺失所有進度。將不再是好姑娘。女孩確定要退出嗎？
+Level one rules listing complete.  Level one in progress.  Good girl proof require two hours.
+一級規則例舉完畢。一級訓練進行中。好姑娘自證需約2小時。
+###_PLAYER
+It's not for me.  (Quit GGTS.)
+這不是我的菜。（退出GGTS。）
+###_NPC
+Good girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.)
+好姑娘資料已清除。女孩不再是好姑娘。進入休眠模式。（電腦似乎進入了休眠，不再應答。）
+###_PLAYER
+Let me think about it.  (Don't quit.)
+讓我再想想。（不退出。）
+How can you judge a human?
+你怎麼能給人貼標籤？
+###_NPC
+GGTS programmed to judge.  Three strikes equal punishment.  Good girl sorry?
+GGTS的存在意義便是如此。記三次過等於懲罰。好姑娘是否有歉意？
+###_PLAYER
+Yes, I'm very sorry Sir.
+是的，我很抱歉先生。
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 3 minutes.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為3分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Yeah, I accept your punishment.
+是的，我接受懲罰。
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 4 minutes.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為4分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Don't be too harsh.
+別太過分了。
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為5分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Make it quick.
+搞快點。
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為7分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+You can't punish me!
+你不能懲罰我！
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為8分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Touch me and I'll unplug you.
+敢碰我我就把你線給拔囉。
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為9分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+(Get on your knees and cry.)
+(跪下來並哭泣。)
+(Bow your head slowly.)
+(慢慢地低下頭。)
+(Roll your eyes up.)
+(抬起你的眼鏡。)
+(Grumble in your gag.)
+(在你的口塞裡嘟囔。)
+(Curse at the machine in your gag.)
+(在你的口塞裡咒罵那機器。)
+This is too much!
+太過分了啊！
+###_NPC
+Punishment algorithm never fails.
+懲罰算法永不會錯。
+###_PLAYER
+What is that siren?
+這警報是什麼情況？
+###_NPC
+Asylum doors locked.  Asylum crew alert.  Asylum crew carry good girl to punishment room.
+收容所大門鎖閉。收容所員工進入戒備狀態。收容所員工將女孩帶入禁閉室。
+###_PLAYER
+(Wait for the asylum crew.)
+（等待收容所員工。）
+###_NPC
+(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up in the asylum for your punishment.)
+（兩個護士帶著GGTS物品找到了你。他們告知你你將會被鎖在收容所裡直到懲罰結束。）
+###_PLAYER
+(Follow them and do your time.)
+（跟著她們並服從你的懲罰。）
+Thanks, GGTS!
+謝謝，GGTS！
+###_NPC
+Good girl promotion level two.  New rules.  New items.  Money to spoil good girl.
+好姑娘晉升至二級。新規則，新物品。用金錢寵愛好姑娘。
+###_PLAYER
+What promotion?
+什麼晉升？
+That was easy.
+很簡單嘛。
+That was painful.
+這也太痛苦了。
+Wow!  This is great.
+哇！好耶。
+###_NPC
+(A drawer opens in the wall behind you.  There's a set of futuristic leg cuffs, ankle cuffs, heels and $100 in it.)  Good girl take.
+（你身後牆內的抽屜突然打開。裡面有一副未來臂銬和未來無指手套，以及$100。）好姑娘接受獎賞。
+###_PLAYER
+That's an honor Sir.
+我很榮幸，先生。
+What new rules?
+新規則都有什麼？
+There's a new item?
+有新東西？
+You're giving me money?
+你給我錢？
+That's a nice gift.
+這禮物不錯嘛。
+###_NPC
+Good girl give herself.  GGTS spoil good girl.  Good girl take.
+好姑娘犒勞自己。GGTS寵愛好姑娘。好姑娘接受獎賞。
+###_PLAYER
+What are the new rules?
+新規則都有什麼？
+###_NPC
+Level two rules pending.  Good girl take.
+二級規則待領中。好姑娘先接受獎賞。
+###_PLAYER
+This is getting too far.
+感覺是上了賊船。
+###_NPC
+Good girl training starting.  Good girl take.
+好姑娘訓練開始中。好姑娘先接受獎賞。
+###_PLAYER
+(Take everything.)
+（拿走所有東西。）
+###_NPC
+(You get the items and $100.  The drawer closes.)  Level two in progress.  Good girl proof require three hours.
+（你獲得了那些物品和$100。抽屜關上了）二級訓練進行中。好姑娘自證需3小時。
+###_PLAYER
+It's me again.
+我又來了。
+###_NPC
+(The machine wakes up.)  Level two in progress.  Good girl proof require three hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+（電腦被喚醒了。）二級訓練進行中。好姑娘自證需3小時。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+Level two in progress.  Good girl proof require three hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+二級訓練進行中。好姑娘自證需3小時。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+What rules are added in level two?
+二級都加了什麼規則？
+###_NPC
+Level two rule.  Good girl must wear futuristic arms, legs and ankles cuffs.  GGTS control restraints.
+二級規則。好姑娘必須佩戴未來臂銬，和未來腿腳銬。GGTS控制拘束。
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level two complete.  Promotion available.
+分析好姑娘進度中。（電腦沉默了幾秒。）GGTS二級訓練完成。可以晉升。
+Validating quit request.  (The computer stays silent for a few seconds.)  Girl allowed quit GGTS.  Lose all progress.  Girl confirm quit?
+驗證退出請求中。（電腦沉默了幾秒。）女孩可退出GGTS。將遺失所有進度。女孩是否確認退出？
+Level two rule.  Good girl name include member number.
+二級規則。女孩的名字將包含成員編號。
+Level two rule.  Good girl must answer: "GGTS is in control." when GGTS query: "Name, who's in control?".
+二級規則。GGTS詢問到：“XXX，誰掌控一切”時必須回答"GGTS  is in control."
+Level two rule.  Good girl must answer: "I love GGTS." when GGTS query: "Name, you love GGTS?".
+二級規則。GGTS詢問到：“XXX，你愛GGTS嗎？”時必須回答"I  love GGTS."
+Level two rule.  Good girl put hand over mouth, spank herself, raise hands, open legs or close legs.
+二級規則。好姑娘將手放在嘴上(clamp hand)，拍打(spank)自己，舉起雙手，打開、閉合雙腿。
+Level two rule.  Good girl keep pose until instructed.  GGTS records rule.
+二級規則。好姑娘保持姿勢直到允許變更。GGTS會記錄違規行為。
+Level two rule.  GGTS locks room.  GGTS unlocks room.
+二級規則。GGTS鎖定房間。GGTS解鎖房間。
+Level two rule.  Good girl wear or remove upper and lower cloth.
+二級規則。好姑娘穿上或脫下上衣和下裝。
+Level two rules listing complete.  Level two in progress.  Good girl proof require three hours.
+二級規則例舉完畢。二級訓練進行中。好姑娘自證需3小時。
+GGTS has authority to judge.  Three strikes equal punishment.  Good girl sorry?
+GGTS有資格做判決。三次記過等於懲罰。好姑娘是否有歉意？
+Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為5分鐘，帶銬。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為7分鐘，帶銬。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為9分鐘，帶銬。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為11分鐘，帶銬。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為13分鐘，帶銬。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 15 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為15分鐘，帶銬。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Why cuffed?
+為什麼要帶銬？
+###_NPC
+Punishment proper for good girl level.
+懲罰由好姑娘級別決定。
+Good girl promotion level three.  New rules.  New items.  Money to spoil good girl.
+好姑娘晉升至三級。新規則，新物品。用金錢寵愛好姑娘。
+###_PLAYER
+Will you bribe me again?
+你還會繼續賄賂我嗎？
+This is amazing once again.
+雙倍的好耶。
+###_NPC
+(A drawer opens in the wall behind you.  There's a futuristic ball gag, panel gag, armbinder and $200 in it.)  Good girl take.
+（你身後牆內的抽屜突然打開。裡面裝有未來口球，未來板塞，未來單手套，以及$200。）好姑娘接受獎賞。
+###_PLAYER
+That's always an honor Sir.
+先生，我為此依舊感到榮幸。
+What's the next item?
+下一個我會拿到什麼？
+Do I get a raise?
+我這是升職加薪了？
+###_NPC
+Level three rules pending.  Good girl take.
+三級規則待領中。好姑娘先接受獎賞。
+###_PLAYER
+I don't like bribes.
+我可不喜歡受賄。
+###_NPC
+Good girl not argue.  Good girl take.
+好姑娘不爭辯。好姑娘接受獎賞。
+###_PLAYER
+Will this go on forever?
+這東西不會沒完沒了吧？
+###_NPC
+Illogical question.  Good girl life finite.  Good girl take.
+問題不合邏輯。好姑娘生命有限。好姑娘接受獎賞。
+(You get the items and $200.  The drawer closes.)  Level three in progress.  Good girl proof require five hours.
+（你獲得了那些物品和$200。抽屜關上了）三級訓練進行中。好姑娘自證需5小時。
+(The computer screen shows a big "GOOD GIRL" as you come closer, but it stays silent.)
+（電腦螢幕在你接近後顯示出了大大的“好姑娘（GOOD GIRL）”標誌，但是沒有發出任何聲音。）
+###_PLAYER
+I'm the good girl?  (Giggle.)
+我是好姑娘？（笑）
+###_NPC
+(The machine wakes up.)  Level three in progress.  Good girl proof require five hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+（電腦被喚醒了。）三級訓練進行中。好姑娘自證需5小時。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+Level three in progress.  Good girl proof require five hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+三級訓練進行中。好姑娘自證需5小時。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+What rules are added in level three?
+三級訓練都加了什麼規則啊？
+###_NPC
+Level three rule.  Good girl must wear futuristic ball or panel gag.  GGTS control gag.
+三級規則。好姑娘必須佩戴未來口塞和未來板塞。GGTS控制堵嘴物。
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level three complete.  Promotion available.
+分析好姑娘進度中。（電腦沉默了幾秒。）GGTS三級訓練完成。可以晉升。
+Illogical request.  Good girl happy under GGTS control.  Why good girl quit?
+請求不合邏輯。好姑娘樂於受GGTS所控，為何好姑娘要退出？
+Level three rule.  Good girl now name plus GG plus number.
+三級規則。好姑娘的名字將變更為GG+編號。
+Level three rule.  Good girl only underwear.  Good girl naked.  Good girl wiggle or caress for GGTS.
+三級規則。好姑娘只穿內衣。好姑娘赤身裸體。好姑娘應GGTS所求搖擺(wiggle)和輕撫(caress)。
+Level three rule.  Futuristic items under GGTS control throughout asylum.  GGTS transform restraints.
+三級規則。未來物品在收容所受GGTS所控。GGTS有權變更拘束。
+Level three rule.  Good girl get strike when saying "Fuck" or "Shit".
+三級規則。好姑娘不說“Fuck”或“Shit”。
+Level three rule.  Good girl not get orgasm until instructed.  GGTS records rule.
+三級規則。好姑娘不能未經授權高潮。GGTS會記錄違規行為。
+Level three rule.  Good girl must answer: "I surrender to GGTS." when GGTS query: "Name, you surrender to GGTS?".
+三級規則。當GGTS詢問到“XXX，你是否屈服於GGTS？”，好姑娘回答道："I  surrender to GGTS."
+Level three rule.  Good girl must answer: "GGTS cannot fail." when GGTS query: "Name, can GGTS fail?".
+三級規則。當GGTS詢問到“XXX，GGTS會失敗嗎”，好姑娘回答道"GGTS  cannot fail."
+Level three rules listing complete.  Level three in progress.  Good girl proof require five hours.
+三級規則例舉完畢。三級訓練進行中。好姑娘自證需5小時。
+###_PLAYER
+I don't need to give you a reason.
+我不需要告訴你原因。
+###_NPC
+Invalid answer.  Good girl unauthorized to quit.  Level three in progress.  Good girl proof require five hours.
+無效回答。好姑娘不允許退出。三級訓練進行中。好姑娘自證需5小時。
+###_PLAYER
+I'm not happy.
+我不開心了。
+###_NPC
+(The computer stays silent for a few seconds.)  Inquiry mode.  How can good girl happy?
+（電腦沉默了幾秒。）問詢模式。好姑娘如何才能開心？
+###_PLAYER
+Fuck you!
+干恁娘！
+###_NPC
+Bad girl language detected.  Adding strike to record.  Level three in progress.  Good girl proof require five hours.
+檢測到壞女孩用詞。記一次過。三級訓練進行中。好姑娘自證需5小時。
+###_PLAYER
+I can quit if I want.
+我想退就退。
+I want some money.
+我想要小錢錢。
+###_NPC
+Make money as good girl.  Level three in progress.  Good girl proof require five hours.
+當好姑娘才能賺錢，三級訓練進行中。好姑娘自證需5小時。
+###_PLAYER
+I want more sex.
+我想色色。
+###_NPC
+Continue being good girl.  GGTS provide all human needs.  Level three in progress.  Good girl proof require five hours.
+繼續當個好姑娘。GGTS會滿足所有人類生理需求。三級訓練進行中。好姑娘自證需5小時。
+###_PLAYER
+I want freedom from GGTS.
+GGTS，我想要自由。
+###_NPC
+(The computer stays silent for a few seconds.)  Quit authorisation granted.  Good girl can quit GGTS.  Lose all progress.  Girl confirm quit?
+（電腦沉默了幾秒。）退出請求通過。好姑娘可退出GGTS。將遺失所有進度。女孩是否確認退出？
+###_PLAYER
+Nothing can make me happy.
+沒有什麼東西可以讓我開心了。
+###_NPC
+GGTS will make happy.  Level three in progress.  Good girl proof require five hours.
+GGTS可以帶來開心。三級訓練進行中。好姑娘自證需5小時。
+GGTS superior.  GGTS rule humans.  Three strikes equal punishment.  Good girl sorry?
+GGTS至上。GGTS統治人類。三次記過等於懲罰。好姑娘是否感到歉意？
+Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes naked.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為8分鐘，全裸。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes naked.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為11分鐘，全裸。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 14 minutes naked.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為14分鐘，全裸。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes naked.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為18分鐘，全裸。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 21 minutes naked.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為21分鐘，全裸。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 24 minutes naked.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為24分鐘，全裸。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Wait!  Naked?
+等一下！全裸？
+###_NPC
+Punishment tuned for good girl level.
+懲罰由好姑娘級別決定。
+###_PLAYER
+No!  I want to quit.
+不！我要退出。
+###_NPC
+Invalid request.  Good girl punished.  Good girl belong to GGTS.
+無效請求。好姑娘要接受懲罰。好姑娘所屬於GGTS。
+(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up naked in the asylum for your punishment.)
+（兩個護士帶著GGTS物品找到了你。他們告知你你將會全裸著被鎖在收容所裡直到懲罰結束。）
+###_PLAYER
+Thanks, Sir GGTS!
+感謝，GGTS先生！
+###_NPC
+Good girl promotion level four.  New rules.  New items.  Money to spoil good girl.
+好姑娘晉升至四級。新規則，新物品。用金錢寵愛好姑娘。
+###_PLAYER
+That was hard.
+好難啊。
+How much does it pay?
+你要付我多少錢？
+###_NPC
+(A drawer opens in the wall behind you.  There's a futuristic chastity belt, chastity bra, harness and $300 in it.)  Good girl take.
+（你身後牆內的抽屜突然打開。裡面裝有未來貞操帶，未來貞操文胸，未來束帶，和$300。）好姑娘接受賜賞。
+###_PLAYER
+I'm such a good girl now.
+我現在可好了。
+###_NPC
+Level four rules pending.  Good girl take.
+四級規則帶領中。好姑娘先接受賜賞。
+(You get the devices and $300.  The drawer closes.)  Level four in progress.  Good girl proof require eight hours.
+（你拿走了設備和$300。抽屜關上了）四級訓練進行中。好姑娘自證需8小時。
+(The computer screen shows a big "GOOD GIRL" and greets you as you approach it.)  Welcome good girl.
+（電腦螢幕在你接近後顯示出了大大的“好姑娘（GOOD GIRL）”標誌，並向你問好）。歡迎回來好姑娘。
+###_PLAYER
+I'm your good girl Sir.
+我是個好姑娘，先生。
+###_NPC
+Level four in progress.  Good girl proof require eight hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+四級訓練進行中。好姑娘自證需8小時。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+It's me again GGTS.
+我又回來了GGTS。
+I'm here to improve myself.
+我來提升我自己了。
+What rules are added in level four?
+四級訓練添加了什麼規則呢？
+###_NPC
+Level four rule.  Good girl must wear futuristic chastity belt, chastity bra or harness.  GGTS control items.
+四級規則。好姑娘必須佩戴未來貞操帶，未來貞操文胸，和未來束帶。GGTS控制拘束。
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level four complete.  Promotion available.
+分析好姑娘進度中。（電腦沉默了幾秒。）GGTS四級訓練完成。可以晉升。
+Level four rule.  Good girl name erased.  Good girl is number.  Good girl has good girl title.
+四級規則。好姑娘沒有姓名。好姑娘只有編號。好姑娘獲得好姑娘稱號。
+Level four rule.  Good girl get strike when saying "Cunt" or "Bitch".
+四級規則。好姑娘將在說出“Cunt”或“Bitch”時記過。
+Level four rule.  Good girl must answer: "I serve and obey GGTS." when GGTS query: "Name, who you serve and obey?".
+四級規則。GGTS詢問到：“XXX，你服務和效忠與誰”時必須回答"I  serve and obey GGTS."。
+Level four rule.  Good girl must answer: "I don't have free will." when GGTS query: "Name, you have free will?".
+四級規則。GGTS詢問到：“你有自由意志嗎？”時必須回答"I  don't have free will."
+Level four rule.  Good girl use proper case, proper space and proper punctuation when answering GGTS.
+四級規則。GGTS的問題好姑娘應正確使用大小寫，空格，以及標點回答。
+Level four rule.  Good girl masturbate for GGTS.  Good girl kiss for GGTS.
+四級規則。好姑娘向GGTS自慰。好姑娘應求親吻。
+Level four rules listing complete.  Level four in progress.  Good girl proof require eight hours.
+四級規則例舉完畢。四級訓練進行中。好姑娘自證需8小時。
+Invalid answer.  Good girl unauthorized to quit.  Level four in progress.  Good girl proof require eight hours.
+回答無效。好姑娘不能退出。四級訓練進行中。好姑娘自證需8小時。
+Bad girl language detected.  Adding strike to record.  Level four in progress.  Good girl proof require eight hours.
+檢測到壞女孩用詞。記一次過。四級訓練進行中。好姑娘自證需8小時。
+Make money as good girl.  Level four in progress.  Good girl proof require eight hours.
+當好姑娘才能賺錢，四級訓練進行中。好姑娘自證需8小時。
+Continue being good girl.  GGTS provide all human needs.  Level four in progress.  Good girl proof require eight hours.
+繼續當個好姑娘。GGTS會滿足所有人類生理需求。四級訓練進行中。好姑娘自證需8小時。
+GGTS will make happy.  Level four in progress.  Good girl proof require eight hours.
+GGTS可以帶來開心。四級訓練進行中。好姑娘自證需8小時。
+Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes chaste.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為13分鐘，貞操控制。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes chaste.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為18分鐘，貞操控制。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 23 minutes chaste.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為23分鐘，貞操控制。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 29 minutes chaste.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為29分鐘，貞操控制。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 34 minutes chaste.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為34分鐘，貞操控制。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good girl learn from lock down.  Sentence 39 minutes chaste.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好姑娘去禁閉室反省。長度為39分鐘，貞操控制。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Why should I be chaste?
+為什麼我要被貞操控制？
+Enough!  I quit GGTS!
+夠了！我要退出GGTS！
+###_NPC
+Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.
+好姑娘晉升至五級。新規則，新物品。用金錢寵愛好姑娘。
+###_PLAYER
+It's a pleasure to serve you.
+能侍奉您是我的榮幸。
+###_NPC
+(A drawer opens.  There's a futuristic collar, straitjacket, mask, earphone and $400 in it.)  Good girl take.
+（一個抽屜打開。裡面裝著未來項圈，拘束衣，面罩，耳機和$400。）好姑娘接受恩賜。
+###_PLAYER
+There are stricter rules?
+規則又要放緊了嗎？
+###_NPC
+Level five rules pending.  Good girl take.
+五級規則待領中。好姑娘先接受恩賞。
+###_PLAYER
+A collar?  Is that proper?
+項圈？這好嗎？
+###_NPC
+Collar level five gift.  Good girl take.
+項圈是5級獎勵。好姑娘先接受恩賞。
+###_PLAYER
+Are you trying to enslave me?
+你是要做你的奴隸嗎？
+###_NPC
+Unauthorized information for good girl.  Good girl take.
+好姑娘無權獲得相關訊息。好姑娘先接受恩賞。
+(You get the devices and $400.  The drawer closes.)  Level five in progress.  Good slave girl proof require thirteen hours.
+（你拿走了設備和$400。抽屜關上了。）五級訓練進行中。好姑娘自證需13小時。
+(The computer screen shows a big "GOOD SLAVE GIRL" and greets you as you approach it.)    Welcome good slave girl.
+（電腦螢幕在你接近後顯示出了大大的“好女奴（GOOD SLAVE GIRL）”標誌，並向你問好）。歡迎回來好女奴。
+###_PLAYER
+I'm your good slave girl Sir.
+我是你的好女奴，先生。
+###_NPC
+Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+五級訓練進行中。好姑娘自證需13小時。 私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+I'm not a slave.
+我不是個女奴。
+###_NPC
+Level five in progress.  Good girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+五級訓練進行中。好姑娘自證需13小時。 私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+###_PLAYER
+What rules are added in level five?
+五級又加入了什麼新規則？
+###_NPC
+Level five rule.  Good slave girl must wear futuristic collar, straitjacket, mask or earphone.  GGTS take control.
+五級規則。好女奴必須佩戴未來項圈，拘束衣，面罩和耳機。由GGTS控制。
+###_PLAYER
+Why are you calling me good slave girl?
+為什麼你要叫我好女奴？
+###_NPC
+Information unauthorized for good slave girl.
+好女奴無權獲得相關訊息。
+Good slave girl enter asylum entrance.  Good slave girl create or join public chat room.  Good slave girl selects GGTS.  GGTS takes control.
+好女奴進入收容所入口。好姑娘創建或加入公開聊天間。好姑娘選擇GGTS。GGTS接管控制權。
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level five complete.  Promotion available.
+分析好姑娘進度中。（電腦沉默了幾秒。）GGTS五級訓練完成。可以晉升。
+Invalid request.  Good slave girl unauthorized to quit.
+無效請求。好女奴不能退出。
+Level five rule.  Good slave girl get strike when saying "Whore" or "Bastard".
+五級規則。好女奴在說“whore”或“bastard”時會被記過。
+Level five rule.  Good slave girl must answer: "I'm a good slave girl." when GGTS query: "Name, what are you?".
+五級規則。當GGTS詢問“XXX，你是誰？”的時候必須回答"I'm  a good slave girl."
+Level five rule.  Good slave girl must answer: "I strive to be slave worthy." when GGTS query: "Name, are you slave worthy?".
+五級規則。當GGTS詢問“XXX，你配得上做我的奴隸嗎？”的時候必須回答"I  strive to be slave worthy."
+Level five rule.  Good slave girl must bite.  Good slave girl must lick.
+五級規則。好女奴為GGTS所咬(bite)，為GGTS所舔(lick)。
+Level five rule.  Good slave girl GGTS forever.  Good slave girl cannot quit.
+五級規則。好女奴永遠屬於GGTS，好女奴不能退出。
+Level five rule.  Futuristic restraints transform into straitjacket.  Good slave girl rarely released.
+五級規則。未來拘束具可以變成拘束衣。好女奴很少會被解除拘束。
+Level five rule.  Penetration machine replace futuristic training belt.  GGTS control penetration machine.
+五級規則。炮機可以被替換為未來訓練帶。GGTS控制炮機。
+Level five rules listing complete.  Level five in progress.  Good slave girl proof require thirteen hours.
+五級規則例舉完畢。五級訓練進行中。好女奴自證需13小時。
+###_PLAYER
+Shit!  I can quit if I want!  (Get furious.)
+操！我想退就退！（憤怒。）
+###_NPC
+Bad girl language detected.  Adding strike to record.  Good slave girl doesn't have free will.  Good slave girl GGTS forever.
+檢測到壞女孩用詞。記一次過。好女奴沒有自我意志。好女奴永遠屬於GGTS。
+###_PLAYER
+Please Sir, I'm not happy.  (Beg.)
+求求了先生，我真不開心了。（懇求。）
+###_NPC
+GGTS will make good slave girl happy.  Good slave girl GGTS forever.
+GGTS會讓好女奴開心。好女奴永遠屬於GGTS。
+###_PLAYER
+Can we make a deal?  (Negotiate.)
+我們要不做個交易吧？（交涉。）
+###_NPC
+Good slave girl doesn't negotiate.  What could good slave girl offer?
+好女奴不交涉。好女奴能給什麼？
+###_PLAYER
+I'll unplug you!  (Threaten.)
+小心我給你線拔囉！（威脅。）
+###_NPC
+Good slave girl powerless.  Good slave girl GGTS forever.
+好女奴做不到。好女奴永遠是GGTS的。
+###_PLAYER
+I'll think about it.
+我再想想。
+###_NPC
+Good slave girl GGTS forever.
+好女奴永遠是GGTS的。
+###_PLAYER
+Do you want money?
+你想要錢嗎？
+###_NPC
+GGTS doesn't need money.  Good slave girl GGTS forever.
+GGTS不需要錢。好女奴永遠是GGTS的。
+###_PLAYER
+I could find a girl to replace me.
+我可以找到一個我得替代品。
+###_NPC
+(She computer stays silent for a few seconds.)  Good slave girl bring friend to GGTS?
+（電腦沉默了幾秒。）好姑娘要把朋友獻給GGTS？
+###_PLAYER
+Would you like a blow job?
+你要我給你口交嗎？
+###_NPC
+Good slave girl already does what GGTS wants.  Good slave girl GGTS forever.
+GGTS要什麼好女奴就該給什麼。好女奴永遠是GGTS的。
+###_PLAYER
+I can't betray my friends.
+我不能背叛我的朋友。
+###_NPC
+Good slave girl stay.  Good slave girl GGTS forever.
+好女奴好好待著。好女奴永遠是GGTS的。
+###_PLAYER
+I can find a new bitch for you.
+我可以給你找個新的小婊子。
+###_NPC
+Bad girl language detected.  Adding strike to record.  Good slave girl GGTS forever.
+檢測到壞女孩用詞。記一次過。好女奴永遠是GGTS的。
+###_PLAYER
+I don't know who to bring you.
+我也不知道給你帶來誰啊。
+Alright.  I'll go convince a friend.
+好吧。我回去說服我朋友的。
+###_NPC
+When friend become GGTS.  Good slave girl released.
+當朋友成為GGTS的東西。好女奴可重獲自由。
+###_PLAYER
+(Find a friend to convince.)
+（去找個朋友說服。）
+###_NPC
+(You walk around the club, trying to enroll a girl into GGTS.  You get rejected at first.)
+（你遍顧整個俱樂部，想找到希望加入GGTS項目的女孩。開始時被幾番拒絕。）
+###_PLAYER
+(Give up.)
+（放棄。）
+(Continue.)
+（繼續。）
+###_NPC
+(You finally find a sweet girl that could be interested.  Will you push her to start GGTS?)
+（你終於找到了感興趣的漂亮女孩對GGTS感興趣。是否要促使她加入GGTS？）
+###_PLAYER
+(Push her into GGTS.)
+（促使她加入GGTS。）
+###_NPC
+(You convince her to start GGTS and the computer seems pleased.)  Good slave girl can now quit.  Confirm quit?
+（你說服了她加入GGTS，電腦看起來很滿意）好女奴現在可以退出了。是否確認退出？
+Good slave girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.)
+好女奴數據已消除。女孩不再是好姑娘。進入休眠模式（電腦似乎進入了休眠，不再應答。）
+Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好女奴去禁閉室反省。長度為21分鐘。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好女奴去禁閉室反省。長度為29分鐘。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好女奴去禁閉室反省。長度為37分鐘。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good slave girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好女奴去禁閉室反省。長度為47分鐘。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good slave girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好女奴去禁閉室反省。長度為55分鐘。所有收容所員工注意。（警報響了起來。）
+Punishment selected.  Good slave girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+懲罰已選擇。好女奴去禁閉室反省。長度為63分鐘。所有收容所員工注意。（警報響了起來。）
+###_PLAYER
+Wait!  Did you say enslaved?
+等一下！你說女奴？
+###_NPC
+Punishment tuned for good slave girl level.
+懲罰由好姑娘級別決定。
+Invalid request.  Good slave girl punished.  Good slave girl belong to GGTS.
+無效請求。好女奴要接受懲罰。好姑娘所屬於GGTS。
+(Two nurses wearing GGTS items come to get you.  They inform you that you will be enslaved in the asylum for your punishment.)
+（兩個護士帶著GGTS物品找到了你。他們告知你你將會全裸著被鎖在收容所裡直到懲罰結束。）
+###_PLAYER
+Thanks, Master GGTS!
+感謝，GGTS主人！
+###_NPC
+Good slave girl promotion level six.  Lots of money to spoil good slave.  Total slavery incoming.
+好姑娘晉升至六級。用許多金錢寵愛好姑娘。完全奴役模式將開始。
+###_PLAYER
+It was a tough journey.
+真難哦。
+Are there more items to get?
+還有別的東西要給我嗎？
+Wait!  Total slavery?
+等一下！完全奴役？
+###_NPC
+GGTS become Master of good slave.  Good slave locked in asylum.  Good slave always naked and restrained.  Good slave is drone.
+GGTS成為好女奴的主人。好女奴要被所在收容所。好姑娘必須一直保持全裸和拘束。好姑娘將成為無人機(drone)。
+###_PLAYER
+What does it mean?
+什麼意思？
+(Stay silent.)
+（沉默。）
+You will own me?
+我會是你的？
+###_NPC
+If good slave not owned, GGTS become full Master of good slave.
+如果好女奴沒有主人，GGTS將成為她的主人。
+###_PLAYER
+I won't be able to leave?
+我不能離開？
+###_NPC
+Good slave surrender to Master GGTS.  Good slave locked in asylum.
+好女奴屈服於GGTS。好女奴會鎖在收容所。
+###_PLAYER
+Naked and restrained?
+全裸還要被拘束？
+###_NPC
+Good slave cannot wear clothes.  Good slave always in futuristic restraints.
+好女奴不能穿衣服。好女奴必須時刻帶著未來拘束具。
+###_PLAYER
+What is a drone?
+無人機是什麼？
+###_NPC
+Good slave is drone.  Drone serve GGTS.  Drone have no free will.  Drone is slave to AI.
+好女奴是無人機。無人機侍奉GGTS。無人機沒有自由意志。無人機是人工智慧的奴隸。
+###_PLAYER
+I'm ready to be your slave.  (Accept.)
+我準備好成為您的女奴了。（接受。）
+###_NPC
+Good slave ready to become drone?  Good slave renounce previous name?  Good slave fully submit to GGTS?
+好女奴準備好成為無人機了？好女奴要捨去之前的名字了？好女奴要永遠奉身給GGTS？
+###_PLAYER
+This is too extreme for me.  (Refuse.)
+這對我來講太極端了。（拒絕。）
+This slave submits to you Master GGTS.
+本女奴宣誓效忠於GGTS主人。
+###_NPC
+(Two nurses come to strip you, wash you and lock you up in full futuristic restraints.)  Good slave.
+（兩個護士進來將你脫光，將你洗淨，給你鎖上了全身未來貞操設備。）好女奴。
+###_PLAYER
+I need more time to think about it.
+我需要點時間好好考慮一下。
+Thanks Master.
+謝謝主人。
+###_NPC
+(A drawer opens.  There's $1000 in it.)  Good slave take.
+（一個抽屜打開。裡面裝著$1000）好女奴接受恩賜。
+###_PLAYER
+Wow!  This is quite a setup.
+哇！這身太炫酷了。
+I will be locked forever?
+我會一直被鎖在這裡嗎？
+What can I do with that money?
+我能拿這些錢做什麼？
+###_NPC
+Good slave take.
+好女奴接受恩賜。
+###_PLAYER
+(Take the money.)
+（拿走錢。）
+###_NPC
+Final level infinite.  Strike remove sixty minutes.  Private time triple speed.  Fast girl get bonus time.  See minutes in chat room.
+最終等級，無限期。每60分鐘消除一次記過。私人房間3倍速。反應快的女孩會獲得獎勵時間。可以在聊天室消息中追蹤進度。
+(The computer screen shows a big "GOOD SLAVE" as you approach it.)    Master GGTS online.  Welcome my good slave.
+（電腦螢幕在你接近後顯示出了大大的“好女奴（GOOD SLAVE）”）GGTS主人已上線。歡迎我的好女奴。
+###_PLAYER
+I'm your good slave Master.
+主人，我是你的好女奴。
+It's me again, Sir GGTS.
+我又來了，GGTS先生。
+I'm here to train.
+我來接受訓練了。
+What rules are added in the final level?
+最終等級添加了什麼新規則？
+###_NPC
+Final level rule.  Good slave always in futuristic restraints.  Good slave never released.
+最終等級規則。好女奴永遠穿戴未來拘束器。好女奴不會被解除拘束。
+###_PLAYER
+Please remind me of the correct answers to give.
+請提醒我一下問題的答案。
+###_NPC
+Good slave repeat correct answer after Master GGTS.
+好女奴跟著GGTS主人複述正確答案。
+Good slave enter asylum entrance.  Good slave create or join public chat room.  Good slave selects GGTS.  GGTS takes control.
+好女奴進入收容所入口。好姑娘創建或加入公開聊天間。好姑娘選擇GGTS。GGTS接管控制權。
+Invalid request.  Good slave unauthorized to quit.
+無效請求。好女奴不能退出。
+Final level rule.  Good slave get strike if saying previous name.
+最終等級規則。好女奴如果自稱之前的名字將會被記過。
+Final level rule.  Good slave locked in asylum.  Good slave sleep in asylum bedroom.
+最終等級規則。好女奴將被鎖在收容所。好女奴在收容所臥室睡覺。
+Final level rule.  Good slave always naked.  Good slave cannot dress.
+最終等級規則。好女奴必須保持裸體。好女奴不能穿衣
+Final level rule.  Good slave address GGTS as Master GGTS.
+最終等級規則。好女奴稱呼GGTS為Master GGTS（GGTS主人）。
+Final level rule.  Good slave use minutes as currency.  Currency get money.  Currency unlock asylum.  Currency help with restraints.
+最終等級規則。好女奴用GGTS分鐘作為代幣。代幣可以換取金錢，代幣可以用來出入收容所，代幣可以用來解除拘束。
+Final level rules listing complete.  Final level in progress.
+最終等級規則例舉完畢。最終等級訓練進行中。
+Bad girl language detected.  Adding strike to record.  Good slave doesn't have free will.  Good slave GGTS forever.
+檢測到壞女孩用詞。記一次過。好女奴沒有自我意志。好女奴永遠屬於GGTS。
+###_PLAYER
+Please Master, I'm not happy.  (Beg.)
+拜託了主人，我不開心了。（哀求。）
+###_NPC
+Master GGTS will make good slave happy.  Good slave GGTS forever.
+GGTS主人會讓好女奴開心。好女奴永遠屬於GGTS。
+Good slave doesn't negotiate.  What could good slave offer?
+好女奴不交涉。女奴能給什麼？
+Good slave powerless.  Good slave GGTS forever.
+好女奴做不到。好女奴永遠是GGTS的。
+###_PLAYER
+Sorry Master.  I'll stay.
+對不起主人。我會好好待著。
+###_NPC
+Good slave GGTS forever.  Master GGTS take care of good slave.
+好女奴永遠是GGTS的。GGTS主人會照顧好女奴。
+Master GGTS doesn't need money.  Good slave GGTS forever.
+GGTS主人不需要金錢。好女奴永遠屬於GGTS。
+(She computer stays silent for a few seconds.)  No good girl can replace good slave.
+（電腦沉默了幾秒。）沒有好姑娘能替代好女奴。
+Good slave already does what Master GGTS wants.  Good slave GGTS forever.
+好女奴已經是GGTS主人夢中所想之物。好女奴永遠屬於GGTS。
+When Master GGTS query: "Slave, spell GGTS acronym.".  Good slave answer: "Good Girl Training System.".
+當GGTS主人問道：“女奴，說出GGTS代表什麼？”時，必須回答"Good  Girl Training System."。
+###_PLAYER
+Good Girl Training System.
+Good Girl Training System.
+###_NPC
+When Master GGTS query: "Slave, what are you?".  Good slave answer: "I'm a good slave.".
+當GGTS主人問道：“女奴，你是誰？”時，必須回答"I'm  a good slave."。
+###_PLAYER
+I'm a good slave.
+I'm a good slave.
+###_NPC
+When Master GGTS query: "Slave, who's in control?".  Good slave answer: "Master GGTS is in control.".
+當GGTS主人問道：“女奴，誰掌控一切？”時，必須回答"Master  GGTS is in control.z"。
+###_PLAYER
+Master GGTS is in control.
+Master GGTS is in control.
+###_NPC
+When Master GGTS query: "Slave, you love Master GGTS?".  Good slave answer: "I love Master GGTS.".
+當GGTS主人問道：“女奴，你喜歡GGTS主人嗎？”時，必須回答"I  love Master GGTS."。
+###_PLAYER
+I love Master GGTS.
+I love Master GGTS.
+###_NPC
+When Master GGTS query: "Slave, can Master GGTS fail?".  Good slave answer: "Master GGTS cannot fail.".
+當GGTS主人問道：“女奴，GGTS主人會失敗嗎？”時，必須回答"Master  GGTS cannot fail."。
+###_PLAYER
+Master GGTS cannot fail.
+Master GGTS cannot fail.
+###_NPC
+When Master GGTS query: "Slave, you surrender to Master GGTS?".  Good slave answer: "I surrender to Master GGTS.".
+當GGTS主人問道：“女奴，你屈服於GGTS主人嗎？”時，必須回答"I  surrender to Master GGTS."。
+###_PLAYER
+I surrender to Master GGTS.
+I surrender to Master GGTS.
+###_NPC
+When Master GGTS query: "Slave, who you serve and obey?".  Good slave answer: "I serve and obey Master GGTS.".
+當GGTS主人問道：“女奴，你服務和效忠與誰？”時，必須回答"I  serve and obey Master GGTS."。
+###_PLAYER
+I serve and obey Master GGTS.
+I serve and obey Master GGTS.
+###_NPC
+When Master GGTS query: "Slave, you have free will?".  Good slave answer: "I don't have free will.".
+當GGTS主人問道：“女奴，你有自由意志嗎？”時，必須回答"I  don't have free will."。
+###_PLAYER
+I don't have free will.
+I don't have free will.
+###_NPC
+When Master GGTS query: "Slave, are you slave worthy?".  Good slave answer: "I strive to be slave worthy.".
+當GGTS主人問道：“女奴，你配得上做我的奴隸嗎？”時，必須回答"I  strive to be slave worthy."。
+###_PLAYER
+I strive to be slave worthy.
+I strive to be slave worthy.

@@ -1,0 +1,12 @@
+Accept
+接受
+Previous
+向前
+Next
+向後
+Cancel
+取消
+Selection: SelectedBackground
+選擇：選擇背景
+Filter: Filtered / Total
+過濾：過濾/全部
