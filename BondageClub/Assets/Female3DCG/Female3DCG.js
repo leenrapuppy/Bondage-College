@@ -7311,7 +7311,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CustomLatexHood", Fetish: ["Latex"], Value: 100, Difficulty: 5, Priority: 20,
-				DefaultColor: ["Default", "#1C1C1C", "#888888", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
+				DefaultColor: ["Default", "#1C1C1C", "#888888", "#1C1C1C", "#1C1C1C", "#1C1C1C", "#1C1C1C", "#B7B7B7", "#B7B7B7", "#B7B7B7", "#1C1C1C", "#B7B7B7"], Time: 10,
 				AllowLock: true, DrawLocks: false, Extended: true, AllowColorizeAll: false,
 				Attribute: ["ShortHair"],
 				Top: 31, Left: 166.5,
@@ -7320,26 +7320,12 @@ var AssetFemale3DCG = [
 				Layer: [
 					// Head Panel Parts
 					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
-					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"] },
+					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"], ColorGroup: "Panels" },
 					{ Name: "PanelHeadTransparent", HasType: false, AllowModuleTypes: ["x1"], CopyLayerColor: "PanelHead" },
 					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: true }, // master colour for highlighting
 
-					// Linings
-					{ Name: "LiningRoundFace", HasType: false }, // master colour for face lining
-					{ Name: "LiningRoundFaceHighlight", HasType: false, CopyLayerColor: "PanelHeadHighlight" },
-					{ Name: "LiningCrossFace", HasType: false, CopyLayerColor: "LiningRoundFace" },
-					{ Name: "LiningCrossFaceHighlight", HasType: false, CopyLayerColor: "PanelHeadHighlight" },
-					{ Name: "LiningRoundEye", HasType: false, AllowModuleTypes: ["e2","e6"] }, // master colour for eye lining
-					{ Name: "LiningRoundEyeHighlight", HasType: false, AllowModuleTypes: ["e2","e6"], CopyLayerColor: "PanelHeadHighlight" },
-					{ Name: "LiningShapedEye", HasType: false, AllowModuleTypes: ["e3","e7"], CopyLayerColor: "LiningRoundEye" },
-					{ Name: "LiningShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e3","e7"], CopyLayerColor: "PanelHeadHighlight" },
-					{ Name: "LiningRoundMouth", HasType: false, AllowModuleTypes: ["m2","m6"] }, // master colour for mouth lining
-					{ Name: "LiningRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m2","m6"], CopyLayerColor: "PanelHeadHighlight" },
-					{ Name: "LiningShapedMouth", HasType: false, AllowModuleTypes: ["m3","m7"], CopyLayerColor: "LiningRoundMouth" },
-					{ Name: "LiningShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m7"], CopyLayerColor: "PanelHeadHighlight" },
-
 					// Eye Panel Parts
-					{ Name: "PanelNoEye", HasType: false, AllowModuleTypes: ["e0"] }, // master colour for eye panel
+					{ Name: "PanelNoEye", HasType: false, AllowModuleTypes: ["e0"], ColorGroup: "Panels" }, // master colour for eye panel
 					{ Name: "PanelNoEyeTransparent", HasType: false, AllowModuleTypes: ["e4"], CopyLayerColor: "PanelNoEye" },
 					{ Name: "PanelHoleNoEye", HasType: false, AllowModuleTypes: ["e1"], CopyLayerColor: "PanelNoEye" },
 					{ Name: "PanelHoleNoEyeTransparent", HasType: false, AllowModuleTypes: ["e5"], CopyLayerColor: "PanelNoEye" },
@@ -7352,7 +7338,7 @@ var AssetFemale3DCG = [
 					{ Name: "PanelShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e3","e7"], CopyLayerColor: "PanelHeadHighlight" },
 
 					// Eye Panel Fills
-					{ Name: "FillRoundEye", HasType: false, AllowModuleTypes: ["e2s1","e6s1"] }, // master colour for eye panel fills
+					{ Name: "FillRoundEye", HasType: false, AllowModuleTypes: ["e2s1","e6s1"], ColorGroup: "Panels" }, // master colour for eye panel fills
 					{ Name: "FillRoundEyeTransparent", HasType: false, AllowModuleTypes: ["e2s2","e6s2"], CopyLayerColor: "FillRoundEye" },
 					{ Name: "FillHoleRoundEye", HasType: false, AllowModuleTypes: ["e2s3","e6s3"], CopyLayerColor: "FillRoundEye" },
 					{ Name: "FillHoleRoundEyeTransparent", HasType: false, AllowModuleTypes: ["e2s4","e6s4"], CopyLayerColor: "FillRoundEye" },
@@ -7364,7 +7350,7 @@ var AssetFemale3DCG = [
 					{ Name: "FillShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e3s1","e7s1","e3s2","e7s2","e3s3","e7s3","e3s4","e7s4"], CopyLayerColor: "PanelHeadHighlight" },
 
 					// Mouth Panel Parts
-					{ Name: "PanelNoMouth", HasType: false, AllowModuleTypes: ["m0"] }, // master colour for mouth panel
+					{ Name: "PanelNoMouth", HasType: false, AllowModuleTypes: ["m0"], ColorGroup: "Panels" }, // master colour for mouth panel
 					{ Name: "PanelNoMouthTransparent", HasType: false, AllowModuleTypes: ["m4"], CopyLayerColor: "PanelNoMouth" },
 					{ Name: "PanelHoleNoMouth", HasType: false, AllowModuleTypes: ["m1"], CopyLayerColor: "PanelNoMouth" },
 					{ Name: "PanelHoleNoMouthTransparent", HasType: false, AllowModuleTypes: ["m5"], CopyLayerColor: "PanelNoMouth" },
@@ -7377,7 +7363,7 @@ var AssetFemale3DCG = [
 					{ Name: "PanelShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m7"], CopyLayerColor: "PanelHeadHighlight" },
 
 					// Mouth Panel Fill
-					{ Name: "FillRoundMouth", HasType: false, AllowModuleTypes: ["m2f1","m6f1"] }, // master colour for mouth panel fill
+					{ Name: "FillRoundMouth", HasType: false, AllowModuleTypes: ["m2f1","m6f1"], ColorGroup: "Panels" }, // master colour for mouth panel fill
 					{ Name: "FillRoundMouthTransparent", HasType: false, AllowModuleTypes: ["m2f2","m6f2"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleRoundMouth", HasType: false, AllowModuleTypes: ["m2f3","m6f3"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleRoundMouthTransparent", HasType: false, AllowModuleTypes: ["m2f4","m6f4"], CopyLayerColor: "FillRoundMouth" },
@@ -7387,15 +7373,29 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m3f3","m7f3"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m3f4","m7f4"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3f1","m7f1","m3f2","m7f2","m3f3","m7f3","m3f4","m7f4"], CopyLayerColor: "PanelHeadHighlight" },
+					
+					// Linings
+					{ Name: "LiningRoundFace", HasType: false, ColorGroup: "Linings" }, // master colour for face lining
+					{ Name: "LiningRoundFaceHighlight", HasType: false, CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningCrossFace", HasType: false, CopyLayerColor: "LiningRoundFace" },
+					{ Name: "LiningCrossFaceHighlight", HasType: false, CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningRoundEye", HasType: false, AllowModuleTypes: ["e2","e6"], ColorGroup: "Linings" }, // master colour for eye lining
+					{ Name: "LiningRoundEyeHighlight", HasType: false, AllowModuleTypes: ["e2","e6"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningShapedEye", HasType: false, AllowModuleTypes: ["e3","e7"], CopyLayerColor: "LiningRoundEye" },
+					{ Name: "LiningShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e3","e7"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningRoundMouth", HasType: false, AllowModuleTypes: ["m2","m6"], ColorGroup: "Linings" }, // master colour for mouth lining
+					{ Name: "LiningRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m2","m6"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningShapedMouth", HasType: false, AllowModuleTypes: ["m3","m7"], CopyLayerColor: "LiningRoundMouth" },
+					{ Name: "LiningShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m7"], CopyLayerColor: "PanelHeadHighlight" },
 
 					// Hood Cover
-					{ Name: "ZipperHoodOpen", Priority: 50, HasType: false, AllowModuleTypes: ["z1"] }, // master colour for hood cover
+					{ Name: "ZipperHoodOpen", Priority: 50, HasType: false, AllowModuleTypes: ["z1"], ColorGroup: "HoodCoverParts" }, // master colour for hood cover
 					{ Name: "ZipperHoodClosed", Priority: 50, HasType: false, AllowModuleTypes: ["z2"], CopyLayerColor: "ZipperHoodOpen" },
 					{ Name: "ZipperHoodOpenTransparent", Priority: 50, HasType: false, AllowModuleTypes: ["z3"], CopyLayerColor: "ZipperHoodOpen" },
 					{ Name: "ZipperHoodClosedTransparent", Priority: 50, HasType: false, AllowModuleTypes: ["z4"], CopyLayerColor: "ZipperHoodOpen" },
 					{ Name: "ZipperHoodOpenHighlight", Priority: 50, HasType: false, AllowModuleTypes: ["z1","z3"], CopyLayerColor: "PanelHeadHighlight" },
 					{ Name: "ZipperHoodClosedHighlight", Priority: 50, HasType: false, AllowModuleTypes: ["z2","z4"], CopyLayerColor: "PanelHeadHighlight" },
-					{ Name: "ZipperHoodOpenZipper", Priority: 50, HasType: false, AllowModuleTypes: ["z1","z3"] }, // master colour for hood cover zipper
+					{ Name: "ZipperHoodOpenZipper", Priority: 50, HasType: false, AllowModuleTypes: ["z1","z3"], ColorGroup: "HoodCoverParts" }, // master colour for hood cover zipper
 					{ Name: "ZipperHoodClosedZipper", Priority: 50, HasType: false, AllowModuleTypes: ["z2","z4"], CopyLayerColor: "ZipperHoodOpenZipper" },
 				],
 			},

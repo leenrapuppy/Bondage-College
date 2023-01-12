@@ -3519,12 +3519,15 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [""], }
 							},
 							{// z1 - Open
+								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: [""],
 								Hide: ["HairFront"],
 								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+								Block: ["ItemHead"],
 								}
 							},
 							{// z2 - Closed
+								Prerequisite: ["EyesEmpty"],
 								Property: {
 								Effect: ["BlindHeavy","GagEasy","BlockMouth"],
 								Hide: ["HairFront","Mask"],
@@ -3532,13 +3535,16 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{// z3 - Open Transparent
+								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: [""],
 								Hide: ["HairFront"],
 								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+								Block: ["ItemHead"],
 								}
 							},
 							{// z4 - Closed Transparent
-								Property: { Effect: ["BlindLight", "GagEasy", "BlockMouth"],
+								Prerequisite: ["EyesEmpty"],
+								Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
 								Hide: ["HairFront"],
 								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
 								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
