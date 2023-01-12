@@ -7400,7 +7400,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "HarnessCatMask", Fetish: ["Pet"], Random: false, Value: 50, Difficulty: 3, Top: 32, Left: 166.5, DefaultColor: ["#202020","#202020","#ADADAD"], Priority: 34,
+				Name: "HarnessCatMask", Fetish: ["Pet"], Random: false, Value: 50, Difficulty: 3, Top: 32, Left: 166.5, DefaultColor: ["#202020","#202020","#ADADAD"], Priority: 34, Time: 5,
 				DrawLocks: true,
 				AllowLock: true,
 				Hide: [],

@@ -3528,7 +3528,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 								Effect: ["BlindHeavy","GagEasy","BlockMouth"],
 								Hide: ["HairFront","Mask"],
-								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3","ItemHead","ItemNose"],
+								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
 								}
 							},
 							{// z3 - Open Transparent
@@ -3538,10 +3538,10 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{// z4 - Closed Transparent
-								Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
+								Property: { Effect: ["BlindLight", "GagEasy", "BlockMouth"],
 								Hide: ["HairFront"],
 								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3","ItemHead","ItemNose"],
+								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
 								}
 							},
 						]
