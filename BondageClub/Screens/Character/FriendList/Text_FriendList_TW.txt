@@ -1,0 +1,30 @@
+Online friends
+在線好友
+All friends
+全部好友
+Beep history
+好友私聊歷史
+Member number
+會員編號
+Chat room
+聊天室
+Friend type
+好友類型
+Send a beep
+發送好友私聊
+Delete a friend
+刪除好友
+Refresh
+刷新
+Room name: included
+房間名：包含
+Room name: excluded
+房間名：不含
+Owner
+主人
+Lover
+戀人
+Submissive
+服從者
+Friend
+朋友

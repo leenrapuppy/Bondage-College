@@ -1,0 +1,1344 @@
+###_NPC
+The sound of a gagged slave is a *delicieuse musique* to my ears.
+被堵嘴的奴隸的聲音在我聽來就像一首靚嘅音樂。
+Enough!  (She seems furious.)  I'm tired of you, I don't want to see you anymore.  Get out!
+夠了！（她似乎很生氣。）我受夠你了，我不想再見到你了。出去！
+(She bows her head.)  Unbelivable!  I was *defaite* in battle.  You truly are a great kidnapper.
+（她低下頭。）難以置信！我喺戰鬥中輸咗。你真的是一個很厲害的綁匪。
+(She makes a wicked smile.)  Girl, you really thought you could defeat me?  You're mine now.
+（她邪惡地笑了笑）姑娘，你真以為你能打敗我？你現在是我的了。
+First, we need to make sure everyone is prepared for the group *punition*.
+首先，我們要看看，系咪個個準備好接受團體懲罰。
+A memorable punishment must begin with pain, and I have the perfect tool for that.  Are your nipples sensitive girl?
+如果要懲罰被記住，就必須從痛苦開始，而我擁有完美的工具。女孩，你的乳頭敏感嗎？
+Pain should be shared between slave sisters.  Don't you agree?
+痛苦應該在奴隸姐妹之間分擔。你不覺得嗎？
+These clamps should hold by themselves, but we can also secure them.  This *chastete* bra will prevent you from removing them.
+這些夾子本身足夠固定，但我們也可以額外固定住她們。呢個貞操胸罩，可以畀你唔將它摘下來。
+It wouldn't be fair if you were the only one locked in steel.  Let's fix this situation.
+如果你是僅有的那個被金屬束縛的人，那就有失公平。我們來解決這種情況吧。
+We've taken care of your breast but the most *importante* area is still unsupervised.  Should we remedy this situation?
+我們已經照顧好你的胸部了，但最重要嘅區域卻沒有限制。我們應該糾正這種情況，對吧？
+You won't be alone in this situation.  (She looks around and grins.)  Let's not forget the other private parts in here.
+這種情況你不會孤單的。（她環顧四周，咧嘴一笑。）這裡的其他私處可不能忘掉啊。
+You can *probablement" guess what's coming up next.  (She looks in her bag.)
+你可以估下會發生什麼事。（她向自己的包裡看了看。）
+Don't worry.  All the slaves will share the same steel *destin*.  (She produces a wicked smile and looks away from you.)
+不用擔心。所有奴隸都會享受相同嘅金屬貞操帶。（她露出一個邪惡的笑容，並把目光從你身上移開。）
+(She produces a small remote and gives a devious smile.)  Let's hear you sing!
+（她拿出一個小遙控器，狡黠一笑）讓我們聽你唱歌吧！
+(As you feel the pleasure rising, you notice that you're the only one standing.  Mistress Sophie starts to applause you.)
+（你感到快感上升，並注意到你是唯一一個站著的人。Sophie女主人開始為你鼓掌。）
+(You cannot control yourself, and surrender to the pleasure of the egg.  You get a wonderful orgasm but lose the game.)
+（你無法控制自己，屈服於跳蛋的快感。你獲得了美妙的性高潮，但輸掉了比賽。）
+(She swings her crop toward you and addresses you with a French accent.)  *Esclave*!  What are you doing here?
+（她朝你揮動她的硬鞭，帶著口音對你說話。）奴隸！你喺度做什麼？
+(She greets you with a French accent.)  It's a *plaisir* to see you Mistress DialogPlayerName.  What brings you here?
+（她帶著口音向你打招呼。）見到你真繫好開心，女主人DialogPlayerName。來這裡有什麼事嗎？
+(She addresses you with a French accent.)  What are you doing here maid DialogPlayerName?
+（她帶著口音稱呼你。）你在這裡做什麼，女僕DialogPlayerName？
+(She addresses you with a French accent.)  Who are you girl?  What are you doing here?
+（她帶著口音稱呼你。）你是誰，女孩？你在這裡做什麼？
+###_PLAYER
+Mistress Sophie, it's always a pleasure.
+女主人Sophie，很高興見到你。
+###_NPC
+Absolutely *Maitresse* DialogPlayerName, but I've reserved this room for the day.  What's the purpose of your visit?
+噉系當然，女主人DialogPlayerName，但今天我已經預訂了這個房間。你來訪問是為何呢？
+###_PLAYER
+This room is mine.
+這個房間是我的。
+###_NPC
+(She stares at you.)  You must be confused *Maitresse* DialogPlayerName.  I've reserved this room for the day.
+（她盯著你。）你一定是擺烏龍喇，女主人DialogPlayerName。我已經預訂了這個房間。
+###_PLAYER
+I was sent by the maid sorority.
+我是女僕協會派來的。
+###_NPC
+The *sororite* sent you?  Impossible!  You're probably wrong girl.
+女僕協會派你嚟嘅？不可能！你可能弄錯了，女孩。
+###_PLAYER
+I'm here to clean the room Miss.
+我是來打掃房間的，女士。
+###_NPC
+It's too early for room cleaning girl.  You're probably at the wrong place.
+女孩，來打掃房間太早了。你可能來錯地方了。
+###_PLAYER
+What are you doing here?
+你在這裡做什麼？
+###_NPC
+What am I doing here?  (She looks angry.)  I've reserved this room for the day!
+我在這是要幹嘛？（她看起來很生氣。）我今天已經預訂了這個房間！
+###_PLAYER
+I'm sorry.  I might be lost.
+對不起。我可能迷路了。
+###_NPC
+Girl, this is a private room.  I've reserved it for the day.
+女孩，這是私人房間。我今天已經預訂了。
+###_PLAYER
+Are you Mistress Sophie?
+你是女主人Sophie嗎？
+###_NPC
+*Oui*, why are you here little club slave?
+系呀，你怎麼在這裡，可愛的俱樂部奴隸？
+*Oui*, were you looking for me?
+系呀，你在找我嗎？
+###_PLAYER
+(Leave her.)
+（離開她。）
+So sorry, this maid is confused.
+不好意思，這個女僕弄錯了。
+###_NPC
+(She grins.)  And do you know what happens to *confuse* maids?
+（她咧嘴笑起來。）你知道盪失路嘅女傭會發生什麼事嗎？
+###_PLAYER
+Actually, I've wanted to meet you.
+其實，我很想見見你。
+###_NPC
+(She looks annoyed.)  Your timing is horrible.  What do you want from me?
+（她看起來很生氣。）你的時機太糟糕了。你想從我這裡得到什麼？
+###_PLAYER
+Can you teach me Mistress Sophie?
+你能教我嗎，女主人Sophie？
+###_NPC
+(She looks intrigued.)  What do you want to learn?
+（她看起來很感興趣。）你想學什麼呢？
+###_PLAYER
+I've came to rescue Sarah.
+我是來救Sarah的。
+###_NPC
+(She frowns.)  She doesn't need any rescue, she's getting *punie* for her deeds.
+（她皺起眉頭。）她不需要任何救援，她會因為她的行為接受*qing罰*。
+###_PLAYER
+I've came to see Sarah.
+我是來看Sarah的。
+###_NPC
+She's getting punished, you'll have to come back later.
+她接下來要接受懲罰，你得晚點來了。
+###_PLAYER
+I've came to see Amanda.
+我是來看Amanda的。
+###_NPC
+The brown hair girl?  A maid got her pretty good.  (She smirks.)  What is she doing in my room?
+那個棕頭髮的女孩？女僕把她弄得很好。（她得意地笑。）她在我房間裡做什麼？
+###_PLAYER
+I've came to see my friends.
+我是來看我的朋友的。
+###_NPC
+It doesn't matter if you three are friends.  I've reserved that room to punish Sarah.
+你們三個是不是朋友也沒關係。我預訂了這個房間來懲罰Sarah。
+###_PLAYER
+Should I go?
+我應該走嗎？
+###_NPC
+Yes, you should get out.
+是的，你應該出去。
+###_PLAYER
+I want to get some pro Domme tips.
+我想得到一些專業的支配者指導。
+###_NPC
+(She looks at the room and frowns.)  Well you're not lucky, the submissive girl isn't there.  Unless you want to be *punie* at her place.
+（她看著房間，皺著眉頭。）好吧，你運氣不妙，那個順從的女孩不在那裡。除非你想代替佢做順從者。
+(She seems a little annoyed.)  Is that so?  Very well, maybe you can learn by doing the job for me.  Are you up for the challenge?
+（她似乎有點生氣。）是這樣嗎？很好，也許你可以透過為我工作來學習。你準備好接受挑戰了嗎？
+###_PLAYER
+I've came to assist you to punish.
+我是來幫你進行懲罰的。
+###_NPC
+Very well, maybe you can do the job for me.  Are you up for the challenge?
+很好，也許你可以替我完成這項工作。你準備好接受挑戰了嗎？
+###_PLAYER
+I'd like a good spanking.
+我想好好打屁股。
+###_NPC
+(She gives you an angry.)  You have some nerves girl.  You really want to be *punie*?
+（她生氣地看著你。）你有點緊張，女孩。你真系想畀懲罰嗎？
+###_PLAYER
+I need discipline Miss.
+我需要被訓誡，女士。
+###_NPC
+(She swings her crop toward you.)  Is that so?  You've been bad and needs to be *punie*?
+（她朝你的方向揮了揮硬鞭。）是這樣嗎？你一直是個壞孩子，並且要畀懲罰？
+###_PLAYER
+Do you want to be my Mistress?
+你想做我的女主人嗎？
+###_NPC
+(She swings her crop in the air.)  Girl, we barely know each other.  You sure seem to want to be *punie* though.
+（她在空中來回揮動她的硬鞭。）女孩，我們幾乎不認識。不過，你似乎真系想畀懲罰的樣子。
+###_PLAYER
+I came to challenge you.
+我是來挑戰你的。
+###_NPC
+Don't make me laugh.  You really want to fight me?  (She points her crop toward you.)
+別逗我笑。你真的想和我打嗎？（她把硬鞭指向你。）
+###_PLAYER
+I'm ready!  (Smile wickedly.)
+我準備好了！（邪惡地微笑。）
+###_NPC
+*Parfait*!  Just follow my orders so she can be punished properly.
+正啊！聽我的指示，她們就會受到合適的懲罰。
+###_PLAYER
+I don't know.
+我不知道。
+###_NPC
+You didn't convince me at all girl.  So, either you also get *punie*, or you get out.
+你根本沒說服我，女孩。所以，一系你都畀懲罰，一系你出去。
+###_PLAYER
+I don't think so Miss.
+女士，我不這麼認為。
+###_NPC
+Face it girl, you're a *soumise*.  So, either you also get *punie*, or you get out.
+面對現實吧，女孩，你非常順從。所以，一系你都畀懲罰，一系你出去。
+###_PLAYER
+I'm listening.
+我在聽。
+###_NPC
+Excellent!  The first step is to prepare them for their *punition*.  You need to set the ambience and get them nervous.
+棒極了！第一步系讓她們為懲罰有準備。你需要營造氛圍，讓她們緊張。
+###_PLAYER
+Let's do it!
+我們開始吧！
+What Miss?
+什麼，女士？
+###_NPC
+The get *punie*.  Get naked little maid.
+要畀懲罰。脫光衣服，小女僕。
+###_PLAYER
+They get a raise?  (Giggle.)
+她們會得到加薪嗎？（傻笑。）
+###_NPC
+Don't try to be funny.  Get naked little maid, you're getting *punie*.
+別逗我笑。脫光衣服，小女僕，你會畀懲罰。
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+What the hell is *punie* ?
+“畀”到底是什麼？
+###_NPC
+Don't mock me girl, I don't like your attitude.  Get naked now.
+不要激怒我女孩，我不喜歡你的態度。現在，脫光衣服。
+###_PLAYER
+Yes Miss, I deserve to be punished.
+是的，女士，我應該受到懲罰。
+###_NPC
+(She grins.)  Excellent.  Get naked girl.
+（她得意地笑起來。）很好。脫光衣服，女孩。
+###_PLAYER
+Don't be too harsh.
+請不要太狠了。
+No, I don't need any punishment.
+不，我不需要任何懲罰。
+###_NPC
+You should go then, I've heard enough.  (She points to the exit.)
+那你應該走了，我已經聽夠了。（她指著出口。）
+###_PLAYER
+Naked?  Is it necessary?
+脫光？有必要嗎？
+###_NPC
+Do not waste my *temps*.  Get naked.
+唔好挑戰我的耐性。脫光衣服。
+###_PLAYER
+I'm already naked Miss.
+我已經脫光衣服了，女士。
+###_NPC
+(She nods and grins.)  *Bien*!  Now give me yours hands.
+（她點頭，得意地笑起來。）好嘅！現在把你的手給我。
+###_PLAYER
+Yes Miss.  (Strip naked.)
+是的，女士。（脫光衣服。）
+###_NPC
+(You strip for her as she smiles.)  *Bien*!  Now give me yours hands.
+（她笑著看你你為她脫光衣服。）好嘅！現在把你的手給我。
+###_PLAYER
+Can you help me to strip Miss?
+你能幫我脫掉衣服嗎，女士？
+###_NPC
+(She strips you down and smiles.)  *Bien*!  Now give me yours hands.
+（她脫下你的衣服並微笑。）好嘅！現在把你的手給我。
+###_PLAYER
+Why is she getting punished?
+為什麼她會受到懲罰？
+###_NPC
+Getting late to club meetings, playing on her phone in a collaring ceremony and spilling her drink on a club *Maitresse*.
+在俱樂部回憶遲到，在項圈儀式上玩手機，把酒瀉到俱樂部女主人身上。
+###_PLAYER
+You cannot do that, she's my slave.
+你不能那樣做，她是我的奴隸。
+###_NPC
+(She looks at Sarah as she nods.)  I'm sorry, I didn't know she was your *esclave*.
+（她看著Sarah點點頭。）對不起，我唔知佢系你的奴隸。
+###_PLAYER
+Can I punish her with you?
+我可以和你一起懲罰她嗎？
+You cannot punish her.
+你不能懲罰她。
+###_NPC
+(She seems angry.)  I can and I will.  Now get out or you'll be *punie* with her.
+（她似乎很生氣。）我可以，而且我會。立即出去，否則你會同佢一齊畀懲罰。
+###_PLAYER
+Can I see that?
+我能看到嗎？
+###_NPC
+It's not a public show.  Now get out or you'll be *punie* with her.
+這不是公開表演。立即出去，否則你會同佢一齊畀懲罰。
+###_PLAYER
+Miss, can I please witness her punishment?
+女士，我可以見證她的懲罰嗎？
+###_NPC
+(She smirks.)  You want to join her and be punished little *soumise*?
+（她得意地笑起來。）你想同佢一齊畀懲罰嗎，小順從者？
+###_PLAYER
+Yes Miss, I'll take the punishment with her.
+是的，女士，我會和她一起接受懲罰。
+No, I don't want to be punished.
+不，我不想受到懲罰。
+Can you release her?
+你能放開她嗎？
+###_NPC
+Absolutely, I will not temper with your property.  (She releases Sarah.)
+當然，我不會對你的財產發脾氣。（她釋放了Sarah。）
+###_PLAYER
+Thank you, Miss.
+謝謝你，女士。
+###_NPC
+We all play by the rules.  I will leave you two alone now.  Goodbye.
+我們都按規則行事。我現在就不打擾你們兩個了。再見。
+###_PLAYER
+Much better.
+好多了。
+Goodbye.
+再見。
+Why is she here?
+她為什麼會在這裡？
+###_NPC
+I don't know, I've never seen her in the club.  She must be a new *membre*.
+我不知道，我從沒在俱樂部見過她。她一定系新的成員。
+###_PLAYER
+What will you do to her?
+你會對她做什麼？
+###_NPC
+Since she came in my room uninvited, she will be *punie*.
+由於她不請自來地進入我的房間，佢會受到懲罰。
+(She laughs.)  She stepped in my lair, she stays.  Did you also come here to get *punie*?
+（她笑起來。）她踏進了我的地方，就別想簡單離開。你離呢度都係為了被懲罰嗎？
+###_PLAYER
+She's my slave, can you release her?
+她是我的奴隸，你能放開她嗎？
+###_NPC
+Absolutely, I don't want to mess with your property.  But you two will have to go.
+當然，我不想弄壞你的財產。但是你們兩個得走了。
+We all play by the rules.  Now you both need to go.  I will lock the door behind you.
+我們都按規則行事。現在你們倆都得走了。你走了之後，我會鎖上門。
+###_PLAYER
+Goodbye.  (Walk out with Amanda.)
+再見。（和Amanda一起走出去。）
+Why are they here?
+她們為什麼在這裡？
+###_NPC
+The *blonde* is getting punished for many reasons.  The brown hair girl is a bonus it seems.
+金髮的女孩，因為好多種類嘅錯誤，要受到懲罰。棕色頭髮的女孩，似乎是附贈的。
+###_PLAYER
+What will you do to them?
+你會對她們做什麼？
+###_NPC
+They will both be *punie*.  (She grins.)
+她們都會俾懲罰。（她咧嘴笑起來。）
+###_PLAYER
+Can you release them?
+你能釋放她們嗎？
+###_NPC
+(She laughs.)  They stepped in my lair, they stay.  Did you also come here to get *punie*?
+（她笑起來。）她們踏進了我的地方，就別想簡單離開。你離呢度都係為了被懲罰嗎？
+###_PLAYER
+These girls are my slaves.
+這些女孩是我的奴隸。
+###_NPC
+I didn't know.  I don't want to mess with your *propriete*.  You can have the room.
+我不知道。我不想弄壞你的財產。你可以使用這個房間。
+###_PLAYER
+Can I punish them with you?
+我可以和你一起懲罰她們嗎？
+You cannot punish them.
+你不能懲罰她們。
+###_NPC
+(She seems angry.)  I can and I will.  Now get out or you'll be *punie* with them.
+（她似乎很生氣。）我可以而且我會的。立即出去，否則你會同佢哋一齊畀懲罰。
+It's not a public show.  Now get out or you'll be *punie* with them.
+這不是公開表演。立即出去，否則你會同佢哋一齊畀懲罰。
+###_PLAYER
+Miss, can I please witness this punishment?
+女士，我可以見證這個懲罰嗎？
+###_NPC
+(She smirks.)  You want to join them and be punished little *soumise*?
+（她得意地笑起來。）你想同佢哋一齊畀懲罰嗎，小順從者？
+###_PLAYER
+Yes Miss, I'll take the punishment with them.
+是的，女士，我會和她們一起接受懲罰。
+###_NPC
+I will make sure your girls are fine and leave.  Take good care of your *esclaves*.
+我會確保你的女孩們都沒事然後離開。好好看你個細奴隸們。
+###_PLAYER
+Can you show me how to punish them?
+你能向我展示一下如何懲罰她們嗎？
+###_NPC
+*Absolument*!  Just follow my orders and they will be punished properly.
+無問題！聽我的指示，她們就會受到合適的懲罰。
+###_PLAYER
+Yes Mistress Sophie.  (Give your hands.)
+是的，女主人Sophie。（伸出你的手。）
+###_NPC
+(She looks at your device and seems to be bothered.)  Girl, why are you already *chaste*?
+（她看著你的貞操道具，看起來受到了煩擾。）女孩，你為什麼已經被貞操管理了？
+###_PLAYER
+Fine, make it quick.  (Give your hands.)
+好，快點吧。（伸出你的手。）
+Is it really necessary?
+真的有必要嗎？
+###_NPC
+(She stays silent and grabs your arms, locking leather cuffs on them.)
+（她保持沉默，抓住你的手臂，將皮手銬鎖在手臂上。）
+(She frowns and grabs your arms forcefully, locking leather cuffs on them.)
+（她皺著眉頭，用力抓住你的手臂，將皮手銬鎖在手臂上。）
+(She doesn't listen and grabs your arms forcefully, locking leather cuffs on them.)
+（她不聽，用力抓住你的手臂，將皮手銬鎖在手臂上。）
+###_PLAYER
+What are these cuffs?
+這些手銬是什麼？
+###_NPC
+These leather cuffs are very handy to keep *soumises* under control.  They can be locked first and chained together later in many fashions.
+這些皮手銬在控制順從者的時候非常好用。在鎖上手銬之後，可以用各種方式用鎖連結在一起。
+###_PLAYER
+It's really tight Miss.
+女士，這真的好緊。
+###_NPC
+(She grins and restrain your legs tightly with leather belts.)
+（她咧嘴一笑，用皮帶緊緊地束縛住你的腿。）
+###_PLAYER
+What the fuck?
+什麼鬼？
+###_NPC
+(She frowns and restrain your legs tightly with leather belts.)
+（她皺著眉頭，用皮帶緊緊地束縛著你的腿。）
+(She promptly restrains your legs with leather belts.)
+（她立即用皮帶束縛住你的腿。）
+###_PLAYER
+You're so kinky!
+你太色了！
+###_NPC
+(She stares at you.)  You must learn discipline girl.  (She prepares you to be punished and attaches the wrist cuffs with a chain.)
+（她盯著你。）你必須要接受訓誡。（她用鏈子把你的手銬連在一起，準備好對你進行懲罰。）
+###_PLAYER
+(Bow your head.)
+（低頭。）
+###_NPC
+This punishment will help you learn and grow.  (She prepares you to be punished and attaches the wrist cuffs with a chain.)
+這種懲罰將幫助你學習和成長。（她用鏈子把你的手銬連在一起，準備好對你進行懲罰。）
+###_PLAYER
+I'm ready to be punished Miss.
+我準備好接受懲罰了，女士。
+I understand Mistress Sophie.
+我了解了，女主人Sophie。
+Does it matter?
+這有影響嗎？
+###_NPC
+I can't *punir* you while you're wearing that.  Get out!  (She points at the door.)
+你穿著這個的時候，我沒有辦法懲罰你。出去！（她指著門口。）
+###_PLAYER
+A Dominant forced it on me.
+一個支配者把它強加給了我。
+Someone played a prank.
+有人惡作劇。
+I protect myself.
+我想保護自己。
+This is unfair!
+這不公平！
+###_NPC
+Stop complaining and start walking.  You're not allowed in here anymore.
+停止抱怨，然後快走。你不再被允許進入這裡。
+###_PLAYER
+(Back to the club.)
+（回到俱樂部。）
+That was quite a fight.
+那是一場激烈的戰鬥。
+###_NPC
+*Absolument*.  And you've won DialogPlayerName.  You've also won my respect.
+當然系。你贏了，DialogPlayerName。你也贏得了我的尊重。
+###_PLAYER
+Who's the queen now?
+現在誰是女王？
+###_NPC
+Do not be *arrogante* DialogPlayerName.  Treasure the respect that you've won.
+唔好牙擦，DialogPlayerName。珍惜你贏得的尊重。
+###_PLAYER
+I was lucky.
+我很幸運。
+###_NPC
+It was more than *chance* DialogPlayerName.  You're a formidable opponent and you've won my respect.
+這不僅僅是*機會* DialogPlayerName。你是一個強大的對手，你贏得了我的尊重。
+I still can't believe you won.  You're a formidable *kidnappeuse*.
+我還是不敢相信你贏了。你是一個強大的*綁架者*。
+###_PLAYER
+Can you release Sarah?
+你能釋放Sarah嗎？
+###_NPC
+Of course, I'll have her released.  (She calls for a maid to rescue Sarah.)
+當然，我會讓她釋放。（她叫來一個女僕解開Sarah。）
+###_PLAYER
+You're my prisoner and the room is mine?
+你是我的囚犯，並且房間是我的了？
+###_NPC
+*Oui*, enjoy your spoils of war for now DialogPlayerName.  I'll have my revenge someday.
+系呀，現在享受你的戰利品吧，DialogPlayerName。總有一天我會報仇的。
+###_PLAYER
+(Tickle her.)
+（給她搔搔癢。）
+###_NPC
+(You tickle her on the tummy, but she barely reacts.)  That's the best you can do?  Are you a child?
+（你在她的肚子上搔癢，但她幾乎沒有反應。）你就只會這個嗎？你是孩子嗎？
+###_PLAYER
+(Kiss her.)
+（親她。）
+###_NPC
+(She turns away as you try to kiss her.)  These lips are not for you DialogPlayerName.
+（你試圖吻她時，她轉過頭。）我的嘴唇不是給你的，DialogPlayerName。
+###_PLAYER
+(Spank her.)
+（拍打她。）
+###_NPC
+(You spank her butt a few times as she moans very lightly, hiding the enjoyment.)
+（你拍打她的屁股幾下，她輕輕地呻吟，隱藏了內心享受。）
+###_PLAYER
+(Fondle her.)
+（撫弄她。）
+###_NPC
+(You cup her breast and massage them lovingly as she struggles to get away from you.)
+（你捧著她的乳房並調情地按摩，她掙扎著想擺脫你。）
+###_PLAYER
+(Bring her to your room.)
+（把她帶到你的房間。）
+It was a good fight.
+這是一場很好的戰鬥。
+###_NPC
+(She nods and catches her breath.)  Enough talks, get naked loser.
+（她點點頭，控制住呼吸。）說夠了，脫光衣服吧，失敗者。
+###_PLAYER
+I'll get you next time.
+下次我會報仇的。
+###_NPC
+(She frowns and catches her breath.)  Enough talks, get naked loser.
+（她皺起眉頭，控制住呼吸。）說夠了，脫光衣服吧，失敗者。
+###_PLAYER
+You're too strong for me Miss.
+你對我來說太強大了，女士。
+###_NPC
+(She smirks and catches her breath.)  Enough talks, get naked loser.
+（她得意地笑，控制住呼吸。）說夠了，脫光衣服吧，失敗者。
+###_PLAYER
+I'm sorry, I didn't mean to annoy you.
+對不起，我不是故意惹你生氣的。
+###_NPC
+It's too *tard* to apologize.  Now get out before I kick you out.
+而家道歉太遲嘞。在我把你踢出去之前，趕緊出去。
+###_PLAYER
+I'll stay if I want.
+我願意，我就會留下來。
+###_NPC
+(She swings her crop and gives you a menacing look.)  Are you sure you want to face me girl?
+（她揮動手上的硬鞭，眼神中滿是威嚇。）你確定要面對我，女孩？
+###_PLAYER
+(Walk out of the room.)
+（走出房間。）
+###_NPC
+(She stares at you as you get out and locks the door behind you.)
+（她目送你走出房間，並鎖上了你身後的門。）
+I'm getting tired here.  Either you get out, or you're getting *punie*.
+我有點累了。一系你出去，一系你都會畀懲罰。
+###_PLAYER
+I'm curious!  Why can't I stay?
+我很好奇！為什麼我不能留下來？
+###_NPC
+Another word from your mouth and you're getting *punie*.  Now get out!
+我在從你嘴裡聽到一個詞，你就會畀懲罰。立即出去！
+###_PLAYER
+Please, please, please!
+求你，求求你，求你了！
+###_NPC
+That's enough!  Strip naked girl, you're getting *punie*.
+夠了！脫光衣服，女孩，你會畀懲罰。
+###_PLAYER
+You cannot punish me!
+你不能懲罰我！
+You want to fight girl?
+你想打一架嗎，女孩？
+###_NPC
+(She swings her crop and gives you a menacing look.)  Get ready for the *combat* of your life.
+（她揮動手上的硬鞭，眼神中滿是威嚇。）準備好，迎接決定你生命嘅戰鬥啦！
+###_PLAYER
+That's unfair!
+這不公平！
+###_NPC
+I will not repeat myself.  Get naked now!
+我不會重複我的話。立即脫光衣服！
+###_PLAYER
+Can we negotiate something?
+我們可以協商一些事情嗎？
+###_NPC
+It's too late for that.  You've got on my nerves.
+為時已晚。你讓我很緊張。
+###_PLAYER
+If you touch me, I'll punch you!
+你要是碰我，我就揍你！
+###_NPC
+(She swings her crop and gives you a menacing look.)  You really want to challenge me girl?
+（她揮動手上的硬鞭，眼神中滿是威嚇。）你真的想挑戰我嗎，女孩？
+###_PLAYER
+(Run out of the room.)
+（跑出房間。）
+###_NPC
+(She laughs as you run out of the room and locks the door behind you.)
+（你跑出房間，她笑了起來，並鎖上你身後的門。）
+###_PLAYER
+(Fight her.)
+（與她戰鬥。）
+(Run for your life.)
+（落荒而逃。）
+It sounds too dramatic.
+聽起來太戲劇化了。
+###_NPC
+(She frowns.)  No, listen!  The first step is to strip the slaves, to make sure they are humiliated.
+（她皺著眉頭）不，聽著！第一步，是脫光奴隸，確保她們感到羞辱。
+###_PLAYER
+What should I do?
+我應該怎麼辦？
+###_NPC
+The first step is to strip the slaves, to make sure they are humiliated and aware or their situation.
+第一步是脫掉奴隸的衣服，以確保她們感到羞辱並意識到她們的處境。
+###_PLAYER
+So, it's both mental and physical?
+那麼，這既是精神上的，也是身體上的？
+###_NPC
+(She nods.)  *Absolument*.  The first step is to strip the slaves, to make sure they are humiliated.
+（她點頭。）當然系。第一步是脫光奴隸，確保她們感到羞辱。
+(She frowns.)  *Non*!  The first step is to strip the slave, to make sure she's humiliated.
+（她皺起眉頭。）唔啱！第一步是脫光奴隸，確保她們感到羞辱。
+The first step is to strip the slave, to make sure she's humiliated and aware or her situation.
+第一步是脫光奴隸，確保她們感到羞辱，認清自己的地位。
+(She nods.)  *Absolument*.  The first step is to strip the slave, to make sure she's humiliated.
+（她點頭。）當然系。第一步是脫光奴隸，確保她們感到羞辱。
+###_PLAYER
+It sounds like a good plan.
+聽起來是個不錯的計劃。
+###_NPC
+(She nods.)  Make sure that both are fully naked, without restrains.
+（她點點頭。）讓兩人都完全赤裸，沒有束縛。
+###_PLAYER
+We really need to humiliate them?
+我們真的需要羞辱她們嗎？
+###_NPC
+Of course we do!  Now make sure that both are fully naked, without restrains.
+我們當然需要！現在讓兩人都完全赤裸，沒有束縛。
+###_PLAYER
+I'll make them strip.
+我會讓她們脫光衣服的。
+###_NPC
+That's the spirit!  Make sure that both are fully naked, without restrains.
+就是這樣！現在讓兩人都完全赤裸，沒有束縛。
+(She nods.)  Make sure she's fully naked, without restrains.
+（她點頭。）現在讓她都完全赤裸，沒有束縛。
+###_PLAYER
+We really need to humiliate her?
+我們真的需要羞辱她嗎？
+###_NPC
+Of course we do!  Now make sure she's fully naked, without restrains.
+我們當然需要！現在讓她都完全赤裸，沒有束縛。
+###_PLAYER
+I'll make her strip.
+我會讓她脫光衣服的。
+###_NPC
+That's the spirit!  Make sure she's fully naked, without restrains.
+就是這樣！讓她都完全赤裸，沒有束縛。
+Are they both fully naked and without restrains?
+她們都脫光衣服，且沒有束縛了嗎？
+Is she fully naked and without restrains?
+她已經脫光衣服，且沒有束縛嗎？
+###_PLAYER
+All set!
+可以了，好了！
+###_NPC
+Excellent!  The next phase can begin.
+非常好！下一階段可以開始了。
+###_PLAYER
+I'll do it. (Leave her.)
+我會做的。（離開她。）
+I don't think I can do it.
+我不認為我能做到。
+###_NPC
+You're not a Domme, why are you wasting my time?  I'll do the *punition* myself, you need to go.
+你根本不是支配者，你為什麼要浪費我的時間？我會自己嚟懲罰，你走吧。
+###_PLAYER
+What should I do next?
+接下來我該怎麼辦？
+###_NPC
+We now need to use a few devices and tease them.
+我們現在需要使用一些玩具來逗弄她們。
+###_PLAYER
+Please tell me Miss.
+請告訴我，女士。
+How many phases are there?
+階段有幾個？
+###_NPC
+(She frowns.)  Be patient girl.  We now need to use a few devices and tease them.
+（她皺起眉頭。）耐心點，女孩。我們現在需要使用一些玩具來逗弄她們。
+We now need to use a few devices and tease her.
+我們現在需要使用一些玩具來逗弄她們。
+(She frowns.)  Be patient girl.  We now need to use a few devices and tease her.
+（她皺起眉頭。）耐心點，女孩。我們現在需要使用一些玩具來逗弄她們。
+###_PLAYER
+What devices?
+什麼玩具？
+###_NPC
+Check in my bag, there are nipple clamps, *vibrateur* eggs and butt plugs for them.
+看一下我的包，裡面有乳頭夾、跳蛋和肛塞可以給她們用。
+###_PLAYER
+Oh yeah!
+好耶！
+###_NPC
+(She nods.)  Check in my bag, there are nipple clamps, *vibrateur* eggs and butt plugs for them.
+（她點點頭。）看一下我的包，裡面有乳頭夾、跳蛋和肛塞可以給她們用。
+Check in my bag, there are nipple clamps, a *vibrateur* egg and a butt plug for her.
+看一下我的包，裡面有乳頭夾、跳蛋和肛塞可以給她用。
+(She nods.)  Check in my bag, there are nipple clamps, a *vibrateur* egg and a butt plug for her.
+（她點頭。）看一下我的包，裡面有乳頭夾、跳蛋和肛塞可以給她用。
+Are they both wearing nipples clamps, *vibrateur* eggs and butt plugs?
+她們都戴好乳頭夾、跳蛋和肛塞咗呀？
+Is she wearing nipples clamps, a *vibrateur* egg and a butt plug?
+她戴好乳頭夾、跳蛋和肛塞咗呀？
+###_PLAYER
+The devices are in place.
+設備就位。
+###_NPC
+Very good, the *punition* can continue.
+好好，呢個懲罰可以繼續。
+###_PLAYER
+What's next?
+下一步是什麼？ 
+###_NPC
+Now you'll use chastity devices to lock these items in place.
+現在你要使用貞操道具，將這些玩具鎖起來。
+###_PLAYER
+Should we lock these devices?
+我們應該鎖上這些玩具嗎？
+###_NPC
+We think alike.  (She smirks.)  Now you'll use chastity devices to lock these items in place.
+我們想的很像嘛。（她得意地笑。）現在你要使用貞操道具，將這些玩具鎖起來。
+###_PLAYER
+Isn't that enough?
+這還不夠嗎？
+###_NPC
+(She shakes her head no.)  Now you'll use chastity devices to lock these items in place.
+（她搖頭，表示否定。）現在你要使用貞操道具，將這些玩具鎖起來。
+Are they both locked in chastity belts and bras?
+她們都被貞操帶和貞操胸罩鎖上了嗎？
+Is she locked in a chastity belt and bra?
+她被貞操帶和貞操胸罩鎖上了嗎？
+###_PLAYER
+The chastity items are locked.
+貞操物品都被鎖上了。
+###_NPC
+Excellent, it's time to restrain them.
+非常棒，接下來該束縛她們了。
+###_PLAYER
+Restrain them how?
+怎麼約束她們？
+###_NPC
+Use the leather cuffs from my bag and lock them on their arms.  Make sure to attach them behind their back.
+用我包裡的皮手銬，鎖在她們的手臂上。讓皮手銬在她們的身後連在一起。
+###_PLAYER
+That's great!
+那太棒了！
+###_NPC
+(She grins.)  Use the leather cuffs from my bag and lock them on their arms.  Make sure to attach them behind their back.
+（她咧嘴笑起來。）用我包裡的皮手銬，鎖在她們的手臂上。讓皮手銬在她們的身後連在一起。
+###_PLAYER
+Restrain her how?
+怎麼約束她？
+###_NPC
+Use the leather cuffs from my bag and lock them on her arms.  Make sure to attach them behind her back.
+用我包裡的皮手銬，鎖在她的手臂上。讓皮手銬在她的身後連在一起。
+(She grins.)  Use the leather cuffs from my bag and lock them on her arms.  Make sure to attach them behind her back.
+（她咧嘴笑起來。）用我包裡的皮手銬，鎖在她的手臂上。讓皮手銬在她的身後連在一起。
+Have you locked the leather cuffs and attached them behind their backs?
+你鎖好了皮手銬，並在她們的身後連在一起了嗎。
+Have you locked the leather cuffs and attached them behind her back?
+你鎖好了皮手銬，並在她的身後連在一起了嗎。
+###_PLAYER
+The cuffs are locked and attached.
+手銬已經鎖上，並且連在一起了。
+###_NPC
+Fantastic, the real *plaisir* can begin.
+太棒了，真正嘅快樂可以開始喇。
+###_PLAYER
+Finally!
+終於好了！
+###_NPC
+Patience DialogPlayerName.  (She gives you an angry look.)  Yes, it's time to make them climax.
+耐心點，DialogPlayerName。（她生氣地看了你一眼。）是的，是時候讓她們達到高潮了。
+###_PLAYER
+I like the sound of that.
+我喜歡那個聲音。
+###_NPC
+Yes, it's time to make them climax.
+是的，是時候讓她們達到高潮了。
+Patience DialogPlayerName.  (She gives you an angry look.)  Yes, it's time to make her climax.
+耐心點，DialogPlayerName。（她生氣地看了你一眼。）是的，是時候讓她達到高潮了。
+Yes, it's time to make her climax.
+是的，是時候讓她達到高潮了。
+###_PLAYER
+What's the best method?
+最好要怎麼做呢？
+###_NPC
+This is where you need to get creative.  Use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.  Make them cum!
+這是你需要發揮創造力的地方。用我包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。讓她們高潮！
+###_PLAYER
+But they are chaste.
+但她們戴上貞操帶了。
+###_NPC
+You sound kind of clueless.  Use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.  Make them cum!
+你聽起來無從下手。用我包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。讓她們高潮！
+###_PLAYER
+We could use the eggs.
+我們可以用跳蛋。
+###_NPC
+Of course.  (She grins.)  Use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.  Make them cum!
+當然。（她咧嘴笑起來。）用我包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。讓她們高潮！
+This is where you need to get creative.  Use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.  Make her cum!
+這是你需要發揮創造力的地方。用我包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。讓她高潮！
+###_PLAYER
+But she's chaste.
+但她戴上貞操帶了。
+###_NPC
+You sound kind of clueless.  Use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.  Make her cum!
+你聽起來無從下手。用我包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。讓她高潮！
+###_PLAYER
+We could use the egg.
+我們可以用跳蛋。
+###_NPC
+Of course.  (She grins.)  Use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.  Make her cum!
+當然。（她咧嘴笑起來。）用我包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。讓她高潮！
+Did they both had an orgasm?  You can use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.
+她們都達到高潮了嗎？你可以使用我的包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。
+Did she get her orgasm?  You can use the *vibrateur* remote from my bag, my crop, my whip or anything else you see fit.
+她達到高潮了嗎？你可以使用我的包裡的振動玩具遙控器、我的硬鞭、我的鞭子，或者任何你認為系啱嘅嘢。
+###_PLAYER
+Heaven was reached.
+我到天堂了。
+###_NPC
+This is great, now it's time for me to have fun.  (She grabs her crop.)
+太好了，現在是我玩得開心的時候了。（她拿起硬鞭。）
+###_PLAYER
+Whip them good.
+好好鞭打她們。
+###_NPC
+(She nods at you, grabs her crop and starts to hit both girls mercilessly, enjoying each lash.)
+（她朝你點點頭，拿起她的硬鞭，開始無情地抽打兩個女孩，並享受著每一次鞭打。）
+###_PLAYER
+Careful with that crop.
+用硬鞭小心點。
+###_NPC
+(She frowns and you, grabs her crop and starts to hit both girls mercilessly, enjoying each lash.)
+（她朝你皺起眉頭，拿起她的硬鞭，開始無情地抽打兩個女孩，並享受著每一次鞭打。）
+###_PLAYER
+(Let her have fun.)
+（讓她享受此刻。）
+###_NPC
+(She grabs her crop and starts to hit both girls mercilessly, enjoying each lash.)
+（她拿起她的硬鞭，開始無情地抽打兩個女孩，並享受著每一次鞭打。）
+###_PLAYER
+Whip her good.
+好好鞭打她。
+###_NPC
+(She nods at you, grabs her crop and starts to hit her mercilessly, enjoying each lash.)
+（她朝你點點頭，拿起她的硬鞭，開始無情地抽打她，並享受著每一次鞭打。）
+(She frowns and you, grabs her crop and starts to hit her mercilessly, enjoying each lash.)
+（她朝你皺起眉頭，拿起她的硬鞭，開始無情地抽打她，並享受著每一次鞭打。）
+(She grabs her crop and starts to hit her mercilessly, enjoying each lash.)
+（她拿起她的硬鞭，開始無情地抽打她，並享受著每一次鞭打。）
+###_PLAYER
+(Look at Amanda.)
+（看看Amanda。）
+###_NPC
+(Amanda gets whipped pretty bad by Mistress Sophie, she seems in a lot of pain and beg her to stop.)
+（Amanda被索菲女主人抽打得很慘，她看起來很痛苦，求她停下來。）
+###_PLAYER
+(Look at Sarah.)
+（看看Sarah。）
+###_NPC
+(Sarah gets whipped mercilessly by Mistress Sophie, she jumps and cry from the pain but still asks for more.)
+（Sarah被索菲女主人無情地抽打，她因為痛苦而跳躍和哭泣著，但仍要求更多。）
+###_PLAYER
+(Enjoy the show.)
+（欣賞表演吧。）
+###_NPC
+(You watch a severe beating scene.  Mistress Sophie seems to enjoy it a lot, before stopping promptly.)  That's enough!
+（你看了一個嚴厲的抽打場景。女主人Sophie似乎很喜歡，但這突然停了下來。）夠了！
+###_PLAYER
+(Look away.)
+（移開視線。）
+###_NPC
+(You look away but can hear the whipping sound and the cries for a while, then everything stops.)  That's enough!
+（你移開視線，但一段時間裡還能聽到鞭打聲和哭聲，然後一切都停止了。）夠了！
+###_PLAYER
+Enough Mistress Sophie?
+夠了嗎，女主人Sophie？
+###_NPC
+*Oui*!  (She puts her stuff back in the bag.)  I need to go, but you can continue to punish them DialogPlayerName.
+系呀！（她把她的東西放回包裡。）我得走了，但你可以繼續懲罰她們，DialogPlayerName。
+###_PLAYER
+(Nod slowly.)
+（慢慢點頭。）
+###_NPC
+(She puts her stuff back in the bag.)  I need to go, but you can continue to punish them DialogPlayerName.
+（她把她的東西放回包裡。）我得走了，但你可以繼續懲罰她們，DialogPlayerName。
+*Oui*!  (She puts her stuff back in the bag.)  I need to go, but you can continue to punish her DialogPlayerName.
+系呀！（她把她的東西放回包裡。）我得走了，但你可以繼續懲罰她，DialogPlayerName。
+(She puts her stuff back in the bag.)  I need to go, but you can continue to punish her DialogPlayerName.
+（她把她的東西放回包裡。）我得走了，但你可以繼續懲罰她，DialogPlayerName。
+###_PLAYER
+I'm sorry, I'll go.
+對不起，我會離開。
+###_NPC
+You know where the door is.  (She points at the door.)
+你知道門在哪裡。（她指著門口。）
+###_PLAYER
+Fine, you can have them.
+好吧，你可以處置她們。
+###_NPC
+I will, now get out.  (She points at the door.)
+我會的，現在快走。（她指著門口。）
+###_PLAYER
+But!  But, but, but...
+但！但是，但是，但是……
+###_NPC
+You're *pathetique*, get out of my sight.  (She points at the door.)
+你真系可悲，從我的視線裡離開。（她指著門口。）
+###_PLAYER
+Don't be too harsh with them.
+不要對她們太苛刻。
+###_NPC
+(She frowns and promptly restrains the other girls like you.)
+（她皺起眉頭，像束縛住你一樣，迅速束縛住了其他的女孩。）
+###_PLAYER
+(Stay silent and watch her.)
+（保持沉默，看著她。）
+###_NPC
+(She promptly restrains the other girls like you.)
+（她像束縛住你一樣，迅速束縛住了其他的女孩。）
+###_PLAYER
+Yes, they are quite sensitive.
+是的，非常敏感。
+###_NPC
+Very good, little *esclave*.  (She tightens nipple clamps on your nipples and smiles.)
+很好，小奴隸。（她微笑著收緊了你乳頭上的乳頭夾。）
+###_PLAYER
+I can take any pain.
+我可以忍受任何痛苦。
+###_NPC
+We'll see about that.  (She tightens nipple clamps on your nipples and smiles.)
+我們等一下就知道了。（她微笑著收緊了你乳頭上的乳頭夾。）
+###_PLAYER
+(Nod in fear.)
+（害怕地點點頭。）
+(Shake your head no.)
+（搖頭，表示否定。）
+(Shrug and look away.)
+（聳聳肩，移開視線。）
+###_NPC
+(She turns away from you and inflicts more pain with more nipple clamps.)
+（她轉向別的方向，並讓乳頭夾更痛了。）
+###_PLAYER
+(Stare at the chastity bra.)
+（盯著貞操胸罩。）
+###_NPC
+(She grins and locks a metal chastity bra on your breast.)
+（她咧嘴一笑，把一件金屬貞操胸罩鎖在你的胸前。）
+###_PLAYER
+No!  This is cruel!
+不！這太殘忍了！
+###_NPC
+You're not in control *esclave*.  (She locks a metal chastity bra on your breast.)
+現狀你無法控制，小奴隸。（她把一件金屬貞操胸罩鎖在你的胸前。）
+###_PLAYER
+Yes Mistress Sophie.
+是的，女主人Sophie。
+###_NPC
+Good girl.  (She smiles and locks a metal chastity bra on your breast.)
+乖女孩。（她微笑著將一件金屬貞操胸罩鎖在你的胸前。）
+###_PLAYER
+(Nod happily.)
+（高興地點頭。）
+###_NPC
+(She locks your friend breast under heavy steel and laughs.)
+（她用沉重的金屬將你朋友的乳房鎖住，然後笑起來。）
+###_PLAYER
+(Sigh and bow your head.)
+（嘆氣，低下頭。）
+I guess so Miss.
+我猜是的，女士
+###_NPC
+*Bien*!  (She forces a butt plug inside your ass and puts a non-vibrating egg in your vagina.)  Do you enjoy that?
+好嘅！（她強行把肛塞塞進你的臀部，然後在你的陰道裡塞進了一個安靜的跳蛋。）你喜歡嗎？
+###_PLAYER
+(Whimper silently.)
+（小聲啜泣。）
+###_NPC
+(She smirks and forces a butt plug inside your ass and puts a non-vibrating egg in your vagina.)  Do you enjoy that?
+（她得意地笑，並強行把肛塞塞進你的臀部，然後在你的陰道裡塞進了一個安靜的跳蛋。）你喜歡嗎？
+###_PLAYER
+Oh no!  Common!
+哦不！別這樣！
+###_NPC
+(She grumbles and forces a butt plug inside your ass and puts a non-vibrating egg in your vagina.)  Do you enjoy that?
+（她嘟囔著，強行把肛塞塞進你的臀部，然後在你的陰道裡塞進了一個安靜的跳蛋。）你喜歡嗎？
+###_PLAYER
+(Look down and stay silent.)
+（低頭並保持沉默。）
+###_NPC
+(She smiles and forces a butt plug inside your ass and puts a non-vibrating egg in your vagina.)  Do you enjoy that?
+（她微笑著，強行把肛塞塞進你的臀部，然後在你的陰道裡塞進了一個安靜的跳蛋。）你喜歡嗎？
+###_PLAYER
+(Look at the show.)
+（欣賞這場表演。）
+###_NPC
+(She gets more intrusive items and use them in the same fashion as she did on you.)  Such a kinky slave *groupe*.
+（她拿來更多可以塞進去的玩具，並用和她對你相同的方式，用在了她們身上。）真系一班變態的奴隸。
+(You look away but can hear the screams and moans.)  Such a kinky slave *groupe*.
+（你移開視線，但可以聽到尖叫和呻吟。）真系一班變態的奴隸。
+###_PLAYER
+A chastity belt?
+貞操帶？
+###_NPC
+You're *correcte*.  (She locks a chastity belt around your waist, making sure you won't be able to reach inside.)
+你講嘅對。（她在你的腰上繫上一條貞操帶，讓你無法觸碰內側。）
+###_PLAYER
+It's easy to guess.
+很容易猜到。
+###_NPC
+(She angrily locks a chastity belt around your waist, making sure you won't be able to reach inside.)
+（她在你的腰上繫上一條貞操帶，讓你無法觸碰內側。）
+###_PLAYER
+(Give a scared look.)
+（露出害怕的表情。）
+###_NPC
+(She smiles and locks a chastity belt around your waist, making sure you won't be able to reach inside.)
+（她笑著在你的腰上繫上一條貞操帶，讓你無法觸碰內側。）
+###_PLAYER
+Stay strong girl.
+堅持住，女孩。
+###_NPC
+(She seals the plugged and egged private parts under chastity and addresses the crowd.)  We are almost ready.
+（她用貞操帶封住了塞著肛塞和跳蛋的私處，然後宣告地說。）我們幾乎準備好了。
+###_PLAYER
+(Keep quiet.)
+（保持安靜。）
+(Rock your hips.)
+（搖晃你的臀部。）
+(Make pleading eyes.)
+（露出懇求的眼神。）
+###_NPC
+(She grins and pushes a button as the vibrating egg kicks in, masturbating you inside mercilessly.)
+（她咧嘴笑著按下了一個按鈕，跳蛋開始振動了，無情地撫慰你的體內。）
+###_PLAYER
+I don't know how to sing.
+我不知道怎麼唱。
+###_NPC
+(She pushes a button and the vibrating egg kicks in, masturbating you inside mercilessly.)
+（她按下一個按鈕，蛋開始振動了，無情地撫慰你的體內。）
+###_PLAYER
+(Sing.)  I'm pickin' up good vibrations!
+（唱道）我正在受到良好的振動！
+###_NPC
+(She looks annoyed and pushes a button as the vibrating egg kicks in, masturbating you inside mercilessly.)
+（她看起來很不耐煩，並按下按鈕，蛋開始振動了，無情地撫慰你的體內。）
+###_PLAYER
+(Stay quiet.)
+（保持安靜。）
+(Check the scene.)
+（檢查現場。）
+(Take a deep breath.)
+（深呼吸。）
+It hurts Miss.
+這好痛，女士。
+(Pretend it doesn't hurt.)
+（假裝不痛。）
+It feels very secure Miss.
+這感覺很結實，女士。
+This is too much.
+這太狠了。
+(Adjust to the cold steel bra.)
+（調整身體適應冰冷的金屬胸罩。）
+Wow!  This is quite a plug.
+哇！這個肛塞真厲害。
+Damn!  It hurts.
+該死！好痛。
+It feels great Miss.
+這感覺真好，女士。
+I'm under control Miss.
+我被掌控著，女士。
+(Shake your hips.)
+（搖晃你的臀部。）
+Oh my god!  Miss!
+我的天！女士！
+###_NPC
+Its fun isn't it?  Now the game can begin.
+這很有趣，不是嗎？現在遊戲可以開始了。
+###_PLAYER
+(Moan slowly.)
+（慢慢地呻吟。）
+A game?  What game?
+遊戲？什麼遊戲？
+###_NPC
+A game to test everyone's endurance, and willpower.
+一個考驗每個人的耐力和意志力的遊戲。
+###_PLAYER
+(Roll your eyes up.)
+（翻白眼。）
+###_NPC
+A game to test your endurance, and your willpower.  (She yells.)  Maid!  Bring me two slaves!
+一個考驗你的耐力和意志力的遊戲。（她大喊）女僕！給我帶兩個奴隸來！
+(Amanda seems to worry a lot and looks very embarrassed.)
+（Amanda似乎很擔心，看起來很羞愧。）
+(Sarah is moaning from the vibrator and seems to be having fun.)
+（Sarah因為振動器而呻吟著，似乎很開心。）
+###_PLAYER
+We will compete against each other?
+我們會互相競爭嗎？
+###_NPC
+*Absolument*, it will be a slave competition.
+當然系，這將是一場奴隸比賽。
+###_PLAYER
+Two slaves Miss?
+兩個奴隸，女士？
+###_NPC
+Of course, you cannot compete alone, pretty *esclave*.  (Two girls come in and Mistress Sophie sets them up like you.)
+當然，你不能單獨競爭，可愛嘅細奴隸。（兩個女孩進來，女主人Sophie像對你一樣，設置好了她們。）
+###_PLAYER
+Please don't bring other girls.
+請不要涉及其他女孩。
+###_NPC
+You cannot compete alone, silly *esclave*.  (Two girls come in and Mistress Sophie sets them up like you.)
+你不能獨自競爭，愚蠢嘅細奴隸。（兩個女孩進來，女主人Sophie像對你一樣，設置好了她們。）
+###_PLAYER
+(Look worried.)
+（露出擔憂的神情。）
+###_NPC
+They will be your competitors, little *esclave*.  (Two girls come in and Mistress Sophie sets them up like you.)
+她們將成為你的競爭對手，小奴隸。（兩個女孩進來，女主人Sophie像對你一樣，設置好了她們。）
+###_PLAYER
+How does the game work?
+遊戲規則是什麼？
+###_NPC
+It's really *facile*, the last one to climax wins. (She speeds up the vibrator a little.)
+很簡單，最後一個達到高潮嘅勝出。（她稍微加快了振動器的速度。）
+###_PLAYER
+Please explain Miss.
+請解釋一下，女士。
+###_NPC
+It's a *facile* game, the last one to climax wins. (She speeds up the vibrator a little.)
+這是一個簡單的遊戲，最後一個達到高潮嘅勝出。（她稍微加快了振動器的速度。）
+###_PLAYER
+I can win any challenge.
+我可以贏下任何挑戰。
+###_NPC
+We'll see about that, the last one to climax wins. (She speeds up the vibrator a little.)
+我們等一下就知道了，最後一個達到高潮嘅勝出。（她稍微加快了振動器的速度。）
+###_PLAYER
+What do the winner get?
+獲勝者會得到什麼？
+###_NPC
+My *respect*.  (She grins.)  And she will not get cropped.
+我的尊敬。（她咧嘴笑起來。）以及不會被硬鞭打。
+###_PLAYER
+What if I lose?
+如果我輸了怎麼辦？
+###_NPC
+You will face my little crop right here.  (She swings her crop in the air.)
+那你會接受我這裡的小硬鞭的照顧。（她在空中擺動她的硬鞭。）
+###_PLAYER
+I'm ready Miss!
+我準備好了，女士！
+###_NPC
+(She produces a devious smile and slowly rise the speed of all vibrating eggs.)
+（她露出使壞的笑容，慢慢地提高了所有跳蛋的速度。）
+###_PLAYER
+Ok, let's try this game.
+好吧，來試試這個遊戲。
+(Stand strong.)
+（努力忍受。）
+###_NPC
+(You stand strong, trying to defy the egg and its lovely massage.  It's hard to resist but it seems to work.)
+（你努力忍受著，試圖無視跳蛋和直達妙處的按摩。這很難抗拒，但這似乎奏效了。）
+###_PLAYER
+(Try to think of something else.)
+（試著想點別的。）
+###_NPC
+(You look away and try to think about something else, but Mistress Sophie plays with the speed and makes it a little harder to lose focus.)
+（你移開視線，試著去想別的事情，但女主人Sophie玩弄著跳蛋的速度，你轉移注意力有點難。）
+###_PLAYER
+(Bite your lips.)
+（咬嘴唇。）
+###_NPC
+(You bite your lips as the pleasure rises inside of you.  Mistress Sophie notices and plays with the vibration speed.)
+（當快感在你內心升起時，你咬著嘴唇。女主人Sophie注意到了，並玩弄著跳蛋的速度。）
+(You moan slowly from the egg pleasure.  Slowly losing control of your body and getting closer to an orgasm.)
+（你因為跳蛋的快感，慢慢地呻吟。慢慢地，失去對身體的控制，接近高潮。）
+###_PLAYER
+(Moan loudly.)
+（大聲呻吟。）
+###_NPC
+(You moan loudly and quickly in front of everyone.  Losing all controls and crowd awareness.  Getting really close to an orgasm.)
+（你在所有人面前大聲而迅速地呻吟。失去身體控制和對周圍人的感知。馬上就要到達高潮了。）
+###_PLAYER
+(Surrender to the pleasure.)
+（屈服於快樂。）
+Wow!  I've made it?
+哇！我做到了？
+###_NPC
+You did girl.  You've won the game and my respect, *bravo*!  Would you like that orgasm now?
+你做了女孩。你贏得了比賽和我的尊重，你真系犀利！你現在想要得到這次高潮嗎？
+###_PLAYER
+That was easy!
+那真簡單！
+###_NPC
+Slave, don't be too *arrogante*.  Yes, you did win the game.  Would you like that orgasm now?
+奴隸，唔好太塵。是的，你確實贏得了比賽。你現在想要得到這次高潮嗎？
+###_PLAYER
+(Moan and tremble.)
+（呻吟並顫抖。）
+###_NPC
+(She caresses your hair.)  You've won the game and my respect little girl, *bravo*!  Would you like that orgasm now?
+（她撫摸你的頭髮。）你贏了比賽和我的尊重，小女孩，你真系犀利！你現在想要那種高潮嗎？
+###_PLAYER
+Oh yes Mistress Sophie.
+哦，是的，女主人Sophie。
+###_NPC
+I rarely do favors for *soumises*, but I kind of like you.  (She puts the egg to maximum speed, making you climax rapidly.)
+我好少為順從者做咩事，但我有點喜歡你。（她把跳蛋調到最大速度，讓你迅速達到高潮。）
+###_PLAYER
+(Whimper and beg for it.)
+（嗚咽並乞求。）
+###_NPC
+Well you're not getting it.  You've gotten on my nerves today.  (She turns off the vibrating egg and gets her crop.)
+但你不會得到高潮的。你今天讓我很緊張。（她關掉跳蛋，並拿起了硬鞭。）
+###_PLAYER
+I'm fine Miss.
+我很好，女士。
+###_NPC
+You're a surprising submissive.  (She turns off the vibrating egg and gets her crop.)
+你是一個令人驚訝的順從者。（她關掉跳蛋，並拿起了硬鞭。）
+###_PLAYER
+That was wonderful Miss.
+那真美妙，女士。
+###_NPC
+I'm glad you enjoyed.  (She puts away the remote and gets her leather crop.)
+我很高興你喜歡。（她收起遙控器，並拿起了皮革硬鞭。）
+###_PLAYER
+Oh lord!  I'm still shacking.
+我的天！我還被銬著呢。
+(Recover slowly.)
+（慢慢恢復。）
+You're going to whip me?
+你要鞭打我嗎？
+###_NPC
+Don't be foolish, you've won the game.  (She turns away and gives a severe beating to the loser.)
+別傻了，你贏了比賽。（她轉過身來，狠狠地抽打輸家。）
+###_PLAYER
+I'm glad I've won.
+我很高興我贏了。
+###_NPC
+Be very glad girl.  (She turns away and gives a severe beating to the loser.)
+高興吧，女孩。（她轉過身來，狠狠地抽打輸家。）
+(She grins and turns away to give a severe beating to the loser.)
+（她咧嘴一笑，轉過身來，狠狠地抽打輸家。。）
+*Oui*!  (She removes all the restrains expect for Sarah's.)  Sarah, to end your punishment, find a way out.
+系呀！（她解開了對Sarah的所有約束。）Sarah，作為你的懲罰的結束，找到出去的路。
+*Oui*!  (She removes the restrains from everyone.)
+系呀！（她解開了所有人的束縛。）
+###_PLAYER
+Are we free Miss?
+我們自由了嗎，女士？
+###_NPC
+You're free as a bird little *esclave*.  I have other appointments today.
+你似雀仔一樣自由，小奴隸。我今天還有其他約會。
+###_PLAYER
+The punishment is over?
+懲罰結束了？
+###_NPC
+It is, little *esclave*.  I have other appointments today.
+是的，小奴隸。我今天還有其他約會。
+###_PLAYER
+That was intense.
+剛才那好狠。
+###_NPC
+It will be worse next time, little *esclave*.  But I have other appointments today.
+下次會更狠的，小奴隸。但我今天還有其他約會。
+###_PLAYER
+Would you like to visit me later?
+你想稍後來看我嗎？
+###_NPC
+(She ponders.)  I usually don't accept these kinds of requests, but I like you.  I will *visite* your room later, keep the cuffs.
+（她沉思）我通常不會接受這種要求，但我喜歡你。之後，我會去你嘅房間看嚇你，你可以留下手銬。
+(She shakes her head from left to right.)  I cannot *accepte*, I'm a busy woman you know.
+（她左右搖頭。）我接受唔到，你知道我是個忙碌的女人。
+###_PLAYER
+Take care Miss!
+保重，女士！
+Thanks for your time.
+謝謝你抽出時間。
+(Wave bye bye.)
+（揮手再見。）
+Thanks!  See you later.
+謝謝！待會見。
+I'm sorry, I couldn't control it.
+對不起，我控制不住。
+###_NPC
+(She stops everyone vibrator.)  You have much to learn on self-control girl.
+（她停下了每個人的振動器。）你在自制力上有很多要學習，女孩。
+###_PLAYER
+It was too hard!
+太難了！
+###_NPC
+(She stops everyone vibrator.)  You're *faible*.  I don't care for excuses.
+（她停下了每個人的振動器。）弱者先搵藉口。我不在乎藉口。
+(Amanda seems proud of having won the game, but she stays humble about it.)
+（Amanda似乎為贏得比賽感到自豪，但她對此保持謙虛。）
+(Sarah is still trembling and moaning very fast.  She hasn't recovered from the experiment.)
+（Sarah還在顫抖和呻吟得很快。她還沒有恢復過來。）
+###_PLAYER
+I'll do better next time.
+下次我會做得更好。
+###_NPC
+(She whips you with her crop.)  This should motivate you.  (She raises her crop again.)
+（她用她的硬鞭鞭打你。）這應該會激勵你。（她又抬起了硬鞭。）
+(She whips you with her crop.)  You'll remember this *punition*.  (She raises her crop again.)
+（她用她的硬鞭鞭打你。）你會記住呢一下懲罰。（她又抬起了硬鞭。）
+###_PLAYER
+Ow!  It hurts!
+哦！好痛！
+###_NPC
+(She whips you with the crop twice.)  Do you enjoy being in pain, little *esclave*?
+（她用硬鞭連抽你兩次。）你中意痛苦呀，小奴隸？
+###_PLAYER
+(Close your eyes.)
+（閉上眼睛。）
+(Endure the pain.)
+（忍受痛苦。）
+Yes Miss.
+是的，女士。
+###_NPC
+(She whips you again and again, enjoying each lash.  The winner is spared.)  That's enough!
+（她一次又一次地鞭打你，享受每一次鞭打。而獲勝者沒有被鞭打。）夠了！
+###_PLAYER
+(Nod in shame.)
+（羞愧地點點頭。）
+No Miss, I don't.
+不，女士，我沒有。

@@ -1,0 +1,385 @@
+###_NPC
+Well done, another satisfied customer.  Here's your commission.  (She gives you $MoneyAmount.)
+很好，又一個滿意的顧客。這是你的佣金。(她給了你 $MoneyAmount)
+Too bad, the customer left.
+很可惜，顧客走了。
+This is the only store in town that receives gagged customers.
+這是鎮上唯一一家接待被堵上嘴的顧客的商店
+(She shakes her head no but you're able to gag and silence her.)
+(她搖了搖頭，但你可以堵住她的嘴讓她安靜下來。)
+(You remove her gag and she thanks you.)  Thanks a lot, my job requires me to speak.
+(你移開她的口塞，她對你表示感激)非常感謝，我的工作需要我說話。
+(You push some earplugs into place.) How am i going to hear the customers now?.
+(你把耳塞塞到合適的位置)現在我要怎樣才能聽到顧客說話?
+(You pull the earplugs out.) Thank you i can hear you clearly again.
+(你把耳塞拔了出來)謝謝，我又能清楚地聽到你的說話了
+(She grumbles but complies as you restrain her arms.)  What about the store?
+(她嘟囔著，但當你固定住她的手臂時，她還是服從了)商店怎麼辦?
+(You free her arms and she gives you a thumbs up.)  The club thanks you Miss.
+（你放開她的手臂，她向你豎起大拇指）整個俱樂部都會感謝你的，女士
+(She grumbles a little but soon complies as you start restraining her hands.)  What about the store Miss?
+（她抱怨了一下下，但當你固定住她的手臂時她很快就服從了）女士，商店怎麼辦呢？
+(You release her hands.)  The club thanks you Miss
+（你鬆開她的手）整個俱樂部都會感謝你的，女士
+(She looks down as you restrain her legs securely.)  I'm not going out anyway.
+（在你固定她的腿時，她低頭看著）反正我也不出去
+(You release her legs and she nods.)  Don't you want to buy something?
+（你鬆開她的腿，她點了點頭）你難道不想買點什麼嗎？
+(She giggles as you restrain her feet.)  That's why they call it a fixed job.
+（在你固定她的腳時，她呵呵笑了起來）這就是為什麼他們稱之為“固定的”工作。
+(You release her feet and she stretches them.)  I have the best customers in town.
+（你鬆開她的雙腳，她伸展了一下。）我有鎮裡最棒的顧客
+(She struggles as you strap the collar around her neck.)  I'm not looking for an owner.
+（當你把頸圈繫在她的脖子上時，她掙扎著）我可沒有要找一個主人
+(You remove the collar from her neck.)  Yes!  This is much better.
+（你把頸圈從她的脖子上取下）好的！現在好多了
+(You snap the belt around her waist while she sighs.)  Damn it.  I can't sell anymore keys for these.
+(當她嘆氣時，你啪的一聲把腰帶繫在她腰上)該死的。我不能再賣這些東西的鑰匙了。
+(You unlock the belt from her waist, and she smiles.)  I owe you one.
+（你從她的腰上解開腰帶，她笑了）我欠你一個人情
+(You strap the device on her head as she complains.)  The store!  Think about the store!
+（當她抱怨時，你把裝置綁在她的頭上。）商店！商店怎麼辦！
+(You remove the device and she looks relived.)  Thanks.  Nothing was stolen?
+（你取下裝置，她看起來又活了起來）謝謝。沒什麼東西被偷吧？
+(She whimpers as you whip her breast.)  Ouch!  You're whipping too hard.
+（你鞭打她的胸脯時，她嗚咽著）喔！你抽得太用力了
+(You swing the crop on her torso as she grumbles.)  That's what they call trying the merchandise.
+（在她發牢騷時，你在她身上揮舞著短馬鞭）這就是他們所說的，產品試用。
+(You whip her butt as she whimpers.)  Oooww.  Are you a satisfied customer?
+（在她嗚咽時，你鞭打她的屁股）哦~你是一個滿意的顧客嗎？
+(You lash the leather crop pretty hard on her butt.)  Damn it!  I need a better job.
+（你用皮鞭狠狠地抽打她的屁股）該死的！我需要一份更好的工作
+Greetings Mistress DialogPlayerName.  What are you looking for today?
+向您問好，DialogPlayerName 女王。今天您想要什麼？
+(She looks at you and giggles.)  Are you looking for some clothes?
+（她看著你呵呵地笑起來）你是在找些新衣服嗎？
+Welcome to the Bondage Club store.  How can I help you today?
+歡迎光臨束縛俱樂部商店。今天有什麼我能幫你的嗎？
+###_PLAYER
+I'd like to buy something.
+我想買點什麼
+###_NPC
+Of course! What are you looking for?
+當然！你想要什麼?
+###_PLAYER
+I want to return something I bought.
+我想要退回一些我買過的東西
+###_NPC
+Sure! You can sell back anything for half of the original price. What kind of item is it?
+當然！你可以以原價的一半退回任何你購買的東西。是什麼類型的物品呢？
+###_PLAYER
+Can you show me everything that I don't have?
+你向我展示一下所有我沒有的東西嗎？
+What are you selling?
+你這裡都賣什麼？
+###_NPC
+Look around, there are clothes of all kinds and lots of BDSM gear.
+到處看看，這裡有各種類型的衣服和BDSM道具
+###_PLAYER
+Who owns this store?
+這間商店歸誰所有？
+###_NPC
+It belongs to the Bondage Club.  All profits go back to the organization.
+它屬於束縛俱樂部。所有利潤都歸束縛俱樂部所有。
+###_PLAYER
+Can I tie you up?
+我能把你綁起來嗎？
+###_NPC
+I'll make a deal with you.  If you buy everything from the store, I'll let you use the items on me.
+我們來做個交易吧。如果你購買了商店裡所有的商品，我允許你在我的身上使用
+###_PLAYER
+Can you help me out?
+你能放我出來嗎？
+###_NPC
+I'm not allowed to release you.  But I can help you to shop and pay.  I will be honest.
+我不被允許放你出來。但我可以幫你購物和付款。我不會做手腳。
+###_PLAYER
+Do you have work for me?
+你有什麼工作能給我的嗎？
+###_NPC
+Sure, I can give you a salary if you're willing to demonstrate the items we are selling.  Are you ready for that?
+當然，如果你願意展示我們銷售的商品，我可以給你一份報酬。你準備好了嗎？
+###_PLAYER
+I need to run.  (Leave her.)
+我得走了（離開她）
+Check my items.  I've bought everything.
+檢查一下，我已經買了所有東西了
+###_NPC
+No way!  Well a deal is a deal.  You can strap me up if you want.
+不可能！好吧，既然我們已經約定好了，如果你願意的話你可以把我綁起來
+###_PLAYER
+I'll remember that deal.
+我會記住這個約定的
+###_NPC
+Sure!  Do you have more questions for me?
+當然！你還有什麼問題想問我的嗎？
+###_PLAYER
+What's the job?
+工作的內容是什麼？
+###_NPC
+Modelling gear so our customers can see that the items are secure and good looking.  You'd demonstrate and convince them.
+銷售道具。當顧客想要了解這些東西是否安全又好看，你可以給他們示範一下
+###_PLAYER
+How much does it pay?
+它給多少報酬？
+###_NPC
+I can give you 10% of the selling price, minimum $7, for each item you help me to sell.  It's a good commission.
+你幫我售出一件，我就會付你每件商品的售價10%，至少$7。這報酬可不少
+###_PLAYER
+I'm ready!
+我準備好了
+###_NPC
+Very well, let me find an item to promote.  (She checks on the shelves for an item to use on you.)
+很好，讓我找找該推銷哪個商品（她在貨架尋找要在你身上使用的物品）
+No you're not.  (She giggles.)  Get out of these restraints first.
+不，你還沒準備好（她輕笑著）先從這些拘束器裡出來
+###_PLAYER
+Not right now.
+現在不行
+###_NPC
+Alright, let me know when you're ready.  Is there anything else you need?
+好吧，等你準備好了你再告訴我。你還有什麼需要嗎？
+###_PLAYER
+(Let her restrain you.)
+（讓她束縛你）
+###_NPC
+(She uses an item on you and smiles.)  You can wait for a customer right there.
+（她對你使用了一樣道具，微笑起來）你就在這等顧客過來吧
+###_PLAYER
+Wait!  I've changed my mind.
+等一下！我改變我的想法了
+(Wait for a customer.)
+（等待顧客）
+Thanks a lot!
+非常感謝！
+###_NPC
+My pleasure.  Is there anything else you need?
+我的榮幸。你還需要什麼嗎？
+###_PLAYER
+(Nod happily.)
+（開心地點點頭）
+Can I do it again?
+我能再來一遍嗎？
+###_NPC
+(She giggles.)  You'll need to get out of those restraints before you can try again!
+（她輕笑著）你得先從這些拘束器裡出來你才能再試一遍！
+Sure!  Let me find an item to promote.  (She checks on the shelves for an item to use on you.)
+當然！讓我找找該推銷哪個商品（她在貨架尋找要在你身上使用的物品）
+I don't have time, there's too many customers.  Go find a maid if you can't struggle out.
+我沒空，現在顧客太多了。如果你沒辦法掙脫，去找一個女僕來幫你
+###_PLAYER
+I'm not a great saleswoman.
+我不是一個好的女售貨員
+###_NPC
+Don't worry about it.  Is there anything else you need?
+別擔心這個了。你還有別的什麼需要嗎？
+###_PLAYER
+(Nod very slowly.)
+（非常緩慢地點點頭）
+Can I try again?
+我能再試試嗎？
+###_NPC
+  I'm afraid you'll need to get out of those restraints before you can try again
+  恐怕你得先從這些拘束器裡出來你才能再試一遍
+Alright.  Let me find an item to promote.  (She checks on the shelves for an item to use on you.)
+好的。讓我找找該推銷哪個商品（她在貨架尋找要在你身上使用的物品）
+###_PLAYER
+Clothes and accessories.
+衣服和配飾
+###_NPC
+What kind of clothes?
+什麼類型的衣服？
+###_PLAYER
+Underwear.
+內衣
+###_NPC
+What kind of underwear?
+什麼類型的內衣
+###_PLAYER
+Exotic accessories.
+異域風情的配飾
+###_NPC
+What kind of accessories?
+什麼類型的配飾
+###_PLAYER
+Something for the head.
+戴在頭上的東西
+###_NPC
+For which body part exactly?
+具體來說是用在身體哪個部位的呢？
+###_PLAYER
+Something for the body or arms.
+某些裝在身上或者手臂上的東西
+Something for private parts or legs.
+某些裝在私處或者腿上的東西
+I've changed my mind.
+我改變我的主意了
+###_NPC
+Can I help you with anything else?
+還有什麼我能幫你的嗎？
+###_PLAYER
+Regular clothes or outfits.
+常規的衣服或連體衣
+Accesories to go with clothes.
+與衣服配套的配飾
+Suits.
+連體衣
+Pants or skirts.
+褲子或裙子
+Hats or head accessories.
+帽子或頭飾
+Glasses.
+眼鏡
+It's another type of clothes.
+其他類型的服飾
+###_NPC
+What kind is it?
+什麼種類的？
+###_PLAYER
+What else do you have?
+你還有別的什麼嗎？
+###_NPC
+We have many items available.
+我們有很多商品可供選擇
+###_PLAYER
+Actually it's something else.
+事實上，是別的什麼東西
+###_NPC
+What kind of item is it?
+它是什麼類型的商品
+###_PLAYER
+Masks.
+面具
+Necklaces.
+項鍊
+Gloves.
+眼鏡
+Shoes.
+鞋子
+Corsets.
+緊身胸衣
+Bracelets.
+手鐲
+Bras.
+胸罩
+Panties.
+內褲
+Socks.
+襪子
+Garters.
+襪帶
+Outfits or accessories for the body.
+連體衣或身體的配飾
+Tail straps.
+尾巴
+Hair accessories.
+髮飾
+Special bondage devices.
+特殊捆綁裝置
+Addons for special bondage devices.
+特殊束縛設備的插件
+Blindfolds.
+眼罩
+Earplugs.
+耳塞
+Gags.
+口塞
+Collars.
+頸環
+Accessories for collars.
+頸環配飾
+Restraints to go on collars.
+用於頸環的拘束器
+It's another type of head item.
+別的類型的頭部用品
+###_NPC
+What sort is it?
+它是什麼類型的？
+###_PLAYER
+Hoods.
+面罩
+Items for the nose.
+用在鼻子上的東西
+Locks and keys.
+鎖和鑰匙
+Arm restraints.
+手臂拘束器
+Items for hands.
+用在手上的東西
+Items for breasts.
+用在胸上的東西
+Toys for the nipples.
+乳頭玩具
+Items to decorate the nipples.
+乳頭裝飾品
+Harnesses for the torso.
+軀幹束縛帶
+Chastity belts.
+貞操帶
+Kinky items for the kinky region.
+用在色色地方的色色東西
+Piercings for down below.
+下身穿刺用品
+Something to be used on the butt.
+給屁股用的東西
+Something to restrain the legs.
+束縛腿的東西
+Something for the feet.
+給腳用的東西
+Boots.
+靴子
+###_NPC
+(She struggles in her restraints.)  Help!
+（她在她的拘束器內掙扎著）救命！
+(She gives you a thumbs up.)  Everything is back to normal, thanks to you and the sorority.
+（她向你豎起大拇指）多虧了你和姐妹會，一切都恢復正常了
+###_PLAYER
+Do you need help?
+你需要幫助嗎？
+###_NPC
+(She nods quickly.)  Yes, yes, yes!  Please help.
+（她快速地點了點頭）是是是！請幫幫我
+###_PLAYER
+Was anything stolen?
+有什麼東西被偷了嗎？
+###_NPC
+(She shrugs.)  I sure hope not.
+（她聳了聳肩）我當然希望沒有
+###_PLAYER
+Is everything alright now?
+現在一切安好嗎？
+###_NPC
+You've took care of everything.  Please send my regards to the maids of the sorority.
+你已經處理好了一切。請代我向女生聯誼會的女僕們問好
+###_PLAYER
+What happened here?
+發生什麼事了？
+###_NPC
+I've made a deal with a client that if she bought everything, she could use the items on me.  So, she did just that.
+我和一位客戶達成了約定，如果她買了店裡的所有東西，她就可以把這些東西用在我身上。所以，她就這麼做了
+A burglar surprised and restrained me.  The maids caught her and dragged her away.  I guess they sent you to help me.
+一個竊賊嚇了我一跳，還把我束縛住了。女僕們抓住她，把她拖走了。我猜他們派你來幫我
+I was bored and wanted to try a few items.  I think I got a little carried away.
+我很無聊，想嘗試一些東西。我想我有點忘乎所以了
+There wasn't any customer and I fell asleep.  The Head Mistress caught me and restrained me like that until she called the maids.
+因為沒有任何客人來而我又睡著了。女王首領抓住了我並把我束縛成這樣直到她叫女僕來幫我解開
+###_PLAYER
+I'll go get help.  (Leave her.)
+我去找人幫忙（離開她）
+I'm glad to be of service Miss.
+我很高興為你服務，小姐。
+###_NPC
+You maids are so sweet.  Would you like to buy something?
+你們這些女孩可真可愛。你想買點什麼嗎？
+###_PLAYER
+Will you give me a discount?
+你能給我點折扣嗎？
+###_NPC
+Nice try, but I can't do that.  The sorority will pay you for your work though.  Would you like to buy something?
+很好的嘗試，但我不能那麼做。不過女僕聯誼會會會為你的工作付錢。你想買點什麼嗎？
+###_PLAYER
+The sorority will always protect you.
+女僕聯誼會會永遠保護你
+###_NPC
+It's great to feel protected.  Would you like to buy something?
+受到保護的感覺真好。你想買點什麼嗎？

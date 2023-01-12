@@ -2079,6 +2079,7 @@ function KinkyDungeonClick() {
  * @returns {void} - Nothing
  */
 function KinkyDungeonExit() {
+	KinkyDungeonGameKey.removeKeyListener();
 	CommonDynamicFunction(MiniGameReturnFunction + "()");
 
 	// Refresh the player character if needed

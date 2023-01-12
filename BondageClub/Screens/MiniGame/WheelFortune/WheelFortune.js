@@ -380,7 +380,7 @@ var WheelFortuneOption = [
 			InventoryWear(Player, CommonRandomItemFromList("", ["Diapers1", "Diapers2", "Diapers3", "Diapers4", "BulkyDiaper", "PoofyDiaper"]), "Panties");
 			if (Math.random() > 0.5) InventoryWear(Player, "Bib", "ClothAccessory");
 			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemMouth") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["PacifierGag", "HarnessPacifierGag", "MilkBottle", "PaciGag"]), "ItemMouth");
-			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemHands") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["PaddedMittens", "PawMittens"]), "ItemHands", "Default", 5);
+			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemHands") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["PaddedMittens", "PawMittens"]), "ItemHands", "Default", 15);
 			if ((Math.random() > 0.5) && (InventoryGet(Player, "ItemMisc") == null)) InventoryWear(Player, CommonRandomItemFromList("", ["TeddyBear"]), "ItemMisc");
 			ChatRoomCharacterUpdate(Player);
 		}
@@ -392,8 +392,8 @@ var WheelFortuneOption = [
 		Script: function() {
 			CharacterNaked(Player);
 			InventoryWear(Player, "SlaveRags", "Cloth");
-			if (InventoryGet(Player, "ItemFeet") == null) InventoryWear(Player, CommonRandomItemFromList("", ["BallChain", "AnkleShackles"]), "ItemFeet", "Default", 5);
-			if (InventoryGet(Player, "ItemNeck") == null) InventoryWear(Player, CommonRandomItemFromList("", ["DogCollar", "LeatherChoker", "SpikeCollar", "ShinySteelCollar", "SlenderSteelCollar"]), "ItemNeck", "Default", 5);
+			if (InventoryGet(Player, "ItemFeet") == null) InventoryWear(Player, CommonRandomItemFromList("", ["BallChain", "AnkleShackles"]), "ItemFeet", "Default", 15);
+			if (InventoryGet(Player, "ItemNeck") == null) InventoryWear(Player, CommonRandomItemFromList("", ["DogCollar", "LeatherChoker", "SpikeCollar", "ShinySteelCollar", "SlenderSteelCollar"]), "ItemNeck", "Default", 12);
 			ChatRoomCharacterUpdate(Player);
 		}
 	},
@@ -505,17 +505,17 @@ function WheelFortuneCanWear(Group) {
  */
 function WheelFortuneFuturisticBondage() {
 	CharacterNaked(Player);
-	if (WheelFortuneCanWear("ItemArms")) InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticArmbinder", "FuturisticStraitjacket"]), "ItemArms", "Default", 5);
-	if (WheelFortuneCanWear("ItemFeet")) InventoryWear(Player, "FuturisticAnkleCuffs", "ItemFeet", "Default", 5);
-	if (WheelFortuneCanWear("ItemLegs")) InventoryWear(Player, "FuturisticLegCuffs", "ItemLegs", "Default", 5);
-	if (WheelFortuneCanWear("ItemBoots")) InventoryWear(Player, "FuturisticHeels2", "ItemBoots", "Default", 5);
-	if (WheelFortuneCanWear("ItemPelvis")) InventoryWear(Player, "FuturisticTrainingBelt", "ItemPelvis", "Default", 5);
-	if (WheelFortuneCanWear("ItemBreast")) InventoryWear(Player, "FuturisticBra", "ItemBreast", "Default", 5);
-	if (WheelFortuneCanWear("ItemTorso")) InventoryWear(Player, "FuturisticHarness", "ItemTorso", "Default", 5);
-	if (WheelFortuneCanWear("ItemMouth")) InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticPanelGag", "FuturisticHarnessPanelGag", "FuturisticHarnessBallGag"]), "ItemMouth", "Default", 5);
-	if (WheelFortuneCanWear("ItemHead")) InventoryWear(Player, "FuturisticMask", "ItemHead", "Default", 5);
-	if (WheelFortuneCanWear("ItemNeck")) InventoryWear(Player, "FuturisticCollar", "ItemNeck", "Default", 5);
-	if (WheelFortuneCanWear("ItemEars")) InventoryWear(Player, "FuturisticEarphones", "ItemEars", "Default", 5);
+	if (WheelFortuneCanWear("ItemArms")) InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticArmbinder", "FuturisticStraitjacket"]), "ItemArms", "Default", 15);
+	if (WheelFortuneCanWear("ItemFeet")) InventoryWear(Player, "FuturisticAnkleCuffs", "ItemFeet", "Default", 15);
+	if (WheelFortuneCanWear("ItemLegs")) InventoryWear(Player, "FuturisticLegCuffs", "ItemLegs", "Default", 15);
+	if (WheelFortuneCanWear("ItemBoots")) InventoryWear(Player, "FuturisticHeels2", "ItemBoots", "Default", 15);
+	if (WheelFortuneCanWear("ItemPelvis")) InventoryWear(Player, "FuturisticTrainingBelt", "ItemPelvis", "Default", 15);
+	if (WheelFortuneCanWear("ItemBreast")) InventoryWear(Player, "FuturisticBra", "ItemBreast", "Default", 15);
+	if (WheelFortuneCanWear("ItemTorso")) InventoryWear(Player, "FuturisticHarness", "ItemTorso", "Default", 15);
+	if (WheelFortuneCanWear("ItemMouth")) InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticPanelGag", "FuturisticHarnessPanelGag", "FuturisticHarnessBallGag"]), "ItemMouth", "Default", 15);
+	if (WheelFortuneCanWear("ItemHead")) InventoryWear(Player, "FuturisticMask", "ItemHead", "Default", 15);
+	if (WheelFortuneCanWear("ItemNeck")) InventoryWear(Player, "FuturisticCollar", "ItemNeck", "Default", 15);
+	if (WheelFortuneCanWear("ItemEars")) InventoryWear(Player, "FuturisticEarphones", "ItemEars", "Default", 15);
 	CharacterRefresh(Player);
 	ChatRoomCharacterUpdate(Player);
 }
@@ -529,7 +529,7 @@ function WheelFortuneHogtie() {
 	InventoryRemove(Player, "ItemArms");
 	let ItemName = CommonRandomItemFromList("", ["HempRope", "LeatherCuffs", "OrnateCuffs", "WoodenCuffs", "ThinLeatherStraps"]);
 	let Type = (ItemName == "ThinLeatherStraps") ? "Hogtie" : "Hogtied";
-	InventoryWear(Player, ItemName, "ItemArms", "Default", 5);
+	InventoryWear(Player, ItemName, "ItemArms", "Default", 15);
 	InventoryGet(Player, "ItemArms").Property = { Type: Type, SetPose: ["Hogtied"], Difficulty: 0, Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], Effect: ["Block", "Freeze", "Prone"] };
 	CharacterRefresh(Player);
 	ChatRoomCharacterUpdate(Player);
@@ -540,11 +540,11 @@ function WheelFortuneHogtie() {
  * @returns {void} - Nothing
  */
 function WheelFortuneShibari() {
-	if (WheelFortuneCanWear("ItemArms")) InventoryWear(Player, "HempRope", "ItemArms", "Default", 5);
-	if (WheelFortuneCanWear("ItemLegs")) InventoryWear(Player, "HempRope", "ItemLegs", "Default", 5);
-	if (WheelFortuneCanWear("ItemFeet")) InventoryWear(Player, "HempRope", "ItemFeet", "Default", 5);
+	if (WheelFortuneCanWear("ItemArms")) InventoryWear(Player, "HempRope", "ItemArms", "Default", 15);
+	if (WheelFortuneCanWear("ItemLegs")) InventoryWear(Player, "HempRope", "ItemLegs", "Default", 15);
+	if (WheelFortuneCanWear("ItemFeet")) InventoryWear(Player, "HempRope", "ItemFeet", "Default", 15);
 	if (WheelFortuneCanWear("ItemTorso")) {
-		InventoryWear(Player, "HempRopeHarness", "ItemTorso", "Default", 5);
+		InventoryWear(Player, "HempRopeHarness", "ItemTorso", "Default", 15);
 		if (Math.random() > 0.66) InventoryGet(Player, "ItemTorso").Property = { Type: "Diamond", Difficulty: 0, Effect: [] };
 		else if (Math.random() > 0.5) InventoryGet(Player, "ItemTorso").Property = { Type: "Harness", Difficulty: 0, Effect: [] };
 	}

@@ -1,0 +1,38 @@
+Enter your account & character information
+輸入你的帳號&角色訊息
+Character name (letters & spaces)
+角色名（英文字符和空格）
+Account name (letters & numbers)
+帳號名（英文字符和數字）
+Account password (letters & numbers)
+密碼（英文字符和數字）
+Confirm password (letters & numbers)
+確認密碼（英文字符和數字）
+Email (optional, to recover password)
+信箱地址（可選，用於恢復密碼）
+Create your account
+創建帳號
+Your account already exists?
+已經擁有帳戶?
+Login
+登錄
+Creating your character...
+創建你的角色...
+Error:
+錯誤：
+Invalid character, account name, password or email
+無效的角色名、帳號名、密碼或信箱
+Both passwords do not match
+兩次密碼不匹配
+Import Bondage College data
+導入緊縛學院數據
+Invalid server answer, it could be outdated.
+伺服器返回錯誤,遊戲版本是否有誤？
+Your character name
+你的角色名
+
+########################
+### DEPRECATED LINES ###
+########################
+Your character name, account name and password cannot be more than 20 characters long.
+角色名、帳號名和密碼不能超過20個字元
