@@ -1,0 +1,298 @@
+###_NPC
+You've visited some kinky rooms recently?  (She laughs.)
+你最近去過一些淫亂的房間嗎？ （她笑了。）
+(She shakes her head from left to right but you're able to silence her.)
+（她從左到右搖頭，但你可以讓她閉嘴。)
+(You remove her gag and she smiles.)  Thanks!  Do you think I should go back to work?
+（你拿開她的口塞，她笑了。）謝謝！ 你認為我應該回去工作嗎？
+(You push some earplugs into place.) How am i going to hear the tents now?.
+（你把耳塞塞到位。）我現在怎麼能聽到帳篷裡的聲音？。
+(You pull the earplugs out.) Thank you i can hear you clearly again.
+（你拔下耳塞。）謝謝你，我又能清楚地聽到你的聲音了。
+(She doesn't resist much and allows you to restrain her.)  It will be a fun shift after all.
+（她不會反抗太多，允許你約束她。）畢竟這將是一個有趣的轉變。
+(You free her arms and she claps her hands.)  Well done!  You know your bondage.
+（你放開她的手臂，她拍手）做得好！ 你知道你的束縛。
+(you restrain her hands while she watches you.)  This is going be a very kinky shift.
+（當她看著你時，你控制住她的手。）這將是一個非常古怪的轉變。
+(You release her hands and she nods a little.)  Thanks, you seem like you know what you're doing.
+（你鬆開她的手，她點點頭。）謝謝，你好像知道自己在做什麼。
+(She shakes her butt as you restrain her.)  You went to the shop recently?
+（你拘束她時，她搖了搖屁股。）你最近去過商店嗎？
+(You release her legs as she shakes her butt again.)  Shake your booty!
+（當她再次搖動屁股時，你鬆開了她的腿。）搖動你的屁股！
+(She tries to keep her balance as you restrain her feet.)  Don't worry, I won't fall.
+（你拘束她的腳，她試圖保持平衡。）別擔心，我不會摔倒的。
+(You release her feet and she stands up.)  Any other restraints I could try?
+（你放開她的腳，她站了起來。）我可以嘗試其他束縛嗎？
+(You fasten the collar around her neck.)  I'm not looking for an owner you know.
+（你把項圈繫在她脖子上。）你知道的，我不是在找主人。
+(You remove the collar from her neck.)  Keep that collar, you can bring subs in your room.
+（你從她脖子上取下項圈。）保留那個項圈，你可以把奴隸帶進你的房間。
+(You lock the belt on her as she giggles.)  Strangely, not being able to touch is a turn on for me.
+（你把皮帶鎖在她身上時，她呵呵笑。）奇怪的是，無法觸摸對我來說是一種開啟。
+(You unlock the device from her waist.)  Great!  Metal detectors would have been problematic.
+（你從她腰間解鎖設備。）太棒了！ 金屬探測器會出問題。
+(You strap it on her head as she grumbles.)  I've never been a fan of these.
+（你在她抱怨時把它綁在了她的頭上。）我從來都不喜歡這些。
+(You remove the device as she nods quickly.)  This is much better, thanks!
+（你取下設備，她快速點頭。）這樣好多了，謝謝！
+(She whimpers as you whip her breast.)  Ow!  You already got everything, you won't whip a discount out of me.
+（她在你鞭打她的乳房時發出了嗚咽聲）噢！ 你已經得到了一切，你不會給我打折的。
+(You swing the crop on her torso.)  That's pretty unfair, I'm only trying to do my job.
+（你在她的軀幹上擺動作物。）這很不公平，我只是想做好我的工作。
+(You whip her butt as she whimpers from the pain.)  Bring subs to your place and whip them, not me!
+（你抽打她的屁股，她因疼痛而嗚咽。） 把奴隸帶到你的地方抽他們，而不是我！
+(You lash the leather crop pretty hard on her.)  Oooow!  I'm glad I'm not your slave.
+（你用力鞭打她的皮鞭。） 噢！ 我很高興我不是你的奴隸。
+(You restrain her feet and suspend her from the ceiling with the hemp rope.)  Hey!  I still have work to do here.
+（你綁住她的腳，用麻繩把她吊在天花板上。） 哎！ 我在這裡還有工作要做。
+(You release her from the ceiling and release her feet.)  Good!  I do prefer cages.
+（你把她從天花板上放開，鬆開她的腳。） 好！ 我更喜歡籠子。
+Welcome to the Bondage Club private rooms.  Are you looking to rent a room?
+歡迎來到束縛俱樂部私人房間。 您要租房子嗎？
+Welcome to the Bondage Club private rooms.  Do you want to improve your room?
+歡迎來到束縛俱樂部私人房間。 你想改善你的房間嗎？
+###_PLAYER
+Hi, I'm DialogPlayerName.
+嗨，我是 DialogPlayerName。
+###_NPC
+Nice to meet you, I'm DialogCharacterName.  I manage the private room rentals and improvements.
+很高興認識你，我是 DialogCharacterName。 我管理私人房間的出租和裝修。
+###_PLAYER
+Can you help me?
+你能幫助我嗎？
+###_NPC
+No, I'm not allowed to play with customers.  And I prefer to see you like that.  (She winks.)
+不，我不能和顧客一起玩。 而且我更喜歡看到你那樣。 （她眨眨眼。）
+###_PLAYER
+I have a few questions.
+我有幾個問題。
+###_NPC
+Of course.  What would you like to know?
+當然。 你想知道什麼？
+###_PLAYER
+I'd like to rent my own room.
+我想租自己的房間。
+###_NPC
+The rent is 250 $.  Do you have enough money?
+租金是 250 美元。 你有足夠的錢嗎？
+###_PLAYER
+I'd like to improve my room.
+我想改善我的房間。
+###_NPC
+Excellent!  The club can provide wardrobes, cages, security and expansions for private rooms.  What would you like?
+很好！ 俱樂部可以為私人房間提供衣櫃、籠子、安全和擴建。 你想要什麼？
+###_PLAYER
+What kind of beds do you have?
+你們有什麼樣的床？
+###_NPC
+(She opens a catalog and shows you the beds.)  All our beds are $150, which one would you like?
+（她打開目錄，給你看床。）我們所有的床都是 150 美元，你喜歡哪一張？
+###_PLAYER
+Can I change my bed later?	
+我可以稍後換床嗎？
+###_NPC
+Of course, but you will need to pay $150 again.
+當然可以，但是您需要再次支付 150 美元。
+###_PLAYER
+I'll take the white bed. (Pay $150)
+我要那張白色的床。 （支付 150 美元）
+I'll take the pink bed. (Pay $150)
+我要那張粉色的床。 （支付 150 美元）
+I'll take the black bed. (Pay $150)
+我要那張黑色的床。 （支付 150 美元）
+###_NPC
+Great!  We'll deliver your new bed right now.
+好極了！ 我們現在就給您送新床。
+###_PLAYER
+Can we play some kinky games?
+我們可以玩一些色色的遊戲嗎？
+###_NPC
+I don't have much to do and it's a quiet day.  I guess we can play.
+我沒有太多事可做，這是平靜的一天。 我想我們可以玩。
+I'd love to, but I have rooms and items to rent.
+我很樂意，但我有房間和物品要租。
+###_PLAYER
+Let's talk later.  (Leave her.)
+以後再說吧。 （離開她。）
+How much is a room?
+一個房間多少錢？
+###_NPC
+The price for a regular room is $250.
+普通房間的價格是 250 美元。
+###_PLAYER
+How long do I have the room for?
+我能擁有房間多久？
+###_NPC
+It's yours as long as you're a club member.
+只要您是俱樂部會員，它就是您的。
+###_PLAYER
+Can I invite friends over?
+我可以邀請朋友過來嗎？
+###_NPC
+Of course.  The room isn't huge, but it's big enough for four people.
+當然。 房間不大，但足夠容納四個人。如果你能擴建的話，也可以容納八個人。
+###_PLAYER
+Can I make my room bigger?
+我可以把我的房間變大嗎？
+###_NPC
+Yes, you can get two room expansions.  Each of them will allow you to receive four more friends.
+是的，您可以獲得兩個擴展房間。 每個擴展房間都可以讓您再接待四個朋友。
+###_PLAYER
+Can I get naked in my room?
+我可以在房間裡裸體嗎？
+###_NPC
+Absolutely, it's your room after all.  You can get naked or have sex.
+當然，畢竟這是你的房間。 你可以裸體或做愛。
+###_PLAYER
+What are the improvements I can get?
+我可以獲得哪些改進？
+###_NPC
+Wardrobe, fancy beds, cages, security and expansions for now.  But the club is always improving, you can check again later.
+衣櫃、花式床、籠子、安全設施和現在的房間擴建。 但是俱樂部一直在進步，你可以以後查看。
+###_PLAYER
+That's all the questions I had.
+這就是我所有的問題。
+###_NPC
+Alright.  What can I do for you then?
+好吧。 那我能為你做什麼？
+###_PLAYER
+Can I tie you up?
+我可以綁你嗎？
+###_NPC
+Alright, you can use anything you want on me.  I won't complain too much.
+好吧，你可以對我使用任何你想要的東西。 我不會抱怨太多。
+A subbie like you?  No way!  (She grabs your arms and restrains them.)  This is much better.
+像你這樣的奴隸？ 不可能！ （她抓住你的手臂並控制住）這樣好多了。
+###_PLAYER
+Will you tie me up?
+你會綁我嗎？
+###_NPC
+Sure!  Give me your hands.  (She restrains your arms.)  Anything else I can do for you?
+當然！ 給我你的手。 （她綁住你的手臂。）還有什麼我可以為你做的嗎？
+Miss, I cannot tie you up.  I don't want to get in trouble with a Domme.
+小姐，我不能捆綁你。 我不想惹上 Domme 的麻煩。
+###_PLAYER
+I've changed my mind.
+我改變主意了。
+Here's the money. (Pay 250$)
+這是錢。 （支付 250 美元）
+###_NPC
+Marvelous!  Here are your room keys.  (She gives you keys for your own room.)
+好極了！ 這是您的房間鑰匙。 （她給你自己房間的鑰匙。）
+###_PLAYER
+I don't have enough money.
+我沒有足夠的錢。
+###_NPC
+You can get work as a maid or take kidnapping bounties if you need money.
+如果你需要錢，你可以找一份女傭的工作或拿綁架賞金。
+###_PLAYER
+Great!  This room is mine now?
+真棒！ 這個房間現在是我的了？
+###_NPC
+Make yourself at home.  You can contact me anytime if you need improvements.
+請隨便一點，就像在自己家一樣。 如果您需要改進，可以隨時與我聯繫。
+###_PLAYER
+Thanks!  (Check your room.)
+謝謝！ （檢查你的房間。）
+I would like a wardrobe.
+我想要一個衣櫃。
+###_NPC
+An excellent choice.  The price is 100$.  Can you afford it?
+一個很好的選擇。 價格是 100 美元。 你買得起嗎？
+###_PLAYER
+I want some cages.
+我想要一些籠子。
+###_NPC
+We have a kinky tenant.  (She giggles.)  We can prepare cages for your room for $150, do you have the funds?
+我們有一個古怪的房客。 （她呵呵地笑。）我們可以為您的房間準備籠子，費用為 150 美元，您有錢嗎？
+###_PLAYER
+I'd like to invite more people.
+我想邀請更多人。
+###_NPC
+Of course, we can double the size of your room for $200, do you have the funds?
+當然，我們可以花 200 美元把你的房間擴大一倍，你有錢嗎？
+###_PLAYER
+How can I use the wardrobe?
+我該如何使用衣櫃？
+###_NPC
+The wardrobe allows you to sort your clothes and items.  To change from one look to another quickly.
+衣櫃可讓您整理衣服和物品。 快速從一種外觀轉變為另一種外觀。
+###_PLAYER
+Here's the money. (Pay 100$)
+這是錢。 （支付 100 美元）
+###_NPC
+Wonderful!  Give us a few seconds and we'll prepare your wardrobe.
+精彩的！ 給我們幾秒鐘，我們將為您準備好衣櫥。
+###_PLAYER
+Why do I need cages?
+為什麼我需要籠子？
+###_NPC
+To keep your submissives locked down of course.  You don't want to lose your properties.
+當然是為了鎖住你的奴隸。 你不想失去你的財產。
+###_PLAYER
+Here's the money. (Pay $150)
+這是錢。 （支付 150 美元）
+###_NPC
+Wonderful!  We'll move the cages in your room right now.
+好的！ 我們現在就把你房間裡的籠子搬走。
+###_PLAYER
+How does it work?
+它是如何工作的？
+###_NPC
+It's easy, just navigate to check on your friends in the expanded part of your room.  Four more friends will be able to join.
+這很簡單，只需導航以查看您房間的擴展部分中的朋友。 還有四個朋友可以加入。
+###_PLAYER
+Here's the money. (Pay $200)
+這是錢。 （支付 200 美元）
+###_NPC
+Wonderful!  Here are the keys for the expansion doors.  (She gives you the room expansion keys.)
+好極了！ 這是擴展門的鑰匙。 （她給了你房間擴展鑰匙。）
+###_PLAYER
+Can I get a security service?
+我可以獲得安全服務嗎？
+###_NPC
+(She nods.)  Since Pandora's Box moved in town, security is a must to protect your friends.  For $200, they will never get kidnapped again.
+（她點點頭。）自從潘多拉魔盒搬到城裡以來，為了保護您的朋友，安保措施必不可少。 只要 200 美元，他們就再也不會被綁架了。
+###_PLAYER
+Why do I need security?
+為什麼我需要安全服務？
+I want to cancel the security service.
+我想取消安全服務。
+###_NPC
+Security will patrol around your room and make sure that nobody from Pandora's Box touches your friends.
+安全人員將在您的房間周圍巡邏，確保潘多拉魔盒中的任何人都不會接觸您的朋友。
+Are you sure?  The $200 security fee isn't refundable.  And Pandora's Box might strike again.
+你確定嗎？ 200 美元的安全費不予退還。 潘多拉魔盒可能會再次來襲。
+###_PLAYER
+Can I cancel that deal later?
+我可以稍後取消這筆交易嗎？
+###_NPC
+(She nods.)  You can, but there's no refund for the $200 fee.
+（她點頭。）可以，但是 200 美元的費用不予退還。
+###_PLAYER
+Yes, cancel the security service.
+是的，取消安全服務
+###_NPC
+Very well, the security team will not patrol around your room anymore.  Beware of Pandora's spies.
+很好，安保小組不會再在您的房間周圍巡邏了。 當心潘多拉的間諜。
+###_PLAYER
+No, I need to think about it.
+不，我需要考慮一下。
+###_NPC
+Alright.  What can I do for you then?
+好吧。 那我能為你做什麼？
+###_PLAYER
+Here's the money. (Pay $400)
+這是錢。 （支付 400 美元）
+I'd like even more space.
+我想要更多的空間。
+###_NPC
+(She ponders.)  It could be done, but we'll need to renovate to get you a bigger room.  Can you cover the $400 fees for it?
+（她沉思。）可以做到，但我們需要翻新一下，給你換一個更大的房間。 你能支付 400 美元的費用嗎？
+Wonderful!  Security will start patrolling right away.  Pandora's Box will not annoy you anymore.
+好極了！ 安保人員將立即開始巡邏。 潘多拉魔盒不會再惹惱你了。
+This is great!  I'll call the maintenance team right now.  (They renovate your room to give you even more space.)
+好極了！ 我現在就給維修隊打電話。 （他們翻新你的房間，給你更多的空間。）
+

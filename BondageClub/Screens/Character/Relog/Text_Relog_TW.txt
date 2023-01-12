@@ -1,0 +1,28 @@
+You've disconnected from the server.
+你已經與伺服器斷開連接
+Enter your password to log back in.
+重新輸入密碼以登錄
+Account name:
+帳戶名：
+Password:
+密碼：
+Log back in
+重新登入
+Leave
+離開
+Validating name and password...
+正在驗證使用者名稱及密碼...
+Waiting in queue on position: QUEUE_POS
+排隊順序：QUEUE_POS
+Invalid name or password
+無效的使用者名稱或密碼
+Disconnected from server. Retrying...
+與伺服器斷開連接，重試中...
+Disconnected for duplicated login
+因重複登錄而失去連接
+Unable to connect to server. Retrying...
+無法連線到伺服器，正在重試...
+Connection rejected: your connection has been rate limited.
+拒絕連接：你的連接受到了速率限制。
+Enter your name and password
+請輸入你的帳戶和密碼
