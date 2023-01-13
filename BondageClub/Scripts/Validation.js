@@ -106,11 +106,12 @@ function ValidationHasArrayPropertyBeenModified(oldArray, newArray) {
 }
 
 /**
- *
- * @param {Item|null} previousItem
- * @param {Item|null} newItem
- * @param {AppearanceUpdateParameters} params -
- * @return {ItemDiffResolution}
+ * Resolves an appearance diff for the ItemScript group. This group has special rules and permissions which don't
+ * necessarily apply to or behave like other groups.
+ * @param {Item|null} previousItem - The previous item in the group
+ * @param {Item|null} newItem - The new item in the group
+ * @param {AppearanceUpdateParameters} params - The appearance update parameters that apply to the diff
+ * @return {ItemDiffResolution} - The diff resolution
  */
 function ValidationResolveScriptDiff(previousItem, newItem, {C, permissions, sourceMemberNumber}) {
 	let valid = true;
@@ -181,6 +182,12 @@ function ValidationResolveScriptDiff(previousItem, newItem, {C, permissions, sou
 				valid = false;
 			}
 		}
+	}
+
+	// If the change is invalid and we haven't had to revert or recreate the item completely, assign the sanitized
+	// properties to the item.
+	if (item && item === newItem && !valid) {
+		item.Property = sanitizedProperty;
 	}
 
 	if (item && item.Property) {
