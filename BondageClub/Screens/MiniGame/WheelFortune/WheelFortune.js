@@ -610,11 +610,7 @@ function WheelFortuneShibari() {
  * @returns {void} - Nothing
  */
 function WheelFortuneIsolationCell(Minutes) {
-	ChatRoomSlowtimer = 0;
-	ChatRoomSlowStop = false;
-	ChatRoomClearAllElements();
-	ChatRoomSetLastChatRoom("");
-	ServerSend("ChatRoomLeave", "");
+	ChatRoomLeave();
 	LogAdd("Locked", "Cell", CurrentTime + Minutes * 60000);
 	CommonSetScreen("Room", "Cell");
 }
