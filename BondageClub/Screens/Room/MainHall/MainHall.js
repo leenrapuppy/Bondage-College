@@ -303,7 +303,10 @@ function MainHallRun() {
 			MainHallStartEventTimer = CommonTime();
 			MainHallNextEventTimer = CommonTime() + 40000 + Math.floor(Math.random() * 40000);
 		} else {
-			DrawText(TextGet("OnlinePlayers") + " " + CurrentOnlinePlayers.toString(), 1650, 960, "White", "Black");
+			MainCanvas.textAlign = "right";
+			DrawText(TextGet("OnlinePlayers") + " " + CurrentOnlinePlayers.toString(), 1740, 950, "White", "Black");
+			MainCanvas.textAlign = "center";
+			DrawButton(1775, 900, 90, 90, "", "White", "Icons/Changelog.png", TextGet("OpenChangelog"));
 			DrawButton(1885, 900, 90, 90, "", "White", "Icons/ServiceBell.png", TextGet("RequestMaid"));
 		}
 		MainHallMaidWasCalledManually = false;
@@ -377,8 +380,8 @@ function MainHallClick() {
 			window.location = window.location;
 		}
 	}
-	
-	if (MouseIn(1645, 145, 90, 90)) MainHallMoveToChatSelect()
+
+	if (MouseIn(1645, 145, 90, 90)) MainHallMoveToChatSelect();
 
 	// The options below are only available if the player can move
 	if (Player.CanWalk() && (!Player.IsRestrained() || !Player.GameplaySettings.OfflineLockedRestrained)) {
@@ -454,6 +457,8 @@ function MainHallClick() {
 				MainHallNextEventTimer = CommonTime() + 40000 + Math.floor(Math.random() * 40000);
 				MainHallMaidWasCalledManually = true;
 			}
+		} else if (MouseIn(1775, 900, 90, 90)) {
+			MainHallOpenChangelog();
 		}
 	}
 
