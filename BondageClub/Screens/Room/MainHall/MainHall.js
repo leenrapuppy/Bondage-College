@@ -9,7 +9,14 @@ var MainHallIsHeadMaid = false;
 var MainHallHasOwnerLock = false;
 var MainHallHasLoverLock = false;
 var MainHallHasSlaveCollar = false;
+/** The max number of known tips */
+var MainHallMaxTip = 21;
+/** The index of the current tip */
 var MainHallTip = 0;
+/** The max delay to wait before changing the current tip */
+var MainHallTipCycleDelay = 10000;
+/** The timer that tracks the last time the tip cycled */
+var MainHallTipCycleTimer = null;
 var MainHallMaidWasCalledManually = false;
 var MainHallAsylumOpen = true;
 var MainHallBeingPunished = false;
@@ -146,7 +153,6 @@ function MainHallLoad() {
 		if (Player.Appearance[A].Asset.Name == "SlaveCollar")
 			if (Player.Appearance[A].Property)
 				MainHallHasSlaveCollar = true;
-	MainHallTip = Math.floor(Math.random() * 21);
 	CommonReadCSV("NoArravVar", "Room", "Management", "Dialog_NPC_Management_RandomGirl");
 	CommonReadCSV("NoArravVar", "Room", "KidnapLeague", "Dialog_NPC_KidnapLeague_RandomKidnapper");
 	CommonReadCSV("NoArravVar", "Room", "Private", "Dialog_NPC_Private_Custom");
@@ -165,6 +171,8 @@ function MainHallLoad() {
  */
 function MainHallRun() {
 	KidnapLeagueResetOnlineBountyProgress();
+
+	MainHallCycleTips();
 
 	// Out of punishment mode
 	if (!MainHallBeingPunished) {
@@ -320,6 +328,16 @@ function MainHallRun() {
 		}
 	}
 
+}
+
+/**
+ * Randomly select a new tip to display
+ */
+function MainHallCycleTips() {
+	if (!MainHallTipCycleTimer || (MainHallTipCycleTimer + MainHallTipCycleDelay) <= CommonTime()) {
+		MainHallTip = Math.floor(Math.random() * MainHallMaxTip);
+		MainHallTipCycleTimer = CommonTime();
+	}
 }
 
 /**
