@@ -32,7 +32,6 @@ var ChatSearchReturnToScreen = null;
 var ChatSearchLanguage = "";
 var ChatSearchLanguageTemp = "";
 var ChatSearchFilterTermsTemp = "";
-var ChatRoomJoinLeash = "";
 
 /**
  * Loads the chat search screen properties, creates the inputs and loads up the first 24 rooms.

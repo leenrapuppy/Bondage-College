@@ -37,7 +37,15 @@ var ChatRoomHelpSeen = false;
 var ChatRoomAllowCharacterUpdate = true;
 var ChatRoomStruggleAssistBonus = 0;
 var ChatRoomStruggleAssistTimer = 0;
+/**
+ * The timer started when a slowed player attempts to leave
+ * @type {number}
+ */
 var ChatRoomSlowtimer = 0;
+/**
+ * Whether someone attempted to stop the player in the middle of a slow-leave
+ * @type {boolean}
+ */
 var ChatRoomSlowStop = false;
 var ChatRoomChatHidden = false;
 var ChatRoomCharacterCount = 0;
@@ -61,10 +69,21 @@ var ChatRoomLastSpace = "";
 /** @type {null | { Name: string, Description: string, Background: string, Private: boolean, Space: string, Game: string, Admin: number[], Limit: string, Language: string, BlockCategory: string[] }} */
 var ChatRoomNewRoomToUpdate = null;
 var ChatRoomNewRoomToUpdateTimer = 0;
-/** @type {number[]} */
+/**
+ * The list of MemberNumbers whose characters we're holding the leash of
+ * @type {number[]}
+ */
 var ChatRoomLeashList = [];
-/** @type {null | number} */
+/**
+ * The MemberNumber of the character holding our leash
+ * @type {number|null}
+ */
 var ChatRoomLeashPlayer = null;
+/**
+ * The room name to join when being leashed
+ * @type {string}
+ */
+var ChatRoomJoinLeash = "";
 var ChatRoomTargetDirty = false;
 
 /**
@@ -141,6 +160,10 @@ const ChatRoomArousalMsg_ChanceGagMod = {
 };
 
 var ChatRoomHideIconState = 0;
+/**
+ * The list of buttons in the top-right
+ * @type {string[]}
+ * */
 var ChatRoomMenuButtons = [];
 let ChatRoomFontSize = 30;
 const ChatRoomFontSizes = {
