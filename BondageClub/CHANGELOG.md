@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2023-01-05
-* Last recorded PR: [#3831](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3831)
-* Last recorded commit hash: `feebed5cec2225467b80cb9d57c16f79228ef34c`
+* Changelog last updated: 2023-01-13
+* Last recorded PR: [#3858](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3858)
+* Last recorded commit hash: `4c72dcf8294ebb4f9d01b25a357e597dd397e72d`
 
 ## [R88]
 
@@ -55,6 +55,26 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * bananarama92 - Converted the lovers vibrator into a vibrating item ([#3828](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3828))
 
 ### [Beta Fixes]
+* Ben987 - Fixed a couple issues on the Wheel of Fortune
+* bananarama92 - Consolidated the extended item handling of text input fields ([#3834](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3834))
+* bananarama92 - Disabled blindness-related effects while in the crafting screen ([#3835](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3835))
+* Ada - Updated to Kinky Dungeon 3.9 ([#3836](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3836))
+* Da'Inihlus - Provided updates for the Chineses translation ([#3837](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3837))
+* KyraObscura - Fixed the Bandana's short hair asset ([#3839](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3839))
+* KyraObscura - Added a 'hide hair accessories' option to Custom Latex Hood ([#3840](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3840))
+* KyraObscura - Decreased Opacity of the Custom Latex Hood's Transparent Panels ([#3841](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3841))
+* KyraObscura - Fixed the layer order for the Custom Latex Hood ([#3842](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3842))
+* KyraObscura - Decreased the priority of the Harness Cat Mask ([#3843](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3843))
+* Estsanatlehi - Fixed a bug impacting an activity's arousal and sound effects ([#3844](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3844))
+* KyraObscura - Fixed the Cat Mask Harness being to quick to add/remove ([#3847](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3847))
+* KyraObscura - Fixed an alpha mask issue with the Cross Skirt ([#3849](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3849))
+* Estsanatlehi - Fixed a bug that caused Kinky Dungeon's click sound to trigger on some keypresses, and an broken UI when running with a non-English language ([#3852](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3852))
+* Estsanatlehi - Removed the WebGag from the random set of restraints ([#3853](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3853))
+* Fareeha - Added a Traditional Chinese translation ([#3850](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3850))
+* KyraObscura - Fixed some issues with the Custom Latex Hood's color groups and layers ([#3848](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3848))
+* Estsanatlehi - Removed dialogs specific to the SilkStraps ([#3854](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3854))
+* Ellie - Fixed an infinite loop when sanitizing invalid ItemScript changes ([#3856](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3856))
+* Estsanatlehi - Added a missing label for the inverted suspension rope ([#3858](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3858))
 
 
 ## [R87]
