@@ -118,6 +118,10 @@ function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = 0;
 
+	if (!data.Item.Property) data.Item.Property = {};
+	if (typeof data.Item.Property.NextShockTime !== "number") data.Item.Property.NextShockTime = 0;
+	if (typeof data.Item.Property.Type !== "string") data.Item.Property.Type = "";
+
 	// Trigger a check if a new message is detected
 	let lastMsgIndex = ChatRoomChatLog.length - 1;
 	if (lastMsgIndex >= 0 && ChatRoomChatLog[lastMsgIndex].Time > persistentData.CheckTime)
