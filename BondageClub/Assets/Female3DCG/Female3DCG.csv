@@ -770,7 +770,9 @@ Eyebrows,Eyebrows8,Eyebrows 8
 Hands,,Hands
 Hands,Default,Default
 Head,,Head
-Head,Default,Default
+Head,Default,Regular Ears
+Head,SmallEars,Small Ears
+Head,NoEars,Subtle Ears
 ItemFeet,,Feet
 ItemFeet,NylonRope,Nylon Rope
 ItemFeet,HempRope,Hemp Rope

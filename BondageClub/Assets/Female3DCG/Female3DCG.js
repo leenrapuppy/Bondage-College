@@ -2587,8 +2587,36 @@ var AssetFemale3DCG = [
 			"HairFront4b", "HairFront5", "HairFront5b", "HairFront6", "HairFront6b", "HairFront7", "HairFront7b",
 			"HairFront8", "HairFront8b", "HairFront9", "HairFront9b", "HairFront10", "HairFront10b", "HairFront11",
 			"HairFront11b", "HairFront12", "HairFront12b", "HairFront13", "HairFront13b", "HairFront14", "HairFront14b",
-			"HairFront15", "HairFront16", "HairFront17", "HairFront17b", "HairFront18", "HairFront19", "HairFront20",
-			"HairFront21",
+			"HairFront15", "HairFront16", "HairFront17",
+			{ Name: "HairFront17b",
+				Layer: [
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
+					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
+					]
+			},
+			{ Name: "HairFront18",
+				Layer: [
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
+					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
+					]
+			},
+			"HairFront19",
+			{ Name: "HairFront20",
+				Layer: [
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
+					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
+					]
+			},
+			{ Name: "HairFront21",
+				Layer: [
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
+					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
+					]
+			},
 			{ Name: "HairFront22", Top: 6, Left: 134,
 				Layer: [
 					{ Name: "Base", Priority: 51 },
@@ -2623,9 +2651,21 @@ var AssetFemale3DCG = [
 					{ Name: "FrontTip", Priority: 54.5, CopyLayerColor: "Tip" },
 				],
 			}, //HairFront23b
-			{ Name: "HairFront24" },
+			{ Name: "HairFront24",
+				Layer: [
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
+					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
+					]
+			},
 			{ Name: "HairFront25" },
-			{ Name: "HairFront26" },
+			{ Name: "HairFront26",
+				Layer: [
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
+					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
+					]
+			},
 			{ Name: "HairFront27", AllowPose: ["Suspension"],
 			Layer: [
 				{ Name: "Base" },
@@ -2769,8 +2809,20 @@ var AssetFemale3DCG = [
 			{ Name: "HairBack6b" },
 			{ Name: "HairBack21", HideForPose: ["Suspension"] },
 			{ Name: "HairBack22", HideForPose: ["Suspension"] },
-			{ Name: "HairBack23", AllowPose: ["Suspension", "AllFours"], Priority: 48 },
-			{ Name: "HairBack24", AllowPose: ["Suspension", "AllFours"], Priority: 48 },
+			{ 
+				Name: "HairBack23", AllowPose: ["Suspension", "AllFours"],
+				Layer: [
+					{Name: "Main", Priority: 48},
+					{Name: "Behind", CopyLayerColor: "Main"},
+				]
+			},
+			{ 
+				Name: "HairBack24", AllowPose: ["Suspension", "AllFours"],
+				Layer: [
+					{Name: "Main", Priority: 48},
+					{Name: "Behind", CopyLayerColor: "Main"},
+				]
+			},
 			{ Name: "HairBack25", AllowPose: ["Suspension", "Hogtied"] },
 			{ Name: "HairBack26", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
 			{ Name: "HairBack27", AllowPose: ["Suspension", "Hogtied"] },
@@ -2938,6 +2990,28 @@ var AssetFemale3DCG = [
 		]
 	},
 
+	{
+		Group: "Head",
+		ParentColor: "BodyUpper",
+		Priority: 7,
+		AllowNone: false,
+		Asset: [
+			{ Name: "Default"},
+			{ 
+			Name: "SmallEars",
+			Attribute: ["SmallEars"],
+			Random: false,
+			},
+			{ 
+			Name: "NoEars",
+			Attribute: ["NoEars"],
+			Random: false,
+			},
+		],
+		ColorSuffix: { "HEX_COLOR": "White" },
+		InheritColor: "BodyUpper"
+	},
+	
 	// Facial Expression specific
 	{
 		Group: "Blush",
@@ -2988,17 +3062,6 @@ var AssetFemale3DCG = [
 		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper",
 		Color: ["Default"],
-	},
-
-	{
-		Group: "Head",
-		ParentColor: "BodyUpper",
-		Priority: 7,
-		AllowNone: false,
-		AllowCustomize: false,
-		Asset: ["Default"],
-		ColorSuffix: { "HEX_COLOR": "White" },
-		InheritColor: "BodyUpper"
 	},
 
 	// Item specific
