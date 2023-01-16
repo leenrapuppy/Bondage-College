@@ -1,0 +1,145 @@
+###_NPC
+A gag will control your mouth, while I control your mind.
+口塞會控制你的嘴，而我會控制你的思想。
+The tighter the better!  This also applies to gags.
+越緊越好！口塞也是。
+A silenced magician cannot do any harm.
+無法說話的魔法師造成不了任何傷害。
+Stop your futile mumblings.
+停止你徒勞的呢喃吧。
+(She catches her breath, barely struggles and seems very proud of you.)
+（她調整呼吸，幾乎沒有掙扎，似乎為你感到非常自豪。）
+(She releases and you dress back up.)  Sorry, you failed the test, you're not ready to learn yet.
+（她放開你，你穿好衣服。）對不起，你沒通過考試，你還沒準備好學習。
+(A prestigious magus from House Maiestas salutes you.)  Your reputation heralds you, great wizard DialogPlayerName.
+（一位來自麥斯塔威法社的威望素著的魔戰士向你致敬。）你的名聲預示著你的到來，偉大的法師，DialogPlayerName。
+(A high sorcerer from House Vincula rushes to you.)  I've heard about you!  You're the powerful magician DialogPlayerName.
+（溫庫拉束限社的一名高級術士衝向你。）我聽說過你！你是那位強大的魔法師DialogPlayerName。
+(You meet one of the oracles from House Amplector.)  Sweetheart, you're more than a sage now, you're a legend.  (She gives you a hug.)
+（你遇到了來自安派托懷圍社的一位先知。）親愛的，你現在不僅僅是一個聖人，你是一個傳奇。（她給了你一個擁抱。）
+(A powerful warlock from House Corporis does a secret handshake with you.)  It's an honor to meet you, witch DialogPlayerName.
+（科潑裡軀形社的一位強大的邪術師與你秘密地握手。）很榮幸見到你，女巫DialogPlayerName。
+###_PLAYER
+The pleasure is reciprocal, magus.
+快樂是互惠的，魔戰士。
+###_NPC
+(You exchange a few words on the magic school and she changes subject.)  Have you heard of House Maiestas secret technique?
+（你們就魔法學派交流了幾句，她換了話題。）你聽說過麥斯塔威法社的秘術嗎？
+###_PLAYER
+Hey!  Great to see you sorcerer!
+嘿！很高興見到你，術士！
+###_NPC
+(You do a high five and chat a little, the subject changes quickly.)  You might be ready to learn Vincula's forbidden spell.
+（你們高高擊掌，聊了幾句，然後改變了話題。）你可能已經準備好學習溫庫拉的禁咒了。
+###_PLAYER
+(Give the oracle a long warm hug.)
+（給先知一個長而溫暖的擁抱。）
+###_NPC
+(You share a warm and loving hug.)  The oracles have been talking.  Would you like to learn House Amplector ritual?
+（你們分享了一個溫暖而甜蜜的擁抱。）先知將言。你想學習安派托懷圍社的儀式嗎？
+###_PLAYER
+The honor is mine, mighty warlock.
+榮譽屬於我，強大的邪術士。
+###_NPC
+(You talk about houses wars and she changes subject.)  The warlock inner circle is ready to teach you a dark spell, are you ready for it?
+（你討論著結社之間的戰爭，接著她轉移了話題。）邪術師的高層準備教你一個黑暗咒語，你準備好了嗎？
+###_PLAYER
+Sorry, I must hurry.  (Leave her.)
+對不起，我趕時間。（離開她。）
+Tell me of that secret technique.
+跟我講講這個秘密的技術。
+###_NPC
+House Maiestas master's control and self-control.  We have developed a technique to cast much easier while being restrained.
+麥斯塔威法社掌握控制和自我控制。我們開發了一種技術，可以在被束縛的時候更輕鬆地施放咒語。
+###_PLAYER
+Really?  What forbidden spell?
+真的嗎？什麼禁咒？
+###_NPC
+We created a forbidden spell: the Stricta Lorum.  This magic will create, strap and tighten a magic armbinder on your opponent.
+我們創造了一個禁咒：交手緊縛。這種魔法會在你的對手身上創造、捆綁和收緊一個魔法單手套。
+###_PLAYER
+I would love to learn more on that ritual.
+我很想了解更多關於那個儀式的訊息。
+###_NPC
+The oracles perfected the ritual of the flesh.  We repeat it everyday so being stripped doesn't affect our spellcasting ability.
+先知們完善了肉體的儀式。我們每天都在重複它，這使得被脫光衣服不會影響我們的施法能力。
+###_PLAYER
+The dark spell sounds interesting.
+黑暗咒語聽起來很有趣。
+###_NPC
+The dark spell name is: Nuda Caro.  It fully strips your opponent in one incantation, leaving only naked flesh to burn.
+黑暗咒語名稱是：赤裸肉身。僅僅一個咒語就能完全脫光你的敵人，讓赤裸的肉體裸露著發燙。
+###_PLAYER
+Can I learn this?
+我可以學這個嗎？
+###_NPC
+(She nods.)  You could, but you must face me in battle first.  I must make sure you're ready.
+（她點頭。）你可以，但你必須先在戰鬥中面對我。我必須確保你準備好了。
+###_PLAYER
+I'm ready!  (Fight her.)
+我準備好了！（與她戰鬥。）
+Forget it.  (Leave her.)
+忘了它吧。（離開她。）
+(Release her.)
+（放開她。）
+###_NPC
+(You release her as she nods slowly.)  Wizard, you're ready to learn House Maestas secret self-control technique.
+（你鬆開她，她慢慢點頭。）法師，你已經準備好學習麥斯塔威法社的秘密自我控制技術了。
+(You release her as she gives you a high five.)  I'll teach you House Vincula forbidden armbinder spell: the Stricta Lorum.
+（你放開她，這時她與你高高擊掌。）我會教你溫庫拉束限社的單手套禁咒：交手緊縛。
+###_PLAYER
+(Release and hug her.)
+（解開並擁抱她。）
+###_NPC
+(You release her and exchange a long hug.)  You're a true sage, I will teach you House Amplector ritual of the flesh.
+（你解開她，與她分享了一個長長的擁抱。）你是一個真正的賢者，我會教你安派托懷圍社的肉體儀式。
+###_PLAYER
+(Spank and release her.)
+（拍打她然後解開她。）
+###_NPC
+(She jumps from the pain as you release her.)  Witch, you're ready for House Corporis dark spell: Nuda Caro.
+（你解開她時，她也因為疼痛而跳起來。）女巫，你已經準備好學習科潑裡軀形社的黑暗咒語：赤裸肉身。
+###_PLAYER
+(Learn the self-control technique.)
+（學習自我控制技術。）
+###_NPC
+(After hours and hours of bondage training, you feel that restraints won't hamper your spells too much.)  Congratulations, you did it.
+（經過數小時的束縛訓練，你感到束縛不再會過多地妨礙你的咒語。）恭喜，你做到了。
+###_PLAYER
+(Learn the Stricta Lorum spell.)
+（學習交手緊縛咒語。）
+###_NPC
+(After hours and hours of spell casting, you master the Stricta Lorum spell.)  Magician!  You're ready for bondage magic battles.
+（經過數小時的咒語施法，你掌握了交手緊縛咒語。）魔術師！你已經準備好進行束縛魔法戰鬥了。
+###_PLAYER
+(Learn the ritual of the flesh.)
+（學習肉體儀式。）
+###_NPC
+(After hours and hours of nude training, you feel that being stripped won't affect your spells at all.)  Sweetie, you're the best.
+（經過數小時的裸體訓練，你感到脫光衣服根本不會影響你的咒語。）親愛的，你是最棒的。
+###_PLAYER
+(Learn the Nuda Caro spell.)
+（學習赤裸肉身咒語。）
+###_NPC
+(After hours and hours of spell casting, you master the Nuda Caro spell.)  Strike first and your opponents won't stand a chance.
+（經過數小時的施法，你掌握了赤裸肉身咒語。）先發制人，你的對手將毫無勝算。
+###_PLAYER
+Thank you so much.
+太感謝了。
+###_NPC
+It's been my pleasure.  Stay with us if you don't want to lose that knowledge.
+這是我的榮幸。如果你不想失去這些知識，請留在我們這邊。
+###_PLAYER
+(Leave her.)
+（離開她。）
+I will do better next time.
+下次我會做得更好。
+###_NPC
+(She nods.)  I'm sure you will.
+（她點頭。）我相信你會的。
+###_PLAYER
+Can you teach me anyway?
+你還能教我嗎？
+###_NPC
+(She shakes her head from left to right.)
+（她從左到右搖頭。）

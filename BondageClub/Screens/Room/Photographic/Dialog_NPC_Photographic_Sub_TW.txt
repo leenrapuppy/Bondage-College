@@ -1,0 +1,377 @@
+###_NPC
+Wink if I should take pictures, nod if I should free you.
+如果我應該拍照就眨眼，如果我應該釋放你就點頭。
+(She licks her lips seeing the gag and allows you to silence her easily.)
+（她看到塞子舔了舔嘴唇，讓你很容易讓她閉嘴。）
+(You remove her gag and she sighs.)  I hope that was worth it.
+（你拿開她的嘴，她嘆了口氣。）我希望這是值得的。
+(You put some earplugs into place.) Oh, everything is quiet, hehe.
+（你塞上耳塞。） 哦，一切都很安靜，嘿嘿。
+(You pull the earplugs out.) Hehe. Now i can hear again. (She giggles.)
+（你拔出耳塞。） 呵呵。 現在我又能聽到了。 （她呵呵笑。）
+(She hums a happy song as you restrain her arms.)  I hope you come often Miss.
+（你拉住她的手臂，她哼著歡快的歌）希望你常來，小姐。
+(You free her arms and she stretches a little.)  What will you use on me next?
+（你鬆開她的手臂，她稍微伸了伸懶腰。）接下來你要用什麼對我？
+(You restrain her hands securely as she starts to giggle.)  Hehe, this is wonderful.
+（當她開始呵呵笑時，你牢牢地抓住了她的手。） 嘿嘿，這太棒了。
+(You release her hands.)  I wonder what you will use next. (She giggles.)
+（你鬆開她的手。）我想知道你接下來會用什麼。 （她呵呵笑。）
+(You restrain her legs securely while she moans of pleasure.)  This is wonderful.
+（當她高興地呻吟時，你牢牢地固定住她的腿。）這太棒了。
+(You release her legs.)  The things you do for a great photo.
+（你鬆開她的腿。）你為一張好照片所做的事情。
+(You restrain her legs with the long hemp rope and suspend her by the feet from the ceiling.)  Oh my god!
+（你用長長的麻繩勒住她的腿，把她的腳吊在天花板上。） 我的天啊！
+(She wiggles her feet playfully as you restrain them.)  This is great.
+（當你固定住她的腳時，她開玩笑地擺動著她的腳。）這太棒了。
+(You untie the hemp rope from the ceiling.)  Wow!  That was quite a ride.
+（解開天花板上的麻繩）哇！ 那真是一段旅程。
+(You release her feet.)  Sweet freedom?
+（你放開她的腳。） 甜蜜的自由？
+(You strap the collar around her neck.)  That definitely looks submissive.
+（你把項圈繫在她的脖子上。）那絕對看起來很順從。
+(You remove the collar from her neck.)  Much better!
+（你從她脖子上取下項圈。）好多了！
+(She rocks her hips and struggles as you lock the device on her.)
+（當你將設備鎖定在她身上時，她搖晃著臀部並掙扎著。）
+(She seems relieved as you unlock the device.)  Thanks, that was overdue.
+（當你解鎖設備時，她似乎鬆了一口氣。）謝謝，那已經過期了。
+(You prepare a full body harness on her torso as she blushes.)  This is very erotic.
+（當她臉紅時，你在她的軀幹上準備了全身式安全帶。）這非常色情。
+(You remove the body harness from her torso.)  The natural look should shine.
+（你從她的軀幹上取下身體背帶。）自然的外觀應該閃閃發光。
+(You strap the device on her head as she hums a happy song.)  Does that not seem too anonymous?
+（當她哼著一首歡快的歌曲時，你把設備戴在她的頭上。）這看起來是不是太匿名了？
+(You remove the device and she looks at you.)  That was quite an experience.
+（你取下設備，她看著你。）那是一次很棒的經歷。
+(She moans as you whip her breast.)  Those who want to be beautiful must suffer.
+（當你鞭打她的乳房時，她呻吟著。）那些想要美麗的人必須受苦。
+(She jumps and makes her breast wiggle with each hit.)  Anything for art.
+（她跳了起來，每次擊打都讓她的乳房擺動。）為了藝術什麼都行。
+(She trembles and moans with each lash.)  This is gonna leave amazing marks on my skin.
+（每鞭打她都會顫抖和呻吟。）這會在我的皮膚上留下驚人的痕跡。
+(You whip her butt with the leather crop as she wiggles it for more.)
+（當她扭動更多時，你用皮革鞭打她的屁股。）
+Does that apply to the picture?
+這適用於圖片嗎？
+We should repeat that in the next photo session.
+我們應該在下一次拍照時重複這一點。
+A nice photo is a work of art.
+一張漂亮的照片是一件藝術品。
+Huh, was that it?
+咦，是這樣嗎？
+Oh, ah, how am I supposed to focus on my work?
+哦，啊，我應該如何專注於我的工作？
+(She looks satisfied.) That facilitates the happy facial expression.
+（她看起來很滿意。） 這促進了快樂的臉部表情。
+Pity, we just got started.
+可惜，我們才剛剛開始。
+###_NPC
+Hello, I'm DialogCharacterName, the club photographer and a model.
+你好，我是 DialogCharacterName ，俱樂部攝影師兼模特兒。
+###_PLAYER
+Hello, I'm DialogPlayerName. Pleased to meet you.
+你好，我是 DialogPlayerName 。 很高興認識你。
+###_NPC
+Pleased to meet you. Would you like to take a picture of you or me?
+很高興認識你。 你想拍一張你或我的照片嗎？
+###_PLAYER
+I'd like to ask you some questions.
+我想問你一些問題。
+###_NPC
+Don't be shy.  How can I help you?
+不要害羞。 我怎麼幫你？
+###_PLAYER
+Please take a photo.
+請拍照。
+###_NPC
+Please look friendly.
+請看起來友好。
+###_PLAYER
+(Wink for a photo.)
+（眨眼拍照。）
+###_NPC
+Please look helpless.
+請看起來無助。
+###_PLAYER
+I'll change some clothes.
+我去換幾件衣服。
+###_NPC
+Yeah, show me your wonderful body.
+好的，讓我看看你美妙的身體。
+###_PLAYER
+Please use some toys on me.
+請對我使用一些玩具。
+###_NPC
+What should I use?
+我應該使用什麼？
+She points to her restraints.
+她指著自己的束縛。
+###_PLAYER
+Please take off your clothes.
+請脫掉你的衣服。
+###_NPC
+Where should I start?
+我應該從哪裡開始？
+###_PLAYER
+Please change your pose.
+請換個姿勢
+###_NPC
+Alright, what pose would you like?
+好的，你喜歡什麼姿勢？
+###_PLAYER
+(Nod for help.)
+（點頭求助。）
+###_NPC
+I'll help you right away.  (She releases you.)
+我馬上幫你。 （她放開了你。）
+(She checks your locks.)  I'm sorry, you'll need to get a maid for that.
+（她檢查你的鎖。）對不起，你需要為此找個女傭。
+I'm sorry, the maids told me not to help you.
+對不起，女傭們讓我不要幫你。
+###_PLAYER
+Goodbye. (Leave her.)
+再見。 （離開她。）
+###_NPC
+Go on, don't be shy.
+繼續，不要害羞。
+###_PLAYER
+(Remove hat.)
+（脫下帽子。）
+(Remove gloves.)
+（脫下手套。）
+(Remove cloth.)
+（脫下衣服。）
+(Remove lower cloth.)
+（脫下褲子。）
+###_NPC
+Go on, don't be shy.
+繼續，不要害羞。
+###_PLAYER
+(Remove bra.)
+（脫下胸罩。）
+###_NPC
+Show me your curves.
+告訴我你的曲線。
+###_PLAYER
+(Remove panties.)
+（脫下內褲。）
+###_NPC
+What an unrestrained beast.
+多麼奔放的野獸。
+###_PLAYER
+(Remove socks.)
+（脫下襪子。）
+###_PLAYER
+(Remove shoes.)
+（脫鞋。）
+###_NPC
+A first step.
+第一步。
+###_PLAYER
+I'll go to the closet.
+我要去一下壁櫥。
+###_NPC
+If you say so.
+如果你這麼說的話。
+Alright then.
+那好吧。
+###_PLAYER
+Use some toys for the head.
+在頭部用一些玩具。
+Use some toys for the mouth.
+給嘴巴用一些玩具。
+Use some toys for the neck.
+在脖子用一些玩具。
+###_NPC
+Is this alright?
+這樣可以嗎？
+###_PLAYER
+Use some toys for the arms.
+在手臂用一些玩具。
+###_NPC
+What do you want?
+你想要什麼？
+###_PLAYER
+Use some toys for the torso.
+在軀幹使用一些玩具。
+Use some toys for the legs.
+在腿使用一些玩具。
+Use some toys for the feet.
+在腳使用一些玩具。
+###_PLAYER
+This will do just fine.
+這樣就可以了。
+###_NPC
+Alright, should i take a photo?
+好吧，我應該拍照嗎？
+###_PLAYER
+(Nod satisfied.)
+（滿意地點頭。）
+###_PLAYER
+Take off your hat.
+摘下你的帽子。
+###_NPC
+(She throws it away in a wide arc.)
+（她把它扔得很遠。）
+###_PLAYER
+Take off your gloves.
+脫下你的手套。
+###_NPC
+(One finger at a time, she takes them off.)
+（一次一根手指，她將它們取下。）
+###_PLAYER
+Take off your cloth.
+脫掉你的衣服。
+###_NPC
+(She slowly strips.)
+（她慢慢地脫掉衣服。）
+###_PLAYER
+Take off your bra.
+脫掉你的胸罩。
+###_NPC
+(With an elegant turn, she takes it off.)
+（她優雅地轉過身，把它摘下來。）
+###_PLAYER
+Take off your lower cloth.
+脫下你的褲子。
+###_NPC
+(She strips and wiggles her butt.)
+（她脫光衣服並擺動著她的屁股。）
+###_PLAYER
+Take off your panties.
+脫下你的內褲。
+###_NPC
+(She slowly pulls them down.)
+（她慢慢地把它們拉下來。）
+###_PLAYER
+Take off your socks.
+脫掉你的襪子。
+###_NPC
+(One by one, she takes off her socks.)
+（她一件一件地脫襪子。）
+###_PLAYER
+Take off your shoes.
+脫掉你的鞋子。
+###_NPC
+(She steps out of her shoes.)
+（她脫下鞋子。）
+###_PLAYER
+Please dress back up.
+請重新打扮一下。
+###_NPC
+Alright, if you say so.
+好吧，如果你這麼說。
+(She shows you a bright smile.)
+（她向你露出燦爛的笑容。）
+###_PLAYER
+Move your arms
+動動你的手臂
+###_NPC
+How should I move them?
+我應該如何移動它們？
+###_PLAYER
+Move your legs
+移動你的腿
+###_NPC
+How should I stand?
+我該怎麼站？
+###_PLAYER
+That's enough for now.
+現在這樣就夠了。
+Relax your arms.
+放鬆你的手臂。
+###_NPC
+(She holds her arms casually in front.)
+（她隨意地把雙臂抱在前面。）
+###_PLAYER
+Hold your arms up.
+舉起你的手臂。
+###_NPC
+(She lifts her arms up.)
+（她舉起雙臂。）
+###_PLAYER
+Raise your arms high.
+高舉雙臂。
+###_NPC
+(She reaches above her head.)
+（她把手舉過頭頂。）
+###_PLAYER
+Hold your hands together behind your back.
+將雙手放在背後。
+###_NPC
+(She moves her hands behind her.)
+（她把手移到身後。）
+###_PLAYER
+Show me your hands together behind you.
+讓我看看你的手在你身後併攏。
+###_NPC
+(She moves her hands out to the side.)
+（她把手伸到一邊。）
+###_PLAYER
+Touch your elbows together behind your back.
+在背後觸碰你的手肘。
+###_NPC
+(She touches her wrists and elbows together behind herself.)
+（她的手腕和手肘在身後併攏。）
+Would you like any other pose?
+你想要別的姿勢嗎？
+###_PLAYER
+Relax your legs.
+放鬆你的腿。
+###_NPC
+(She stands upright.)
+（她站直了。）
+###_PLAYER
+Close your legs.
+併攏你的腿。
+###_NPC
+(She stands with her legs together.)
+（她併攏雙腿站立。）
+###_PLAYER
+Kneel down.
+下跪。
+###_NPC
+(She kneels on the ground.)
+（她跪在地上。）
+Would you like any other pose?
+你想要別的姿勢嗎？
+###_PLAYER
+What's going on here?
+這裡發生了什麼事？
+###_NPC
+In the photo studio you can make pictures and collect them.
+在照相館，您可以製作照片並收集照片。
+###_PLAYER
+What do the pictures cost?
+照片的價格是多少？
+###_NPC
+Nothing, this is a service of the club.
+免費，這是俱樂部的服務。
+###_PLAYER
+Why is the room so barren?
+為什麼房間這麼貧瘠？
+###_NPC
+This is a neutral photo background.
+這是一個中性的照片背景。
+###_PLAYER
+Can I tie you up?
+我可以綁你嗎？
+###_NPC
+Of course, if that's necessary for the photo session.
+當然，如果那是拍照的必要條件。
+###_PLAYER
+Will you restrain me?
+你會綁我嗎？
+###_NPC
+I would do much more for a good picture.
+為了一張好照片，我會做更多的事情。
+###_PLAYER
+I don't have any more questions.
+我沒有更多問題了。
+###_NPC
+Well then, show me your best pose.
+那麼，讓我看看你最好的姿勢吧。
+(She shows you her restraints.) I would like to, but...
+（她向你展示她的束縛。）我願意，但是……
