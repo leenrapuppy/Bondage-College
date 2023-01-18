@@ -39,14 +39,14 @@ const ExtendedXY = [
  */
 const ExtendedXYWithoutImages = [
 	[], //0 placeholder
-    [[1385, 450]], //1 option per page
-    [[1260, 450], [1510, 450]], //2 options per page
-    [[1135, 450], [1385, 450], [1635, 450]], //3 options per page
-    [[1260, 450], [1510, 450], [1260, 525], [1510, 525]], //4 options per page
-    [[1135, 450], [1385, 450], [1635, 450], [1260, 525], [1510, 525]], //5 options per page
-    [[1135, 450], [1385, 450], [1635, 450], [1135, 525], [1385, 525], [1635, 525]], //6 options per page
-    [[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1135, 525], [1385, 525], [1635, 525]], //7 options per page
-    [[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1010, 525], [1260, 525], [1510, 525], [1760, 525]], //8 options per page
+	[[1385, 450]], //1 option per page
+	[[1260, 450], [1510, 450]], //2 options per page
+	[[1135, 450], [1385, 450], [1635, 450]], //3 options per page
+	[[1260, 450], [1510, 450], [1260, 525], [1510, 525]], //4 options per page
+	[[1135, 450], [1385, 450], [1635, 450], [1260, 525], [1510, 525]], //5 options per page
+	[[1135, 450], [1385, 450], [1635, 450], [1135, 525], [1385, 525], [1635, 525]], //6 options per page
+	[[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1135, 525], [1385, 525], [1635, 525]], //7 options per page
+	[[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1010, 525], [1260, 525], [1510, 525], [1760, 525]], //8 options per page
 ];
 
 /**
@@ -121,7 +121,7 @@ function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
 			DialogFocusItem.Property = Object.assign(
 				DialogFocusItem.Property,
 				(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-			)
+			);
 			const RefreshDialog = (CurrentScreen != "Crafting");
 			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
@@ -239,7 +239,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
 	DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 	if (ShowImages) {
-		DrawImageResize(AssetSource, X + 2, Y, 221, 221)
+		DrawImageResize(AssetSource, X + 2, Y, 221, 221);
 		if (Option.OptionType !== "ModularItemModule") {
 			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type), X + 2, Y);
 		}
@@ -725,9 +725,9 @@ function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, 
 		if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, item)) {
 			return DialogFindPlayer("CantChangeWhileLocked");
 		} else {
-			return ExtendedItemValidate(C, item, option, currentOption)
+			return ExtendedItemValidate(C, item, option, currentOption);
 		}
-	}
+	};
 
 	if (ValidationCallback) {
 		window[validateFunctionName] = function (C, item, option, currentOption) {
