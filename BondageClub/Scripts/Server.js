@@ -6,7 +6,8 @@
  */
 
 "use strict";
-/** @type {import("socket.io-client").Socket} */
+
+/** @type {SocketIO.Socket} */
 var ServerSocket = null;
 var ServerURL = "http://localhost:4288";
 /** @type { { Message: string; Timer: number; ChatRoomName?: string | null; IsMail?: boolean; } } */
@@ -71,7 +72,7 @@ var ServerAccountUpdate = new class AccountUpdater {
 		this.Queue = new Map;
 		/**
 		 * @private
-		 * @type {null | number}
+		 * @type {null | NodeJS.Timeout}
 		 */
 		this.Timeout = null;
 		/**

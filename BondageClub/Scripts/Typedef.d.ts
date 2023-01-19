@@ -1,5 +1,11 @@
 //#region Common
 
+declare namespace SocketIO {
+	type Socket = import("socket.io-client").Socket;
+}
+
+declare function io(serv: string): SocketIO.Socket;
+
 interface String {
 	replaceAt(index: number, character: string): string;
 }
