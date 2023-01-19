@@ -3103,13 +3103,14 @@ interface DynamicBeforeDrawOverrides {
 	Property?: ItemProperties;
 	CA?: Item;
 	GroupName?: AssetGroupName;
-	Color?: ItemColor;
+	Color?: string;
 	Opacity?: number;
 	X?: number;
 	Y?: number;
 	LayerType?: string;
 	L?: string;
 	AlphaMasks?: RectTuple[];
+	Pose?: AssetPoseName;
 }
 
 /**

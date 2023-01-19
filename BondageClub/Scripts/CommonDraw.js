@@ -144,6 +144,7 @@ function CommonDrawAppearanceBuild(C, {
 				return Acc;
 			}, []);
 
+		/** @type {string} */
 		let Color = Array.isArray(CA.Color) ? (CA.Color[Layer.ColorIndex] || AG.ColorSchema[0]) : CA.Color;
 
 		// Fix to legacy appearance data when Hands could be different to BodyUpper
@@ -234,6 +235,9 @@ function CommonDrawAppearanceBuild(C, {
 				}
 			}
 		}
+
+		// Safeguard against a null pose
+		if (typeof Pose !== "string") Pose = /** @type {AssetPoseName} */("");
 
 		// Make any required changes to the color
 		if (Color === "Default" && A.DefaultColor) {
@@ -359,7 +363,7 @@ function CommonDrawColorValid(Color, AssetGroup) {
  * @return {AssetPoseName} - The name of the pose to draw for the layer, or an empty string if no pose should be drawn
  */
 function CommonDrawFindPose(C, AllowedPoses) {
-	let Pose = /** @type {AssetPoseName} */("");
+	let Pose = /** @type {AssetPoseName} */(null);
 	if (AllowedPoses && AllowedPoses.length) {
 		AllowedPoses.forEach(AllowedPose => {
 			if (C.DrawPose.includes(AllowedPose)) Pose = AllowedPose;
@@ -376,7 +380,7 @@ function CommonDrawFindPose(C, AllowedPoses) {
  * @returns {AssetPoseName} - The pose to use when drawing the given asset (or layer)
  */
 function CommonDrawResolveAssetPose(C, A, Layer) {
-	let Pose = /** @type {AssetPoseName} */("");
+	let Pose = /** @type {AssetPoseName} */(null);
 	if (C.DrawPose && C.DrawPose.length) {
 		let AllowPose = Layer && Layer.AllowPose;
 		if (!Array.isArray(AllowPose)) AllowPose = A.AllowPose;
