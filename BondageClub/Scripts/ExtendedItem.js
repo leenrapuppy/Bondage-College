@@ -584,9 +584,8 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
  * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The currently applied option on the item
  * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
  */
-function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption) {
-	const CurrentProperty = Item && Item.Property;
-	const CurrentLockedBy = CurrentProperty && CurrentProperty.LockedBy;
+function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
+	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
 
 	if (CurrentOption && CurrentOption.ChangeWhenLocked === false && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
@@ -594,11 +593,8 @@ function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption
 	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
 		// Otherwise use the standard prerequisite check
 		return DialogText;
-	} else {
-		const OldEffect = CurrentProperty && CurrentProperty.Effect;
-		if (OldEffect && OldEffect.includes("Lock") && Property && Property.AllowLock === false) {
-			return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
-		}
+	} else if (InventoryItemHasEffect(Item, "Lock", true) && !AllowLock) {
+		return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
 	}
 
 	return "";
