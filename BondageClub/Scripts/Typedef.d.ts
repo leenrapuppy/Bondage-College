@@ -2340,8 +2340,6 @@ interface ModularItemOptionBase {
 	Effect?: string[];
 	/** Whether the option forces a given pose */
 	SetPose?: string;
-	/** If set, the option changes the asset's default priority */
-	OverridePriority?: number;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
