@@ -14,7 +14,7 @@
 
 // *** Sort order of asset & asset group properties ***
 // Name, Priority, Value, Difficulty, SelfBondage, Time, RemoveTime, Enable, Visible, Random, Wear, IsRestraint, AllowLock, OwnerOnly, LoverOnly, Left, Top, DefaultColor, BuyGroup, Prerequisite, Hide, HideItem, everything else
-// Group, ParentGroup, ParentSize, ParentColor, Category, Priority, Default, Clothing, Underwear, Random, IsRestraint, Blink, Left, Top, Color, FullAlpha, AllowNone, AllowColorize, AllowCustomize, AllowPose, SetPose, Effect, Zone, Activity
+// Group, ParentGroup, ParentSize, InheritColor, Category, Priority, Default, Clothing, Underwear, Random, IsRestraint, Blink, Left, Top, Color, FullAlpha, AllowNone, AllowColorize, AllowCustomize, AllowPose, SetPose, Effect, Zone, Activity
 
 // *** Item addition & modification guidelines ***
 // Don't include images, sounds or names that are obviously copyrighted
@@ -591,7 +591,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "ClothLower",
 		ParentGroup: "BodyLower",
-		ParentColor: "Cloth",
+		InheritColor: "Cloth",
 		Priority: 26,
 		Default: false,
 		Clothing: true,
@@ -1058,7 +1058,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "Panties",
 		ParentGroup: "BodyLower",
-		ParentColor: "Bra",
+		InheritColor: "Bra",
 		Priority: 19,
 		Clothing: true,
 		Underwear: true,
@@ -1198,7 +1198,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "Socks",
 		ParentGroup: "BodyLower",
-		ParentColor: "Bra",
+		InheritColor: "Bra",
 		Priority: 20,
 		Clothing: true,
 		Underwear: true,
@@ -2214,7 +2214,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "Gloves",
 		ParentGroup: "BodyUpper",
-		ParentColor: "Bra",
+		InheritColor: "Bra",
 		Priority: 28,
 		Default: false,
 		Clothing: true,
@@ -2683,6 +2683,8 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
 		PreviewZone: [0, 150, 500, 500],
+		Color: ["White", "Asian", "Black"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		Asset: [
 			{
 				Name: "Small",
@@ -2735,14 +2737,12 @@ var AssetFemale3DCG = [
 				],
 			}
 		],
-		Color: ["White", "Asian", "Black"],
-		ColorSuffix: { "HEX_COLOR": "White" },
 	},
 
 	{
 		Group: "BodyLower",
 		ParentSize: "BodyUpper",
-		ParentColor: "BodyUpper",
+		InheritColor: "BodyUpper",
 		Priority: 9,
 		Top: 462,
 		AllowNone: false,
@@ -2750,8 +2750,6 @@ var AssetFemale3DCG = [
 		Asset: ["Small", "Normal", "Large", "XLarge"],
 		Color: ["Default", "White", "Asian", "Black"],
 		ColorSuffix: { "HEX_COLOR": "White" },
-		InheritColor: "BodyUpper"
-
 	},
 
 	{
@@ -2952,7 +2950,7 @@ var AssetFemale3DCG = [
 		Group: "FacialHair",
 		Priority: 9,
 		Default: false,
-		ParentColor: "HairFront",
+		InheritColor: "HairFront",
 		Left: 150,
 		Top: 35,
 		Asset: [
@@ -2968,7 +2966,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "HairBack",
-		ParentColor: "HairFront",
+		InheritColor: "HairFront",
 		Priority: 5,
 		Left: 50,
 		Top: 0,
@@ -3064,7 +3062,6 @@ var AssetFemale3DCG = [
 			{ Name: "HairBack56", Left: 50, Random: false }
 		],
 		Color: ["Default", "#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"],
-		InheritColor: "HairFront"
 	},
 
 	{
@@ -3079,7 +3076,7 @@ var AssetFemale3DCG = [
 		PreviewZone: [55, 0, 390, 390],
 		Asset: [
 			"Eyebrows1",
-			{ 
+			{
 				Name: "Eyebrows2", Extended: true,
 				Layer: [
 				{ Name: "Main", HasType: false },
@@ -3274,14 +3271,13 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Hands",
-		ParentColor: "BodyUpper",
+		InheritColor: "BodyUpper",
 		Priority: 27,
 		AllowNone: false,
 		AllowCustomize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "AllFours"],
 		Asset: [{ Name: "Default", HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch"] }],
 		ColorSuffix: { "HEX_COLOR": "White" },
-		InheritColor: "BodyUpper",
 		Color: ["Default"],
 	},
 
@@ -7693,7 +7689,7 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m13","m21"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m15","m23"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m12","m20","m14","m22","m13","m21","m15","m23"], CopyLayerColor: "PanelHeadHighlight" },
-					
+
 					// Linings
 					{ Name: "LiningRoundFace", HasType: false, ColorGroup: "Linings" }, // master colour for face lining
 					{ Name: "LiningRoundFaceHighlight", HasType: false, CopyLayerColor: "PanelHeadHighlight" },

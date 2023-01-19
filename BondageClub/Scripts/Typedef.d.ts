@@ -793,7 +793,6 @@ interface AssetGroup {
 	Random?: boolean;
 	ColorSchema: string[];
 	ParentSize: string;
-	ParentColor: string;
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
@@ -811,7 +810,7 @@ interface AssetGroup {
 	DrawingTop: number;
 	DrawingFullAlpha: boolean;
 	DrawingBlink: boolean;
-	InheritColor?: string;
+	InheritColor: AssetGroupName | null;
 	FreezeActivePose: string[];
 	PreviewZone?: RectTuple;
 	DynamicGroupName: AssetGroupName;
@@ -855,7 +854,7 @@ interface AssetLayer {
 	/** The drawing priority of this layer. Inherited from the parent asset/group if not specified in the layer
 	definition. */
 	Priority: number;
-	InheritColor?: string;
+	InheritColor?: AssetGroupName;
 	Alpha: AlphaDefinition[];
 	/** The asset that this layer belongs to */
 	Asset: Asset;
@@ -1008,7 +1007,7 @@ interface Asset {
 	DynamicAudio: ((C: Character) => string) | null;
 	CharacterRestricted: boolean;
 	AllowRemoveExclusive: boolean;
-	InheritColor?: string;
+	InheritColor?: AssetGroupName;
 	DynamicBeforeDraw: boolean;
 	DynamicAfterDraw: boolean;
 	DynamicScriptDraw: boolean;
