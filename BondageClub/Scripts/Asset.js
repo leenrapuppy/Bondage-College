@@ -624,8 +624,8 @@ function AssetActivitiesForGroup(family, groupname, onSelf = "other") {
 
 /**
  * Cleans the given array of assets of any items that no longer exists
- * @param {Array.<{Name: string, Group: string}>} AssetArray - The arrays of items to clean
- * @returns {Array.<{Name: string, Group: string}>} - The cleaned up array
+ * @param {ItemPermissions[]} AssetArray - The arrays of items to clean
+ * @returns The cleaned up array
  */
 function AssetCleanArray(AssetArray) {
 	return AssetArray.filter(({ Group, Name }) => AssetGet('Female3DCG', Group, Name) != null);

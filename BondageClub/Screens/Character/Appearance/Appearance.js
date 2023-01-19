@@ -9,7 +9,8 @@ var CharacterAppearanceBackup = null;
 /** @type {null | string} */
 var CharacterAppearanceInProgressBackup = null;
 var CharacterAppearanceAssets = [];
-var CharacterAppearanceColorPickerGroupName = "";
+/** @type {AssetGroupName} */
+var CharacterAppearanceColorPickerGroupName = null;
 var CharacterAppearanceColorPickerBackup = "";
 var CharacterAppearanceColorPickerRefreshTimer = null;
 /** @type {Character | null} */
@@ -1104,11 +1105,12 @@ function AppearanceClick() {
 		if ((MouseX >= 1210) && (MouseX < 1275) && (MouseY >= 145) && (MouseY < 975))
 			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
 				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && AssetGroup[A].AllowNone && (InventoryGet(C, AssetGroup[A].Name) != null))
-					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95))
+					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95)) {
 						if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
 							InventoryRemove(C, AssetGroup[A].Name, false);
 							CharacterRefresh(C, false);
 						}
+					}
 
 		// If we must enter the cloth selection mode
 		if ((MouseX >= 1300) && (MouseX < 1700) && (MouseY >= 145) && (MouseY < 975)) {
@@ -1191,7 +1193,7 @@ function AppearanceClick() {
 		var Y = 125;
 		for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + 9); I++) {
 			if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
-				var Item = DialogInventory[I];
+				const Item = DialogInventory[I];
 				const CurrentItem = InventoryGet(C, C.FocusGroup.Name);
 				const worn = (CurrentItem && (CurrentItem.Asset.Name == Item.Asset.Name));
 
@@ -1277,7 +1279,7 @@ function AppearanceMenuClick(C) {
 				case "Cloth":
 					// Extends the current item
 					if (Button === "Use") {
-						var Item = InventoryGet(C, C.FocusGroup.Name);
+						const Item = InventoryGet(C, C.FocusGroup.Name);
 						if (Item && Item.Asset.Extended) DialogExtendItem(Item);
 					}
 
@@ -1301,7 +1303,7 @@ function AppearanceMenuClick(C) {
 
 					// Opens the color picker
 					if (Button === "ColorPick" || Button === "MultiColorPick") {
-						let Item = InventoryGet(C, C.FocusGroup.Name);
+						const Item = InventoryGet(C, C.FocusGroup.Name);
 						AppearanceItemColor(C, Item, C.FocusGroup.Name, "Cloth");
 					}
 
@@ -1516,7 +1518,7 @@ function AppearanceItemParse(stringified) {
  * Opens the color picker for a selected item
  * @param {Character} C - The character the appearance is being changed for
  * @param {Item} Item - The currently selected item
- * @param {string} AssetGroup - The focused group
+ * @param {AssetGroupName} AssetGroup - The focused group
  * @param {string} CurrentMode - The mode to revert to on exiting the color picker
  * @returns {void}
  */
