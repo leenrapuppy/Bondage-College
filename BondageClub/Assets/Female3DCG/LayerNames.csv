@@ -614,6 +614,9 @@ ItemNeckRestraintsPetPostLeash,Leash
 ItemNeckRestraintsPetPostRope,Rope
 ItemNeckRestraintsPetPostChain,Chain
 ItemNeckRestraintsPetPostText,Text
+ItemNeckRestraintsCollarLeashClip,Clip
+ItemNeckRestraintsCollarLeashHandle,Handle
+ItemNeckRestraintsCollarLeashLeash,Leash
 ItemNeckComboHarnessRing,Ring
 ItemNeckComboHarnessStuds,Studs
 ItemNeckComboHarnessBall,Ball
