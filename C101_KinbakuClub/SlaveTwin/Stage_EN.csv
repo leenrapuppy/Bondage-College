@@ -59,7 +59,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 31,0,0,,So Jenna will take|it out on you?,"Most of the club can't tell us apart,|Jenna might think I'm Heather.",32,0,0,
 31,0,0,,Maybe Jenna should|punish you.,But I'm Lucy and it was Heather that did it to her.,32,-1,1,
 31,0,0,,I could tell her|it wasn't you.,"That might help, but I don't|think she will take any chances.",32,1,0,
-32,0,0,,Maybe you are heather|and you deserve it.,"No please you have got to believe me, I am Lucy.",33,-1,1,
+32,0,0,,Maybe you are Heather|and you deserve it.,"No please you have got to believe me, I am Lucy.",33,-1,1,
 32,0,0,,Can you prove|you are Lucy.,"Not easily, Heather is very good at impersonating me.|She even wears the same underwear.",33,0,0,
 32,0,0,,We should|expose Heather.,"That isn't easy, she would only reveal herself when|it's too late for you to do anything about it.",33,1,0,
 33,0,0,,I'll get that key.,"Oh thank you, please hurry.",20,1,0,

@@ -20,7 +20,7 @@ function C001_BeforeClass_Amanda_Load() {
 	// She dresses back automatically if not tied up, she comes back to face if she's tied up
 	if (C001_BeforeClass_Amanda_CurrentStage == 220) C001_BeforeClass_Amanda_CurrentStage = 200;
 	if ((C001_BeforeClass_Amanda_CurrentStage >= 240) && (C001_BeforeClass_Amanda_CurrentStage <= 269)) C001_BeforeClass_Amanda_CurrentStage = 230;
-	
+
 }
 
 // Chapter 1 - Amanda Run
@@ -29,18 +29,18 @@ function C001_BeforeClass_Amanda_Run() {
 }
 
 // Chapter 1 - Amanda Click
-function C001_BeforeClass_Amanda_Click() {	
+function C001_BeforeClass_Amanda_Click() {
 
 	// Regular interactions
 	ClickInteraction(C001_BeforeClass_Amanda_CurrentStage);
-	
+
 	// Special code for when the user wants to use the rope
 	if ((C001_BeforeClass_Amanda_CurrentStage < 200) && (GetClickedInventory() == "Rope")) {
 		C001_BeforeClass_Amanda_BackupStage = C001_BeforeClass_Amanda_CurrentStage;
 		C001_BeforeClass_Amanda_CurrentStage = 200;
 		OverridenIntroText = GetText("RopeInquiry");
 	}
-	
+
 }
 
 // Chapter 1 - Amanda Tie

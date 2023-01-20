@@ -13,7 +13,7 @@ function C001_BeforeClass_Bag_Run() {
 }
 
 // Chapter 1 - Bag Click
-function C001_BeforeClass_Bag_Click() {	
+function C001_BeforeClass_Bag_Click() {
 	ClickInteraction(C001_BeforeClass_Bag_CurrentStage);
 }
 

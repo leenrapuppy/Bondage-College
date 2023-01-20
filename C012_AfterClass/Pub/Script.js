@@ -19,7 +19,7 @@ function C012_AfterClass_Pub_WhoInIsPub() {
 
 // Chapter 12 After Class - Pub Load
 function C012_AfterClass_Pub_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LoadInteractions();
 	Common_BondageAllowed = false;
@@ -35,7 +35,7 @@ function C012_AfterClass_Pub_Load() {
 	// No leaving from the pub
 	LeaveIcon = "";
 	LeaveScreen = "";
-	
+
 }
 
 // Chapter 12 After Class - Pub Run
@@ -50,7 +50,7 @@ function C012_AfterClass_Pub_Run() {
 }
 
 // Chapter 12 After Class - Pub Click
-function C012_AfterClass_Pub_Click() {	
+function C012_AfterClass_Pub_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Pub_CurrentStage);
@@ -59,10 +59,10 @@ function C012_AfterClass_Pub_Click() {
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
 		C012_AfterClass_Pub_IntroText = OverridenIntroText;
-		C012_AfterClass_Pub_CurrentActor = CurrentActor; 
+		C012_AfterClass_Pub_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 }
 
 // Chapter 12 After Class - When the player leaves the pub
@@ -74,7 +74,7 @@ function C012_AfterClass_Pub_Leave() {
 
 // Chapter 12 After Class - Wait for a while and recalculate who's in the pub
 function C012_AfterClass_Pub_Wait() {
-	CurrentTime = CurrentTime + 290000;	
+	CurrentTime = CurrentTime + 290000;
 	C012_AfterClass_Pub_WhoInIsPub();
 }
 
@@ -88,21 +88,21 @@ function C012_AfterClass_Pub_SidneyStart() {
 	LeaveIcon = "";
 	var Love = ActorGetValue(ActorLove);
 	var Sub = ActorGetValue(ActorSubmission);
-	
+
 	// If Sidney is belted
 	if (ActorHasInventory("ChastityBelt")) {
 		ActorSetPose("Angry");
 		C012_AfterClass_Pub_CurrentStage = 100;
 		return;
 	}
-	
+
 	// If Sidney has the egg
 	if (ActorHasInventory("VibratingEgg")) {
 		ActorSetPose("Angry");
 		C012_AfterClass_Pub_CurrentStage = 110;
 		return;
 	}
-	
+
 	// If Sidney is dominant and more so than love/hate
 	if ((Sub <= -8) && (Math.abs(Sub) >= Math.abs(Love))) {
 		ActorSetPose("Point");
@@ -116,7 +116,7 @@ function C012_AfterClass_Pub_SidneyStart() {
 		C012_AfterClass_Pub_CurrentStage = 130;
 		return;
 	}
-	
+
 	// If Sidney hates the player
 	if (Love <= -8) {
 		ActorSetPose("Fuck");
@@ -149,7 +149,7 @@ function C012_AfterClass_Pub_SidneyStart() {
 		C012_AfterClass_Pub_CurrentStage = 180;
 		return;
 	}
-	
+
 	// No special feelings and conversation
 	C012_AfterClass_Pub_CurrentStage = 190;
 

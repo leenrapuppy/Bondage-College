@@ -12,13 +12,13 @@ var C003_MorningDetention_Yuki_TickleDone = false;
 function C003_MorningDetention_Yuki_Load() {
 
 	// Jump directly to stage 100 if the teacher was drugged and sleeping
-	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime >= C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Yuki_CurrentStage < 100)) 
+	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime >= C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Yuki_CurrentStage < 100))
 		C003_MorningDetention_Yuki_CurrentStage = 100;
 
 	// Flag if Yuki is sleepy or Sidney is gone
 	C003_MorningDetention_Yuki_Sleepy = (C003_MorningDetention_DetentionRoom_SleepTimer > 0);
-	C003_MorningDetention_Yuki_SidneyGone = C003_MorningDetention_DetentionRoom_SidneyGone;	
-	
+	C003_MorningDetention_Yuki_SidneyGone = C003_MorningDetention_DetentionRoom_SidneyGone;
+
 	// Load the scene parameters
 	C003_MorningDetention_Yuki_EggReady = false;
 	C003_MorningDetention_Yuki_Fighting = C003_MorningDetention_Intro_Fighting;
@@ -37,12 +37,12 @@ function C003_MorningDetention_Yuki_Run() {
 }
 
 // Chapter 3 - Yuki Click
-function C003_MorningDetention_Yuki_Click() {	
+function C003_MorningDetention_Yuki_Click() {
 
 	// Regular interaction
 	ClickInteraction(C003_MorningDetention_Yuki_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Special code for when the user wants to lock Yuki
 	if ((ClickInv == "Cuffs") && (C003_MorningDetention_Yuki_CurrentStage == 110) && Common_PlayerNotRestrained) {
 		PlayerRemoveInventory("Cuffs", 1);
@@ -50,8 +50,8 @@ function C003_MorningDetention_Yuki_Click() {
 		OverridenIntroText = GetText("Cuffs");
 		C003_MorningDetention_Yuki_CurrentStage = 120;
 		CurrentTime = CurrentTime + 60000;
-	} 
-	
+	}
+
 	// Special code for when the user wants to unlock Yuki when she sleeps
 	if ((ClickInv == "CuffsKey") && ((C003_MorningDetention_Yuki_CurrentStage == 120) || (C003_MorningDetention_Yuki_CurrentStage == 130)) && Common_PlayerNotRestrained) {
 		PlayerAddInventory("Cuffs", 1);
@@ -59,7 +59,7 @@ function C003_MorningDetention_Yuki_Click() {
 		OverridenIntroText = GetText("Unlock");
 		C003_MorningDetention_Yuki_CurrentStage = 110;
 		CurrentTime = CurrentTime + 60000;
-	} 
+	}
 
 	// Special code for when the user wants to unlock Yuki when she's awake
 	if ((ClickInv == "CuffsKey") && (C003_MorningDetention_Yuki_CurrentStage == 230) && Common_PlayerNotRestrained) {
@@ -74,22 +74,22 @@ function C003_MorningDetention_Yuki_Click() {
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Yuki_CurrentStage >= 110) && (C003_MorningDetention_Yuki_CurrentStage <= 130) && Common_PlayerNotRestrained) {
 		OverridenIntroText = GetText("VibratingEggReady");
 		C003_MorningDetention_Yuki_EggReady = true;
-	} 
+	}
 
 	// Special code for when the user wants to use an item when Yuki is awake
 	if (((ClickInv == "VibratingEgg") || (ClickInv == "SleepingPill")) && (C003_MorningDetention_Yuki_CurrentStage < 100) && Common_PlayerNotRestrained)
 		C003_MorningDetention_Yuki_CurrentStage = 30;
-	
+
 }
 
 // Chapter 3 - Yuki Confiscate
-function C003_MorningDetention_Yuki_Confiscate() {	
+function C003_MorningDetention_Yuki_Confiscate() {
 	PlayerRemoveInventory("VibratingEgg", 1);
-	PlayerRemoveInventory("SleepingPill", 1);	
+	PlayerRemoveInventory("SleepingPill", 1);
 }
 
 // Chapter 3 - Yuki Search
-function C003_MorningDetention_Yuki_Search() {	
+function C003_MorningDetention_Yuki_Search() {
 	C003_MorningDetention_Yuki_CanSearch = false;
 	PlayerAddInventory("Cuffs", 1);
 	if (PlayerHasInventory("CuffsKey") == false) PlayerAddInventory("CuffsKey", 1);
@@ -104,7 +104,7 @@ function C003_MorningDetention_Yuki_SearchCuffKeys() {
 }
 
 // Chapter 3 - Yuki Insert
-function C003_MorningDetention_Yuki_Insert() {	
+function C003_MorningDetention_Yuki_Insert() {
 	C003_MorningDetention_Yuki_EggReady = false;
 	C003_MorningDetention_Yuki_EggInside = true;
 	PlayerRemoveInventory("VibratingEgg", 1);
@@ -112,7 +112,7 @@ function C003_MorningDetention_Yuki_Insert() {
 }
 
 // Chapter 3 - Yuki Escape
-function C003_MorningDetention_Yuki_Escape() {	
+function C003_MorningDetention_Yuki_Escape() {
 	SetScene(CurrentChapter, "Outro");
 }
 

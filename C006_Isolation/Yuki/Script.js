@@ -8,7 +8,7 @@ var C006_Isolation_Yuki_Pleasure3 = 0;
 // Chapter 6 - Yuki Load
 function C006_Isolation_Yuki_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	StartTimer(11.5 * 60 * 60 * 1000, CurrentChapter, "Outro");
 	ActorLoad("Yuki", "IsolationRoom");
 	LoadInteractions();
@@ -23,12 +23,12 @@ function C006_Isolation_Yuki_Run() {
 }
 
 // Chapter 6 - Yuki Click
-function C006_Isolation_Yuki_Click() {	
+function C006_Isolation_Yuki_Click() {
 	ClickInteraction(C006_Isolation_Yuki_CurrentStage);
 }
 
 // Chapter 6 - Yuki Steal Items
-function C006_Isolation_Yuki_StealItems() {	
+function C006_Isolation_Yuki_StealItems() {
 	PlayerSaveAllInventory();
 	PlayerRemoveAllInventory();
 }
@@ -49,35 +49,35 @@ function C006_Isolation_Yuki_AddGag() {
 	PlayerLockInventory("BallGag");
 }
 
-// Chapter 6 - Yuki Pleasure 
+// Chapter 6 - Yuki Pleasure
 function C006_Isolation_Yuki_Pleasure(PleasureType) {
-	
+
 	// The player must pleasure her in 3 different ways and at least 5 times to make her climax)
 	if (PleasureType == 1) C006_Isolation_Yuki_Pleasure1++;
 	if (PleasureType == 2) C006_Isolation_Yuki_Pleasure2++;
 	if (PleasureType == 3) C006_Isolation_Yuki_Pleasure3++;
 	if ((C006_Isolation_Yuki_Pleasure1 > 0) && (C006_Isolation_Yuki_Pleasure2 > 0) && (C006_Isolation_Yuki_Pleasure3 > 0) && (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 5)) {
-		
+
 		// Yuki gets an orgasm
 		OverridenIntroText = GetText("Orgasm");
 		C006_Isolation_Yuki_CurrentStage = 220;
 		ActorChangeAttitude(2, 0);
 		ActorAddOrgasm();
-		
+
 	} else {
-		
+
 		// If the player took too long to try all 3 pleasures, she gives up
 		if (C006_Isolation_Yuki_Pleasure1 + C006_Isolation_Yuki_Pleasure2 + C006_Isolation_Yuki_Pleasure3 >= 7) {
 			OverridenIntroText = GetText("StopPleasure");
 			C006_Isolation_Yuki_CurrentStage = 250;
 		}
-		
+
 	}
 }
 
 // Chapter 6 - Yuki Check to Eat
 function C006_Isolation_Yuki_CheckToEat() {
-	
+
 	// Yuki forces the player if she has the egg
 	if (C006_Isolation_Yuki_EggInside) {
 		OverridenIntroText = GetText("LickEgg");
@@ -110,7 +110,7 @@ function C006_Isolation_Yuki_CheckToStop() {
 		C006_Isolation_Yuki_CurrentStage = 200;
 		C006_Isolation_Yuki_AllowPullBack = false;
 	}
-	
+
 }
 
 // Chapter 6 - Yuki Release
@@ -122,7 +122,7 @@ function C006_Isolation_Yuki_Release() {
 // Chapter 6 - Yuki Leave Isolation
 function C006_Isolation_Yuki_LeaveIsolation() {
 	C006_Isolation_Outro_EarlyRelease = true;
-	SetScene(CurrentChapter, "Outro");	
+	SetScene(CurrentChapter, "Outro");
 }
 
 // Chapter 6 - Yuki Allow Leave

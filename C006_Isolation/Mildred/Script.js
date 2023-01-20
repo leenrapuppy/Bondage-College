@@ -19,7 +19,7 @@ function C006_Isolation_Mildred_Run() {
 }
 
 // Chapter 6 - Mildred Click
-function C006_Isolation_Mildred_Click() {	
+function C006_Isolation_Mildred_Click() {
 	ClickInteraction(C006_Isolation_Mildred_CurrentStage);
 }
 
@@ -55,7 +55,7 @@ function C006_Isolation_Mildred_Release() {
 // Chapter 6 - Mildred Leave Isolation
 function C006_Isolation_Mildred_LeaveIsolation() {
 	C006_Isolation_Outro_EarlyRelease = true;
-	SetScene(CurrentChapter, "Outro");	
+	SetScene(CurrentChapter, "Outro");
 }
 
 // Chapter 6 - Mildred Allow Leave
@@ -64,7 +64,7 @@ function C006_Isolation_Mildred_AllowLeave() {
 }
 
 // Chapter 6 - Mildred, if she doesn't like the player, she crops
-function C006_Isolation_Mildred_CheckForCrop() {	
+function C006_Isolation_Mildred_CheckForCrop() {
 	if (ActorGetValue(ActorLove) <= -3) {
 		OverridenIntroText = GetText("CropStartHate");
 		C006_Isolation_Mildred_CurrentStage = 300;
@@ -84,20 +84,20 @@ function C006_Isolation_Mildred_CheckForCrop() {
 
 // Chapter 6 - Mildred, crop the player
 function C006_Isolation_Mildred_DoCrop() {
-	
+
 	// If there's still cropping to be done
 	if (C006_Isolation_Mildred_CropCount < C006_Isolation_Mildred_CropMaxCount) {
-		
+
 		// The text is random and the image rotates
 		C006_Isolation_Mildred_CropCount++;
 		var P = Math.floor(Math.random() * 6);
 		OverridenIntroText = GetText("Count" + C006_Isolation_Mildred_CropCount) + " !  " + GetText("CropEvent" + P.toString());
 		OverridenIntroImage = "MildredPlayerHorseCrop" + (C006_Isolation_Mildred_CropCount % 3).toString() + ".jpg";
-		
+
 	} else {
 		OverridenIntroText = GetText("CropStop");
 		C006_Isolation_Mildred_CurrentStage = 330;
 		OverridenIntroImage = "";
 	}
-	
+
 }

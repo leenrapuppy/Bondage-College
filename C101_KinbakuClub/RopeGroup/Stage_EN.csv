@@ -331,9 +331,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 680,0,0,,(Moan of pleasure.),"(Cassi keeps teasing your clitoris, working that|sweet spot and prolonging your stifled moans.)",680,0,0,CassiCunni(2)
 680,0,0,,(Breathe heavily.),"(Cassi maintain the stimulation of your clitoris,|while your whole body heaves with each breathe.)",680,0,0,CassiCunni(3)
 680,0,0,,(Grunt helplessly.),"(Cassi keeps on licking steadily,|while you squirm and gag on the panties.)",680,0,0,CassiCunni(4)
-680,0,0,,(Mumble impatiently.),- cassi changes style of stimulation.   reduce arousal?,680,0,0,CassiCunni(5)
+680,0,0,,(Mumble impatiently.),- Cassi changes style of stimulation.   reduce arousal?,680,0,0,CassiCunni(5)
 680,0,0,,(Thrust your hips.),"(Cassi keeps teasing clitoris,|keeping rhythm with you thrusting.)",680,0,0,CassiCunni(2)
-680,0,0,,(Shift your hips awkwardly.),- cassi changes style of stimulation.   reduce arousal?,680,0,0,CassiCunni(5)
+680,0,0,,(Shift your hips awkwardly.),- Cassi changes style of stimulation.   reduce arousal?,680,0,0,CassiCunni(5)
 680,0,0,CanPressCassi,(Use your feet to press her|head into your crotch.),"(Wrapping your feet round her head, you startle Cassi,|but she quickly resumes licking your clitoris.)",680,0,0,CassiCunni(6)
 680,0,0,PressingCassi,(Press her head hard|into your crotch.),"(Cassi's mouth and nose get sealed tight against you.|She starts struggling, but doesn't stop licking.)",680,0,0,CassiCunni(7)
 680,0,0,ForcingCassi,(Keep pressing her|head hard against you.),"(Cassi struggles helplessly.|Unable to pull away, she tries licking you harder.",680,0,0,CassiCunni(8)
@@ -341,13 +341,13 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 680,0,0,PressingCassi,(Let go of her head.),"(You let your legs drop away from Cassi,|who carries on teasing you with her tongue.)",680,0,0,CassiCunni(10)
 680,0,0,,(Try to ignore Cassi.),"(You try distracting yourself with mental and pain|techniques, but Cassi’s tongue is unrelenting.)",680,0,0,CassiCunni(11)
 680,0,0,,(Struggle frantically.),"(Cassi leans into your crotch, keeping hear|tongue on you clitoris as you buck and shake.)",680,0,0,CassiCunni(12)
-681,0,0,,(Whine gleefully.),"(Your orgasm subsides, but you realise that Cassi|hasn't stopped and is still licking you intensely.)",680,0,-1,CassiContinue()
-681,0,0,,(Shiver with delight.),"(Your orgasm subsides, but you realise that Cassi|hasn't stopped and is still licking you intensely.)",680,1,0,CassiContinue()
-681,0,0,,(Shriek into your gag.),"(Your orgasm subsides, but you realise that Cassi|hasn't stopped and is still licking you intensely.)",680,0,0,CassiContinue()
+681,0,0,,(Whine gleefully.),"(Your orgasm subsides, but you realize that Cassi|hasn't stopped and is still licking you intensely.)",680,0,-1,CassiContinue()
+681,0,0,,(Shiver with delight.),"(Your orgasm subsides, but you realize that Cassi|hasn't stopped and is still licking you intensely.)",680,1,0,CassiContinue()
+681,0,0,,(Shriek into your gag.),"(Your orgasm subsides, but you realize that Cassi|hasn't stopped and is still licking you intensely.)",680,0,0,CassiContinue()
 682,0,0,,(Try to free yourself.),The ropes have not got any looser.  (Cassi gets her|breath back and hurries off to find her key.),661,0,0,NoActor()
 682,0,0,,@HMLP MM!,(The girls watching laugh as Cassi gets her|breath back and hurries off to find her cuffs key.),661,0,0,NoActor()
 682,0,0,,(Hang there.),"(Cassi gets her breath back and hurries off to|find her handcuff key, leaving you there.)",661,0,0,NoActor()
-685,0,0,,(Nod your head.),"You'll soon realise how cramped it gets, suspended for|a while like that.  I had better untie you now.",687,0,0,
+685,0,0,,(Nod your head.),"You'll soon realize how cramped it gets, suspended for|a while like that.  I had better untie you now.",687,0,0,
 685,0,0,,(Shake your head.),"Kinky girl, you love this predicament.|(She resumes licking your clitoris.)",680,1,-1,
 686,0,0,,(Nod your head.),Maybe another time if you're good to me.|I really should untie you now.,687,0,0,
 686,0,0,,(Shake your head.),"Don't get greedy, you've had far more than|some of us get.  I really should untie you now.",687,-1,0,
@@ -424,7 +424,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 812,0,0,,(Shake your loose breasts.),Be patient my kinky friend.  (She grasps your|beasts and snaps a clamp on each nipple.),813,1,-1,Clamped()
 812,0,0,,@MMRGN|(MERCY!),"Oh fine, so you submit to my will?",820,0,0,Mercy()
 813,0,0,,(Squeal with pain.),"I did warn you, but you insisted on trying them.",813,0,-1,Sensitive()
-813,0,0,,(Moan with pleasure.),I didn't realise you actually are a masochist.|(She plays with the clamps.),813,1,-2,Masochism()
+813,0,0,,(Moan with pleasure.),I didn't realize you actually are a masochist.|(She plays with the clamps.),813,1,-2,Masochism()
 813,0,0,,(Glare at her.),"You're more resilient than you looked, but you said you|didn't want me to go easy on you.  (She tugs the chain.)",813,0,1,Defiant()
 813,0,0,,@MMRGN|(MERCY!),Easy there. You did tell me not to go easy on you.,813,0,-1,Sensitive()
 813,0,0,,(Squirm in your restraints.),You're really getting into this.|(She toys with the clamps on your nipples.),813,0,-2,Masochism()
@@ -520,7 +520,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 856,0,0,PlugCommentAvailable,That plug feels far too big.,"Nonsense, I'll work that nice tight ass|of yours up to take something much bigger.",856,0,-1,PlugSize()
 856,0,0,,Can I go now?,Not yet. I need you ready to grab Amelia|while I distract her. You got that?,857,0,-1,
 857,0,0,,"Yes, I got it.","Good, don't let me down.|(She takes the rope and talks to Amelia.)",858,1,0,ActorLeftAndCanLeave()
-857,0,0,,This is so exciting!,Calm down.  I don't want Amelia to realise until it's|too late.  (She takes the rope and talks to Amelia.),858,0,0,ActorLeftAndCanLeave()
+857,0,0,,This is so exciting!,Calm down.  I don't want Amelia to realize until it's|too late.  (She takes the rope and talks to Amelia.),858,0,0,ActorLeftAndCanLeave()
 857,0,0,,Do I have to do this?,We could discus that in a private room.  Just do as|I say now.   (She takes the rope and talks to Amelia.),858,-1,0,ActorLeftAndCanLeave()
 860,0,0,,"@Hm'm fhrrn, Hm'll hmlp.|(I'm sorry, I'll help.)",It is far too late for that. I'm going to have some fun|without you.  (You hear her stand up and walk away.),861,0,-1,NoActor()
 860,0,2,,@N'll gmt nhh fhr thnf.|(I'll get you for this.),"Strong words, but you are getting nothing.|(You hear her stand up and walk away.)",861,-1,0,NoActor()
@@ -529,7 +529,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 861,0,0,,(Struggle to escape|the hogtie.),"(You struggle madly, but there is no slack except for|the crotch rope, which jerks tight when you kick.)",861,0,0,Waiting()
 861,0,0,,(Search for a knot.),"(You carefully feel around, but cannot find a single knot.|You have been very skillfully and tightly bound.)",861,0,0,Waiting()
 861,0,0,Masochist,(Chew on the gag.),"(The large ball is unyielding. You sign happily,|relishing how much it has made your jaw ache.)",861,0,0,Waiting()
-861,0,0,!Masochist,(Chew on the gag.),"(The large ball is unyielding. You groan helplessly,|realising how much it has made your jaw ache.)",861,0,0,Waiting()
+861,0,0,!Masochist,(Chew on the gag.),"(The large ball is unyielding. You groan helplessly,|realizing how much it has made your jaw ache.)",861,0,0,Waiting()
 861,0,0,NippleClamped,(Try to remove the|nipple clamps.),"(You try rubbing the clamps against the floor,|but that only irritates your sore nipples.)",861,0,0,Waiting()
 861,0,0,,(Wait for help.),"(You lie there aching, drooling and quietly groaning.|You can hear people busy nearby.)",861,0,0,Waiting()
 861,0,0,,@HMLP,(You shout and scream until the club goes quiet.|Then someone laughs and the busy noises resume.),861,0,0,Waiting()

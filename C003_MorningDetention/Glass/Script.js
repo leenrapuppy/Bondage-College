@@ -13,11 +13,11 @@ function C003_MorningDetention_Glass_Run() {
 }
 
 // Chapter 3 - Glass Click
-function C003_MorningDetention_Glass_Click() {	
+function C003_MorningDetention_Glass_Click() {
 
 	// Regular interaction
 	ClickInteraction(C003_MorningDetention_Glass_CurrentStage);
-	
+
 	// Special code for when the user wants to use the sleeping pills
 	if ((C003_MorningDetention_Glass_CurrentStage == 0) && (GetClickedInventory() == "SleepingPill"))
 		C003_MorningDetention_Glass_CurrentStage = 10;
@@ -25,7 +25,7 @@ function C003_MorningDetention_Glass_Click() {
 }
 
 // Chapter 3 - Glass Break Pill
-function C003_MorningDetention_Glass_BreakPill() {	
+function C003_MorningDetention_Glass_BreakPill() {
 
 	// Remove the pill from the player and starts the timer for 10 minutes
 	if (Common_PlayerNotRestrained) {
@@ -35,6 +35,6 @@ function C003_MorningDetention_Glass_BreakPill() {
 	} else {
 		OverridenIntroText = GetText("CannotWithCuffs");
 	}
-	
+
 }
 

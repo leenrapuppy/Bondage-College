@@ -2,7 +2,7 @@ var C002_FirstClass_Outro_Restrained = false;
 
 // Chapter 2 - Outro Load
 function C002_FirstClass_Outro_Load() {
-	
+
 	// Time is always 9:15:00 in the outro
 	StopTimer(9 * 60 * 60 * 1000);
 	C002_FirstClass_Outro_Restrained = Common_PlayerRestrained;
@@ -15,11 +15,11 @@ function C002_FirstClass_Outro_Load() {
 
 // Chapter 2 - Outro Run
 function C002_FirstClass_Outro_Run() {
-	
+
 	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 800, 0);
-		
+
 	// Write the chapter outro
 	DrawText(GetText("Intro1"), 400, 150, "White");
 	if ((TextPhase >= 1) && (C002_FirstClass_Classroom_MildredSubdueSuccess == false) && (C002_FirstClass_Classroom_MildredSubdueFailed == false)) DrawText(GetText("Intro2A"), 400, 250, "White");
@@ -38,7 +38,7 @@ function C002_FirstClass_Outro_Click() {
 	TextPhase++;
 	if (TextPhase >= 4)
 		SaveMenu("C004_ArtClass", "Intro");
-	
+
 	// Release the player on phase 2
 	if (TextPhase == 2) {
 

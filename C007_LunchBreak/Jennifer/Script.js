@@ -41,7 +41,7 @@ function C007_LunchBreak_Jennifer_CalcParams() {
 		if (C007_LunchBreak_Jennifer_MatchCount >= 4) Img = "2";
 		OverridenIntroImage = "JenniferPlayerLunch" + Img + ".jpg";
 	}
-	
+
 	// At 240 the player can restrain Jennifer
 	if (C007_LunchBreak_Jennifer_CurrentStage == 240) {
 		var Img = "";
@@ -61,7 +61,7 @@ function C007_LunchBreak_Jennifer_CalcParams() {
 		if (PlayerHasLockedInventory("TapeGag")) Img = Img + "TapeGag";
 		OverridenIntroImage = "JenniferPlayerPunishRacket" + Img + ".jpg";
 	}
-	
+
 	// If love and submission are below 4, there's no option for lunch
 	C007_LunchBreak_Jennifer_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")));
 	C007_LunchBreak_Jennifer_NoOption = ((ActorGetValue(ActorLove) <= 3) && (ActorGetValue(ActorSubmission) <= 3));
@@ -102,7 +102,7 @@ function C007_LunchBreak_Jennifer_Load() {
 
 	// From lunch an up, the player cannot leave directly
 	if (C007_LunchBreak_Jennifer_CurrentStage >= 100) {
-		LeaveIcon = "";		
+		LeaveIcon = "";
 	}
 
 }
@@ -113,7 +113,7 @@ function C007_LunchBreak_Jennifer_Run() {
 }
 
 // Chapter 7 - Jennifer Click
-function C007_LunchBreak_Jennifer_Click() {	
+function C007_LunchBreak_Jennifer_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C007_LunchBreak_Jennifer_CurrentStage);
@@ -123,7 +123,7 @@ function C007_LunchBreak_Jennifer_Click() {
 		C007_LunchBreak_Jennifer_LeaveIcon = LeaveIcon;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// When the user wants to use the rope
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		OverridenIntroText = GetText("Rope");
@@ -132,7 +132,7 @@ function C007_LunchBreak_Jennifer_Click() {
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Jennifer_IsRoped = true;
 	}
-	
+
 	// When the user wants to use the cuffs
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Cuffs") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		OverridenIntroText = GetText("Cuffs");
@@ -140,7 +140,7 @@ function C007_LunchBreak_Jennifer_Click() {
 		PlayerRemoveInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the BallGag
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
 		OverridenIntroText = GetText("BallGag");
@@ -150,17 +150,17 @@ function C007_LunchBreak_Jennifer_Click() {
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Jennifer_IsGagged = true;
 	}
-	
+
 	// When the user wants to use the tape gag
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "TapeGag") && !ActorHasInventory("TapeGag")) {
-		OverridenIntroText = GetText("TapeGag");		
+		OverridenIntroText = GetText("TapeGag");
 		C007_LunchBreak_Jennifer_Ungag();
 		ActorAddInventory("TapeGag");
 		PlayerRemoveInventory("TapeGag", 1);
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Jennifer_IsGagged = true;
 	}
-	
+
 	// When the user wants to use the cuffs keys
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
 		OverridenIntroText = GetText("Uncuff");
@@ -168,17 +168,17 @@ function C007_LunchBreak_Jennifer_Click() {
 		PlayerAddInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the crop
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Crop")) {
 		OverridenIntroText = GetText("Crop");
 		if (C007_LunchBreak_Jennifer_CropDone == false) { C007_LunchBreak_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the egg
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg")) {
-		
+
 		// It only works if Jennifer is restrained
 		if (ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) {
 			OverridenIntroText = GetText("VibratingEgg");
@@ -189,12 +189,12 @@ function C007_LunchBreak_Jennifer_Click() {
 			OverridenIntroText = GetText("VibratingEggFail");
 		}
 		CurrentTime = CurrentTime + 60000;
-	}	
+	}
 
 	// When the user wants to use the collar (+20 submission and a ceremony is required)
 	if ((C007_LunchBreak_Jennifer_CurrentStage == 240) && (ClickInv == "Collar") && !ActorHasInventory("Collar"))
 		OverridenIntroText = GetText("Collar");
-		
+
 	// Recalculates the scene parameters
 	C007_LunchBreak_Jennifer_CalcParams();
 
@@ -235,7 +235,7 @@ function C007_LunchBreak_Jennifer_BadMatch() {
 }
 
 // Chapter 7 - Jennifer Eat Lunch (Adds 15 minutes)
-function C007_LunchBreak_Jennifer_EatLunch() {	
+function C007_LunchBreak_Jennifer_EatLunch() {
 	CurrentTime = CurrentTime + 900000;
 }
 
@@ -252,7 +252,7 @@ function C007_LunchBreak_Jennifer_TestObey() {
 function C007_LunchBreak_Jennifer_Untie() {
 	if (ActorHasInventory("Rope")) {
 		ActorRemoveInventory("Rope");
-		PlayerAddInventory("Rope", 1);		
+		PlayerAddInventory("Rope", 1);
 		C007_LunchBreak_Jennifer_IsRoped = false;
 	}
 }
@@ -270,7 +270,7 @@ function C007_LunchBreak_Jennifer_Ungag() {
 // Chapter 7 - Jennifer Release
 function C007_LunchBreak_Jennifer_Release() {
 	C007_LunchBreak_Jennifer_Untie();
-	C007_LunchBreak_Jennifer_Ungag();	
+	C007_LunchBreak_Jennifer_Ungag();
 	if (ActorHasInventory("Cuffs")) {
 		ActorRemoveInventory("Cuffs");
 		PlayerAddInventory("Cuffs", 1);
@@ -362,7 +362,7 @@ function C007_LunchBreak_Jennifer_DressHerBack() {
 
 // Chapter 7 - Jennifer ask the player to do 10 push-up, the parameter is the push-up quality
 function C007_LunchBreak_Jennifer_PushUp(Quality) {
-	
+
 	// Keeps the count and shows it
 	C007_LunchBreak_Jennifer_PushUpQuality = C007_LunchBreak_Jennifer_PushUpQuality + Quality;
 	C007_LunchBreak_Jennifer_PushUpCount++;
@@ -378,7 +378,7 @@ function C007_LunchBreak_Jennifer_PushUp(Quality) {
 		} else {
 			C007_LunchBreak_Jennifer_CurrentStage = 400;
 			GameLogAdd("PushUpFail");
-			OverridenIntroText = GetText("PushUpFail");			
+			OverridenIntroText = GetText("PushUpFail");
 		}
 	}
 

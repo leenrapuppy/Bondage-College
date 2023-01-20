@@ -20,7 +20,7 @@ function C008_DramaClass_DressingHiddenItem_Click() {
 
 // Chapter 8 - Hidden Item - Search
 function C008_DramaClass_DressingHiddenItem_Search() {
-	
+
 	// After 1 search, a cloth gag, after 3 searches, a random item
 	C008_DramaClass_DressingHiddenItem_SearchCount++;
 	if (C008_DramaClass_DressingHiddenItem_SearchCount == 1) {

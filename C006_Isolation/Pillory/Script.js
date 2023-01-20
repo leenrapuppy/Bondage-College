@@ -13,7 +13,7 @@ function C006_Isolation_Pillory_Run() {
 }
 
 // Chapter 6 - Pillory Click
-function C006_Isolation_Pillory_Click() {	
+function C006_Isolation_Pillory_Click() {
 	ClickInteraction(C006_Isolation_Pillory_CurrentStage);
 }
 

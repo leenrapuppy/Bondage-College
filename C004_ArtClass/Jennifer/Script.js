@@ -20,22 +20,22 @@ var C004_ArtClass_Jennifer_PaintAvail = true;
 // Chapter 4 - Jennifer Load
 function C004_ArtClass_Jennifer_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	ActorLoad("Jennifer", "ArtRoom");
 	LoadInteractions();
 	C004_ArtClass_Jennifer_EggConfirm = false;
 	C004_ArtClass_Jennifer_JuliaStrip = (C004_ArtClass_ArtRoom_JuliaStage >= 2);
-	
+
 	// Jumps to the correct stage
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "Jennifer") && (C004_ArtClass_Jennifer_CurrentStage < 100)) C004_ArtClass_Jennifer_CurrentStage = 100;
 	if ((C004_ArtClass_ArtRoom_ExtraModel != "") && (C004_ArtClass_ArtRoom_ExtraModel != "Jennifer")) C004_ArtClass_Jennifer_CurrentStage = 80;
 
 	// If we allow the player to beg to be released
 	C004_ArtClass_Jennifer_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerNotGagged);
-	
+
 	// A player with seduction has an extra option
 	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Jennifer_StunningBeautyReady = false;
-	
+
 }
 
 // Chapter 4 - Jennifer Run
@@ -62,7 +62,7 @@ function C004_ArtClass_Jennifer_Click() {
 		C004_ArtClass_Jennifer_CurrentStage = 60;
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the rope
 	if (Common_BondageAllowed && (C004_ArtClass_Jennifer_CurrentStage >= 120) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		if (ActorGetValue(ActorSubmission) < 3) {
@@ -76,12 +76,12 @@ function C004_ArtClass_Jennifer_Click() {
 			CurrentTime = CurrentTime + 60000;
 		}
 	}
-	
+
 	// When the user wants to use a gag without tying her
 	if (Common_BondageAllowed && ((ClickInv == "BallGag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
 		OverridenIntroText = GetText("NoGag");
-		
-	// When the user wants to use a BallGag	
+
+	// When the user wants to use a BallGag
 	if (Common_BondageAllowed && (ClickInv == "BallGag") && ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained) {
 		OverridenIntroText = GetText("BallGag");
 		C004_ArtClass_Jennifer_CurrentStage = 140;
@@ -109,9 +109,9 @@ function C004_ArtClass_Jennifer_Click() {
 		if (C004_ArtClass_Jennifer_CropDone == false) { C004_ArtClass_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the vibrating egg on Jennifer
-	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
+	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Jennifer_EggConfirm == false) {
 			C004_ArtClass_Jennifer_EggConfirm = true;
 			OverridenIntroText = GetText("VibratingEggWarning");
@@ -128,7 +128,7 @@ function C004_ArtClass_Jennifer_Click() {
 
 // Chapter 4 - Jennifer Sandro Comment - Start Julia Stage 1
 function C004_ArtClass_Jennifer_SandroComment() {
-	if (C004_ArtClass_ArtRoom_JuliaStage == 0) 
+	if (C004_ArtClass_ArtRoom_JuliaStage == 0)
 		C004_ArtClass_ArtRoom_JuliaStage = 1;
 }
 

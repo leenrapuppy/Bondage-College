@@ -3,7 +3,7 @@ var C012_AfterClass_Humiliation_List = ["Art", "Detention", "Karate", "Pool", "R
 
 // Chapter 12 After Class - Humiliation Load
 function C012_AfterClass_Humiliation_Load() {
-	
+
 	// Loads the scene
 	LeaveIcon = "";
 	LeaveScreen = "Dorm";
@@ -19,7 +19,7 @@ function C012_AfterClass_Humiliation_Run() {
 }
 
 // Chapter 12 After Class - Humiliation Click
-function C012_AfterClass_Humiliation_Click() {	
+function C012_AfterClass_Humiliation_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Humiliation_CurrentStage);
@@ -27,7 +27,7 @@ function C012_AfterClass_Humiliation_Click() {
 }
 
 // Chapter 12 After Class - process the humiliation scene
-function C012_AfterClass_Humiliation_Process() {	
+function C012_AfterClass_Humiliation_Process() {
 	CurrentTime = CurrentTime + 290000;
 	var HumiliationType = C012_AfterClass_Humiliation_List[Math.floor(Math.random() * C012_AfterClass_Humiliation_List.length)];
 	OverridenIntroImage = "Humiliation" + HumiliationType + (Common_PlayerChaste ? "Chastity": "") + ".jpg";

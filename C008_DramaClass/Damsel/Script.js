@@ -70,12 +70,12 @@ function C008_DramaClass_Damsel_Run() {
 }
 
 // Chapter 8 - Damsel Click
-function C008_DramaClass_Damsel_Click() {	
+function C008_DramaClass_Damsel_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C008_DramaClass_Damsel_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// If the player is the villain, she can restrain Sarah once stage 140 is reached.  Stage 220 becomes the minimum stage if she's gagged.
 	if (((ClickInv == "Rope") || (ClickInv == "BallGag") || (ClickInv == "TapeGag") || (ClickInv == "ClothGag")) && C008_DramaClass_Damsel_PlayerIsVillain && (C008_DramaClass_Damsel_CurrentStage >= 140) && (C008_DramaClass_Damsel_CurrentStage < 300) && !Common_PlayerRestrained) {
 		var HadRope = ActorHasInventory("Rope");
@@ -96,29 +96,29 @@ function C008_DramaClass_Damsel_Click() {
 
 		// A few items can change the actor attitude
 		if ((ClickInv == "Crop") && !C008_DramaClass_Damsel_ViolenceDone) { C008_DramaClass_Damsel_ViolenceDone = true; ActorChangeAttitude(1, 0); }
-	
+
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		C008_DramaClass_Damsel_CalcParams();
 
 	}
-	
+
 }
 
 // Chapter 8 - Damsel - Sets the global stage and can alter Julia's mood
 function C008_DramaClass_Damsel_GlobalStage(GlobalStage, LoveMod, SubMod) {
-	
+
 	// We can also flag for snapped fingers and a perfect play
 	C008_DramaClass_Theater_GlobalStage = GlobalStage;
 	if (!C008_DramaClass_Damsel_SnapFingersDone || (SubMod <= 0)) ActorSpecificChangeAttitude("Julia", LoveMod, SubMod);
 	if (SubMod > 0) C008_DramaClass_Damsel_SnapFingersDone = true;
 	if (LoveMod < 0) C008_DramaClass_Theater_PerfectPlay = false;
 	C008_DramaClass_Theater_SetPose();
-	
+
 	// Remember who was picked for later
 	if (GlobalStage == 200) C008_DramaClass_Damsel_KnightSelection = "Heroine";
 	if (GlobalStage == 210) C008_DramaClass_Damsel_KnightSelection = "Villain";
-	
+
 	// If the player is the Damsel, Amanda can restrain her if she's in a Domme mood and wasn't selected
 	if ((GlobalStage == 200) && (C008_DramaClass_Theater_Damsel == "Player") && (C008_DramaClass_Theater_Villain == "Amanda") && (ActorSpecificGetValue("Amanda", ActorSubmission) < 0)) {
 		PlayerClothes("Underwear");
@@ -141,15 +141,15 @@ function C008_DramaClass_Damsel_ForgetLine() {
 
 // Chapter 8 - Damsel - When Sarah must choose a knight
 function C008_DramaClass_Damsel_SarahChooseKnight() {
-	
+
 	// Sarah chooses the player if love is 10 or better
 	if (((ActorGetValue(ActorLove) >= 10) && (C008_DramaClass_Theater_Heroine == "Player")) || ((ActorGetValue(ActorLove) < 10) && (C008_DramaClass_Theater_Heroine == "Amanda"))) {
-		
+
 		// Stage 200 means the hero was selected
 		C008_DramaClass_Damsel_CurrentStage = 200;
 		C008_DramaClass_Theater_GlobalStage = 200;
 		C008_DramaClass_Damsel_KnightSelection = "Heroine";
-		
+
 		// If Amanda is the villain, she will restrain Sarah
 		if (C008_DramaClass_Theater_Villain == "Amanda") {
 			ActorSetCloth("Underwear");
@@ -176,7 +176,7 @@ function C008_DramaClass_Damsel_ReleaseDamsel() {
 	ActorUntie();
 	ActorUngag();
 	ActorSetCloth("Damsel");
-	C008_DramaClass_Theater_SetPose();	
+	C008_DramaClass_Theater_SetPose();
 }
 
 // Chapter 8 - Damsel - When the damsel kisses the victor, it finishes the play

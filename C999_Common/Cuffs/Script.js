@@ -12,7 +12,7 @@ function C999_Common_Cuffs_Load() {
 	LeaveIcon = "Leave";
 	C999_Common_Cuffs_HasKey = (PlayerHasInventory("CuffsKey"))
 	LoadInteractions();
-	
+
 	// Set the correct starting stage
 	if (PlayerHasLockedInventory("Cuffs") == true) C999_Common_Cuffs_CurrentStage = 10;
 	else C999_Common_Cuffs_CurrentStage = 0;

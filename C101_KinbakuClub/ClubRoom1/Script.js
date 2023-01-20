@@ -7,9 +7,9 @@ function C101_KinbakuClub_ClubRoom1_Load() {
 // Chapter  101 - Club Room 1 Run
 function C101_KinbakuClub_ClubRoom1_Run() {
 
-	// Draw the background image 
+	// Draw the background image
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom1Arrows.jpg", 0, 0);
-	
+
 	// Draw Lauren
 	if (!C101_KinbakuClub_Lauren_LaurenChairCuffed) {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/LaurenStart.png", 230, 155);

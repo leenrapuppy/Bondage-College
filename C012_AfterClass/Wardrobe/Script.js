@@ -8,12 +8,12 @@ var C012_AfterClass_Wardrobe_CostumeTeacher = false;
 
 // Chapter 12 After Class - Wardrobe Load
 function C012_AfterClass_Wardrobe_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LeaveIcon = "Leave";
 	LeaveScreen = "Dorm";
 	LoadInteractions();
-	
+
 	// Sets which costume are available based on what happened in the day
 	C012_AfterClass_Wardrobe_CostumeHeroine = GameLogQuery("C008_DramaClass", "Player", "RoleHeroine");
 	C012_AfterClass_Wardrobe_CostumeVillain = GameLogQuery("C008_DramaClass", "Player", "RoleVillain");
@@ -30,7 +30,7 @@ function C012_AfterClass_Wardrobe_Run() {
 }
 
 // Chapter 12 After Class - Wardrobe Click
-function C012_AfterClass_Wardrobe_Click() {	
+function C012_AfterClass_Wardrobe_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Wardrobe_CurrentStage);
@@ -39,13 +39,13 @@ function C012_AfterClass_Wardrobe_Click() {
 
 // Chapter 12 After Class - When the player changes clothes
 function C012_AfterClass_Wardrobe_Change(NewCloth) {
-	
+
 	// Cannot select the same clothes
 	if (NewCloth != Common_PlayerCloth) {
 
 		// Cannot be done if restrained
 		if (!Common_PlayerRestrained) {
-			
+
 			// Changing might be blocked by the player Mistress, if so we jump to a very angry Owner
 			if (GameLogQuery(CurrentChapter, "", "EventBlockChanging") && (C012_AfterClass_Dorm_Guest.indexOf(Common_PlayerOwner) >= 0)) {
 				CurrentTime = CurrentTime + 50000;
@@ -60,9 +60,9 @@ function C012_AfterClass_Wardrobe_Change(NewCloth) {
 				SetScene(CurrentChapter, "Dorm");
 				CurrentTime = CurrentTime + 50000;
 			}
-			
+
 		} else OverridenIntroText = GetText("CannotChange");
-	
+
 	} else OverridenIntroText = GetText("AlreadyWearingThat");
 
 }

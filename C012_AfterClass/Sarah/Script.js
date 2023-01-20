@@ -49,14 +49,14 @@ function C012_AfterClass_Sarah_CalcParams() {
 	C012_AfterClass_Sarah_IsNaked = (ActorGetValue(ActorCloth) == "Naked");
 	C012_AfterClass_Sarah_HasEgg = ActorHasInventory("VibratingEgg");
 	C012_AfterClass_Sarah_HasBelt = ActorHasInventory("ChastityBelt");
-	C012_AfterClass_Sarah_IsGagged = ActorIsGagged();	
+	C012_AfterClass_Sarah_IsGagged = ActorIsGagged();
 	C012_AfterClass_Sarah_IsRoped = (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("ThreeRopes"));
 	C012_AfterClass_Sarah_IsStrapped = ActorHasInventory("Armbinder");
 	C012_AfterClass_Sarah_IsRestrained = ActorIsRestrained();
 	C012_AfterClass_Sarah_PleasurePlayerAvail = (!Common_PlayerChaste && !ActorIsGagged() && !ActorIsRestrained() && Common_ActorIsOwned && !GameLogQuery(CurrentChapter, "Player", "NextPossibleOrgasm"));
 	C012_AfterClass_Sarah_SexAvail = (!Common_PlayerRestrained && !Common_PlayerChaste && !GameLogQuery(CurrentChapter, "Player", "NextPossibleOrgasm") && !GameLogQuery(CurrentChapter, "Sarah", "NextPossibleOrgasm"));
 	if (GameLogQuery(CurrentChapter, "", "EventBlockChanging") && (C012_AfterClass_Dorm_Guest.indexOf(Common_PlayerOwner) >= 0) && !Common_PlayerNaked) C012_AfterClass_Sarah_SexAvail = false;
-	C012_AfterClass_Sarah_CanMasturbate = (!Common_PlayerRestrained && !C012_AfterClass_Sarah_HasBelt && (ActorGetValue(ActorCloth) == "Naked"));	
+	C012_AfterClass_Sarah_CanMasturbate = (!Common_PlayerRestrained && !C012_AfterClass_Sarah_HasBelt && (ActorGetValue(ActorCloth) == "Naked"));
 	C012_AfterClass_Sarah_CanKickOut = (!Common_ActorIsOwner && !Common_ActorIsLover);
 	C012_AfterClass_Sarah_SidneyIsOwner = (Common_PlayerOwner == "Sidney");
 	C012_AfterClass_Sarah_HaveCuffs = (PlayerHasInventory("Cuffs"));
@@ -74,18 +74,18 @@ function C012_AfterClass_Sarah_CalcParams() {
 
 // Chapter 12 After Class - Sarah Load
 function C012_AfterClass_Sarah_Load() {
-	
+
 	// Loads the scene
 	LoadInteractions();
 	ActorLoad("Sarah", "Dorm");
 	Common_PlayerPose = "";
 	if (Common_ActorIsOwned) GameLogAddTimer("EventGenericNext", CurrentTime + 1200000 + Math.floor(Math.random() * 1200000));
-	
+
 	// At stage 400, Sarah is leaving
 	if (C012_AfterClass_Sarah_CurrentStage == 400) { ActorUngag(); LeaveIcon = ""; }
-	
+
 	// Sarah's parameters
-	C012_AfterClass_Sarah_CalcParams();	
+	C012_AfterClass_Sarah_CalcParams();
 	C012_AfterClass_Sarah_ChatAvail = !GameLogQuery(CurrentChapter, "Sidney", "AllowPigCostume");
 	C012_AfterClass_Sarah_SpankMaxCount = 10 - Math.floor(ActorGetValue(ActorLove) / 7);
 	if (C012_AfterClass_Sarah_SpankMaxCount < 6) C012_AfterClass_Sarah_SpankMaxCount = 6;
@@ -96,10 +96,10 @@ function C012_AfterClass_Sarah_Load() {
 		OverridenIntroText = C012_AfterClass_Sarah_IntroText;
 		C012_AfterClass_Sarah_IntroText = "";
 	} else {
-		
+
 		// If the player is grounded
 		if (GameLogQuery(CurrentChapter, "", "EventGrounded")) {
-			
+
 			// Skip to the punishment end phase, no talking while being grounded
 			C012_AfterClass_Sarah_AllowLeave();
 			C012_AfterClass_Sarah_CurrentStage = 3999;
@@ -140,7 +140,7 @@ function C012_AfterClass_Sarah_Run() {
 			} else {
 				DrawInteractionActor();
 				if ((C012_AfterClass_Sarah_CurrentStage >= 392) && (C012_AfterClass_Sarah_CurrentStage < 400)) DrawActor("Player", 600, 100, 1);
-			}		
+			}
 		}
 	} else {
 		DrawActor("Sarah", 500, 0, 1);
@@ -161,10 +161,10 @@ function C012_AfterClass_Sarah_Click() {
 		C012_AfterClass_Sarah_IntroText = OverridenIntroText;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// Sarah can be restrained on stage 0 and 10
 	if ((C012_AfterClass_Sarah_CurrentStage <= 10) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-		
+
 		// Sarah becomes more submissive from the crop
 		if (ClickInv == "Crop") {
 			if (ActorIsGagged()) OverridenIntroText = GetText("CropWhileGagged");
@@ -189,42 +189,42 @@ function C012_AfterClass_Sarah_Click() {
 			} else OverridenIntroText = GetText("RefuseBondage");
 			return;
 		}
-	
+
 		// Sarah can only wear the belt if she's naked
 		if (!ActorIsChaste() && (ActorGetValue(ActorCloth) != "Naked") && (ClickInv == "ChastityBelt")) {
 			OverridenIntroText = GetText("NakedForBelt");
 			return;
 		}
 
-		// Sarah will refuse the chastity belt if she's not restrained 
+		// Sarah will refuse the chastity belt if she's not restrained
 		if (!ActorIsChaste() && !ActorIsRestrained() && (ActorGetValue(ActorSubmission) < 10) && (ClickInv == "ChastityBelt")) {
 			OverridenIntroText = GetText("RefuseBelt");
 			return;
 		}
-		
+
 		// A second rope can be applied if Sarah isn't fully clothed
 		if ((ActorGetValue(ActorCloth) != "Naked") && (ActorGetValue(ActorCloth) != "Underwear") && (ClickInv == "Rope") && (ActorHasInventory("Rope"))) {
 			OverridenIntroText = GetText("StripForSecondRope");
 			return;
 		}
-		
+
 		// Cannot use rope or armbinder in the school play costumes
 		if ((ActorGetValue(ActorCloth) == "Heroine") && ((ClickInv == "Rope") || (ClickInv == "Armbinder"))) {
 			OverridenIntroText = GetText("NoRestrainInCostume");
-			return;			
+			return;
 		}
 
 		// Cannot use restraints in the damsel gown
 		if ((ActorGetValue(ActorCloth) == "Damsel") && ((ClickInv == "Rope") || (ClickInv == "Armbinder") || (ClickInv == "Cuffs"))) {
 			OverridenIntroText = GetText("NoRestrainInCostume");
-			return;			
+			return;
 		}
-		
+
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		C012_AfterClass_Sarah_CalcParams();
 
-	}	
+	}
 
 }
 
@@ -232,7 +232,7 @@ function C012_AfterClass_Sarah_Click() {
 function C012_AfterClass_Sarah_GaggedAnswer() {
 	if (ActorIsGagged()) {
 		var GagTalk = Math.floor(Math.random() * 8) + 1;
-		OverridenIntroText = GetText("GaggedAnswer" + GagTalk.toString());		
+		OverridenIntroText = GetText("GaggedAnswer" + GagTalk.toString());
 	}
 }
 
@@ -286,20 +286,20 @@ function C012_AfterClass_Sarah_SetPlayerPose(NewPose) {
 
 // Chapter 12 After Class - Sarah can unbind the player on some events
 function C012_AfterClass_Sarah_TestUnbind() {
-		
+
 	// Check if the event succeeds randomly (skip is owned)
 	if (EventRandomChance("Love") || Common_ActorIsOwned) {
-		
+
 		// Can only release if not restrained
 		if (!ActorIsRestrained()) {
 			if (ActorIsGagged()) OverridenIntroText = GetText("ReleasePlayerGagged");
-			else OverridenIntroText = GetText("ReleasePlayer");				
+			else OverridenIntroText = GetText("ReleasePlayer");
 			PlayerReleaseBondage();
 			CurrentTime = CurrentTime + 50000;
 		} else OverridenIntroText = GetText("CannotReleasePlayer");
-		
+
 	} else EventSetGenericTimer();
-	
+
 }
 
 // Chapter 12 After Class - Allows the player to leave the scene
@@ -309,7 +309,7 @@ function C012_AfterClass_Sarah_AllowLeave() {
 
 // Chapter 12 After Class - Sarah can confiscate the player keys
 function C012_AfterClass_Sarah_BegForOrgasm() {
-	
+
 	// If the player begs for it, Sarah will do it randomly based on love, if not it's based on hate
 	if (EventRandomChance("Love")) {
 		ActorAddOrgasm();
@@ -355,7 +355,7 @@ function C012_AfterClass_Sarah_TestChange() {
 	if (!ActorIsRestrained()) {
 		if ((ActorGetValue(ActorLove) >= 5) || (ActorGetValue(ActorSubmission) >= 5) || Common_ActorIsOwned || Common_ActorIsLover) {
 			if (Common_ActorIsOwned) OverridenIntroText = GetText("AcceptChangeFromMistress");
-			else 
+			else
 				if (Common_ActorIsLover) OverridenIntroText = GetText("AcceptChangeFromLover");
 				else OverridenIntroText = GetText("AcceptChange");
 			C012_AfterClass_Sarah_CurrentStage = 600;
@@ -453,7 +453,7 @@ function C012_AfterClass_Sarah_StartPleasurePlayer(MasturbateWhilePleasure) {
 
 // Chapter 12 After Class - When Sarah pleasures the player
 function C012_AfterClass_Sarah_PleasurePlayer() {
-	
+
 	// The more it progresses, the faster Sarah must go
 	CurrentTime = CurrentTime + 50000;
 	var StartCount = C012_AfterClass_Sarah_PleasurePlayerCount;
@@ -482,7 +482,7 @@ function C012_AfterClass_Sarah_PleasurePlayer() {
 	} else {
 		if (StartCount == C012_AfterClass_Sarah_PleasurePlayerCount) OverridenIntroText = GetText("PleasureFromSarahNoProgress");
 	}
-	
+
 }
 
 // Chapter 12 After Class - When Sarah pleasures the player and is forced in a new position or speed
@@ -508,7 +508,7 @@ function C012_AfterClass_Sarah_EndPleasureFromSarah(LoveFactor, SubFactor) {
 
 // Chapter 12 After Class - When the player kisses Sarah
 function C012_AfterClass_Sarah_Kiss() {
-	CurrentTime = CurrentTime + 50000;	
+	CurrentTime = CurrentTime + 50000;
 	if (Common_ActorIsOwner) OverridenIntroText = GetText("KissSarahOwner");
 	else if (C012_AfterClass_Sarah_IsGagged) OverridenIntroText = GetText("KissSarahGagged");
 	else if (!GameLogQuery(CurrentChapter, CurrentActor, "Kiss")) {
@@ -632,7 +632,7 @@ function C012_AfterClass_Sarah_TestTalk() {
 	if (!ActorIsGagged()) {
 		if (!ActorIsRestrained()) C012_AfterClass_Sarah_CurrentStage = 20;
 		else OverridenIntroText = GetText("ReleaseBeforeTalk");
-	} else C012_AfterClass_Sarah_GaggedAnswer();	
+	} else C012_AfterClass_Sarah_GaggedAnswer();
 }
 
 // Chapter 12 After Class - When the player breaks up with Sarah

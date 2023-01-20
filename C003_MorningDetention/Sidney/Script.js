@@ -9,19 +9,19 @@ var C003_MorningDetention_Sidney_EggInside = false;
 function C003_MorningDetention_Sidney_Load() {
 
 	// Jump directly to stage 100 if the teacher was drugged but is not sleeping
-	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime < C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Sidney_CurrentStage < 100)) 
+	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime < C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Sidney_CurrentStage < 100))
 		C003_MorningDetention_Sidney_CurrentStage = 100;
 
 	// Jump directly to stage 200 if the teacher was drugged and is sleeping
-	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime >= C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Sidney_CurrentStage < 200)) 
+	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime >= C003_MorningDetention_DetentionRoom_SleepTimer) && (C003_MorningDetention_Sidney_CurrentStage < 200))
 		C003_MorningDetention_Sidney_CurrentStage = 200;
-	
+
 	// If Sidney isn't gone and the teacher woke up, there's a special dialog
 	if ((C003_MorningDetention_Yuki_CurrentStage >= 200) && (C003_MorningDetention_Sidney_CurrentStage != 160) && (C003_MorningDetention_Sidney_CurrentStage < 300) && (C003_MorningDetention_Yuki_CurrentStage != 230))
 		C003_MorningDetention_Sidney_CurrentStage = 150;
 
 	// Load the scene parameters
-	C003_MorningDetention_Sidney_EggReady = false;		
+	C003_MorningDetention_Sidney_EggReady = false;
 	C003_MorningDetention_Sidney_FightVictory = GameLogQuery("C001_BeforeClass", "Sidney", "FightVictory");
 	C003_MorningDetention_Sidney_FightDefeat = GameLogQuery("C001_BeforeClass", "Sidney", "FightDefeat");
 	ActorLoad("Sidney", "DetentionRoom");
@@ -35,12 +35,12 @@ function C003_MorningDetention_Sidney_Run() {
 }
 
 // Chapter 3 - Sidney Click
-function C003_MorningDetention_Sidney_Click() {	
+function C003_MorningDetention_Sidney_Click() {
 
 	// Regular interaction
 	ClickInteraction(C003_MorningDetention_Sidney_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Special code for when the user wants to unlock Sidney
 	if ((ClickInv == "CuffsKey") && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
 		PlayerAddInventory("Cuffs", 1);
@@ -59,27 +59,27 @@ function C003_MorningDetention_Sidney_Click() {
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "SleepingPill") && (C003_MorningDetention_Sidney_CurrentStage < 200) && Common_PlayerNotRestrained)
 		OverridenIntroText = GetText("SleepingPill");
-	
+
 	// Special code for when the user wants to use the vibrating egg on Sidney
 	if ((ClickInv == "VibratingEgg") && (C003_MorningDetention_Sidney_CurrentStage >= 200) && (C003_MorningDetention_Sidney_CurrentStage < 300) && Common_PlayerNotRestrained) {
 		OverridenIntroText = GetText("VibratingEggReady");
 		C003_MorningDetention_Sidney_EggReady = true;
 	}
-	
+
 }
 
 // Chapter 3 - Sidney Strip
-function C003_MorningDetention_Sidney_Strip() {	
+function C003_MorningDetention_Sidney_Strip() {
 	C003_MorningDetention_DetentionRoom_SidneyStrip = true;
 }
 
 // Chapter 3 - Sidney Dress
-function C003_MorningDetention_Sidney_Dress() {	
+function C003_MorningDetention_Sidney_Dress() {
 	C003_MorningDetention_DetentionRoom_SidneyStrip = false;
 }
 
 // Chapter 3 - Sidney Unlock
-function C003_MorningDetention_Sidney_Unlock() {	
+function C003_MorningDetention_Sidney_Unlock() {
 	C003_MorningDetention_DetentionRoom_SidneyGone = true;
 }
 

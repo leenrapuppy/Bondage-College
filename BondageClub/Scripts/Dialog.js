@@ -323,7 +323,7 @@ function DialogCanInteract(C) { return DialogGetCharacter(C).CanInteract(); }
 function DialogSetPose(C, NewPose) { CharacterSetActivePose((C.toUpperCase().trim() == "PLAYER") ? Player : CurrentCharacter, ((NewPose != null) && (NewPose != "")) ? NewPose : null, true); }
 
 /**
- * CHecks, wether a given skill of the player is greater or equal a given value
+ * Checks, whether a given skill of the player is greater or equal a given value
  * @param {string} SkillType - Name of the skill to check
  * @param {string} Value - The value, the given skill must be compared to
  * @returns {boolean} - Returns true if a specific skill is greater or equal than a given value
@@ -331,7 +331,7 @@ function DialogSetPose(C, NewPose) { CharacterSetActivePose((C.toUpperCase().tri
 function DialogSkillGreater(SkillType, Value) { return (parseInt(SkillGetLevel(Player, SkillType)) >= parseInt(Value)); }
 
 /**
- * Cheks, if a given item is available in the player's inventory
+ * Checks, if a given item is available in the player's inventory
  * @param {string} InventoryName
  * @param {string} InventoryGroup
  * @returns {boolean} - Returns true, if the item is available, false otherwise
@@ -2588,7 +2588,7 @@ function DialogSetSkillRatio(SkillType, NewRatio) {
 /**
  * Sends an room administrative command to the server for the chat room from the player dialog
  * @param {string} ActionType - The name of the administrative command to use
- * @param {string} Publish - Determines wether the action should be published to the ChatRoom. As this is a string, use "true" to do so
+ * @param {string} Publish - Determines whether the action should be published to the ChatRoom. As this is a string, use "true" to do so
  * @returns {void} - Nothing
  */
 function DialogChatRoomAdminAction(ActionType, Publish) {

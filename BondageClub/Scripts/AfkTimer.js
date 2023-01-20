@@ -54,7 +54,7 @@ function AfkTimerStop() {
 
 /**
  * Enables or disables the afk timer. Is called, when the player changes her settings in the preferences dialog
- * @param {boolean} Enabled - Determines, wether the afk timer will be enabled (true) or disabled (false).
+ * @param {boolean} Enabled - Determines, whether the afk timer will be enabled (true) or disabled (false).
  * @returns {void} - Nothing
  */
 function AfkTimerSetEnabled(Enabled) {

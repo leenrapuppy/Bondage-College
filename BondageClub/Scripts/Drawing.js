@@ -776,35 +776,35 @@ function DrawImageEx(
  * @returns {Array<string>} - A list of string that being fragmented.
  */
 function fragmentText(text, maxWidth) {
-    let words = text.split(' '),
-        lines = [],
-        line = "";
+	let words = text.split(' '),
+		lines = [],
+		line = "";
 
-    if (MainCanvas.measureText(text).width < maxWidth) {
-        return [text];
-    }
+	if (MainCanvas.measureText(text).width < maxWidth) {
+		return [text];
+	}
 
-    while (words.length > 0) {
-        while (MainCanvas.measureText(words[0]).width >= maxWidth) {
-            let temp = words[0];
-            words[0] = temp.slice(0, -1);
-            if (words.length > 1) {
-                words[1] = temp.slice(-1) + words[1];
-            } else {
-                words.push(temp.slice(-1));
-            }
-        }
-        if (MainCanvas.measureText(line + words[0]).width < maxWidth) {
-            line += words.shift() + " ";
-        } else {
-            lines.push(line);
-            line = "";
-        }
-        if (words.length === 0) {
-            lines.push(line);
-        }
-    }
-    return lines;
+	while (words.length > 0) {
+		while (MainCanvas.measureText(words[0]).width >= maxWidth) {
+			let temp = words[0];
+			words[0] = temp.slice(0, -1);
+			if (words.length > 1) {
+				words[1] = temp.slice(-1) + words[1];
+			} else {
+				words.push(temp.slice(-1));
+			}
+		}
+		if (MainCanvas.measureText(line + words[0]).width < maxWidth) {
+			line += words.shift() + " ";
+		} else {
+			lines.push(line);
+			line = "";
+		}
+		if (words.length === 0) {
+			lines.push(line);
+		}
+	}
+	return lines;
 }
 
 /**

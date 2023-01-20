@@ -8,7 +8,7 @@ function C002_FirstClass_Intro_Load() {
 
 // Chapter 2 - Intro Run
 function C002_FirstClass_Intro_Run() {
-	
+
 	// Paints the background
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 	DrawPlayerTransition();

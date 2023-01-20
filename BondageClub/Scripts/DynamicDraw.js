@@ -238,11 +238,11 @@ function DynamicDrawTextFromTo(text, ctx, from, to, options) {
 	if (!width) {
 		options.width = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
 		if (contain && dx != 0) {
-			// If the text should be fully contained withing the [x0, y0], [x1, y1] box, subtract appropriately
+			// If the text should be fully contained within the [x0, y0], [x1, y1] box, subtract appropriately
 			options.width -= 2 * Math.abs(dy / dx) * (fontSize / 2);
 		}
 	}
-	
+
 	// Center point (cx, cy)
 	const cx = x0 + 0.5 * dx;
 	const cy = y0 + 0.5 * dy;

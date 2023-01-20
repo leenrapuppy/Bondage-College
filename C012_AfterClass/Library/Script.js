@@ -24,7 +24,7 @@ function C012_AfterClass_Library_WhoIsInLibrary() {
 	C012_AfterClass_Library_AmandaAvail = ((CurrentTime >= 18 * 60 * 60 * 1000) && (CurrentTime <= 21 * 60 * 60 * 1000) && !GameLogQuery(CurrentChapter, "Amanda", "EnterDormFromLibrary"));
 	C012_AfterClass_Library_EmptyLibrary = (!C012_AfterClass_Library_AmandaAvail);
 	C012_AfterClass_Library_PoemAvail = (!GameLogQuery(CurrentChapter, "Amanda", "StartPoem") && (C012_AfterClass_Library_StudyTimeWithAmanda + C012_AfterClass_Library_StudyTimeHelpAmanda + C012_AfterClass_Library_StudyTimeHelpedByAmanda >= 3));
-	
+
 	// Closing time when the player is alone
 	if ((CurrentTime >= 21 * 60 * 60 * 1000) && (CurrentActor == "")) {
 		OverridenIntroText = GetText("LibraryClosingAlone");
@@ -38,7 +38,7 @@ function C012_AfterClass_Library_WhoIsInLibrary() {
 		OverridenIntroText = GetText("LibraryClosingAmanda");
 		C012_AfterClass_Library_CurrentStage = 230;
 	}
-	
+
 }
 
 // Chapter 12 After Class - Library Load
@@ -60,7 +60,7 @@ function C012_AfterClass_Library_Load() {
 	// No leaving from the library
 	LeaveIcon = "";
 	LeaveScreen = "";
-	
+
 }
 
 // Chapter 12 After Class - Library Run (In stage 3XX we are in study mode with both the player and Amanda)
@@ -75,7 +75,7 @@ function C012_AfterClass_Library_Run() {
 }
 
 // Chapter 12 After Class - Library Click
-function C012_AfterClass_Library_Click() {	
+function C012_AfterClass_Library_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Library_CurrentStage);
@@ -87,7 +87,7 @@ function C012_AfterClass_Library_Click() {
 		C012_AfterClass_Library_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 }
 
 // Chapter 12 After Class - When the player leaves the library
@@ -99,7 +99,7 @@ function C012_AfterClass_Library_Leave() {
 
 // Chapter 12 After Class - Wait for a while and recalculate who's in the library
 function C012_AfterClass_Library_Wait() {
-	CurrentTime = CurrentTime + 290000;	
+	CurrentTime = CurrentTime + 290000;
 	C012_AfterClass_Library_WhoIsInLibrary();
 }
 
@@ -113,14 +113,14 @@ function C012_AfterClass_Library_AmandaStart() {
 	LeaveIcon = "";
 	var Love = ActorGetValue(ActorLove);
 	var Sub = ActorGetValue(ActorSubmission);
-	
+
 	// If the intro is already done, we jump to the study stage
 	if (GameLogQuery(CurrentChapter, "Amanda", "LibraryIntro")) {
 		if (Sub >= 10) ActorSetPose("Shy");
 		C012_AfterClass_Library_CurrentStage = 200;
 		return;
 	} else GameLogAdd("LibraryIntro");
-	
+
 	// If Amanda is dominant and more so than love/hate
 	if ((Sub <= -10) && (Math.abs(Sub) >= Math.abs(Love))) {
 		ActorSetPose("Point");
@@ -134,7 +134,7 @@ function C012_AfterClass_Library_AmandaStart() {
 		C012_AfterClass_Library_CurrentStage = 110;
 		return;
 	}
-	
+
 	// If Amanda hates the player
 	if (Love <= -10) {
 		ActorSetPose("Angry");
@@ -148,21 +148,21 @@ function C012_AfterClass_Library_AmandaStart() {
 		C012_AfterClass_Library_CurrentStage = 130;
 		return;
 	}
-	
+
 	// If Amanda is belted
 	if (ActorHasInventory("ChastityBelt")) {
 		ActorSetPose("Angry");
 		C012_AfterClass_Library_CurrentStage = 140;
 		return;
 	}
-	
+
 	// If Amanda has the egg
 	if (ActorHasInventory("VibratingEgg")) {
 		ActorSetPose("Shy");
 		C012_AfterClass_Library_CurrentStage = 150;
 		return;
 	}
-	
+
 	// If the player was locked in the locker in chapter 10
 	if (GameLogQuery("C010_Revenge", "Player", "Locker")) {
 		ActorSetPose("Point");
@@ -183,7 +183,7 @@ function C012_AfterClass_Library_AmandaStart() {
 		C012_AfterClass_Library_CurrentStage = 180;
 		return;
 	}
-	
+
 	// No special feelings and conversation
 	C012_AfterClass_Library_CurrentStage = 190;
 

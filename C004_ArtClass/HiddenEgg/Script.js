@@ -4,7 +4,7 @@ var C004_ArtClass_HiddenEgg_CurrentStage = 0;
 function C004_ArtClass_HiddenEgg_Load() {
 	LeaveIcon = "Leave";
 	LeaveScreen = "ArtRoom";
-	LoadInteractions();		
+	LoadInteractions();
 }
 
 // Chapter 4 - Hidden Egg Run
@@ -18,7 +18,7 @@ function C004_ArtClass_HiddenEgg_Click() {
 }
 
 // Chapter 4 - Bag Take Egg
-function C004_ArtClass_HiddenEgg_TakeEgg() {	
+function C004_ArtClass_HiddenEgg_TakeEgg() {
 	PlayerAddInventory("VibratingEgg", 1);
 	AchievementUnlock("HappyEaster");
 }

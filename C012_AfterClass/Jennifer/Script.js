@@ -28,7 +28,7 @@ function C012_AfterClass_Jennifer_SetPose() {
 	ActorSetPose("");
 	if (((ActorGetValue(ActorCloth) == "Clothed") || (ActorGetValue(ActorCloth) == "")) && !ActorIsRestrained() && !ActorIsGagged()) {
 		var Love = ActorGetValue(ActorLove);
-		var Sub = ActorGetValue(ActorSubmission);	
+		var Sub = ActorGetValue(ActorSubmission);
 		if ((Sub <= -10) && (Math.abs(Sub) >= Math.abs(Love))) ActorSetPose("Cocky");
 		if ((Sub >= 10) && (Math.abs(Sub) >= Math.abs(Love))) ActorSetPose("Shy");
 		if ((Love >= 10) && (Math.abs(Love) >= Math.abs(Sub))) ActorSetPose("Happy");
@@ -52,7 +52,7 @@ function C012_AfterClass_Jennifer_CalcParams() {
 	C012_AfterClass_Jennifer_PleasurePlayerAvail = (!Common_PlayerChaste && !ActorIsGagged() && !ActorIsRestrained() && Common_ActorIsOwned && !GameLogQuery(CurrentChapter, "Player", "NextPossibleOrgasm"));
 	C012_AfterClass_Jennifer_SexAvail = (!Common_PlayerRestrained && !Common_PlayerChaste && !GameLogQuery(CurrentChapter, "Player", "NextPossibleOrgasm") && !GameLogQuery(CurrentChapter, "Jennifer", "NextPossibleOrgasm") && !GameLogQuery(CurrentChapter, "Player", "AmandaAndSarahInBed"));
 	if (GameLogQuery(CurrentChapter, "", "EventBlockChanging") && (C012_AfterClass_Dorm_Guest.indexOf(Common_PlayerOwner) >= 0) && !Common_PlayerNaked) C012_AfterClass_Jennifer_SexAvail = false;
-	C012_AfterClass_Jennifer_CanMasturbate = (!Common_PlayerRestrained && !C012_AfterClass_Jennifer_HasBelt && (ActorGetValue(ActorCloth) == "Naked"));	
+	C012_AfterClass_Jennifer_CanMasturbate = (!Common_PlayerRestrained && !C012_AfterClass_Jennifer_HasBelt && (ActorGetValue(ActorCloth) == "Naked"));
 	C012_AfterClass_Jennifer_CanKickOut = (!Common_ActorIsOwner && !Common_ActorIsLover);
 	C012_AfterClass_Jennifer_AllowTennisOutfit = (GameLogQuery("C007_LunchBreak", CurrentActor, "Lunch") || GameLogQuery("C012_AfterClass", CurrentActor, "Running") || GameLogQuery("C012_AfterClass", CurrentActor, "SubTraining"));
 	C012_AfterClass_Jennifer_AllowSwimsuit = GameLogQuery("C012_AfterClass", CurrentActor, "EnterDormFromPool");
@@ -62,7 +62,7 @@ function C012_AfterClass_Jennifer_CalcParams() {
 
 // Chapter 12 After Class - Jennifer Load
 function C012_AfterClass_Jennifer_Load() {
-	
+
 	// Loads the scene
 	LoadInteractions();
 	ActorLoad("Jennifer", "Dorm");
@@ -70,21 +70,21 @@ function C012_AfterClass_Jennifer_Load() {
 	if (C012_AfterClass_Jennifer_CurrentStage == 3915) Common_PlayerPose = "FoldPunishment";
 
 	// Jennifer's parameters
-	C012_AfterClass_Jennifer_CalcParams();	
+	C012_AfterClass_Jennifer_CalcParams();
 	C012_AfterClass_Jennifer_ChatAvail = !GameLogQuery(CurrentChapter, CurrentActor, "ChatDone");
 	C012_AfterClass_Jennifer_SpankMaxCount = 10 - Math.floor(ActorGetValue(ActorLove) / 7);
 	if (C012_AfterClass_Jennifer_SpankMaxCount < 6) C012_AfterClass_Jennifer_SpankMaxCount = 6;
 	if (C012_AfterClass_Jennifer_SpankMaxCount > 12) C012_AfterClass_Jennifer_SpankMaxCount = 12;
-	
+
 	// Loads the previous text if needed
 	if (C012_AfterClass_Jennifer_IntroText != "") {
 		OverridenIntroText = C012_AfterClass_Jennifer_IntroText;
 		C012_AfterClass_Jennifer_IntroText = "";
 	} else {
-		
+
 		// If the player is grounded
 		if (GameLogQuery(CurrentChapter, "", "EventGrounded")) {
-			
+
 			// Skip to the punishment end phase, no talking while being grounded
 			C012_AfterClass_Jennifer_AllowLeave();
 			C012_AfterClass_Jennifer_CurrentStage = 3999;
@@ -124,7 +124,7 @@ function C012_AfterClass_Jennifer_Run() {
 			if ((C012_AfterClass_Jennifer_CurrentStage >= 321) && (C012_AfterClass_Jennifer_CurrentStage < 340)) DrawActor("Player", 600, 100, 1);
 		}
 	}
-	
+
 }
 
 // Chapter 12 After Class - Jennifer Click
@@ -139,10 +139,10 @@ function C012_AfterClass_Jennifer_Click() {
 		C012_AfterClass_Jennifer_IntroText = OverridenIntroText;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// Jennifer can be restrained on stage 0 and 10
 	if ((C012_AfterClass_Jennifer_CurrentStage <= 10) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-		
+
 		// Jennifer becomes more submissive from the crop
 		if (ClickInv == "Crop") {
 			if (ActorIsGagged()) OverridenIntroText = GetText("CropWhileGagged");
@@ -177,7 +177,7 @@ function C012_AfterClass_Jennifer_Click() {
 			OverridenIntroText = GetText("RefuseBondage");
 			return;
 		}
-		
+
 		// Jennifer can only wear the belt if she's naked
 		if (!ActorIsChaste() && (ActorGetValue(ActorCloth) != "Naked") && (ClickInv == "ChastityBelt")) {
 			OverridenIntroText = GetText("NakedForBelt");
@@ -189,12 +189,12 @@ function C012_AfterClass_Jennifer_Click() {
 			OverridenIntroText = GetText("StripForSecondRope");
 			return;
 		}
-		
+
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		C012_AfterClass_Jennifer_CalcParams();
 
-	}	
+	}
 
 }
 
@@ -202,7 +202,7 @@ function C012_AfterClass_Jennifer_Click() {
 function C012_AfterClass_Jennifer_GaggedAnswer() {
 	if (ActorIsGagged()) {
 		var GagTalk = Math.floor(Math.random() * 8) + 1;
-		OverridenIntroText = GetText("GaggedAnswer" + GagTalk.toString());		
+		OverridenIntroText = GetText("GaggedAnswer" + GagTalk.toString());
 	}
 }
 
@@ -299,7 +299,7 @@ function C012_AfterClass_Jennifer_PlayerStandUp() {
 
 // Chapter 12 After Class - The player can trigger a random Domme event from Jennifer (3000 events)
 function C012_AfterClass_Jennifer_RandomJenniferDommeEvent() {
-	
+
 	// Makes sure the next random event can be triggered
 	if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric")) {
 
@@ -311,7 +311,7 @@ function C012_AfterClass_Jennifer_RandomJenniferDommeEvent() {
 
 	// If Jennifer doesn't respond, we end the scene right there
 	if (C012_AfterClass_Jennifer_CurrentStage == 0) C012_AfterClass_Jennifer_AllowLeave();
-	
+
 }
 
 // Chapter 12 After Class - As a Domme, Jennifer can force the player to change
@@ -345,18 +345,18 @@ function C012_AfterClass_Jennifer_TestUnbind() {
 
 		// Before the next event time, she will always refuse (skip is owned)
 		if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric") || Common_ActorIsOwned) {
-			
+
 			// Check if the event succeeds randomly (skip is owned)
 			if (EventRandomChance("Love") || Common_ActorIsOwned) {
-				
+
 				// Can only release if not restrained
 				if (!ActorIsRestrained()) {
 					if (ActorIsGagged()) OverridenIntroText = GetText("ReleasePlayerGagged");
-					else OverridenIntroText = GetText("ReleasePlayer");				
+					else OverridenIntroText = GetText("ReleasePlayer");
 					PlayerReleaseBondage();
 					CurrentTime = CurrentTime + 50000;
 				} else OverridenIntroText = GetText("CannotReleasePlayer");
-				
+
 			} else EventSetGenericTimer();
 
 		}
@@ -367,7 +367,7 @@ function C012_AfterClass_Jennifer_TestUnbind() {
 
 // Chapter 12 After Class - When the player disobey, she can get punished
 function C012_AfterClass_Jennifer_DoActivity(ActivityType, Enjoyment, BonusStage) {
-	
+
 	// Launch the activity, some can have a bonus stage
 	if ((ActivityType == "PushUp") || (ActivityType == "SitUp")) PlayerClothes("Underwear");
 	C012_AfterClass_Jennifer_CurrentStage = EventDoActivity(ActivityType, Enjoyment, C012_AfterClass_Jennifer_CurrentStage, 3290, BonusStage);
@@ -410,7 +410,7 @@ function C012_AfterClass_Jennifer_ConfiscateCrop() {
 
 // Chapter 12 After Class - Jennifer can confiscate the player keys
 function C012_AfterClass_Jennifer_BegForOrgasm(Begged) {
-	
+
 	// If the player begs for it, Jennifer will do it randomly based on love, if not it's based on hate
 	if (EventRandomChance(Begged ? "Love" : "Hate")) {
 		ActorAddOrgasm();
@@ -429,7 +429,7 @@ function C012_AfterClass_Jennifer_IsChangingBlocked() {
 
 // Chapter 12 After Class - Jennifer will tell the player if she can change clothes or not
 function C012_AfterClass_Jennifer_TestBlockChanging() {
-	
+
 	// The less love, the higher the chances Jennifer will block changing
 	if (EventRandomChance("Hate")) {
 		OverridenIntroText = "";
@@ -444,7 +444,7 @@ function C012_AfterClass_Jennifer_ReleaseBeforePunish() {
 	ActorSetPose("ReadyToPunish");
 	if (Common_PlayerRestrained || Common_PlayerGagged) {
 		if (Common_PlayerNaked) {
-			C012_AfterClass_Jennifer_CurrentStage = 3903;		
+			C012_AfterClass_Jennifer_CurrentStage = 3903;
 			OverridenIntroText = GetText("ReleaseBeforePunishAlreadyNaked");
 		}
 		else OverridenIntroText = GetText("ReleaseBeforePunishNotNaked");
@@ -452,9 +452,9 @@ function C012_AfterClass_Jennifer_ReleaseBeforePunish() {
 		CurrentTime = CurrentTime + 50000;
 	} else {
 		if (Common_PlayerNaked) {
-			C012_AfterClass_Jennifer_CurrentStage = 3903;		
+			C012_AfterClass_Jennifer_CurrentStage = 3903;
 			OverridenIntroText = GetText("PunishSinceNaked");
-		}		
+		}
 	}
 }
 
@@ -552,7 +552,7 @@ function C012_AfterClass_Jennifer_TestChange() {
 	if (!ActorIsRestrained()) {
 		if ((ActorGetValue(ActorLove) >= 10) || (ActorGetValue(ActorSubmission) >= 10) || Common_ActorIsOwned || Common_ActorIsLover) {
 			if (Common_ActorIsOwned) OverridenIntroText = GetText("AcceptChangeFromMistress");
-			else 
+			else
 				if (Common_ActorIsLover) OverridenIntroText = GetText("AcceptChangeFromLover");
 				else OverridenIntroText = GetText("AcceptChange");
 			C012_AfterClass_Jennifer_CurrentStage = 600;
@@ -651,14 +651,14 @@ function C012_AfterClass_Jennifer_StartPleasurePlayer() {
 
 // Chapter 12 After Class - When Jennifer pleasures the player
 function C012_AfterClass_Jennifer_PleasurePlayer() {
-	
+
 	// The more it progresses, the faster Jennifer must go
 	CurrentTime = CurrentTime + 50000;
 	var StartCount = C012_AfterClass_Jennifer_PleasurePlayerCount;
 	if ((C012_AfterClass_Jennifer_PleasurePlayerCount >= 0) && (C012_AfterClass_Jennifer_PleasurePlayerCount <= 1) && (C012_AfterClass_Jennifer_PleasurePlayerSpeed == 0)) C012_AfterClass_Jennifer_PleasurePlayerCount++;
 	if ((C012_AfterClass_Jennifer_PleasurePlayerCount >= 2) && (C012_AfterClass_Jennifer_PleasurePlayerCount <= 3) && (C012_AfterClass_Jennifer_PleasurePlayerSpeed == 1)) C012_AfterClass_Jennifer_PleasurePlayerCount++;
 	if ((C012_AfterClass_Jennifer_PleasurePlayerCount >= 4) && (C012_AfterClass_Jennifer_PleasurePlayerCount <= 9) && (C012_AfterClass_Jennifer_PleasurePlayerSpeed == 2)) C012_AfterClass_Jennifer_PleasurePlayerCount++;
-	
+
 	// At 6 counts, an orgasm is achieved, the next one will be slower
 	if (C012_AfterClass_Jennifer_PleasurePlayerCount >= 6) {
 		OverridenIntroText = GetText("OrgasmFromJenniferPleasure");
@@ -672,7 +672,7 @@ function C012_AfterClass_Jennifer_PleasurePlayer() {
 	} else {
 		if (StartCount == C012_AfterClass_Jennifer_PleasurePlayerCount) OverridenIntroText = GetText("PleasureFromJenniferNoProgress");
 	}
-	
+
 }
 
 // Chapter 12 After Class - When Jennifer pleasures the player and is forced in a new position or speed
@@ -698,7 +698,7 @@ function C012_AfterClass_Jennifer_EndPleasureFromJennifer(LoveFactor, SubFactor)
 
 // Chapter 12 After Class - When the player kisses Jennifer
 function C012_AfterClass_Jennifer_Kiss() {
-	CurrentTime = CurrentTime + 50000;	
+	CurrentTime = CurrentTime + 50000;
 	if (Common_ActorIsOwner) OverridenIntroText = GetText("KissJenniferOwner");
 	else if (C012_AfterClass_Jennifer_IsGagged) OverridenIntroText = GetText("KissJenniferGagged");
 	else if (!GameLogQuery(CurrentChapter, CurrentActor, "Kiss")) {
@@ -816,7 +816,7 @@ function C012_AfterClass_Jennifer_TestTalk() {
 	if (!ActorIsGagged()) {
 		if (!ActorIsRestrained()) C012_AfterClass_Jennifer_CurrentStage = 20;
 		else OverridenIntroText = GetText("ReleaseBeforeTalk");
-	} else C012_AfterClass_Jennifer_GaggedAnswer();	
+	} else C012_AfterClass_Jennifer_GaggedAnswer();
 }
 
 // Chapter 12 After Class - When the player breaks up with Jennifer
