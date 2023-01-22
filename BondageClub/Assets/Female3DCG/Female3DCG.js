@@ -5012,11 +5012,11 @@ var AssetFemale3DCG = [
 				Name: "Towel", ParentGroup: null, Priority: 46, Value: 10, Random: false, AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "RopeCoilLong", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
+				Name: "RopeCoilLong", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"], DefaultColor: "#956B1C",
 				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
 			},
 			{
-				Name: "RopeCoilShort", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
+				Name: "RopeCoilShort", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"], DefaultColor: "#956B1C",
 				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
 			},
 			{
