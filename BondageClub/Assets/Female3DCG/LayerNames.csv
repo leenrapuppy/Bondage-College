@@ -1391,3 +1391,11 @@ ClothLowerCrossSkirtBase,Base
 ClothLowerCrossSkirtBelt,Belt
 ClothLowerCrossSkirtCross,Crosses
 ClothLowerCrossSkirtMetal,Metal
+ItemHoodFestivalFoxMaskBase,Base
+ItemHoodFestivalFoxMaskMarkings,Markings
+ItemHoodFestivalFoxMaskEyeLeft,Left Eye
+ItemHoodFestivalFoxMaskEyeRight,Right Eye
+MaskFestivalFoxMaskBase,Base
+MaskFestivalFoxMaskMarkings,Markings
+MaskFestivalFoxMaskEyeLeft,Left Eye
+MaskFestivalFoxMaskEyeRight,Right Eye

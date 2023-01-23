@@ -2351,6 +2351,17 @@ var AssetFemale3DCG = [
 					{Name: "Heavy", HasType: false, AllowTypes:["Heavy"], CopyLayerColor: "Base"},
 				],
 			}, //HeadHarness
+			{
+				Name: "FestivalFoxMask", Fetish: ["Pet"], BuyGroup: "FestivalFoxMask", Value: 30, Left: 150, Top: 20, HasType: false, DynamicGroupName: "ItemHood",
+				Tint: [{ Color: 2, Strength: 0.2 }],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Features", AllowColorize: false },
+					{ Name: "Markings" },
+					{ Name: "EyeLeft", ColorGroup: "Eyes" },
+					{ Name: "EyeRight", ColorGroup: "Eyes" },
+				]
+			},
 		],
 		Color: ["Default", "#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},
@@ -7413,7 +7424,18 @@ var AssetFemale3DCG = [
 					{ Name: "Metal", HasType: false, },
 					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false }
 				]
-
+			},
+			{
+				Name: "FestivalFoxMask", Fetish: ["Pet"], BuyGroup: "FestivalFoxMask", Random: false, Value: 30, Difficulty: 5, HasType: false, AllowLock: true, DrawLocks: false,
+				Block: ["ItemHead", "ItemNose", "ItemMouth", "ItemMouth2", "ItemMouth3"],
+				Tint: [{ Color: 2, Strength: 0.2 }],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Features", AllowColorize: false },
+					{ Name: "Markings" },
+					{ Name: "EyeLeft", ColorGroup: "Eyes" },
+					{ Name: "EyeRight", ColorGroup: "Eyes" },
+				]
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
