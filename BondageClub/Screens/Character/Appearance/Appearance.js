@@ -787,9 +787,18 @@ function AppearanceRun() {
 			const canAccess = WardrobeGroupAccessible(C, Group);
 			const ButtonColor = canAccess ? "White" : "#888";
 
-			// Draw Strip button if the group can be empty
-			if (Item && Group.AllowNone)
-				DrawButton(1210, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", ButtonColor, "Icons/Small/Naked.png", TextGet("StripItem"));
+			// Draw Strip & Use button
+			if (Item) {
+				let leftPos = 1210;
+				if (Item.Asset.Extended) {
+					const canUse = !InventoryBlockedOrLimited(C, Item);
+					DrawButton(leftPos, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", (canUse ? "White" : "#888"), "Icons/Small/Use.png", TextGet("Use"));
+					leftPos -= (65 + 25);
+				}
+
+				if (Group.AllowNone)
+					DrawButton(leftPos, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", ButtonColor, "Icons/Small/Naked.png", TextGet("StripItem"));
+			}
 
 			// Draw Next/Previous widget
 			const prevNextButtonHandler = (prev) => {
@@ -1142,9 +1151,27 @@ function AppearanceClick() {
 				continue;
 
 			const Item = InventoryGet(C, Group.Name);
-			// Handle the Strip button
-			if (MouseXIn(1210, 65) && MouseYIn(145 + (A - CharacterAppearanceOffset) * 95, 65)) {
-				if (Group.AllowNone && Item != null) {
+			// Handle the Strip & Use button
+			if (Item) {
+				let clickOn = null;
+				if (MouseIn(1210, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65)) {
+					if (Item.Asset.Extended && !InventoryBlockedOrLimited(C, Item)) {
+						clickOn = "Use";
+					} else if (Group.AllowNone) {
+						clickOn = "Strip";
+					}
+				} else if (MouseIn(1120, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65)) {
+					if (Group.AllowNone) {
+						clickOn = "Strip";
+					}
+				}
+
+				if (clickOn === "Use") {
+					// Set the focus, as changing extended items depends on that
+					C.FocusGroup = /** @type {AssetItemGroup} */ (Group);
+					DialogExtendItem(Item);
+					return;
+				} else if (clickOn === "Strip") {
 					InventoryRemove(C, Group.Name, false);
 					CharacterRefresh(C, false);
 					return;
