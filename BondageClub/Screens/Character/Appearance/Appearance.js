@@ -772,42 +772,51 @@ function AppearanceRun() {
 	if (CharacterAppearanceMode == "") {
 
 		// Creates buttons for all groups
-		for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
-			if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && AssetGroup[A].AllowCustomize) {
+		for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
+			const Group = AssetGroup[A];
+			// Only show customizable Appearance groups from our character family
+			if (Group.Family !== C.AssetFamily || Group.Category !== "Appearance" || !Group.AllowCustomize) continue;
 
-				// If it's a locked group, just draw a label and continue
-				if (!AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-					DrawText(AssetGroup[A].Description + " " + TextGet("OwnerBlock"), 1600, 177 + (A - CharacterAppearanceOffset) * 95, "White", "Silver");
-					continue;
-				}
-
-				const Item = InventoryGet(C, AssetGroup[A].Name);
-				const ButtonColor = WardrobeGroupAccessible(C, AssetGroup[A]) ? "White" : "#888";
-				if (AssetGroup[A].AllowNone && (AssetGroup[A].Category == "Appearance") && (Item != null) && WardrobeGroupAccessible(C, AssetGroup[A]))
-					DrawButton(1210, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", ButtonColor, "Icons/Small/Naked.png", TextGet("StripItem"));
-
-				const prevNextButtonHandler = (prev) => {
-					if (WardrobeGroupAccessible(C, AssetGroup[A])) {
-						const asset = CharacterAppearanceNextItem(C, AssetGroup[A].Name, prev);
-						return asset ? asset.Description : "None";
-					}
-					return "";
-				};
-				DrawBackNextButton(1300, 145 + (A - CharacterAppearanceOffset) * 95, 400, 65, AssetGroup[A].Description + ": " + CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Description"), ButtonColor, "",
-					() => prevNextButtonHandler(false),
-					() => prevNextButtonHandler(true),
-					!WardrobeGroupAccessible(C, AssetGroup[A]),
-					AssetGroup[A].HasPreviewImages || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
-				var Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
-				const ColorButtonText = ItemColorGetColorButtonText(Color);
-				const ColorButtonColor = ColorButtonText.startsWith("#") ? ColorButtonText : "#fff";
-				const CanCycleColors = !!Item && WardrobeGroupAccessible(C, AssetGroup[A]) && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item);
-				const CanPickColor = CanCycleColors && AssetGroup[A].AllowColorize;
-				const ColorIsSimple = ItemColorIsSimple(Item);
-
-				DrawButton(1725, 145 + (A - CharacterAppearanceOffset) * 95, 160, 65, ColorButtonText, CanCycleColors ? ColorButtonColor : "#aaa", null, null, !CanCycleColors);
-				DrawButton(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", CanPickColor ? "#fff" : "#aaa", CanPickColor ? ColorIsSimple ? "Icons/Color.png" : "Icons/MultiColor.png" : "Icons/ColorBlocked.png", null, !CanPickColor);
+			// If it's a locked group, just draw a label and continue
+			if (!AppearanceGroupAllowed(C, Group.Name)) {
+				DrawText(Group.Description + " " + TextGet("OwnerBlock"), 1600, 177 + (A - CharacterAppearanceOffset) * 95, "White", "Silver");
+				continue;
 			}
+
+			const Item = InventoryGet(C, Group.Name);
+			const canAccess = WardrobeGroupAccessible(C, Group);
+			const ButtonColor = canAccess ? "White" : "#888";
+
+			// Draw Strip button if the group can be empty
+			if (Item && Group.AllowNone)
+				DrawButton(1210, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", ButtonColor, "Icons/Small/Naked.png", TextGet("StripItem"));
+
+			// Draw Next/Previous widget
+			const prevNextButtonHandler = (prev) => {
+				if (canAccess) {
+					const asset = CharacterAppearanceNextItem(C, Group.Name, prev);
+					return asset ? asset.Description : "None";
+				}
+				return "";
+			};
+			const buttonLabel = Group.Description + ": " + CharacterAppearanceGetCurrentValue(C, Group.Name, "Description");
+			DrawBackNextButton(1300, 145 + (A - CharacterAppearanceOffset) * 95, 400, 65, buttonLabel, ButtonColor, "",
+				() => prevNextButtonHandler(false),
+				() => prevNextButtonHandler(true),
+				!canAccess,
+				Group.AllowNone || AppearancePreviewUseCharacter(Group) ? 65 : null);
+
+			var Color = CharacterAppearanceGetCurrentValue(C, Group.Name, "Color");
+			const ColorButtonText = ItemColorGetColorButtonText(Color);
+			const ColorButtonColor = ColorButtonText.startsWith("#") ? ColorButtonText : "#fff";
+			const CanCycleColors = !!Item && canAccess && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item);
+			const CanPickColor = CanCycleColors && Group.AllowColorize;
+			const ColorIsSimple = ItemColorIsSimple(Item);
+
+			// Draw color swatch and picker widgets
+			DrawButton(1725, 145 + (A - CharacterAppearanceOffset) * 95, 160, 65, ColorButtonText, CanCycleColors ? ColorButtonColor : "#aaa", null, null, !CanCycleColors);
+			DrawButton(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", CanPickColor ? "#fff" : "#aaa", CanPickColor ? ColorIsSimple ? "Icons/Color.png" : "Icons/MultiColor.png" : "Icons/ColorBlocked.png", null, !CanPickColor);
+		}
 	}
 
 	// In wardrobe mode
@@ -1127,66 +1136,66 @@ function AppearanceClick() {
 	// In regular dress-up mode
 	else if (CharacterAppearanceMode == "") {
 
-		// If we must remove/restore to default the item
-		if ((MouseX >= 1210) && (MouseX < 1275) && (MouseY >= 145) && (MouseY < 975))
-			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
-				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && AssetGroup[A].AllowNone && (InventoryGet(C, AssetGroup[A].Name) != null))
-					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95)) {
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-							InventoryRemove(C, AssetGroup[A].Name, false);
-							CharacterRefresh(C, false);
-						}
-					}
+		for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
+			const Group = AssetGroup[A];
+			if (Group.Family !== C.AssetFamily || Group.Category !== "Appearance" || !WardrobeGroupAccessible(C, Group) || !AppearanceGroupAllowed(C, Group.Name))
+				continue;
 
-		// If we must enter the cloth selection mode
-		if ((MouseX >= 1300) && (MouseX < 1700) && (MouseY >= 145) && (MouseY < 975)) {
-			C.FocusGroup = null;
-			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
-				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && AppearanceGroupAllowed(C, AssetGroup[A].Name))
-					if (MouseYIn(145 + (A - CharacterAppearanceOffset) * 95, 65)) {
-						if (!AssetGroup[A].HasPreviewImages && !AppearancePreviewUseCharacter(AssetGroup[A])) {
-							const asset = CharacterAppearanceNextItem(C, AssetGroup[A].Name, MouseX > 1500);
-							CharacterAppearanceSetItem(C, AssetGroup[A].Name, asset);
-						}
-						else if (MouseXIn(1300, 65)) {
-							const asset = CharacterAppearanceNextItem(C, AssetGroup[A].Name, false);
-							CharacterAppearanceSetItem(C, AssetGroup[A].Name, asset);
-						}
-						else if (MouseXIn(1635, 65)) {
-							const asset = CharacterAppearanceNextItem(C, AssetGroup[A].Name, true);
-							CharacterAppearanceSetItem(C, AssetGroup[A].Name, asset);
-						}
-						else {
-							// Open the clothing group screen
-							// This is a cheat to get DialogInventoryBuild to work and reuse its output. We don't actually need the group.
-							C.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroup[A]);
-							DialogInventoryBuild(C, null, false, true);
-							CharacterAppearanceCloth = InventoryGet(C, C.FocusGroup.Name);
-							CharacterAppearanceMode = "Cloth";
-							return;
-						}
-					}
+			const Item = InventoryGet(C, Group.Name);
+			// Handle the Strip button
+			if (MouseXIn(1210, 65) && MouseYIn(145 + (A - CharacterAppearanceOffset) * 95, 65)) {
+				if (Group.AllowNone && Item != null) {
+					InventoryRemove(C, Group.Name, false);
+					CharacterRefresh(C, false);
+					return;
+				}
+			}
+
+			// Handle the cloth selector
+			if (MouseIn(1300, 145 + (A - CharacterAppearanceOffset) * 95, 400, 65)) {
+				C.FocusGroup = null;
+				if (!Group.AllowNone && !AppearancePreviewUseCharacter(Group)) {
+					const asset = CharacterAppearanceNextItem(C, Group.Name, MouseX > 1500);
+					CharacterAppearanceSetItem(C, Group.Name, asset);
+					return;
+				}
+				else if (MouseXIn(1300, 65)) {
+					const asset = CharacterAppearanceNextItem(C, Group.Name, false);
+					CharacterAppearanceSetItem(C, Group.Name, asset);
+					return;
+				}
+				else if (MouseXIn(1635, 65)) {
+					const asset = CharacterAppearanceNextItem(C, Group.Name, true);
+					CharacterAppearanceSetItem(C, Group.Name, asset);
+					return;
+				}
+				else {
+					// Open the clothing group screen
+					// This is a cheat to get DialogInventoryBuild to work and reuse its output. We don't actually need the group.
+					C.FocusGroup = /** @type {AssetItemGroup} */ (Group);
+					DialogInventoryBuild(C, null, false);
+					CharacterAppearanceCloth = InventoryGet(C, C.FocusGroup.Name);
+					CharacterAppearanceMode = "Cloth";
+					return;
+				}
+			}
+
+			// Handle color cycling
+			if (MouseIn(1725, 145 + (A - CharacterAppearanceOffset) * 95, 160, 65)) {
+				if (Item && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item)) {
+					CharacterAppearanceNextColor(C, Group.Name);
+					return;
+				}
+			}
+
+			// Handle color chooser
+			if (MouseIn(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65)) {
+				if (Group.AllowColorize && Item && Item.Asset.ColorableLayerCount > 0 && !InventoryBlockedOrLimited(C, Item)) {
+					AppearanceItemColor(C, Item, Group.Name, "");
+					return;
+				}
+			}
 		}
-
-		// If we must switch to the next color in the assets
-		if ((MouseX >= 1725) && (MouseX < 1885) && (MouseY >= 145) && (MouseY < 975))
-			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
-				const Item = InventoryGet(C, AssetGroup[A].Name);
-				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && Item && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item))
-					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95))
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name))
-							CharacterAppearanceNextColor(C, AssetGroup[A].Name);
-			}
-
-		// If we must open the color panel
-		if (MouseIn(1910, 145, 65, 830))
-			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
-				const Item = InventoryGet(C, AssetGroup[A].Name);
-				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && AssetGroup[A].AllowColorize && Item && Item.Asset.ColorableLayerCount > 0 && !InventoryBlockedOrLimited(C, Item))
-					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95))
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name))
-							AppearanceItemColor(C, Item, AssetGroup[A].Name, "");
-			}
 		return;
 	}
 
