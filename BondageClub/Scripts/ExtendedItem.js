@@ -525,6 +525,14 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 }
 
 /**
+ * @param {ExtendedItemOption|ModularItemOption} Option
+ * @returns {Option is ModularItemOption}
+ */
+function ExtendedItemOptionIsModule(Option) {
+	return Option.OptionType === "ModularItemOption";
+}
+
+/**
  * Checks whether the player meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
  * @param {ExtendedItemOption|ModularItemOption} Option - The selected type definition
@@ -534,6 +542,15 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
  */
 function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
 	const C = CharacterGetCurrent();
+		if (ExtendedItemOptionIsModule(Option)) {
+		if (Option.PrerequisiteBuyGroup) {
+			const requiredAsset = Asset.find(A => A.BuyGroup && A.BuyGroup === Option.PrerequisiteBuyGroup);
+			if (requiredAsset && !InventoryAvailable(C, requiredAsset.Name, requiredAsset.Group.Name)) {
+				return DialogFindPlayer("OptionNeedsToBeBought");
+			}
+		}
+	}
+
 	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
 		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);

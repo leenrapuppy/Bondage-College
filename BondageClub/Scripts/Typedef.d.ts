@@ -2344,6 +2344,8 @@ interface ModularItemOptionBase {
 	OverridePriority?: number;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
+	/** A buy group to check for that module to be available */
+	PrerequisiteBuyGroup?: string;
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name?: string;
 	/** A unique (automatically assigned) identifier of the struct type */

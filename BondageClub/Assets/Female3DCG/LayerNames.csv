@@ -1371,6 +1371,8 @@ HairFrontHairFront46Main,Main
 HairFrontHairFront46Fade,Fade
 HairFrontHairFront47Main,Main
 HairFrontHairFront47Fade,Fade
+EyebrowsEyebrows2Main,Eyebrow
+EyebrowsEyebrows2EyebrowBarRight,Piercings
 ItemHoodCustomLatexHoodPanelHead,Head
 ItemHoodCustomLatexHoodPanelHeadHighlight,Shine
 ItemHoodCustomLatexHoodLiningRoundFace,Face Lining
@@ -1391,3 +1393,8 @@ ClothLowerCrossSkirtBase,Base
 ClothLowerCrossSkirtBelt,Belt
 ClothLowerCrossSkirtCross,Crosses
 ClothLowerCrossSkirtMetal,Metal
+JewelryJewelrySetSeptumRing1,Nose
+JewelryJewelrySetEarHoopLeft,Ears
+JewelryJewelrySetFaceDermalLeft,Face
+MouthFullLips,Lips
+MouthFullRingMiddle,Piercings

@@ -507,6 +507,9 @@ Mask,FacePaint, Face Paint
 Mask,PetNose,Pet Nose
 Mask,Glitter,Glitter
 Mask,HeadHarness,Head Harness
+Jewelry,,Jewelry
+Jewelry,JewelrySet,Piercing Set
+ClothAccessory,JewelrySet,Piercing Set
 TailStraps,,Tail Strap
 TailStraps,TailStrap,Kitty Tail Strap
 TailStraps,HorseTailStrap,Horse Tail Strap
