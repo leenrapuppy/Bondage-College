@@ -12,6 +12,7 @@ class DictionaryBuilder {
 		this._entries = [];
 		/** @type {DictionaryBuilder[]} */
 		this._children = [];
+		this._targetIndex = 0;
 	}
 
 	/**
@@ -44,7 +45,8 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	sourceCharacter(character) {
-		return this._addEntry({SourceCharacter: character.MemberNumber});
+		this._addEntry({SourceCharacter: character.MemberNumber});
+		return this;
 	}
 
 	/**
@@ -68,10 +70,19 @@ class DictionaryBuilder {
 	/**
 	 * Adds a TargetCharacter dictionary entry
 	 * @param {Character} character - The character which should be referenced by the TargetCharacter entry
+	 * @param {number} [index] - The target character index if there is more than one target character
 	 * @returns {this}
 	 */
-	targetCharacter(character) {
-		return this._addEntry({TargetCharacter: character.MemberNumber});
+	targetCharacter(character, index) {
+		/** @type {TargetCharacterDictionaryEntry} */
+		const entry = {TargetCharacter: character.MemberNumber};
+		if (this._targetIndex) {
+			entry.Index = this._targetIndex;
+		}
+		if (this._addEntry(entry)) {
+			this._targetIndex++;
+		}
+		return this;
 	}
 
 	/**
@@ -90,7 +101,7 @@ class DictionaryBuilder {
 	 */
 	focusGroup(groupName) {
 		if (groupName) {
-			return this._addEntry({Tag: "FocusAssetGroup", FocusGroupName: groupName});
+			this._addEntry({Tag: "FocusAssetGroup", FocusGroupName: groupName});
 		}
 		return this;
 	}
@@ -104,7 +115,7 @@ class DictionaryBuilder {
 	 */
 	text(tag, text) {
 		if (tag && text) {
-			return this._addEntry({Tag: tag, Text: text});
+			this._addEntry({Tag: tag, Text: text});
 		}
 		return this;
 	}
@@ -118,7 +129,7 @@ class DictionaryBuilder {
 	 */
 	textLookup(tag, lookupText) {
 		if (tag && lookupText) {
-			return this._addEntry({Tag: tag, TextToLookUp: lookupText});
+			this._addEntry({Tag: tag, TextToLookUp: lookupText});
 		}
 		return this;
 	}
@@ -126,12 +137,12 @@ class DictionaryBuilder {
 	/**
 	 * Adds a dictionary entry to the builder
 	 * @param {ChatMessageDictionaryEntry} entry - The dictionary entry to add
-	 * @returns {this}
+	 * @returns {boolean} - True if the entry was successfully added, false otherwise
 	 * @protected
 	 */
 	_addEntry(entry) {
 		this._entries.push(entry);
-		return this;
+		return true;
 	}
 
 	/**
@@ -143,7 +154,7 @@ class DictionaryBuilder {
 	 */
 	_addCharacterReference(tag, character) {
 		if (character) {
-			return this._addEntry({
+			this._addEntry({
 				Tag: tag,
 				MemberNumber: character.MemberNumber,
 				Text: CharacterNickname(character),
@@ -183,8 +194,9 @@ class ConditionalDictionaryBuilder extends DictionaryBuilder {
 	_addEntry(entry) {
 		if (this._condition) {
 			super._addEntry(entry);
+			return true;
 		}
-		return this;
+		return false;
 	}
 }
 
@@ -223,7 +235,9 @@ function IsSourceCharacterDictionaryEntry(entry) {
  * @returns {entry is TargetCharacterDictionaryEntry}
  */
 function IsTargetCharacterDictionaryEntry(entry) {
-	return CommonIsObject(entry) && CommonIsNonNegativeInteger(entry.TargetCharacter);
+	return CommonIsObject(entry)
+		&& CommonIsNonNegativeInteger(entry.TargetCharacter)
+		&& (entry.Index == null || CommonIsNonNegativeInteger(entry.Index));
 }
 
 /**
