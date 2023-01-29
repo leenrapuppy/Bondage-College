@@ -974,6 +974,14 @@ var AssetFemale3DCG = [
 					{ Name: "BreastShade", AllowColorize: false }
 				]
 			},
+			{
+				Name: "DominatrixLeotard", Gender: "F", Fetish: ["Lingerie", "Leather"], Prerequisite: ["HasBreasts"], Priority: 20, Value: 40, AllowPose: ["Hogtied"], Hide: ["ItemNipples"],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Net" },
+					{ Name: "Buckles" },
+				],
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -7374,7 +7382,7 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m3f3","m7f3"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m3f4","m7f4"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3f1","m7f1","m3f2","m7f2","m3f3","m7f3","m3f4","m7f4"], CopyLayerColor: "PanelHeadHighlight" },
-					
+
 					// Linings
 					{ Name: "LiningRoundFace", HasType: false, ColorGroup: "Linings" }, // master colour for face lining
 					{ Name: "LiningRoundFaceHighlight", HasType: false, CopyLayerColor: "PanelHeadHighlight" },
