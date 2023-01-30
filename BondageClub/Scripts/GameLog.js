@@ -4,8 +4,9 @@ var Log = [];
 
 /**
  * Adds a new entry to the player's logs, renews the value if it already exists.
- * @param {string} NewLogName - The name of the log
- * @param {string} NewLogGroup - The name of the log's group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} NewLogName - The name of the log
+ * @param {T} NewLogGroup - The name of the log's group
  * @param {number} [NewLogValue] - Value for the log as the time in ms. Is undefined if the value is permanent
  * @param {boolean} [Push=true] - TRUE if we must push the log to the server
  * @returns {void} - Nothing
@@ -42,8 +43,9 @@ function LogAdd(NewLogName, NewLogGroup, NewLogValue, Push) {
 
 /**
  * Deletes a log entry.
- * @param {string} DelLogName - The name of the log
- * @param {string} DelLogGroup - The name of the log's group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} DelLogName - The name of the log
+ * @param {T} DelLogGroup - The name of the log's group
  * @param {boolean} [Push=true] - TRUE if we must push the log to the server
  * @returns {void} - Nothing
  */
@@ -64,22 +66,23 @@ function LogDelete(DelLogName, DelLogGroup, Push) {
 
 /**
  * Deletes all log entries to starts with the name.
- * @param {string} DelLogName - The name of the log
- * @param {string} DelLogGroup - The name of the log's group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} DelLogName - The name of the log
+ * @param {T} DelLogGroup - The name of the log's group
  * @param {boolean} [Push=true] - TRUE if we must push the log to the server
  * @returns {void} - Nothing
  */
 function LogDeleteStarting(DelLogName, DelLogGroup, Push) {
 	for (let L = 0; L < Log.length; L++)
 		if ((Log[L].Name.substring(0, DelLogName.length) == DelLogName) && (Log[L].Group == DelLogGroup)) {
-			LogDelete(Log[L].Name, DelLogGroup, Push);
+			LogDelete(/** @type {any} */(Log[L].Name), DelLogGroup, Push);
 			L = L - 1;
 		}
 }
 
 /**
  * Deletes all log entries in a particular log group.
- * @param {string} DelLogGroup - The name of the log's group
+ * @param {LogGroupType} DelLogGroup - The name of the log's group
  * @param {boolean} [Push=true] - TRUE if we must push the log to the server
  * @returns {void} - Nothing
  */
@@ -95,8 +98,9 @@ function LogDeleteGroup(DelLogGroup, Push) {
 
 /**
  * Searches for an existing log entry.
- * @param {string} QueryLogName - The name of the log to search for
- * @param {string} QueryLogGroup - The name of the log's group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} QueryLogName - The name of the log to search for
+ * @param {T} QueryLogGroup - The name of the log's group
  * @returns {boolean} - Returns TRUE if there is an existing log matching the Name/Group with no value or a value above the current time in ms.
  */
 function LogQuery(QueryLogName, QueryLogGroup) {
@@ -109,12 +113,13 @@ function LogQuery(QueryLogName, QueryLogGroup) {
 
 /**
  * Checks if there's a log entry with extra ID characters in the log of the player (Exemple: BlockScreenABC return true for ID: A, B or C)
- * @param {string} LogName - The log name to scan
- * @param {string} LogGroup - The log group to scan
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} LogName - The log name to scan
+ * @param {T} LogGroup - The log group to scan
  * @param {string} ID - The ID to validate (letter, number or other chars are fine)
  * @returns {boolean} - Returns true, if the log contains that ID
  */
- function LogContain(LogName, LogGroup, ID) {
+function LogContain(LogName, LogGroup, ID) {
 	if (Log == null) return false;
 	for (let L of Log)
 		if (LogGroup == L.Group)
@@ -125,8 +130,9 @@ function LogQuery(QueryLogName, QueryLogGroup) {
 
 /**
  * Returns the value associated to a log.
- * @param {string} QueryLogName - The name of the log to query the value
- * @param {string} QueryLogGroup - The name of the log's group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} QueryLogName - The name of the log to query the value
+ * @param {T} QueryLogGroup - The name of the log's group
  * @returns {number | null} - Returns the value of the log which is a date represented in ms or undefined. Returns null if no matching log is found.
  */
 function LogValue(QueryLogName, QueryLogGroup) {
@@ -150,7 +156,7 @@ function LogLoad(NewLog) {
 		// Add each log entry one by one, validates the type to prevent client crashes
 		for (let L = 0; L < NewLog.length; L++)
 			if ((typeof NewLog[L].Name === "string") && (typeof NewLog[L].Group === "string") && ((NewLog[L].Value == null) || (typeof NewLog[L].Value === "number")))
-				LogAdd(NewLog[L].Name, NewLog[L].Group, NewLog[L].Value, false);
+				LogAdd(/** @type {any} */(NewLog[L].Name), NewLog[L].Group, NewLog[L].Value, false);
 
 	}
 
@@ -158,9 +164,10 @@ function LogLoad(NewLog) {
 
 /**
  * Searches for an existing log entry on another character.
+ * @template {LogGroupType} T
  * @param {Character} C - Character to search on
- * @param {string} QueryLogName - The name of the log to search for
- * @param {string} QueryLogGroup - The name of the log's group
+ * @param {LogNameType[T]} QueryLogName - The name of the log to search for
+ * @param {T} QueryLogGroup - The name of the log's group
  * @returns {boolean} - Returns TRUE if there is an existing log matching the Name/Group with no value or a value above the current time in ms.
  */
 function LogQueryRemote(C, QueryLogName, QueryLogGroup) {

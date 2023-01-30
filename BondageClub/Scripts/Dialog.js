@@ -233,8 +233,9 @@ function DialogFullRandomRestrain(C) { CharacterFullRandomRestrain(DialogGetChar
 
 /**
  * Checks, if a specific log has been registered with the player
- * @param {string} LogType - The name of the log to search for
- * @param {string} LogGroup - The name of the log group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} LogType - The name of the log to search for
+ * @param {T} LogGroup - The name of the log group
  * @returns {boolean} - Returns true, if a specific log is registered
  */
 function DialogLogQuery(LogType, LogGroup) { return LogQuery(LogType, LogGroup); }

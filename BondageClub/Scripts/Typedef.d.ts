@@ -1083,12 +1083,6 @@ interface ItemActivity {
 	Blocked?: ItemActivityRestriction;
 }
 
-interface LogRecord {
-	Name: string;
-	Group: string;
-	Value: number;
-}
-
 type ItemColor = string | string[];
 
 /** An item is a pair of asset and its dynamic properties that define a worn asset. */
@@ -3318,5 +3312,116 @@ type PropertyTextEventListener = (
 
 /** A record type with custom event listeners for one or more text input fields. */
 type PropertyTextEventListenerRecord = Partial<Record<PropertyTextNames, PropertyTextEventListener>>;
+
+// #end region
+
+// #region Log
+
+interface LogRecord {
+	Name: string;
+	Group: LogGroupType;
+	Value: number;
+}
+
+/** The logging groups as supported by the {@link LogRecord.Group} */
+type LogGroupType = (
+	"Arcade"
+	| "Asylum"
+	| "BadGirl"
+	| "Cell"
+	| "College"
+	| "Import"
+	| "Introduction"
+	| "LockPick"
+	| "LoverRule"
+	| "MagicSchool"
+	| "Maid"
+	| "MainHall"
+	| "Management"
+	| "NPC-Amanda"
+	| "NPC-AmandaSarah"
+	| "NPC-Jennifer"
+	| "NPC-Sarah"
+	| "NPC-SarahIntro"
+	| "NPC-Sidney"
+	| "OwnerRule"
+	| "Pony"
+	| "PonyExam"
+	| "PrivateRoom"
+	| "Rule"
+	| "Sarah"
+	| "Shibari"
+	| "SkillModifier"
+	| "SlaveMarket"
+	| "Trainer"
+	| "TrainerExam"
+);
+
+/** An interface mapping {@link LogRecord.Group} types to valid {@link LogRecord.Name} types */
+interface LogNameType {
+	Arcade: "DeviousChallenge",
+	Asylum: "Committed" | "Isolated" | "ForceGGTS" | "ReputationMaxed" | "Escaped",
+	BadGirl: "Caught" | "Joined" | "Stolen" | "Hide",
+	Cell: "Locked" | "KeyDeposit",
+	College: "TeacherKey",
+	Import: "BondageCollege",
+	Introduction: "MaidOpinion" | "DailyJobDone",
+	LockPick: "FailedLockPick",
+	LoverRule: "BlockLoverLockSelf" | "BlockLoverLockOwner",
+	MagicSchool: "Mastery",
+	Maid: "JoinedSorority" | "LeadSorority" | "MaidsDisabled",
+	MainHall: "IntroductionDone",
+	Management: "ClubMistress" | "ClubSlave" | "ReleasedFromOwner" | "MistressWasPaid",
+	"NPC-Amanda": "AmandaLover" | "AmandaCollared" | "AmandaCollaredWithCurfew" | "AmandaMistress",
+	"NPC-AmandaSarah": "AmandaSarahLovers",
+	"NPC-Jennifer": "JenniferLover" | "JenniferCollared" | "JenniferMistress",
+	"NPC-Sarah": "SarahLover" | "SarahCollared" | "SarahCollaredWithCurfew",
+	"NPC-SarahIntro": "SarahWillBePunished" | "SarahCameWithPlayer",
+	"NPC-Sidney": "JenniferLover" | "JenniferMistress" | "JenniferCollared",
+	// NOTE: A number of owner rules can have arbitrary suffices, and can thus not be expressed as string literals
+	OwnerRule: (
+		"BlockChange"
+		| "BlockTalk"
+		| "BlockEmote"
+		| "BlockWhisper"
+		| "BlockChangePose"
+		| "BlockAccessSelf"
+		| "BlockAccessOther"
+		| "BlockKey"
+		| "BlockOwnerLockSelf"
+		| "BlockRemote"
+		| "BlockRemoteSelf"
+		| "BlockNickname"
+		| "ReleasedCollar"
+		| "BlockScreen"
+		| "BlockAppearance"
+		| "BlockItemGroup"
+		| "ForbiddenWords"
+		| "BlockTalkForbiddenWords"
+		| string
+	),
+	Pony: "JoinedStable",
+	PonyExam: "JoinedStable",
+	PrivateRoom: (
+		"RentRoom"
+		| "Expansion"
+		| "SecondExpansion"
+		| "Wardrobe"
+		| "Cage"
+		| "OwnerBeepActive"
+		| "OwnerBeepTimer"
+		| "Security"
+		| "BedWhite"
+		| "BedBlack"
+		| "BedPink"
+	),
+	Rule: "BlockChange" | "LockOutOfPrivateRoom" | "BlockCage" | "SleepCage",
+	Sarah: "KidnapSophie",
+	Shibari: "Training",
+	SkillModifier: "ModifierDuration" | "ModifierLevel",
+	SlaveMarket: "Auctioned",
+	Trainer: "JoinedStable",
+	TrainerExam: "JoinedStable",
+};
 
 // #end region

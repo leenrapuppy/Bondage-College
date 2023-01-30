@@ -4078,12 +4078,13 @@ function ChatRoomGetOwnerRule(RuleType) { return ChatRoomGetRule(RuleType, "Owne
 
 /**
  * Gets a rule from the current character
- * @param {string} RuleType - The name of the rule to retrieve.
+ * @param {LogNameType["OwnerRule" | "LoverRule"]} RuleType - The name of the rule to retrieve.
  * @param {"Owner" | "Lover"} Sender - Type of the sender
  * @returns {boolean} - The owner or lover rule corresponding to the requested rule name
  */
 function ChatRoomGetRule(RuleType, Sender) {
-	return LogQueryRemote(CurrentCharacter, RuleType, Sender + "Rule");
+	const QueryLogGroup = /** @type {"OwnerRule" | "LoverRule"}*/(Sender + "Rule");
+	return LogQueryRemote(CurrentCharacter, RuleType, QueryLogGroup);
 }
 
 
@@ -4710,7 +4711,7 @@ function ChatRoomOwnerForbiddenWordCheck(Message) {
 
 /**
  * Returns TRUE if the owner presence rule is enforced for the current player
- * @param {string} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
+ * @param {LogNameType["OwnerRule"]} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
  * @param {Character} Target - The target character
  * @returns {boolean} - TRUE if the rule is enforced
  */
