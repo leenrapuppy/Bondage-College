@@ -10,7 +10,7 @@ var MainHallHasOwnerLock = false;
 var MainHallHasLoverLock = false;
 var MainHallHasSlaveCollar = false;
 /** The max number of known tips */
-var MainHallMaxTip = 21;
+var MainHallMaxTip = 30;
 /** The index of the current tip */
 var MainHallTip = 0;
 /** The max delay to wait before changing the current tip */
