@@ -14,7 +14,7 @@ const ChatRoomSpaceType = {
 
 var ChatRoomBackground = "";
 /** @type {ChatRoom} */
-let ChatRoomData = {};
+let ChatRoomData = null;
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
 var ChatRoomChatLog = [];
@@ -2629,30 +2629,16 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 		ChatRoomSetRule(data);
 	}
 	else if (data.Content == "HoldLeash") {
-		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
-			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
-		}
-		if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
-			ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
-		} else {
-			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
-		}
+		ChatRoomDoHoldLeash(SenderCharacter);
 	}
 	else if (data.Content == "StopHoldLeash") {
-		if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
-			ChatRoomLeashPlayer = null;
-		}
+		ChatRoomDoStopHoldLeash(SenderCharacter);
 	}
 	else if (data.Content == "PingHoldLeash") {
-		// The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
-		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
-			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
-		}
+		ChatRoomDoPingLeashedPlayers(SenderCharacter);
 	}
-	else if (data.Content == "RemoveLeash" || data.Content == "RemoveLeashNotFriend") {
-		if (ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber) >= 0) {
-			ChatRoomLeashList.splice(ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber), 1);
-		}
+	else if (data.Content == "RemoveLeash") {
+		ChatRoomDoRemoveLeash(SenderCharacter);
 	}
 	else if (data.Content == "GiveLockpicks") DialogLentLockpicks = true;
 	else if (data.Content == "RequestFullKinkyDungeonData") {
@@ -3239,6 +3225,9 @@ function ChatRoomSync(data) {
 		} else return;
 	}
 
+	// Update our chat room data with what the server sent us
+	ChatRoomData = data;
+
 	// Treat chatroom updates from ourselves as if the updated characters had sent them
 	const trustedUpdate = data.SourceMemberNumber === Player.MemberNumber;
 
@@ -3250,8 +3239,7 @@ function ChatRoomSync(data) {
 		ChatRoomCharacter.push(Char);
 	}
 
-	// Keeps a copy of the previous version
-	ChatRoomData = data;
+	// If there's a game running in that chatroom, save it and perform a reset
 	if (ChatRoomData.Game != null) {
 		ChatRoomGame = ChatRoomData.Game;
 		OnlineGameReset();
@@ -3796,6 +3784,22 @@ function ChatRoomHoldLeash() {
 }
 
 /**
+ * Handle the reply to a leash being held
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoHoldLeash(SenderCharacter) {
+	if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
+		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
+	}
+	if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+		ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
+		CharacterRefreshLeash(Player);
+	} else {
+		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
+	}
+}
+
+/**
  * Triggered when the player lets go of another player's leash
  * @returns {void} - Nothing.
  */
@@ -3811,10 +3815,21 @@ function ChatRoomStopHoldLeash() {
 }
 
 /**
+ * Handle the reply to a leash being released
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoStopHoldLeash(SenderCharacter) {
+	if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
+		ChatRoomLeashPlayer = null;
+		CharacterRefreshLeash(Player);
+	}
+}
+
+/**
  * Triggered when a dom enters the room
  * @returns {void} - Nothing.
  */
-function ChatRoomPingLeashedPlayers(NoBeep) {
+function ChatRoomPingLeashedPlayers() {
 	if (ChatRoomLeashList && ChatRoomLeashList.length > 0) {
 		for (let P = 0; P < ChatRoomLeashList.length; P++) {
 			ServerSend("ChatRoomChat", { Content: "PingHoldLeash", Type: "Hidden", Target: ChatRoomLeashList[P] });
@@ -3823,6 +3838,26 @@ function ChatRoomPingLeashedPlayers(NoBeep) {
 	}
 }
 
+/**
+ * Handle the reply to a leash ping
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoPingLeashedPlayers(SenderCharacter) {
+	// The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
+	if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
+	}
+}
+
+/**
+ * Handle the reply to a leash being broken
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoRemoveLeash(SenderCharacter) {
+	if (ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber) >= 0) {
+		ChatRoomLeashList.splice(ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber), 1);
+	}
+}
 
 /**
  * Triggered when a character makes another character kneel/stand.

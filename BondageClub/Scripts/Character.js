@@ -1945,3 +1945,38 @@ function CharacterSetNickname(C, Nick) {
 
 	return null;
 }
+
+/**
+ * Updates the leash state on a character
+ *
+ * @param {Character} C
+ */
+function CharacterRefreshLeash(C) {
+	if (!C.IsPlayer()) return;
+
+	const leashes = Player.Appearance.filter(i => InventoryItemHasEffect(i, "Leash", true));
+
+	// We aren't wearing a leash anymore, break the link
+	// This can happen if someone removed the leash while in the process of being leashed away
+	if (leashes.length === 0) {
+		if (ChatRoomLeashPlayer !== null) {
+			ChatRoomLeashPlayer = null;
+		}
+		return;
+	}
+
+	// Check for a dynamic leash and update its state
+	const dynamicLeash = leashes.find(i => i.Asset.AllowEffect.includes("IsLeashed"));
+	if (dynamicLeash) {
+		if (!dynamicLeash.Property) dynamicLeash.Property = {};
+		if (!Array.isArray(dynamicLeash.Property.Effect)) dynamicLeash.Property.Effect = [];
+
+		if (ChatRoomLeashPlayer !== null) {
+			dynamicLeash.Property.Effect.push("IsLeashed");
+		} else if (ChatRoomLeashPlayer === null) {
+			dynamicLeash.Property.Effect = dynamicLeash.Property.Effect.filter(e => e !== "IsLeashed");
+		}
+
+		ChatRoomCharacterUpdate(Player);
+	}
+}

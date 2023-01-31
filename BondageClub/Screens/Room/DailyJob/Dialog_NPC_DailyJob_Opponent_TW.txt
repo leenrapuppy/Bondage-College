@@ -1,0 +1,218 @@
+###_NPC
+Silence is gold, and gags are better than gold.
+沉默是金，而口塞勝過金子。
+(She sighs and bows her head.)  Well done, you're too strong for me.
+（她嘆了口氣，低下頭。）做得漂亮，你比我強得多。
+(She laughs at you and smirks.)  Ha!  You're so pathetic.
+（她朝著你笑，然後得意地笑起來）哈！你真可憐。
+(She sighs and reluctantly allows you to gag her.)
+（她嘆了口氣，不情願地讓你堵嘴。）
+(You remove her gag and she seems happy.)  You had fun?  It's over now?
+（你移除她的口塞，她看起來很開心。）你玩得開心嗎？現在結束了？
+(She turns around as you restrain her arms securely.)  Enjoy your victory while it lasts.
+（她轉過身，你牢牢地束縛住她的手臂。）暫時享受你的勝利吧。
+(You free her arms as she stretches them.)  Alright.  Am I allowed to leave?
+（你解開她，她伸展了一下身體。）好吧。我可以離開嗎？
+(She grumbles and gives you her hands as you restrain them.)  Enjoy your victory while it lasts.
+（她把雙臂交給你，你束縛住她的雙臂，她抱怨著。）暫時享受你的勝利吧。
+(You free her hands and she gives you a thumbs up.)  Alright.  Am I allowed to leave?
+（你鬆開她的手，她朝你豎起大拇指。）好吧。我可以離開嗎？
+(She submits to you while you restrain her legs.)  You sure know your bondage.
+（她順從地讓你束縛住雙腿。）你真懂束縛。
+(You release her legs as she shakes her butt.)  How long will you keep me here?
+（你鬆開她的腿，她搖晃她的屁股。）你要把我留在這裡多久？
+(She tests your feet restraints by jumping on her toes.)
+（她用腳趾跳，測試你對腳束縛的程度。）
+(You release her feet and she wiggles them.)
+（你鬆開她的腳，她扭了扭腳。）
+(She adjusts her neck to the new collar.)  I will never become your slave.
+（她調整脖子適應新的項圈。）我永遠不會成為你的奴隸。
+(You remove the collar from her neck.)  Next time I will collar you.
+（你從她脖子上取下項圈。）下次我會給你戴上項圈。
+(She struggles to avoid the belt but you're able to strap it on her.)  These belts should be banned.
+（她掙扎著想避開貞操帶，但你還是成功繫到她身上。）這些貞操帶應該被禁止。
+(She seems happy as you unlock the belt from her waist.)  Thanks, DialogPlayerName.
+（當你解開她腰間的貞操帶時，她看起來很高興。）謝謝，DialogPlayerName。
+(You strap the device on her head as she sighs.)  Next time I won't lose against you.
+（當你綁緊她頭上的道具時，她嘆了口氣。）下次我不會輸給你的。
+(You release her head as she nods rapidly.)  Enjoy that short-term victory.
+（你解開她的頭時，她迅速點頭。）享受那短暫的勝利吧。
+(You strap the harness on her torso as she blushes.)  Stop the kinky stuff.
+（你把束縛帶繫在她的軀幹上，她臉上泛紅。）別整這些色情東西了。
+(She stretches as you release her from the harness.)  It will be easier to breath like that.
+（當你將她從安全帶中解開時，她會伸展身體。）這樣呼吸會更容易。
+(She whimpers and cries as you whip her breast.)  Revenge will be sweet!
+（當你鞭打她的乳房時，她嗚咽著哭泣。）復仇會很甜蜜！
+(You lash the crop on her torso, hitting her breast.)  Ow!  Careful with that crop.
+（你用硬鞭抽打她的軀幹，擊中她的胸部。）噢！用那個硬鞭的時候小心點。
+(You whip her butt as she grumbles.)  I'll make sure to get a whip next time I'm facing you.
+（你鞭打她的屁股，她抱怨著。）下次我面對你時，我保證會拿著鞭子。
+(You whack the leather crop right on her butt.)  Ouch! I'll put my next bounty on you.
+（你用皮革硬鞭抽打她，正打在她的屁股上。）啊呀！我的下一個賞金目標就是你。
+###_PLAYER
+The maids want you bound and gagged.
+女僕們綁住你並堵上你的嘴。
+###_NPC
+(She laughs at you.)  Get off my path or there will be trouble.
+（她朝你笑起來。）從我面前滾開，否則會有麻煩的。
+###_PLAYER
+I'm sorry, but there's money on your head.
+對不起，你頭上有賞金。
+###_NPC
+And you're not getting it.  Get off my path or there will be trouble.
+並且，你得不到它。從我面前滾開，否則會有麻煩的。
+###_PLAYER
+Surrender now and I won't be too rough with you.
+立即投降，我不會對你太粗暴。
+###_NPC
+I'll make a better deal: run away now and I won't crush you!
+我會做一個更好的交易：現在逃跑，我就不會粉碎你！
+###_PLAYER
+I'm here to teach you a lesson.
+我是來給你上一課的。
+###_NPC
+You and what army?  Get off my path or there will be trouble.
+你和什麼，軍隊嗎？從我面前滾開，否則會有麻煩的。
+###_PLAYER
+(Fight her.)
+（與她戰鬥。）
+(Run away.)
+（逃跑。）
+Many people will enjoy your humiliation.
+有很多人將會享用你的屈辱。
+###_NPC
+(She stays silent as more club members gathers around you two.)
+（隨著越來越多的俱樂部成員聚集在你們兩個周圍，她保持沉默。）
+###_PLAYER
+Beg for your freedom slave.
+乞求你的自由吧，奴隸。
+###_NPC
+(She gulps as more club members gathers around you two.)
+（隨著越來越多的俱樂部成員聚集在你們兩個周圍，她嚥了咽口水。）
+###_PLAYER
+Wow!  I was so lucky.
+哇！我太幸運了。
+###_NPC
+(She sighs as more club members gathers around you two.)
+（隨著越來越多的俱樂部成員聚集在你們兩個周圍，她嘆了口氣。）
+###_PLAYER
+(Invite other members.)
+（邀請其他成員。）
+###_NPC
+(She grumbles as more club members gathers around you two.)
+（隨著越來越多的俱樂部成員聚集在你們兩個周圍，她嘟噥起來。）
+###_PLAYER
+Time to strip girl.
+是時候脫掉衣服了，女孩。
+###_NPC
+(She blushes as you strip her down, while everyone is watching her humiliation.)
+（當你把她脫光時，她臉紅了，而每個人都在觀看著她受辱。）
+###_PLAYER
+You're wearing too many clothes.
+你穿的衣服太多了。
+(Strip her.)
+（脫光她。）
+###_NPC
+NOEXIT
+NOEXIT
+###_PLAYER
+(Restrain her.)
+（束縛她。）
+###_NPC
+(Use the items from your inventory to restrain her.)
+（使用你攜帶的物品來束縛她。）
+###_PLAYER
+(Humiliate her.)
+（羞辱她。）
+###_NPC
+(Everyone laughs and has a good time as you humiliate her publicly in the main hall.)
+（你在正廳公開地羞辱她，每個人都笑起來，非常享受。）
+###_PLAYER
+(Let her go.)
+（讓她走。）
+Congrats girl.  You got the best of me.
+恭喜，女孩。你比我厲害一些。
+###_NPC
+I'm the best, never forget that.  (She calls for other club members to see you.)
+我是最強的，別忘了。（她要求其他俱樂部成員見你。）
+###_PLAYER
+I'll get you next time.
+下次我搞定你的。
+###_NPC
+There won't be another time.  (She calls for other club members to see you.)
+不會有下一次了。（她找來其他俱樂部成員圍觀你。）
+###_PLAYER
+(Bow your head.)
+（低頭。）
+###_NPC
+(She smirks and calls for other club members to see you.)
+（她得意地笑，並找來其他俱樂部成員圍觀你。）
+###_PLAYER
+(Struggle to get out.)
+（掙扎以逃出去。）
+###_NPC
+(She laughs and calls for other club members to see you.)
+（她笑著找來其他俱樂部成員圍觀你。）
+###_PLAYER
+Now what?
+現在要幹什麼？
+###_NPC
+Now you get naked.  (She strips you down.)
+現在，你會被脫光衣服。（她脫光你的衣服。）
+###_PLAYER
+Why the crowd?
+為什麼在人群裡？
+###_NPC
+So you remember that day.  (She strips you down.)
+這樣你就忘不掉了。（她脫光你的衣服。）
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+(She quickly strips you down.)
+（她很快就把你脫光了。）
+###_PLAYER
+I'll have my revenge someday.
+總有一天我會報仇的。
+###_NPC
+We'll see about that.  (She opens a gym bag full of restraints and grins.)
+我們走著瞧囉。（她打開一個裝滿束縛的健身包，咧嘴笑起來。）
+###_PLAYER
+This is too much!
+這過分了！
+###_NPC
+It's not enough.  (She opens a gym bag full of restraints and grins.)
+這遠遠不夠。（她打開一個裝滿束縛的健身包，咧嘴笑起來。）
+###_PLAYER
+(Blush red.)
+（臉紅。）
+###_NPC
+Isn't it fun?  (She opens a gym bag full of restraints and grins.)
+不是很有趣嗎？（她打開一個裝滿束縛的健身包，咧嘴笑起來。）
+###_PLAYER
+(Act like you don't care.)
+（表現得像是不在乎。）
+###_NPC
+Time for more trouble.  (She opens a gym bag full of restraints and grins.)
+是時候給你更多麻煩了。（她打開一個裝滿束縛的健身包，咧嘴笑起來。）
+###_PLAYER
+Alright, can we stop now?
+好吧，我們現在可以停下來了嗎？
+###_NPC
+(She stares at you and uses many restraints on you, while everyone around watches.)
+（她盯著你，對你用了了很多約束，而周圍的每個人都看著。）
+###_PLAYER
+(Shake your head no.)
+（搖頭，表示拒絕。）
+(Look away.)
+（移開視線。）
+(Grumble and struggle.)
+（咕噥並掙扎。）
+###_NPC
+(She humiliates you some more and leaves you bound in the main hall.)
+（她進一步地羞辱你，把你綁著留在大廳裡。）
+###_PLAYER
+(Wait patiently.)
+（耐心等待。）
+(Leave her.)
+（離開她。）

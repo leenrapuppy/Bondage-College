@@ -1,0 +1,326 @@
+###_NPC
+Speak more clearly if you want something.
+如果你想要什麼，請說清楚。
+(She willingly opens her mouth.)
+（她自願地張開嘴。）
+(She grins at you.) Was that it?
+（她朝你咧嘴一笑。）是這樣嗎？
+(She sighs and turns around while you restrain her arms.)  It's really tight.
+（她嘆了口氣，轉過身，你束縛她的手臂。）這真緊。
+(You free her arms and she nods happily.)  Thanks a lot.
+（你鬆開她的手臂，她高興地點點頭。）非常感謝。
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+（她順從地讓你牢固地束縛住她的腿。）反正我也不需要動。
+(You release her legs from the restraint.)  Thanks a lot.
+（你鬆開她的雙腿。）非常感謝。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here.
+（當你束縛住她的腳時，她看起來很困惑。）我會在這裡守著。
+(You release her feet and she wiggles them.)  Thanks, it was troublesome.
+（你鬆開她的腳，她扭了扭雙腳。）謝謝，這很麻煩。
+(You strap the collar on her while she blushes.)  Is this really necessary?
+（你把項圈繫在她的脖子上，她臉紅起來。）這真的有必要嗎？
+(You remove the collar from her neck.)  Thanks.
+（你取下她脖子上的項圈。）謝謝。
+(You snap the belt around her waist and crotch while she sighs.)  This is certainly not a trick.
+（你將貞操帶繫在她的腰部和胯部，她嘆口氣。）這肯定不是什麼魔術戲法。
+(You unlock the belt from her waist and she smiles.)  Thanks a lot DialogPlayerName.
+（你解開她腰間的貞操帶，她露出微笑。）非常感謝，DialogPlayerName。
+(You strap the device on her head as she nods slowly.)  It's dark in here.
+（你將道具綁在她的頭上，她慢慢地點點頭。）這裡很黑。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下道具，她迅速點頭。）百萬份感謝，這好多了。
+(She jumps from the searing pain on her breast.)  Ouch!
+（她因胸口的灼痛而跳了起來）哎呀！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮革硬鞭抽打她的胸部，她嗚咽並低下頭。）
+(You whip her butt hard as she sighs.)  For the show.
+（你用力鞭打她的屁股，她嘆口氣。）為了演出。
+(She grumbles as you strike her butt with the crop.)  For the show.
+（你用硬鞭抽打她的屁股時，她嘟囔著。）為了演出。
+(She tries to fight back.)  This is how it's meant to be.
+（她試圖反擊。）這就是本來的意思。
+(You remove the device.)  Thanks, now can work again.
+（你移除那個道具。）謝謝，現在我又能工作了。
+(She looks surprised.) Oops?
+（她看起來很驚訝。）哎呀？
+(She looks confused.) Thanks, are we done?
+（她看起來很困惑。）謝謝，我們好了嗎？
+(She whimpers as you use the device on her breast.)  Sorry to object, but this isn't very convenient or comfortable.
+（你在她的乳房上使用道具，她嗚咽著。）很抱歉反對，但這既不很方便也不不舒服。
+(She grumbles as you use remove the item.)  Be thoughtful and don't remove anything until I'm hurt and broken.
+（你移除物品時，她嘟囔著。）考慮清楚，如果我沒有遍體鱗傷，不要移除任何東西。
+(You massage her pussy with the wand, but she stays cold.)  I'm very sorry.  I'm not in the mood.
+（你用按摩棒撫慰她的陰戶，但她保持冷靜。）我很抱歉。我心情不好。
+(You slide the egg inside, but she barely reacts to it.)  I don't want to top from the bottom, but this egg would work better on someone else.
+（你把跳蛋滑進去，但她幾乎沒有反應。）我不想完全反對你，但這個跳蛋在別人身上會更好。
+(She doesn't react as you remove the egg.)  Maybe it doesn't work, I didn't feel a thing in there.
+（你取出跳蛋，她沒有反應。）它可能不起作用，我那裡沒有感覺。
+(She struggles against it.) Like the great master Houdini?
+（她掙扎著。）像偉大的逃脫大師胡迪尼一樣？
+(She catches her breath.) Finally.  What was that supposed to be?
+（她調整呼吸。）終於來了。這是要做什麼？
+Welcome to the theater 
+歡迎來到劇院
+###_PLAYER
+Hello, I'm DialogPlayerName.  Nice to meet you.
+你好，我是DialogPlayerName。很高興見到你。
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName, Would you like to assist me?
+也很高興認識你。我是DialogCharacterName，你願意協助我嗎？
+###_PLAYER
+Can you answer some questions?
+你能回答一些問題嗎？
+###_NPC
+What do you want to know?
+你想知道什麼？
+###_PLAYER
+Show me one of your magic tricks.
+給我看看你的魔術。
+###_NPC
+(She snaps her fingers.) And just like that, you've swapped clothes with my assistant.
+（她打了個響指。）就這樣，你和我的助理換了衣服。
+###_PLAYER
+The show can begin.
+演出可以開始了。
+###_NPC
+Welcome dear spectators.
+歡迎，親愛的觀眾們。
+###_PLAYER
+(Squirm in the shackles and seek help.)
+（在枷鎖中蠕動並尋求幫助。）
+###_NPC
+I can not work like that. Goodbye.
+我沒辦法那樣工作。再見。
+###_PLAYER
+I'm ready for the next trick.
+我已經準備好表演下一個戲法了。
+I did it and I want to stop.
+我做到了，並且我想停下來。
+###_NPC
+(She gives you the income of $REPLACEMONEY.)
+（她給了你$REPLACEMONEY的收入。）
+###_PLAYER
+Goodbye. (Leave.)
+再見。（離開。）
+What is this room? 
+這是什麼房間？
+###_NPC
+The Houdini-Theater in which a magic show will be performed.
+這是胡迪尼劇院，魔術表演將在這裡展開。
+###_PLAYER
+What's in it for me if I participate?
+如果我參加，對我有什麼好處？
+###_NPC
+As an assistant, you can earn some money.
+作為助手，你可以賺一些錢。
+###_PLAYER
+Can I participate in the magic show?
+我可以參加魔術表演嗎？
+###_NPC
+I am still looking for an escape artist as an assistant.
+我還需要一個逃脫藝術家作為助手。
+###_PLAYER
+How does the payment work?
+報酬是怎麼算的？
+###_NPC
+You get paid for tricks. With every trick your income increases up to the maximum limit.
+你會因為戲法得到報酬。你每表演一個戲法，你的收入都會增加，直到最大報酬。
+###_PLAYER
+No further questions.
+沒有更多問題了。
+###_NPC
+Enjoy the show then.
+那就盡情欣賞吧。
+###_PLAYER
+(Listen.)
+（聽。）
+###_NPC
+Payment is made at the end of the show. If you fail during a trick, you'll get thrown off the stage and have to leave.
+演出結束時支付報酬。如果你的一個戲法中失敗了，你會被扔下舞台並且必須離開。
+###_PLAYER
+(Wait.)
+（等待。）
+###_NPC
+Would you like to join the show?
+你想參加演出嗎？
+###_PLAYER
+Yes, gladly.
+是的，我很高興。
+###_NPC
+Then tell my assistant to change clothes so the show can start.
+那麼，跟我的助理說換一下衣服，然後演出就可以開始了。
+###_PLAYER
+No, that's enough for me.
+不，這對我來說已經足夠了。
+###_NPC
+Pity, goodbye. Here are your clothes.
+很遺憾，再見。這是你的衣服。
+Your task: bind me and then give me the signal to start.
+你的任務：綁住我，然後給我一個開始信號。
+###_PLAYER
+Whom should I tie up?
+我應該綁誰？
+###_NPC
+Me, I want to perform a trick.
+我，我想表演一個戲法。
+###_PLAYER
+What restraints should I use?
+我應該使用什麼束縛？
+###_NPC
+Use five restraints for the eyes, mouth, arms, legs and feet.
+在眼睛、嘴巴、手臂、腿和腳，使用五處束縛。
+###_PLAYER
+(Signal her that you are done.)
+（告訴她你已經完成了。）
+###_NPC
+Now show the audience how to get out of there.
+現在向觀眾展示如何逃脫吧。
+###_PLAYER
+That was easy. Let's do the next trick.
+那很簡單。我們進行下一個戲法吧。
+###_NPC
+Applause for the artist.
+為藝術家鼓掌吧。
+###_PLAYER
+(Give up and beg for help.)
+（放棄並尋求幫助。）
+###_NPC
+Your performance is over.
+你的表演結束了。
+###_PLAYER
+(Turn away.)
+（拒絕。）
+###_NPC
+Go over there and free my assistant.
+去那裡解開我的助手。
+###_PLAYER
+(Leave.)
+（離開。）
+###_NPC
+Your task: dance a while, I'll perform some tricks with my assistant.
+你的任務：跳一會舞，我和我的助手表演一些戲法。
+###_PLAYER
+(Dance forcefully.)
+（有力地跳舞。）
+###_NPC
+(The performer shows the audience a few little tricks.)
+（表演者向觀眾展示了一些小戲法。）
+###_PLAYER
+(Dance submissively.)
+（順從地跳舞。）
+(Wait for your next trick.)
+（等待你的下一個戲法。）
+###_NPC
+Your task: bind my assistant and then give me the signal to start.
+你的任務：綁住我的助手，然後給我一個開始信號。
+Please tie my assistant.
+請把我的助手綁起來。
+Your task: escape from a wooden box and some light bondage.
+你的任務：逃離一個木箱和一些輕鬆的束縛。
+###_PLAYER
+(Prepare the trick.)
+（準備表演戲法。）
+###_NPC
+The question is, can she escape?
+問題是，她能逃脫嗎？
+###_PLAYER
+Here I am, the show goes on.
+我來了，演出繼續。
+###_NPC
+Applause for the escape.
+為逃脫鼓掌吧。
+###_PLAYER
+I escaped and am happy to finish the show.
+我逃脫了，很高興完成了演出。
+###_NPC
+(She gives you the income of $REPLACEMONEY.) Will you come back?
+（她給你$REPLACEMONEY的收入。）你會回來嗎？
+###_PLAYER
+(Knock for help.)
+（敲擊求救。）
+###_NPC
+(She conjures a few coins out of nowhere and holds them out to you.)
+（她不知從哪裡變出幾枚硬幣，遞給你。）
+###_PLAYER
+(Take them.)
+（拿走這些。）
+###_NPC
+(You get $REPLACEMONEY.)
+（你會得到$REPLACEMONEY。）
+###_PLAYER
+(Give them back.)
+（遞還它們。）
+###_NPC
+(She performs another card trick and the show continues.)
+（她又表演了一個紙牌戲法，演出繼續。）
+###_PLAYER
+(Entertain the audience.)
+（娛樂觀眾。）
+###_NPC
+Your task: escape from a wooden box and some heavy bondage.
+你的任務：逃離一個木箱和一些沉重的束縛。
+Incredible, will we ever see her again?
+難以置信，我們還能再見到她嗎？
+###_PLAYER
+Nothing can stop me, it goes on.
+沒有什麼能阻止我，繼續吧。
+###_NPC
+Cheers for the feat.
+為這絕技喝彩吧。
+###_PLAYER
+I need a break and get out of the show.
+我需要休息一下，然後退出演出。
+###_NPC
+(She gives you the income of $REPLACEMONEY.) Thank you so much.
+（她給你$REPLACEMONEY的收入。）非常感謝。
+Now the classic. Despite being handcuffed, will she be able to escape from a water-filled milk can?
+現在是經典的環節。即使被戴上手銬，她也能從裝滿水的牛奶罐中逃脫嗎？
+###_PLAYER
+(Dive under the water skillfully.)
+（熟練地潛入水下。）
+###_NPC
+(She fastens the lid with three bolts.)
+（她用三個螺栓固定蓋子。）
+###_PLAYER
+I am Houdini's true heiress.
+我是胡迪尼真正的繼承人。
+(Catch your breath.) I've had enough.
+（調整呼吸。）我受夠了。
+###_NPC
+(She gives you the income of $REPLACEMONEY.) Thanks for the show.
+（她給你$REPLACEMONEY的收入。）謝謝你的演出。
+Your task: escape from the incredible water torture cell.
+你的任務：逃離那驚人的水刑牢房。
+###_PLAYER
+(Prepare for the task.)
+（為這個任務做準備。）
+###_NPC
+A few piranhas for motivation?
+來幾條食人魚來增加點動力？
+###_PLAYER
+Here I am the shark. Go on, go on.
+在這裡，我是鯊魚。繼續，繼續。
+The submarine has emerged. I need a break.
+潛艇上浮。我需要休息。
+(Wink for help.)
+（眨眼尋求幫助。）
+(Wait and smile.)
+（等待並微笑。）
+###_NPC
+I have to redecorate the stage. In the meantime, sing a song with my assistant.
+我必須重新裝飾舞台。在此期間，和我的助手一起唱首歌吧。
+###_PLAYER
+(Walk away.)
+（走開。）
+###_NPC
+How did she get dressed again? Go over to her and tell her to change for the show.
+她怎麼穿回衣服了？去她身邊，告訴她換上演出的衣服。
+###_PLAYER
+The show must go on.
+演出必須繼續。
+###_NPC
+Applause for both of them.
+為她們倆鼓掌吧。
+###_PLAYER
+Goodbye, I'm leaving the show.
+再見，我要離開演出了。

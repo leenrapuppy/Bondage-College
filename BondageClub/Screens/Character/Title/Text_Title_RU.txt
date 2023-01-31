@@ -23,9 +23,9 @@ Maid
 Bondage Maid
 Бондаж Горничная
 Master Kidnapper
-Мастер-похитительница
+Мастер-похититель
 Kidnapper
-Похитительница
+Похититель
 Patient
 Пациент
 Permanent Patient
@@ -107,7 +107,7 @@ Kitten
 Puppy
 Щенок
 Foxy
-Лисица
+Лис
 Bunny
 Кролик
 Doll
@@ -123,6 +123,6 @@ Good Girl
 Good Slave Girl
 Хорошая Девочка-Рабыня
 Good Slave
-Хорошая Рабыня
+Хороший Раб
 Drone
 Дрон
