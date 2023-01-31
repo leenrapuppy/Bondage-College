@@ -6,7 +6,7 @@ Silence is gold, and a gagged submissive is even better.
 (She frowns when you show her the gag but complies and allows you to silence her.)
 （當你向她展示堵嘴時，她皺起眉頭，但她服從地允許你堵住她的嘴。）
 (You remove her gag and she smiles.)  Arigato Miss DialogPlayerName.
-（你拿開她的口塞，她笑了起來。）謝謝你（日語），DialogPlayerName女士。
+（你拿開她的口塞，她笑了起來。）ありがとう(謝謝)，DialogPlayerName女士。
 (You push some earplugs inside.)  It won't be easy to communicate like that.
 （你把耳塞塞進去。）這樣交流並不容易。
 (You pull the earplugs out.)  Much better.  I need to hear what's going on in the Dojo.
@@ -18,7 +18,7 @@ Silence is gold, and a gagged submissive is even better.
 (you restrain her hands while she watches you.)  This is getting kinky.
 （你束縛住她的手，她看著你。）這越來越變態了。
 (You release her hands and she nods a little.)  Arigato Miss.  Please tell me if these hands can be of use.
-（你鬆開她的手，她點點頭。） 謝謝你（日語），女士。如果我的雙手有什麼地方能幫到你，請告訴我。
+（你鬆開她的手，她點點頭。） ありがとう(謝謝)，女士。如果我的雙手有什麼地方能幫到你，請告訴我。
 (You restrain her legs while she looks down.)  Never forget the upper legs for a good bondage.
 （你束縛她的腿，她看向下方。）對於好的束縛，永遠不要忘記束縛大腿。
 (You release her legs and she nods slowly.)  You take good care of all the details.
@@ -34,7 +34,7 @@ Silence is gold, and a gagged submissive is even better.
 (She struggles and shakes her head no while you put the device on her.)  Crap!  Why did you do that?
 （你把貞操帶綁在她身上，她掙扎著搖頭。）太壞了！你為什麼這麼做？
 (She seems relieved as you remove the device.)  Domo arigato Miss DialogPlayerName.
-（你移除貞操帶時，她看起來鬆了一口氣。）非常感謝你（日語），DialogPlayerName女士。
+（你移除貞操帶時，她看起來鬆了一口氣。）どうもありがとう(非常感謝)，DialogPlayerName女士。
 (You use the item on her torso.)  Shibari isn't all about restraining, it's also very artistic.
 （你在她的軀幹上使用這個物品。）繩縛不僅僅是束縛，它也充滿著藝術。
 (You remove the item from her torso.)  You can try different shapes and patterns.
@@ -98,9 +98,9 @@ Silence is gold, and a gagged submissive is even better.
 (You use the ropes and create a diamond harness around her body.)  The art of Shibari flows into your veins.
 （你使用繩子在她的身體周圍製作一個菱形束縛帶。）繩縛的藝術在你的血管中流淌。
 Konichiwa Miss.  You may restrain me however you want.  Take good care of the Dojo.
-你好（日語），女士。你可以隨意約束我。請看顧好道場。
+こんにちは(你好)，女士。你可以隨意約束我。請看顧好道場。
 Konichiwa, are you here to learn the fine art of Shibari?
-你好（日語），你是來學習繩縛技藝的嗎？
+こんにちは(你好)，你是來學習繩縛技藝的嗎？
 ###_PLAYER
 Hello there, I'm DialogPlayerName.
 你好，我是DialogPlayerName。
@@ -236,7 +236,7 @@ What is Shibari?
 什麼是繩縛？
 ###_NPC
 Shibari can roughly be translated as: "to tie".  It's an ancient form of rope bondage art coming from Japan.
-繩縛，日語“縛り”，大致可以翻譯為“綁起來”。這是一種來自日本的古老的繩索束縛藝術形式。
+繩縛，日語『縛り』，大致可以翻譯為“綁起來”。這是一種來自日本的古老的繩索束縛藝術形式。
 ###_PLAYER
 Where can I get ropes?
 我在哪裡可以得到繩索？
@@ -298,7 +298,7 @@ I'll pay right now.
 我馬上付錢。
 ###_NPC
 Arigato!  (She takes your money and gives you lots of rope.)  You'll become a bondage Shujin very soon.
-感謝（日語）！（她收下你的錢，給了你很多繩子。）你很快就會成為束縛達人。
+ありがとう(謝謝)！（她收下你的錢，給了你很多繩子。）你很快就會成為束縛達人。
 ###_PLAYER
 I don't have enough money.
 我沒有足夠的錢。
@@ -319,7 +319,7 @@ Very well.  Is there anything else I can do for you?
 （她教你許多技巧和束縛技術，未來你可以在順從者身上使用這些技巧。）
 ###_PLAYER
 Domo Arigato.  You were a great teacher.
-非常感謝（日語）。你是一位好老師。
+どうもありがとう(非常感謝)。你是一位好老師。
 ###_NPC
 (She nods.)  It was my pleasure.  Come back in an hour if you need more training.
 （她點頭。）這是我的榮幸。如果你需要更多訓練，請在一個小時後回來。
@@ -330,7 +330,7 @@ I can't wait to try this on my slaves.
 (She grins.)  Come back in an hour if you need more training.
 （她咧嘴笑了起來。）如果你需要更多的訓練，請在一個小時後回來。
 Arigato!  (She takes your money and get lots of rope.)  Give me your hands.  You'll become an escape artist very soon.
-感謝（日語）！（她收下你的錢，取來了很多繩子。）把手給我。你很快就會成為一名逃脫藝術家。
+ありがとう(謝謝)！（她收下你的錢，取來了很多繩子。）把手給我。你很快就會成為一名逃脫藝術家。
 (She teaches you many tips and evasion techniques that you'll be able to use when you're restrained.)
 （她教你許多技巧和逃脫技術，當你被束縛時，你可以使用這些技巧。）
 ###_PLAYER
@@ -338,7 +338,7 @@ I hope my Mistress will be proud of my progress.
 我希望我的女主人會為我的進步感到自豪。
 ###_NPC
 Arigato!  (She takes your money and gives you lots of rope.)  You'll become a self-bondage Shujin very soon.
-感謝（日語）！（她拿走了你的錢，給了你很多繩子。）你很快就會成為自縛達人。
+ありがとう(謝謝)！（她拿走了你的錢，給了你很多繩子。）你很快就會成為自縛達人。
 (She teaches you about safety and shows you many self-bondage techniques that you'll be able to use on yourself.)
 （她教你安全知識，並向你展示許多你可以在自己身上使用的自我束縛技巧。）
 (She nods.)  It was my pleasure.  Come back in an hour if you need more training.  Remember to stay safe.
@@ -350,7 +350,7 @@ I can't wait to try this on myself.
 (She struggles in her restraints.)  Can you release me?
 （她在束縛中掙扎。）你能放開我嗎？
 (She bows her head respectfully.)  Arigato to you and to the maid sorority.
-（她恭敬地低下頭。）對你和女僕聯誼會，感謝（日語）。
+（她恭敬地低下頭。）ありがとう(感謝)你和女僕聯誼會吧。
 ###_PLAYER
 Do you need help?
 你需要幫助嗎？
@@ -368,7 +368,7 @@ Is everything alright now?
 現在一切都好嗎？
 ###_NPC
 Yes, Domo Arigato.  Please inform the sorority that everything is fine at the Dojo.  (She dresses back.)
-是的，非常感謝（日語）。請告知女僕協會，道場一切安好。（她穿回衣服。）
+是的，どうもありがとう(非常感謝)。請告知女僕協會，道場一切安好。（她穿回衣服。）
 ###_PLAYER
 What happened here?
 這裡發生了什麼事？

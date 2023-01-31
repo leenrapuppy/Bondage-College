@@ -389,7 +389,7 @@ function VibratorModeClick(Options, Y) {
 			if (I % 3 === 0) Y += 75;
 			if (MouseIn(X, Y, 200, 55)) {
 				if ((Option.Property != null) && (DialogFocusItem.Property != null) && (Option.Property.Mode !== DialogFocusItem.Property.Mode) && !(OptionName == VibratorModeSet.ADVANCED && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes))
-					VibratorModeSetMode(Option);
+					VibratorModeSetOption(Option);
 				return true;
 			}
 		});
@@ -423,14 +423,24 @@ function VibratorModeGetOption(ModeName) {
 
 }
 
+/**
+ * Manually set a vibrating item's mode
+ * @param {Item} Item
+ * @param {VibratorMode} Mode
+ */
+function VibratorModeSetMode(Item, Mode) {
+	if (!Item || !Mode) return;
 
+	const option = VibratorModeGetOption(Mode);
+	VibratorModeSetProperty(Item, option.Property);
+}
 
 /**
- * Sets a new mode for a vibrating item and publishes a corresponding chatroom message
+ * Sets a vibrating item's option and publishes the corresponding chatroom message
  * @param {ExtendedItemOption} Option - The extended item option defining the new mode to be set
  * @returns {void} - Nothing
  */
-function VibratorModeSetMode(Option) {
+function VibratorModeSetOption(Option) {
 	var C = CharacterGetCurrent();
 	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 	var OldIntensity = DialogFocusItem.Property.Intensity;
