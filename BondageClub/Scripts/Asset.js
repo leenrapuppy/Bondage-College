@@ -21,6 +21,7 @@ var AssetActivityMirrorGroups = new Map();
  * @returns {AssetGroup}
  */
 function AssetGroupAdd(Family, GroupDef) {
+	const AllowNone = typeof GroupDef.AllowNone === "boolean" ? GroupDef.AllowNone : true;
 	/** @type {AssetGroup} */
 	var A = {
 		Family: Family,
@@ -31,7 +32,7 @@ function AssetGroupAdd(Family, GroupDef) {
 		Category: (GroupDef.Category == null) ? "Appearance" : GroupDef.Category,
 		IsDefault: (GroupDef.Default == null) ? true : GroupDef.Default,
 		IsRestraint: (GroupDef.IsRestraint == null) ? false : GroupDef.IsRestraint,
-		AllowNone: (GroupDef.AllowNone == null) ? true : GroupDef.AllowNone,
+		AllowNone,
 		AllowColorize: (GroupDef.AllowColorize == null) ? true : GroupDef.AllowColorize,
 		AllowCustomize: (GroupDef.AllowCustomize == null) ? true : GroupDef.AllowCustomize,
 		Random: (GroupDef.Random == null) ? true : GroupDef.Random,
@@ -62,6 +63,7 @@ function AssetGroupAdd(Family, GroupDef) {
 		MirrorActivitiesFrom: GroupDef.MirrorActivitiesFrom || null,
 		ColorSuffix: GroupDef.ColorSuffix,
 		ExpressionPrerequisite: GroupDef.ExpressionPrerequisite || [],
+		HasPreviewImages: typeof GroupDef.HasPreviewImages === "boolean" ? GroupDef.HasPreviewImages : AllowNone,
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetActivityMirrorGroupSet(A);
