@@ -425,7 +425,10 @@ function CafeGivenDildo() {
  * @returns {void} - Nothing
  */
 function CafeTurnDildoUp() {
-	DialogExtendItem(InventoryGet(Player, "ItemVulva"));
-	InventoryItemButtInflVibeButtPlugSetIntensity(1);
+	const vibe = InventoryGet(Player, "ItemVulva");
+	VibratorModeSetMode(vibe, VibratorMode.MEDIUM);
+	vibe.Property.Type = "f0i2";
+	CharacterRefresh(Player, true);
+	ChatRoomCharacterItemUpdate(Player, vibe.Asset.Group.Name);
 	CafeVibeIncreased = true;
 }
