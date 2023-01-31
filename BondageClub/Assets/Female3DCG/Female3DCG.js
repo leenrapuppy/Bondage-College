@@ -2828,7 +2828,7 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront32" },
 			{ Name: "HairFront33", Layer: [
 					{ Name: "Main" },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"] },
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main" },
 				], Random: false, Top: 33, Attribute: ["ShortHair"], Left: 150 },
 			{ Name: "HairFront34", Random: false, Priority: 8, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront35", Random: false, Priority: 8, Attribute: ["ShortHair"], Top: 33, Left: 150 },
@@ -2848,15 +2848,15 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront39",
 			Layer: [
 					{ Name: "Main" },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"]},
-					{ Name: "Behind", Priority: 5, CopyLayerColor: ["Main"]},
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main"},
+					{ Name: "Behind", Priority: 5, CopyLayerColor: "Main"},
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 100 },
 			{ Name: "HairFront40",
 			Layer: [
 					{ Name: "Main" },
 					{ Name: "Fade", Priority: 8 },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"]},
-					{ Name: "Behind", Priority: 5, CopyLayerColor: ["Main"]},
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main"},
+					{ Name: "Behind", Priority: 5, CopyLayerColor: "Main"},
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 100
 			},//HairFront40
 			{ Name: "HairFront41", Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
@@ -2870,14 +2870,14 @@ var AssetFemale3DCG = [
 			Layer: [
 					{ Name: "Main" },
 					{ Name: "Fade", Priority: 8 },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"] }
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main" }
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150
 			},//HairFront43
 			{ Name: "HairFront44",
 			Layer: [
 					{ Name: "Main" },
 					{ Name: "Fade", Priority: 8 },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"] }
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main" }
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150
 			},//HairFront44
 			{ Name: "HairFront45",
@@ -2885,14 +2885,14 @@ var AssetFemale3DCG = [
 					{ Name: "Main" },
 					{ Name: "Fade", Priority: 8 },
 					{ Name: "Tint" },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"]},
-					{ Name: "FrontTint", Priority: 55, CopyLayerColor: ["Tint"]},
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main"},
+					{ Name: "FrontTint", Priority: 55, CopyLayerColor: "Tint"},
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150
 			},//HairFront45
 			{ Name: "HairFront46",
 			Layer: [
 					{ Name: "Main" },
-					{ Name: "Front", Priority: 55, CopyLayerColor: ["Main"]},
+					{ Name: "Front", Priority: 55, CopyLayerColor: "Main"},
 					{ Name: "Fade", Priority: 8 },
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150
 			},//HairFront46
@@ -2962,14 +2962,14 @@ var AssetFemale3DCG = [
 			{ Name: "HairBack6b" },
 			{ Name: "HairBack21", HideForPose: ["Suspension"] },
 			{ Name: "HairBack22", HideForPose: ["Suspension"] },
-			{ 
+			{
 				Name: "HairBack23", AllowPose: ["Suspension", "AllFours"],
 				Layer: [
 					{Name: "Main", Priority: 48},
 					{Name: "Behind", CopyLayerColor: "Main"},
 				]
 			},
-			{ 
+			{
 				Name: "HairBack24", AllowPose: ["Suspension", "AllFours"],
 				Layer: [
 					{Name: "Main", Priority: 48},
@@ -3150,12 +3150,12 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		Asset: [
 			{ Name: "Default"},
-			{ 
+			{
 			Name: "SmallEars",
 			Attribute: ["SmallEars"],
 			Random: false,
 			},
-			{ 
+			{
 			Name: "NoEars",
 			Attribute: ["NoEars"],
 			Random: false,
@@ -3164,7 +3164,7 @@ var AssetFemale3DCG = [
 		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper"
 	},
-	
+
 	// Facial Expression specific
 	{
 		Group: "Blush",
@@ -4090,7 +4090,7 @@ var AssetFemale3DCG = [
 				Layer:[
 					{ Name: "Main", HasType: false},
 					{ Name: "Chain", HasType: false, AllowModuleTypes: ["c1"]},
-					{ Name: "WaistChain", HasType: false, AllowModuleTypes: ["c2"], CopyLayerColor: ["Chain"]},
+					{ Name: "WaistChain", HasType: false, AllowModuleTypes: ["c2"], CopyLayerColor: "Chain"},
 					{ Name: "Jewel", HasType: false, AllowModuleTypes: ["j1"]},
 				],
 			},
@@ -4189,7 +4189,7 @@ var AssetFemale3DCG = [
 				Layer:[
 					{ Name: "Main", HasType: false},
 					{ Name: "Chain", HasType: false, AllowModuleTypes: ["c1"]},
-					{ Name: "WaistChain", HasType: false, AllowModuleTypes: ["c2"], CopyLayerColor: ["Chain"]},
+					{ Name: "WaistChain", HasType: false, AllowModuleTypes: ["c2"], CopyLayerColor: "Chain"},
 					{ Name: "Jewel", HasType: false, AllowModuleTypes: ["j1"]},
 				],
 			},
