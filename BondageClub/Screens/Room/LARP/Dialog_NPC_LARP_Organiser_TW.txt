@@ -1,0 +1,414 @@
+###_NPC
+Let me guess, you've lost your last battle?   (She laughs.)
+讓我猜猜，你輸掉了你的最後一場戰鬥？ （她笑了。）
+It's an honor to see you DialogPlayerName.  Would you like to try a new class?
+很榮幸見到您，DialogPlayerName。 你想要嘗試新的職業嗎？
+It's always a pleasure to see you DialogPlayerName.  Would you like to try a new class?
+見到你總是很高興，DialogPlayerName。 你想嘗試新的職業嗎？
+Welcome to the Live Action Role Playing battles DialogPlayerName.  Do you need some explanations, or would you like to try a new class?
+歡迎來到即時角色扮演戰鬥 DialogPlayerName。 您想要一些介紹，還是想嘗試新職業？
+Welcome to the Live Action Role Playing battles.  Would you like to join us?
+歡迎來到即時角色扮演戰鬥。你想加入我們嗎？
+###_PLAYER
+Hi, I'm DialogPlayerName.
+嘿，我是 DialogPlayerName.
+###_NPC
+It's nice to meet you, I'm DialogCharacterName.  I organize the LARP battles and register the classes.
+很高興認識你，我是 DialogCharacterName。 我組織 LARP 戰鬥和註冊職業。
+###_PLAYER
+Can you help me?
+你能幫我嗎？
+###_NPC
+Sorry, go find a maid for that.  I need to organize battles.
+對不起，去找個女僕吧。 我需要去組織戰鬥。
+###_PLAYER
+I have some questions on LARP.
+我有一些關於 LARP 的問題。
+###_NPC
+What would you like to know?
+你想知道什麼？
+###_PLAYER
+I have some questions on battles.
+我有一些關於戰鬥的問題。
+Tell me about the classes.
+告訴我關於職業的事吧。
+###_NPC
+Which class interests you?  I can give you some details.
+你對哪一門課感興趣？ 我可以給你一些細節。
+###_PLAYER
+Tell me about the levelling system.
+告訴我關於等級系統的事吧。
+###_NPC
+What would you like to know about class levels?
+您想了解有關等級的哪些訊息？
+###_PLAYER
+I'd like to join the LARP battles.
+我想加入 LARP 戰鬥。
+###_NPC
+This is great news!  First, we need to review the rules and you'll need to accept them.
+這是個好消息！ 首先，我們需要閱讀規則，並且您需要接受它們。
+###_PLAYER
+I'd like to select a new class.
+我想選擇一個新職業。
+###_NPC
+Very good.  Which class would you like to select?
+很好。 你想選哪個職業？
+###_PLAYER
+I'm fine, thanks.  (Leave her.)
+我很好，謝謝。 (離開她。)
+What is LARP?
+什麼是 LARP?
+###_NPC
+LARP stands for Live Action Role Playing.  Everyone picks a class with special abilities and we battle each other.  The winners get paid.
+LARP 代表即時角色扮演。 每個人都選擇一個具有特殊能力的職業，然後互相戰鬥。 獲勝者得到報酬。
+###_PLAYER
+How much money do winners get?
+獲勝者能拿到多少錢？
+###_NPC
+The battles bring lots of customers.  The money amount split by the winners increase with long battles and the number of participants.
+戰鬥帶來了很多客戶。 獲勝者瓜分的獎金將會隨著戰鬥時間的增長和參加的人數增加而增加。
+###_PLAYER
+There's no cheating?
+不存在作弊嗎？
+###_NPC
+For a fun LARP, it's mandatory that everyone plays fair.  When someone loses a battle, they need to submit and go along with it.
+對於一個有趣的 LARP，每個人都必須公平競爭。 當有人輸掉一場戰鬥時，他們需要屈服並離開這裡。
+###_PLAYER
+How do I join?
+我該如何加入？
+###_NPC
+You first need to agree to the rules and select a class.  After that, just join the battles from this room or create a new match.
+您首先需要同意規則並選擇一個職業。 之後，只需從這個房間加入戰鬥或創建一個新的比賽。
+###_PLAYER
+Can I team up with my friends?
+我可以和我的朋友組隊嗎？
+###_NPC
+Of course, you can make teams however you want it.  Simply select a color to pick a team.  You need at least two teams to play.
+當然，你可以隨心所欲地組建團隊。 只需選擇一種顏色即可選擇團隊。 您需要至少兩個團隊才能參加比賽。
+###_PLAYER
+What if someone goes missing?
+如果有人不見了怎麼辦？
+###_NPC
+Each player has a twenty seconds delay to select what she does.  If nothing is selected, her turn is skipped automatically.
+每個玩家都有 20 秒的時間來選擇她做什麼。 如果未選擇任何內容，則會自動跳過她的回合。
+###_PLAYER
+What is a full cycle?
+什麼是完整週期？
+###_NPC
+In a LARP Battle, a full cycle means that everyone plays twice.  Everyone plays in order going forward, then backward and going back to the origin.
+在LARP戰鬥中，一個完整的週期意味著每個人都要玩兩次。每個人都按順序前進，然後後退，再回到原點。
+###_PLAYER
+That's all I wanted to know.
+這就是我想知道的。
+###_NPC
+Very well.  Are you ready to battle then?
+很好。 那你準備好戰鬥了嗎？
+###_PLAYER
+Who plays first?
+誰先玩？
+###_NPC
+We use a turn-based system to fight and restrain each other.  The turn order is random and reversed once everyone played.
+我們使用基於回合的系統來相互對抗和拘束。回合順序是隨機的，一旦每個人都玩了，順序就會顛倒。
+###_PLAYER
+What can I do when it's my turn?
+輪到我的時候我能做什麼？
+###_NPC
+You can always try to strip or restrain an opponent, there's a random chance it will work.  You can also use your class special abilities.
+您總是可以嘗試脫掉或拘束對手，這是隨機的。 您還可以使用您的特殊能力。
+###_PLAYER
+What are the odds for restraining?
+拘束的可能性有多大？
+###_NPC
+When you try to strip or restrain someone, the odds are 50% plus your offensive bonus, minus the opponent defensive bonus.
+當你試圖脫掉或拘束某人時，機率是50%加上你的進攻加成，減去對手的防守加成。
+###_PLAYER
+What are the special abilities?
+什麼是特殊能力？
+###_NPC
+Each class has three special abilities that they can use once per battle.  They can give bonuses, hamper enemies, rescue allies and more.
+每個職業都有三種特殊能力，每場戰鬥可以使用一次。 他們可以給予獎勵、阻礙敵人、拯救盟友等等。
+###_PLAYER
+Do special bonuses stack?
+特殊獎勵可以疊加嗎？
+###_NPC
+No, if you get multiple bonuses from special abilities, the biggest bonus applies.  It gets added to your class bonus.
+不，如果你從特殊能力中獲得多個獎金，則最高獎金適用。它會添加到你的課堂獎金中。
+###_PLAYER
+What happens if someone is restrained?
+如果有人被拘束了會發生什麼事？
+###_NPC
+Some abilities that requires walking or talking cannot be used when restrained.  If your arms are restrained, you can only try to struggle.
+一些需要移動或說話的能力在受到拘束時無法使用。 如果你的手臂被束縛，你只能嘗試掙扎。
+###_PLAYER
+How do you win a battle?
+你是如何贏得一場戰鬥的？
+###_NPC
+If only one team can act, the fight is over, and the winning team is announced.  The winners can enjoy their restrained spoils of war.
+如果只有一個團隊可以行動，則戰鬥結束，並宣布獲勝的團隊。 獲勝者可以享受他們拘束的戰利品。
+###_PLAYER
+The Matron class.
+Matron 職業。
+###_NPC
+What would you like to know on the Matron class?
+您想在 Matron 裡了解什麼？
+###_PLAYER
+The Seducer class.
+Seducer 職業。
+###_NPC
+What would you like to know on the Seducer class?
+您想在 Seducer 裡了解什麼？
+###_PLAYER
+The Trickster class.
+Trickster 職業。
+###_NPC
+What would you like to know on the Trickster class?
+您想在 Trickster 裡了解什麼？
+###_PLAYER
+The Artist class.
+Artist 職業。
+###_NPC
+What would you like to know on the Artist class?
+您想在 Artist 裡了解什麼？
+###_PLAYER
+The Servant class.
+Servant 職業。
+###_NPC
+What would you like to know on the Servant class?
+您想在 Servant 裡了解什麼？
+###_PLAYER
+The Protector class.
+Protector 職業。
+###_NPC
+What would you like to know on the Protector class?
+您想在 Protector 裡了解什麼？
+###_PLAYER
+Tell me of the bonuses.
+告訴我加成。
+###_NPC
+The Matron gets a 20% offensive bonus and no defensive bonus.
+Matron 會獲得 20% 的進攻加成，但是沒有防禦加成。
+###_PLAYER
+What is Charge?
+什麼是衝鋒？
+###_NPC
+If you use Charge, your team will get a 25% offensive bonus for a full cycle.  You must be able to walk.
+如果您使用衝鋒，您的團隊將在一個完整週期內獲得 25% 的進攻獎勵。 但是你必須能夠移動。
+###_PLAYER
+What is Control?
+什麼是控制？
+###_NPC
+If you use Control, nobody will be able to use special abilities for a full cycle.  You must be able to talk.
+如果你使用控制，將沒有人可以在一個完整的循環中使用特殊能力。 但是你必須可以說話。
+###_PLAYER
+What is Detain?
+什麼是拘留？
+###_NPC
+If you use Detain, it will work like a regular arm restraining without any random luck, it works automatically.
+如果您使用拘留，它將像常規的手臂約束一樣工作，沒有任何隨機的運氣，它會自動工作。
+###_PLAYER
+Let's talk about another class.
+讓我們談談另一個職業。
+###_NPC
+Which class would you like to know about?
+你想知道哪個技能？
+The Seducer gets a 16% offensive bonus and a 4% defensive bonus.
+Seducer 會獲得 16% 的進攻加成和 4% 的防禦加成。
+###_PLAYER
+What is Expose?
+什麼是暴露？
+###_NPC
+If you use Expose, it will work like a regular stripping without any random luck, it works automatically.
+如果您使用暴露，它將像常規脫去一樣工作，沒有任何隨機運氣，它會自動工作。
+###_PLAYER
+What is Inspire?
+什麼是鼓舞？
+###_NPC
+If you use Inspire, your target teammate will be able to use all her special abilities once again.  As if they were never used before.
+如果您使用鼓舞，您的目標隊友將能夠再次使用她的所有特殊能力。 就好像它們以前從未使用過一樣。
+###_PLAYER
+What is Seduce?
+什麼是引誘？
+###_NPC
+If you use Seduce, your target will be dazed with love and will need to pass her next turn to recover.  You must be able to talk.
+如果你使用引誘，你的目標會因愛而發呆，並且需要通過她的下一回合才能恢復。 但是你必須可以說話。
+The Trickster gets a 12% offensive bonus and a 8% defensive bonus.
+Trickster 會獲得 12% 的進攻加成和 8% 的防守加成。
+###_PLAYER
+What is Confuse?
+什麼是迷惑？
+###_NPC
+If you use Confuse, your target won't be able to use special abilities for a full cycle.  You must be able to talk.
+如果你使用迷惑，你的目標將無法在一個完整的循環中使用特殊能力。 但是你必須可以說話。
+###_PLAYER
+What is Hide?
+什麼是隱藏？
+###_NPC
+If you use Hide, you cannot get targeted by anyone from another team, until your next turn.
+如果您使用隱藏，則在您下一輪之前，您不會被其他團隊的任何人盯上。
+###_PLAYER
+What is Immobilize?
+什麼是定身？
+###_NPC
+If you use Immobilize, it will work like a regular leg restraining without any random luck, it works automatically.
+如果你使用定身，它會像普通的腿部約束一樣工作，沒有任何隨機運氣，它會自動工作。
+The Artist gets a 8% offensive bonus and a 12% defensive bonus.
+Artist 會獲得 8% 的進攻加成和 12% 的防守加成。
+###_PLAYER
+What is Cheer?
+什麼是歡呼？
+###_NPC
+If you use Cheer, your target gets a 25% offensive and defensive bonus for a full cycle.  You must be able to talk.
+如果你使用歡呼，你的目標在一個完整週期內獲得 25% 的進攻和防禦加成。 但是你必須可以說話。
+###_PLAYER
+What is Costume?
+什麼是服裝？
+###_NPC
+If you use Costume, a target teammate automatically dresses back with a selected cloth.  You must be able to walk.
+如果您使用服裝，目標隊友會自動穿上選定的衣服。 你必須能夠移動。
+###_PLAYER
+What is Evasion?
+什麼是躲避？
+###_NPC
+If you use Evasion, you automatically remove your legs restraints, or arms restraints if they are restrained.
+如果您使用躲避，您將自動移除您的腿部約束或手臂約束（如果它們受到約束）。
+The Servant gets a 4% offensive bonus and a 16% defensive bonus.
+Servant 會獲得 4% 的進攻加成和 16% 的防禦加成。
+###_PLAYER
+What is Rescue?
+什麼是救援？
+###_NPC
+If you use Rescue, you remove the legs or arms restraints from a target teammate.  You must be able to walk.
+如果您使用救援，您將移除目標隊友的腿或手臂約束。 你必須能夠移動。
+###_PLAYER
+What is Silence?
+什麼是沉默？
+###_NPC
+If you use Silence, it will work like a regular gagging without any random luck, it works automatically.
+如果您使用沉默，它會像常規的堵嘴一樣工作，沒有任何隨機運氣，它會自動工作。
+###_PLAYER
+What is Ungag?
+什麼是消除堵嘴？
+###_NPC
+If you use Ungag, you remove the gag from a target teammate.
+如果您使用消除堵嘴，您將移除目標隊友的堵嘴。
+The Protector gets no offensive bonus and a 20% defensive bonus.
+Protector 沒有攻擊加成，獲得20%的防禦加成。
+###_PLAYER
+What is Cover?
+什麼是掩護？
+###_NPC
+If you use Cover, your target cannot be targeted by anyone that's not in her team for a full cycle.  You must be able to walk.
+如果您使用掩護，則您的目標在整個週期內都不會被不在她團隊中的任何人作為目標。 你必須能夠移動。
+###_PLAYER
+What is Dress?
+什麼是穿戴？
+###_NPC
+If you use Dress, you automatically dress back up with a selected cloth.
+如果您使用穿戴，您會自動用選定的衣服重新打扮。
+###_PLAYER
+What is Support?
+什麼是支持？
+###_NPC
+If you use Support, your team will get a 25% defensive bonus for a full cycle.  You must be able to talk.
+如果您使用支持，您的團隊將在一個完整週期內獲得 25% 的防禦加成。 你必須會說話。
+###_PLAYER
+What are the rules?
+規則都有哪些？
+###_NPC
+First rule, you must play fair and never cheat in battles.  Is that fine with you?
+第一條規則，你必須公平競爭，決不能在戰鬥中作弊。 你可以做到嗎？
+###_PLAYER
+Let's talk some more first.
+讓我們先多談一談。
+###_NPC
+Very well.  What would you like to know?
+很好。 你想知道什麼？
+###_PLAYER
+I will never cheat in LARP battles.
+我永遠不會在 LARP 戰鬥中作弊。
+###_NPC
+Second rule, if you lose, you must accept it and surrender to the winner.  Alright?
+第二條規則，如果你輸了，你必須接受它並向獲勝者投降。 好吧？
+###_PLAYER
+I cannot promise that.
+我不能保證。
+###_NPC
+Sorry, I can't sign you in if that's the case.
+對不起，如果是這樣的話，我不能讓你加入。
+###_PLAYER
+I will submit when I lose.
+我會在輸了後投降。
+###_NPC
+Third and last rule, if must select a class.  Which one will you pick?
+第三條也是最後一條規則，如果必須選擇一個職業。 你會選擇哪一個？
+Alright!  You will be a Matron in your first battles.  Come back to me if you want to change your class.
+真棒！ 在你的第一次戰鬥中，你將成為 Matron。 如果你想換職業的話請回來找我。
+Alright!  You will be a Seducer in your first battles.  Come back to me if you want to change your class.
+真棒！ 在你的第一次戰鬥中，你將成為 Seducer 如果你想換職業的話請回來找我。
+Alright!  You will be a Trickster in your first battles.  Come back to me if you want to change your class.
+真棒！ 在你的第一次戰鬥中，你將成為 Trickster 如果你想換職業的話請回來找我。
+Alright!  You will be an Artist in your first battles.  Come back to me if you want to change your class.
+真棒！ 在你的第一次戰鬥中，你將成為 Artist 如果你想換職業的話請回來找我。
+Alright!  You will be a Servant in your first battles.  Come back to me if you want to change your class.
+真棒！ 在你的第一次戰鬥中，你將成為 Servant 如果你想換職業的話請回來找我。
+Alright!  You will be a Protector in your first battles.  Come back to me if you want to change your class.
+真棒！ 在你的第一次戰鬥中，你將成為 Protector 如果你想換職業的話請回來找我。
+###_PLAYER
+I need to think about it.
+我需要想一想。.
+###_NPC
+It's perfectly fine, let me know when you're ready.
+沒關係，等你準備好了就告訴我。
+###_PLAYER
+Thanks a lot!
+非常感謝！
+###_NPC
+My pleasure.  Check the battle lobby to find fights or create a battle of your own.  Good luck!
+我的榮幸。 檢查戰鬥大廳以尋找戰鬥或創建自己的戰鬥。 祝你好運！
+Very well, you will be a Matron in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+很好，你將在接下來的戰鬥中成為 Matron。 如果你想再次改變你的職業，請回來找我。 祝你好運，玩得開心。
+Very well, you will be a Seducer in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+很好，你將在接下來的戰鬥中成為 Seducer 如果你想再次改變你的職業，請回來找我。 祝你好運，玩得開心。
+Very well, you will be a Trickster in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+很好，你將在接下來的戰鬥中成為 Trickster 如果你想再次改變你的職業，請回來找我。 祝你好運，玩得開心。
+Very well, you will be an Artist in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+很好，你將在接下來的戰鬥中成為 Artist 如果你想再次改變你的職業，請回來找我。 祝你好運，玩得開心。
+Very well, you will be a Servant in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+很好，你將在接下來的戰鬥中成為 Servant 如果你想再次改變你的職業，請回來找我。 祝你好運，玩得開心。
+Very well, you will be a Protector in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+很好，你將在接下來的戰鬥中成為 Protector 如果你想再次改變你的職業，請回來找我。 祝你好運，玩得開心。
+###_PLAYER
+I'll keep my current class.
+我會保留我現在的職業。
+How does it work?
+它是如何工作的？
+###_NPC
+Each level adds a 5% bonus to your class basic bonus.  At level zero there's no bonus, at level ten there's a 50% bonus.
+每個級別都會為您的職業基本獎金增加 5% 的獎金。 0級沒有獎金，10級有50%的獎金。
+###_PLAYER
+Give me an example.
+給我舉個例子。
+###_NPC
+The Trickster class gets a 12% offensive bonus and a 8% defensive bonus at level zero.  At level ten it will be 18% and 12%.
+Trickster 職業在零級時獲得 12% 的進攻加成和 8% 的防禦加成。 在第十級，它將是 18% 和 12%。
+###_PLAYER
+How do I gain levels?
+我如何獲得等級？
+###_NPC
+Each class has it's own level.  Whenever you finish a LARP battle, whether you won or lost, you will progress toward your next level.
+每個職業都有自己的等級。 每當您完成 LARP 戰鬥時，無論您是贏還是輸，您都將進入下一個級別。
+###_PLAYER
+Do I lose progress if I change class?
+在我改變職業後我的進度會消失嗎？
+###_NPC
+(She shakes her head no.)  Each class level progress is kept on record.  You won't lose any progress if you pick a new class.
+（她搖頭不。）每個職業的進度都被記錄在案。 如果你選擇一個新的職業，你不會失去任何進度。
+###_PLAYER
+Let's talk about something else.
+我們談些別的吧。
+###_NPC
+How can I help you?
+我要怎麼幫你？
+###_PLAYER
+(Check the battles.)
+（檢查戰鬥。）

@@ -32,7 +32,7 @@ I love your gag, it looks both comfy and effective.
 (She rocks her hips and struggles as you put the device on her.)
 （你把貞操帶繫在她身上，她搖晃臀部並掙扎。）
 (She seems relieved as you remove the device.)  Domo arigato Miss DialogPlayerName.
-（你移除貞操帶，她似乎鬆了一口氣。）非常感謝（日語），DialogPlayerName女士。
+（你移除貞操帶，她似乎鬆了一口氣。）どうもありがとう(非常感謝)，DialogPlayerName女士。
 (You use the item on her torso.)  This is very erotic.
 （你在她的軀幹上使用這個物品。）這很色情。
 (You remove the item from her torso.)  You can try another item if you want.
@@ -58,7 +58,7 @@ I love your gag, it looks both comfy and effective.
 (You whip her butt with the leather crop as she wiggles it for more.)
 （你用硬鞭抽打她的屁股，她扭動屁股索求更多。）
 (She moans softly as you massage her pussy with the wand.)  Mmmmh, this is nice.  Konichiwa!
-（你用振動棒按摩她的陰戶，她輕聲呻吟。）嗯，這很好。你好（日語）！
+（你用振動棒按摩她的陰戶，她輕聲呻吟。）嗯，這很好。こんにちは(你好)！
 (She moans as you slide the egg inside.)  That's what I call kinky Shibari!
 （當你把跳蛋滑入時，她呻吟著。）這就是我所說的變態繩縛！
 (She does one last moan as you remove the egg.)  Ooooh!  That was quite a stimulation.
@@ -96,7 +96,7 @@ I love your gag, it looks both comfy and effective.
 (You use the ropes and create a diamond harness around her body.)  You're a rope artist Miss DialogPlayerName.
 （你使用繩子在她的身體周圍製作一個菱形束縛帶。）你是一位繩縛藝術家，DialogPlayerName女士。
 Konichiwa Miss.  I hope you're enjoying the Dojo.
-你好（日語）女士。希望你喜歡道場。
+こんにちは(你好)，女士。希望你喜歡道場。
 ###_PLAYER
 Hi girl, I'm DialogPlayerName.
 嗨，女孩，我是DialogPlayerName。
@@ -105,7 +105,7 @@ It's a pleasure to meet you Miss, I'm DialogCharacterName.
 很高興認識你，我是DialogCharacterName。
 ###_PLAYER
 Can I play with you?
-我可不可以跟你玩兒？
+我能和你一起玩嗎？
 ###_NPC
 (She nods happily.)  Of course Miss.  I'm here to learn and serve.
 （她高興地點點頭。）當然，女士。我是來學習並服務。
@@ -166,7 +166,7 @@ Let's talk about something else.
 Yes Miss.
 是的，女士。
 Konichiwa Miss.  It seems that we got in trouble.
-你好（日語）女士。看來我們遇到了麻煩。
+こんにちは(你好)，女士。看來我們遇到了麻煩。
 ###_PLAYER
 Do you need help?
 你需要幫助嗎？
