@@ -1753,7 +1753,7 @@ function DialogClick() {
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
 					const type = (act.Item && act.Item.Property ? act.Item.Property.Type : null);
 					if (!act.Blocked || act.Blocked === "limited" && InventoryCheckLimitedPermission(C, act.Item, type)) {
-						if (C.IsNpc()) {
+						if (C.IsNpc() && act.Item) {
 							let Line = C.FocusGroup.Name + act.Item.Asset.DynamicName(Player);
 							let D = DialogFind(C, Line, null, false);
 							if (D != "") {

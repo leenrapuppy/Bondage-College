@@ -238,6 +238,12 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
 		const ctx = tmpCanvas.getContext("2d");
 
+		if (C.IsInverted()) {
+			ctx.rotate(Math.PI);
+			ctx.translate(-tmpCanvas.width, -tmpCanvas.height);
+			Y -= 500;
+		}
+
 		if (Data.AnimationSpeed < 2 * ItemDevicesLuckyWheelAnimationMinSpeed) {
 			// Start blinking
 			Data.LightStep = (++Data.LightStep) % 2;
@@ -277,6 +283,12 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 		const degreeToRadians = (degrees) => degrees * Math.PI / 180;
 		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
 		const ctx = tmpCanvas.getContext("2d");
+
+		if (C.IsInverted()) {
+			ctx.rotate(Math.PI);
+			ctx.translate(-tmpCanvas.width, -tmpCanvas.height);
+			Y -= 500;
+		}
 
 		// Draw Background Colors
 		// Save the canvas state and rotate by the calculated angle about the center point

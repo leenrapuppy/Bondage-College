@@ -1,0 +1,261 @@
+###_NPC
+(A maid comes to inform you that the training session is over, and you must free the room.)
+（一位女僕過來，通知你訓練結束了，你必須騰出房間。）
+(The girl that you should train bows her head and doesn't dare to speak.)
+（你將要訓練的女孩低著頭，不敢說話。）
+###_PLAYER
+Are you here to be trained?
+你是來接受訓練的嗎？
+###_NPC
+Yes Miss, I want to become a better submissive.
+是的，女士，我想成為一個更好的順從者。
+###_PLAYER
+You're in trouble girl.
+你有麻煩了，女孩。
+###_NPC
+(She trembles a little.)  I know.  I want to become a better submissive Miss.
+（她微微顫抖。）我知道。我想成為一個更好的順從者，女士。
+###_PLAYER
+Why are you here?
+你為什麼在這？
+###_NPC
+To be trained Miss.  I want to become a better submissive.
+我來接受訓練，女士。我想成為一個更好的順從者。
+###_PLAYER
+What do you want to improve?
+你想改進什麼方面？
+###_NPC
+I panic when I'm restrained and blindfolded.  Can you help me with that?
+當我被束縛並被蒙住眼睛時，我會感到恐慌。這個方面，你能幫幫我嗎？
+###_PLAYER
+I could train you today.
+我今天會訓練你。
+###_NPC
+Thanks Miss, I know that if you restrain me slowly and carefully, I can overcome my claustrophobia.
+謝謝，女士，我知道只要你慢慢地、小心地束縛我，我就能克服我的幽閉恐懼症。
+###_PLAYER
+Let's start your training.
+讓我們開始你的訓練吧。
+###_NPC
+Very well Miss, thanks for your time.  (How will you train her?)
+好的，女士，感謝你的寶貴時間。（你將如何訓練她？）
+I'm scared of pain and I don't handle it very well.  Can you help me with that?
+我害怕疼痛，我沒辦法很好地處理它。這個方面，你能幫幫我嗎？
+Thanks Miss, I know that if you hurt me gently and progressively, I can improve myself.
+謝謝，女士，我知道如果你溫柔地、循序漸進地傷害我，我就能改進自己。
+(She blushes.)  Dominants say that I can't control my orgasm and I cum without permission.  Can you help me with that?
+（她臉紅起來。）支配者們說我無法控制我的高潮，我未經允許就去了。這個方面，你能幫幫我嗎？
+Thanks Miss, I know that I can learn to control my sexual self-control in your hands.
+謝謝，女士，我知道我可以在你的手中學會掌握我的性自制力。
+(The slave that you should train bows her head and doesn't dare to speak.)
+（你將要訓練的奴隸低著頭，不敢說話。）
+Yes Miss, my Mistress sent me here to become a better submissive.
+是的，女士，我的女主人派我來這裡，是為了讓我成為一個更好的順從者。
+(She trembles a little.)  I know.  My Mistress sent me here to become a better submissive.
+（她微微顫抖。）我知道。我的女主人派我來這裡，是為了讓我成為一個更好的順從者。
+###_PLAYER
+Why did your owner send you here?
+你的主人為什麼把你送到這裡來？
+###_NPC
+My Mistress sent me here to become a better submissive.
+我的女主人派我來這裡，是為了讓我成為一個更好的順從者。
+###_PLAYER
+What does she want to improve?
+她想改進什麼？
+###_NPC
+I panic when I'm restrained and blindfolded.  Mistress is sick of that.  Can you help me?
+當我被束縛和蒙住眼睛時，我會感到恐慌。女主人對此非常頭痛。你能幫助我嗎？
+Thanks Miss, I know that if you restrain me slowly, I can overcome my claustrophobia.
+謝謝，女士，我知道只要你慢慢地、小心地束縛我，我就能克服我的幽閉恐懼症。
+Very well Miss, my Mistress will be thankful.  (How will you train her?)
+很好，女士，我的女主人會很感激的。（你將如何訓練她？）
+I'm scared of pain and I don't handle it very well.  Mistress sent me here to get better with that.
+我害怕疼痛，我沒辦法很好地處理它。女主人把我送到這裡，是為了讓我改進這個方面。
+(She blushes.)  Mistress says that I can't control my orgasm and I cum without permission.  Can you help me with that?
+（她臉紅起來。）女主人說我無法控制我的高潮，我未經允許就去了。這個方面，你能幫幫我嗎？
+Thanks Miss, I know that I can learn to control my sexual self-control in your hands.  Mistress will appreciate.
+很好，女士，我知道我可以在你的手中學會掌握我的性自制力。女主會感激的。
+(She bows her head and waits on you.  How will you train her?)
+（她低頭等你，你要怎麼訓練她？）
+###_PLAYER
+(Do a bondage training.)
+（進行束縛訓練。）
+###_NPC
+(She trembles in her restraints as you start the bondage training.)
+（當你開始束縛訓練時，她在束縛中顫抖。）
+(Restrain her fully so she cannot walk, talk, see or use her hands to start the bondage training.)
+（完全約束她，使她不能走路、說話、看東西或用手開始束縛訓練。）
+###_PLAYER
+(Do a pain training.)
+（進行疼痛訓練。）
+###_NPC
+(She takes a deep breath as you get closer to start a pain training.)
+（你接近她，開始疼痛訓練，她深深地吸了口氣。）
+###_PLAYER
+(Do a sexual training.)
+（進行性訓練。）
+###_NPC
+(She blushes red as you get closer to start a sexual training.)
+（你接近她，開始性訓練，她臉紅起來。）
+###_PLAYER
+(Give up and go back.)
+（放棄並離開這裡。）
+(Check on her well-being.)
+（檢查她的狀況。）
+###_NPC
+(She seems to be very calm and relax.  She doesn't struggle at all.)
+（她似乎很平靜和放鬆。她一點也不掙扎。）
+(She barely struggles and seems to be in control.)
+（她幾乎沒有掙扎，似乎在控制之中。）
+(She struggles a little and seems to be in a good learning mood, both in control and on the edge at the same time.)
+（她有點掙扎，看起來正處於良好的學習情緒狀態，處於控制的邊緣，又在控制範圍之內。）
+(She struggles a lot and seems to be panicking.)
+（她不斷地掙扎，看起來很恐慌。）
+(She struggles frantically, cries and begs for freedom like an animal.)
+（她瘋狂地掙扎，像動物一樣哭著乞求自由。）
+###_PLAYER
+(Loosen her restraints.)
+（鬆開她的束縛。）
+###_NPC
+(She seems comforted as you loosen her restraints.)
+（你鬆開她的束縛，她看起來放鬆下來。）
+###_PLAYER
+(Tease and grope her.)
+（挑逗她，撫弄她。）
+###_NPC
+(She moans silently as you slowly tease and grope her.)
+（你慢慢地挑逗和撫弄她，她無聲地呻吟著。）
+###_PLAYER
+(Tighten her restraints.)
+（收緊她的束縛。）
+###_NPC
+(She whimpers a little as you tighten her restrains.)
+（你收緊她的束縛，她稍稍嗚咽。）
+###_PLAYER
+(Slap her.)
+（扇她一巴掌。）
+###_NPC
+(She cowers as you slap her hard, trembling from her helpless pain.)
+（你用力地扇她耳光，她畏縮起來，因無助的痛苦而顫抖著。）
+###_PLAYER
+(Tighten to stop her blood circulation.)
+（收緊束縛到足以阻止她的血液循環。）
+###_NPC
+(She struggles and screams in the gag as her bondage gets really tight and cuts her blood flow, making her dizzy.)
+（她的束縛收得非常緊，甚至阻斷了她的血液流動，讓她頭暈目眩，她掙扎並在口塞中尖叫著。）
+###_PLAYER
+(Check on her pain threshold.)
+（檢查她的疼痛極限。）
+###_NPC
+(She looks happy and doesn't seem to be in pain at all.)
+（她看起來很開心，似乎一點也不痛苦。）
+(She looks like in a little bit of pain but nothing extreme.)
+（她看起來有點痛苦，但並不極端。）
+(She breathes fast and aches from the pain but seems to be well-focused on your training.)
+（她呼吸急促，因疼痛而抖動，但看起來仍專注於你的訓練。）
+(She cries from the intense pain and cowers at your every move, in a state of panic.)
+（她因劇烈的疼痛而哭泣，你的每一下動作都讓她畏縮，她正處於恐慌的狀態。）
+(She has large marks on her skin and is almost passed-out.  The intense pain makes her barely conscious.)
+（她的皮膚上留下了許多瘀痕，她幾乎昏倒了。劇烈的疼痛讓她幾乎失去了意識。）
+###_PLAYER
+(Take time to comfort her.)
+（花時間安撫她。）
+###_NPC
+(She seems comforted as you take time to calm her down.)
+（你花時間讓她平靜下來，她看起來得到了安慰。）
+###_PLAYER
+(Spank her.)
+（拍打她。）
+###_NPC
+(You spank her a few times as her eyes widen a little with each swing.)
+（你拍打了她幾下，你每次揮動，她的眼睛都會睜大一點。）
+###_PLAYER
+(Crop her.)
+（用硬鞭抽她。）
+###_NPC
+(She whimpers and jumps with each crop swing.)
+（每當硬鞭揮下，她都會嗚咽並跳起來。）
+###_PLAYER
+(Strangle her lightly.)
+（輕輕勒住她。）
+###_NPC
+(You strangle her lightly as she struggles for air and against the pain.)
+（你輕輕地勒住她，她掙扎著呼吸空氣，試圖忍受疼痛時。）
+###_PLAYER
+(Whip her.)
+（鞭打她。）
+###_NPC
+(She cries with each whip lashes, trying to endure the pain and getting a strong adrenaline rush.)
+（每當鞭子抽下，她都會哭出聲並努力忍受疼痛，她體內的腎上腺素狂奔著。）
+###_PLAYER
+(Check on her arousal.)
+（檢查她的興奮狀態。）
+###_NPC
+(She doesn't seem turned on at all.)
+（她看起來內心平靜。）
+(She looks a little wet and seems to be enjoying herself.)
+（她看起來有點濕，似乎很享受。）
+(She's on the edge of an orgasm, trembling and begging you to let her climax.)
+（她正處於高潮邊緣，顫抖著求你讓她達到高潮。）
+(She shakes a lot and tries to hide the fact that she had an unapproved orgasm.)
+（她顫抖不停，試圖隱瞞她未經允許就達到了高潮。）
+(She's moaning loudly and dripping in her own juices.  She cannot hide her unapproved orgasm.)
+（她大聲呻吟，被自己分泌的液體弄得濕淋淋的。她無法掩飾未經允許就達到了高潮。）
+###_PLAYER
+(Let her cool down.)
+（讓她冷靜下來。）
+###_NPC
+(You let her relax and cool down for a little while.)
+（你讓她放鬆一下，冷靜一下。）
+###_PLAYER
+(Kiss her.)
+（親吻她。）
+###_NPC
+(You kiss her lovingly to keep her in the mood.)
+（你甜蜜地親吻她，讓她保持在興奮的情緒裡。）
+###_PLAYER
+(Massage her breast.)
+（按摩她的乳房。）
+###_NPC
+(You massage her breast slowly as she moans from the pleasure.)
+（你慢慢地按摩她的乳房，她因快感而呻吟。）
+###_PLAYER
+(Masturbate her.)
+（用手撫慰她。）
+###_NPC
+(You masturbate her skillfully as she moans loudly from the pleasure.)
+（你熟練地用手撫慰她，她因為快感而大聲呻吟。）
+###_PLAYER
+(Eat her.)
+（用嘴撫慰她。）
+###_NPC
+(She screams from the uncontrollable pleasure as you eat her pussy with delight.)
+（你熱情地用嘴撫慰她的陰戶，她因無法控制的快感而尖叫著。）
+###_PLAYER
+Your training is done.
+你的訓練完成了。
+###_NPC
+(She nods happily and seems to have learned from you.  Your training had positive effects.)
+（她高興地點頭，看起來從你這裡學到了不少，你的訓練有正面效果。）
+###_PLAYER
+Next time it will be harsher.
+下次這會更嚴厲。
+###_NPC
+(She gulps but seems to have learned from you.  Your training had positive effects.)
+（她嚥了咽口水，看起來從你這裡學到了不少。你的訓練有正面效果。）
+###_PLAYER
+(Stare at the trained girl.)
+（凝視接受完訓練的女孩。）
+(Spank her one last time.)
+（最後拍打她一次。）
+(Back to the slave market.)
+（回到奴隸市場。）
+###_NPC
+(She trembles without much control and panics a little, your training was too intense.)
+（她不受控制地顫抖著，有點慌張，你的訓練太激烈了。）
+(She shrugs and doesn't seem very affected.  Your training was too easy for her.)
+（她聳了聳肩，似乎沒有受到太大影響。你的訓練對她來說太容易了。）
+(She giggles and doesn't seem very affected.  Your training was too easy for her.)
+（她呵呵地笑著，似乎並沒有受到太大影響。你的訓練對她來說太容易了。）
+(She seems confused from your training session, it's probably not what she needed.)
+（她似乎對你的訓練感到困惑，這可能不是她所需要的。）

@@ -142,6 +142,7 @@ type ItemVulvaFuturisticVibratorAccessMode = "" | "ProhibitSelf" | "LockMember";
  *   Allows the item to be taken off at the club management.
  *
  * @property Leash - Marks the item as being usable as a leash.
+ * @property IsLeashed - Marks a leash item as being held.
  * @property CrotchRope - Marks the item as being a crotchrope-style item.
  *   Used for the auto-stimulation events.
  *
@@ -184,7 +185,7 @@ type EffectName =
 
 	"Chaste" | "BreastChaste" | "ButtChaste" |
 
-	"Leash" | "CrotchRope" |
+	"Leash" | "IsLeashed" | "CrotchRope" |
 
 	"ReceiveShock" | "TriggerShock" |
 
@@ -1380,6 +1381,7 @@ interface Character {
 		LARP?: GameLARPParameters,
 		MagicBattle?: GameMagicBattleParameters,
 		GGTS?: GameGGTSParameters,
+		Poker?: GamePokerParameters,
 	};
 	BlackList: number[];
 	RunScripts?: boolean;
@@ -2340,8 +2342,6 @@ interface ModularItemOptionBase {
 	Effect?: string[];
 	/** Whether the option forces a given pose */
 	SetPose?: string;
-	/** If set, the option changes the asset's default priority */
-	OverridePriority?: number;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
 	/** A buy group to check for that module to be available */
@@ -2852,8 +2852,19 @@ interface ICommand {
 	Clear?: false;
 }
 
+//#region Poker Minigame
+
+type PokerGameType = "TwoCards" | "TexasHoldem";
+type PokerMode = "" | "DEAL" | "FLOP" | "TURN" | "RIVER" | "RESULT" | "END";
 type PokerPlayerType = "None" | "Set" | "Character";
-type PokerPlayerFamily = "None" | "Player";
+type PokerPlayerFamily = "None" | "Player" | "Illustration" | "Model";
+type PokerHand = number[];
+
+interface PokerAsset {
+	Family: PokerPlayerFamily;
+	Type: PokerPlayerType;
+	Opponent: string[];
+}
 
 interface PokerPlayer {
 	Type: PokerPlayerType;
@@ -2863,7 +2874,7 @@ interface PokerPlayer {
 
 	/* Runtime values */
 	Difficulty?: number;
-	Hand?: any[];
+	Hand?: PokerHand;
 	HandValue?: number;
 	Cloth?: Item;
 	ClothLower?: Item;
@@ -2871,16 +2882,21 @@ interface PokerPlayer {
 	Panties?: Item;
 	Bra?: Item;
 	Character?: Character;
-	Data?: {
-		cache: Record<any, any>;
-	};
-	Image?: void;
+	Data?: TextCache;
+	Image?: string;
 	TextColor?: string;
-	TextSingle?: string;
-	TextMultiple?: string;
+	TextSingle?: TextCache;
+	TextMultiple?: TextCache;
+	Text?: string;
 	WebLink?: string;
-	Alternate?: void;
+	Alternate?: number;
 }
+
+interface GamePokerParameters {
+	Challenge?: string;
+}
+
+//#endregion
 
 // #region Online Games
 
