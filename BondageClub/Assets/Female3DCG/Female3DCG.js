@@ -992,6 +992,14 @@ var AssetFemale3DCG = [
 					{ Name: "BreastShade", AllowColorize: false }
 				]
 			},
+			{
+				Name: "DominatrixLeotard", Gender: "F", Fetish: ["Lingerie", "Leather"], Prerequisite: ["HasBreasts"], Priority: 20, Value: 40, AllowPose: ["Hogtied"], Hide: ["ItemNipples"],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Net" },
+					{ Name: "Buckles" },
+				],
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
