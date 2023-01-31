@@ -1216,39 +1216,39 @@ var AssetFemale3DCG = [
 			{ Name: "Stockings4", Fetish: ["Nylon"], Value: 10, BuyGroup: "Stockings4"},
 			{ Name: "Pantyhose1", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], BuyGroup: "Pantyhose", Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"] },
 			{
-				Name: "Socks6", Fetish: ["Nylon"], Value: 25,
+				Name: "Socks6", Fetish: ["Nylon"], Value: 25, BuyGroup: "Socks6",
 				Layer: [
 					{ Name: "Sock" },
 					{ Name: "Frill" }
 				]
 			},
 			{
-				Name: "SocksFur", Fetish: ["Nylon"], Value: 40, DefaultColor: ["#8c2331", "Default"], HideForPose: ["KneelingSpread"],
+				Name: "SocksFur", Fetish: ["Nylon"], Value: 40, DefaultColor: ["#8c2331", "Default"], HideForPose: ["KneelingSpread"], BuyGroup: "SocksFur",
 				Layer: [
 					{ Name: "Fabric" },
 					{ Name: "Fur" }
 				]
 			},
 			{
-				Name: "SocksStriped1", Value: 10, HideForPose: ["KneelingSpread"], Layer: [
+				Name: "SocksStriped1", Value: 10, HideForPose: ["KneelingSpread"], BuyGroup: "SocksStriped1", Layer: [
 					{ Name: "Light" },
 					{ Name: "Dark" },
 				]
 			},
-			{ Name: "LatexSocks1", Fetish: ["Latex"], Value: 30 },
-			{ Name: "FootlessSocks1", Value: 15 },
+			{ Name: "LatexSocks1", Fetish: ["Latex"], Value: 30, BuyGroup: "LatexSocks1" },
+			{ Name: "FootlessSocks1", Value: 15, BuyGroup: "FootlessSocks1" },
 			{ Name: "ReverseBunnySuit", Fetish: ["Nylon", "Pet"], Left: 95, Top: 380, Value: 100, DynamicGroupName: "SuitLower", BuyGroup: "ReverseBunnySuit" },
-			{ Name: "LeatherSocks1", Fetish: ["Leather"], Value: 20, HideForPose: ["KneelingSpread"] },
+			{ Name: "LeatherSocks1", Fetish: ["Leather"], Value: 20, HideForPose: ["KneelingSpread"], BuyGroup: "LeatherSocks1" },
 			{ Name: "Pantyhose2", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, BuyGroup: "Pantyhose2" },
-			{ Name: "GradientPantyhose", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 49, DefaultColor: ['#8D7B7B', '#433BA3'],
+			{ Name: "GradientPantyhose", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 49, DefaultColor: ['#8D7B7B', '#433BA3'], BuyGroup: "GradientPantyhose",
 				Layer:[
 					{ Name: "Upper", HideForPose: ["Hogtied"]},
 					{ Name: "Lower", HideForPose: ["Kneel", "KneelingSpread"] }
 				]
 			},
-			{ Name: "CowPrintedSocks", Fetish: ["Nylon"], Value: 15 },
+			{ Name: "CowPrintedSocks", Fetish: ["Nylon"], Value: 15, BuyGroup: "CowPrintedSocks" },
 			{
-				Name: "HaremStockings", Fetish: ["Nylon"], Value: 25,
+				Name: "HaremStockings", Fetish: ["Nylon"], Value: 25, BuyGroup: "HaremStockings",
 				Layer: [
 					{ Name: "Fabric" },
 					{ Name: "Bands" }
@@ -1257,7 +1257,118 @@ var AssetFemale3DCG = [
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
-
+	{
+		Group: "SocksRight",
+		ParentGroup: "BodyLower",
+		ParentColor: "Bra",
+		Priority: 20,
+		Clothing: true,
+		Underwear: true,
+		Left: 125,
+		Top: 400,
+		AllowPose: ["LegsClosed", "Kneel", "Spread", "Hogtied", "KneelingSpread"],
+		PreviewZone: [0, 450, 500, 500],
+		Asset: [
+			{ Name: "Socks0", HideForPose: ["KneelingSpread"] },
+			{ Name: "Socks1", HideForPose: ["KneelingSpread"] },
+			{ Name: "Socks2", HideForPose: ["KneelingSpread"] },
+			{ Name: "Socks3" },
+			{ Name: "Socks4" },
+			{ Name: "Socks5" },
+			{ Name: "Stockings1", Fetish: ["Nylon"], BuyGroup: "Stockings1"},
+			{ Name: "Stockings2", Fetish: ["Nylon"], BuyGroup: "Stockings2"},
+			{ Name: "Stockings3", Fetish: ["Nylon"], Value: 10, BuyGroup: "Stockings3"},
+			{ Name: "Stockings4", Fetish: ["Nylon"], Value: 10, BuyGroup: "Stockings4"},
+			{
+				Name: "Socks6", Fetish: ["Nylon"], Value: 25, BuyGroup: "Socks6",
+				Layer: [
+					{ Name: "Sock" },
+					{ Name: "Frill" }
+				]
+			},
+			{
+				Name: "SocksFur", Fetish: ["Nylon"], Value: 40, DefaultColor: ["#8c2331", "Default"], HideForPose: ["KneelingSpread"], BuyGroup: "SocksFur",
+				Layer: [
+					{ Name: "Fabric" },
+					{ Name: "Fur" }
+				]
+			},
+			{
+				Name: "SocksStriped1", Value: 10, HideForPose: ["KneelingSpread"], BuyGroup: "SocksStriped1", Layer: [
+					{ Name: "Light" },
+					{ Name: "Dark" },
+				]
+			},
+			{ Name: "LatexSocks1", Fetish: ["Latex"], Value: 30, BuyGroup: "LatexSocks1" },
+			{ Name: "FootlessSocks1", Value: 15, BuyGroup: "FootlessSocks1" },
+			{ Name: "LeatherSocks1", Fetish: ["Leather"], Value: 20, HideForPose: ["KneelingSpread"], BuyGroup: "LeatherSocks1" },
+			{ Name: "CowPrintedSocks", Fetish: ["Nylon"], Value: 15, BuyGroup: "CowPrintedSocks" },
+			{
+				Name: "HaremStockings", Fetish: ["Nylon"], Value: 25, BuyGroup: "HaremStockings",
+				Layer: [
+					{ Name: "Fabric" },
+					{ Name: "Bands" }
+				]
+			},
+		],
+		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
+	},
+	{
+		Group: "SocksLeft",
+		ParentGroup: "BodyLower",
+		ParentColor: "Bra",
+		Priority: 20,
+		Clothing: true,
+		Underwear: true,
+		Left: 125,
+		Top: 400,
+		AllowPose: ["LegsClosed", "Kneel", "Spread", "Hogtied", "KneelingSpread"],
+		PreviewZone: [0, 450, 500, 500],
+		Asset: [
+			{ Name: "Socks0", HideForPose: ["KneelingSpread"] },
+			{ Name: "Socks1", HideForPose: ["KneelingSpread"] },
+			{ Name: "Socks2", HideForPose: ["KneelingSpread"] },
+			{ Name: "Socks3" },
+			{ Name: "Socks4" },
+			{ Name: "Socks5" },
+			{ Name: "Stockings1", Fetish: ["Nylon"], BuyGroup: "Stockings1"},
+			{ Name: "Stockings2", Fetish: ["Nylon"], BuyGroup: "Stockings2"},
+			{ Name: "Stockings3", Fetish: ["Nylon"], Value: 10, BuyGroup: "Stockings3"},
+			{ Name: "Stockings4", Fetish: ["Nylon"], Value: 10, BuyGroup: "Stockings4"},
+			{
+				Name: "Socks6", Fetish: ["Nylon"], Value: 25, BuyGroup: "Socks6",
+				Layer: [
+					{ Name: "Sock" },
+					{ Name: "Frill" }
+				]
+			},
+			{
+				Name: "SocksFur", Fetish: ["Nylon"], Value: 40, DefaultColor: ["#8c2331", "Default"], HideForPose: ["KneelingSpread"], BuyGroup: "SocksFur",
+				Layer: [
+					{ Name: "Fabric" },
+					{ Name: "Fur" }
+				]
+			},
+			{
+				Name: "SocksStriped1", Value: 10, HideForPose: ["KneelingSpread"], BuyGroup: "SocksStriped1", Layer: [
+					{ Name: "Light" },
+					{ Name: "Dark" },
+				]
+			},
+			{ Name: "LatexSocks1", Fetish: ["Latex"], Value: 30, BuyGroup: "LatexSocks1" },
+			{ Name: "FootlessSocks1", Value: 15, BuyGroup: "FootlessSocks1" },
+			{ Name: "LeatherSocks1", Fetish: ["Leather"], Value: 20, HideForPose: ["KneelingSpread"], BuyGroup: "LeatherSocks1" },
+			{ Name: "CowPrintedSocks", Fetish: ["Nylon"], Value: 15, BuyGroup: "CowPrintedSocks" },
+			{
+				Name: "HaremStockings", Fetish: ["Nylon"], Value: 25, BuyGroup: "HaremStockings",
+				Layer: [
+					{ Name: "Fabric" },
+					{ Name: "Bands" }
+				]
+			},
+		],
+		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
+	},
 	{
 		Group: "RightAnklet",
 		ParentGroup: "BodyLower",
@@ -8417,6 +8528,8 @@ var PoseFemale3DCG = [
 			{ Group: "ClothLower", X: -90, Y: 0},
 			{ Group: "ItemLegs", X: -60, Y: 0},
 			{ Group: "Socks", X: -30, Y: 0 },
+			{ Group: "SocksRight", X: -30, Y: 0 },
+			{ Group: "SocksLeft", X: -30, Y: 0 },
 			{ Group: "Shoes", X: -20, Y: -100 },
 			{ Group: "ItemBoots", X: -65, Y: -35 },
 		]
