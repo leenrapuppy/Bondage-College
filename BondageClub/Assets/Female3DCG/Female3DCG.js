@@ -3949,7 +3949,17 @@ var AssetFemale3DCG = [
 					{ Name: "Straps" }
 
 				]
-			},		],
+			},
+			{
+			Name: "NavelBar1", Fetish: ["Lingerie", "Metal"], Priority: 14, Value: 30, BuyGroup: "NavelBar1", DefaultColor:["#CDCCCA","#CDCCCA","#5C7ABE"], Time: 10, RemoveTime: 5, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessTorso"], HideForPose: ["Hogtied", "AllFours"], Left: 150, Top: 212, AllowPose: ["OverTheHead"], Extended: true,
+				Layer:[
+					{ Name: "Main", HasType: false},
+					{ Name: "Chain", HasType: false, AllowModuleTypes: ["c1"]},
+					{ Name: "WaistChain", HasType: false, AllowModuleTypes: ["c2"], CopyLayerColor: ["Chain"]},
+					{ Name: "Jewel", HasType: false, AllowModuleTypes: ["j1"]},
+				],
+			},
+		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
 
@@ -4038,6 +4048,15 @@ var AssetFemale3DCG = [
 					{ Name: "Straps" }
 
 				]
+			},
+			{
+			Name: "NavelBar1", Fetish: ["Lingerie", "Metal"], Priority: 14, Value: -1, BuyGroup: "NavelBar1", DefaultColor:["#CDCCCA","#CDCCCA","#5C7ABE"], Time: 10, RemoveTime: 5, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessTorso"], HideForPose: ["Hogtied", "AllFours"], Left: 150, Top: 212, AllowPose: ["OverTheHead"], Extended: true,
+				Layer:[
+					{ Name: "Main", HasType: false},
+					{ Name: "Chain", HasType: false, AllowModuleTypes: ["c1"]},
+					{ Name: "WaistChain", HasType: false, AllowModuleTypes: ["c2"], CopyLayerColor: ["Chain"]},
+					{ Name: "Jewel", HasType: false, AllowModuleTypes: ["j1"]},
+				],
 			},
 		]
 	},

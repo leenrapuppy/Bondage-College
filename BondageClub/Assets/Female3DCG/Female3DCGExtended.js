@@ -5515,6 +5515,32 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // FuturisticHarness
+		NavelBar1: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Jewel",
+						Key: "j",
+						DrawImages: false,
+						Options: [
+							{ Property: {} }, // j0 - Detached
+							{ Property: {} }, // j1 - Attached
+						],
+					},
+					{
+						Name: "Chain",
+						Key: "c",
+						DrawImages: false,
+						Options: [
+							{ Property: {} }, // c0 - Detached
+							{ Property: {} }, // c1 - Single Chain
+							{ Property: {} }, // c2 - Waist Chain
+						],
+					},
+				],
+			},
+		} // NavelBar1
 	}, // ItemTorso
 	ItemTorso2: {
 		LockingSwimsuit: {
@@ -5560,6 +5586,10 @@ var AssetFemale3DCGExtended = {
 				},
 			}
 		}, // FuturisticHarness
+		NavelBar1: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemTorso", AssetName: "NavelBar1" },
+		}, // NavelBar1
 	}, //ItemTorso2
 	Shoes: {
 		FuturisticHeels2: {
