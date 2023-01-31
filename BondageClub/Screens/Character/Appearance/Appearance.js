@@ -87,6 +87,9 @@ function CharacterAppearanceValidate(C) {
 					break;
 				}
 
+	// Updates the character's leash state
+	CharacterRefreshLeash(C);
+
 	// If we must refresh the character and push the appearance to the server
 	if (Refresh) CharacterRefresh(C);
 

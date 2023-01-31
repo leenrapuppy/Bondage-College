@@ -142,6 +142,7 @@ type ItemVulvaFuturisticVibratorAccessMode = "" | "ProhibitSelf" | "LockMember";
  *   Allows the item to be taken off at the club management.
  *
  * @property Leash - Marks the item as being usable as a leash.
+ * @property IsLeashed - Marks a leash item as being held.
  * @property CrotchRope - Marks the item as being a crotchrope-style item.
  *   Used for the auto-stimulation events.
  *
@@ -184,7 +185,7 @@ type EffectName =
 
 	"Chaste" | "BreastChaste" | "ButtChaste" |
 
-	"Leash" | "CrotchRope" |
+	"Leash" | "IsLeashed" | "CrotchRope" |
 
 	"ReceiveShock" | "TriggerShock" |
 
