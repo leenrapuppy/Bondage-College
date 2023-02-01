@@ -3695,6 +3695,100 @@ var AssetFemale3DCGExtended = {
 			}
 		}, // HarnessCatMask
 	}, // ItemHood
+	Jewelry: {
+		JewelrySet: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+					Name: "Nose", Key: "n",
+					Options:
+						[
+							{}, // n0 - none								
+							{}, // n1 - septum ring
+							{}, // n2 - stud right
+							{}, // n3 - stud left
+							{}, // n4 - ring right
+							{}, // n5 - ring left
+						],
+					},
+					{
+					Name: "Ears", Key: "e",
+					Options:
+						[
+							{}, // e0 - none								
+							{}, // e1 - stud both
+							{}, // e2 - stud right
+							{}, // e3 - stud left
+							{}, // e4 - ring both
+							{}, // e5 - ring right
+							{}, // e6 - ring left
+							{}, // e7 - hoop both
+							{}, // e8 - hoop right
+							{}, // e9 - hoop left
+						],
+					},
+					{
+					Name: "Face", Key: "f",
+					Options:
+						[
+							{}, // f0 - none								
+							{}, // f1 - dermals both
+							{}, // f2 - dermals right
+							{}, // f3 - dermals left
+							{}, // f4 - bridge
+						],
+					},
+				],
+			},
+		}, //JewelrySet
+	}, // Jewelry
+	Eyebrows: {
+		Eyebrows2: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{ Name: "NoPierce", Property: { Type: null } },
+					{ Name: "BarRight", Property: { Type: "BarRight" }, PrerequisiteBuyGroup: "JewelrySet" },
+					{ Name: "BarLeft", Property: { Type: "BarLeft" }, PrerequisiteBuyGroup: "JewelrySet" },
+					{ Name: "BarBoth", Property: { Type: "BarBoth" }, PrerequisiteBuyGroup: "JewelrySet" },
+					{ Name: "RingRight", Property: { Type: "RingRight" }, PrerequisiteBuyGroup: "JewelrySet" },
+					{ Name: "RingLeft", Property: { Type: "RingLeft" }, PrerequisiteBuyGroup: "JewelrySet" },
+					{ Name: "RingBoth", Property: { Type: "RingBoth" }, PrerequisiteBuyGroup: "JewelrySet" },
+				]
+			},
+		},
+	},
+	Mouth: {
+		Full: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Lips", Key: "l",
+						Options: [
+							{}, // l0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l1 - middle
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l2 - left
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l3 - right
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l4 - both sides
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l5 - triple
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l6 - vertical labret
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l7 - vertical labret with rings
+						]
+					},
+					{
+						Name: "Tongue", Key: "t",
+						Options: [
+							{}, // t0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t1 - one stud
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t2 - double studs
+						]
+					},
+				]
+			},
+		},
+	},
 	ItemDevices: {
 		FuturisticCrate: {
 			Archetype: ExtendedArchetype.MODULAR,

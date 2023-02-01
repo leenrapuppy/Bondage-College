@@ -413,7 +413,10 @@ var AssetFemale3DCG = [
 					{ Name: "Back", Priority: 6, HideForPose: ["Hogtied"] },
 					{ Name: "Front", Priority: 34, CopyLayerColor: "Back" },
 				]
-			}
+			},
+			{
+				Name: "JewelrySet", Value: 50, Enable: false, Visible: false, Wear: false, BuyGroup: "JewelrySet"
+			},
 			// Flat Chest Compatible Clothing
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -2393,6 +2396,44 @@ var AssetFemale3DCG = [
 	},
 
 	{
+		Group: "Jewelry",
+		Priority: 33,
+		Default: false,
+		Clothing: true,
+		Random: false,
+		Underwear: true,
+		HideForAttribute: ["NoEars","SmallEars"],
+		PreviewZone: [140, 40, 220, 220],
+		Left: 50,
+		Top: 21.5,
+		Asset: [
+			{
+			Name: "JewelrySet",
+			BuyGroup: "JewelrySet",
+			Extended: true,
+			DefaultColor: ["#ACACAC","#ACACAC","#ACACAC"],
+			Value: 50,
+			Layer: [
+				{ Name: "SeptumRing1", HasType: false, AllowModuleTypes: ["n1"], HideForAttribute: ["NoseRing"] },
+				{ Name: "EarHoopLeft", HasType: false, AllowModuleTypes: ["e7","e9"] },
+				{ Name: "EarHoopRight", HasType: false, CopyLayerColor: ["EarHoopLeft"], AllowModuleTypes: ["e7","e8"] },
+				{ Name: "EarRingLeft", HasType: false, CopyLayerColor: ["EarHoopLeft"], AllowModuleTypes: ["e4","e6"] },
+				{ Name: "EarRingRight", HasType: false, CopyLayerColor: ["EarHoopLeft"], AllowModuleTypes: ["e4","e5"] },
+				{ Name: "EarStudLeft", HasType: false, CopyLayerColor: ["EarHoopLeft"], AllowModuleTypes: ["e1","e3"] },
+				{ Name: "EarStudRight", HasType: false, CopyLayerColor: ["EarHoopLeft"], AllowModuleTypes: ["e1","e2"] },
+				{ Name: "NoseStudLeft", HasType: false, CopyLayerColor: ["SeptumRing1"], AllowModuleTypes: ["n3"] },
+				{ Name: "NoseStudRight", HasType: false, CopyLayerColor: ["SeptumRing1"], AllowModuleTypes: ["n2"] },
+				{ Name: "NoseRingLeft", HasType: false, CopyLayerColor: ["SeptumRing1"], AllowModuleTypes: ["n5"], HideForAttribute: ["NoseRing"] },
+				{ Name: "NoseRingRight", HasType: false, CopyLayerColor: ["SeptumRing1"], AllowModuleTypes: ["n4"], HideForAttribute: ["NoseRing"] },
+				{ Name: "FaceDermalLeft", HasType: false, AllowModuleTypes: ["f1","f3"] },
+				{ Name: "FaceDermalRight", HasType: false, CopyLayerColor: ["FaceDermalLeft"], AllowModuleTypes: ["f1","f2"] },
+				{ Name: "FaceBridge", HasType: false, CopyLayerColor: ["FaceDermalLeft"], AllowModuleTypes: ["f4"] },
+				]
+			},
+		],
+	},
+
+	{
 		Group: "Mask",
 		Priority: 53,
 		Default: false,
@@ -3032,9 +3073,29 @@ var AssetFemale3DCG = [
 		Left: 200,
 		Top: 120,
 		AllowNone: false,
+		Color: ["Default", "#acacac"],
 		InheritColor: "HairFront",
 		AllowExpression: ["Raised", "Lowered", "OneRaised", "Harsh", "Angry", "Soft"],
-		Asset: ["Eyebrows1", "Eyebrows2", "Eyebrows3", "Eyebrows4","Eyebrows5","Eyebrows6","Eyebrows7","Eyebrows8",]
+		PreviewZone: [55, 0, 390, 390],
+		Asset: [
+			"Eyebrows1",
+			{ 
+				Name: "Eyebrows2", Extended: true,
+				Layer: [
+				{ Name: "Main", HasType: false },
+				{ Name: "EyebrowBarRight", HasType: false, AllowTypes: ["BarBoth","BarRight"] },
+				{ Name: "EyebrowBarLeft", HasType: false, AllowTypes: ["BarBoth","BarLeft"], CopyLayerColor: ["EyebrowBarRight"] },
+				{ Name: "EyebrowRingRight", HasType: false, AllowTypes: ["RingBoth","RingRight"], CopyLayerColor: ["EyebrowBarRight"] },
+				{ Name: "EyebrowRingLeft", HasType: false, AllowTypes: ["RingBoth","RingLeft"], CopyLayerColor: ["EyebrowBarRight"] },
+				]
+			}, //Eyebrows2
+			"Eyebrows3",
+			"Eyebrows4",
+			"Eyebrows5",
+			"Eyebrows6",
+			"Eyebrows7",
+			"Eyebrows8",
+		]
 	},
 
 	{
@@ -3086,11 +3147,18 @@ var AssetFemale3DCG = [
 			{ Name: "Discreet" },
 			{
 				Name: "Full",
+				Extended: true,
 				Layer: [
-					{ Name: "Lips", AllowColorize: true },
-					{ Name: "Inner", AllowColorize: false }
+					{ Name: "Lips", HasType: false, AllowColorize: true },
+					{ Name: "Inner", HasType: false, AllowColorize: false },
+					{ Name: "RingMiddle", HasType: false, AllowModuleTypes: ["l1","l5"] },
+					{ Name: "RingLeft", HasType: false, AllowModuleTypes: ["l2","l4","l5","l7"], CopyLayerColor: ["RingMiddle"] },
+					{ Name: "RingRight", HasType: false, AllowModuleTypes: ["l3","l4","l5","l7"], CopyLayerColor: ["RingMiddle"] },
+					{ Name: "Labret", HasType: false, AllowModuleTypes: ["l6","l7"], CopyLayerColor: ["RingMiddle"] },
+					{ Name: "TongueStud1", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: ["RingMiddle"] },
+					{ Name: "TongueStud2", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: ["RingMiddle"] },
 				]
-			}
+			},
 		],
 		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"],
 	},
@@ -5823,7 +5891,7 @@ var AssetFemale3DCG = [
 					{ Name: "PlugLock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g2"], CopyLayerColor: "Lock" },
 				]
 			},
-			{ Name: "RegularSleepingPill", Value: -1, Enable: false, Wear: false, Bonus: "KidnapSneakiness" },
+			{ Name: "RegularSleepingPill", Value: -1, Wear: false, Bonus: "KidnapSneakiness" },
 			{
 				Name: "PantiesMask", Fetish: ["Lingerie"], Value: 20, Time: 15, Random: false, BuyGroup: "PantiesMask", Hide: ["Mouth"], Effect: ["BlockMouth", "GagVeryLight"], HideItem: ["ItemNoseNoseRing"], Layer: [
 					{ Name: "DarkStripes" },
@@ -7164,7 +7232,7 @@ var AssetFemale3DCG = [
 		Zone: [[175, 65, 150, 65]],
 		Asset: [
 			{
-				Name: "NoseHook", Fetish: ["Metal"], Priority: 26, Value: 25, Difficulty: 20, Time: 15, Random: false, AllowLock: true, BuyGroup: "Nosehook", Layer: [
+				Name: "NoseHook", Fetish: ["Metal"], Priority: 26, Value: 25, Difficulty: 20, Time: 15, Random: false, AllowLock: true, BuyGroup: "Nosehook", Attribute: ["NoseRing"], Layer: [
 					{ Name: "Band" },
 					{ Name: "Hook" },
 				]
@@ -7175,12 +7243,12 @@ var AssetFemale3DCG = [
 					{ Name: "Strap" },
 				]
 			},
-			{ Name: "NoseRing", Priority: 43, Fetish: ["Metal"], Value: 25, Difficulty: 10, Time: 15, Random: false, AllowLock: true, Left: 50, AllowPose: ["Kneel"], Extended: true },
+			{ Name: "NoseRing", Priority: 43, Fetish: ["Metal"], Value: 25, Difficulty: 10, Time: 15, Random: false, AllowLock: true, Left: 50, AllowPose: ["Kneel"], Extended: true, Attribute: ["NoseRing"] },
 			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, BuyGroup: "DuctTape", Audio: "DuctTape", Difficulty: 2, Time: 10, RemoveTime: 5},
-			{ Name: "NosePlugs", Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5},
-			{ Name: "BarbelPiercing", Left: 124, Top: 50, Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5},
+			{ Name: "NosePlugs", Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5, Attribute: ["NoseRing"]},
+			{ Name: "BarbelPiercing", Left: 124, Top: 50, Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5, Attribute: ["NoseRing"]},
 			{
-				Name: "PigNoseHook", Fetish: ["Metal"], Priority: 26, Value: -1, Difficulty: 30, Time: 15, Random: false, AllowLock: true, DrawLocks: false, BuyGroup: "Nosehook", Layer: [
+				Name: "PigNoseHook", Fetish: ["Metal"], Priority: 26, Value: -1, Difficulty: 30, Time: 15, Random: false, AllowLock: true, DrawLocks: false, BuyGroup: "Nosehook", Attribute: ["NoseRing"], Layer: [
 					{ Name: "Band" },
 					{ Name: "Hook" },
 				]

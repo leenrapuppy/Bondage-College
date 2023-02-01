@@ -690,6 +690,9 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 	if (!DialogItemPermissionMode) {
 		const asset = item.Asset;
 
+		if (!isWorn && !asset.Enable)
+			return;
+
 		// Make sure we do not add owner/lover only items for invalid characters, owner/lover locks can be applied on the player by the player for self-bondage
 		if (asset.OwnerOnly && !isWorn && !C.IsOwnedByPlayer())
 			if ((C.ID != 0) || ((C.Owner == "") && (C.Ownership == null)) || !asset.IsLock || ((C.ID == 0) && LogQuery("BlockOwnerLockSelf", "OwnerRule")))
