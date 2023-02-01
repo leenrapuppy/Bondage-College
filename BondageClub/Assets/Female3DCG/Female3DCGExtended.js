@@ -3379,7 +3379,7 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules: [
 					{
-						Name: "MPanel", Key: "m", DrawImages: false,
+						Name: "MPanel", Key: "m",
 						Options:[
 							{ // m0 - No Mouth
 								Property: {
@@ -3421,13 +3421,109 @@ var AssetFemale3DCGExtended = {
 							{ // m7 - Shaped Mouth Transparent
 								Property: { Effect: ["OpenMouth"] }
 							},
-							{ // m8 - Open
-								Property: { Effect: ["OpenMouth"] }
+							{ // m8 - Round Mouth Opaque, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m9 - Round Mouth Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m10 - Round Mouth Opaque, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m11 - Round Mouth Opaque, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m12 - Shaped Mouth Opaque, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m13 - Shaped Mouth Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m14 - Shaped Mouth Opaque, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m15 - Shaped Mouth Opaque, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m16 - Round Mouth Transparent, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m17 - Round Mouth Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m18 - Round Mouth Transparent, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m19 - Round Mouth Transparent, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m20 - Shaped Mouth Transparent, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m21 - Shaped Mouth Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m22 - Shaped Mouth Transparent, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m23 - Shaped Mouth Transparent, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+											OverridePriority: 38,
+											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m24 - Open
+								Property: { Effect: []}
 							},
 						]
 					},
 					{
-						Name: "EPanel", Key: "e", DrawImages: false,
+						Name: "EPanel", Key: "e",
 						Options:[
 							{ // e0 - No Eyes
 								Property: { Effect: ["BlindHeavy"]
@@ -3448,86 +3544,79 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{ // e5 - Hole Only Transparent
-								Property: { Effect: ["BlindLight"]
-								}
+								Property: { Effect: []}
 							},
 							{ // e6 - Round Eyes Transparent
 								Property: { Effect: []}
 							},
 							{ // e7 - Shaped Eyes Transparent
 								Property: { Effect: []}
-							}
-
+							},
+							{ // e8 - Round Eyes Opaque, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e9 - Round Eyes Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e10 - Round Eyes Opaque, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e11 - Round Eyes Opaque, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
+							{ // e12 - Shaped Eyes Opaque, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e13 - Shaped Eyes Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e14 - Shaped Eyes Opaque, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e15 - Shaped Eyes Opaque, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
+							{ // e16 - Round Eyes Transparent, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e17 - Round Eyes Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e18 - Round Eyes Transparent, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e19 - Round Eyes Transparent, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
+							{ // e20 - Shaped Eyes Transparent, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e21 - Shaped Eyes Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e22 - Shaped Eyes Transparent, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e23 - Shaped Eyes Transparent, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
 						]
 					},
 					{
 						Name: "HeadT", Key: "x", DrawImages: false,
 						Options:[{},{},] // Opaque, Transparent
-					},
-					//{ //separate keys to control transparency, may be useful later
-					// Name: "Mouth Transparency", Key: "y", DrawImages: false,
-					// Options:[{},{},] // Opaque, Transparent
-					//},
-					//{
-					// Name: "Eye Transparency", Key: "w", DrawImages: false,
-					// Options:[{},{},] // Opaque, Transparent
-					//},
-					{
-						Name: "MFill", Key: "f", DrawImages: false,
-						Options: [
-							{// f0 - Open
-								Property: { Effect: [""] }
-							},
-							{// f1 - Opaque
-								Property: {
-									Effect: ["BlockMouth"],
-									OverridePriority: 38
-								}
-							},
-							{// f2 - Transparent
-								Property: {
-									Effect: ["BlockMouth"],
-									OverridePriority: 38
-								}
-							},
-							{// f3 - Opaque Hole
-								Property: {
-									Effect: ["BlockMouth"],
-									OverridePriority: 38
-								}
-							},
-							{// f4 - Transparent Hole
-								Property: {
-									Effect: ["BlockMouth"],
-									OverridePriority: 38
-								}
-							},
-						]
-					},
-					{
-						Name: "EFill", Key: "s", DrawImages: false,
-						Options: [
-							{ // s0 - Open
-								Property: { Effect: [""]
-								}
-							},
-							{ // s1 - Opaque
-								Property: { Effect: ["BlindLight"]
-								}
-							},
-							{ // s2 - Transparent
-								Property: { Effect: [""]
-								}
-							},
-							{ // s3 - Opaque Hole
-								Property: { Effect: [""]
-								}
-							},
-							{ // s4 - Transparent Hole
-								Property: { Effect: [""]
-								}
-							},
-						]
 					},
 					{
 						Name: "HairShow", Key: "h", DrawImages: false,
@@ -9032,6 +9121,39 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Stitches
+		FrontZipperHood: {
+			Archetype: ExtendedArchetype.TYPED,
+			ChangeWhenLocked: false,
+			DrawImages: false,
+			Config: {
+				Options: [
+					{
+						Name: "OpenOpaque",
+						Property: { Effect: [""], }
+					},
+					{
+						Name: "ClosedOpaque",
+						Property: { Effect: ["BlindHeavy","GagEasy","BlockMouth"],
+						Hide: ["HairFront","Mask"],
+						HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+						Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHood", "ItemNose", "ItemEars"],
+							}
+					},
+					{
+						Name: "OpenTransparent",
+						Property: { Effect: [""], }
+					},
+					{
+						Name: "ClosedTransparent",
+						Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
+						Hide: ["HairFront","Mask"],
+						HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+						Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHood", "ItemNose", "ItemEars"],
+							}
+					},
+				]
+			},
+		}, // FrontZipperHood
 	}, // ItemHead
 	ItemHands: {
 		FuturisticMittens: {
