@@ -83,7 +83,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Flowers", },
 					},
 					{
-						Name: "Dots",
+						Name: "PolkaDots",
 						Property: { Type: "PolkaDots", },
 					},
 					{
@@ -1064,14 +1064,14 @@ var AssetFemale3DCGExtended = {
 						}
 					},
 					{
-						Name: "Unzipped",
+						Name: "z1", // Unzipped
 						Property: {
 							Type: "z1",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
 						}
 					},
 					{
-						Name: "Exposed",
+						Name: "z2", // Exposed
 						Property: {
 							Type: "z2",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
@@ -1565,7 +1565,7 @@ var AssetFemale3DCGExtended = {
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 						Random: false,
 					}, {
-						Name: "ZipHogtie",
+						Name: "ZipHogtied",
 						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: {
 							Type: "ZipHogtied",
@@ -3689,7 +3689,7 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Options: [
 					{ Name: "NoEars", Property: { Type: null } },
-					{ Name: "Ears", Property: { Type: "Ear" } },
+					{ Name: "Ear", Property: { Type: "Ear" } },
 				],
 				ChangeWhenLocked: false,
 			}
@@ -5520,7 +5520,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null },
 					},
 					{
-						Name: "NoGarter",
+						Name: "Garterless",
 						Property: { Type: "Garterless" },
 					},
 				],
@@ -5589,13 +5589,13 @@ var AssetFemale3DCGExtended = {
 						Name: "LowSec",
 						Property: { Type: null }
 					}, {
-						Name: "MedSec",
+						Name: "h2", // MedSec
 						Property: { Type: "h2" , Difficulty: 5 , Effect: ["CrotchRope"]}
 					}, {
-						Name: "MedSecBreast",
+						Name: "h3", // MedSecBreast
 						Property: { Type: "h3" , Difficulty: 5 }
 					}, {
-						Name: "MaxSec",
+						Name: "h4", // MaxSec
 						Property: { Type: "h4" , Difficulty: 10, Effect: ["CrotchRope"] }
 					}
 				],
@@ -6103,7 +6103,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Tip",
 						Property: {
-							Type: null,
+							Type: "Tip",
 							Effect: ["BlockMouth", "GagEasy"],
 						},
 					},
@@ -7521,7 +7521,7 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Spread",
+						Name: "Spread2",
 						Property: {
 							Type: "Spread2",
 							Difficulty: 3,
@@ -7531,7 +7531,7 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "LegsClosed",
+						Name: "Spread3",
 						Property: {
 							Type: "Spread3",
 							Difficulty: 3,
@@ -7911,7 +7911,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null, },
 					},
 					{
-						Name: "ExtraPadding",
+						Name: "Poofy",
 						Property: { Type: "Poofy", HideItem: ["ClothLowerSkirt3", "ClothLowerTennisSkirt1"] },
 					},
 				],
@@ -8319,7 +8319,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Flower", },
 					},
 					{
-						Name: "Butterflies",
+						Name: "Butterfly",
 						Property: { Type: "Butterfly", },
 					},
 					{
@@ -8604,14 +8604,14 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Solid",
+						Name: "Gloves",
 						Property: {
 							Type: "Gloves",
 							Hide: ["Hands"],
 						},
 					},
 					{
-						Name: "Seethrough",
+						Name: "AltGloves",
 						Property: {
 							Type: "AltGloves",
 						},
@@ -8643,13 +8643,13 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Seethrough",
+						Name: "Gloves",
 						Property: {
 							Type: "Gloves",
 						},
 					},
 					{
-						Name: "Solid",
+						Name: "AltGloves",
 						Property: {
 							Type: "AltGloves",
 							Hide: ["Hands"],
