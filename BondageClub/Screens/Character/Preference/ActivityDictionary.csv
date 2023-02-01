@@ -104,6 +104,7 @@ Label-ChatOther-ItemArms-SpankItem,Spank Arm
 Label-ChatOther-ItemArms-Tickle,Tickle Arms
 Label-ChatOther-ItemArms-TickleItem,Tickle Arm
 Label-ChatOther-ItemBoots-Bite,Bite Foot
+Label-ChatOther-ItemBoots-Caress,Caress Feet
 Label-ChatOther-ItemBoots-GaggedKiss,Touch Foot with Gag
 Label-ChatOther-ItemBoots-Kick,Kick Foot
 Label-ChatOther-ItemBoots-Kiss,Kiss Foot
@@ -428,6 +429,7 @@ Label-ChatSelf-ItemArms-Tickle,Tickle Arm
 Label-ChatSelf-ItemArms-TickleItem,Tickle Arm
 Label-ChatSelf-ItemArms-Wiggle,Wiggle Shoulders
 Label-ChatSelf-ItemBoots-Bite,Bite Foot
+Label-ChatSelf-ItemBoots-Caress,Caress Feet
 Label-ChatSelf-ItemBoots-Kiss,Kiss Foot
 Label-ChatSelf-ItemBoots-Lick,Lick Feet
 Label-ChatSelf-ItemBoots-MassageHands,Massage Feet
@@ -655,6 +657,7 @@ ChatOther-ItemArms-SpankItem,SourceCharacter hits TargetCharacter's arm with Pro
 ChatOther-ItemArms-Tickle,SourceCharacter tickles TargetCharacter's arms.
 ChatOther-ItemArms-TickleItem,SourceCharacter tickles TargetCharacter's arm with PronounPossessive UsedAsset.
 ChatOther-ItemBoots-Bite,SourceCharacter bites TargetCharacter's foot.
+ChatOther-ItemBoots-Caress,SourceCharacter caresses TargetCharacter's feet.
 ChatOther-ItemBoots-GaggedKiss,SourceCharacter touches TargetCharacter's feet with PronounPossessive gag.
 ChatOther-ItemBoots-Kick,SourceCharacter kicks TargetCharacter on TargetPronounPossessive foot.
 ChatOther-ItemBoots-Kiss,SourceCharacter kisses TargetCharacter's foot.
@@ -976,6 +979,7 @@ ChatSelf-ItemArms-Tickle,SourceCharacter tickles PronounPossessive arms.
 ChatSelf-ItemArms-TickleItem,SourceCharacter tickles PronounPossessive own arm with PronounPossessive UsedAsset.
 ChatSelf-ItemArms-Wiggle,SourceCharacter wiggles PronounPossessive shoulders.
 ChatSelf-ItemBoots-Bite,SourceCharacter bites PronounPossessive foot.
+ChatSelf-ItemBoots-Caress,SourceCharacter caresses PronounPossessive feet.
 ChatSelf-ItemBoots-Kiss,SourceCharacter kisses PronounPossessive foot.
 ChatSelf-ItemBoots-Lick,SourceCharacter licks PronounPossessive own feet.
 ChatSelf-ItemBoots-MassageHands,SourceCharacter massages PronounPossessive feet.
