@@ -602,7 +602,7 @@ function PrivateDrawCharacter() {
 				DrawText(TextGet("RentalDay"), X + 235 + (C - PrivateCharacterOffset) * 470, 500, "White", "Black");
 
 			}
-			
+
 		} else {
 
 			// Draw the "X on rental for a day" text
@@ -1817,7 +1817,7 @@ function PrivateNPCCheat(Type) {
 
 /**
  * Get a bed from the NPC vendor
- * @param {string} Type - The bed type (White or Black for now)
+ * @param {"White" | "Black" | "Pink"} Type - The bed type (White or Black for now)
  * @returns {void} - Nothing.
  */
 function PrivateGetBed(Type) {
@@ -1826,7 +1826,9 @@ function PrivateGetBed(Type) {
 	LogDelete("BedWhite", "PrivateRoom");
 	LogDelete("BedBlack", "PrivateRoom");
 	LogDelete("BedPink", "PrivateRoom");
-	LogAdd("Bed" + Type, "PrivateRoom");
+
+	const BedType = /** @type {"BedWhite" | "BedBlack" | "BedPink"} */("Bed" + Type);
+	LogAdd(BedType, "PrivateRoom");
 }
 
 /**
