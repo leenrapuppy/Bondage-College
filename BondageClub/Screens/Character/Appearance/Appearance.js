@@ -755,8 +755,8 @@ function AppearanceRun() {
 						() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, false, true) : "",
 						() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, true, true) : "",
 						!WardrobeGroupAccessible(C, AssetGroup[A]),
-						AssetGroup[A].AllowNone || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
-					var Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
+						AssetGroup[A].HasPreviewImages || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
+					const Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
 					const ColorButtonText = ItemColorGetColorButtonText(Color);
 					const ColorButtonColor = ColorButtonText.startsWith("#") ? ColorButtonText : "#fff";
 					const CanCycleColors = !!Item && WardrobeGroupAccessible(C, AssetGroup[A]) && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item);
@@ -1109,7 +1109,7 @@ function AppearanceClick() {
 				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]))
 					if (MouseYIn(145 + (A - CharacterAppearanceOffset) * 95, 65))
 						if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-							if (!AssetGroup[A].AllowNone && !AppearancePreviewUseCharacter(AssetGroup[A])) {
+							if (!AssetGroup[A].HasPreviewImages && !AppearancePreviewUseCharacter(AssetGroup[A])) {
 								CharacterAppearanceNextItem(C, AssetGroup[A].Name, MouseX > 1500);
 							}
 							else {

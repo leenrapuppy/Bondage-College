@@ -39,6 +39,7 @@ interface AssetGroupDefinition {
 	MirrorActivitiesFrom?: string;
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	HasPreviewImages?: boolean;
 }
 
 type AssetBonusName = "KidnapDomination" | "KidnapSneakiness" | "KidnapBruteForce";

@@ -813,6 +813,7 @@ interface AssetGroup {
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	HasPreviewImages: boolean;
 }
 
 /** An object defining a drawable layer of an asset */
