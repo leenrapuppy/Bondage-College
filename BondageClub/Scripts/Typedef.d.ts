@@ -446,6 +446,7 @@ interface SourceCharacterDictionaryEntry {
  */
 interface TargetCharacterDictionaryEntry {
 	TargetCharacter: number;
+	Index?: number;
 }
 
 /**
@@ -644,6 +645,7 @@ interface IChatRoomMessageMetadata {
 	senderName?: string;
 	/** The character targetted by the message */
 	TargetCharacter?: Character;
+	AdditionalTargets?: Record<number, Character>;
 	/** The character sending the message */
 	SourceCharacter?: Character;
 	/** The member number of the target */

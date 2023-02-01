@@ -2704,7 +2704,6 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		return { metadata: meta, substitutions };
 	}
 
-
 	// Loop through dictionary entries and extract message metadata & collect substitutions where possible
 	for (let entry of data.Dictionary) {
 		if (IsSourceCharacterDictionaryEntry(entry)) {
@@ -2714,11 +2713,16 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				meta.SourceCharacter = C;
 			}
 		} else if (IsTargetCharacterDictionaryEntry(entry)) {
-			const {TargetCharacter} = entry;
+			const {TargetCharacter, Index} = entry;
 			const C = ChatRoomCharacter.find((c) => c.MemberNumber === TargetCharacter);
 			if (C) {
-				meta.TargetCharacter = C;
-				meta.TargetMemberNumber = C.MemberNumber;
+				if (Index) {
+					if (!meta.AdditionalTargets) meta.AdditionalTargets = {};
+					meta.AdditionalTargets[Index] = C;
+				} else {
+					meta.TargetCharacter = C;
+					meta.TargetMemberNumber = C.MemberNumber;
+				}
 			}
 		} else if (IsCharacterReferenceDictionaryEntry(entry)) {
 			const {Tag, MemberNumber} = entry;
@@ -2794,6 +2798,13 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		substitutions.push(...ChatRoomGetTargetCharacterSubstitutions(meta.TargetCharacter, isSelf));
 	}
 
+	if (meta.AdditionalTargets) {
+		for (const [index, C] of Object.entries(meta.AdditionalTargets)) {
+			const isSelf = SenderCharacter.MemberNumber === C.MemberNumber;
+			substitutions.push(...ChatRoomGetTargetCharacterSubstitutions(C, isSelf, Number(index)));
+		}
+	}
+
 	// If there's a focus group, add a substitution for the group name
 	if (meta.FocusGroup) {
 		substitutions.push(...ChatRoomGetFocusGroupSubstitutions(data, meta.FocusGroup, meta.TargetCharacter));
@@ -2849,9 +2860,11 @@ function ChatRoomGetSourceCharacterSubstitutions(data, character) {
  * @param {Character} character - The target character
  * @param {boolean} isSelf - If true, indicates that the target character is also the sender of the message (i.e. is
  * doing something to themselves)
+ * @param {number} [index] - If the character is an additional target, the index that the substitution tags should be
+ * given
  * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
  */
-function ChatRoomGetTargetCharacterSubstitutions(character, isSelf) {
+function ChatRoomGetTargetCharacterSubstitutions(character, isSelf, index) {
 	/** @type {[string, string][]} */
 	const substitutions = [];
 	const hideIdentity = ChatRoomHideIdentity(character);
@@ -2875,11 +2888,13 @@ function ChatRoomGetTargetCharacterSubstitutions(character, isSelf) {
 		targetCharacterName = name;
 	}
 
+	const suffix = index ? `${index}` : '';
+
 	substitutions.push(
-		["DestinationCharacter", destinationCharacter],
-		["DestinationCharacterName", destinationCharacterName],
-		["TargetCharacter", targetCharacter],
-		["TargetCharacterName", targetCharacterName],
+		[`DestinationCharacter${suffix}`, destinationCharacter],
+		[`DestinationCharacterName${suffix}`, destinationCharacterName],
+		[`TargetCharacter${suffix}`, targetCharacter],
+		[`TargetCharacterName${suffix}`, targetCharacterName],
 	);
 
 	const pronounRepls = ChatRoomPronounSubstitutions(character, "TargetPronoun", hideIdentity);

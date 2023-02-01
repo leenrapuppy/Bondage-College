@@ -1116,7 +1116,7 @@ TargetCharacterName was moved to the left by SourceCharacter.
 TargetCharacterName был перемещен влево SourceCharacter.
 TargetCharacterName was moved to the right by SourceCharacter.
 TargetCharacterName был перемещен вправо по SourceCharacter.
-SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
+SourceCharacter swapped TargetCharacterName and DestinationCharacterName1 places.
 SourceCharacter поменяла TargetCharacterName и DestinationCharacterName местами.
 SourceCharacter shuffles the position of everyone in the room randomly.
 SourceCharacter случайным образом перемешивает положение всех в комнате.

@@ -1145,7 +1145,7 @@ TargetCharacterName was moved to the left by SourceCharacter.
 TargetCharacterName被SourceCharacter移到了左边.
 TargetCharacterName was moved to the right by SourceCharacter.
 TargetCharacterName被SourceCharacter移到了右边.
-SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
+SourceCharacter swapped TargetCharacterName and DestinationCharacterName1 places.
 SourceCharacter交换了TargetCharacterName和DestinationCharacterName位置.
 SourceCharacter shuffles the position of everyone in the room randomly.
 SourceCharacter随机安排了房间中所有人的位置.
