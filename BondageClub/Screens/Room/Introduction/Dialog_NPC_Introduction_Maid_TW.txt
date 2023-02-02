@@ -1,0 +1,859 @@
+###_NPC
+Communicating with a gag is quite hard.  You'll need to remove it to chat.
+戴著口塞交流實屬困難。你應當在聊天時解開它。
+Of course, head maid DialogPlayerName.  (She releases you.)
+當然，女僕長DialogPlayerName。（她解開了你。）
+(She first shakes her head to avoid the gag, but eventually surrenders as you silence her.)
+（開始時她擺頭躲避口塞，但最終放棄了，你封住了她的嘴。）
+(You remove her gag while she stretches her mouth.)  Thanks, it's hard to introduce newcomers with that gag.
+（你解開她的口塞，她伸展了一下嘴巴。）謝謝，
+(You push some earplugs inside.)  How will I understand the newcomers now?
+（你將耳塞塞入位置。）我現在如何聽懂新人的話呢？
+(You pull the earplugs out.)  It will be easier to do my job.
+（你將耳塞取出來。）這樣我做我的工作會更輕鬆。
+(She sighs and turns around while you restrain her arms.)  It might be a little hard to work like that Miss.
+（她嘆口氣，轉過身去，你束縛住了她的手臂。）以這樣的狀態工作會有些困難，女士。
+(You free her arms and she nods slowly.)  Thanks a lot Miss, this is much better.
+（你解開她的手臂，她慢慢地點頭。）非常感謝，女士，這好多了。
+(She sighs and lets you restrain her hands.) It's going be difficult to work now miss.
+（她嘆氣，並讓你束縛住了她的雙手。）現在工作起來將會很艱難，女士。
+(You slowly release her hands.)  Thank you, Miss.  This is much better
+（你慢慢地解開她的雙手。）謝謝你女士，這好多了。
+(She submits to you while you restrain her legs.)  Do I get paid overtime if I'm stuck here?
+（她順從地讓你束縛住雙腿。）如果我被困在這裡了，我可以得到加班費嗎？
+(You release her legs from the restraint.)  You're quite good with restraints Miss.
+（你解開了她腿上的束縛。）你很擅長束縛，女士。
+(She looks puzzled as you restrain her feet.)  I didn't plan on running anytime soon.
+（在你束縛住她的腳的時候，她看起來很困惑。）短時間內，我並不打算逃跑。
+(You release her feet.)  Wonderful!
+（你解開了她的雙腳。）太棒了！
+(You strap the collar on her while she blushes.)  I bet you're a great Mistress.
+（你繫住她的項圈，她臉色紅潤。）我猜你是一位很棒的女主人。
+(You remove the collar around her neck while she stares into your eyes.)
+（你從她的脖子上解開了項圈，期間她凝視著你的眼鏡。）
+(She struggles as you lock the device on her.)  No, please don't!  I don't have a key!
+（在你鎖住她身上的道具時，她掙扎著。）不，請不要！我沒有鑰匙！
+(She looks extremely relieved as you unlock the device.)  Thank you so much Miss DialogPlayerName.
+（在你解鎖道具時，她看起來如釋重負。）非常感謝你，DialogPlayerName女士。
+(You use the item on her torso.)  They told me there will be days like that when I signed up.
+（你在她的軀幹上使用這個物品。）當我註冊會員時，他們跟我說，這樣的日子會很多。
+(You remove the item from her torso.)  Thanks a lot Miss.  (She bows for you.)
+（你從她的軀幹上取下物品。）非常感謝，女士。（她向你鞠躬。）
+(You strap the device on her head as she sighs.)  Well this could make my shift difficult...
+（你把道具綁在她頭上時，她嘆了口氣。）好吧，這會讓我這次輪班變得困難...
+(You remove the device as she shakes her head joyfully.)  Wonderful!  That'll make my day easier.
+（你解開了道具，她開心地搖搖頭。）太棒了！今天我會好過很多。
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+（她由於胸部的劇痛蹦跳起來。）啊！女僕長女士！
+(You whip her breast with the leather crop as she whimpers and bows her head.) Owwwwwww!
+（你用皮硬鞭抽打她的乳房，她嗚咽著低下頭。）哦啊啊啊！
+(You whip her butt hard as she sighs.)  Ahh! I promise I'll work harder Miss Head Maid!
+（你抽打她的臀部，她發出悲鳴。）啊！我保證我會努力工作的女僕長女士！
+(She grumbles as you strike her butt with the crop.)  Oww! That stings Miss.
+（你用硬鞭抽打她的臀部時，她嘟囔著。）哦！這好痛，女士。
+(You wrap the rope around her legs, tying them together.)  Please don't leave me tied up for too long.
+（你把繩子纏在她的腿上，把雙腿綁在一起。）請不要讓我被綁太久。
+(You wrap the rope around her legs, tying them in a mermaid pattern.)  There's lots of rope for my legs.
+（你把繩子纏在她的腿上，把雙腿綁成美人魚縛的樣式。）我的腿上的繩子真多。
+(You slowly restrain her wrists behind her back.) This will make it hard to do work...
+（你慢慢地把她的手腕束縛在背後。）這會讓工作變得很困難……
+(You restrain her wrists and elbows behind her back.) You're very skilled.
+（你將她的手腕和肘部束縛在她背後。）你很熟練。
+(You restrain her wrists and elbows behind her back. And tie a harness around her.) Nnngh...So tight...
+（你將她的手腕和肘部束縛在背後，並在她身上綁出束縛帶。）嗯啊...好緊...
+(You restrain her with ropes so she's on all fours.) DialogPlayerName! I can't do any work like this!
+（你用繩子束縛住她，讓她四肢著地。）DialogPlayerName！這樣我不能做任何工作了！
+(You restrain her wrists behind her back in a handcuff like tie.) Hehe. Am I being arrested?
+（你用像手銬一樣的束縛把她的手腕綁在背後。）呵呵。我被逮捕了嗎？
+(You use the rope and create a star harness around her body) What a lovely harness!
+（你用繩子在她的身體周圍綁成了一個星形束縛）多麼可愛的安全帶！
+(You use the ropes and create a waist rope around her body.) Uhh. Not sure how this is fashionable or functional.
+（你用繩子在她的身體周圍綁成一條腰繩。）嗯。不知道這是如何時尚或實用的。
+(You slowly restrain her arms in a box tie pattern and nods.)  As long as I don't need to point for directions.
+（你慢慢地將她的手臂綁成後手縛，她點點頭。）希望我不需要指路。
+(You use the ropes to restrain her in a tight hogtie.)  Ugh!  This is pretty tight.
+（你用繩子給她綁上很緊的駟馬縛。）呃！這很緊。
+(You restrain her legs with ropes and suspend her by the feet from the ceiling.)  I can feel the blood rushing to my head.
+（你用繩子束縛她的腿，把她吊在天花板上。）我能感覺到血液湧向我的頭。
+(You carefully hogtie her and suspend her from the ceiling.)  Well done, this is truly inescapable.
+（你仔細地把她綁起來，把她吊在天花板上。）做得好，這真的是不可避免的。
+(You use a rope and restrain it on her crotch.)  A maid day can turn pretty kinky.
+（你把一根繩子綁在她的胯部。）女僕的一天會變得很古怪。
+(You use the ropes and create a harness around her body.)  Harnesses can be very handy.
+（你用繩子在她的身體周圍做一套束縛帶。）束縛帶非常有用。
+(You use the ropes and create a diamond harness around her body.)  Very chic!
+（你使用繩子在她的身體周圍製作一個菱形束縛帶。）非常別緻！
+(You see your target walking in the halls, she's stares at you and smirks.)  You're the new guard dog sent by the maids?
+（你看到你的目標在大廳裡走來走去，她盯著你邪惡地笑了笑。）你是女僕派來的新看門狗？
+(You see your target finishing a drink in the halls.)  Hey you!  Go get me another drink!
+（你看到你的目標在大廳裡喝完酒。）嘿你！去給我再拿一杯喝的！
+(You see your target spanking a club slave in the halls.)  What do you want?  Find your own bitch.
+（你看到你的目標在大廳裡拍打一個俱樂部奴隸。）你想要這個？你自己找一個，婊子。
+(You see your target arguing with a maid in the halls.)  Some maids are so dumb.  Am I right?
+（你看到你的目標在大廳裡和一個女僕爭吵。）有些女僕實在是笨。我說的對吧？
+(Your target sees you coming back and laughs.)  You haven't had your lesson yet?
+（你的目標看到你回來並大笑。）你還沒有長記性嗎？
+(You track your target again in the club halls.)  Are you serious?  Get off my path.
+（你在俱樂部大廳裡再次追蹤到你的目標。）你是認真的嗎？從我面前滾開。
+(You target stares at you with a huge grin.)  My favorite bounty loser is back!
+（你的目標咧著嘴笑著，盯著你。）我最喜歡的賞金失敗者又來了！
+(You find your target again in the club halls.)  You think I will go easy on you now?
+（你又在俱樂部大廳裡找到了你的目標。）你認為我現在還會輕描淡寫地對付你嗎？
+(A Mistress rushes to you, she seems in a hurry.)  Let's make it quick, I need someone to take care of my puppies, can you do it?
+（一位女主人衝向你，她似乎很匆忙。）長話短說，我需要人照顧我的小狗，能拜託你嗎？
+(A Mistress comes to meet you.)  Hello, I need to leave for the day, could you take care of my puppies?
+（一位女主人向你打招呼。）你好，我今天有事要離開，你能照顧我的小狗嗎？
+(A stern Mistress greets you.)  Girl, my puppies needs to go walk, can you take care of that?
+（一位嚴厲的女主人跟你打招呼）女孩，我的小狗要出去走走，你能照顧她嗎？
+(The Mistress comes in late.)  Sorry for the delay, I need a girl to care for my pups, can you do that?
+（一位女主人很晚到來。）抱歉耽擱了，我需要一個女孩來照顧我的小狗，能拜託你嗎？
+You again?  You think you can do it now?
+又是你？你認為你現在可以嗎？
+(The Mistress gives you a stern look.)  I must be crazy to give you my pets again.  Can you do it now?
+（女主人嚴厲地看了你一眼。）我一定是瘋了，再給你我的寵物。你現在能做到嗎？
+(The Mistress seems to be in a hurry.)  You're lucky I haven't found anyone else.  Can you do it now?
+（女主人似乎很著急。）你很幸運，我還沒有找到其他人。你現在能做到嗎？
+I hope you've learned your lesson girl.  Can you do it or not?
+我希望你已經吸取了教訓，女孩。你能做到嗎？
+(You head to the Dojo and a Shujin comes to greet you.)   Konichiwa!  I trust you are here for our special event.
+（前往道場，一位道場主人來迎接你。）こんにちは(你好)！我相信你是來參加我們的特別活動的。
+(You get to the Dojo and a Shibari teacher greets you.)  It's an honor to meet you, you're here for the event?
+（你到了道場，一位繩藝老師向你打招呼。）很榮幸見到你，你是來參加活動的嗎？
+(A Shibari Shujin comes to greet you as soon as you enter.)  Konichiwa!  You're right on time for the event.
+（一進門，一位繩藝主人來迎接你。）こんにちは(你好)！你剛好在活動的時候到了。
+(You're warmly greeted by a Shibari teacher.)  Welcome!  The event could not start without you.
+（繩藝老師熱情地迎接你。）歡迎！沒你的話這活動開始不了的。
+Welcome back DialogPlayerName.  Would you like to test your evasion techniques again?
+歡迎回來DialogPlayerName。你想再次考驗你的逃脫技術嗎？
+(She looks at you and bows politely.)  Welcome back, are you ready for another test?
+（她看著你，禮貌地鞠躬。）歡迎回來，你準備好再次接受考驗了嗎？
+Falling down and getting up is the biggest accomplishment.  Are you ready to try again?
+跌倒並爬起來就是最大的成就。你準備好再試一次了嗎？
+Konichiwa!  (She smiles and bows politely.)  I trust you want to challenge the ropes again?
+こんにちは(你好)！（她微笑著禮貌地鞠躬。）我相信，你想再次來挑戰繩子？
+Greetings Mistress DialogPlayerName.  Welcome to the introduction class.  (She does curtsies for you.)
+女主人DialogPlayerName你好。歡迎來到介紹課程。（她向你行屈膝禮。）
+Greetings head maid DialogPlayerName.  Welcome to the introduction class.  (She does curtsies for you.)
+女僕長DialogPlayerName你好。歡迎來到介紹課程。（她向你行屈膝禮。）
+(She stares at you.)  Hello naked girl.  Welcome to the introduction class.
+（她凝視著你。）你好，赤裸的女孩。歡迎來到介紹課程。（她向你行屈膝禮。）
+Hi sister, welcome to the introduction class.
+嗨，姐妹，歡迎來到介紹課程。
+Hello there, welcome to the introduction class.
+你好，歡迎來到介紹課程。
+###_PLAYER
+Hi, my name is DialogPlayerName.
+嗨，我的名字是DialogPlayerName。
+###_NPC
+Pleased to meet you.  I'm DialogCharacterName, I work here as a maid.
+很高興認識你，我是DialogCharacterName，我在這裡作為女僕工作。
+###_PLAYER
+Thanks, little maid.  What's going on here?
+謝謝，小女僕。這裡是做什麼的？
+###_NPC
+In here, you can learn how to restrain someone, and how to escape by yourself.
+在這裡，你可以學習如何束縛某人，以及如何自己脫逃。
+###_PLAYER
+Introduction class?
+介紹課程？
+###_NPC
+In this class, you can learn how to restrain someone, and how to free yourself.
+在這個課程裡，你可以學習如何束縛某人，以及如何解開自己。
+###_PLAYER
+I don't need any introduction.
+我不需要任何介紹。
+###_NPC
+Very well, would you like to practice with us then?
+很好，你想要在我們身上試驗一下嗎？
+###_PLAYER
+Do you have any work for me?
+你有工作給我嗎？
+###_NPC
+Yes, there are special jobs you could do for us today for a great salary.  Pick something you like.  (She shows you a notepad.)
+是的，今天你可以為我們做一些特殊的工作，薪水很高。選擇你喜歡的吧。（她給你看一個記事本。）
+(She shakes her head no.)  Sorry, come back another day.
+（她搖頭，表示否認。）對不起，改天再來吧。
+(She giggles and shakes her head no.)  We are not in a good situation to hire you.
+（她呵呵地笑著，搖搖頭。）我們現在的狀態很難雇用你。
+###_PLAYER
+I can't stay to chat.  (Leave her.)
+我沒辦法兒留下來閒聊。（離開她。）
+Can I strap up anyone at any time?
+我可以在任何時候捆住任何人嗎？
+###_NPC
+Yes and no.  You need their consent and you cannot do it in the middle of a conversation.
+是，也不是。你需要她們的許可，並且你不能在對話過程中做這件事。
+###_PLAYER
+This is great!
+這太棒了！
+###_NPC
+I'm glad you like it.  Let me teach you about the body parts your can restrain.
+很高興你喜歡它。我來教你可以束縛的身體部位。
+###_PLAYER
+It sounds kinky. (Blush a little.)
+這聽起來真色。（微微臉紅。）
+###_NPC
+It's kinky and it's fun!  Let me teach you first about the body parts your can restrain.
+這非常色，並且非常有趣！首先我來教你可以束縛的身體部位。
+###_PLAYER
+Tell me about the club first.
+先跟我介紹一下俱樂部吧。
+###_NPC
+The Bondage Club is a place for open minded adults to share their BDSM kinks.
+束縛俱樂部是一個讓觀念開放的成年們分享BDSM興趣的地方。
+###_PLAYER
+You're both a maid and a teacher?
+你是女僕，也是一位老師？
+###_NPC
+We maids do a lot of work here.  You'll see this with time.
+我們女僕在這裡做很多事情。過段時間你就知道了。
+###_PLAYER
+I already know that.
+我已經知道了。
+Fair enough.
+足夠了。
+###_NPC
+Very well.  Let me teach you about the body parts your can restrain.
+很好。讓我來教你可以束縛的身體部位。
+###_PLAYER
+Awesome!
+棒極了！
+I'm listening.
+我在聽。
+###_NPC
+There are eleven body parts to interact with.  To access them, select the body region I will show you.
+一共有十一個可以互動的身體區域。要和它們交互的話，選擇我將向你展示的身體區域。
+###_PLAYER
+Please tell me Miss.
+請告訴我，女士。
+###_NPC
+There are eight body parts to interact with.  To access them, select the body region I will show you.
+一共有八個可以互動的身體區域。要和它們交互的話，選擇我將向你展示的身體區域。
+###_PLAYER
+Alright, but make it quick.
+好的，但是請快點。
+Show me the body regions I can select.
+讓我看看哪些身體區域我能選擇。
+###_NPC
+You can lock boots and tie the toes of your victims.  To prevent them from running away or force them to stay sexy.
+你可以鎖住靴子並繫住受害者的腳趾。這可以防止他們逃跑或讓他們保持性感。
+###_PLAYER
+(Listen.)
+（聆聽。）
+###_NPC
+Restraining the feet will prevent your victim from moving away.
+束縛住腳，能讓你的受害者無法逃走。
+Restraining the upper legs will still allow your victim to move around but it creates a nice effect.
+束縛住大腿，能讓你的受害者仍然能四處移動，但是會帶來很有趣的效果。
+On the pussy or vagina region, you can use items such as vibrators or eggs.  The perfect place to tease your victim and make them climax.
+在陰部或者陰道區域，你可以使用振動器或者跳彈等物品。這是挑逗你的受害者，並令他們高潮的最佳區域。
+You can also attach piercings on the vulva.  Fashion is important.
+你也可以在外陰上使用穿環。時尚潮流非常重要。
+On the butt or anal region, you can use regular butt plugs or fashion plugs such as cat tails.
+在臀部或者肛門區域，你可以使用常規的肛塞，或者更時尚一些的肛塞，比如貓尾。
+On the pelvis, you can use whips, crops or chastity belts.  Know that it will restrict any access to the vagina and anus.
+在小腹，你可以使用鞭子、硬鞭、或者貞操帶。要知道那會限制對陰部和後門的任何接觸。
+On the torso, you can use many kinds of harnesses, mostly for esthetics.
+在軀幹，你可以使用任何類型的束縛帶，一般是起到美感的作用。
+On the nipples, you can use locking or vibrating clamps.  Some people enjoy the pleasure and pain.
+在乳頭上，你可以使用鎖或振動夾子。有些人享受這種快樂和痛苦交織的感覺。
+Nipples can also be pierced for fashion or to please your owner.
+為了時尚潮流或取悅你的主人，乳頭上也可以穿環。
+The breast region can be used for more chastity devices, as well as whips or crops.
+胸部區域可以用來添加更多的貞操道具，並且也可以用鞭子或硬鞭。
+The arms can be restrained using many devices.  This will prevent your victim from using her hands to free herself.
+手臂可以透過使用許多種道具來束縛。這會讓受害者無法使用手來解開自己。
+You don't have to fully restrain your victim's arms to keep her helpless.  Some items that target the hands will work as well.
+你不一定要完全束縛受害者的手臂才能使她無助。一些用在手部的物品也有作用。
+You can use collars on your victim's neck to show everyone that they are yours, enslave them or leash them.
+你可以在你的受害者的脖子上使用項圈，以奴役她、牽著她、或向所有人展示她是你的所有物。
+You can attach accessories to collars, to make them look extra special.
+你可以將配件附加到項圈上，讓項圈看起來更加特別
+You can attach leashes or chains to a collar on your victim's neck, to help control them.
+你可以將繩子或鏈子繫在受害者脖子上的項圈上，以方便控制他們。
+You can use gags to silence your victim, making her unable to speak.
+你可以使用口塞來使你的受害者沉默，讓她無法說話。
+If you first used some stuffing on your victim's mouth, you can apply a locking gag to keep it in.
+如果你首先在受害者嘴裡塞入了一些東西，你可以使用能上鎖的口塞，讓這無法出來。
+For the finishing touch of your gag, the overlay can give a very nice effect.
+在口塞的最後，最外層可以產生好看的效果。
+Blindfolds can be used to restrict vision.
+眼罩可用於限制視力。
+On the nose, you can use items for esthetics or kinkier plays.
+在鼻子上，你可以使用一些用於美觀或更特別的玩法的物品。
+Hoods can be used to restrict vision and hearing.
+頭罩可用於限制視力和聽力。
+Ear plugs can be used to deafen your victim.
+耳塞可以用來讓你的受害者聽不見。
+Your pockets can be used to store your padlocks and keys. 
+你的口袋可以用來存放你的鎖和鑰匙。
+Your pockets can be used to store more advanced devices. 
+你的口袋可以用來存放更高級的道具。
+That's about everything. Remember that your arms need to be free to restrain someone.
+這些就是全部了。記得你手臂自由的時候才能束縛某人。
+###_PLAYER
+Thanks for the info.
+多謝提示。
+###_NPC
+My pleasure! Now we can practice.  Would you prefer to restrain someone, or be tied up yourself?
+我的榮幸！現在我們可以試一試了。你想束縛某人呢，還是想讓自己被綁起來呢？
+###_PLAYER
+That makes sense.
+有道理。
+###_NPC
+Of course! And now we can practice.  Would you prefer to restrain someone, or be tied up yourself?
+當然！現在我們可以試一試了。你想束縛某人呢，還是想讓自己被綁起來呢？
+###_PLAYER
+Can I strap you up now?
+我現在可以束縛你嗎？
+###_NPC
+Not me I'm afraid, but we have someone here who would certainly enjoy being your victim.
+恐怕不是我，但我們這裡有個顯然願意成為你的受害者的人。
+I'm all yours if you want me, head maid DialogPlayerName.  I will not resist you.
+如果你想要我的話，我是你的了，女僕長DialogPlayerName。我不會反抗你。
+###_PLAYER
+Can we practice?
+我們可以試一下嗎？
+###_NPC
+Absolutely.  Would you prefer to restrain someone, or be tied up yourself?
+當然。你想束縛某人呢，還是想讓自己被綁起來呢？
+###_PLAYER
+Can you tie me up now?
+你現在可以綁我嗎？
+###_NPC
+I can certainly tie you up.  It's a good time to practice.
+我當然可以綁你。這是個練習的好時間。
+You can practice your bondage skills here.  Would you prefer to restrain someone, or be tied up yourself?
+你可以在這裡練習你的束縛技能。你想束縛某人呢，還是想讓自己被綁起來呢？
+###_PLAYER
+I want to practice tying you up.
+我想試一試把你綁起來。
+###_NPC
+(She blushes.)  Yes, head maid DialogPlayerName.  I will not resist you.
+（她臉上泛起紅潤。）好的，女僕長DialogPlayerName。我不會反抗你。
+You can't tie me up, but we have someone here who would certainly enjoy being your subject.
+你不能綁我，但我們這裡有個顯然樂意成為你的目標的人。
+###_PLAYER
+Can I tie her up?
+我可以綁她嗎？
+###_NPC
+Absolutely, you have the perfect candidate here to practice on.
+當然，這是你用來練習的完美目標。
+###_PLAYER
+I want to practice freeing myself.
+我想要練習解開自己。
+###_NPC
+Awesome!  If you're ready now I can get started.
+棒極了！如果你現在準備好了，我就會開始。
+###_PLAYER
+Who runs this club?
+誰管理這個俱樂部？
+###_NPC
+The Head Mistress is in charge.  You should go present yourself if you haven't already.
+首席女主人負責這裡。如果你沒向她介紹過自己的話，應該去一趟。
+###_PLAYER
+Let's practice later.  (Leave her.)
+我們之後再練習吧。（離開她。）
+I can use my favorite restraints on her?
+我可以在她身上使用我最喜歡的束縛嗎？
+###_NPC
+Of course, use anything you want on her.  She's very submissive, I'm sure she'll enjoy it.
+當然，你想在她身上用什麼就用什麼。她非常順從，我保證她會喜歡的。
+###_PLAYER
+Can I have some items to practice with?
+我可以獲得一些用來練習的物品嗎？
+###_NPC
+Use these basic items. They are easy to use, but also easy to struggle out from.
+使用這些基礎物品。它們用起來比較簡單，但掙脫出去也很簡單。
+###_PLAYER
+Thanks!  (Take the items.)
+感謝！（拿走這些物品。）
+###_NPC
+(She gives you ropes for her arms and legs, plus a basic cloth gag.)
+（她給了你一些可以用於她手臂和腿的繩子，以及一個基礎的布口塞。）
+###_PLAYER
+This is sweet.  (Take the items.)
+這真有趣。（拿走這些物品。）
+I'll make it extra tight.
+我會綁得特別緊的。
+###_NPC
+Impressive.  Make sure to restrain her arms, her feet and to gag her.
+很好。務必束縛她的手臂，她的腳，並塞住她的嘴。
+###_PLAYER
+I'm ready!
+我準備好了！
+###_NPC
+Wonderful.  Make sure to restrain her arms and her feet, and don't forget to gag her!
+完美。務必束縛她的手臂，她的腳，並別忘了塞住她的嘴！
+###_PLAYER
+I can do it now?
+我現在就可以嗎？
+###_NPC
+Absolutely.  Make sure to restrain her arms and her feet, and don't forget to gag her!
+當然。務必束縛她的手臂，她的腳，並別忘了塞住她的嘴！
+Make sure to restrain her arms and her feet, and don't forget to gag her!
+務必束縛她的手臂，她的腳，並別忘了塞住她的嘴！
+###_PLAYER
+She's restrained pretty well now.
+她現在已經被捆得很緊了。
+###_NPC
+(She looks at your victim and smiles.)  Excellent!  So how does it feel to restrain someone?
+（她看著你的受害者，露出了笑容。）完美！捆住某人的感覺如何呢？
+###_PLAYER
+Very good.  (Leave her.)
+很好。（離開她。）
+I can tie her up at any time?
+我能隨時綁住她嗎？
+###_NPC
+Yes and no.  You cannot strap her up in the middle of a conversation.
+是，也不是。你不能在對話過程中把她綁起來。
+###_PLAYER
+Tell me about the body parts I can restrain.
+跟我講講我能束縛的身體區域。
+###_NPC
+Blindfolds and hoods can be used to restrict vision and hearing.
+眼罩和頭套可以用來限制視覺和聽覺。
+###_PLAYER
+It was fun to strap her up.
+把她綁起來真有趣。
+###_NPC
+I'm glad you feel that way.  I think you're ready to explore the club now.
+你能如此覺得，我很高興。我認為現在你已經為探索俱樂部做好準備了。
+###_PLAYER
+I would rather be restrained myself.
+我寧願自己被束縛起來。
+###_NPC
+Don't worry, I'm sure it will happen often.  I think you're ready to explore the club now.
+別擔心，我保證這很快就會發生的。我認為現在你已經為探索俱樂部做好準備了。
+###_PLAYER
+It's empowering!  I need to find a whip now...
+這令我興奮！我現在需要找根鞭子...
+###_NPC
+A monster is born!  (She giggles.)  You're ready to explore the club now.
+一頭怪物誕生了！（她呵呵笑起來。）現在你已經為探索俱樂部做好準備了。
+###_PLAYER
+I can tie up anyone?
+我可以綁住任何人嗎？
+###_NPC
+Anyone that's into bondage, yes.  Have fun causing trouble.
+是的，任何對捆綁感興趣的人。祝你找麻煩的過程中玩的開心。
+###_PLAYER
+Can I tie you up now?
+我現在可以綁你嗎？
+###_NPC
+(She giggles.)  Not now, I have work to do here.  But I'm sure you'll find victims if you wander around.
+（她輕聲笑起來。）不是現在，我在這裡還有工作。但我確定如果你去四處晃晃會找到受害者的。
+(She giggles.)  If you wish head maid DialogPlayerName.
+（她輕聲笑起來。）只要你想，女僕長DialogPlayerName。
+Your introduction class is done.  I hope you have fun in the club!
+你的介紹課程結束了。祝你在俱樂部玩得開心！
+###_PLAYER
+You were a great teacher.
+你是一位很棒的老師。
+###_NPC
+Oh
+哦
+###_PLAYER
+Thanks!  Have a great time.  (Leave her.)
+謝謝！玩得愉快。（離開她。）
+Can you teach me more about rope bondage?
+你可以教我更多關於繩子束縛的事情嗎？
+###_NPC
+If you like rope bondage that much, try the Shibari Dojo.  You might learn a few new tricks.
+你這麼喜歡繩子束縛的話，可以去緊縛道場。你應該能學到些新技巧。
+###_PLAYER
+Tell me about the other types of restraints.
+跟我講講其他類型的束縛。
+###_NPC
+Some items are impossible to struggle out from, so you'll need to find help.  Also, items like cuffs can be locked, and you'll need a key to unlock them.
+部分物品是無法掙脫的，因此你需要尋求幫助。此外，手銬這類物品是可以上鎖的，你需要一把鑰匙來打開它。
+###_PLAYER
+Tell me about item permissions.
+跟我講講物品權限。
+###_NPC
+In your profile, there's an item permission level you can set.  It only affects online players and will block them from restraining you, depending on the level.
+在你的個人資料裡，你可以設置一個物品權限等級。這只會影響在線玩家，依據設置的物品權限等級，阻止他們束縛住你。
+Of course!  If you're ready for the challenge I will tie you up.
+當然！如果你準備好接受挑戰，我會把你綁起來。
+Are you ready to struggle against the ropes?
+你準備好掙脫繩子了嗎？
+Get your arms free first if you want to practice struggling against my ropes.  Let me know when you're ready.
+想要嘗試掙脫我的繩子之前，先解開自己的手臂吧。在你準備好的時候跟我說。
+###_PLAYER
+I'm ready, you can tie me up.
+我準備好了，你可以綁我了。
+###_NPC
+(She wraps a white nylon rope around your feet and does two knots.)
+（她將一條白色的尼龍繩纏在你的腳上，並打了兩個結。）
+###_PLAYER
+Not yet.  Give me some time.  (Leave her.)
+還不行。給我點時間。（離開她。）
+I won't be running away now.
+我現在逃不走了。
+###_NPC
+That's for sure.  (She wraps a second rope around your legs.)
+當然如此。（她在你的腿上纏了又一道繩子。）
+###_PLAYER
+That's all?
+就這了？
+###_NPC
+Hah, of course not.  Much left to do.  (She wraps a second rope around your legs.)
+哈，當然不是。還有很多呢。（她在你的腿上纏了又一道繩子。）
+###_PLAYER
+It feels good.
+這感覺真好。
+###_NPC
+(She nods and wraps a third rope around your body and arms, forcing them to stick into your back.)
+（她點點頭，在你的身體和手臂上綁了第三道繩子，讓你的手臂折向後背。）
+###_PLAYER
+You sure know the ropes.
+顯然你很懂這些繩子。
+###_NPC
+(She smiles and wraps a third rope around your body and arms, forcing them to stick into your back.)
+（她笑了笑，在你的身體和手臂上綁了第三道繩子，讓你的手臂折向後背。）
+###_PLAYER
+It's too tight!
+這太緊了！
+###_NPC
+You'll get used to it.  Now do you think you can escape?
+你會適應的。現在你覺得能逃脫嗎？
+###_PLAYER
+That's the best you can do?
+你能做的就這？
+###_NPC
+You're very bold, I like it.  Now do you think you can escape?
+你膽子真大，我喜歡。現在你覺得能逃脫嗎？
+###_PLAYER
+This is pretty kinky.
+這感覺真色。
+###_NPC
+Absolutely!  Now do you think you can escape?
+那是當然！現在你覺得能逃脫嗎？
+You're still struggling to get out?  Don't give up.
+你還在嘗試掙脫出來嗎？不要放棄啊。
+###_PLAYER
+How do I escape?
+我怎麼逃脫呢？
+###_NPC
+Grab the rope on your arms and try to free yourself.  Good luck!
+抓住你手臂上的繩子，然後嘗試解放自己。祝你好運！
+###_PLAYER
+I changed my mind, get me out now!
+趕緊放開我！
+###_NPC
+You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.)
+女孩，你並不掌控局面。（她捏住你的嘴，給你綁上了一個口塞。）
+###_PLAYER
+Don't look, I will escape by myself.  (Leave her.)
+別看，我會自己逃出來的。（離開她。）
+###_NPC
+Well done!  You were able to struggle out.
+做得好！你現在能掙脫了。
+###_PLAYER
+That was easy.
+這挺簡單。
+###_NPC
+I'll make it tighter next time.  Did you enjoy being tied up?
+下次我會綁得更緊的。被綁起來時你有享受嗎？
+###_PLAYER
+It took a while, but I've done it.
+這費了點功夫，但我出來了。
+###_NPC
+That's great.  Did you enjoy being tied up?
+那很好。被綁起來時你有享受嗎？
+###_PLAYER
+Sure, it was fun.
+當然，剛才挺有趣。
+###_NPC
+That's the spirit!  You're ready to explore the club then.
+就是這樣！你已經為探索俱樂部做好準備了。
+###_PLAYER
+I loved it.  I hope happens often.
+我愛死了。我希望經常這樣。
+I would rather strap you up.
+我寧願把你綁起來。
+###_NPC
+Not now, but you're ready to explore the club and do some bondage.
+不是現在，但你已經為探索俱樂部做好準備了。
+###_PLAYER
+I'm sure it will be fun to explore the club.
+我確定探索俱樂部肯定很有趣。
+###_NPC
+Oh yes, I'm sure too. Remember to be courteous and respect others.
+哦是的，我也確定。記得要有禮貌，並且尊重其他人。
+###_PLAYER
+Can I have some items to start with?
+我可以獲得一些入門的物品嗎？
+###_NPC
+Sure, have these ropes and this gag.  (She gives you some ropes and a cloth gag.)
+當然，收下這些繩子和這個口塞。（她給了你一些繩子和一個布口塞。）
+You're ready to explore.  Remember to be courteous and respect others.
+你已經為探索做好準備了。記得要有禮貌，並且尊重其他人。
+###_PLAYER
+Thanks!  Take care.  (Leave her.)
+謝謝！多保重。（離開她。）
+Can I strap her up?
+我可以綁她嗎？
+###_NPC
+Sure, my assistant here will be happy to help you practice.
+當然，我這位助手會非常樂於幫你練習。
+###_PLAYER
+Can I get better at struggling out?
+我可以逃脫得更厲害嗎？
+###_NPC
+Yes. You might learn new skills to escape faster if you stick around.  Others might also learn skills to make your struggling harder though...
+當然，如果你四處逛逛，也許能學會一些新的逃脫更快的技巧。當然其他人也可能學會讓你的掙扎更困難的方法...
+###_PLAYER
+Can you teach me more on rope bondage?
+你可以教我更多關於繩子束縛的事情嗎？
+###_NPC
+Again?  Well of course.  Are you ready to struggle now?
+又來？啊當然。你現在準備好開始掙脫了嗎？
+These are the special jobs you could do for us.  Pick something you like.  (She shows you a notepad.)
+這些是你可以為我們做的特殊工作。選擇你喜歡的東西。 （她給你看一個記事本。）
+###_PLAYER
+What's the salary?
+工資是多少？
+###_NPC
+Since it's a special job that I can only offer once per day, the salary is $120.
+由於這是一項特殊的工作，我每天只能提供一次，工資是$120。
+###_PLAYER
+Tell me about the puppy care job.
+跟我講講關於小狗護理工作的事情。
+###_NPC
+A club Mistress is too busy to take her puppy girls for a walk.  She's offering $120 if you take good care of them.  Are you up for it?
+一位俱樂部的女主人太忙了，沒時間帶她的小狗去散步。如果你照顧好它們，她會支付$120。你準備好了嗎？
+###_PLAYER
+Tell me about the lock promotion job.
+說說掛鎖推廣工作吧。
+###_NPC
+The shop wants to promote a specific lock.  They offer $120 if you use it on five different girls in the chat rooms.  Are you up for it?
+俱樂部商店想要推廣一種特定的鎖。如果你在聊天室中對五個不同的女孩使用它，商店會提供$120。你準備好了嗎？
+###_PLAYER
+Tell me about the kidnapper job.
+告訴我關於綁架者的工作。
+###_NPC
+The club wants to teach a lesson to one of our members.  They will give you $120 if you kidnap and humiliate her.  Are you up for it?
+俱樂部想給我們的一位會員一個教訓。如果你綁架並羞辱她，俱樂部會給你$120。你準備好了嗎？
+###_PLAYER
+Tell me about the nurse and trainer job.
+告訴我護士和培訓師的工作。
+###_NPC
+We need nurses and trainers right now.  You will get a $120 bonus if you train three slaves or treat three patients.  Are you up for it?
+我們現在需要一些護士和訓練師。如果你訓練三個奴隸或治療三個病人，你會獲得$120的獎金。你準備好了嗎？
+###_PLAYER
+Tell me about the missing jewelry job.
+告訴我關於失蹤的珠寶工作。
+###_NPC
+A member lost a piece of jewelry somewhere in the club.  She offers $120 to whoever finds it.  Are you up for it?
+一名會員在俱樂部某處遺失了一件珠寶。她向任何找到它的人提供$120。你準備好了嗎？
+###_PLAYER
+Tell me about the dojo assistant job.
+告訴我道場助理的工作。
+###_NPC
+One of the Shibari Dojo assistant called in sick, so we need a replacement quick.  You need to be flexible and the salary is $120.  Are you up for it?
+緊縛道場的一位助手請了病假，所以我們需要一位立即能到替換人員。你需要身體足夠靈活，工資是$120。你準備好了嗎？
+###_PLAYER
+Tell me about the pleasure giver job.
+告訴我關於快樂給予者的工作。
+###_NPC
+The club members in the chat rooms need some extra care today.  If you're willing to give pleasure to five of them, you'll be paid $120.  Are you up for it?
+今天聊天室裡的俱樂部成員需要一些額外的照顧。如果你願意為其中五個人提供樂趣，你將獲得$120的報酬。你準備好了嗎？
+###_PLAYER
+Tell me about the maid helper job.
+說說女僕助手的工作吧。
+###_NPC
+The Maid Sorority is getting swamped with work.  They offer a $120 bonus if you complete three chores for them.  Are you up for it?
+女僕協會的工作堆積成山。如果你為她們完成三次雜物，她們會提供$120的獎金。你準備好了嗎？
+###_PLAYER
+Can I take another job?
+我可以換一份工作嗎？
+###_NPC
+Sorry, come back tomorrow and I might have something else for you.
+對不起，明天再來吧，我可能有別的東西給你。
+###_PLAYER
+Is there anything else to do?
+沒有別的事可做嗎？
+###_NPC
+Not here, but there's lots of work to do in the club.  You can start by checking with the Maid Sorority.
+這裡沒了，但俱樂部有很多工作要做。你可以先諮詢女僕協會。
+###_PLAYER
+I won't take any job now.
+我現在不會接受任何工作。
+###_NPC
+Very well, you can always come back tomorrow to check for new assignments.  Would you like to know more about the club then?
+好的，明天你隨時可以回來查看有沒有新的指派工作。你想了解更多關於俱樂部的訊息嗎？
+###_PLAYER
+I'll do it!
+我會做的！
+###_NPC
+Wonderful!  Let me go get the Mistress.  She will give you the instructions.
+完美！讓我去找女主人。她會給你指示。
+###_PLAYER
+Let me think about it.
+讓我想想。
+###_NPC
+Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)
+當然，關於我們的特殊工作，你還有什麼想了解的嗎？（她給你看一個記事本。）
+###_PLAYER
+(Wait for the Mistress.)
+（等待女主人。）
+###_NPC
+The shop will be very happy.  You'll need to use a specific lock on five different members in the chat rooms.
+俱樂部商店會很開心的。你需要對聊天室中的五個不同會員使用一種特殊的鎖。
+You need to use a specific lock on five different members in the chat rooms.
+你需要對聊天室中的五個不同會員使用一種特殊的鎖。
+###_PLAYER
+Which lock should I use?
+我應該使用哪種鎖？
+###_NPC
+The shop wants you to promote the LockType.  Use them on at least five different members in the chat rooms.
+商店希望你推廣LockType。在聊天室中，對至少五個不同的會員使用它。
+###_PLAYER
+I give up.  I cannot do it.
+我放棄。我做不到。
+###_NPC
+(She sighs.)  Too bad, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)
+（她嘆了口氣。）太糟糕了，關於我們的特殊工作，你還有什麼想知道的嗎？（她給你看一個記事本。）
+###_PLAYER
+The job is done!
+任務完成！
+###_NPC
+Congratulations!  Here's your money.  (She gives you $120.)  Well done.
+恭喜！這是你的錢。（她給你$120。）做得不錯。
+###_PLAYER
+I'll be back later.  (Leave her.)
+我很快回來。（離開她。）
+###_NPC
+This won't be an easy task.  You'll need to kidnap and humiliate a girl.  Are you ready to fight her?
+這是一件容易的事。你需要綁架並羞辱一個女孩。你準備好和她戰鬥了嗎？
+You'll need to kidnap and humiliate her.  Are you ready to fight?
+你需要綁架和羞辱她。你準備好戰鬥了嗎？
+###_PLAYER
+I'm ready to fight her!
+我已經準備好和她戰鬥了！
+Give me a minute.  (Leave her.)
+給我一點時間。（離開她。）
+###_NPC
+Congratulations!  I've heard of your victory and her humiliation.  You've done a great job.
+恭喜！我聽說了你取得了勝利並羞辱了她。你做得很好。
+###_PLAYER
+Thanks a lot!
+非常感謝！
+###_NPC
+(She smiles and gives you $120.)  Well done.
+（她微笑著給了你$120。）做得好。
+###_PLAYER
+She deserved it.
+她活該。
+###_NPC
+(She nods and gives you $120.)  Well done.
+（她點點頭，給了你$120。）做得好。
+###_PLAYER
+Where's my money?
+我的錢呢？
+###_NPC
+(She frowns and gives you $120.)  Well done.
+（她皺著眉頭給你$120。）做得好。
+Great news!  Please train three submissives from the slave auction room or treat three asylum patients and come back to me.
+真是好消息！請訓練奴隸拍賣中的三個順從者，或者治療庇護所中的三個病人，然後回到我這裡。
+Please train three submissives from the slave auction room or treat three asylum patients and come back to me.
+請訓練奴隸拍賣中的三個順從者，或者治療庇護所中的三個病人，然後回到我這裡。
+###_PLAYER
+Is there anything else I can do?
+還有什麼我可以做的嗎？
+###_NPC
+Sorry, there's nothing left for you.  Please come back tomorrow, I might have something else to do.
+對不起，沒有能給你做的事情了。請明天再來，我可能還有事要做。
+###_PLAYER
+I don't deserve such praises Miss.
+我配不上這樣的讚美，女士。
+###_NPC
+Of course, you deserve it girl.  Come back tomorrow, I might have something else for you.
+你當然配得上它，女孩。明天再來，我可能有別的事情給你。
+###_PLAYER
+Girl, give me a challenge next time.
+女孩，下次來，給我一份像樣的挑戰。
+###_NPC
+(She nods politely.)  Absolutely Miss.  Please come back tomorrow, I might have something else for you.
+（她禮貌地點點頭。）當然，女士。請明天再來，我可能有別的事情給你。
+(She takes a British accent.)  I'm chuffed about it mate!  Bum a detective hat Sherlock and start looking!
+（她帶著英國口音。）我很高興，伙伴！戴上偵探帽吧，夏洛克，開始尋找吧！
+(She takes a British accent.)  Bum a detective hat Sherlock.  Search for that missing jewelry mate.
+（她帶著英國口音。）戴上偵探帽吧，夏洛克。尋找那個失蹤的珠寶伙伴。
+###_PLAYER
+Where should I search?
+我應該在哪裡找？
+###_NPC
+We think it could be in the Maid Quarters, the Kidnappers League, the LARP instructor room or the Slave Market.  (Click everywhere in these places to search.)
+我們認為它可能在女僕宿舍、綁匪聯盟、體感對戰教官房間、或者奴隸市場。（點擊這些位置的任何地方進行搜索。）
+Wonderful!  You will meet the Shujin at the Shibari Dojo.  She will give you the instructions.
+完美！去緊縛道場見道場主人吧。她會給你指示。
+###_PLAYER
+(Go see the Shujin.)
+（去見道場主人。）
+###_NPC
+The chat rooms will get crowded for sure.  You'll need to masturbate at least five different members and come back to me.
+聊天室肯定會擠滿人。你需要撫慰至少五個不同的成員，然後回到我這裡。
+You need to masturbate at least five different chat room members and come back to me.
+你需要撫慰至少五個不同的聊天室成員，然後回到我這裡。
+(She nods happily.)  You'll need to complete three chores or more for the maid sorority.  Come back when everything is done.
+（她高興地點點頭。）你需要為女僕協會完成三次或更多雜務。一切完成後回到這裡。
+You need to complete three chores or more for the maid sorority.  Come back when everything is done.
+你需要為女僕聯誼會完成三次或更多雜務。一切完成後回來。
+(She struggles and tries to get out.)  Can you please help me?
+（她掙扎著試圖逃脫出來。）請問你可以幫我嗎？
+(She bows her head respectfully.)  Can you also help our friend here?
+（她恭敬地微微低頭。）你可以也幫助一下我們這位朋友嗎？
+I will spread the good word of you around the sorority.  Thanks for helping.
+我會向社團傳播關於你的美言的。感謝你的幫助。
+###_PLAYER
+Do you need help?
+你需要幫助嗎？
+###_NPC
+(She eagerly nods her head.)  Yes, can you release us both?
+（她激動地點頭。）是的，你可以把我們都解開嗎？
+###_PLAYER
+Should I help your friend?
+我應當幫助你的朋友嗎？
+###_NPC
+Yes, please release both of us.
+是的，請把我們都解開。
+###_PLAYER
+Is everything alright now?
+現在一切正常了嗎？
+###_NPC
+Everything is great, please report to my sisters of your fine work here.
+現在一切都棒極了，請向我的姐妹回報你的出色工作。
+###_PLAYER
+What happened here?
+這裡發生什麼事了？
+###_NPC
+A true maid story. A silent girl in latex gear barged in and strapped us both up in armbinders and belts.  She gagged us and left.
+一個真實的女僕故事。一位不說話的穿著乳膠裝備的女孩闖進來，把我們都綁上了單手套和皮帶。她封住我們的口之後離開了。
+It started with a new club member curious about armbinders and finished with her running to the maids to get help.
+開始時是一位新來的俱樂部成員，她對單手套有些好奇，後來她去找女僕們尋求幫助了。
+A rival maid of mine came in and we fought.  She got lucky and managed to restrain us in belts and armbinders.
+我的一個對頭女僕進來，我們發生了爭鬥。她很幸運，成功用單手套和皮帶束縛住了我們。
+A sales rep came in with belts and armbinders and I think we got a little too carried away by her merchandise.
+一位銷售代理拿著單手套和皮帶走進來，然後我覺得我們對她的商品過於興奮了一些。
+###_PLAYER
+I'll go get help.  (Leave her.)
+我去尋求幫助。（離開她。）
+As a maid, you owe me a favor now.
+作為一名女僕，你現在欠我一次了。
+###_NPC
+(She gulps.)  Yes Miss.  Is there something else you need?
+（她嚥了咽口水。）是的女士。你有其他的需要嗎？
+###_PLAYER
+My pleasure.  The maids protect each other.
+我的榮幸。女僕間會互相保護。
+###_NPC
+Well said!  Is there something else you need?
+說得好！你有其他的需要嗎？
+###_PLAYER
+Another satisfied customer.
+又一位得到意足的客人。
+###_NPC
+A very satisfied customer.  Is there something else you need?
+是一位得到充分意足的客人。你有其他的需要嗎？

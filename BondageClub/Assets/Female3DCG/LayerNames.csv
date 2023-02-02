@@ -111,6 +111,9 @@ BraFullLatexBra2Shine,Shine
 BraFullLatexBra2Bra,Bra
 BraMaidBra1Bra,Bra
 BraMaidBra1Frills,Frills
+BraDominatrixLeotardBase,Leather
+BraDominatrixLeotardNet,Netting
+BraDominatrixLeotardBuckles,Buckles
 ClothLowerSkirt2Color,Skirt
 ClothLowerSkirt2Stripe,Trim
 ClothLowerSkirt3Color,Skirt
@@ -187,6 +190,26 @@ SocksHaremStockingsFabric,Fabric
 SocksHaremStockingsBands,Bands
 SocksGradientPantyhoseUpper,Upper
 SocksGradientPantyhoseLower,Lower
+SocksRightSocks6Sock,Sock
+SocksRightSocks6Frill,Trim
+SocksRightSocksFurFabric,Sock
+SocksRightSocksFurFur,Fur
+SocksRightSocksStriped1Light,Light Stripes
+SocksRightSocksStriped1Dark,Dark Stripes
+SocksRightHaremStockingsFabric,Fabric
+SocksRightHaremStockingsBands,Bands
+SocksRightGradientPantyhoseUpper,Upper
+SocksRightGradientPantyhoseLower,Lower
+SocksLeftSocks6Sock,Sock
+SocksLeftSocks6Frill,Trim
+SocksLeftSocksFurFabric,Sock
+SocksLeftSocksFurFur,Fur
+SocksLeftSocksStriped1Light,Light Stripes
+SocksLeftSocksStriped1Dark,Dark Stripes
+SocksLeftHaremStockingsFabric,Fabric
+SocksLeftHaremStockingsBands,Bands
+SocksLeftGradientPantyhoseUpper,Upper
+SocksLeftGradientPantyhoseLower,Lower
 HatSanta1Fabric,Hat
 HatSanta1Fur,Fur
 HatBonnet1Base,Bonnet
@@ -614,6 +637,12 @@ ItemNeckRestraintsPetPostLeash,Leash
 ItemNeckRestraintsPetPostRope,Rope
 ItemNeckRestraintsPetPostChain,Chain
 ItemNeckRestraintsPetPostText,Text
+ItemNeckRestraintsCollarLeashClip,Clip
+ItemNeckRestraintsCollarLeashHandle,Handle
+ItemNeckRestraintsCollarLeashLeash,Leash
+ItemNeckRestraintsChainLeashClip,Clip
+ItemNeckRestraintsChainLeashHandle,Handle
+ItemNeckRestraintsChainLeashLeash,Leash
 ItemNeckComboHarnessRing,Ring
 ItemNeckComboHarnessStuds,Studs
 ItemNeckComboHarnessBall,Ball
@@ -1322,6 +1351,12 @@ ItemTorsoLeatherChestHarness1Ring,Ring
 ItemTorsoLeatherChestHarness1Straps,Straps
 ItemTorso2LeatherChestHarness1Ring,Ring
 ItemTorso2LeatherChestHarness1Straps,Straps
+ItemTorsoNavelBar1Main,Bar
+ItemTorsoNavelBar1Jewel,Jewel
+ItemTorsoNavelBar1Chain,Chain
+ItemTorso2NavelBar1Main,Bar
+ItemTorso2NavelBar1Jewel,Jewel
+ItemTorso2NavelBar1Chain,Chain
 PantiesBoxerShortsShorts,Shorts
 PantiesBoxerShortsWaistband,Waist Band
 ItemVulvaBasicCockringCockRing,Cock Ring
@@ -1352,10 +1387,12 @@ ItemVulvaPlasticChastityCage2Lock,Lock
 ItemVulvaTechnoChastityCageRing,Ring
 ItemVulvaTechnoChastityCageCage,Cage
 ItemVulvaTechnoChastityCageLock,Lock Icon
-HairFrontHairFront37Base,Base
+HairFrontHairFront37Main,Main
 HairFrontHairFront37Front,Front
 HairFrontHairFront38Main,Main
 HairFrontHairFront38Fade,Fade
+HairFrontHairFront38Front,Front
+HairFrontHairFront39Main,Main
 HairFrontHairFront40Main,Main
 HairFrontHairFront40Fade,Fade
 HairFrontHairFront42Main,Main
@@ -1371,6 +1408,8 @@ HairFrontHairFront46Main,Main
 HairFrontHairFront46Fade,Fade
 HairFrontHairFront47Main,Main
 HairFrontHairFront47Fade,Fade
+EyebrowsEyebrows2Main,Eyebrow
+EyebrowsEyebrows2EyebrowBarRight,Piercings
 ItemHoodCustomLatexHoodPanelHead,Head
 ItemHoodCustomLatexHoodPanelHeadHighlight,Shine
 ItemHoodCustomLatexHoodLiningRoundFace,Face Lining
@@ -1393,3 +1432,14 @@ ClothLowerCrossSkirtCross,Crosses
 ClothLowerCrossSkirtMetal,Metal
 ItemVulvaPiercingsVibeEggGlansStrap,Strap
 ItemVulvaPiercingsVibeEggGlansEgg,Vibe Egg
+JewelryJewelrySetSeptumRing1,Nose
+JewelryJewelrySetEarHoopLeft,Ears
+JewelryJewelrySetFaceDermalLeft,Face
+MouthFullLips,Lips
+MouthFullRingMiddle,Piercings
+ClothHoodieMain,Main
+ClothHoodieHoodDownBack,Hood Inner
+ClothHoodieHoodUpFront,Hood Outer
+ClothHoodieHoodDownTrim,Hood Trim
+ClothHoodieLaces,Laces
+ClothHoodieWaist,Waist and Wrists

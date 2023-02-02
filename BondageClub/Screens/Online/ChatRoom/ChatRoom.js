@@ -14,7 +14,7 @@ const ChatRoomSpaceType = {
 
 var ChatRoomBackground = "";
 /** @type {ChatRoom} */
-let ChatRoomData = {};
+let ChatRoomData = null;
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
 var ChatRoomChatLog = [];
@@ -2629,30 +2629,16 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 		ChatRoomSetRule(data);
 	}
 	else if (data.Content == "HoldLeash") {
-		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
-			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
-		}
-		if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
-			ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
-		} else {
-			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
-		}
+		ChatRoomDoHoldLeash(SenderCharacter);
 	}
 	else if (data.Content == "StopHoldLeash") {
-		if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
-			ChatRoomLeashPlayer = null;
-		}
+		ChatRoomDoStopHoldLeash(SenderCharacter);
 	}
 	else if (data.Content == "PingHoldLeash") {
-		// The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
-		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
-			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
-		}
+		ChatRoomDoPingLeashedPlayers(SenderCharacter);
 	}
-	else if (data.Content == "RemoveLeash" || data.Content == "RemoveLeashNotFriend") {
-		if (ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber) >= 0) {
-			ChatRoomLeashList.splice(ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber), 1);
-		}
+	else if (data.Content == "RemoveLeash") {
+		ChatRoomDoRemoveLeash(SenderCharacter);
 	}
 	else if (data.Content == "GiveLockpicks") DialogLentLockpicks = true;
 	else if (data.Content == "RequestFullKinkyDungeonData") {
@@ -2718,7 +2704,6 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		return { metadata: meta, substitutions };
 	}
 
-
 	// Loop through dictionary entries and extract message metadata & collect substitutions where possible
 	for (let entry of data.Dictionary) {
 		if (IsSourceCharacterDictionaryEntry(entry)) {
@@ -2728,11 +2713,16 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				meta.SourceCharacter = C;
 			}
 		} else if (IsTargetCharacterDictionaryEntry(entry)) {
-			const {TargetCharacter} = entry;
+			const {TargetCharacter, Index} = entry;
 			const C = ChatRoomCharacter.find((c) => c.MemberNumber === TargetCharacter);
 			if (C) {
-				meta.TargetCharacter = C;
-				meta.TargetMemberNumber = C.MemberNumber;
+				if (Index) {
+					if (!meta.AdditionalTargets) meta.AdditionalTargets = {};
+					meta.AdditionalTargets[Index] = C;
+				} else {
+					meta.TargetCharacter = C;
+					meta.TargetMemberNumber = C.MemberNumber;
+				}
 			}
 		} else if (IsCharacterReferenceDictionaryEntry(entry)) {
 			const {Tag, MemberNumber} = entry;
@@ -2808,6 +2798,13 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		substitutions.push(...ChatRoomGetTargetCharacterSubstitutions(meta.TargetCharacter, isSelf));
 	}
 
+	if (meta.AdditionalTargets) {
+		for (const [index, C] of Object.entries(meta.AdditionalTargets)) {
+			const isSelf = SenderCharacter.MemberNumber === C.MemberNumber;
+			substitutions.push(...ChatRoomGetTargetCharacterSubstitutions(C, isSelf, Number(index)));
+		}
+	}
+
 	// If there's a focus group, add a substitution for the group name
 	if (meta.FocusGroup) {
 		substitutions.push(...ChatRoomGetFocusGroupSubstitutions(data, meta.FocusGroup, meta.TargetCharacter));
@@ -2863,9 +2860,11 @@ function ChatRoomGetSourceCharacterSubstitutions(data, character) {
  * @param {Character} character - The target character
  * @param {boolean} isSelf - If true, indicates that the target character is also the sender of the message (i.e. is
  * doing something to themselves)
+ * @param {number} [index] - If the character is an additional target, the index that the substitution tags should be
+ * given
  * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
  */
-function ChatRoomGetTargetCharacterSubstitutions(character, isSelf) {
+function ChatRoomGetTargetCharacterSubstitutions(character, isSelf, index) {
 	/** @type {[string, string][]} */
 	const substitutions = [];
 	const hideIdentity = ChatRoomHideIdentity(character);
@@ -2889,11 +2888,13 @@ function ChatRoomGetTargetCharacterSubstitutions(character, isSelf) {
 		targetCharacterName = name;
 	}
 
+	const suffix = index ? `${index}` : '';
+
 	substitutions.push(
-		["DestinationCharacter", destinationCharacter],
-		["DestinationCharacterName", destinationCharacterName],
-		["TargetCharacter", targetCharacter],
-		["TargetCharacterName", targetCharacterName],
+		[`DestinationCharacter${suffix}`, destinationCharacter],
+		[`DestinationCharacterName${suffix}`, destinationCharacterName],
+		[`TargetCharacter${suffix}`, targetCharacter],
+		[`TargetCharacterName${suffix}`, targetCharacterName],
 	);
 
 	const pronounRepls = ChatRoomPronounSubstitutions(character, "TargetPronoun", hideIdentity);
@@ -3224,6 +3225,9 @@ function ChatRoomSync(data) {
 		} else return;
 	}
 
+	// Update our chat room data with what the server sent us
+	ChatRoomData = data;
+
 	// Treat chatroom updates from ourselves as if the updated characters had sent them
 	const trustedUpdate = data.SourceMemberNumber === Player.MemberNumber;
 
@@ -3235,8 +3239,7 @@ function ChatRoomSync(data) {
 		ChatRoomCharacter.push(Char);
 	}
 
-	// Keeps a copy of the previous version
-	ChatRoomData = data;
+	// If there's a game running in that chatroom, save it and perform a reset
 	if (ChatRoomData.Game != null) {
 		ChatRoomGame = ChatRoomData.Game;
 		OnlineGameReset();
@@ -3781,6 +3784,22 @@ function ChatRoomHoldLeash() {
 }
 
 /**
+ * Handle the reply to a leash being held
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoHoldLeash(SenderCharacter) {
+	if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
+		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
+	}
+	if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+		ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
+		CharacterRefreshLeash(Player);
+	} else {
+		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
+	}
+}
+
+/**
  * Triggered when the player lets go of another player's leash
  * @returns {void} - Nothing.
  */
@@ -3796,10 +3815,21 @@ function ChatRoomStopHoldLeash() {
 }
 
 /**
+ * Handle the reply to a leash being released
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoStopHoldLeash(SenderCharacter) {
+	if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
+		ChatRoomLeashPlayer = null;
+		CharacterRefreshLeash(Player);
+	}
+}
+
+/**
  * Triggered when a dom enters the room
  * @returns {void} - Nothing.
  */
-function ChatRoomPingLeashedPlayers(NoBeep) {
+function ChatRoomPingLeashedPlayers() {
 	if (ChatRoomLeashList && ChatRoomLeashList.length > 0) {
 		for (let P = 0; P < ChatRoomLeashList.length; P++) {
 			ServerSend("ChatRoomChat", { Content: "PingHoldLeash", Type: "Hidden", Target: ChatRoomLeashList[P] });
@@ -3808,6 +3838,26 @@ function ChatRoomPingLeashedPlayers(NoBeep) {
 	}
 }
 
+/**
+ * Handle the reply to a leash ping
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoPingLeashedPlayers(SenderCharacter) {
+	// The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
+	if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
+	}
+}
+
+/**
+ * Handle the reply to a leash being broken
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomDoRemoveLeash(SenderCharacter) {
+	if (ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber) >= 0) {
+		ChatRoomLeashList.splice(ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber), 1);
+	}
+}
 
 /**
  * Triggered when a character makes another character kneel/stand.
@@ -4043,12 +4093,13 @@ function ChatRoomGetOwnerRule(RuleType) { return ChatRoomGetRule(RuleType, "Owne
 
 /**
  * Gets a rule from the current character
- * @param {string} RuleType - The name of the rule to retrieve.
+ * @param {LogNameType["OwnerRule" | "LoverRule"]} RuleType - The name of the rule to retrieve.
  * @param {"Owner" | "Lover"} Sender - Type of the sender
  * @returns {boolean} - The owner or lover rule corresponding to the requested rule name
  */
 function ChatRoomGetRule(RuleType, Sender) {
-	return LogQueryRemote(CurrentCharacter, RuleType, Sender + "Rule");
+	const QueryLogGroup = /** @type {"OwnerRule" | "LoverRule"}*/(Sender + "Rule");
+	return LogQueryRemote(CurrentCharacter, RuleType, QueryLogGroup);
 }
 
 
@@ -4675,7 +4726,7 @@ function ChatRoomOwnerForbiddenWordCheck(Message) {
 
 /**
  * Returns TRUE if the owner presence rule is enforced for the current player
- * @param {string} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
+ * @param {LogNameType["OwnerRule"]} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
  * @param {Character} Target - The target character
  * @returns {boolean} - TRUE if the rule is enforced
  */

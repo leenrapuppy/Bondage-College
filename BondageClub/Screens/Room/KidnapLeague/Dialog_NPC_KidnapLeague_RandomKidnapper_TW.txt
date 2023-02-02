@@ -1,0 +1,594 @@
+###_NPC
+Silence is gold, and gags are better than gold.
+沉默是金，口塞勝過金子。
+(A kidnapper crosses your path and makes a devious smile.)  I will be merciful if you surrender now.
+（一個綁匪擋住你的去路，臉上露出狡猾的笑容。）如果你現在投降，我會很仁慈的。
+(A kidnapper taps on your shoulder and smile.)  A gift that's already wrapped up!  So easy.
+（綁匪拍拍你的肩膀並微笑。）一份已經包裝好的禮物！真是得來全不費工夫。
+(She surrenders to you.)  You've won a battle, but not the war.
+（她向你投降。）你贏得了一場戰鬥，但沒有贏得戰爭。
+(She crosses her arms and smiles.)  Now you're mine!
+（她交叉雙臂，微笑起來。）現在你是我的了！
+(You surrender as she grabs your arms and restrains them.)  That was easy!
+（你投降了，她抓住你的手臂並約束住。）這真簡單！
+(A kidnapper runs down the hall to meet you.)  I've heard about you and I will kidnap you!
+（一個綁匪跑過大廳來找你。）我聽說過你，我會綁架你！
+(A kidnapper runs down the hall to meet you.)  You will be my easiest victim today.
+（一個綁匪跑過大廳來找你。）你會是我今天最容易得手的受害者。
+(She surrenders to you.)  Well done, I'll think twice before facing you again.
+（她向你投降。）做得好，在再次面對你之前我會仔細考慮的。
+(She cheers and jumps of joy.)  Yes!  You make such a cute victim!
+（她歡呼雀躍。）真好！你真是個可愛的受害者！
+(She quickly restrains your arms as you give up without a fight.)  I was expecting more of a challenge.
+（你不戰而降，她迅速束縛了你的手臂。）我期待著更多的挑戰。
+(A league member chases you down.)  I recognize you!  You're the famous Lady of Ropes!  The bounty will be mine.
+（一個聯盟成員追著你。）我認得你！你是著名的繩索女士！你的賞金我拿定了。
+(A league member chases you down.)  The Lady of Ropes?  Already restrained?  It must be my birthday...
+（一個聯盟成員追著你。）繩索女士？已經束縛住了？這不會是我的生日禮物吧……
+(She surrenders and bows her head.)  There's no shame in losing against the Lady of Ropes.
+（她投降並低下頭。）輸給繩索女士並不丟人。
+(She seems amazed of her victory.)  Wow!  I've kidnapped the famous Lady of Ropes!
+（她似乎對自己的勝利感到驚訝。）哇！我綁架了著名的繩索女士！
+(She's surprised to see you surrender but restrains your arms anyway.)  The Lady of Ropes? Surrendering to me??
+（看到你投降，她很驚訝，但還是束縛住了你的手臂。）繩索女士？向我投降？？
+(You end up face to face with another league member.)  It's been a while, but I think I'm in the mood for a fight.
+（你最終與遇上了另一個聯盟成員。）距離上次有段時間了，但我想我有心情打架。
+(You end up face to face with another league member.)  I see you lost your last match.  Do you need help?  Or maybe more trouble?
+你最終與遇上了另一個聯盟成員。）我看到你輸掉了上場比試。你需要幫助嗎？或者需要更多麻煩？
+(She surrenders and sighs.)  I should give up on kidnappings, I'm hopeless at it.
+（她投降並嘆了口氣。）我應該放棄綁架，我根本應付不來。
+(She smiles seeing you struggle.)  I didn't think I would win.  This is amazing.
+（看到你掙扎，她笑了起來。）我完全不覺得我能贏。這真是個驚喜。
+(She sighs and restrains your arms.)  You should be punished extra strictly for surrendering without a fight.
+（她嘆了口氣，束縛住你的手臂。）因為你不戰而降，你應該受到更嚴厲的懲罰。
+(A kidnapper sneaks up behind you.)  Surrender now or get ready for the fight of your life!
+（一個綁匪偷偷溜到你身後。）現在投降，或者不是你死就是我亡！
+(A kidnapper sneaks up behind you.)  Some like to fight, and some, like me, prefer easy victims.
+（一個綁匪偷偷溜到你身後。）有些人喜歡打架，有些人，像我一樣，更喜歡容易搞定的受害者。
+(She bows her head and looks at the floor.)  Impressive.  Do what you want with me Miss.
+（她低下頭，看著地板。）你真厲害。隨便對我做什麼吧，女士。
+(You struggle as she does a thumbs up.)  I knew I would win.  Now you're mine girl.
+（當她豎起大拇指時，你掙扎著。）我知道我會贏。現在你是我的了，女孩。
+(You barely struggle as she restrains your arms securely.)  You scared?  You should be.
+（你幾乎沒有掙扎，她牢牢地扣住你的手臂。）你害怕了？你應當害怕。
+(A league bounty hunter stares at you.)  Someone put a bounty on you, and it will be mine.
+（一個聯盟賞金獵人盯著你。）有人懸賞你，並且我會得到那懸賞。
+(A league bounty hunter stares at you.)  Easiest bounty ever!  Come with me girl.
+（聯盟賞金獵人盯著你。）我遇到的最輕鬆的賞金！跟我來吧，女孩。
+(She seems disappointed.)  Well done Miss.  Now I know why there's a bounty on you.
+（她似乎很失望。）做得好，女士。現在我知道你為什麼有賞金了。
+(She gloats on her victory.)  Alright!  The bounty is mine!
+（她因自己的勝利洋洋得意。）很好！賞金是我的！
+(You surrender without a fight as she quickly restrains your arms.)  Easiest bounty ever!
+（你不戰而降，她迅速束縛你的手臂。）我遇到的最輕鬆的賞金！
+(A club Mistress stares at you.)  So, you've became one of the club master kidnapper?  Are you ready to face me?
+（一位俱樂部女主人盯著你。）所以，你已經成為一位俱樂部綁架大師了？你準備好面對我了嗎？
+(A club Mistress laughs at you.)  One of the master kidnappers got herself in trouble?  This will be fun.
+（一位俱樂部女主人朝你笑起來。）一位綁架大師遇到麻煩了？這會很有趣。
+(She seems stunned by her defeat.)  Congratulations, you truly are a master kidnapper.
+（她看起來因失敗感到震驚。）恭喜你，你是名副其實的綁架大師。
+(She cracks her knuckles and smirks.)  Don't worry about losing, I've been a master kidnapper for way longer than you.
+（她捏響指關節，得意地笑起來。）別太在意輸，我做綁匪的時間比你長得多。
+(You surrender without a fight as she quickly restrains your arms.)  You're disappointing for a master kidnapper.
+（你不戰而降，她迅速束縛你的手臂。）你這個綁架大師真是令人失望。
+Look at me, I cannot help you now.
+看看我，我現在幫不了你。
+(She sighs and reluctantly allows you to gag her.)
+（她嘆了口氣，不情願地讓你堵嘴。）
+(You remove her gag and she seems happy.)  It's funnier when we can talk with our kidnapper.
+（你取下她的口塞，她看起來很開心。）如果可以和綁匪交談會更有趣。
+(You push some earplugs inside.)  Unfair!  How can talk now?
+（你把耳塞塞進去。）不公平！我現在該怎麼對話？
+(You pull the earplugs out.)  Will you make up your mind?
+（你拔出耳塞。）你能做好決定不改了嗎？
+(She turns around as you restrain her arms securely.)  Most kidnappers go for the arms first.
+（她轉過身，你牢牢地束縛住她的手臂。）大多數綁匪會先綁手臂。
+(You free her arms and she gives you a thumbs up.)  Thanks a lot.  Am I allowed to leave?
+（你鬆開她的手臂，她豎起大拇指。）非常感謝。我可以離開了嗎？
+(She submits to you while you restrain her legs.)  You know your bondage, kidnapper.
+（你束縛她的腿，她服從你。）你真懂束縛，綁匪。
+(You release her legs as she shakes her butt.)  Shake your booty!
+（你鬆開她的腿，她搖晃她的屁股。）晃晃你的戰利品！
+(She tests your feet restraints by jumping on her toes.)  Well done my kidnapper!
+（她用腳趾跳，測試你對腳束縛的程度。）做得好我的綁匪！
+(You release her feet and she wiggles them.)  Is my kidnapping over?
+（你鬆開她的腳，她扭了扭腳。）我的綁架結束了嗎？
+(She wiggles her feet as you restrain them.)  I won't be running away for sure.
+（你束縛住她的腳，她扭了扭腳。）我肯定不會逃跑的。
+(She stands on her toes as you release her feet.)  A good kidnapping is all in the details.
+（你鬆開她的腳，她踮起腳尖。）好的綁架要精益求精。
+(She adjusts her neck to the new collar.)  You're looking for subs Miss?
+（她調整脖子適應新的項圈。）你在找寵物嗎，女士？
+(You remove the collar from her neck.)  Next time I will collar you.
+（你從她脖子上取下項圈。）下次我會給你戴上項圈。
+(She struggles to avoid the belt but you're able to strap it on her.)  These belts should be banned.
+（她掙扎著想避開帶子，但你還是成功繫到她身上。）這種帶子應該被禁止。
+(She seems happy as you unlock the belt from her waist.)  Thanks, DialogPlayerName.
+（當你解開她腰間的帶子時，她看起來很高興。）謝謝，DialogPlayerName。
+(You strap the device on her head as she sighs.)  Next time I won't lose against you.
+（你把道具綁在她頭上時，她嘆了口氣。）下次我不會輸給你的。
+(You release her head as she nods rapidly.)  How do you fit all these items in such a small outfit?
+（你解開她的頭時，她迅速點頭。）你怎麼把所有這些東西都裝在這麼小的衣服裡？
+(You put the hood on her head as she goes silent.)
+（你把頭套戴在她頭上，她逐漸安靜了下來。）
+(She nods happily as you remove the hood from her head.)  Thanks, that was a little freaky.
+（你從她頭上取下頭罩，她開心地點頭。）謝謝，這有點嚇人。
+(You strap the item on her nose as she sighs.)  Don't leave me like that for too long.
+（你把道具繫在她的鼻子上，她嘆口氣。）請不要讓我保持這樣太久。
+(She looks around as you remove the device.)  That's better, you need to be careful with items like that.
+（當你取下道具時，她看看四周。）這好多了，你用這種物品時應該更加小心。
+(You strap the harness on her torso as she blushes.)  You're quite a kinky kidnapper.
+（你把束縛帶繫在她的軀幹上，她臉上泛紅。）你真是個色情的綁匪。
+(She stretches as you release her from the harness.)  It will be easier to breath like that.
+（當你解開她身上的束縛帶時，她伸展身體。）這樣呼吸會更容易。
+(She moans softly as you slide the device inside.)  Oh my!  You're a kinky kidnapper.
+（當你把道具滑進去時，她輕聲呻吟。）哦，天啊！你真是個色情的綁匪。
+(She wiggles her butt as you remove the plug.)  I hope you clean these well between kidnappings.
+（當你拔掉塞子時，她扭動著她的屁股。）我希望你在每次綁架之間有把這些清理乾淨。
+(She holds her breath as you use the item.)  You're pushing your luck there.
+（當你使用這件物品時，她屏住呼吸。）你運氣用到頭了。
+(She wiggles her breast slowly as you remove the device.)  Great, I might have more mercy on you next time.
+（當你取下這件道具時，她慢慢地擺動著她的胸部。）太好了，下次我會對你更仁慈的。
+(She whimpers as you use the device on her breast.)  Being a kidnapper isn't always easy.
+（當你在她的胸部上使用這件道具時，她嗚咽起來。）做綁架者並不總是輕鬆。
+(She takes a deep breath and stays silent as you remove the device.)
+（當你移除這件道具時，她深呼吸並保持沉默。）
+(She whimpers and cries as you whip her breast.)  Revenge will be sweet!
+（當你鞭打她的乳房時，她嗚咽著哭泣。）復仇會很甜蜜！
+(You lash the crop on her torso, hitting her breast.)  Ow!  Careful with that crop.
+（你用硬鞭抽打她的軀幹，擊中她的胸部。）噢！用那個硬鞭的時候小心點。
+(You whip her butt as she grumbles.)  I'll make sure to get a whip next time I'm facing you.
+（你鞭打她的屁股，她抱怨著。）下次我面對你時，我保證會拿著鞭子。
+(You whack the leather crop right on her butt.)  Ouch! I'll put my next bounty on you.
+（你用皮革硬鞭抽打她，正打在她的屁股上。）啊呀！我的下一個賞金目標就是你。
+(You restrain her feet with the long hemp rope and suspend her from the ceiling.)  Oh my... You're quite a kidnapper!
+（你用長長的麻繩束縛住她的腳，把她吊在天花板上。）哦，天啊……你這綁匪！
+(You let her down from the ceiling and untie her feet.)  Thanks!  I was getting dizzy.
+（你把她從天花板放上下來，並解開她的腳。）非常感謝！我已經有點頭暈了。
+###_PLAYER
+I don't want mercy and I won't show any.
+我不需要憐憫，也不會憐憫別人。
+Wait!  Can we make a deal?  I'll give you $10.
+等待！我們可以做個交易嗎？我給你$10。
+###_NPC
+No deal!  I'm eager for a fight.
+不可能交易！我渴望戰鬥。
+###_PLAYER
+(Fight her.)
+（與她戰鬥。）
+(Surrender.)
+（投降。）
+How did you hear about me?
+你是怎麼聽說我的？
+###_NPC
+Never mind.  We need less chatting and more fighting.
+這沒關係。沒什麼好聊的，動手吧。
+###_PLAYER
+We'll see who kidnaps who!
+看看誰綁架了誰！
+Lady of Ropes?  You're mistaking me for someone else.
+繩索夫人？你把我誤認為別人了。
+###_NPC
+You can't fool me Lady.  You fit her description perfectly.  I will kidnap you and I will get the bounty.
+女士，你騙不了我的。你完全符合她的描述。我會綁架你，並且我會得到賞金。
+###_PLAYER
+Yes!  The Lady of Ropes will fight you.
+是的！繩索夫人會和你戰鬥。
+A bounty hunter?  Here's $20.  Leave me alone.
+賞金獵人？給你$20。離我遠點吧。
+Sure!  Let's fight.
+當然！來打一場吧。
+You're not motivated enough.  Get lost.
+你的動機還不夠。走開。
+I'll crush you!
+我要粉碎你！
+I can't fight now, I'm in a hurry.
+我現在不能戰鬥，我有著急的事。
+###_NPC
+Too bad for you, because I really want to fight.
+那可不妙哦，因為我真的很想戰鬥。
+###_PLAYER
+Who put a bounty on me?
+誰懸賞我？
+###_NPC
+Who cares?  I'm here for the money, not to chat.
+誰在乎？我來這裡是為了錢，不是為了聊天。
+###_PLAYER
+No bounty hunter will ever get me.
+沒有賞金獵人會抓到我。
+Take this $20 and leave, bounty hunter.
+拿著這$20離開吧，賞金獵人。
+You've heard about me?
+你聽說過我嗎？
+###_NPC
+I've heard you're one of the best kidnappers in the club.  So, I've came for a challenge.
+我聽說你是俱樂部裡最好的綁匪之一。所以，我是來挑戰的。
+###_PLAYER
+Get ready for the fight of your life!
+準備為你的生命而戰吧！
+Please Mistress.  I don't want to fight you.
+對不起，女主人。我不想和你打。
+###_NPC
+Too bad, because I will fight you whether you want it or not.
+那可太糟了，因為不管你願意不願意，我都會和你戰鬥。
+(She bows her head and submits to you.)  Well done bounty hunter, you can have me and collect your money.
+（她低頭向你屈服。）做得好，賞金獵人，你可以帶走我，並拿到錢。
+(You struggle as she looks at you with an evil grin.)  You missed your mark bounty hunter, and now you're mine.
+（你掙扎著，她邪惡地咧嘴笑起來。）你搞丟了獵物，賞金獵人，現在你是我的了。
+(As you enter the class, you see a girl with crossed arms that's staring at you.)  So you took the bounty?  I won't go down easily.
+（你進入課堂時，你看到一個雙臂交叉的女孩正盯著你看。）所以你接受了賞金？我不會輕易倒下的。
+(A maid taps on your shoulder.)  So, bounty hunters are chasing down maids now?  Game on!
+（女僕拍拍你的肩膀。）所以，賞金獵人正在追獵女僕？那遊戲開始！
+(A girl is hiding in a dark corner of the dojo.)  You've found me?  Let's fight then!
+（一個女孩躲在道場的黑暗角落裡。）你找到我了？那我們就開打吧！
+(Your bounty is currently shopping and seems to be annoyed by you.)  Can't a girl do some shopping?  You'll regret making me angry!
+（你的懸賞目標正在購物，似乎被你惹惱了。）女孩就不能購物嗎？惹我生氣，你會後悔的！
+###_PLAYER
+Nothing personal, but I need money.
+無關個人，我需要錢。
+###_NPC
+(She giggles.)  Forget it bounty hunter.  You won't make any money with me.
+（她呵呵地笑。）算了，賞金獵人。你不會用我賺到錢的。
+###_PLAYER
+You're going down girl!
+你必敗無疑，女孩！
+###_NPC
+(She grins.)  Talk is cheap, show me your moves.
+（她笑了。）說起來容易，來過幾招啊。
+###_PLAYER
+Let's do a clean fight.
+讓我們來一場乾淨俐落的戰鬥。
+###_NPC
+(She laughs.)  I'll fight how I want, and you will submit.
+（她笑起來。）我會按我的意願戰鬥，而你會屈服於我。
+NOEXIT
+NOEXIT
+###_PLAYER
+That was a good fight.
+那是一場很好的戰鬥。
+###_NPC
+(She nods happily.)
+（她高興地點頭。）
+###_PLAYER
+Girl, you're in big trouble.
+姑娘，你有大麻煩了。
+###_NPC
+(She gulps and bows her head.)
+（她吞嚥了一下，低下頭。）
+###_PLAYER
+Either I was lucky, or you've let me win.
+要嘛我很幸運，要嘛你讓我贏了。
+###_NPC
+(She shakes her head no.)
+（她搖頭，表示否認。）
+###_PLAYER
+(Play with her.)
+（玩弄她。）
+###_NPC
+(You move closer, ready to play with her.)
+（你靠近她，準備玩弄她。）
+###_PLAYER
+(Bring her to your room.)
+（把她帶到你的房間。）
+(Let her go.)
+（讓她走。）
+You're in big trouble my bounty.
+你有大麻煩了，我的獵物。
+More money and more fun for me.
+對我來說，錢越多越有樂子。
+###_NPC
+(She rolls her eyes up.)
+（她翻了個白眼。）
+###_PLAYER
+I can't believe I'll get your bounty.
+我不敢相信我會得到你的賞金。
+###_NPC
+(She shrugs and sighs.)
+（她聳了聳肩，嘆了口氣。）
+(You move closer to her, ready to play with her.)
+（你靠近她，準備玩弄她。）
+###_PLAYER
+(Release her to go collect.)
+（放開她，收取賞金。）
+You know you're a cute captive?
+你知道你是一個可愛的俘虜嗎？
+###_NPC
+(She blushes and bows her head.)  Thanks Miss.
+（她臉紅了，低下頭。）謝謝，女士。
+###_PLAYER
+Do you enjoy being restrained?
+你喜歡被束縛嗎？
+###_NPC
+(She nods slowly.)  I wouldn't be in the Kidnappers League if I didn't like it.
+（她慢慢地點點頭。）如果我不喜歡，我就不會加入綁架者聯盟。
+###_PLAYER
+How much do you value your freedom?
+你有多珍惜你的自由？
+###_NPC
+Will you let me go if I give you some money?
+如果我給你一些錢，你會放我走嗎？
+###_PLAYER
+(Tickle her.)
+（給她搔搔癢。）
+###_NPC
+(You tickle her on the ribs and tummy.  She giggles, laughs, and squirms around, trying to escape.)
+（你在她的肋骨和肚子上搔癢。她呵呵地笑，四處扭動，試圖逃跑。）
+###_PLAYER
+(Kiss her.)
+（親她。）
+###_NPC
+(You put both hands behind her head and pull her firmly to your lips for a passionate kinky kiss.)
+（你將雙手放在她的腦後，用力將她拉到唇邊，並進行了一次充滿激情的吻。）
+###_PLAYER
+(Fondle her.)
+（撫摸她。）
+###_NPC
+(You playfully fondle her breasts and butt as she moans softly and blushes.)
+（你調皮地撫弄她的乳房和臀部，她輕聲呻吟並臉紅。）
+###_PLAYER
+(Slap her.)
+（打她一巴掌。）
+###_NPC
+(You harshly slap her in the face.  She bows down her head and lets out a little moan.)
+（你狠狠地扇了她一巴掌。她低下頭，發出一聲輕微的呻吟。）
+###_PLAYER
+(Spank her.)
+（打她。）
+###_NPC
+(You spank her hard on the butt and she sharply inhales from the pain.)
+（你用力打她的屁股，她因疼痛而猛吸一口氣。）
+###_PLAYER
+(Talk with her.)
+（與她交談。）
+###_NPC
+(You move back to talk with her.)
+（你後退，和她交談。）
+###_PLAYER
+Pay me and I'll let you go.
+付錢給我，我就放你走。
+###_NPC
+Fine, be a bully then!  I'll give you $DIALOGMONEY if you release me and leave me alone.
+好，那你就當個強盜吧！如果你釋放我並離開我，我會給你$DIALOGMONEY。
+You're a bully!  There's no way I'm paying you.
+你真是個強盜！我絕對不會付錢給你的。
+###_PLAYER
+Forget it.
+忘了它。
+###_NPC
+Very well.  Will you let me go then?
+很好。那你會讓我走嗎？
+###_PLAYER
+Deal!  (Release her and take the money.)
+成交！（放開她，把錢拿走。）
+I was kidding.
+我是開玩笑的。
+###_NPC
+Alright.  Will you let me go then?
+好吧。那你會讓我走嗎？
+###_PLAYER
+Congratulations!  You fought well.
+恭喜！你打得很好。
+###_NPC
+Thanks!  Now what will I do with you?
+謝謝！現在我該對你做什麼呢？
+###_PLAYER
+You got lucky girl.  I'll get you next time.
+你這次很幸運，女孩。下次我會搞定你。
+###_NPC
+We'll see about that.  Now what will I do with you?
+我們走著瞧。現在我該對你做什麼呢？
+###_PLAYER
+(Bow your head.)
+（低頭。）
+###_NPC
+Such a cute victim.  What will I do with you?
+好可愛的受害者。我該對你做什麼呢？
+###_PLAYER
+(Struggle to get out.)
+（掙扎以逃出去。）
+###_NPC
+You're not going anywhere.  I'm going to have some fun with you.
+你哪裡也去不了。我要和你開心地玩一玩。
+###_PLAYER
+You got lucky girl.  I'll collect next time.
+你這次運氣好，女孩。下次我會得到賞金的。
+###_NPC
+We'll see about that little bounty hunter.  Now what will I do with you?
+我們走著瞧，小賞金獵人。現在我該對你做什麼呢？
+###_PLAYER
+Congratulations!  You're a tough mark.
+恭喜！你是個厲害的目標。
+###_NPC
+You're a fair bounty hunter.  Now what will I do with you?
+你是個不錯的賞金獵人。現在我該對你做什麼呢？
+Such a cute bounty hunter and victim.  What should I do with you?
+如此可愛的賞金獵人和受害者。我該對你做什麼呢？
+You're not getting out any time soon, bounty hunter.  Now how shall I play with you, my new toy?
+你不會很快出來的，賞金獵人。現在我要怎麼玩你，我的新玩具？
+###_PLAYER
+You prefer easy targets, don't you?
+你更喜歡簡單的目標，不是嗎？
+###_NPC
+Yep, nothing wrong with an easy bounty from time to time.  What should I do with you?
+是的，不時獲得簡單的賞金並沒有錯。我該對你做什麼呢？
+###_PLAYER
+That's unfair!  Release me so we can fight.
+這不公平！放開我，讓我們來戰鬥。
+###_NPC
+No way!  When you get a cute wrapped gift, you don't lose it.  What should I do with you?
+想得美！當你收到一個可愛的包裝禮物時，你可不會弄丟它。我該怎麼處理你呢？
+###_PLAYER
+Wait!  I don't surrender anymore, I want to fight!
+等待！我不投降了，我要戰鬥！
+###_NPC
+Too late girl.  You're already mine.
+太晚了，女孩。你已經是我的了。
+###_PLAYER
+I guess I should have fought.
+我想剛才我應該戰鬥的。
+###_NPC
+Yes, that was pretty lame.  But I'll teach you not to give up with some punishments.
+是的，那太傻了。但我用一些懲罰，教會你不要放棄。
+Such a cute victim.  Now what could I do with you?
+好可愛的受害者。現在我該對你做什麼呢？
+You can struggle all you want.  But you're going nowhere.
+你想怎麼掙扎就怎麼掙扎。但你哪裡也去不了。
+###_PLAYER
+Will you let me go?
+你會讓我走嗎？
+Do as you wish.  I'm your prisoner.
+隨你所願。我是你的俘虜。
+Please don't be too harsh.
+請不要太苛刻。
+(Stay silent.)
+（保持沉默。）
+(Try to struggle out.)
+（試圖掙扎逃脫。）
+(Let her have her way.)
+（讓她隨心所欲。）
+###_NPC
+(She gets a gag and uses it to silence you.)  That's better.  A victim doesn't need to talk anyway.
+（她拿起一個口塞，並用它讓你無法說話。）這樣好多了。無論如何，受害者都不需要說話。
+###_PLAYER
+(Roll your eyes up.)
+（翻白眼。）
+(Nod and bow your head.)
+（點頭並低下頭。）
+(Adjust your mouth to the gag.)
+（調整你的嘴巴適應口塞。）
+###_NPC
+(She removes the gag and grins.)  Enjoy your chit chat while you can.
+（她移除了口塞，咧嘴一笑。）盡你所能享受閒聊吧。
+###_PLAYER
+Thanks a lot.
+非常感謝。
+Sweet.  Will you let me go?
+真好。你會讓我走嗎？
+###_NPC
+(She restrains your feet and giggles.)  You won't be running away now.
+（她束縛你的腳，並呵呵地笑。）你現在逃不掉了。
+###_PLAYER
+I wasn't planning to run anyway.
+反正我也沒打算跑。
+(Hop and jump clumsily.)
+（笨拙地跳來跳去。）
+(Try to keep your balance.)
+（盡量保持平衡。）
+###_NPC
+(She releases your feet.)  You can have your feet back for now.  But I'll find a better restraint later.
+（她鬆開你的腳。）你現在可以重新使用腳了。但我以後會找到更好的束縛。
+###_PLAYER
+Thanks!  You're a great kidnapper.
+謝謝！你是個很棒的綁匪。
+It will be easier to stand up like this.
+這樣站起來會更容易。
+(Stretch and relax your feet.)
+（伸展並放鬆雙腳。）
+(Stay silent and wait to be released.)
+（保持沉默，等待被釋放。）
+###_NPC
+(She restrains your legs securely.)  You look so cute when you're all tied up.
+（她牢牢地束縛住你的腿。）你被綁起來的樣子真可愛。
+###_PLAYER
+You would be even cuter.
+你會更可愛。
+(Wiggle your butt playfully.)
+（調皮地扭動你的屁股。）
+(Stay quiet.)
+（保持安靜。）
+###_NPC
+(She releases your legs.)  Shake your butt for me my cute victim.
+（她鬆開你的腿。）搖動你的屁股吧，我可愛的受害者。
+###_PLAYER
+Do I look like a dancer?
+我看起來像舞者嗎？
+(Shake your butt for her.)
+（為她搖屁股。）
+(Stand still.)
+（站著不動。）
+###_NPC
+(She gets closer and starts to tickle you without mercy.)  Tickle!  Tickle!  Tickle!
+（她靠近，開始毫不留情地給你搔搔癢。）搔搔癢！癢癢撓！搔搔癢！
+###_PLAYER
+No please! Stop!
+不，求你了！停下來！
+Eeeeeeaahahahaha!  Stop it!  Hahaahaahi.
+啊啊哈哈哈哈！停下來！哈哈哈哈嘻哈哈。
+(Laugh out loud.)
+（笑出聲來。）
+(Thrash in your bondage.)
+（在你的束縛中掙扎。）
+(Pretend you're not ticklish.)
+（假裝你不癢。）
+###_NPC
+(She raises her hand and spanks you many times on the butt.)  Endure the pain. It's not like you have much choice.
+（她舉起手在你屁股上打了很多次。）忍著痛。你並沒有什麼選擇。
+###_PLAYER
+Ow!  That stings!
+哦！這真痛！
+You'll know true pain on our next fight.
+在我們的下一場戰鬥中，你會知道真正的痛苦。
+(Whimper from the pain.)
+（因疼痛而嗚咽。）
+(Thrash around in your bondage.)
+（在你的束縛中四處亂竄。）
+(Pretend it doesn't hurt.)
+（假裝不痛。）
+###_NPC
+(She gets close to you and plants a long loving kiss on your lips.)  Mmmmmmmmh.
+（她靠近你，在你的嘴唇上印下一個長長的愛吻。）嗯嗯嗯嗯。
+###_PLAYER
+You're quite a loving kidnapper.
+你是一個很有愛心的綁匪。
+You have wonderful lips.
+你有美妙的嘴唇。
+(Close your eyes and kiss back.)
+（閉上眼睛，回吻。）
+(Push your tongue inside.)
+（把你的舌頭伸進去。）
+(Moan into your gag.)
+（在你的口塞裡呻吟。）
+(Stay silent and cold.)
+（保持沉默和寒冷。）
+###_NPC
+(She caresses and gropes your body firmly.)  You know you have an amazing body, right?
+（她撫摸，然後用力地撫慰著你的身體。）你知道你的身體很棒，對吧？
+###_PLAYER
+If you release me, I'll touch you back.
+如果你放開我，我會撫摸你。
+Miss!  That... That feels so good...
+女士！那個……那種感覺真好……
+(Moan with pleasure.)
+（愉快地呻吟著。）
+(Shiver in your restraints.)
+（在你的束縛中顫抖。）
+###_NPC
+(She releases you and sighs.)  Sadly, I need to go. But I'll kidnap you again another time.
+（她鬆開你，嘆了口氣。）很遺憾，我得走了。但下次我會再次綁架你。
+###_PLAYER
+Take care.
+多保重。
+Thanks!  That was fun.
+謝謝！那很有趣。
+Would you like to visit my room?
+你想參觀我的房間嗎？
+###_NPC
+You have your own room?  I'm curious to see it.
+你有自己的房間嗎？我很想看看。
+Not now, I need to go.  Take care!
+現在不行，我得走了。多保重！
+###_PLAYER
+I'll get you next time bitch.
+下次我會得到你的，婊子。
+###_NPC
+Oh yeah?  Better leave you restrained then.  (She picks a few items to restrain you.)
+哦？那還是把你束縛在這裡比較好。（她拿起幾件物品來約束你。）
+###_PLAYER
+(Leave her.)
+（離開她。）
+Follow me!  (Bring her to your room.)
+跟著我！（把她帶到你的房間。）
+###_NPC
+(She lets you go and sighs.)  Sadly, I need to go.  Find your owner to get out.
+（她讓你走，嘆了口氣。）可悲的是，我得走了。找你的主人來放你出來吧。
+

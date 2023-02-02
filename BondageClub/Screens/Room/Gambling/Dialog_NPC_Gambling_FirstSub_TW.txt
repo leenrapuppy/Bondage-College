@@ -1,0 +1,566 @@
+###_NPC
+Blessed those who have nothing to say and yet remain silent.
+祝福那些無話可說卻保持沉默的人。
+(She shakes her head but you're able to gag and silence her.)
+（她搖著頭，但你還是給她戴上口塞，讓她安靜下來。）
+(You remove her gag and she stretches her mouth.)  I was starting to drool...
+（你摘下她的口塞，她張開嘴。）我開始流口水了……
+(She grumbles while you push some earplugs in.) I can't hear you properly now.
+（你把耳塞塞進去，她咕噥著。）我現在聽不見你的聲音了。
+(You pull the earplugs out.) That's better, I can hear you clearly now.
+（你把耳塞拔出來。）這樣更好，我現在可以清楚地聽到你的聲音了。
+(She grumbles but complies as you restrain her arms.)  How am I supposed to roll the dice like this?
+（她咕噥著，但服從地讓你束縛她的手臂。）我這樣怎麼擲骰子？
+(You free her arms and she gives you a thumbs up.)  That's better.
+（你鬆開她的手臂，她豎起大拇指。）這樣更好。
+(She submits to you while restrain you hands.)  You're being very kinky now.
+（她順從的讓你束縛住她的雙手。）你現在顯得很變態哦。
+(You release her hands and she nods a little.)  Thank you Miss.
+（你鬆開她的手，她點點頭。）謝謝你，女士。
+(She looks down as you restrain her legs securely.)  I'm not going anywhere anyway.
+（她低下頭，你牢牢地束縛住她的腿。）反正我哪裡也不去。
+(You release her legs from the restraint.)  You're quite good with restraints Miss.
+（你把她的腿從束縛中解開。）你很擅長束縛，女士。
+(She looks puzzled as you restrain her feet.)  I don't plan to run anytime soon.
+（你束縛她的腳，她露出困惑的表情。）我短時間內不打算跑的。
+(You release her feet.)  Wonderful!
+（你鬆開她的腳。）太好了！
+(She struggles as you strap the collar around her neck.)  I'm not looking for an owner.
+（你把項圈繫在她脖子上，她掙扎著。）我沒準備找個主人。
+(You remove the collar from her neck.)  Yes!  This is much better.
+（你取下她脖子上的項圈。）是的！好多了。
+(She struggles as you lock the device on her.)  No, please!  I don't have the key for that!
+（你把貞操帶鎖在她身上，她掙扎著。）不，拜託！我沒有那個鑰匙！
+(She looks really happy as you unlock the device.)  Thank you so much Miss DialogPlayerName.
+（你解開貞操帶，她看起來非常高興。）非常感謝，DialogPlayerName女士。
+(You put the device on her as she shakes her head.)  Ow!  You've made my day much more awful.
+（你把道具用在她身上，她搖搖頭。）噢！你讓我的日子更糟糕了。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下道具，她迅速點頭。）百萬份謝謝，這好多了。
+(She trembles of pain as you whip her breast.) This is a gambling hall, not a torture chamber.
+（你鞭打她的乳房，她因疼痛而顫抖。）這是賭場，而不是酷刑室。
+(You swing the crop at her torso as she moans.) Oh, this isn't a game anymore.
+（你向她的軀幹揮下硬鞭，她呻吟著。）哦，這不再是遊戲了。
+(You whip her butt as she jumps from the pain.) I do not find that funny.
+（你抽打她的屁股，她因為疼痛而跳起來。）我不覺得這很有趣。
+(She moans each time the crop lands on it.) How will I be able to sit like this?
+（每當硬鞭落在身上時，她都會呻吟一下。）我現在這樣怎麼坐啊？
+I like my clothes better.
+我更喜歡我的衣服了。
+I cannot concentrate this way.
+我這樣沒辦法集中注意力。
+Oof, it's finally over.
+呼，終於結束了。
+Oh, is that really necessary?
+哦，真的有必要嗎？
+(She looks at you satisfied.)
+（她滿意地看著你。）
+According to which rules is this allowed?
+到底什麼規則允許這樣做了？
+I want to play with dice, not with eggs.
+我想玩骰子，而不是跳蛋。
+Thanks, now I can concentrate on what matters.
+謝謝，現在我可以專注於重要的事情了。
+Woe to the vanquished.
+敗者有禍。
+Finally, I'm back on firm ground.
+終於，我回到了地面上了。
+Welcome to the Gambling Hall. Shall we play a game?
+歡迎來到賭博大廳。我們要來局遊戲嗎？
+###_PLAYER
+Hello, I'm DialogPlayerName.  Pleased to meet you.
+你好，我是DialogPlayerName。很高興見到你。
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName.
+也很高興認識你。我是DialogCharacterName。
+###_PLAYER
+What's going on here?
+這裡在做什麼？
+###_NPC
+In the Gambling Hall we play kinky games of chance.
+在賭博大廳裡，我們玩古怪的機會遊戲。
+###_PLAYER
+Let's play a simple dice game.
+我們玩一個簡單的骰子遊戲吧。
+###_NPC
+Let's play, good luck!
+來玩吧，祝你好運！
+###_PLAYER
+(Struggle in your restraints.)
+（在你的束縛中掙扎。）
+###_NPC
+Are you having fun?
+你玩的高興嗎？
+(She checks your locks.)  I'm sorry, there's not much I can do.
+（她檢查你的鎖。）對不起，我無能為力。
+###_PLAYER
+(Play by your own rules.)
+（按你自己的規則玩。）
+###_NPC
+(She looks expectant.)
+（她看起來很期待。）
+###_PLAYER
+Let's play fifteen and six.
+我們玩十五加六吧。
+###_NPC
+(She gives you three dice.)
+（她給了你三個骰子。）
+###_PLAYER
+Let's play Toothpick.
+我們玩取牙籤吧。
+###_NPC
+(She lays out 15 toothpicks.) Your turn sweetie.
+（她拿出15根牙籤）輪到你了，親愛的。
+###_PLAYER
+I'd like to ask you some questions.
+我想問你一些問題。
+###_NPC
+Don't be shy.  How can I help you?
+別害羞。有什麼可以幫你？
+###_PLAYER
+Which games can I play here?
+我可以在這裡玩哪些遊戲？
+###_NPC
+That depends on your reputation. Only a simple dice game at first.
+這取決於你的聲譽。起初只有一個簡單的骰子遊戲。
+###_PLAYER
+Can you explain the rules to me?
+你能給我解釋一下規則嗎？
+###_NPC
+Of course, which game are you interested in?
+當然，你對哪個遊戲感興趣？
+###_PLAYER
+Can I get better at the games?
+我能在遊戲中變得更好嗎？
+###_NPC
+No, they are games of chance.
+不，這都是比運氣的遊戲。
+###_PLAYER
+How do I get reputation?
+如何獲得聲望？
+###_NPC
+By winning games.
+通過贏得比賽。
+###_PLAYER
+Can I tie you up?
+我可以綁你嗎？
+###_NPC
+Only if you win a game.
+只要你贏了一場比賽。
+###_PLAYER
+Will you restrain me?
+你會綁住我嗎？
+###_NPC
+Most certainly, if I win.
+那是當然，只要我贏了。
+###_PLAYER
+I don't have any more questions.
+我沒有別的問題了。
+###_NPC
+Alright. Shall we play a game?
+好吧。我們要來局遊戲嗎？
+###_PLAYER
+(Listen.)
+（聽。）
+###_NPC
+At a higher reputation you'll get to play fifteen and six, and eventually more games with other players.
+在更高的聲譽下，你將可以玩十五加六次，並最終可以和其他玩家進行更多遊戲。
+###_PLAYER
+What are the rules of the simple dice game?
+簡單骰子遊戲的規則是什麼？
+###_NPC
+We both roll a die. Whoever has the higher number may tie the opponent.
+我們一起擲骰子。誰骰出更高的數字，誰就可以綁對手。
+###_PLAYER
+What are the rules of fifteen and six?
+十五加六的規則是什麼？
+###_NPC
+You roll three or more dice and count the points. Then I roll, and whoever has the most points wins.
+你擲三個或更多骰子並計算點數。然後我擲骰子，得分最多的人獲勝。
+###_PLAYER
+What are the rules of Toothpick?
+牙籤的規則是什麼？
+###_NPC
+I put down 15 toothpicks. We will then alternately take one, two or three of them.
+我放下15根牙籤。然後我們將輪流從其中拿走一根、兩根或三根。
+###_PLAYER
+(Tickle her.)
+（給她搔搔癢。）
+###_NPC
+(You tickle her around the underarms and rubs.  She giggles, laughs and cries a little.)
+（你在她的腋下搔癢並揉搓。她呵呵地笑，大聲地笑起來，甚至稍稍哭出來。）
+###_PLAYER
+(Kiss her.)
+（親她。）
+###_NPC
+(You put your hand behind her head and pull her to your lips for a long and kinky kiss.)
+（你把手放在她的腦後，把她拉到你的唇邊，給了她一個又長又色情的吻。）
+###_PLAYER
+(Fondle her.)
+（撫摸她。）
+###_NPC
+(You playfully tease her breasts as she gasps softly and blushes.)
+（你調皮地逗弄她的乳房，她輕聲喘息並臉紅起來。）
+###_PLAYER
+(Slap her.)
+（打她一巴掌。）
+###_NPC
+(You swiftly slap her on the face.  She bows down her head and whimpers.)
+（你迅速扇了她一巴掌。她低下頭，嗚咽著。）
+###_PLAYER
+(Spank her.)
+（拍打她。）
+###_NPC
+(You spank her hard on the butt and she jumps from the pain.)
+（你用力拍打她的屁股，她因為疼痛而跳了起來。）
+###_PLAYER
+(End the game.)
+（結束遊戲。）
+###_NPC
+(You take a step back and she looks surprised.)
+（你退後一步，她看起來很驚訝。）
+If you go over 21 points you instantly lose the round.
+如果你超過21點，你將立即輸掉這一輪。
+Every round the loser strips. If they have no clothes left, they get a little more tied up.
+每一輪的失敗者會脫衣服。如果沒有衣服能脫了，失敗者就會被進一步綁起來。
+Whoever takes the last one has lost the game and gets tied up.
+誰拿走最後一個，誰就輸掉遊戲，並要被綁起來。
+###_PLAYER
+Let's talk later.  (Leave her.)
+以後再說吧。（離開她。）
+Please Miss, can you release me?
+求求你，女士，你能放開我嗎？
+###_NPC
+Let's see what the dice say...
+讓我們看看骰子怎麼說……
+(She shows you her restraints.)
+（她向你展示了她的束縛。）
+(She giggles.)  Well someone seems to be having fun.
+（她呵呵地笑。）好吧，似乎有人玩得很開心。
+###_PLAYER
+(Whimper and make pleading eyes.)
+（嗚咽並做出懇求的眼神。）
+###_NPC
+Do you need help?
+你需要幫助嗎？
+###_PLAYER
+(Whimper and squirm.)
+（嗚咽並蠕動。）
+(Nod yes.)
+（點頭是的。）
+###_NPC
+Let's let the dice decide...
+讓骰子決定吧……
+###_PLAYER
+(Frown at her.)
+（對她皺眉。）
+###_NPC
+Fine, you can stay like that if you want.
+好吧，如果你願意，你可以保持這樣。
+###_PLAYER
+Yes, of course.
+是的，當然。
+(Look angry.)
+（表現得很生氣。）
+No, please! No dice!
+不，謝謝！沒有骰子！
+###_NPC
+Fine, stay like that then.
+好吧，那就保持這樣吧。
+###_PLAYER
+(Shake your head.)
+（搖頭。）
+###_NPC
+Oh, you want to stay as you are? Fine with me.
+哦，你想保持這樣嗎？我都可以哦。
+###_PLAYER
+Yeah, I won!
+好耶，我贏了！
+###_NPC
+You were lucky. I guess you get to tie me up.
+你很幸運。我猜你接下來會把我綁起來。
+###_PLAYER
+Dammit! You win.
+該死！你贏了。
+###_NPC
+I want to test some items...
+我想試一試一些物品……
+###_PLAYER
+It's a draw.
+這是個平局。
+###_NPC
+ I'll definitely win next time!
+下次我一定會贏的！
+###_PLAYER
+I want to add a die.
+我想加一個骰子。
+###_NPC
+(She gives you another die.)
+（她給了你另一個骰子。）
+###_PLAYER
+3 points are enough.
+3點夠了。
+###_NPC
+My roll.
+到我擲骰了。
+###_PLAYER
+4 points are enough.
+4點夠了。
+5 points are enough.
+5點夠了。
+6 points are enough.
+6點夠了。
+7 points are enough.
+7點夠了。
+8 points are enough.
+8點夠了。
+9 points are enough.
+9點夠了。
+10 points are enough.
+10點夠了。
+11 points are enough.
+11點夠了。
+12 points are enough.
+12點夠了。
+13 points are enough.
+13點夠了。
+14 points are enough.
+14點夠了。
+15 points are enough.
+15點夠了。
+16 points are enough.
+16點夠了。
+17 points are enough.
+17點夠了。
+18 points are enough.
+18點夠了。
+19 points are enough.
+19點夠了。
+20 points are enough.
+20點夠了。
+21 points are enough.
+21點夠了。
+22 points. Oh shit, I lost!
+22點。哦不，我輸了！
+###_NPC
+(She grins.)
+（她咧嘴笑起來。）
+###_PLAYER
+23 points. Oh shit, I lost!
+23點。哦不，我輸了！
+24 points. Oh shit, I lost!
+24點。哦不，我輸了！
+25 points. Oh shit, I lost!
+25點。哦不，我輸了！
+26 points. Oh shit, I lost!
+26點。哦不，我輸了！
+I win. Take off those accessories.
+我贏了。脫掉那些配飾吧。
+###_NPC
+(She takes all her accessories off.)
+（她脫掉了身上所有的配飾。）
+###_PLAYER
+I win. Time to lose those clothes.
+我贏了。你該輸掉那些衣服了。
+###_NPC
+(She takes her clothes off.)
+（她脫掉衣服。）
+###_PLAYER
+I win. You should slip out of that underwear.
+我贏了。你應該脫掉那條內衣。
+###_NPC
+(She removes her underwear.)
+（她脫下內衣。）
+###_PLAYER
+I win. Let's secure your legs first.
+我贏了。讓我們先固定你的腿。
+###_NPC
+(She nods slowly while you tie her legs.)
+（你綁住她的腿，她慢慢地點點頭。）
+###_PLAYER
+I win. You don't need to use your arms for this game.
+我贏了。你在這場遊戲裡不再需要使用你的手臂了。
+###_NPC
+(She struggles while you bind her arms behind her back.)
+（你把她的手臂綁在背後，她掙扎著。）
+###_PLAYER
+I win. Come on, open up.
+我贏了。來吧，張開嘴。
+###_NPC
+(She reluctantly accepts the gag.)
+（她不情願地接受了口塞。）
+###_PLAYER
+Oh, I lost. (Take off your accessories.)
+哦，我輸了。（脫下你的配飾。）
+Oh, I lost. (Take off your clothes.)
+哦，我輸了。（脫掉衣服。）
+###_NPC
+Whoops, time to lose some clothes!
+哎呀，是時候輸掉衣服了！
+###_PLAYER
+Oh, I lost. (Take off your underwear.)
+哦，我輸了。（脫掉你的內衣。）
+###_NPC
+Are you starting to feel exposed?
+你開始感到暴露身體了嗎？
+###_PLAYER
+Oh, I lost. (Let her tie your legs.)
+哦，我輸了。（讓她綁住你的腿。）
+###_NPC
+Looks like you're not going anywhere.
+看來你哪裡也去不了啦。
+###_PLAYER
+Oh, I lost. (Let her tie your arms.)
+哦，我輸了。（讓她綁住你的手臂。）
+###_NPC
+Not much left until you can't move at all...
+很快你就會完全動彈不得……
+###_PLAYER
+Oh, I lost. (Open your mouth and let her gag you)
+哦，我輸了。（張開嘴，讓她塞住你的嘴）
+###_NPC
+You lose! Open up, it's time for a gag...
+你輸了！張開嘴，是時候給你戴上口塞了……
+###_PLAYER
+I'll take one.
+我要拿走一根。
+###_NPC
+(She nods.)
+（她點頭。）
+###_PLAYER
+I'll take two.
+我要拿走兩根。
+I'll take three.
+我要拿走三根。
+I give up. (Let her tie you up.)
+我放棄。（讓她把你綁起來。）
+###_NPC
+(She smiles.) What do you mean?
+（她露出微笑。）你的意思是？
+###_PLAYER
+I surrender.
+我投降。
+###_NPC
+(She smiles.)
+（她露出微笑。）
+(She nods.) I'll take one.
+（她點點頭。）我要拿走一根。
+(She nods.) I'll take two.
+（她點點頭。）我要拿走兩根。
+(She nods.) I'll take three.
+（她點點頭。）我要拿走三根。
+(She struggles in her restraints.)  Can you release me?
+（她在束縛中掙扎。）你能放開我嗎？
+###_PLAYER
+I'll go find some help.  (Leave her.)
+我去尋求幫助。（離開她。）
+What happened here?
+這裡發生了什麼事？
+###_NPC
+I lost a game and the winner left me!
+我輸了一場比賽，贏家把我留在這裡了！
+Yes please, can you release us all?
+是的，請你釋放我們所有人，好嗎？
+###_PLAYER
+Is everything alright now?
+現在一切都好嗎？
+###_NPC
+Yeah, you've taken care of everything!  Please send my regards to the maids of the sorority.
+是的，你已經照顧好了一切！請轉達我對聯誼會女僕的問候。
+###_PLAYER
+Great!  A chore well done.
+太棒了！工作完成。
+###_NPC
+Absolutely.  Is there something I can do for you?
+當然。有什麼我可以為你做的嗎？
+###_PLAYER
+No problem.  We are here to serve you.
+沒問題。我們在這裡為你服務。
+###_NPC
+I like the sound of that!  Is there something I can do for you?
+我喜歡那個的聲音！有什麼我可以為你做的嗎？
+###_PLAYER
+Alright, but be more careful next time.
+好吧，但下次要小心點。
+###_NPC
+I will, thank you.  Is there something I can do for you?
+我會的，感謝你。有什麼我可以為你做的嗎？
+(She gets close to you for a long and loving kiss on your lips.)  Mmmmmmmmh...
+（她靠近你，在你的嘴唇上留下了一個長長的充滿愛意的吻。）嗯嗯嗯……
+###_PLAYER
+That's not fair!
+這不公平！
+You have wonderful lips...
+你的嘴唇真美……
+(Close your eyes and kiss back.)
+（閉上眼睛，回吻。）
+(Close your eyes and moan into your gag.)
+（閉上眼睛，在口塞裡呻吟著。）
+(Push your tongue inside.)
+（把你的舌頭伸進去。）
+(Push your tongue into your gag.)
+（用你的舌頭抵住口塞。）
+(Stay silent and cold.)
+（保持沉默和冷靜。）
+###_NPC
+(She harshly slaps your face) How does it feel to be mine?
+（她狠狠地扇你的臉。）成為我的東西的感覺如何？
+###_PLAYER
+Hey!  That really hurts!
+嘿！那真的很痛！
+You'll know true pain after your next downfall.
+在你下一次失敗後，你會知道真正的痛苦。
+(Whimper from the pain.)
+（因疼痛而嗚咽。）
+(Thrash around in your bondage.)
+（在你的束縛中胡亂掙扎。）
+(Pretend it doesn't hurt.)
+（假裝不痛。）
+###_NPC
+(She gets closer and starts to tickle you without mercy.)  Are you ticklish?
+（她靠得更近了，並開始毫不留情地撓你。）你怕癢嗎？
+###_PLAYER
+Eeeeeeaahahahaha!  Stop it!  Hahaahaahi.
+呃呃額啊啊哈哈哈哈！停下！哈哈哈啊哈嘻。
+(Laugh out loud.)
+（笑出聲來。）
+(Scream into your gag.)
+（在你的口塞裡尖叫。）
+(Try to pretend you're not ticklish.)
+（試著假裝你不怕癢。）
+###_NPC
+(She caresses and fondles your body and breasts slowly.)  Mmmmmm I could do this all day!
+（她慢慢地摸並撫弄你的身體和乳房。）嗯嗯，這我可以做一整天！
+###_PLAYER
+If you release me I'll touch you back.
+如果你放開我，我會摸摸你的。
+Miss!  Is that proper?
+女士！這合適嗎？
+(Moan with pleasure.)
+（愉快地呻吟著。）
+(Shiver in your restraints.)
+（在你的束縛中顫抖。）
+###_NPC
+(She raises her hand and spanks you many times on the butt.)  Take the pain, girl!
+（她舉起手在你屁股上打了好幾下）忍著痛吧，女孩！
+###_PLAYER
+You'll get that back!
+你會為這下報仇的！
+###_NPC
+(She releases you and sighs.)  Enjoy the freedom while you have it.
+（她鬆開了你，嘆了口氣。）享受自由吧。
+(She slaps your butt and giggles)  I'll let you sort out your own problems...
+（她拍拍你的屁股，呵呵地笑）我會讓你自己解決你的問題……
+###_PLAYER
+Take care.
+多保重。
+###_NPC
+Welcome to the Gambling Hall.  Shall we play a game?
+歡迎來到賭場。我們要來局遊戲嗎？
+###_PLAYER
+I'll get you next time.
+下次，我會搞定你的。
+Thanks!  That was fun.
+謝謝！剛才很有趣。
+(Leave her.)
+（離開她。）

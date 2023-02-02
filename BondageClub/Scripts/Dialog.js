@@ -233,8 +233,9 @@ function DialogFullRandomRestrain(C) { CharacterFullRandomRestrain(DialogGetChar
 
 /**
  * Checks, if a specific log has been registered with the player
- * @param {string} LogType - The name of the log to search for
- * @param {string} LogGroup - The name of the log group
+ * @template {LogGroupType} T
+ * @param {LogNameType[T]} LogType - The name of the log to search for
+ * @param {T} LogGroup - The name of the log group
  * @returns {boolean} - Returns true, if a specific log is registered
  */
 function DialogLogQuery(LogType, LogGroup) { return LogQuery(LogType, LogGroup); }
@@ -689,6 +690,9 @@ function DialogLeaveFocusItem() {
 function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 	if (!DialogItemPermissionMode) {
 		const asset = item.Asset;
+
+		if (!isWorn && !asset.Enable)
+			return;
 
 		// Make sure we do not add owner/lover only items for invalid characters, owner/lover locks can be applied on the player by the player for self-bondage
 		if (asset.OwnerOnly && !isWorn && !C.IsOwnedByPlayer())
@@ -1750,7 +1754,7 @@ function DialogClick() {
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
 					const type = (act.Item && act.Item.Property ? act.Item.Property.Type : null);
 					if (!act.Blocked || act.Blocked === "limited" && InventoryCheckLimitedPermission(C, act.Item, type)) {
-						if (C.IsNpc()) {
+						if (C.IsNpc() && act.Item) {
 							let Line = C.FocusGroup.Name + act.Item.Asset.DynamicName(Player);
 							let D = DialogFind(C, Line, null, false);
 							if (D != "") {
