@@ -2109,6 +2109,8 @@ interface ExtendedItemOption {
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	/** A buy group to check for that option to be available */
+	PrerequisiteBuyGroup?: string;
 	/**
 	 * A unique (automatically assigned) identifier of the struct type
 	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
