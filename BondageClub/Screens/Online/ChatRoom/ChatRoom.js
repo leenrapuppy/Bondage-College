@@ -2181,6 +2181,9 @@ function ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNext
 
 /**
  * Updates an item on character for everyone in a chat room - replaces ChatRoomCharacterUpdate to cut on the lag.
+ *
+ * DO NOT USE. The server doesn't persist changes made that way to the database.
+ *
  * @param {Character} C - Character to update.
  * @param {string} [Group] - Item group to update.
  * @returns {void} - Nothing.

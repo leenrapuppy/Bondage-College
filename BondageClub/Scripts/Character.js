@@ -1851,15 +1851,7 @@ function CharacterClearOwnership(C) {
 	}
 
 	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
-	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item, {
-		C,
-		fromSelf: true,
-		fromOwner: false,
-		fromLover: false,
-		fromFriend: false,
-		fromWhitelist: false,
-		sourceMemberNumber: C.MemberNumber,
-	}, null));
+	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
 	CharacterRefresh(C);
 }
 
@@ -1979,4 +1971,41 @@ function CharacterRefreshLeash(C) {
 
 		ChatRoomCharacterUpdate(Player);
 	}
+}
+
+/**
+ * Create and return a character's script item, if appropriate
+ * @param {Character} C
+ * @returns {Item}
+ */
+function CharacterScriptGet(C) {
+	let script = InventoryGet(C, "ItemScript");
+	if (!script) {
+		InventoryWear(C, "Script", "ItemScript");
+		script = InventoryGet(C, "ItemScript");
+	}
+
+	script.Property = script.Property || {};
+	// Propagate change and try to reload the item. If the script permissions
+	// on the target were wrong, then it'll be null
+	CharacterScriptRefresh(C);
+
+	script = InventoryGet(C, "ItemScript");
+	return script;
+}
+
+/**
+ * Refresh the character's script
+ * @param {Character} C
+ */
+function CharacterScriptRefresh(C) {
+	ChatRoomCharacterUpdate(C);
+}
+
+/**
+ * Remove a character's script item
+ * @param {Character} C
+ */
+function CharacterScriptRemove(C) {
+	InventoryRemove(C, "ItemScript", true);
 }
