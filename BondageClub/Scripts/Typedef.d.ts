@@ -199,7 +199,10 @@ type EffectName =
 
 	"BlockMouth" | "OpenMouth" |
 
-	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" | "GagTotal2" |
+	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" |
+
+	// Those are only supposed to be "transient", as in, they appear because of stacked gags
+	"GagTotal2" | "GagTotal3" | "GagTotal4" |
 
 	"BlindLight" | "BlindNormal" | "BlindHeavy" | "BlindTotal" |
 	"BlurLight" | "BlurNormal" | "BlurHeavy" | "BlurTotal" |
@@ -1103,8 +1106,8 @@ interface Item {
 }
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
-
-type InventoryIcon = FavoriteIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
+type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
+type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
 
 interface DialogInventoryItem extends Item {
 	Worn: boolean;
