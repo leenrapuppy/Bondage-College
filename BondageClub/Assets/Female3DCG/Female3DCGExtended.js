@@ -425,25 +425,25 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Hood", Key: "h",
 						Options: [
-						{}, //h0 - Down
-						{}, //h1 - Up Regular
-						{}, //h2 - Up Ears
+							{}, //h0 - Down
+							{}, //h1 - Up Regular
+							{}, //h2 - Up Ears
 						],
 					},
 					{
 						Name: "Length", Key: "l", DrawImages: false,
 						Options: [
-						{}, //l0 - Cropped
-						{}, //l1 - Bolero
+							{}, //l0 - Cropped
+							{}, //l1 - Bolero
 						//{}, //l2 - Full Length - not yet implemented
 						],
 					},
 					//{
-					//	Name: "Pouch", Key: "p", // Pouch option not yet implemented
-					//	Options: [
-					//	{}, //p0 - Hands Out
-					//	{}, //p1 - Hands In
-					//	],
+					// Name: "Pouch", Key: "p", // Pouch option not yet implemented
+					// Options: [
+					// {}, //p0 - Hands Out
+					// {}, //p1 - Hands In
+					// ],
 					//},
 				],
 			},
@@ -3423,98 +3423,98 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // m8 - Round Mouth Opaque, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m9 - Round Mouth Opaque, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m10 - Round Mouth Opaque, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m11 - Round Mouth Opaque, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m12 - Shaped Mouth Opaque, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m13 - Shaped Mouth Opaque, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m14 - Shaped Mouth Opaque, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m15 - Shaped Mouth Opaque, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m16 - Round Mouth Transparent, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m17 - Round Mouth Transparent, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m18 - Round Mouth Transparent, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m19 - Round Mouth Transparent, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m20 - Shaped Mouth Transparent, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m21 - Shaped Mouth Transparent, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m22 - Shaped Mouth Transparent, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m23 - Shaped Mouth Transparent, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m24 - Open
@@ -3701,10 +3701,10 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Modules: [
 					{
-					Name: "Nose", Key: "n",
-					Options:
+						Name: "Nose", Key: "n",
+						Options:
 						[
-							{}, // n0 - none								
+							{}, // n0 - none
 							{}, // n1 - septum ring
 							{}, // n2 - stud right
 							{}, // n3 - stud left
@@ -3713,10 +3713,10 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
-					Name: "Ears", Key: "e",
-					Options:
+						Name: "Ears", Key: "e",
+						Options:
 						[
-							{}, // e0 - none								
+							{}, // e0 - none
 							{}, // e1 - stud both
 							{}, // e2 - stud right
 							{}, // e3 - stud left
@@ -3729,10 +3729,10 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
-					Name: "Face", Key: "f",
-					Options:
+						Name: "Face", Key: "f",
+						Options:
 						[
-							{}, // f0 - none								
+							{}, // f0 - none
 							{}, // f1 - dermals both
 							{}, // f2 - dermals right
 							{}, // f3 - dermals left
@@ -3748,39 +3748,39 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
 				Options: [
-					{ 
-						Name: "NoPierce", 
-						Property: { Type: null } 
+					{
+						Name: "NoPierce",
+						Property: { Type: null }
 					},
-					{ 
-						Name: "BarRight", 
-						Property: { Type: "BarRight" }, 
-						PrerequisiteBuyGroup: "JewelrySet" 
+					{
+						Name: "BarRight",
+						Property: { Type: "BarRight" },
+						PrerequisiteBuyGroup: "JewelrySet"
 					},
-					{ 
-						Name: "BarLeft", 
-						Property: { Type: "BarLeft" }, 
-						PrerequisiteBuyGroup: "JewelrySet" 
+					{
+						Name: "BarLeft",
+						Property: { Type: "BarLeft" },
+						PrerequisiteBuyGroup: "JewelrySet"
 					},
-					{ 
-						Name: "BarBoth", 
-						Property: { Type: "BarBoth" }, 
-						PrerequisiteBuyGroup: "JewelrySet" 
+					{
+						Name: "BarBoth",
+						Property: { Type: "BarBoth" },
+						PrerequisiteBuyGroup: "JewelrySet"
 					},
-					{ 
-						Name: "RingRight", 
-						Property: { Type: "RingRight" }, 
-						PrerequisiteBuyGroup: "JewelrySet" 
+					{
+						Name: "RingRight",
+						Property: { Type: "RingRight" },
+						PrerequisiteBuyGroup: "JewelrySet"
 					},
-					{ 
-						Name: "RingLeft", 
-						Property: { Type: "RingLeft" }, 
-						PrerequisiteBuyGroup: "JewelrySet" 
+					{
+						Name: "RingLeft",
+						Property: { Type: "RingLeft" },
+						PrerequisiteBuyGroup: "JewelrySet"
 					},
-					{ 
-						Name: "RingBoth", 
-						Property: { Type: "RingBoth" }, 
-						PrerequisiteBuyGroup: "JewelrySet" 
+					{
+						Name: "RingBoth",
+						Property: { Type: "RingBoth" },
+						PrerequisiteBuyGroup: "JewelrySet"
 					},
 				]
 			},
