@@ -43,7 +43,7 @@ function C009_Library_Yuki_Load() {
 	C009_Library_Yuki_CanAskForDoor = (C009_Library_Library_FoundLockedDoor && !C009_Library_Library_DoorOpen);
 	if ((C009_Library_Yuki_CurrentStage >= 500) && (C009_Library_Yuki_CurrentStage < 600)) C009_Library_Library_CurrentZone = "008";
 	else C009_Library_Library_CurrentZone = "007";
-	
+
 	// A few variables on what already happened
 	C009_Library_Yuki_PenInHole = (C009_Library_Search_PenInHole && !GameLogQuery("C009_Library", "Yuki", "StuckInHole") && C009_Library_Yuki_PenAvail);
 	C009_Library_Yuki_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
@@ -67,7 +67,7 @@ function C009_Library_Yuki_Load() {
 	if ((C009_Library_Yuki_CurrentStage == 0) && C009_Library_Yuki_IsolationMildred) C009_Library_Yuki_CurrentStage = 50;
 	if ((C009_Library_Yuki_CurrentStage == 0) && C009_Library_Yuki_DetentionFighting) C009_Library_Yuki_CurrentStage = 60;
 	if ((C009_Library_Yuki_CurrentStage == 0) && C009_Library_Yuki_DetentionBondage) C009_Library_Yuki_CurrentStage = 70;
-	
+
 	// The player can pleasure Yuki if love + seduction * 2 >= 5 and no chastity belt
 	C009_Library_Yuki_CanPleasure = (!C009_Library_Yuki_PleasureDone && !ActorIsChaste() && (ActorGetValue(ActorLove) + (PlayerGetSkillLevel("Seduction") * 2) >= 5));
 
@@ -105,13 +105,13 @@ function C009_Library_Yuki_Click() {
 	// Regular and inventory interactions
 	ClickInteraction(C009_Library_Yuki_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Allows the player to access the menu if she could leave the scene
 	if ((ClickInv == "Player") && (LeaveIcon != "")) {
 		C009_Library_Yuki_IntroText = OverridenIntroText;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// The player can slide an egg in Yuki if she's stuck in the hole with no panties
 	if ((ClickInv == "VibratingEgg") && !ActorHasInventory("ChastityBelt") && !ActorHasInventory("VibratingEgg") && (C009_Library_Yuki_CurrentStage == 510) && !Common_PlayerRestrained) {
 		OverridenIntroText = GetText("VibratingEggInHole");
@@ -155,7 +155,7 @@ function C009_Library_Yuki_Click() {
 		C009_Library_Yuki_CurrentStage = 520;
 		CurrentTime = CurrentTime + 50000;
 	}
-	
+
 	// If an item is used while Yuki is sleeping, she will wake up
 	if ((ClickInv != "Player") && (ClickInv != "") && (C009_Library_Yuki_CurrentStage == 410) && !Common_PlayerRestrained) {
 		C009_Library_Yuki_Wake();
@@ -163,7 +163,7 @@ function C009_Library_Yuki_Click() {
 		OverridenIntroText = GetText("ItemWakeUp");
 		GameLogAdd("DrugAwake");
 	}
-	
+
 }
 
 // Chapter 9 Library - Yuki - When the player leaves to find her book
@@ -241,7 +241,7 @@ function C009_Library_Yuki_GagPlayer() {
 
 // Chapter 9 Library - Wait 2 minutes
 function C009_Library_Yuki_TwoMinutes() {
-	CurrentTime = CurrentTime + 110000;	
+	CurrentTime = CurrentTime + 110000;
 }
 
 // Chapter 9 Library - Yuki Tickle
@@ -300,7 +300,7 @@ function C009_Library_Yuki_TestSleep() {
 		OverridenIntroText = GetText("DizzySleep");
 		C009_Library_Yuki_CurrentStage = 400;
 		ActorSetPose("Sleepy");
-		CurrentTime = CurrentTime + 50000;		
+		CurrentTime = CurrentTime + 50000;
 		LeaveIcon = "Leave";
 	}
 }
@@ -388,9 +388,9 @@ function C009_Library_Yuki_TestPullAway() {
 	} else C009_Library_Yuki_NoPleasure();
 }
 
-// Chapter 9 Library - Yuki Pleasure 
+// Chapter 9 Library - Yuki Pleasure
 function C009_Library_Yuki_Pleasure(PleasureType) {
-	
+
 	// The player must pleasure her in 3 different ways and at least 5 times to make her climax)
 	if (PleasureType == 1) C009_Library_Yuki_Pleasure1++;
 	if (PleasureType == 2) C009_Library_Yuki_Pleasure2++;
@@ -398,7 +398,7 @@ function C009_Library_Yuki_Pleasure(PleasureType) {
 	if (PleasureType == 4) C009_Library_Yuki_Pleasure4++;
 	if (PleasureType == 5) C009_Library_Yuki_Pleasure5++;
 	if ((C009_Library_Yuki_Pleasure1 > 0) && (C009_Library_Yuki_Pleasure2 > 0) && (C009_Library_Yuki_Pleasure3 > 0) && (C009_Library_Yuki_Pleasure4 > 0) && (C009_Library_Yuki_Pleasure5 > 0) && (C009_Library_Yuki_Pleasure1 + C009_Library_Yuki_Pleasure2 + C009_Library_Yuki_Pleasure3 + C009_Library_Yuki_Pleasure4 + C009_Library_Yuki_Pleasure5 >= 5)) {
-		
+
 		// Yuki gets an orgasm
 		Common_PlayerPose = "KneelPleasureToYukiOrgasm";
 		OverridenIntroText = GetText("DeskOrgasm");
@@ -407,9 +407,9 @@ function C009_Library_Yuki_Pleasure(PleasureType) {
 		ActorChangeAttitude(2, 0);
 		ActorAddOrgasm();
 		C009_Library_Yuki_LittlePet = true;
-		
+
 	} else {
-		
+
 		// If the player took too long to try all 3 pleasures, she gives up
 		if (C009_Library_Yuki_Pleasure1 + C009_Library_Yuki_Pleasure2 + C009_Library_Yuki_Pleasure3 + C009_Library_Yuki_Pleasure4 + C009_Library_Yuki_Pleasure5 >= 7) {
 			OverridenIntroText = GetText("StopPleasure");
@@ -420,13 +420,13 @@ function C009_Library_Yuki_Pleasure(PleasureType) {
 			Common_PlayerPose = "";
 			C009_Library_Yuki_CurrentStage = 750;
 		}
-		
+
 	}
 }
 
 // Chapter 9 Library - Yuki, stops the pleasure dialog
 function C009_Library_Yuki_StopPleasure() {
-	
+
 	// Release the player
 	C009_Library_Yuki_NoPleasure();
 	ActorSetPose("");
@@ -438,5 +438,5 @@ function C009_Library_Yuki_StopPleasure() {
 		C009_Library_Yuki_CurrentStage = 400;
 		ActorSetPose("Sleepy");
 	}
-	
+
 }

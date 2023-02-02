@@ -34,7 +34,7 @@ var C101_KinbakuClub_SlaveTwin_Masturbation = 0;
 var C101_KinbakuClub_SlaveTwin_ImagineBoyfriend = false;
 var C101_KinbakuClub_SlaveTwin_NeitherGagged = true;		// Both must be ungagged to kiss.
 var C101_KinbakuClub_SlaveTwin_JustBoundOrGagged = false;	// Twin won't release you if she just bound or gagged you.
-var C101_KinbakuClub_SlaveTwin_HeatherResetDone = false;	// for reseting VarReq if talking to heather and you know it.
+var C101_KinbakuClub_SlaveTwin_HeatherResetDone = false;	// for resetting VarReq if talking to Heather and you know it.
 
 // Calculates the scene parameters
 function C101_KinbakuClub_SlaveTwin_CalcParams() {
@@ -87,7 +87,7 @@ function C101_KinbakuClub_SlaveTwin_Load() {
 		if (ActorHasInventory("Blindfold")) C101_KinbakuClub_SlaveTwin_CurrentStage = 6;
 	}
 	if (!Common_PlayerRestrained && (C101_KinbakuClub_SlaveTwin_CurrentStage == 5 || C101_KinbakuClub_SlaveTwin_CurrentStage == 6)) C101_KinbakuClub_SlaveTwin_CurrentStage = 10;
-	
+
 	// reset talking options if talking to Heather when you know it's her after talking to her as unknown
 	if (ActorGetValue(ActorName) == "Heather" && ActorGetValue(ActorHideName) == false && !C101_KinbakuClub_SlaveTwin_HeatherResetDone) {
 		C101_KinbakuClub_SlaveTwin_HeatherResetDone = true;
@@ -198,9 +198,9 @@ function C101_KinbakuClub_SlaveTwin_Click() {
 	// Regular and inventory interactions
 	ClickInteraction(C101_KinbakuClub_SlaveTwin_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	if (C101_KinbakuClub_SlaveTwin_CurrentStage >= 10 && C101_KinbakuClub_SlaveTwin_CurrentStage <= 390 && (ActorIsRestrained() || !C101_KinbakuClub_SlaveTwin_PlayerIsTooSubmissive)) {
-		
+
 		//Cuffs key removes all gags and ropes
 		if ((ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
 			ActorUngag();
@@ -211,7 +211,7 @@ function C101_KinbakuClub_SlaveTwin_Click() {
 				PlayerAddInventory("Rope", 1);
 			}
 		}
-		
+
 		ActorApplyRestrain(ClickInv);
 
 		// Applying rope
@@ -265,9 +265,9 @@ function C101_KinbakuClub_SlaveTwin_Click() {
 	}
 
 	if (!ActorIsRestrained() && C101_KinbakuClub_SlaveTwin_PlayerIsTooSubmissive && ClickInv) C101_KinbakuClub_SlaveTwin_SubmissivePlayer();
-		
+
 	if (ActorIsGagged() && C101_KinbakuClub_SlaveTwin_CurrentStage == 20) C101_KinbakuClub_SlaveTwin_CurrentStage = 10;
-	
+
 	C101_KinbakuClub_SlaveTwin_CalcParams();
 }
 
@@ -366,7 +366,7 @@ function C101_KinbakuClub_SlaveTwin_AlmostFreed() {
 	}
 }
 
-// Chapter 101 - SlaveTwin - 
+// Chapter 101 - SlaveTwin -
 function C101_KinbakuClub_SlaveTwin_UntieLegs() {
 	ActorRemoveInventory("TwoRopes");
 	PlayerAddInventory("Rope", 1);
@@ -513,7 +513,7 @@ function C101_KinbakuClub_SlaveTwin_NoKidding() {
 			OverridenIntroText = GetText("SufferNoFools");
 			CurrentTime = CurrentTime + 60000;
 			C101_KinbakuClub_SlaveTwin_CurrentStage = 22;
-		} else OverridenIntroText = GetText("ShameNoItems");		
+		} else OverridenIntroText = GetText("ShameNoItems");
 	}
 }
 
@@ -588,7 +588,7 @@ function C101_KinbakuClub_SlaveTwin_Tickle() {
 			if (C101_KinbakuClub_SlaveTwin_TickleCount <= 2) ActorChangeAttitude(0, 1);
 			C101_KinbakuClub_SlaveTwin_TickleCount++
 		}
-	} 
+	}
 }
 
 // Chapter 101 - SlaveTwin - When the player goes to spank her

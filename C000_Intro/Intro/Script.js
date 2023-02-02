@@ -3,12 +3,12 @@ function C000_Intro_Intro_Load() {
 
 	// Time is always 7:40 on the intro, no timer
 	StopTimer(7.66666667 * 60 * 60 * 1000);
-	
+
 }
 
 // Intro Run
 function C000_Intro_Intro_Run() {
-	
+
 	// Paints the background
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 	DrawPlayerTransition();
@@ -44,5 +44,5 @@ function C000_Intro_Intro_KeyDown() {
 		PlayerAddInventory("VibratingEgg", 4);
 		PlayerAddInventory("ChastityBelt", 4);
 	}
-	
+
 }

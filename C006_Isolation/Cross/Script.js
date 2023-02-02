@@ -13,7 +13,7 @@ function C006_Isolation_Cross_Run() {
 }
 
 // Chapter 6 - Cross Click
-function C006_Isolation_Cross_Click() {	
+function C006_Isolation_Cross_Click() {
 	ClickInteraction(C006_Isolation_Cross_CurrentStage);
 }
 

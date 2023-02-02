@@ -1,6 +1,6 @@
 // Chapter 8 - Transition Load
 function C008_DramaClass_Transition_Load() {
-	
+
 	// Time is 13:30:00 at max in the transition, unlock if needed
 	if (CurrentTime >= 13.5 * 60 * 60 * 1000) CurrentTime = 13.5 * 60 * 60 * 1000;
 	StopTimer(CurrentTime);
@@ -15,7 +15,7 @@ function C008_DramaClass_Transition_Load() {
 	ActorLoad("Sarah", "");
 	ActorSpecificSetCloth("Sarah", C008_DramaClass_JuliaIntro_SarahRole);
 	LeaveIcon = "";
-	
+
 	// Resets the last bondage chapter for each so it counts again for chapter 8 part 2
 	for (var A = 0; A < Actor.length; A++)
 		Actor[A][ActorLastBondageChapter] = "NONE";
@@ -24,15 +24,15 @@ function C008_DramaClass_Transition_Load() {
 
 // Chapter 8 - Transition Run
 function C008_DramaClass_Transition_Run() {
-	
+
 	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Julia.jpg", 800, 0);
-	
+
 	// Sets if the transition is late or not
 	var LateForDrama = "Transition";
 	if (CurrentTime == 13.5 * 60 * 60 * 1000) LateForDrama = "Late";
-		
+
 	// Draw the outro text
 	DrawText(GetText(LateForDrama + "1"), 400, 150, "White");
 	if (TextPhase >= 1) DrawText(GetText(LateForDrama + "2"), 400, 300, "White");

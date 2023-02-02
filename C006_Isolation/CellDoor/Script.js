@@ -13,7 +13,7 @@ function C006_Isolation_CellDoor_Run() {
 }
 
 // Chapter 6 - Cell Door Click
-function C006_Isolation_CellDoor_Click() {	
+function C006_Isolation_CellDoor_Click() {
 
 	// Regular interactions
 	ClickInteraction(C006_Isolation_CellDoor_CurrentStage);

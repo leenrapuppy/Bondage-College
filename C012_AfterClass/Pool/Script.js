@@ -14,7 +14,7 @@ function C012_AfterClass_Pool_WhoInIsPool() {
 
 // Chapter 12 After Class - Pool Load
 function C012_AfterClass_Pool_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LoadInteractions();
 	Common_BondageAllowed = false;
@@ -34,10 +34,10 @@ function C012_AfterClass_Pool_Load() {
 
 // Chapter 12 After Class - Pool Run
 function C012_AfterClass_Pool_Run() {
-	
-	// Standard interactions 
+
+	// Standard interactions
 	BuildInteraction(C012_AfterClass_Pool_CurrentStage);
-	
+
 	// Renders a different image if Jennifer is in the pool
 	if ((C012_AfterClass_Pool_CurrentStage == 0) && C012_AfterClass_Pool_JenniferAvail) OverridenIntroImage = "PoolJenniferSwim.jpg";
 	else if ((C012_AfterClass_Pool_CurrentStage >= 200) && PlayerHasLockedInventory("Collar")) OverridenIntroImage = "PoolSwimWithJenniferCollar.jpg";
@@ -45,7 +45,7 @@ function C012_AfterClass_Pool_Run() {
 
 	// Renders the showering scene for the player
 	if (C012_AfterClass_Pool_CurrentStage == 101) DrawActor("Player", 650, -30, 0.9);
-	
+
 	// Renders the Jennifer/Bully scene
 	if ((C012_AfterClass_Pool_CurrentStage >= 110) && (C012_AfterClass_Pool_CurrentStage <= 199)) {
 		DrawActor("Jennifer", 725, 0, 1);
@@ -55,7 +55,7 @@ function C012_AfterClass_Pool_Run() {
 }
 
 // Chapter 12 After Class - Pool Click
-function C012_AfterClass_Pool_Click() {	
+function C012_AfterClass_Pool_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Pool_CurrentStage);
@@ -64,7 +64,7 @@ function C012_AfterClass_Pool_Click() {
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
 		C012_AfterClass_Pool_IntroText = OverridenIntroText;
-		C012_AfterClass_Pool_CurrentActor = CurrentActor; 
+		C012_AfterClass_Pool_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 
@@ -79,13 +79,13 @@ function C012_AfterClass_Pool_Leave() {
 
 // Chapter 12 After Class - Wait for a while and recalculate who's in the Pool
 function C012_AfterClass_Pool_Wait() {
-	CurrentTime = CurrentTime + 290000;	
+	CurrentTime = CurrentTime + 290000;
 	C012_AfterClass_Pool_WhoInIsPool();
 }
 
 // Chapter 12 After Class - Swim - Adds a counter and can raise sports level after 5 counters
 function C012_AfterClass_Pool_Swim() {
-	CurrentTime = CurrentTime + 290000;	
+	CurrentTime = CurrentTime + 290000;
 	C012_AfterClass_Pool_SwimCount++;
 	if ((C012_AfterClass_Pool_SwimCount >= 5) && !GameLogQuery(CurrentChapter, "", "LearnToSwim")) {
 		GameLogSpecificAdd(CurrentChapter, "", "LearnToSwim");
@@ -111,7 +111,7 @@ function C012_AfterClass_Pool_SearchShower() {
 		GameLogSpecificAdd(CurrentChapter, "Player", "PoolFindClothGag");
 		OverridenIntroText = GetText("FindClothGag");
 		PlayerAddInventory("ClothGag", 1);
-	}	
+	}
 }
 
 // Chapter 12 After Class - When the player enters the shower, it can trigger the Jennifer event between 19 and 22

@@ -13,10 +13,10 @@ function C001_BeforeClass_Sidney_Load() {
 	ActorLoad("Sidney", "Classroom");
 	LoadInteractions();
 	C001_BeforeClass_Sidney_AmandaInBondage = ActorSpecificHasInventory("Amanda", "Rope");
-	
+
 	// She resets back to the facing position if in bondage
 	if ((C001_BeforeClass_Sidney_CurrentStage >= 230) && (C001_BeforeClass_Sidney_CurrentStage <= 259)) C001_BeforeClass_Sidney_CurrentStage = 220;
-	
+
 }
 
 // Chapter 1 - Sidney Run
@@ -25,7 +25,7 @@ function C001_BeforeClass_Sidney_Run() {
 }
 
 // Chapter 1 - Sidney Click
-function C001_BeforeClass_Sidney_Click() {	
+function C001_BeforeClass_Sidney_Click() {
 
 	// Regular interaction
 	ClickInteraction(C001_BeforeClass_Sidney_CurrentStage);
@@ -36,11 +36,11 @@ function C001_BeforeClass_Sidney_Click() {
 		C001_BeforeClass_Sidney_CurrentStage = 200;
 		OverridenIntroText = GetText("MyRopes");
 	}
-	
+
 }
 
 // Chapter 1 - Sidney Fight
-function C001_BeforeClass_Sidney_Fight() {	
+function C001_BeforeClass_Sidney_Fight() {
 	SetScene(CurrentChapter, "FightIntro");
 }
 
@@ -62,7 +62,7 @@ function C001_BeforeClass_Sidney_Tie() {
 		ActorChangeAttitude(-1, 0);
 		OverridenIntroText = GetText("Bondage");
 		C001_BeforeClass_Sidney_BondageFlag = true;
-	}	
+	}
 }
 
 // Chapter 1 - Sidney Tickle

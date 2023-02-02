@@ -2,11 +2,11 @@ var C001_BeforeClass_Classroom_Mode = 0;
 
 // Chapter 1 - Classroom Load
 function C001_BeforeClass_Classroom_Load() {
-	
+
 	// Set the timer limits
 	StartTimer(8 * 60 * 60 * 1000, "C001_BeforeClass", "Outro");
 	Common_SelfBondageAllowed = false;
-	
+
 	// Set the screen background
 	if (ActorSpecificHasInventory("Amanda", "Rope") && ActorSpecificHasInventory("Sidney", "Rope")) C001_BeforeClass_Classroom_Mode = 3;
 	if (!ActorSpecificHasInventory("Amanda", "Rope") && ActorSpecificHasInventory("Sidney", "Rope")) C001_BeforeClass_Classroom_Mode = 2;

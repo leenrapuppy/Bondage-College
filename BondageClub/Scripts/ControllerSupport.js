@@ -1,6 +1,6 @@
 "use strict";
 /* eslint-disable no-redeclare */
-var ControllerButtonsX = [];//there probably is a way to use just one list, but i don't want to bother and this works anyway
+var ControllerButtonsX = [];//there probably is a way to use just one list, but I don't want to bother and this works anyway
 var ControllerButtonsY = [];
 var ControllerActive = true;
 var ControllerCurrentButton = 0;
@@ -57,7 +57,7 @@ function setButton(X, Y) {
 	}
 }
 /**
- * checks, wether a button is already in the lists (i realise now, that i could have used .includes but it works)
+ * checks, whether a button is already in the lists (I realize now, that I could have used .includes but it works)
  * @param {any} X X value of the button
  * @param {any} Y Y value of the button
  */

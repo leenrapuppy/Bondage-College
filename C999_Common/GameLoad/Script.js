@@ -9,12 +9,12 @@ function C999_Common_GameLoad_Load() {
 
 // Chapter Common - GameLoad Run
 function C999_Common_GameLoad_Run() {
-	
+
 	// Build the game loading screen
 	SaveStateSlotSummary();
 	BuildInteraction(C999_Common_GameLoad_CurrentStage);
 	DrawText(GetText("LoadGame"), 900, 420, "black");
-	
+
 }
 
 // Chapter Common - GameLoad Click

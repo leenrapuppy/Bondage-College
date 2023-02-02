@@ -1,6 +1,6 @@
 // Chapter 7 - Lunch Break Load
 function C007_LunchBreak_Outro_Load() {
-	
+
 	// Time is always 12:45:00 in the outro, unlock if needed
 	StopTimer(12.75 * 60 * 60 * 1000, CurrentChapter, "Outro");
 	PlayerUnlockAllInventory();
@@ -21,7 +21,7 @@ function C007_LunchBreak_Outro_Load() {
 function C007_LunchBreak_Outro_Run() {
 
 	// Paints the background
-	DrawRect(0, 0, 800, 600, "black");	
+	DrawRect(0, 0, 800, 600, "black");
 	if (C007_LunchBreak_ActorSelect_Actor == "") DrawImage(CurrentChapter + "/" + CurrentScreen + "/EatAlone.jpg", 800, 0);
 	else DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 
@@ -29,7 +29,7 @@ function C007_LunchBreak_Outro_Run() {
 	if (C007_LunchBreak_ActorSelect_Kinbaku) {
 		if (TextPhase >= 0) DrawText(GetText("Kinbaku1"), 400, 150, "White");
 		if (TextPhase >= 1) DrawText(GetText("Kinbaku2"), 400, 300, "White");
-		if (TextPhase >= 2) DrawText(GetText("Kinbaku3"), 400, 450, "White");		
+		if (TextPhase >= 2) DrawText(GetText("Kinbaku3"), 400, 450, "White");
 	} else {
 
 		// Text for eating alone
@@ -71,7 +71,7 @@ function C007_LunchBreak_Outro_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-			
+
 	// Jump to lunch on phase 3
 	if (TextPhase >= 3) {
 		SaveMenu("C008_DramaClass", "Intro");

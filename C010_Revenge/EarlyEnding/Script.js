@@ -22,7 +22,7 @@ function C010_Revenge_EarlyEnding_Load() {
 
 // Chapter 10 - Early Ending Run
 function C010_Revenge_EarlyEnding_Run() {
-	
+
 	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);

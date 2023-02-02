@@ -4,12 +4,12 @@ var C012_AfterClass_DormExit_KnowBondageClub = false;
 
 // Chapter 12 After Class - Dorm Exit Load
 function C012_AfterClass_DormExit_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LeaveIcon = "Leave";
 	LeaveScreen = "Dorm";
 	LoadInteractions();
-	
+
 	// The player can go to clubs if she heard about them
 	C012_AfterClass_DormExit_KnowKinbakuClub = (GameLogQuery("C007_LunchBreak", "Natalie", "Lunch") || GameLogQuery("", "", "KinbakuClubInfo"));
 	C012_AfterClass_DormExit_KnowBondageClub = GameLogQuery("", "", "BondageClubInvitation");
@@ -23,7 +23,7 @@ function C012_AfterClass_DormExit_Run() {
 }
 
 // Chapter 12 After Class - Dorm Exit  Click
-function C012_AfterClass_DormExit_Click() {	
+function C012_AfterClass_DormExit_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_DormExit_CurrentStage);
@@ -81,7 +81,7 @@ function C012_AfterClass_DormExit_LaunchLibrary() {
 			if (CurrentTime < (20.9 * 60 * 60 * 1000)) {
 				CurrentTime = CurrentTime + 290000;
 				C012_AfterClass_Library_CurrentStage = 0;
-				SetScene(CurrentChapter, "Library");				
+				SetScene(CurrentChapter, "Library");
 			} else OverridenIntroText = GetText("LibraryClosed");
 		} else OverridenIntroText = GetText("SchoolClothesFirst");
 	} else OverridenIntroText = GetText("UnrestrainFirst");

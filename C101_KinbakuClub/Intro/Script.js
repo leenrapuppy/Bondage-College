@@ -4,13 +4,13 @@ function C101_KinbakuClub_Intro_Load() {
 	// Time is always 16:45 on the intro, no timer
 	if (CurrentTime < (16.75 * 60 * 60 * 1000))	StopTimer(16.75 * 60 * 60 * 1000);
 	else StopTimer(CurrentTime);
-	
+
 	GameLogAdd("KinbakuClubInfo");
 }
 
 // Chapter 101 - Drama Class Run
 function C101_KinbakuClub_Intro_Run() {
-	
+
 	// Paints the background
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 

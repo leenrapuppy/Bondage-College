@@ -1,6 +1,6 @@
 // Chapter 101 - Kinbaku Club Load
 function C101_KinbakuClub_EricaBadEnd_Load() {
-	
+
 	// Time is always 18:25:00 in the outro, unlock if needed
 	// StopTimer(18 * 60 * 60 * 1000, CurrentChapter, "Outro");
 	StopTimer(CurrentTime, CurrentChapter, "EricaBadEnd");
@@ -10,7 +10,7 @@ function C101_KinbakuClub_EricaBadEnd_Load() {
 // Chapter 101 - Kinbaku Club Bad End Run
 function C101_KinbakuClub_EricaBadEnd_Run() {
 
-	// Paints the background	
+	// Paints the background
 	DrawRect(0, 0, 700, 600, "black");
 
 	// Dialog depending on the outro situation
@@ -18,7 +18,7 @@ function C101_KinbakuClub_EricaBadEnd_Run() {
 		DrawText(GetText("BadEnd1"), 350, 50, "White");
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/EricaPinsPlayer.jpg", 700, 0);
 	}
-    if (TextPhase >= 1) {
+	if (TextPhase >= 1) {
 		DrawText(GetText("BadEnd2"), 350, 100, "White");
 		//CurrentTime = CurrentTime + 10000;
 		//TextPhase++;
@@ -51,7 +51,7 @@ function C101_KinbakuClub_EricaBadEnd_Run() {
 		DrawText(GetText("BadEnd7"), 350, 350, "White");
 		//StopTimer(CurrentTime + 10 * 1000);
 	}
-    if (TextPhase >= 7) {
+	if (TextPhase >= 7) {
 		DrawText(GetText("BadEnd8"), 350, 400, "White");
 		//StopTimer(CurrentTime + 300 * 1000);
 	}

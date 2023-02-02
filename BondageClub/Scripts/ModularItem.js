@@ -618,7 +618,7 @@ function ModularItemConstructType(modules, values) {
 }
 
 /**
- * Seperate a modular item type string into a list with the types of each individual module.
+ * Separate a modular item type string into a list with the types of each individual module.
  * @param {string} Type - The modular item type string
  * @returns {string[] | null} - A list with the options of each individual module or `null` if the input type wasn't a string
  */

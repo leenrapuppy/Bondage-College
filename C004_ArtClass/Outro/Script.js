@@ -3,14 +3,14 @@ var C004_ArtClass_Outro_Crime = "";
 
 // Chapter 4 - Outro Load
 function C004_ArtClass_Outro_Load() {
-	
+
 	// Time is always 10:15:00 in the outro
 	StopTimer(10.25 * 60 * 60 * 1000);
 	C004_ArtClass_Outro_Restrained = Common_PlayerRestrained;
 	ActorSpecificClearInventory("Jennifer", false);
 	ActorSpecificClearInventory("Julia", false);
 	ActorSpecificClearInventory("Sarah", false);
-	
+
 	// Gets the player crime chapter 2 or 3.  If there's any, we go to chapter 6 instead of 5.
 	if (GameLogQuery("C002_FirstClass", "Mildred", "Subdue") && !GameLogQuery("C002_FirstClass", "Mildred", "Release")) C004_ArtClass_Outro_Crime = "RestrainMildred";
 	if (GameLogQuery("C003_MorningDetention", "Yuki", "Drug") && !GameLogQuery("C003_MorningDetention", "Yuki", "DrugAwake")) C004_ArtClass_Outro_Crime = "DrugYuki";
@@ -21,10 +21,10 @@ function C004_ArtClass_Outro_Load() {
 
 // Chapter 4 - Outro Run
 function C004_ArtClass_Outro_Run() {
-	
+
 	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
-		
+
 	// Write the chapter outro
 	if (C004_ArtClass_Outro_Crime == "") {
 
@@ -35,7 +35,7 @@ function C004_ArtClass_Outro_Run() {
 		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel == "Player")) DrawText(GetText("NoCrime2B"), 400, 300, "White");
 		if ((TextPhase >= 1) && !C004_ArtClass_Outro_Restrained && (C004_ArtClass_ArtRoom_ExtraModel != "Player")) DrawText(GetText("NoCrime2C"), 400, 300, "White");
 		if (TextPhase >= 2) DrawText(GetText("NoCrime3"), 400, 450, "White");
-		
+
 	} else {
 
 		// Crime outro

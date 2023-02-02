@@ -1997,7 +1997,7 @@ interface ItemPropertiesCustom {
 
 	// #endregion
 
-	/** A comma-seperated string with the futuristic vibrator's trigger words */
+	/** A comma-separated string with the futuristic vibrator's trigger words */
 	TriggerValues?: string;
 	/** A string denoting who has permission to use the vibrator's trigger words */
 	AccessMode?: ItemVulvaFuturisticVibratorAccessMode;
@@ -2242,7 +2242,7 @@ interface ModularItemConfig {
 		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
 	 */
 	BaselineProperty?: ItemProperties;
@@ -2438,7 +2438,7 @@ interface ModularItemData {
 		validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>,
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;
@@ -2509,7 +2509,7 @@ interface TypedItemConfig {
 		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemConfig.ScriptHooks} functions.
 	 */
 	BaselineProperty?: ItemProperties;
@@ -2601,7 +2601,7 @@ interface TypedItemData {
 		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;

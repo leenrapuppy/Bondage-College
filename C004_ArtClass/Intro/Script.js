@@ -3,7 +3,7 @@ function C004_ArtClass_Intro_Load() {
 
 	// Time is always 9:15 on the intro, no timer
 	StopTimer(9.25 * 60 * 60 * 1000);
-	
+
 	// Do not allow bondage when we begin
 	Common_BondageAllowed = false;
 	Common_SelfBondageAllowed = false;
@@ -12,7 +12,7 @@ function C004_ArtClass_Intro_Load() {
 
 // Chapter 4 - Intro Run
 function C004_ArtClass_Intro_Run() {
-	
+
 	// Paints the background
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 	DrawPlayerTransition();

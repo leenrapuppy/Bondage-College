@@ -34,7 +34,7 @@ function C011_LiteratureClass_Mildred_Click() {
 	// Regular interactions
 	ClickInteraction(C011_LiteratureClass_Mildred_CurrentStage);
 	var ClickedInv = GetClickedInventory();
-	
+
 }
 
 // Chapter 11 - Mildred recognizes that the player is being a good student
@@ -79,54 +79,54 @@ function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 
 	// The next chapter to test
 	C011_LiteratureClass_Mildred_TestChapter++;
-	
+
 	// On a victory
 	if (Victory) {
-		
+
 		C011_LiteratureClass_Mildred_PlayerVictoryCount++;
 
 		// If Sidney was already hit, she gets hit again (chastity version)
-		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "RedButt_Cuffs_Chastity") { 
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "RedButt_Cuffs_Chastity") {
 			OverridenIntroText = GetText("TestSidneyCropAgain");
 			OverridenIntroImage = "TestSidneyRedButtChastity.jpg";
 		}
-	
+
 		// If Sidney was already hit, she gets hit again
-		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "RedButt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "RedButt_Cuffs") {
 			OverridenIntroText = GetText("TestSidneyCropAgain");
 			OverridenIntroImage = "TestSidneyRedButt.jpg";
 		}
 
 		// If Sidney was stripped, she gets hit (chastity version)
-		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "NoSkirt_Cuffs_Chastity") { 
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "NoSkirt_Cuffs_Chastity") {
 			C011_LiteratureClass_Mildred_QuizSidneyStatus = "RedButt_Cuffs_Chastity";
 			OverridenIntroText = GetText("TestSidneyCrop");
 			OverridenIntroImage = "TestSidneyRedButtChastity.jpg";
 		}
-		
+
 		// If Sidney was stripped, she gets hit
-		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "NoSkirt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "NoSkirt_Cuffs") {
 			C011_LiteratureClass_Mildred_QuizSidneyStatus = "RedButt_Cuffs";
 			OverridenIntroText = GetText("TestSidneyCrop");
 			OverridenIntroImage = "TestSidneyRedButt.jpg";
 		}
 
 		// If Sidney was cuffed, she gets stripped of her skirt (can reveal her chastity belt)
-		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "Clothed_Cuffs") { 
-			if (ActorSpecificHasInventory("Sidney", "ChastityBelt")) { 
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "Clothed_Cuffs") {
+			if (ActorSpecificHasInventory("Sidney", "ChastityBelt")) {
 				C011_LiteratureClass_Mildred_QuizSidneyStatus = "NoSkirt_Cuffs_Chastity";
-				OverridenIntroText = GetText("TestSidneyNoSkirtChastity"); 
-				OverridenIntroImage = "TestSidneyNoSkirtChastity.jpg"; 
+				OverridenIntroText = GetText("TestSidneyNoSkirtChastity");
+				OverridenIntroImage = "TestSidneyNoSkirtChastity.jpg";
 			}
-			else { 
+			else {
 				C011_LiteratureClass_Mildred_QuizSidneyStatus = "NoSkirt_Cuffs";
-				OverridenIntroText = GetText("TestSidneyNoSkirt"); 
-				OverridenIntroImage = "TestSidneyNoSkirt.jpg"; 
+				OverridenIntroText = GetText("TestSidneyNoSkirt");
+				OverridenIntroImage = "TestSidneyNoSkirt.jpg";
 			}
 		}
-	
+
 		// If Sidney wasn't cuffed, she gets cuffed
-		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "Clothed") { 
+		if (C011_LiteratureClass_Mildred_QuizSidneyStatus == "Clothed") {
 			CurrentActor = "Sidney";
 			ActorAddInventory("Cuffs");
 			CurrentActor = "Mildred";
@@ -134,59 +134,59 @@ function C011_LiteratureClass_Mildred_EndQuiz(Victory) {
 			OverridenIntroText = GetText("TestSidneyCuffs");
 			OverridenIntroImage = "TestSidneyCuffs.jpg";
 		}
-		
+
 	} else {
 
 		C011_LiteratureClass_Mildred_SidneyVictoryCount++;
 
 		// If the player was already hit, she gets hit again (chastity version)
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs_Chastity") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs_Chastity") {
 			OverridenIntroText = GetText("TestPlayerCropAgain");
 			OverridenIntroImage = "TestPlayerRedButtChastity.jpg";
 		}
-		
+
 		// If the player was already hit, she gets hit again
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") {
 			OverridenIntroText = GetText("TestPlayerCropAgain");
 			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was stripped, she gets hit (chastity version)
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs_Chastity") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs_Chastity") {
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs_Chastity";
 			OverridenIntroText = GetText("TestPlayerCrop");
 			OverridenIntroImage = "TestPlayerRedButtChastity.jpg";
 		}
-		
+
 		// If the player was stripped, she gets hit
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") {
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs";
 			OverridenIntroText = GetText("TestPlayerCrop");
 			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was cuffed, she gets stripped of her skirt (can reveal her chastity belt)
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") { 
-			if (Common_PlayerChaste) { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") {
+			if (Common_PlayerChaste) {
 				C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs_Chastity";
-				OverridenIntroText = GetText("TestPlayerNoSkirtChastity"); 
-				OverridenIntroImage = "TestPlayerNoSkirtChastity.jpg"; 
+				OverridenIntroText = GetText("TestPlayerNoSkirtChastity");
+				OverridenIntroImage = "TestPlayerNoSkirtChastity.jpg";
 			}
-			else { 
+			else {
 				C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs";
-				OverridenIntroText = GetText("TestPlayerNoSkirt"); 
-				OverridenIntroImage = "TestPlayerNoSkirt.jpg"; 
+				OverridenIntroText = GetText("TestPlayerNoSkirt");
+				OverridenIntroImage = "TestPlayerNoSkirt.jpg";
 			}
 		}
-	
+
 		// If the player wasn't cuffed, she gets cuffed
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed") {
 			PlayerLockInventory("Cuffs");
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "Clothed_Cuffs";
 			OverridenIntroText = GetText("TestPlayerCuffs");
 			OverridenIntroImage = "TestPlayerCuffs.jpg";
 		}
-	
+
 	}
 
 	// Flag to tell that player is currently losing the test
@@ -202,31 +202,31 @@ function C011_LiteratureClass_Mildred_EndQuizMildred(Victory) {
 
 	// On a victory
 	if (Victory) {
-		
+
 		C011_LiteratureClass_Mildred_PlayerVictoryCount++;
 
 		// If Mildred was already hit, she gets hit again
-		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "RedButt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "RedButt_Cuffs") {
 			OverridenIntroText = GetText("TestMildredCropAgain");
 			OverridenIntroImage = "TestMildredRedButt.jpg";
 		}
 
 		// If Mildred was stripped, she gets hit
-		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "NoSkirt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "NoSkirt_Cuffs") {
 			C011_LiteratureClass_Mildred_QuizMildredStatus = "RedButt_Cuffs";
 			OverridenIntroText = GetText("TestMildredCrop");
 			OverridenIntroImage = "TestMildredRedButt.jpg";
 		}
 
 		// If Mildred was cuffed, she gets stripped of her skirt
-		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "Clothed_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "Clothed_Cuffs") {
 			C011_LiteratureClass_Mildred_QuizMildredStatus = "NoSkirt_Cuffs";
 			OverridenIntroText = GetText("TestMildredNoSkirt");
 			OverridenIntroImage = "TestMildredNoSkirt.jpg";
 		}
-	
+
 		// If Mildred wasn't cuffed, she gets cuffed
-		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "Clothed") { 
+		if (C011_LiteratureClass_Mildred_QuizMildredStatus == "Clothed") {
 			CurrentActor = "Mildred";
 			ActorAddInventory("Cuffs");
 			CurrentActor = "Mildred";
@@ -234,51 +234,51 @@ function C011_LiteratureClass_Mildred_EndQuizMildred(Victory) {
 			OverridenIntroText = GetText("TestMildredCuffs");
 			OverridenIntroImage = "TestMildredCuffs.jpg";
 		}
-		
+
 	} else {
 
 		C011_LiteratureClass_Mildred_MildredVictoryCount++;
-	
+
 		// If the player was already hit, she gets hit again (chastity version)
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs_Chastity") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs_Chastity") {
 			OverridenIntroText = GetText("TestPlayerCropAgainMildred");
 			OverridenIntroImage = "TestPlayerRedButtChastity.jpg";
 		}
-		
+
 		// If the player was already hit, she gets hit again
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "RedButt_Cuffs") {
 			OverridenIntroText = GetText("TestPlayerCropAgainMildred");
 			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was stripped, she gets hit (chastity version)
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs_Chastity") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs_Chastity") {
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs_Chastity";
 			OverridenIntroText = GetText("TestPlayerCropMildred");
 			OverridenIntroImage = "TestPlayerRedButtChastity.jpg";
 		}
-		
+
 		// If the player was stripped, she gets hit
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "NoSkirt_Cuffs") {
 			C011_LiteratureClass_Mildred_QuizPlayerStatus = "RedButt_Cuffs";
 			OverridenIntroText = GetText("TestPlayerCropMildred");
 			OverridenIntroImage = "TestPlayerRedButt.jpg";
 		}
 
 		// If the player was cuffed, she gets stripped of her skirt (can reveal her chastity belt)
-		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") { 
-			if (Common_PlayerChaste) { 
+		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed_Cuffs") {
+			if (Common_PlayerChaste) {
 				C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs_Chastity";
-				OverridenIntroText = GetText("TestPlayerNoSkirtMildredChastity"); 
+				OverridenIntroText = GetText("TestPlayerNoSkirtMildredChastity");
 				OverridenIntroImage = "TestPlayerNoSkirtChastity.jpg";
 			}
-			else { 
+			else {
 				C011_LiteratureClass_Mildred_QuizPlayerStatus = "NoSkirt_Cuffs";
-				OverridenIntroText = GetText("TestPlayerNoSkirtMildred"); 
-				OverridenIntroImage = "TestPlayerNoSkirt.jpg"; 
+				OverridenIntroText = GetText("TestPlayerNoSkirtMildred");
+				OverridenIntroImage = "TestPlayerNoSkirt.jpg";
 			}
 		}
-	
+
 		// If the player wasn't cuffed, she gets cuffed
 		if (C011_LiteratureClass_Mildred_QuizPlayerStatus == "Clothed") {
 			PlayerLockInventory("Cuffs");

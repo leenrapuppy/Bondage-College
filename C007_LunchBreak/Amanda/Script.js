@@ -25,7 +25,7 @@ function C007_LunchBreak_Amanda_CalcParams() {
 
 	// No special images by default
 	OverridenIntroImage = "";
-	
+
 	// Between 100 and 200, the image evolves with the number of matches
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 100) && (C007_LunchBreak_Amanda_CurrentStage < 200)) {
 		var Img = "0";
@@ -46,7 +46,7 @@ function C007_LunchBreak_Amanda_CalcParams() {
 
 	// Keep the status of Amanda
 	C007_LunchBreak_Amanda_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")));
-	
+
 }
 
 // Chapter 7 - Amanda Load
@@ -80,7 +80,7 @@ function C007_LunchBreak_Amanda_Run() {
 }
 
 // Chapter 7 - Amanda Click
-function C007_LunchBreak_Amanda_Click() {	
+function C007_LunchBreak_Amanda_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C007_LunchBreak_Amanda_CurrentStage);
@@ -90,7 +90,7 @@ function C007_LunchBreak_Amanda_Click() {
 		C007_LunchBreak_Amanda_LeaveIcon = LeaveIcon;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// When the user wants to use the rope on Amanda - Time and item are consumed
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		C007_LunchBreak_Amanda_CurrentStage = 330;
@@ -109,7 +109,7 @@ function C007_LunchBreak_Amanda_Click() {
 		PlayerRemoveInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the BallGag on Amanda - Time and item are consumed
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
 		C007_LunchBreak_Amanda_CurrentStage = 330;
@@ -141,7 +141,7 @@ function C007_LunchBreak_Amanda_Click() {
 		}
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the egg on Amanda (Amanda isn't affected by the egg but can still have one)
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 300) && (C007_LunchBreak_Amanda_CurrentStage <= 330) && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg")) {
 		OverridenIntroText = GetText("VibratingEgg");
@@ -170,10 +170,10 @@ function C007_LunchBreak_Amanda_Click() {
 	// When the user wants to use a bondage item when subbie
 	if ((C007_LunchBreak_Amanda_CurrentStage >= 400) && (C007_LunchBreak_Amanda_CurrentStage < 440) && ((ClickInv == "Collar") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg") || (ClickInv == "Crop") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "Cuffs") || (ClickInv == "Rope")))
 		OverridenIntroText = GetText("SubbieNoItem");
-	
+
 	// Recalculates the scene parameters
 	C007_LunchBreak_Amanda_CalcParams();
-	
+
 }
 
 // Chapter 7 - Amanda No Leave
@@ -189,7 +189,7 @@ function C007_LunchBreak_Amanda_StartLunch() {
 }
 
 // Chapter 7 - Amanda Eat Lunch (adds 20 minutes)
-function C007_LunchBreak_Amanda_EatLunch() {	
+function C007_LunchBreak_Amanda_EatLunch() {
 	CurrentTime = CurrentTime + 1800000;
 }
 
@@ -232,7 +232,7 @@ function C007_LunchBreak_Amanda_Tickle() {
 
 // Chapter 7 - Amanda Masturbate
 function C007_LunchBreak_Amanda_Masturbate() {
-	
+
 	// The count goes up, after 3 times she can have an orgasm but only if she's bound and gagged
 	C007_LunchBreak_Amanda_MasturbateCount++;
 	if ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag"))) {
@@ -245,7 +245,7 @@ function C007_LunchBreak_Amanda_Masturbate() {
 			OverridenIntroText = GetText("Masturbate");
 		}
 	}
-	
+
 }
 
 // Chapter 7 - Amanda Untie
@@ -344,7 +344,7 @@ function C007_LunchBreak_Amanda_EvilEnd() {
 		C007_LunchBreak_ActorSelect_EvilEnding = true;
 		GameLogAdd("Stranded");
 		ActorChangeAttitude(-5, 1);
-		SetScene(CurrentChapter, "Outro");		
+		SetScene(CurrentChapter, "Outro");
 	} else {
 		OverridenIntroText = GetText("LeaveBoundAndGagged");
 		C007_LunchBreak_Amanda_ConfirmEvil = true;

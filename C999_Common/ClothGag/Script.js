@@ -8,20 +8,20 @@ function C999_Common_ClothGag_Load() {
 	LoadInteractions();
 
 	// Set the correct stage
-    if (PlayerHasLockedInventory("ClothGag") == true) C999_Common_ClothGag_CurrentStage = 10;
-    else C999_Common_ClothGag_CurrentStage = 0;
+	if (PlayerHasLockedInventory("ClothGag") == true) C999_Common_ClothGag_CurrentStage = 10;
+	else C999_Common_ClothGag_CurrentStage = 0;
 
 }
 
 // Chapter Common - ClothGag Run, we draw the regular player image if the item is on
 function C999_Common_ClothGag_Run() {
-    BuildInteraction(C999_Common_ClothGag_CurrentStage);
-    if (PlayerHasLockedInventory("ClothGag")) DrawPlayerImage(150, 0);
+	BuildInteraction(C999_Common_ClothGag_CurrentStage);
+	if (PlayerHasLockedInventory("ClothGag")) DrawPlayerImage(150, 0);
 }
 
 // Chapter Common - ClothGag Click, allow regular interactions and clicking on another item
 function C999_Common_ClothGag_Click() {
-    ClickInteraction(C999_Common_ClothGag_CurrentStage);
+	ClickInteraction(C999_Common_ClothGag_CurrentStage);
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
 }
 
@@ -40,8 +40,8 @@ function C999_Common_ClothGag_SelfGag() {
 				PlayerRemoveInventory("SockGag", 1);
 			}
 		} else PlayerUngag();
-        PlayerRemoveInventory("ClothGag", 1);
-        PlayerLockInventory("ClothGag");
+		PlayerRemoveInventory("ClothGag", 1);
+		PlayerLockInventory("ClothGag");
 	} else {
 		OverridenIntroText = GetText("BadTiming");
 		C999_Common_ClothGag_CurrentStage = 0;
@@ -50,6 +50,6 @@ function C999_Common_ClothGag_SelfGag() {
 
 // Chapter Common - Self Ungag
 function C999_Common_ClothGag_SelfUngag() {
-    PlayerUnlockInventory("ClothGag");
-    PlayerAddInventory("ClothGag", 1);
+	PlayerUnlockInventory("ClothGag");
+	PlayerAddInventory("ClothGag", 1);
 }
