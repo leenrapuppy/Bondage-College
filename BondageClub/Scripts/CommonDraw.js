@@ -163,8 +163,9 @@ function CommonDrawAppearanceBuild(C, {
 		if (InheritColor != null) {
 			const ParentAsset = InventoryGet(C, InheritColor);
 			if (ParentAsset != null) {
-				const ParentColor = Array.isArray(ParentAsset.Color) ? ParentAsset.Color[0] : ParentAsset.Color;
-				Color = CommonDrawColorValid(ParentColor, ParentAsset.Asset.Group) ? ParentColor : "Default";
+				Color = Array.isArray(ParentAsset.Color) ? ParentAsset.Color[0] : ParentAsset.Color;
+				if (!CommonDrawColorValid(Color, ParentAsset.Asset.Group))
+					Color = "Default";
 				ColorInherited = true;
 			}
 		}
@@ -337,7 +338,7 @@ function CommonDrawAppearanceBuild(C, {
 
 /**
  * Determines whether the provided color is valid
- * @param {any} Color - The color
+ * @param {string} Color - The color
  * @param {AssetGroup} AssetGroup - The asset group the color is being used fo
  * @returns {boolean} - Whether the color is valid
  */
