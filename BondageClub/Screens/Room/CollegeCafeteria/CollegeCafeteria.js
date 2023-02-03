@@ -1,9 +1,12 @@
 "use strict";
 var CollegeCafeteriaBackground = "CollegeCafeteria";
+/** @type {null | NPCCharacter} */
 var CollegeCafeteriaSidney = null;
 var CollegeCafeteriaSidneyStatus = "";
 var CollegeCafeteriaSidneyLove = 0;
+/** @type {null | NPCCharacter} */
 var CollegeCafeteriaStudentRight = null;
+/** @type {null | NPCCharacter} */
 var CollegeCafeteriaStudentFarRight = null;
 
 /**

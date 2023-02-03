@@ -1,6 +1,6 @@
 "use strict";
 var PokerBackground = "White";
-/** @type PokerPlayer[] */
+/** @type {PokerPlayer[]} */
 var PokerPlayer = [
 	{ Type: "Character", Family: "Player", Name: "Player", Chip: 100 },
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 },
@@ -31,6 +31,7 @@ var PokerAsset = [
 	}
 ];
 var PokerPlayerCount = 4;
+/** @type {number[]} */
 var PokerTableCards = [];
 var PokerMessage = "";
 var PokerResultMessage = "";

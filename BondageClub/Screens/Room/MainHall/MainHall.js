@@ -1,8 +1,11 @@
 "use strict";
 var MainHallBackground = "MainHall";
+/** @type {null | number} */
 var MainHallStartEventTimer = null;
+/** @type {null | number} */
 var MainHallNextEventTimer = null;
 var MainHallRandomEventOdds = 0;
+/** @type {null | NPCCharacter} */
 var MainHallMaid = null;
 var MainHallIsMaid = false;
 var MainHallIsHeadMaid = false;
@@ -15,7 +18,10 @@ var MainHallMaxTip = 30;
 var MainHallTip = 0;
 /** The max delay to wait before changing the current tip */
 var MainHallTipCycleDelay = 10000;
-/** The timer that tracks the last time the tip cycled */
+/**
+ * The timer that tracks the last time the tip cycled
+ * @type {number}
+ */
 var MainHallTipCycleTimer = null;
 var MainHallMaidWasCalledManually = false;
 var MainHallAsylumOpen = true;

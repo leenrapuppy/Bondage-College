@@ -1,6 +1,8 @@
 "use strict";
 var ForbiddenWordsBackground = "Sheet";
+/** @type {null | Character } */
 var ForbiddenWordsTarget = null;
+/** @type {string[]} */
 var ForbiddenWordsList = [];
 var ForbiddenWordsOffset = 0;
 var ForbiddenWordsConsequence = "Block";

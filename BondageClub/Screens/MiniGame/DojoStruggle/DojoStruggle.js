@@ -2,6 +2,7 @@
 var DojoStruggleBackground = "Shibari";
 var DojoStrugglePosition = 450;
 var DojoStruggleImpulse = 0;
+/** @type {number[]} */
 var DojoStruggleRope = [];
 
 /**

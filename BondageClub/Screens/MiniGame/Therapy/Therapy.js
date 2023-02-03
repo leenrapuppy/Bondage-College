@@ -1,6 +1,8 @@
 "use strict";
 var TherapyBackground = "AsylumTherapy";
+/** @type {null | NPCCharacter} */
 var TherapyCharacterLeft = null;
+/** @type {null | NPCCharacter} */
 var TherapyCharacterRight = null;
 var TherapyMoves = [0, 0, 0, 0, 0, 0];
 var TherapyGenerateMoveTimer = 0;

@@ -1,6 +1,8 @@
 "use strict";
 var ChatSearchBackground = "Introduction";
+/** @type {{ Name: string, CreatorMemberNumber: number, MemberLimit: number, MemberCount: number, DisplayName: string, BlockCategory: string[], Game: string, Friends: { MemberName: string, MemberNumber: number, Type: string }[], Description: string, Creator: string, Order: number }[]} */
 var ChatSearchResult = [];
+/** @type {typeof ChatSearchResult} */
 var ChatSearchHiddenResult = [];
 var ChatSearchLastSearchDataJSON = "";
 var ChatSearchLastQuerySearchTime = 0;
@@ -11,16 +13,21 @@ var ChatSearchRoomsPerPage = 24;
 var ChatSearchMessage = "";
 var ChatSearchLeaveRoom = "MainHall";
 var ChatSearchLeaveSpace = "Room";
+/** @type {null | Item[]} */
 var ChatSearchSafewordAppearance = null;
+/** @type {null | string | string[]} */
 var ChatSearchSafewordPose = null;
+/** @type {null | string | string[]} */
 var ChatSearchPreviousActivePose = null;
 var ChatSearchTempHiddenRooms = [];
 var ChatSearchMode = "";
 var ChatSearchGhostPlayerOnClickActive = false;
 var ChatSearchShowHiddenRoomsActive = false;
 var ChatSearchFilterHelpActive = false;
+/** @type {{ Index: number, RoomLabel: string, MemberLabel: string, WordsLabel: string }} */
 var ChatSearchFilterUnhideConfirm = null;
 var ChatSearchRejoinIncrement = 1;
+/** @type {null | string} */
 var ChatSearchReturnToScreen = null;
 var ChatSearchLanguage = "";
 var ChatSearchLanguageTemp = "";
@@ -904,7 +911,7 @@ function ChatSearchApplyFilterTerms() {
 /**
  * Get a list of reasons why a room should be hidden.
  * If the returned array is empty, the room should be shown.
- * @param {object} Room - the room object to check
+ * @param {{ Name: string, CreatorMemberNumber: number }} Room - the room object to check
  * @returns {string[]} - list of reasons
  */
 function ChatSearchGetFilterReasons(Room) {

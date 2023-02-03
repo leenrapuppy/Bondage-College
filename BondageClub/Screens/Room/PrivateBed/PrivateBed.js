@@ -1,8 +1,11 @@
 "use strict";
 var PrivateBedBackground = "Private";
+/** @type {Character[]} */
 var PrivateBedCharacter = [];
 var PrivateBedActivity = "Caress";
+/** @type {string[]} */
 var PrivateBedActivityList = [];
+/** @type {string[]} */
 var PrivateBedLog = [];
 var PrivateBedActivityDelay = 4000;
 var PrivateBedActivityMustRefresh = true;

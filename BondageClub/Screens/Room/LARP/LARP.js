@@ -1,5 +1,6 @@
 "use strict";
 var LARPBackground = "WrestlingRing";
+/** @type {null | NPCCharacter} */
 var LARPOrganiser = null;
 
 /**

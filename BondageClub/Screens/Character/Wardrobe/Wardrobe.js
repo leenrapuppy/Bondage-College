@@ -1,5 +1,6 @@
 "use strict";
 var WardrobeBackground = "Private";
+/** @type {Character[]} */
 var WardrobeCharacter = [];
 var WardrobeSelection = -1;
 var WardrobeOffset = 0;

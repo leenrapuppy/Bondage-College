@@ -4,9 +4,12 @@ var AfkTimerIncrementMs = 1000 * 60; // 1 minutes
 var AfkTimerTimout = 5; // AfkTimerIncrementMs * 5  ==> 5 minutes
 var AfkTimerIdle = 0;
 var AfkTimerIsSet = false;
+/** @type {null | boolean} */
 var AfkTimerIsEnabled = null;
 var AfkTimerEventsList = ['mousedown', 'mousemove', 'keypress', 'touchstart'];
+/** @type {null | NodeJS.Timer} */
 var AfkTimerID = null;
+/** @type {null | string} */
 var AfkTimerOldEmoticon = null;
 
 /**

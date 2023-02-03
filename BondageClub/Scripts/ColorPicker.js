@@ -17,14 +17,20 @@
  * @return {void}
  */
 
-var ColorPickerX, ColorPickerY, ColorPickerWidth, ColorPickerHeight;
-var ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV, ColorPickerSourceElement;
+/** @type {[number, number, number, number]} */
+var [ColorPickerX, ColorPickerY, ColorPickerWidth, ColorPickerHeight] = [undefined, undefined, undefined, undefined];
+/** @type {[HSVColor, HSVColor, HSVColor, HSVColor]} */
+var [ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV, ColorPickerSourceElement] = [undefined, undefined, undefined, undefined];
 /** @type ColorPickerCallbackType */
 let ColorPickerCallback;
+/** @type {string} */
 var ColorPickerCSS;
+/** @type {boolean} */
 var ColorPickerIsDefault;
+/** @type {null | number} */
 var ColorPickerSelectedFavoriteIndex = null; //A number 0-5
 var ColorPickerFavoritesPage = 0; //current page of favorite colors displayed.
+/** @type {{ H: number, S: number, V: number }[]} */
 var DefaultSavedColors = [];
 
 var ColorPickerHueBarHeight = 40;

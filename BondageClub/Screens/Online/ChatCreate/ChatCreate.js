@@ -2,12 +2,15 @@
 var ChatCreateBackground = "Sheet";
 var ChatCreateResult = [];
 var ChatCreateMessage = "";
+/** @type {null | boolean} */
 var ChatCreatePrivate = null;
+/** @type {null | boolean} */
 var ChatCreateLocked = null;
 var ChatCreateGame = "";
 var ChatCreateGameList = ["", "LARP", "MagicBattle", "GGTS"];
 var ChatCreateBackgroundIndex = 0;
 var ChatCreateBackgroundSelect = "";
+/** @type {null | string[]} */
 var ChatCreateBackgroundList = null;
 var ChatCreateShowBackgroundMode = false;
 var ChatCreateIsHidden = false;

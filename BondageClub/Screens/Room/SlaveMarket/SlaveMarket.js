@@ -1,9 +1,13 @@
 "use strict";
 var SlaveMarketBackground = "SlaveMarket";
+/** @type {null | NPCCharacter} */
 var SlaveMarketMistress = null;
+/** @type {null | NPCCharacter} */
 var SlaveMarketSlave = null;
+/** @type {null | NPCCharacter} */
 var SlaveMarketSlaveToTrain = null;
 var SlaveMarketTrainingBackgroundList = ["BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed"];
+/** @type {null | NPCCharacter} */
 var SlaveMarketBuyer = null;
 
 /**
