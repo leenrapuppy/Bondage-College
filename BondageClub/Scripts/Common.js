@@ -488,6 +488,22 @@ function CommonColorIsValid(Color) {
 }
 
 /**
+ * Check that the passed string looks like an acceptable email address.
+ *
+ * @param {string} Email
+ * @returns {boolean}
+ */
+function CommonEmailIsValid(Email) {
+	if (Email.length >= 5 && Email.length <= 100) return false;
+
+	const parts = Email.split("@");
+	if (parts.length !== 2) return false;
+	if (parts[1].indexOf(".") === -1) return false;
+
+	return ServerAccountEmailRegex.test(Email);
+}
+
+/**
  * Get a random item from a list while making sure not to pick the previous one.
  * @template T
  * @param {T} ItemPrevious - Previously selected item from the given list
