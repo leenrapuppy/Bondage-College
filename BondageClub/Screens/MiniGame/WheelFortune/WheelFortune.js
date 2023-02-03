@@ -362,6 +362,40 @@ var WheelFortuneOption = [
 		}
 	},
 	{
+		// Pet bondage
+		ID: "[",
+		Color: "Orange",
+		Script: function() {
+			CharacterNaked(Player);
+			InventoryWearRandom(Player, "ItemArms", 8, null, false, true, ["BitchSuit", "HempRope", "Chains", "ArmbinderJacket", "StraitLeotard", "LeatherStraitJacket", "BoxTieArmbinder", "Bolero", "PantyhoseBodyOpen", "SeamlessStraitDress", "SeamlessStraitDressOpen"], true);
+			InventoryWearRandom(Player, "HairAccessory1", 8, null, false, true, ["Ears1", "Ears2", "PonyEars1", "BunnyEars1", "BunnyEars2", "PuppyEars1", "FoxEars1", "WolfEars1", "WolfEars2", "FoxEars2", "FoxEars3", "PuppyEars2"], true);
+			InventoryWearRandom(Player, "TailStraps", 8, null, false, true, ["FoxTailsStrap", "PuppyTailStrap", "RaccoonStrap", "PuppyTailStrap1", "FoxTailStrap1", "FoxTailStrap2", "WolfTailStrap1", "WolfTailStrap2", "WolfTailStrap3"], true);
+			if (InventoryGet(Player, "ItemMouth") == null) InventoryWearRandom(Player, "ItemMouth", 8);
+			if (InventoryGet(Player, "ItemNeck") == null) InventoryWearRandom(Player, "ItemNeck", 8);
+			if ((InventoryGet(Player, "ItemNeckRestraints") == null) && WheelFortuneCanWear("ChainLeash", "ItemNeckRestraints")) InventoryWear(Player, "ChainLeash", "ItemNeckRestraints", null, 8);
+			CharacterSetActivePose(Player, "Kneel", true);
+			ChatRoomCharacterUpdate(Player);
+		}
+	},
+	{
+		// Web bondage
+		ID: "]",
+		Color: "Orange",
+		Script: function() {
+			if (WheelFortuneCanWear("WebBlindfold", "ItemHead")) {
+				InventoryWear(Player, "WebBlindfold", "ItemHead", "Default", 15);
+				InventoryRandomExtend(Player, "ItemHead");
+			}				
+			if (WheelFortuneCanWear("WebGag", "ItemMouth")) InventoryWear(Player, "WebGag", "ItemMouth", "Default", 15);
+			if (WheelFortuneCanWear("Web", "ItemArms")) {
+				InventoryWear(Player, "Web", "ItemArms", "Default", 15);
+				InventoryRandomExtend(Player, "ItemArms");
+			}
+			CharacterRefresh(Player);
+			ChatRoomCharacterUpdate(Player);
+		}
+	},
+	{
 		// Maid outfit
 		ID: "@",
 		Color: "Blue",
