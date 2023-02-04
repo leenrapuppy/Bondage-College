@@ -9218,39 +9218,6 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Stitches
-		FrontZipperHood: {
-			Archetype: ExtendedArchetype.TYPED,
-			ChangeWhenLocked: false,
-			DrawImages: false,
-			Config: {
-				Options: [
-					{
-						Name: "OpenOpaque",
-						Property: { Effect: [""], }
-					},
-					{
-						Name: "ClosedOpaque",
-						Property: { Effect: ["BlindHeavy","GagEasy","BlockMouth"],
-						Hide: ["HairFront","Mask"],
-						HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-						Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHood", "ItemNose", "ItemEars"],
-							}
-					},
-					{
-						Name: "OpenTransparent",
-						Property: { Effect: [""], }
-					},
-					{
-						Name: "ClosedTransparent",
-						Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
-						Hide: ["HairFront","Mask"],
-						HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-						Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHood", "ItemNose", "ItemEars"],
-							}
-					},
-				]
-			},
-		}, // FrontZipperHood
 	}, // ItemHead
 	ItemHands: {
 		FuturisticMittens: {
