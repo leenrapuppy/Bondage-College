@@ -3308,6 +3308,19 @@ interface ItemColorStateType {
 	drawExport: (data: string) => Promise<void>;
 }
 
+/** A hexadecimal color code */
+type HexColor = string;
+
+/** A HSV color value */
+interface HSVColor {
+	H: number;
+	S: number;
+	V: number;
+}
+
+/** The color picker callback called when selection completes. */
+type ColorPickerCallbackType = (Color: string) => void;
+
 //#end region
 
 // #region property

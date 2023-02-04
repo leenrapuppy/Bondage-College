@@ -1,27 +1,10 @@
 "use strict";
-/**
- * A hexadecimal color code
- * @typedef {string} HexColor
- */
-
-/**
- * A HSV color value
- * @typedef {{ H: number, S: number, V: number }} HSVColor
- */
-
-/**
- * The color picker callback called when selection completes.
- *
- * @callback ColorPickerCallbackType
- * @param {string} Color
- * @return {void}
- */
 
 /** @type {[number, number, number, number]} */
 var [ColorPickerX, ColorPickerY, ColorPickerWidth, ColorPickerHeight] = [undefined, undefined, undefined, undefined];
 /** @type {[HSVColor, HSVColor, HSVColor, HSVColor]} */
 var [ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV, ColorPickerSourceElement] = [undefined, undefined, undefined, undefined];
-/** @type ColorPickerCallbackType */
+/** @type {ColorPickerCallbackType} */
 let ColorPickerCallback;
 /** @type {string} */
 var ColorPickerCSS;
@@ -30,7 +13,7 @@ var ColorPickerIsDefault;
 /** @type {null | number} */
 var ColorPickerSelectedFavoriteIndex = null; //A number 0-5
 var ColorPickerFavoritesPage = 0; //current page of favorite colors displayed.
-/** @type {{ H: number, S: number, V: number }[]} */
+/** @type {HSVColor[]} */
 var DefaultSavedColors = [];
 
 var ColorPickerHueBarHeight = 40;
