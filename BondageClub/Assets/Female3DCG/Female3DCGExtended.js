@@ -5055,6 +5055,9 @@ var AssetFemale3DCGExtended = {
 		TapedClitEgg: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // TapedClitEgg
+		VibeEggGlans: {
+			Archetype: ExtendedArchetype.VIBRATING
+		}, // VibeEggGlans
 	}, // ItemVulvaPiercings
 	ItemButt: {
 		AnalHook: {

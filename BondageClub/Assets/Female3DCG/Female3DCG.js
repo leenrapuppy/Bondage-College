@@ -3694,12 +3694,11 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "VibeEggPenisBase", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Hide: ["Pussy"], AllowExpression: ["Hard"],
+				Name: "VibeEggPenisBase", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, AllowExpression: ["Hard"],
 				Left: 200, Top: 410,
-				DefaultColor: ["Default", "#323232", "#EFB0F4" ],
+				DefaultColor: ["#323232", "#EFB0F4" ],
 				AllowPose: [],
 				Layer: [
-					{ Name: "Penis", HideColoring: true, MirrorExpression: "Pussy", InheritColor: "Pussy" },
 					{ Name: "Strap", MirrorExpression: "Pussy" },
 					{ Name: "Egg", MirrorExpression: "Pussy" }
 				]
@@ -3781,6 +3780,16 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Egg" },
 					{ Name: "Tape" }
+				]
+			},
+			{
+				Name: "VibeEggGlans", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, AllowExpression: ["Hard"],
+				Left: 200, Top: 410,
+				DefaultColor: ["#323232", "#EFB0F4" ],
+				AllowPose: [],
+				Layer: [
+					{ Name: "Strap", MirrorExpression: "Pussy" },
+					{ Name: "Egg", MirrorExpression: "Pussy" }
 				]
 			},
 		],

@@ -2081,8 +2081,8 @@ function PreferenceSubscreenSecurityClick() {
 	if (MouseIn(500, 365, 250, 50)) {
 		var EmailOld = ElementValue("InputEmailOld");
 		var EmailNew = ElementValue("InputEmailNew");
-		var E = /^[a-zA-Z0-9@.!#$%&'*+/=?^_`{|}~-]+$/;
-		if ((EmailOld.match(E) || (EmailOld == "")) && (EmailOld.length <= 100) && (EmailNew.match(E) || (EmailNew == "")) && (EmailNew.length <= 100))
+
+		if ((EmailOld == "" || CommonEmailIsValid(EmailOld)) && (EmailNew == "" || CommonEmailIsValid(EmailNew)))
 			ServerSend("AccountUpdateEmail", { EmailOld: EmailOld, EmailNew: EmailNew });
 		else
 			ElementValue("InputEmailNew", TextGet("UpdateEmailInvalid"));
