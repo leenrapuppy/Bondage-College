@@ -3344,38 +3344,7 @@ interface LogRecord {
 }
 
 /** The logging groups as supported by the {@link LogRecord.Group} */
-type LogGroupType = (
-	"Arcade"
-	| "Asylum"
-	| "BadGirl"
-	| "Cell"
-	| "College"
-	| "Import"
-	| "Introduction"
-	| "LockPick"
-	| "LoverRule"
-	| "MagicSchool"
-	| "Maid"
-	| "MainHall"
-	| "Management"
-	| "NPC-Amanda"
-	| "NPC-AmandaSarah"
-	| "NPC-Jennifer"
-	| "NPC-Sarah"
-	| "NPC-SarahIntro"
-	| "NPC-Sidney"
-	| "OwnerRule"
-	| "Pony"
-	| "PonyExam"
-	| "PrivateRoom"
-	| "Rule"
-	| "Sarah"
-	| "Shibari"
-	| "SkillModifier"
-	| "SlaveMarket"
-	| "Trainer"
-	| "TrainerExam"
-);
+type LogGroupType = keyof LogNameType;
 
 /** An interface mapping {@link LogRecord.Group} types to valid {@link LogRecord.Name} types */
 interface LogNameType {
