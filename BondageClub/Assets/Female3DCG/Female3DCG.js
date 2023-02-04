@@ -3069,26 +3069,27 @@ var AssetFemale3DCG = [
 		Left: 200,
 		Top: 120,
 		AllowNone: false,
-		Color: ["Default", "#acacac"],
 		InheritColor: "HairFront",
+		Color: ["Default", "#acacac"],
 		AllowExpression: ["Raised", "Lowered", "OneRaised", "Harsh", "Angry", "Soft"],
 		PreviewZone: [55, 0, 390, 390],
+		HasPreviewImages: true,
 		Asset: [
 			"Eyebrows1",
 			{
 				Name: "Eyebrows2", Extended: true,
 				Layer: [
-				{ Name: "Main", HasType: false },
-				{ Name: "EyebrowBarRight", HasType: false, AllowTypes: ["BarBoth","BarRight"] },
-				{ Name: "EyebrowBarLeft", HasType: false, AllowTypes: ["BarBoth","BarLeft"], CopyLayerColor: "EyebrowBarRight" },
-				{ Name: "EyebrowRingRight", HasType: false, AllowTypes: ["RingBoth","RingRight"], CopyLayerColor: "EyebrowBarRight" },
-				{ Name: "EyebrowRingLeft", HasType: false, AllowTypes: ["RingBoth","RingLeft"], CopyLayerColor: "EyebrowBarRight" },
+				{ Name: "Main", HasType: false, AllowModuleTypes: ["s0"] },
+				{ Name: "Eyebrows3", HasType: false, AllowModuleTypes: ["s1"], CopyLayerColor: "Main" },
+				{ Name: "Eyebrows4", HasType: false, AllowModuleTypes: ["s2"], CopyLayerColor: "Main" },
+				{ Name: "Eyebrows5", HasType: false, AllowModuleTypes: ["s3"], CopyLayerColor: "Main" },
+				{ Name: "Eyebrows6", HasType: false, AllowModuleTypes: ["s4"], CopyLayerColor: "Main" },
+				{ Name: "EyebrowBarRight", HasType: false, AllowModuleTypes: ["p3","p1"] },
+				{ Name: "EyebrowBarLeft", HasType: false, AllowModuleTypes: ["p3","p2"], CopyLayerColor: "EyebrowBarRight" },
+				{ Name: "EyebrowRingRight", HasType: false, AllowModuleTypes: ["p6","p4"], CopyLayerColor: "EyebrowBarRight" },
+				{ Name: "EyebrowRingLeft", HasType: false, AllowModuleTypes: ["p6","p5"], CopyLayerColor: "EyebrowBarRight" },
 				]
 			}, //Eyebrows2
-			"Eyebrows3",
-			"Eyebrows4",
-			"Eyebrows5",
-			"Eyebrows6",
 			"Eyebrows7",
 			"Eyebrows8",
 		]
@@ -3132,6 +3133,7 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		AllowExpression: ["Frown", "Sad", "Pained", "Angry", "HalfOpen", "Open", "Ahegao", "Moan", "TonguePinch", "LipBite", "Happy", "Devious", "Laughing", "Grin", "Smirk", "Pout"],
 		PreviewZone: [190, 100, 120, 120],
+		HasPreviewImages: true,
 		Asset: [
 			{
 				Name: "Regular",
