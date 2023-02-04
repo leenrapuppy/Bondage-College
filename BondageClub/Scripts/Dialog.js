@@ -16,7 +16,7 @@ var DialogInventoryOffset = 0;
 var DialogFocusItem = null;
 /** @type {Item|null} */
 var DialogFocusSourceItem = null;
-/** @type {null | NodeJS.Timeout} */
+/** @type {null | ReturnType<typeof setTimeout>} */
 var DialogFocusItemColorizationRedrawTimer = null;
 /** @type {string[]} */
 var DialogMenuButton = [];

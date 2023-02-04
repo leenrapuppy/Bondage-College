@@ -78,7 +78,7 @@ var PreferenceCensoredWordsOffset = 0;
 const PreferenceScriptPermissionProperties = ["Hide", "Block"];
 /** @type {null | "global" | "Hide" | "Block"} */
 let PreferenceScriptHelp = null;
-/** @type {null | NodeJS.Timeout} */
+/** @type {null | ReturnType<typeof setTimeout>} */
 let PreferenceScriptTimeoutHandle = null;
 /** @type {null | number} */
 let PreferenceScriptTimer = null;

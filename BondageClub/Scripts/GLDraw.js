@@ -23,10 +23,10 @@ const GLDrawContextResetSeconds = 10;
  */
 const GLDrawRevertToDraw2DSeconds = 50;
 
-/** @type {NodeJS.Timeout} */
+/** @type {ReturnType<typeof setTimeout>} */
 let GLDrawContextLostTimeout;
 let GLDrawRecoveryMode = false;
-/** @type {NodeJS.Timeout} */
+/** @type {ReturnType<typeof setTimeout>} */
 let GLDrawCrashTimeout;
 
 var GLDrawAlphaThreshold = 0.01;

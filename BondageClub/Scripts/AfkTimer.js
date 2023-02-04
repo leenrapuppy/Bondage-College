@@ -7,7 +7,7 @@ var AfkTimerIsSet = false;
 /** @type {null | boolean} */
 var AfkTimerIsEnabled = null;
 var AfkTimerEventsList = ['mousedown', 'mousemove', 'keypress', 'touchstart'];
-/** @type {null | NodeJS.Timer} */
+/** @type {null | ReturnType<typeof setInterval>} */
 var AfkTimerID = null;
 /** @type {null | string} */
 var AfkTimerOldEmoticon = null;
