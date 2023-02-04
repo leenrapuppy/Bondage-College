@@ -3209,7 +3209,6 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Head",
-		ParentColor: "BodyUpper",
 		Priority: 7,
 		AllowNone: false,
 		Asset: [

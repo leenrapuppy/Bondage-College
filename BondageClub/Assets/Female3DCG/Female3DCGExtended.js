@@ -3748,13 +3748,40 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
 				Options: [
-					{ Name: "NoPierce", Property: { Type: null } },
-					{ Name: "BarRight", Property: { Type: "BarRight" }, PrerequisiteBuyGroup: "JewelrySet" },
-					{ Name: "BarLeft", Property: { Type: "BarLeft" }, PrerequisiteBuyGroup: "JewelrySet" },
-					{ Name: "BarBoth", Property: { Type: "BarBoth" }, PrerequisiteBuyGroup: "JewelrySet" },
-					{ Name: "RingRight", Property: { Type: "RingRight" }, PrerequisiteBuyGroup: "JewelrySet" },
-					{ Name: "RingLeft", Property: { Type: "RingLeft" }, PrerequisiteBuyGroup: "JewelrySet" },
-					{ Name: "RingBoth", Property: { Type: "RingBoth" }, PrerequisiteBuyGroup: "JewelrySet" },
+					{ 
+						Name: "NoPierce", 
+						Property: { Type: null } 
+					},
+					{ 
+						Name: "BarRight", 
+						Property: { Type: "BarRight" }, 
+						PrerequisiteBuyGroup: "JewelrySet" 
+					},
+					{ 
+						Name: "BarLeft", 
+						Property: { Type: "BarLeft" }, 
+						PrerequisiteBuyGroup: "JewelrySet" 
+					},
+					{ 
+						Name: "BarBoth", 
+						Property: { Type: "BarBoth" }, 
+						PrerequisiteBuyGroup: "JewelrySet" 
+					},
+					{ 
+						Name: "RingRight", 
+						Property: { Type: "RingRight" }, 
+						PrerequisiteBuyGroup: "JewelrySet" 
+					},
+					{ 
+						Name: "RingLeft", 
+						Property: { Type: "RingLeft" }, 
+						PrerequisiteBuyGroup: "JewelrySet" 
+					},
+					{ 
+						Name: "RingBoth", 
+						Property: { Type: "RingBoth" }, 
+						PrerequisiteBuyGroup: "JewelrySet" 
+					},
 				]
 			},
 		},
