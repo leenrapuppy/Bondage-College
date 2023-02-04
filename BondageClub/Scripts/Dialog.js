@@ -50,7 +50,7 @@ var DialogSortOrder = {
 	Unusable: 9,
 	Blocked: 10
 };
-/** @type {null | typeof DialogSelfMenuOptions[0]} */
+/** @type {null | DialogSelfMenuOptionType} */
 var DialogSelfMenuSelected = null;
 var DialogLeaveDueToItem = false; // This allows dynamic items to call DialogLeave() without crashing the game
 var DialogLockMenu = false;
@@ -100,14 +100,7 @@ var DialogFavoriteStateDetails = [
 
 /**
  * The list of menu types available when clicking on yourself
- * @const
- * @type {Array.<{
- *     Name: string,
- *     IsAvailable: () => boolean,
- *     Load?: () => void,
- *     Draw: () => void,
- *     Click: () => void
- * }>}
+ * @type {readonly DialogSelfMenuOptionType[]}
  */
 var DialogSelfMenuOptions = [
 	{

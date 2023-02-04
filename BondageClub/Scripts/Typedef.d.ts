@@ -1109,26 +1109,10 @@ type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
 type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
 type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
 
-interface DialogInventoryItem extends Item {
-	Worn: boolean;
-	Icons: InventoryIcon[];
-	SortOrder: string;
-	Hidden: boolean;
-	Vibrating: boolean;
-}
-
 interface InventoryItem {
 	Group: string;
 	Name: string;
 	Asset: Asset;
-}
-
-interface FavoriteState {
-	TargetFavorite: boolean;
-	PlayerFavorite: boolean;
-	Icon: FavoriteIcon;
-	UsableOrder: DialogSortOrder;
-	UnusableOrder: DialogSortOrder;
 }
 
 interface Skill {
@@ -3459,5 +3443,33 @@ interface LogNameType {
 	Trainer: "JoinedStable",
 	TrainerExam: "JoinedStable",
 };
+
+// #end region
+
+// #region dialog
+
+interface FavoriteState {
+	TargetFavorite: boolean;
+	PlayerFavorite: boolean;
+	Icon: FavoriteIcon;
+	UsableOrder: DialogSortOrder;
+	UnusableOrder: DialogSortOrder;
+}
+
+interface DialogInventoryItem extends Item {
+	Worn: boolean;
+	Icons: InventoryIcon[];
+	SortOrder: string;
+	Hidden: boolean;
+	Vibrating: boolean;
+}
+
+interface DialogSelfMenuOptionType {
+	Name: string;
+	IsAvailable: () => boolean;
+	Load?: () => void;
+	Draw: () => void;
+	Click: () => void;
+}
 
 // #end region
