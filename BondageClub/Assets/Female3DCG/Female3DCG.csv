@@ -85,6 +85,7 @@ ClothAccessory,Scarf,Scarf
 ClothAccessory,Glitter,Glitter
 ClothAccessory,CatsuitCollar,Catsuit Collar
 ClothAccessory,Poncho,Poncho
+ClothAccessory,JewelrySet,Piercing Set
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
 Necklace,Necklace2,Beaded Necklace
@@ -549,7 +550,6 @@ Mask,Glitter,Glitter
 Mask,HeadHarness,Head Harness
 Jewelry,,Jewelry
 Jewelry,JewelrySet,Piercing Set
-ClothAccessory,JewelrySet,Piercing Set
 TailStraps,,Tail Strap
 TailStraps,TailStrap,Kitty Tail Strap
 TailStraps,HorseTailStrap,Horse Tail Strap

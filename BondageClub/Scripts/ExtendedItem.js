@@ -528,14 +528,6 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 }
 
 /**
- * @param {ExtendedItemOption|ModularItemOption} Option
- * @returns {Option is ModularItemOption}
- */
-function ExtendedItemOptionIsModule(Option) {
-	return Option.OptionType === "ModularItemOption";
-}
-
-/**
  * Checks whether the player meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
  * @param {ExtendedItemOption|ModularItemOption} Option - The selected type definition
@@ -545,17 +537,10 @@ function ExtendedItemOptionIsModule(Option) {
  */
 function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
 	const C = CharacterGetCurrent();
-		if (ExtendedItemOptionIsModule(Option)) {
-		if (Option.PrerequisiteBuyGroup) {
-			const requiredAsset = Asset.find(A => A.BuyGroup && A.BuyGroup === Option.PrerequisiteBuyGroup);
-			if (requiredAsset && !InventoryAvailable(C, requiredAsset.Name, requiredAsset.Group.Name)) {
-				return DialogFindPlayer("OptionNeedsToBeBought");
-			}
-		}
-	}
 
 	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
+		|| ExtendedItemCheckBuyGroups(Option)
 		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);
 }
 
@@ -592,6 +577,20 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
 		let RequiredLevel = Option.BondageLevel || 0;
 		if (SkillGetLevelReal(Player, "Bondage") < RequiredLevel) {
 			return DialogFindPlayer("RequireBondageLevel").replace("ReqLevel", `${RequiredLevel}`);
+		}
+	}
+}
+
+/**
+ * Checks whether the character meets an option's required bought items
+ * @param {ExtendedItemOption|ModularItemOption} Option - The option being checked
+ * @returns {string|undefined} undefined if the requirement is met, otherwise the error message
+ */
+function ExtendedItemCheckBuyGroups(Option) {
+	if (Option.PrerequisiteBuyGroup) {
+		const requiredAsset = Asset.find(A => A.BuyGroup && A.BuyGroup === Option.PrerequisiteBuyGroup);
+		if (requiredAsset && !InventoryAvailable(Player, requiredAsset.Name, requiredAsset.Group.Name)) {
+			return DialogFindPlayer("OptionNeedsToBeBought");
 		}
 	}
 }
