@@ -155,6 +155,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		RemoveItemOnRemove: (AssetDef.RemoveItemOnRemove == null) ? Group.RemoveItemOnRemove : Group.RemoveItemOnRemove.concat(AssetDef.RemoveItemOnRemove),
 		AllowEffect: AssetDef.AllowEffect,
 		AllowBlock: AssetDef.AllowBlock,
+		AllowTighten: AssetDef.AllowTighten,
 		AllowType: AssetDef.AllowType,
 		AllowHide: AssetDef.AllowHide,
 		AllowHideItem: AssetDef.AllowHideItem,

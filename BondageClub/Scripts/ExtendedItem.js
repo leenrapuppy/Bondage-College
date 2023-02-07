@@ -190,6 +190,16 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	DrawButton(1775, 25, 90, 90, "", "White",
 		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"));
+
+	// If the assets allows tightening / loosening
+	if (Asset.AllowTighten) {
+		let Difficulty = DialogFocusItem.Difficulty;
+		if (Difficulty == null) Difficulty = 0;
+		DrawText(DialogFindPlayer("Tightness") + ": " + Difficulty.toString(), 1200, 90, "White", "Silver");
+		DrawButton(1080, 170, 240, 65, DialogFindPlayer("Tighten"), "White");
+		DrawButton(1080, 260, 240, 65, DialogFindPlayer("Loosen"), "White");
+	}
+
 }
 
 /**
@@ -386,6 +396,25 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 			ExtendedItemHandleOptionClick(C, Options, Option);
 		}
 	}
+
+	// If the assets allows tightening / loosening
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten) 
+		if (MouseIn(1080, 170, 240, 65) || MouseIn(1080, 260, 240, 65)) {
+			if (DialogFocusItem.Difficulty == null) DialogFocusItem.Difficulty = 0;
+			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 3;
+			if (MouseIn(1080, 260, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty - 3;
+			if (DialogFocusItem.Difficulty < -10) DialogFocusItem.Difficulty = -10;
+			let MaxDifficulty = SkillGetLevel(Player, "Bondage") + 5;
+			if (DialogFocusItem.Asset.Difficulty != null) MaxDifficulty = MaxDifficulty + DialogFocusItem.Asset.Difficulty;
+			if (DialogFocusItem.Difficulty > MaxDifficulty) DialogFocusItem.Difficulty = MaxDifficulty;
+			CharacterRefresh(C, true);
+			if (CurrentScreen == "ChatRoom") {
+				ChatRoomCharacterUpdate(C);
+				ChatRoomPublishAction(C, (MouseIn(1080, 170, 240, 65)) ? "ActionTighten" : "ActionLoosen", DialogFocusItem, null);
+				DialogLeave();
+			}
+		}
+
 }
 
 /**

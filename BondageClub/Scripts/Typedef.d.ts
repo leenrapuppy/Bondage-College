@@ -988,6 +988,7 @@ interface Asset {
 	AllowHide?: AssetGroupItemName[];
 	AllowHideItem?: string[];
 	AllowType?: string[];
+	AllowTighten?: boolean;
 	DefaultColor?: ItemColor;
 	Opacity: number;
 	MinOpacity: number;
