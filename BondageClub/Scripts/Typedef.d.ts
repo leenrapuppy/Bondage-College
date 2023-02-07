@@ -3412,7 +3412,7 @@ interface LogNameType {
 	SlaveMarket: "Auctioned",
 	Trainer: "JoinedStable",
 	TrainerExam: "JoinedStable",
-};
+}
 
 // #end region
 
