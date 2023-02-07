@@ -4,6 +4,7 @@
 var Player;
 /** @type {number|string} */
 var KeyPress = "";
+/** @type {string} */
 var CurrentModule;
 /** @type {string} */
 var CurrentScreen;
@@ -22,6 +23,7 @@ var CommonPhotoMode = false;
 var GameVersion = "R0";
 const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
 var CommonVersionUpdated = false;
+/** @type {null | { pageX: number, pageY: number }} */
 var CommonTouchList = null;
 
 /**

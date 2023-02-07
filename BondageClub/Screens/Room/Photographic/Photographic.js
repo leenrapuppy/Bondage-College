@@ -1,9 +1,11 @@
 "use strict";
 
 var PhotographicBackground = "grey";
+/** @type {null | NPCCharacter} */
 var PhotographicSub = null;
 var PhotographicGroupStarted = false;
 var PhotographicCurrendGroup = null;
+/** @type {null | Item[]} */
 var PhotographicSubAppearance = null;
 var PhotographicSelectText = "";
 

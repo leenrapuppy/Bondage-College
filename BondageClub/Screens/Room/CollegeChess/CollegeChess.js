@@ -1,9 +1,12 @@
 "use strict";
 var CollegeChessBackground = "CollegeClass";
+/** @type {null | NPCCharacter} */
 var CollegeChessOpponent = null;
 var CollegeChessDifficulty = 0;
 var CollegeChessBet = "";
+/** @type {null | Item[]} */
 var CollegeChessPlayerAppearance = null;
+/** @type {null | Item[]} */
 var CollegeChessOpponentAppearance = null;
 
 // Quick functions for player interactions with the chess opponent

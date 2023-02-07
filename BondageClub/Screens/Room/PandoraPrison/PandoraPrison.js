@@ -1,8 +1,11 @@
 "use strict";
 var PandoraPrisonBackground = "Cell";
 var PandoraWillpowerTimer = 0;
+/** @type {null | NPCCharacter} */
 var PandoraPrisonMaid = null;
+/** @type {null | NPCCharacter} */
 var PandoraPrisonGuard = null;
+/** @type {null | NPCCharacter} */
 var PandoraPrisonCharacter = null;
 var PandoraPrisonCharacterTimer = 0;
 var PandoraPrisonEscaped = false;

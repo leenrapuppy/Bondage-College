@@ -1,16 +1,17 @@
 "use strict";
 var LoginBackground = "Dressing";
 var LoginMessage = "";
+/** @type {null | string[][]} */
 var LoginCredits = null;
 var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "bjugh", "bryce", "Cathryn", 
-	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin", 
-	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "M4c0202", "Michal", "Michel", 
-	"Mike", "Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Ross", "Samuel", "Schrödingers", 
-	"Setsu", "Shadow", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "William", 
+	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "bjugh", "bryce", "Cathryn",
+	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin",
+	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "M4c0202", "Michal", "Michel",
+	"Mike", "Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Ross", "Samuel", "Schrödingers",
+	"Setsu", "Shadow", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "William",
 ];
 
 /* eslint-enable */

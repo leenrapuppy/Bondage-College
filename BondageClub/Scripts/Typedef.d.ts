@@ -1110,26 +1110,10 @@ type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
 type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
 type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
 
-interface DialogInventoryItem extends Item {
-	Worn: boolean;
-	Icons: InventoryIcon[];
-	SortOrder: string;
-	Hidden: boolean;
-	Vibrating: boolean;
-}
-
 interface InventoryItem {
 	Group: string;
 	Name: string;
 	Asset: Asset;
-}
-
-interface FavoriteState {
-	TargetFavorite: boolean;
-	PlayerFavorite: boolean;
-	Icon: FavoriteIcon;
-	UsableOrder: DialogSortOrder;
-	UnusableOrder: DialogSortOrder;
 }
 
 interface Skill {
@@ -3309,6 +3293,19 @@ interface ItemColorStateType {
 	drawExport: (data: string) => Promise<void>;
 }
 
+/** A hexadecimal color code */
+type HexColor = string;
+
+/** A HSV color value */
+interface HSVColor {
+	H: number;
+	S: number;
+	V: number;
+}
+
+/** The color picker callback called when selection completes. */
+type ColorPickerCallbackType = (Color: string) => void;
+
 //#end region
 
 // #region property
@@ -3348,38 +3345,7 @@ interface LogRecord {
 }
 
 /** The logging groups as supported by the {@link LogRecord.Group} */
-type LogGroupType = (
-	"Arcade"
-	| "Asylum"
-	| "BadGirl"
-	| "Cell"
-	| "College"
-	| "Import"
-	| "Introduction"
-	| "LockPick"
-	| "LoverRule"
-	| "MagicSchool"
-	| "Maid"
-	| "MainHall"
-	| "Management"
-	| "NPC-Amanda"
-	| "NPC-AmandaSarah"
-	| "NPC-Jennifer"
-	| "NPC-Sarah"
-	| "NPC-SarahIntro"
-	| "NPC-Sidney"
-	| "OwnerRule"
-	| "Pony"
-	| "PonyExam"
-	| "PrivateRoom"
-	| "Rule"
-	| "Sarah"
-	| "Shibari"
-	| "SkillModifier"
-	| "SlaveMarket"
-	| "Trainer"
-	| "TrainerExam"
-);
+type LogGroupType = keyof LogNameType;
 
 /** An interface mapping {@link LogRecord.Group} types to valid {@link LogRecord.Name} types */
 interface LogNameType {
@@ -3447,5 +3413,33 @@ interface LogNameType {
 	Trainer: "JoinedStable",
 	TrainerExam: "JoinedStable",
 };
+
+// #end region
+
+// #region dialog
+
+interface FavoriteState {
+	TargetFavorite: boolean;
+	PlayerFavorite: boolean;
+	Icon: FavoriteIcon;
+	UsableOrder: DialogSortOrder;
+	UnusableOrder: DialogSortOrder;
+}
+
+interface DialogInventoryItem extends Item {
+	Worn: boolean;
+	Icons: InventoryIcon[];
+	SortOrder: string;
+	Hidden: boolean;
+	Vibrating: boolean;
+}
+
+interface DialogSelfMenuOptionType {
+	Name: string;
+	IsAvailable: () => boolean;
+	Load?: () => void;
+	Draw: () => void;
+	Click: () => void;
+}
 
 // #end region

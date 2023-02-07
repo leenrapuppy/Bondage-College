@@ -1,5 +1,6 @@
 "use strict";
 var TitleBackground = "Sheet";
+/** @type {{ Name: string; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
 var TitleList = [
 	{ Name: "None", Requirement: function () { return true; } },
 	{ Name: "Mistress", Requirement: function () { return LogQuery("ClubMistress", "Management"); }, Earned: true },
@@ -60,11 +61,13 @@ var TitleList = [
 	{ Name: "GoodSlave", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true },
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
+/** @type {null | string} */
 var TitleSelectedTitle = null;
 var TitleCanEditNickname = true;
-/** @type {string} */
+/** @type {null | string} */
 var TitleNicknameStatus = null;
 let TitleOffset = 0;
+/** @type {{ Name: string; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
 let TitleListFiltered = [];
 const TitlePerPage = 28;
 

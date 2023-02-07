@@ -1,7 +1,9 @@
 "use strict";
 var AdvancedRuleBackground = "Sheet";
+/** @type {null | Character | NPCCharacter} */
 var AdvancedRuleTarget = null;
 var AdvancedRuleType = "";
+/** @type {string[]} */
 var AdvancedRuleOption = [];
 var AdvancedRuleSelection = "";
 

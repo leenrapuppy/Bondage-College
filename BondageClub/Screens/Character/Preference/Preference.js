@@ -34,11 +34,13 @@ var PreferenceArousalVisibleList = ["All", "Access", "Self"];
 var PreferenceArousalVisibleIndex = 0;
 var PreferenceArousalAffectStutterList = ["None", "Arousal", "Vibration", "All"];
 var PreferenceArousalAffectStutterIndex = 0;
+/** @type {null | string[]} */
 var PreferenceArousalActivityList = null;
 var PreferenceArousalActivityIndex = 0;
 var PreferenceArousalActivityFactorSelf = 0;
 var PreferenceArousalActivityFactorOther = 0;
 var PreferenceArousalZoneFactor = 0;
+/** @type {null | string[]} */
 var PreferenceArousalFetishList = null;
 var PreferenceArousalFetishIndex = 0;
 var PreferenceArousalFetishFactor = 0;
@@ -48,25 +50,37 @@ var PreferenceVisibilityAssetIndex = 0;
 var PreferenceVisibilityHideChecked = false;
 var PreferenceVisibilityBlockChecked = false;
 var PreferenceVisibilityCanBlock = true;
+/** @type {null | Asset} */
 var PreferenceVisibilityPreviewAsset = null;
+/** @type {ItemPermissions[]} */
 var PreferenceVisibilityHiddenList = [];
+/** @type {ItemPermissions[]} */
 var PreferenceVisibilityBlockList = [];
 var PreferenceVisibilityResetClicked = false;
+/** @type {null | number} */
 var PreferenceDifficultyLevel = null;
 var PreferenceDifficultyAccept = false;
 var PreferenceGraphicsFontList = ["Arial", "TimesNewRoman", "Papyrus", "ComicSans", "Impact", "HelveticaNeue", "Verdana", "CenturyGothic", "Georgia", "CourierNew", "Copperplate"];
 var PreferenceGraphicsPowerModes = ["low-power", "default", "high-performance"];
 var PreferenceGraphicsFontIndex = 0;
+/** @type {null | number} */
 var PreferenceGraphicsAnimationQualityIndex = null;
+/** @type {null | number} */
 var PreferenceGraphicsPowerModeIndex = null;
+/** @type {null | WebGLContextAttributes} */
 var PreferenceGraphicsWebGLOptions = null;
 var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
+/** @type {string[]} */
 var PreferenceCensoredWordsList = [];
 var PreferenceCensoredWordsOffset = 0;
+/** @type {ScriptPermissionProperty[]} */
 const PreferenceScriptPermissionProperties = ["Hide", "Block"];
+/** @type {null | "global" | "Hide" | "Block"} */
 let PreferenceScriptHelp = null;
+/** @type {null | ReturnType<typeof setTimeout>} */
 let PreferenceScriptTimeoutHandle = null;
+/** @type {null | number} */
 let PreferenceScriptTimer = null;
 let PreferenceScriptWarningAccepted = false;
 

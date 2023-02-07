@@ -1,9 +1,14 @@
 "use strict";
 var NPCSlaveAuctionBackground = "SlaveMarket";
+/** @type {null | NPCCharacter} */
 var NPCSlaveAuctionVendor = null;
+/** @type {null | NPCCharacter} */
 var NPCSlaveAuctionSlave = null;
+/** @type {null | NPCCharacter} */
 var NPCSlaveAuctionMistress = null;
+/** @type {null | NPCCharacter} */
 var NPCSlaveAuctionGirlLeft = null;
+/** @type {null | NPCCharacter} */
 var NPCSlaveAuctionGirlRight = null;
 var NPCSlaveAuctionAmount = 0;
 

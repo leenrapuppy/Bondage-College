@@ -2,8 +2,11 @@
 var DialogText = "";
 var DialogTextDefault = "";
 var DialogTextDefaultTimer = -1;
+/** @type {null | string} */
 var DialogColor = null;
+/** @type {null | string} */
 var DialogExpressionColor = null;
+/** @type {null | string} */
 var DialogColorSelect = null;
 var DialogPreviousCharacterData = {};
 /** @type DialogInventoryItem[] */
@@ -13,9 +16,11 @@ var DialogInventoryOffset = 0;
 var DialogFocusItem = null;
 /** @type {Item|null} */
 var DialogFocusSourceItem = null;
+/** @type {null | ReturnType<typeof setTimeout>} */
 var DialogFocusItemColorizationRedrawTimer = null;
 /** @type {string[]} */
 var DialogMenuButton = [];
+/** @type {null | Item} */
 var DialogItemToLock = null;
 var DialogAllowBlush = false;
 var DialogAllowEyebrows = false;
@@ -23,6 +28,7 @@ var DialogAllowFluids = false;
 var DialogFacialExpressions = [];
 var DialogFacialExpressionsSelected = -1;
 var DialogFacialExpressionsSelectedBlindnessLevel = 2;
+/** @type {Character[]} */
 var DialogSavedExpressionPreviews = [];
 /** @type {Pose[][]} */
 var DialogActivePoses = [];
@@ -44,6 +50,7 @@ var DialogSortOrder = {
 	Unusable: 9,
 	Blocked: 10
 };
+/** @type {null | DialogSelfMenuOptionType} */
 var DialogSelfMenuSelected = null;
 var DialogLeaveDueToItem = false; // This allows dynamic items to call DialogLeave() without crashing the game
 var DialogLockMenu = false;
@@ -93,14 +100,7 @@ var DialogFavoriteStateDetails = [
 
 /**
  * The list of menu types available when clicking on yourself
- * @const
- * @type {Array.<{
- *     Name: string,
- *     IsAvailable: () => boolean,
- *     Load?: () => void,
- *     Draw: () => void,
- *     Click: () => void
- * }>}
+ * @type {readonly DialogSelfMenuOptionType[]}
  */
 var DialogSelfMenuOptions = [
 	{

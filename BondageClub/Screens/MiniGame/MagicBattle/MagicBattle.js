@@ -1,13 +1,16 @@
 "use strict";
 var MagicBattleBackground = "";
+/** @type {null | Character} */
 var MagicBattleOpponent = null;
 var MagicBattleReturnFunction = "";
 var MagicBattleDifficulty = 0;
 var MagicBattleVictory = false;
-/** @type Array<number> */
+/** @type {number[]} */
 var MagicBattleAvailSpell = [];
 var MagicBattleOpponentSpell = 0;
+/** @type {null | string} */
 var MagicBattlePlayerAppearance = null;
+/** @type {null | string} */
 var MagicBattleOpponentAppearance = null;
 var MagicBattleSpellDifficulty = [3, 5, 7, 9, 6, 8, 4, 8];
 

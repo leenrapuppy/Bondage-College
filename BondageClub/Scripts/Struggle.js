@@ -1,13 +1,15 @@
 "use strict";
-/** @type {number[]} */
+/** @type {null | number[]} */
 var StruggleLockPickOrder = null;
-/** @type {boolean[]} */
+/** @type {null | boolean[]} */
 var StruggleLockPickSet = null;
-/** @type {boolean[]} */
+/** @type {null | boolean[]} */
 var StruggleLockPickSetFalse = null;
+/** @type {null | number[]} */
 var StruggleLockPickOffset = null;
+/** @type {null | number[]} */
 var StruggleLockPickOffsetTarget = null;
-/** @type {number[]} */
+/** @type {null | number[]} */
 var StruggleLockPickImpossiblePins = null;
 var StruggleLockPickProgressSkill = 0;
 var StruggleLockPickProgressSkillLose = 0;
@@ -58,6 +60,7 @@ var StruggleProgressPrevItem = null;
 var StruggleProgressNextItem = null;
 
 // For flexibility
+/** @type {null | { X: number, Y: number, Size: number, Velocity: number }[]} */
 var StruggleProgressFlexCircles = [];
 var StruggleProgressFlexTimer = 0;
 var StruggleProgressFlexMaxX = 300;

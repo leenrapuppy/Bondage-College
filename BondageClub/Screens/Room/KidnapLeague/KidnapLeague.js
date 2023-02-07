@@ -1,21 +1,28 @@
 "use strict";
 var KidnapLeagueBackground = "KidnapLeague";
+/** @type {null | NPCCharacter} */
 var KidnapLeagueTrainer = null;
+/** @type {null | NPCCharacter} */
 var KidnapLeagueRandomKidnapper = null;
 var KidnapLeagueRandomKidnapperScenario = "0";
 var KidnapLeagueRandomKidnapperDifficulty = 0;
+/** @type {null | string} */
 var KidnapLeagueArchetype = null;
 var KidnapLeagueWillPayForFreedom = false;
 var KidnapLeagueRandomActivityList = ["AddGag", "RemoveGag", "AddFeet", "RemoveFeet", "AddLegs", "RemoveLegs", "Tickle", "Spank", "Kiss", "Fondle"];
 var KidnapLeagueRandomActivity = "";
 var KidnapLeagueRandomActivityCount = 0;
+/** @type {null | NPCCharacter} */
 var KidnapLeagueBounty = null;
+/** @type {null | number} */
 var KidnapLeagueBountyDifficulty = null;
 var KidnapLeagueBountyLocation = "";
 var KidnapLeagueBountyLocationList = ["Introduction", "MaidQuarters", "Shibari", "Shop"];
+/** @type {null | boolean} */
 var KidnapLeagueBountyVictory = null;
 var KidnapLeagueVisitRoom = false;
 
+/** @type {number[]} */
 var KidnapLeagueSearchingPlayers = [];
 var KidnapLeagueSearchFinishTime = 0;
 var KidnapLeagueSearchFinishDuration = 5*60*1000; // 15 mins

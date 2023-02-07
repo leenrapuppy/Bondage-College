@@ -2,12 +2,14 @@
 var WheelFortuneBackground = "Black";
 var WheelFortuneEntryModule = "";
 var WheelFortuneEntryScreen = "";
+/** @type {null | Character} */
 var WheelFortuneCharacter = null;
 var WheelFortuneRoleplay = false;
 var WheelFortunePos = 0;
 var WheelFortunePosMax = 0;
 var WheelFortuneVelocity = 0;
 var WheelFortuneVelocityTime = 0;
+/** @type {null | number} */
 var WheelFortunePosY = null;
 var WheelFortuneInitY = 0;
 var WheelFortuneInitTime = 0;
@@ -762,7 +764,7 @@ function WheelFortuneLoad() {
 			DrawTextFit(TextGet("Option" + Wheel[W]), X + 250 * Zoom, PosY + 44 * Zoom, 440, TextColor, "Silver");
 
 		}
-                
+
     }
 
 	// Draw the border and arrow

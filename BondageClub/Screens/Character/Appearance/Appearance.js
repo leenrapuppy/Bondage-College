@@ -4,7 +4,9 @@ var CharacterAppearanceOffset = 0;
 var CharacterAppearanceNumPerPage = 9;
 var CharacterAppearanceHeaderText = "";
 var CharacterAppearanceHeaderTextTime = 0;
+/** @type {null | string} */
 var CharacterAppearanceBackup = null;
+/** @type {null | string} */
 var CharacterAppearanceInProgressBackup = null;
 var CharacterAppearanceAssets = [];
 var CharacterAppearanceColorPickerGroupName = "";
@@ -21,8 +23,11 @@ var CharacterAppearanceForceUpCharacter = -1;
 var CharacterAppearancePreviousEmoticon = "";
 var CharacterAppearanceMode = "";
 var CharacterAppearanceMenuMode = "";
+/** @type {null | Item} */
 var CharacterAppearanceCloth = null;
+/** @type {string[]} */
 var AppearanceMenu = [];
+/** @type {Character[]} */
 var AppearancePreviews = [];
 var AppearanceUseCharacterInPreviewsSetting = false;
 
