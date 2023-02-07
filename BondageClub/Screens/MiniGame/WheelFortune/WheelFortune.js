@@ -387,7 +387,7 @@ var WheelFortuneOption = [
 			if (WheelFortuneCanWear("WebBlindfold", "ItemHead")) {
 				InventoryWear(Player, "WebBlindfold", "ItemHead", "Default", 15);
 				InventoryRandomExtend(Player, "ItemHead");
-			}				
+			}
 			if (WheelFortuneCanWear("WebGag", "ItemMouth")) InventoryWear(Player, "WebGag", "ItemMouth", "Default", 15);
 			if (WheelFortuneCanWear("Web", "ItemArms")) {
 				InventoryWear(Player, "Web", "ItemArms", "Default", 15);
@@ -823,7 +823,9 @@ function WheelFortuneRun() {
 	MainCanvas.textAlign = "left";
 	DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
 	MainCanvas.textAlign = "center";
-	if (WheelFortuneCharacter.IsPlayer()) DrawButton(1400, 800, 440, 80, TextGet("Customize"), BackColor);
+
+	const customizeText = WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView");
+	DrawButton(1400, 800, 440, 80, customizeText, BackColor);
 
 }
 
@@ -849,8 +851,7 @@ function WheelFortuneClick() {
 	}
 
 	// When the user wants to customize the wheel
-	if (MouseIn(1400, 800, 440, 80) && WheelFortuneCharacter.IsPlayer())
-		CommonSetScreen("Online", "WheelFortuneCustomize");
+	if (MouseIn(1400, 800, 440, 80)) CommonSetScreen("Online", "WheelFortuneCustomize");
 
 	// Roleplay check box
 	if (MouseIn(1436, 468, 64, 64)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
