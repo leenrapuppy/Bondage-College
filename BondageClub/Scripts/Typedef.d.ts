@@ -988,6 +988,7 @@ interface Asset {
 	AllowHide?: AssetGroupItemName[];
 	AllowHideItem?: string[];
 	AllowType?: string[];
+	AllowTighten?: boolean;
 	DefaultColor?: ItemColor;
 	Opacity: number;
 	MinOpacity: number;
@@ -2109,6 +2110,8 @@ interface ExtendedItemOption {
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	/** A buy group to check for that option to be available */
+	PrerequisiteBuyGroup?: string;
 	/**
 	 * A unique (automatically assigned) identifier of the struct type
 	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
@@ -2855,6 +2858,14 @@ interface ICommand {
 	Prerequisite?: (this: Optional<ICommand, 'Tag'>) => boolean;
 	AutoComplete?: (this: Optional<ICommand, 'Tag'>, parsed: string[], low: string, msg: string) => void;
 	Clear?: false;
+}
+
+type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "LockPick";
+
+interface StruggleMinigame {
+	Setup: (C: Character, PrevItem: Item, NextItem: Item) => void;
+	Draw: (C: Character) => void;
+	HandleEvent?: (EventType: "KeyDown"|"Click") => void;
 }
 
 //#region Poker Minigame

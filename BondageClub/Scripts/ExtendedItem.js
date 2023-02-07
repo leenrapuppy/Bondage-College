@@ -190,6 +190,16 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	DrawButton(1775, 25, 90, 90, "", "White",
 		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"));
+
+	// If the assets allows tightening / loosening
+	if (Asset.AllowTighten) {
+		let Difficulty = DialogFocusItem.Difficulty;
+		if (Difficulty == null) Difficulty = 0;
+		DrawText(DialogFindPlayer("Tightness") + ": " + Difficulty.toString(), 1200, 90, "White", "Silver");
+		DrawButton(1080, 170, 240, 65, DialogFindPlayer("Tighten"), "White");
+		DrawButton(1080, 260, 240, 65, DialogFindPlayer("Loosen"), "White");
+	}
+
 }
 
 /**
@@ -386,6 +396,25 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 			ExtendedItemHandleOptionClick(C, Options, Option);
 		}
 	}
+
+	// If the assets allows tightening / loosening
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten) 
+		if (MouseIn(1080, 170, 240, 65) || MouseIn(1080, 260, 240, 65)) {
+			if (DialogFocusItem.Difficulty == null) DialogFocusItem.Difficulty = 0;
+			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 3;
+			if (MouseIn(1080, 260, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty - 3;
+			if (DialogFocusItem.Difficulty < -10) DialogFocusItem.Difficulty = -10;
+			let MaxDifficulty = SkillGetLevel(Player, "Bondage") + 5;
+			if (DialogFocusItem.Asset.Difficulty != null) MaxDifficulty = MaxDifficulty + DialogFocusItem.Asset.Difficulty;
+			if (DialogFocusItem.Difficulty > MaxDifficulty) DialogFocusItem.Difficulty = MaxDifficulty;
+			CharacterRefresh(C, true);
+			if (CurrentScreen == "ChatRoom") {
+				ChatRoomCharacterUpdate(C);
+				ChatRoomPublishAction(C, (MouseIn(1080, 170, 240, 65)) ? "ActionTighten" : "ActionLoosen", DialogFocusItem, null);
+				DialogLeave();
+			}
+		}
+
 }
 
 /**
@@ -528,14 +557,6 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 }
 
 /**
- * @param {ExtendedItemOption|ModularItemOption} Option
- * @returns {Option is ModularItemOption}
- */
-function ExtendedItemOptionIsModule(Option) {
-	return Option.OptionType === "ModularItemOption";
-}
-
-/**
  * Checks whether the player meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
  * @param {ExtendedItemOption|ModularItemOption} Option - The selected type definition
@@ -545,17 +566,10 @@ function ExtendedItemOptionIsModule(Option) {
  */
 function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
 	const C = CharacterGetCurrent();
-		if (ExtendedItemOptionIsModule(Option)) {
-		if (Option.PrerequisiteBuyGroup) {
-			const requiredAsset = Asset.find(A => A.BuyGroup && A.BuyGroup === Option.PrerequisiteBuyGroup);
-			if (requiredAsset && !InventoryAvailable(C, requiredAsset.Name, requiredAsset.Group.Name)) {
-				return DialogFindPlayer("OptionNeedsToBeBought");
-			}
-		}
-	}
 
 	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
+		|| ExtendedItemCheckBuyGroups(Option)
 		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);
 }
 
@@ -592,6 +606,20 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
 		let RequiredLevel = Option.BondageLevel || 0;
 		if (SkillGetLevelReal(Player, "Bondage") < RequiredLevel) {
 			return DialogFindPlayer("RequireBondageLevel").replace("ReqLevel", `${RequiredLevel}`);
+		}
+	}
+}
+
+/**
+ * Checks whether the character meets an option's required bought items
+ * @param {ExtendedItemOption|ModularItemOption} Option - The option being checked
+ * @returns {string|undefined} undefined if the requirement is met, otherwise the error message
+ */
+function ExtendedItemCheckBuyGroups(Option) {
+	if (Option.PrerequisiteBuyGroup) {
+		const requiredAsset = Asset.find(A => A.BuyGroup && A.BuyGroup === Option.PrerequisiteBuyGroup);
+		if (requiredAsset && !InventoryAvailable(Player, requiredAsset.Name, requiredAsset.Group.Name)) {
+			return DialogFindPlayer("OptionNeedsToBeBought");
 		}
 	}
 }
