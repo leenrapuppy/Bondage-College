@@ -96,6 +96,7 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 40,0,(Give her a spare key to your locks.),(You give her an extra key to your private padlocks),GiveHighSecurityKeys(),CanGiveHighSecurityKeys()
 40,0,(Hand over the keys to your locks.),(You give her the keys to your private padlocks),GiveHighSecurityKeysAll(),CanGiveHighSecurityKeysAll()
 40,0,(Spin the Wheel of Fortune.),,StartWheelFortune(),CanStartWheelFortune()
+40,0,(Force her to spin your Wheel of Fortune.),"(She will be required to spin your Wheel of Fortune.)",SendOwnerRule(""ForceWheelFortune""),CanForceWheelFortune()
 40,0,(Back to main menu.),(Main menu.),,
 50,0,(Generate a new GGTS task.),,"DialogGGTSInteraction(""NewTask"")",
 50,0,(Give her a five minutes pause.),,"DialogGGTSInteraction(""Pause5"")",

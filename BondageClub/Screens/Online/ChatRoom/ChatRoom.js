@@ -355,6 +355,11 @@ function ChatRoomStartWheelFortune() {
 	DialogLeave();
 	CommonSetScreen("MiniGame", "WheelFortune");
 }
+/**
+ * If the player is owner and wearing a wheel of fortune, she can force her sub to spin it
+ * @returns {boolean} - TRUE if the player can take a photo.
+ */
+function ChatRoomCanForceWheelFortune() { return (CurrentCharacter != null) && CurrentCharacter.IsOwnedByPlayer() && InventoryIsWorn(Player, "WheelFortune", "ItemDevices"); }
 
 /**
  * Checks if the player can start searching a player
@@ -4245,6 +4250,24 @@ function ChatRoomSetRule(data) {
 			MaidQuartersMaid.CurrentDialog = D;
 			MaidQuartersMaid.Stage = "205";
 			MaidQuartersOnlineDrinkFromOwner = true;
+		}
+
+		// Forced Wheel of Fortune
+		if (data.Content == "OwnerRuleForceWheelFortune") {
+			for (let C of ChatRoomCharacter)
+				if (C.IsOwner())
+					CharacterSetCurrent(C);
+			if ((CurrentCharacter == null) || !CurrentCharacter.IsOwner() || !InventoryIsWorn(CurrentCharacter, "WheelFortune", "ItemDevices")) return;
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			WheelFortuneEntryModule = CurrentModule;
+			WheelFortuneEntryScreen = CurrentScreen;
+			WheelFortuneBackground = ChatRoomData.Background;
+			WheelFortuneCharacter = CurrentCharacter;
+			WheelFortuneForced = true;
+			DialogLeave();
+			CommonSetScreen("MiniGame", "WheelFortune");
 		}
 
 		ChatRoomGetLoadRules(data.Sender);

@@ -519,6 +519,7 @@ ServerMessageOwnerRuleBlockScreen,,,Your owner has changed the Bondage Club area
 ServerMessageOwnerRuleBlockAppearance,,,Your owner has changed the appearance zones you can modify.,,
 ServerMessageOwnerRuleBlockItemGroup,,,Your owner has changed the item zones you can access.,,
 ServerMessageOwnerRuleForbiddenWords,,,"Your owner has changed your list of forbidden words.  You can use /forbiddenwords to review the words.",,
+ServerMessageOwnerRuleForceWheelFortune,,,Your owner requires you to spin the Wheel of Fortune.,,
 ServerMessageForbiddenWordsBlocked,,,"Saying a forbidden word is blocked by your owner.  You can use /forbiddenwords to review the words.",,
 ServerMessageForbiddenWordsMute5,,,"You said a forbidden word and will be silenced for 5 minutes.  You can use /forbiddenwords to review the words.",,
 ServerMessageForbiddenWordsMute15,,,"You said a forbidden word and will be silenced for 15 minutes.  You can use /forbiddenwords to review the words.",,

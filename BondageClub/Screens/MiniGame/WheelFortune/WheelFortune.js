@@ -5,6 +5,7 @@ var WheelFortuneEntryScreen = "";
 /** @type {null | Character} */
 var WheelFortuneCharacter = null;
 var WheelFortuneRoleplay = false;
+var WheelFortuneForced = false;
 var WheelFortunePos = 0;
 var WheelFortunePosMax = 0;
 var WheelFortuneVelocity = 0;
@@ -817,10 +818,10 @@ function WheelFortuneRun() {
 	DrawRect(0, 0, 2000, 1000, "#00000080")
 	DrawCharacter(Player, 100, 0, 1, true);
 	let BackColor = (WheelFortuneVelocity == 0) ? "White" : "Silver";
-	DrawButton(1885, 25, 90, 90, "", BackColor, "Icons/Exit.png", TextGet("Exit"));
+	DrawButton(1885, 25, 90, 90, "", (WheelFortuneForced ? "Pink" : BackColor), "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1770, 25, 90, 90, "", BackColor, "Icons/Random.png", TextGet("Random"));
 	WheelFortuneDraw(WheelFortuneList, WheelFortunePos, WheelFortunePosMax, 750, 0, 1);
-	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? "Title" : "Wait"), 1375, 200, 550, 200, "White");
+	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? (WheelFortuneForced ? "Forced" : "Title") : "Wait"), 1375, 200, 550, 200, "White");
 	if (Player.GetDifficulty() <= 1) {
 		MainCanvas.textAlign = "left";
 		DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
@@ -840,10 +841,11 @@ function WheelFortuneClick() {
 	if (WheelFortuneVelocity != 0) return;
 
 	// When the user wishes to exit
-	if (MouseIn(1885, 25, 90, 90)) WheelFortuneExit();
+	if (MouseIn(1885, 25, 90, 90) && !WheelFortuneForced) WheelFortuneExit();
 
 	// When the user wishes to do a random spin
 	if (MouseIn(1770, 25, 90, 90)) {
+		WheelFortuneForced = false;
 		WheelFortuneVelocity = WheelFortuneVelocity + 3000 + (Math.random() * 3000);
 		WheelFortuneVelocityTime = CommonTime();
 		let Msg = TextGet("Spin" + (WheelFortuneRoleplay ? "Roleplay" : ""));
@@ -881,6 +883,7 @@ function WheelFortuneMouseUp() {
 		if ((WheelFortunePosY < 400) && (MouseY == -1)) WheelFortunePosY = -1;
 		if ((WheelFortunePosY > 600) && (MouseY == -1)) WheelFortunePosY = 1001;
 		if ((WheelFortuneInitTime + 1000 >= CommonTime()) && (Math.abs(WheelFortuneInitY - WheelFortunePosY) > 300)) {
+			WheelFortuneForced = false;
 			WheelFortuneVelocity = (WheelFortunePosY - WheelFortuneInitY) * 3;
 			if (WheelFortuneVelocity > 0) WheelFortuneVelocity = WheelFortuneVelocity + 800 + (Math.random() * 800);
 			if (WheelFortuneVelocity < 0) WheelFortuneVelocity = WheelFortuneVelocity - 800 - (Math.random() * 800);
@@ -915,5 +918,5 @@ function WheelFortuneResult() {
  * @returns {void} - Nothing
  */
 function WheelFortuneExit() {
-	if (WheelFortuneVelocity == 0) CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	if ((WheelFortuneVelocity == 0) && !WheelFortuneForced) CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
 }
