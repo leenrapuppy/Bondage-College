@@ -401,10 +401,10 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten) 
 		if (MouseIn(1080, 170, 240, 65) || MouseIn(1080, 260, 240, 65)) {
 			if (DialogFocusItem.Difficulty == null) DialogFocusItem.Difficulty = 0;
-			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 3;
-			if (MouseIn(1080, 260, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty - 3;
+			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 4;
+			if (MouseIn(1080, 260, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty - 4;
 			if (DialogFocusItem.Difficulty < -10) DialogFocusItem.Difficulty = -10;
-			let MaxDifficulty = SkillGetLevel(Player, "Bondage") + 5;
+			let MaxDifficulty = SkillGetLevel(Player, "Bondage") + 4;
 			if (DialogFocusItem.Asset.Difficulty != null) MaxDifficulty = MaxDifficulty + DialogFocusItem.Asset.Difficulty;
 			if (DialogFocusItem.Difficulty > MaxDifficulty) DialogFocusItem.Difficulty = MaxDifficulty;
 			CharacterRefresh(C, true);

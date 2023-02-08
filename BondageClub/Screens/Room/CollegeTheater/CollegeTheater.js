@@ -1,5 +1,6 @@
 "use strict";
 var CollegeTheaterBackground = "CollegeTheater";
+/** @type {null | NPCCharacter} */
 var CollegeTheaterJulia = null;
 var CollegeTheaterJuliaLove = 0;
 var CollegeTheaterRandomColors = ["#AA4444", "#44AA44", "#4444AA", "#AAAA44", "#AA44AA", "#44AAAA"];

@@ -1,5 +1,6 @@
 "use strict";
 var PrivateRansomBackground = "Sheet";
+/** @type {null | NPCCharacter} */
 var PrivateRansomCharacter = null;
 
 /**
@@ -49,7 +50,7 @@ function PrivateRansomRun() {
 
 	// Draw the ransomed character on the left
 	DrawCharacter(PrivateRansomCharacter, 150, 100, 0.8);
-	
+
 	// Draw the ransom note, in 5 lines
 	for (let T = 0; T <= 5; T++)
 		DrawText(TextGet("Ransom" + T.toString()).replace("RansomCharacterName", PrivateRansomCharacter.Name), 1150, T * 125 + 187, "Black", "Silver");

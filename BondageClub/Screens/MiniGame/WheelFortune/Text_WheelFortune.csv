@@ -1,7 +1,9 @@
 Title,Use your mouse or finger to grab and spin the wheel
 Wait,Hold your breath
 Roleplay,Roleplay mode
+NoRoleplay,Roleplay mode isn't available on hardcore or extreme difficulty
 Customize,Customize your wheel
+CustomizeView,View wheel customization
 Random,Random Spin
 Exit,Don't spin the wheel
 Spin,spins CharacterName Wheel of Fortune

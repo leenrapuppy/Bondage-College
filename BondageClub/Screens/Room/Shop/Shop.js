@@ -1,6 +1,8 @@
 "use strict";
 var ShopBackground = "Shop";
+/** @type {null | NPCCharacter} */
 var ShopVendor = null;
+/** @type {null | NPCCharacter} */
 var ShopCustomer = null;
 var ShopVendorAllowItem = false;
 var ShopBoughtEverything = false;
@@ -13,6 +15,7 @@ var ShopDemoItemPayment = 0;
 var ShopDemoItemGroup = "";
 var ShopDemoItemGroupList = ["ItemHead", "ItemMouth", "ItemArms", "ItemLegs", "ItemFeet"];
 var ShopSelectAsset = ShopAssetFocusGroup;
+/** @type {Asset[]} */
 var ShopCart = [];
 var ShopBuyMode = true;
 // Prevent selling of items that can be earned for free

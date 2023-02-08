@@ -13,21 +13,25 @@ const ChatRoomSpaceType = {
 };
 
 var ChatRoomBackground = "";
-/** @type {ChatRoom} */
+/** @type {null | ChatRoom} */
 let ChatRoomData = null;
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
+/** @type {{ SenderMemberNumber: number, Time: number, Original: string, Chat: string, Garbled: string, SenderName: string }[]} */
 var ChatRoomChatLog = [];
 var ChatRoomLastMessage = [""];
 var ChatRoomLastMessageIndex = 0;
+/** @type {null | number} */
 var ChatRoomTargetMemberNumber = null;
 var ChatRoomOwnershipOption = "";
 var ChatRoomLovershipOption = "";
 var ChatRoomPlayerCanJoin = false;
 var ChatRoomMoneyForOwner = 0;
+/** @type {number[]} */
 var ChatRoomQuestGiven = [];
 var ChatRoomSpace = ChatRoomSpaceType.MIXED;
 var ChatRoomGame = "";
+/** @type {null | number} */
 var ChatRoomMoveTarget = null;
 var ChatRoomHelpSeen = false;
 var ChatRoomAllowCharacterUpdate = true;
@@ -37,6 +41,7 @@ var ChatRoomSlowtimer = 0;
 var ChatRoomSlowStop = false;
 var ChatRoomChatHidden = false;
 var ChatRoomCharacterCount = 0;
+/** @type {Character[]} */
 var ChatRoomCharacterDrawlist = [];
 var ChatRoomSenseDepBypass = false;
 var ChatRoomGetUpTimer = 0;
@@ -46,13 +51,19 @@ var ChatRoomLastPrivate = false;
 var ChatRoomLastSize = 0;
 var ChatRoomLastLanguage = "EN";
 var ChatRoomLastDesc = "";
+/** @type {number[]} */
 var ChatRoomLastAdmin = [];
+/** @type {number[]} */
 var ChatRoomLastBan = [];
+/** @type {string[]} */
 var ChatRoomLastBlockCategory = [];
 var ChatRoomLastSpace = "";
+/** @type {null | { Name: string, Description: string, Background: string, Private: boolean, Space: string, Game: string, Admin: number[], Limit: string, Language: string, BlockCategory: string[] }} */
 var ChatRoomNewRoomToUpdate = null;
 var ChatRoomNewRoomToUpdateTimer = 0;
+/** @type {number[]} */
 var ChatRoomLeashList = [];
+/** @type {null | Character} */
 var ChatRoomLeashPlayer = null;
 var ChatRoomTargetDirty = false;
 
@@ -753,7 +764,7 @@ function ChatRoomClearAllElements() {
  * @param {string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
  * @param {string} LeaveSpace - Name of the space to go back to when exiting chatsearch.
  * @param {string} Background - Name of the background to use in chatsearch.
- * @param {Array} BackgroundTagList - List of available backgrounds in the chatroom space.
+ * @param {string[]} BackgroundTagList - List of available backgrounds in the chatroom space.
  * @returns {void} - Nothing.
  */
 function ChatRoomStart(Space, Game, LeaveRoom, LeaveSpace, Background, BackgroundTagList) {

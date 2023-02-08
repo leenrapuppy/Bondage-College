@@ -1,5 +1,5 @@
 "use strict";
-/** @type string[][] */
+/** @type {null | string[][]} */
 let OnlineGameDictionary = null;
 
 /**
@@ -25,7 +25,7 @@ function OnlneGameDictionaryLoad() {
 		});
 
 		// If a translation file is available, we open the txt file and keep it in cache
-		var TranslationPath = FullPath.replace(".csv", "_" + TranslationLanguage + ".txt");	
+		var TranslationPath = FullPath.replace(".csv", "_" + TranslationLanguage + ".txt");
 		if (TranslationAvailable(TranslationPath))
 			CommonGet(TranslationPath, function() {
 				if (this.status == 200)
@@ -33,7 +33,7 @@ function OnlneGameDictionaryLoad() {
 					TranslationCache[TranslationPath] = TranslationParseTXT(this.responseText);
 					OnlineGameTranslate(TranslationPath);
 				}
-					
+
 			});
 	}
 }

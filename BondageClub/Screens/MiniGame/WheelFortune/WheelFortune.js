@@ -2,12 +2,14 @@
 var WheelFortuneBackground = "Black";
 var WheelFortuneEntryModule = "";
 var WheelFortuneEntryScreen = "";
+/** @type {null | Character} */
 var WheelFortuneCharacter = null;
 var WheelFortuneRoleplay = false;
 var WheelFortunePos = 0;
 var WheelFortunePosMax = 0;
 var WheelFortuneVelocity = 0;
 var WheelFortuneVelocityTime = 0;
+/** @type {null | number} */
 var WheelFortunePosY = null;
 var WheelFortuneInitY = 0;
 var WheelFortuneInitTime = 0;
@@ -385,7 +387,7 @@ var WheelFortuneOption = [
 			if (WheelFortuneCanWear("WebBlindfold", "ItemHead")) {
 				InventoryWear(Player, "WebBlindfold", "ItemHead", "Default", 15);
 				InventoryRandomExtend(Player, "ItemHead");
-			}				
+			}
 			if (WheelFortuneCanWear("WebGag", "ItemMouth")) InventoryWear(Player, "WebGag", "ItemMouth", "Default", 15);
 			if (WheelFortuneCanWear("Web", "ItemArms")) {
 				InventoryWear(Player, "Web", "ItemArms", "Default", 15);
@@ -702,6 +704,7 @@ function WheelFortuneLoad() {
 	WheelFortuneList = "";
 	if ((WheelFortuneCharacter.OnlineSharedSettings != null) && (WheelFortuneCharacter.OnlineSharedSettings.WheelFortune != null)) WheelFortuneList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
 	if ((WheelFortuneList == null) || (typeof WheelFortuneList !== "string") || (WheelFortuneList.length < 2)) WheelFortuneList = WheelFortuneDefault;
+	if (Player.GetDifficulty() >= 2) WheelFortuneRoleplay = false;
 
 	// Shuffles the wheel to give a random order
 	WheelFortunePos = Math.floor(Math.random() * 80);
@@ -762,7 +765,7 @@ function WheelFortuneLoad() {
 			DrawTextFit(TextGet("Option" + Wheel[W]), X + 250 * Zoom, PosY + 44 * Zoom, 440, TextColor, "Silver");
 
 		}
-                
+
     }
 
 	// Draw the border and arrow
@@ -818,10 +821,12 @@ function WheelFortuneRun() {
 	DrawButton(1770, 25, 90, 90, "", BackColor, "Icons/Random.png", TextGet("Random"));
 	WheelFortuneDraw(WheelFortuneList, WheelFortunePos, WheelFortunePosMax, 750, 0, 1);
 	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? "Title" : "Wait"), 1375, 200, 550, 200, "White");
-	MainCanvas.textAlign = "left";
-	DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
-	MainCanvas.textAlign = "center";
-	if (WheelFortuneCharacter.IsPlayer()) DrawButton(1400, 800, 440, 80, TextGet("Customize"), BackColor);
+	if (Player.GetDifficulty() <= 1) {
+		MainCanvas.textAlign = "left";
+		DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
+		MainCanvas.textAlign = "center";
+	} else DrawTextWrap(TextGet("NoRoleplay"), 1375, 400, 550, 200, "White");
+	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
 
 }
 
@@ -847,11 +852,10 @@ function WheelFortuneClick() {
 	}
 
 	// When the user wants to customize the wheel
-	if (MouseIn(1400, 800, 440, 80) && WheelFortuneCharacter.IsPlayer())
-		CommonSetScreen("Online", "WheelFortuneCustomize");
+	if (MouseIn(1400, 800, 440, 80)) CommonSetScreen("Online", "WheelFortuneCustomize");
 
 	// Roleplay check box
-	if (MouseIn(1436, 468, 64, 64)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
+	if (MouseIn(1436, 468, 64, 64) && (Player.GetDifficulty() <= 1)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
 
 }
 

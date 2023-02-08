@@ -1,6 +1,8 @@
 "use strict";
 var IntroductionBackground = "Introduction";
+/** @type {null | NPCCharacter} */
 var IntroductionMaid = null;
+/** @type {null | NPCCharacter} */
 var IntroductionSub = null;
 var IntroductionMaidOpinion = 0;
 var IntroductionHasBasicItems = false;
@@ -12,10 +14,12 @@ var IntroductionRescueScenarioList = ["LatexWoman", "Newcomer", "MaidFight", "Sa
 var IntroductionJobList = ["DomPuppy", "DomLock", "DomKidnap", "DomTrainer", "SubSearch", "SubDojo", "SubActivity", "SubMaid"];
 var IntroductionJobCurrent = "";
 var IntroductionJobCount = 1;
+/** @type {null | string} */
 var IntroductionJobParam = null;
 var IntroductionJobPosition = { Active: false, X: 1000, Y: 1000 };
 var IntroductionJobLockList = ["MetalPadlock", "IntricatePadlock", "TimerPadlock", "CombinationPadlock", "ExclusivePadlock"];
 var IntroductionJobSearchList = ["MaidQuarters", "LARP", "KidnapLeague", "SlaveMarket"];
+/** @type {number[]} */
 var IntroductionJobMember = [];
 
 /**

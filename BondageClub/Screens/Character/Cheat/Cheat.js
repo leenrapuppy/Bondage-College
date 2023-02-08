@@ -5,6 +5,7 @@ var CheatList = ["DoubleReputation", "DoubleSkill", "DoubleMoney", "DoubleItemSp
 var CheatBonusList = ["DoubleMoney", "DoubleSkill"];
 var CheatBonusFactor = 2;
 var CheatBonusTime = 1552967946711;
+/** @type {string[]} */
 var CheatActivated = [];
 var CheatBrowserName = "";
 var CheatBrowserVersion = "";

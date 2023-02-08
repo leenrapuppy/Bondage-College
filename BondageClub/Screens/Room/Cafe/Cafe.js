@@ -1,5 +1,6 @@
 "use strict";
 var CafeBackground = "MaidCafe";
+/** @type {null | NPCCharacter} */
 var CafeMaid = null;
 var CafeIsMaid = false;
 var CafeIsHeadMaid = false;
@@ -7,6 +8,7 @@ var CafeVibeIncreased = false;
 var CafeEnergyDrinkPrice = 5;
 var CafeGlassMilkPrice = 5;
 var CafeCupcakePrice = 5;
+/** @type {null | string} */
 var CafeAskedFor = null;
 var CafePrice = 0;
 

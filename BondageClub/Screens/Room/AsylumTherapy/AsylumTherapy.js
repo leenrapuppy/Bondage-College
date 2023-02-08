@@ -1,6 +1,8 @@
 "use strict";
 var AsylumTherapyBackground = "AsylumTherapy";
+/** @type {null | NPCCharacter} */
 var AsylumTherapyNurse = null;
+/** @type {null | NPCCharacter} */
 var AsylumTherapyPatient = null;
 
 /**

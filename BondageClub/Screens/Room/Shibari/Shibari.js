@@ -1,15 +1,19 @@
 "use strict";
 var ShibariBackground = "Shibari";
+/** @type {null | NPCCharacter} */
 var ShibariTeacher = null;
+/** @type {null | Item[]} */
 var ShibariTeacherAppearance = null;
 var ShibariAllowTeacherItem = false;
+/** @type {null | NPCCharacter} */
 var ShibariStudent = null;
+/** @type {null | Item[]} */
 var ShibariPlayerAppearance = null;
 var ShibariSubCommentDone = false;
 var ShibariDomCommentDone = false;
 var ShibariSurrenderDone = false;
 var ShibariSpankDone = false;
-/** @type {number} */
+/** @type {null | number} */
 let ShibariTeacherReleaseTimer = null;
 var ShibariRescueScenario = "";
 var ShibariRescueScenarioList = ["JapaneseGirl", "RebelStudent", "SelfBondage", "HeadMistress"];

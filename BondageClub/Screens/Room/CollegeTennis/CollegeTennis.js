@@ -1,5 +1,6 @@
 "use strict";
 var CollegeTennisBackground = "CollegeTennis";
+/** @type {null | NPCCharacter} */
 var CollegeTennisJennifer = null;
 var CollegeTennisJenniferStatus = "";
 var CollegeTennisJenniferWillJoinRoom = false;

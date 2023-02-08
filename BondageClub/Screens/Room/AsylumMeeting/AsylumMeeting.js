@@ -1,6 +1,8 @@
 "use strict";
 var AsylumMeetingBackground = "AsylumMeeting";
+/** @type {null | NPCCharacter} */
 var AsylumMeetingPatientLeft = null;
+/** @type {null | NPCCharacter} */
 var AsylumMeetingPatientRight = null;
 
 /**
@@ -29,7 +31,7 @@ function AsylumMeetingGGTSCollar() { return InventoryIsWorn(CurrentCharacter, "F
  * @returns {void} - Nothing
  */
 function AsylumMeetingLoad() {
-	
+
 	// Dress the left patient (dealer)
 	if (AsylumMeetingPatientLeft == null) {
 		AsylumMeetingPatientLeft = CharacterLoadNPC("NPC_AsylumMeeting_PatientLeft");

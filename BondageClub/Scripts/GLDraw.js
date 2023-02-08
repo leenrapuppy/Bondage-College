@@ -9,6 +9,7 @@ var GLDrawCacheTotalImages = 0;
 /** @type {"webgl2"|"webgl"|"No WebGL"} */
 var GLVersion;
 
+/** @type {HTMLCanvasElement} */
 var GLDrawCanvas;
 
 /**
@@ -22,8 +23,10 @@ const GLDrawContextResetSeconds = 10;
  */
 const GLDrawRevertToDraw2DSeconds = 50;
 
+/** @type {ReturnType<typeof setTimeout>} */
 let GLDrawContextLostTimeout;
 let GLDrawRecoveryMode = false;
+/** @type {ReturnType<typeof setTimeout>} */
 let GLDrawCrashTimeout;
 
 var GLDrawAlphaThreshold = 0.01;

@@ -3745,42 +3745,32 @@ var AssetFemale3DCGExtended = {
 	}, // Jewelry
 	Eyebrows: {
 		Eyebrows2: {
-			Archetype: ExtendedArchetype.TYPED,
+			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				Options: [
+				Modules: [
 					{
-						Name: "NoPierce",
-						Property: { Type: null }
+						Name: "Style", Key: "s",
+						Options: [
+							{}, // s0 eyebrows2
+							{}, // s1 eyebrows3
+							{}, // s2 eyebrows4
+							{}, // s3 eyebrows5
+							{}, // s4 eyebrows6
+						]
 					},
 					{
-						Name: "BarRight",
-						Property: { Type: "BarRight" },
-						PrerequisiteBuyGroup: "JewelrySet"
-					},
-					{
-						Name: "BarLeft",
-						Property: { Type: "BarLeft" },
-						PrerequisiteBuyGroup: "JewelrySet"
-					},
-					{
-						Name: "BarBoth",
-						Property: { Type: "BarBoth" },
-						PrerequisiteBuyGroup: "JewelrySet"
-					},
-					{
-						Name: "RingRight",
-						Property: { Type: "RingRight" },
-						PrerequisiteBuyGroup: "JewelrySet"
-					},
-					{
-						Name: "RingLeft",
-						Property: { Type: "RingLeft" },
-						PrerequisiteBuyGroup: "JewelrySet"
-					},
-					{
-						Name: "RingBoth",
-						Property: { Type: "RingBoth" },
-						PrerequisiteBuyGroup: "JewelrySet"
+						Name: "Piercing", Key: "p",
+						Options: [
+							{ 
+								Property: { Type: null } 
+							}, // p0 none
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 BarRight
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 BarLeft
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p3 BarBoth
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p4 RingRight
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p5 RingLeft
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p6 RingBoth
+						]
 					},
 				]
 			},

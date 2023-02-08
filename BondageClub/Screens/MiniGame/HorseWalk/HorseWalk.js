@@ -1,7 +1,10 @@
 "use strict";
 var HorseWalkBackground = "HorseStableLight";
+/** @type { null | { X: number, Y: number }[] } */
 var HorseWalkCarrots = null;
+/** @type { null | { X: number, Y: number }[] } */
 var HorseWalkCrops = null;
+/** @type { null | { X: number, Y: number, Stat: number }[] } */
 var HorseWalkHurdle = null;
 var HorseWalkPlayerX = 0;
 var HorseWalkPlayerY = 0;

@@ -1,7 +1,10 @@
 "use strict";
 var NPCWeddingBackground = "Management";
+/** @type {null | NPCCharacter} */
 var NPCWeddingWife = null;
+/** @type {null | NPCCharacter} */
 var NPCWeddingGirlLeft = null;
+/** @type {null | NPCCharacter} */
 var NPCWeddingGirlRight = null;
 
 /**
@@ -58,7 +61,7 @@ function NPCWeddingRun() {
 	if ((CutsceneStage >= 2) && (CutsceneStage <= 8)) {
 		DrawCharacter(NPCWeddingGirlLeft, 0, 0, 1);
 		DrawCharacter(NPCWeddingGirlRight, 1500, 0, 1);
-	} 
+	}
 	DrawText(TextGet("NPCWedding" + CutsceneStage.toString()), 1000, 980, "Black", "White");
 }
 
@@ -81,7 +84,7 @@ function NPCWeddingClick() {
 		CharacterFullRandomRestrain(NPCWeddingGirlRight, "ALL", true);
 	}
 	if (CutsceneStage == 9) {
-		NPCWeddingBackground = CommonRandomItemFromList("", ["BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed"])	
+		NPCWeddingBackground = CommonRandomItemFromList("", ["BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed"])
 	}
 	if (CutsceneStage == 10) {
 		CharacterNaked(Player);

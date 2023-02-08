@@ -3,12 +3,19 @@ var KidnapVictory = false;
 var KidnapDifficulty = 0;
 var KidnapBackground = "KidnapLeague";
 var KidnapReturnFunction = "";
+/** @type {null | Character} */
 var KidnapOpponent = null;
+/** @type {null | Item} */
 var KidnapPlayerCloth = null;
+/** @type {null | Item} */
 var KidnapPlayerClothAccessory = null;
+/** @type {null | Item} */
 var KidnapPlayerClothLower = null;
+/** @type {null | Item} */
 var KidnapOpponentCloth = null;
+/** @type {null | Item} */
 var KidnapOpponentClothAccessory = null;
+/** @type {null | Item} */
 var KidnapOpponentClothLower = null;
 var KidnapTimer = 0;
 var KidnapMode = "";
@@ -20,10 +27,12 @@ var KidnapOpponentDamage = 0;
 var KidnapResultPlayer = "test";
 var KidnapResultOpponent = "test";
 var KidnapResultUpperHand = "";
+/** @type {null | Character} */
 var KidnapUpperHandVictim = null;
 var KidnapUpperHandSelection = 0;
 var KidnapMoveType = ["BruteForce", "Domination", "Sneakiness", "Meditation"];
 var KidnapUpperHandMoveType = ["Cloth", "ItemMouth", "ItemFeet", "UndoCloth", "UndoItemMouth", "UndoItemFeet", "Mercy"];
+/** @type { [number, number, number, number][] } */
 var KidnapMoveMap = [
 	[1, 2, 0, 2], // BruteForce
 	[0, 1, 2, 2], // Domination

@@ -1,9 +1,14 @@
 "use strict";
 var NPCCollaringBackground = "Management";
+/** @type {null | NPCCharacter} */
 var NPCCollaringSub = null;
+/** @type {null | NPCCharacter} */
 var NPCCollaringMistressLeft = null;
+/** @type {null | NPCCharacter} */
 var NPCCollaringMistressRight = null;
+/** @type {null | NPCCharacter} */
 var NPCCollaringGirlLeft = null;
+/** @type {null | NPCCharacter} */
 var NPCCollaringGirlRight = null;
 
 /**

@@ -1,5 +1,6 @@
 "use strict";
 var TranslationLanguage = "EN";
+/** @type {Record<string, string[]>} */
 var TranslationCache = {};
 
 /**

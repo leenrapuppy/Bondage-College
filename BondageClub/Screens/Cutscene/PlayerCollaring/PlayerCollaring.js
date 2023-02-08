@@ -1,9 +1,14 @@
 "use strict";
 var PlayerCollaringBackground = "Management";
+/** @type {null | NPCCharacter} */
 var PlayerCollaringMistress = null;
+/** @type {null | NPCCharacter} */
 var PlayerCollaringMistressLeft = null;
+/** @type {null | NPCCharacter} */
 var PlayerCollaringMistressRight = null;
+/** @type {null | NPCCharacter} */
 var PlayerCollaringGirlLeft = null;
+/** @type {null | NPCCharacter} */
 var PlayerCollaringGirlRight = null;
 
 /**
