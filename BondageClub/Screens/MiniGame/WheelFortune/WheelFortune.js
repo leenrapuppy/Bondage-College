@@ -704,6 +704,7 @@ function WheelFortuneLoad() {
 	WheelFortuneList = "";
 	if ((WheelFortuneCharacter.OnlineSharedSettings != null) && (WheelFortuneCharacter.OnlineSharedSettings.WheelFortune != null)) WheelFortuneList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
 	if ((WheelFortuneList == null) || (typeof WheelFortuneList !== "string") || (WheelFortuneList.length < 2)) WheelFortuneList = WheelFortuneDefault;
+	if (Player.GetDifficulty() >= 2) WheelFortuneRoleplay = false;
 
 	// Shuffles the wheel to give a random order
 	WheelFortunePos = Math.floor(Math.random() * 80);
@@ -820,12 +821,12 @@ function WheelFortuneRun() {
 	DrawButton(1770, 25, 90, 90, "", BackColor, "Icons/Random.png", TextGet("Random"));
 	WheelFortuneDraw(WheelFortuneList, WheelFortunePos, WheelFortunePosMax, 750, 0, 1);
 	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? "Title" : "Wait"), 1375, 200, 550, 200, "White");
-	MainCanvas.textAlign = "left";
-	DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
-	MainCanvas.textAlign = "center";
-
-	const customizeText = WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView");
-	DrawButton(1400, 800, 440, 80, customizeText, BackColor);
+	if (Player.GetDifficulty() <= 1) {
+		MainCanvas.textAlign = "left";
+		DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
+		MainCanvas.textAlign = "center";
+	} else DrawTextWrap(TextGet("NoRoleplay"), 1375, 400, 550, 200, "White");
+	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
 
 }
 
@@ -854,7 +855,7 @@ function WheelFortuneClick() {
 	if (MouseIn(1400, 800, 440, 80)) CommonSetScreen("Online", "WheelFortuneCustomize");
 
 	// Roleplay check box
-	if (MouseIn(1436, 468, 64, 64)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
+	if (MouseIn(1436, 468, 64, 64) && (Player.GetDifficulty() <= 1)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
 
 }
 
