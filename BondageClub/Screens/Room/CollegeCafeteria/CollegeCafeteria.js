@@ -30,11 +30,11 @@ function CollegeCafeteriaLoad() {
 
 	// Sets Sidney current relationship with the player
 	if (LogQuery("BondageCollege", "Import")) CollegeCafeteriaSidneyStatus = "SchoolMate";
-	if (LogQuery("JenniferLover", "NPC-Sidney") && (Player.Lover == "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Lover";
-	if (LogQuery("JenniferLover", "NPC-Sidney") && (Player.Lover != "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "ExLover";
-	if (LogQuery("JenniferCollared", "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Owned";
-	if (LogQuery("JenniferMistress", "NPC-Sidney") && (Player.Owner == "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Owner";
-	if (LogQuery("JenniferMistress", "NPC-Sidney") && (Player.Owner != "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "ExOwner";
+	if (LogQuery("SidneyLover", "NPC-Sidney") && (Player.Lover == "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Lover";
+	if (LogQuery("SidneyLover", "NPC-Sidney") && (Player.Lover != "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "ExLover";
+	if (LogQuery("SidneyCollared", "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Owned";
+	if (LogQuery("SidneyMistress", "NPC-Sidney") && (Player.Owner == "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Owner";
+	if (LogQuery("SidneyMistress", "NPC-Sidney") && (Player.Owner != "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "ExOwner";
 	if (PrivateCharacter.length > 1)
 		for (let P = 1; P < PrivateCharacter.length; P++)
 			if (PrivateCharacter[P].Name == "Sidney")
