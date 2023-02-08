@@ -3761,8 +3761,8 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Piercing", Key: "p",
 						Options: [
-							{ 
-								Property: { Type: null } 
+							{
+								Property: { Type: null }
 							}, // p0 none
 							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 BarRight
 							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 BarLeft
