@@ -493,9 +493,10 @@ function DrawImageResize(Source, X, Y, Width, Height) {
  * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
+ * @param {GlobalCompositeOperation} [BlendingMode="source-over"] - blending mode for drawing the image
  * @returns {boolean} - whether the image was complete or not
  */
-function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
+function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate, BlendingMode) {
 	const Img = DrawGetImage(Source);
 	if (!Img.complete) return false;
 	if (!Img.naturalWidth) return true;
@@ -519,6 +520,7 @@ function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
 	Opacity = typeof Opacity === "number" ? Opacity : 1;
 	Canvas.save();
 	Canvas.globalAlpha = Opacity;
+	Canvas.globalCompositeOperation = BlendingMode;
 	Canvas.drawImage(SourceImage, X, Y);
 	Canvas.restore();
 	return true;
@@ -599,9 +601,10 @@ function DrawImage(Source, X, Y, Invert) {
  * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
+ * @param {GlobalCompositeOperation} [BlendingMode="source-over"] - blending mode for drawing the image
  * @returns {boolean} - whether the image was complete or not
  */
-function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha, AlphaMasks, Opacity, Rotate) {
+function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha, AlphaMasks, Opacity, Rotate, BlendingMode) {
 
 	// Make sure that the starting image is loaded
 	const Img = DrawGetImage(Source);
@@ -662,6 +665,7 @@ function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha
 	Opacity = typeof Opacity === "number" ? Opacity : 1;
 	Canvas.save();
 	Canvas.globalAlpha = Opacity;
+	Canvas.globalCompositeOperation = BlendingMode;
 	Canvas.drawImage(ColorCanvas.canvas, 0, 0, Img.width, Img.height, X, Y, Img.width * Zoom, Img.height * Zoom);
 	Canvas.restore();
 

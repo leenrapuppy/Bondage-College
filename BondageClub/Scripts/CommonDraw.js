@@ -133,6 +133,7 @@ function CommonDrawAppearanceBuild(C, {
 			}).join("");
 		}
 		let Opacity = (Property && typeof Property.Opacity === "number") ? Property.Opacity : Layer.Opacity;
+		let BlendingMode = Layer.BlendingMode;
 		Opacity = Math.min(Layer.MaxOpacity, Math.max(Layer.MinOpacity, Opacity));
 		const BlinkExpression = (A.OverrideBlinking ? !AG.DrawingBlink : AG.DrawingBlink) ? "Closed/" : Expression;
 		/** @type {RectTuple[]} */
@@ -270,11 +271,11 @@ function CommonDrawAppearanceBuild(C, {
 				drawImageColorize(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
 					Color,
-					AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
+					AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 				drawImageColorizeBlink(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
-					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
+					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 			} else {
 				let ColorName = (
@@ -294,12 +295,12 @@ function CommonDrawAppearanceBuild(C, {
 				drawImage(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png",
 					X, Y,
-					AlphaMasks, Opacity, Rotate
+					AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 				drawImageBlink(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + ColorName + L +
 					".png",
-					X, Y, AlphaMasks, Opacity, Rotate
+					X, Y, AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 			}
 		}

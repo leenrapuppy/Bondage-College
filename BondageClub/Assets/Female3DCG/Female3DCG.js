@@ -8439,7 +8439,20 @@ var AssetFemale3DCG = [
 				FixedPosition: true, Extended: true,
 				DefaultColor: ["Default", "#7F4141", "#881818", "#FFA8DD", "#2C2C2C", "Default", "#7B3D9E", "#FF3F3F", "#343434", "#F2F2F2", "#D43434", "#C2B556", "#81DA88", "#E18DC3"],
 				HasType: false
-			}
+			},
+			{
+				Name: "FoldingScreen", Value: 100, Difficulty: -5, Time: 5, RemoveTime: 5, IsRestraint: false, Top: 0, DefaultColor: ["#B7A5A5", "#A5112C", "#616060"], Extended: true, MinOpacity: 0, Opacity: 1,
+				NotVisibleOnScreen: ["Appearance"],
+				FixedPosition: true,
+				Layer: [
+					{ Name: "Paper1", Priority: 58, MinOpacity: 1, AllowTypes: ["Opaque"], },
+					{ Name: "Frame1", Priority: 59, MinOpacity: 1, AllowTypes: ["Opaque"], },
+					{ Name: "Shadow", Priority: 57, MinOpacity: 1, AllowTypes: ["Shadow"], BlendingMode: "source-atop", },
+					{ Name: "Paper2", Priority: 58, MinOpacity: 0, AllowTypes: ["Shadow"], BlendingMode: "destination-over", CopyLayerColor: "Paper1", },
+					{ Name: "Frame2", Priority: 59, MinOpacity: 1, AllowTypes: ["Shadow"], CopyLayerColor: "Frame1", },
+					{ Name: "Mask", Priority: 60, MinOpacity: 0, AllowTypes: ["Shadow"], BlendingMode: "destination-in" , AllowColorize: false, },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

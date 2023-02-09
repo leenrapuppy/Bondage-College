@@ -743,6 +743,9 @@ ItemDevicesLuckyWheelArrow,Arrow
 ItemDevicesLuckyWheelSection1,Rope Sections
 ItemDevicesLuckyWheelSection2,Chain Sections
 ItemDevicesLuckyWheelSection3,Gag Sections
+ItemDevicesFoldingScreenShadow,Shadow
+ItemDevicesFoldingScreenPaper1,Paper
+ItemDevicesFoldingScreenFrame1,Frame
 ItemAddonCoversOuter,Outer
 ItemAddonCoversInner,Inner
 ItemNoseNoseHookBand,Strap

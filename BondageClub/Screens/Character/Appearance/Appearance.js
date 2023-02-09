@@ -454,6 +454,9 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 		}
 	}
 
+	if (assetToCheck.NotVisibleOnScreen && assetToCheck.NotVisibleOnScreen.indexOf(CurrentScreen) >= 0)
+		return false;
+
 	if (C.Pose != null)
 		for (let A = 0; A < C.Pose.length; A++)
 			for (let P = 0; P < Pose.length; P++)
@@ -535,10 +538,10 @@ function CharacterAppearanceBuildCanvas(C) {
 		CommonDrawAppearanceBuild(C, {
 			clearRect: (x, y, w, h) => C.Canvas.getContext("2d").clearRect(x, y, w, h),
 			clearRectBlink: (x, y, w, h) => C.CanvasBlink.getContext("2d").clearRect(x, y, w, h),
-			drawImage: (src, x, y, alphaMasks, opacity, rotate) => DrawImageCanvas(src, C.Canvas.getContext("2d"), x, y, alphaMasks, opacity, rotate),
-			drawImageBlink: (src, x, y, alphaMasks, opacity, rotate) => DrawImageCanvas(src, C.CanvasBlink.getContext("2d"), x, y, alphaMasks, opacity, rotate),
-			drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => DrawImageCanvasColorize(src, C.Canvas.getContext("2d"), x, y, 1, color, fullAlpha, alphaMasks, opacity, rotate),
-			drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => DrawImageCanvasColorize(src, C.CanvasBlink.getContext("2d"), x, y, 1, color, fullAlpha, alphaMasks, opacity, rotate),
+			drawImage: (src, x, y, alphaMasks, opacity, rotate, blendingMode) => DrawImageCanvas(src, C.Canvas.getContext("2d"), x, y, alphaMasks, opacity, rotate, blendingMode),
+			drawImageBlink: (src, x, y, alphaMasks, opacity, rotate, blendingMode) => DrawImageCanvas(src, C.CanvasBlink.getContext("2d"), x, y, alphaMasks, opacity, rotate, blendingMode),
+			drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode) => DrawImageCanvasColorize(src, C.Canvas.getContext("2d"), x, y, 1, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode),
+			drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode) => DrawImageCanvasColorize(src, C.CanvasBlink.getContext("2d"), x, y, 1, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode),
 			drawCanvas: (Img, x, y, alphaMasks) => DrawCanvas(Img, C.Canvas.getContext("2d"), x, y, alphaMasks),
 			drawCanvasBlink: (Img, x, y, alphaMasks) => DrawCanvas(Img, C.CanvasBlink.getContext("2d"), x, y, alphaMasks),
 		});
