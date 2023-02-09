@@ -548,6 +548,7 @@ Mask,FacePaint, Face Paint
 Mask,PetNose,Pet Nose
 Mask,Glitter,Glitter
 Mask,HeadHarness,Head Harness
+Mask,FestivalFoxMask,Festival Fox Mask
 Jewelry,,Jewelry
 Jewelry,JewelrySet,Piercing Set
 TailStraps,,Tail Strap
@@ -1530,6 +1531,7 @@ ItemHood,OpenMouthPlugHood,Latex Open Mouth Plug Hood
 ItemHood,DroneMask,Smooth Latex Mask
 ItemHood,CustomLatexHood,Custom Latex Hood
 ItemHood,HarnessCatMask,Cat Mask Harness
+ItemHood,FestivalFoxMask,Festival Fox Mask
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs

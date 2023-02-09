@@ -1443,3 +1443,11 @@ ClothHoodieHoodUpFront,Hood Outer
 ClothHoodieHoodDownTrim,Hood Trim
 ClothHoodieLaces,Laces
 ClothHoodieWaist,Waist and Wrists
+ItemHoodFestivalFoxMaskBase,Base
+ItemHoodFestivalFoxMaskMarkings,Markings
+ItemHoodFestivalFoxMaskEyeLeft,Left Eye
+ItemHoodFestivalFoxMaskEyeRight,Right Eye
+MaskFestivalFoxMaskBase,Base
+MaskFestivalFoxMaskMarkings,Markings
+MaskFestivalFoxMaskEyeLeft,Left Eye
+MaskFestivalFoxMaskEyeRight,Right Eye
