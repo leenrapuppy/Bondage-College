@@ -25,7 +25,7 @@ function C101_KinbakuClub_Discipline_Run() {
 		if (C101_KinbakuClub_Lauren_BullyCount >= 10) DrawText(GetText("Bully1"), 400, 120, "White");
 		if (!PlayerHasLockedInventory("Manacles") && !C101_KinbakuClub_Lauren_BullyCount >= 10) DrawText(GetText("Discipline1"), 400, 120, "White");
 	}
-    if (TextPhase >= 1) {
+	if (TextPhase >= 1) {
 		if (PlayerHasLockedInventory("Manacles")) DrawText(GetText("Slave2"), 400, 240, "White");
 		else DrawText(GetText("Discipline2"), 400, 240, "White");
 	}

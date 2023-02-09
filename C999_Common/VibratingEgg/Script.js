@@ -8,7 +8,7 @@ function C999_Common_VibratingEgg_Load() {
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	LoadInteractions();
-	
+
 	// Set the correct stage
 	C999_Common_VibratingEgg_ConfirmInsert = false;
 	C999_Common_VibratingEgg_CurrentStage = 0;
@@ -44,7 +44,7 @@ function C999_Common_VibratingEgg_Insert() {
 			PlayerLockInventory("VibratingEgg");
 			C999_Common_VibratingEgg_CurrentStage = 10;
 			C999_Common_VibratingEgg_HasLooseEgg = PlayerHasInventory("VibratingEgg");
-		}		
+		}
 	} else {
 		OverridenIntroText = GetText("ChastityBelt");
 	}

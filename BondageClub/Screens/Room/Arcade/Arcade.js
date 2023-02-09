@@ -1,6 +1,8 @@
 "use strict";
 var ArcadeBackground = "PartyBasement";
+/** @type {null | NPCCharacter} */
 var ArcadeEmployee = null;
+/** @type {null | NPCCharacter} */
 var ArcadePlayer = null;
 var ArcadeAskedFor = null;
 var ArcadePrice = 0;

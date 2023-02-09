@@ -9,8 +9,8 @@ var WheelFortuneCustomizeList = "";
  */
 function WheelFortuneCustomizeLoad() {
 	WheelFortuneCustomizeOffset = 0;
-	if ((Player.OnlineSharedSettings != null) && (Player.OnlineSharedSettings.WheelFortune != null) && (typeof Player.OnlineSharedSettings.WheelFortune === "string"))
-		WheelFortuneCustomizeList = Player.OnlineSharedSettings.WheelFortune;
+	if (typeof WheelFortuneCharacter?.OnlineSharedSettings?.WheelFortune === "string")
+		WheelFortuneCustomizeList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
 	else
 		WheelFortuneCustomizeList = WheelFortuneDefault;
 }
@@ -20,22 +20,36 @@ function WheelFortuneCustomizeLoad() {
  * @returns {void} - Nothing
  */
 function WheelFortuneCustomizeRun() {
+	const isDisabled = !WheelFortuneCharacter?.IsPlayer();
+	const buttonColor = isDisabled ? "Gray" : "White";
+	let titleText = "";
+	if (isDisabled) {
+		titleText = TextGet("TitleView").replace(
+			"DestinationCharacter",
+			`${CharacterNickname(WheelFortuneCharacter)}${DialogFindPlayer("'s")}`,
+		);
+	} else {
+		titleText = TextGet("Title");
+	}
 
 	// Draw the header
-	DrawText(TextGet("Title"), 650, 105, "Black", "Silver");
+	DrawText(titleText, 650, 105, "Black", "Silver");
 	DrawButton(1830, 60, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
-	DrawButton(1720, 60, 90, 90, "", "White", "Icons/Accept.png", TextGet("Save"));
-	DrawButton(1610, 60, 90, 90, "", "White", "Icons/Reset.png", TextGet("Default"));
-	DrawButton(1500, 60, 90, 90, "", "White", "Icons/CheckNone.png", TextGet("CheckNone"));
-	DrawButton(1390, 60, 90, 90, "", "White", "Icons/CheckAll.png", TextGet("CheckAll"));
 	DrawButton(1280, 60, 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
+	DrawButton(1720, 60, 90, 90, "", buttonColor, "Icons/Accept.png", TextGet("Save"), isDisabled);
+	DrawButton(1610, 60, 90, 90, "", buttonColor, "Icons/Reset.png", TextGet("Default"), isDisabled);
+	DrawButton(1500, 60, 90, 90, "", buttonColor, "Icons/CheckNone.png", TextGet("CheckNone"), isDisabled);
+	DrawButton(1390, 60, 90, 90, "", buttonColor, "Icons/CheckAll.png", TextGet("CheckAll"), isDisabled);
 
 	// List all wheel options with check boxes
 	MainCanvas.textAlign = "left";
 	for (let O = WheelFortuneCustomizeOffset; O < WheelFortuneOption.length && O < WheelFortuneCustomizeOffset + 30; O++) {
 		let X = 100 + Math.floor((O - WheelFortuneCustomizeOffset) / 10) * 600;
 		let Y = 175 + ((O % 10) * 75);
-		DrawCheckbox(X, Y, 64, 64, TextGet("Option" + WheelFortuneOption[O].ID), (WheelFortuneCustomizeList.indexOf(WheelFortuneOption[O].ID) >= 0));
+		DrawCheckbox(
+			X, Y, 64, 64, TextGet("Option" + WheelFortuneOption[O].ID),
+			(WheelFortuneCustomizeList.indexOf(WheelFortuneOption[O].ID) >= 0), isDisabled,
+		);
 	}
 	MainCanvas.textAlign = "center";
 
@@ -46,12 +60,22 @@ function WheelFortuneCustomizeRun() {
  * @returns {void} - Nothing
  */
 function WheelFortuneCustomizeClick() {
+	// Exit-without-save button
+	if (MouseIn(1830, 60, 90, 90)) WheelFortuneCustomizeExit();
 
 	// Click on the "Next" button, we increase the offset
 	if (MouseIn(1280, 60, 90, 90)) {
 		WheelFortuneCustomizeOffset = WheelFortuneCustomizeOffset + 30;
 		if (WheelFortuneCustomizeOffset >= WheelFortuneOption.length) WheelFortuneCustomizeOffset = 0;
 	}
+
+	// Non-player characters only have readonly access; abort at this point if necessary
+	if (!WheelFortuneCharacter?.IsPlayer()) {
+		return;
+	}
+
+	// Exit-and-save button
+	if (MouseIn(1720, 60, 90, 90)) WheelFortuneCustomizeExit(true);
 
 	// "Check All" button, adds all options
 	if (MouseIn(1390, 60, 90, 90)) {
@@ -68,9 +92,6 @@ function WheelFortuneCustomizeClick() {
 	if (MouseIn(1610, 60, 90, 90))
 		WheelFortuneCustomizeList = WheelFortuneDefault;
 
-	// "Exit" buttons
-	if (MouseIn(1720, 60, 90, 90)) WheelFortuneCustomizeExit(true);
-	if (MouseIn(1830, 60, 90, 90)) WheelFortuneCustomizeExit();
 
 	// Check boxes
 	for (let O = WheelFortuneCustomizeOffset; O < WheelFortuneOption.length && O < WheelFortuneCustomizeOffset + 30; O++) {
@@ -87,10 +108,11 @@ function WheelFortuneCustomizeClick() {
 
 /**
  * Handles exiting from the screen, updates the lucky wheel in the online shared settings
+ * @param {boolean} Save - Whether to push the updated selection to the server
  * @returns {void} - Nothing
  */
-function WheelFortuneCustomizeExit(Save) {
-	if (Save) {
+function WheelFortuneCustomizeExit(Save=false) {
+	if (Save && WheelFortuneCharacter?.IsPlayer()) {
 		// @ts-ignore: Individual properties validated separately
 		if (Player.OnlineSharedSettings == null) Player.OnlineSharedSettings = {};
 		Player.OnlineSharedSettings.WheelFortune = WheelFortuneCustomizeList;

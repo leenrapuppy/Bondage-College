@@ -21,7 +21,7 @@ function C005_GymClass_GymFight_KeyDown() {
 
 // Chapter 5 - Gym Fight End
 function C005_GymClass_GymFight_FightEnd(Victory) {
-	
+
 	// The first fight counts if it wasn't on practice mode
 	if (!C005_GymClass_Jennifer_PracticeMode) {
 		if (Victory) C005_GymClass_Jennifer_CurrentStage = 100;

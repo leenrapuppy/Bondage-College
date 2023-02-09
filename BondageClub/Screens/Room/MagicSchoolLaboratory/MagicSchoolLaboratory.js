@@ -1,6 +1,8 @@
 "use strict";
 var MagicSchoolLaboratoryBackground = "MagicSchoolLaboratory";
+/** @type {null | NPCCharacter} */
 var MagicSchoolLaboratoryTeacher = null;
+/** @type {null | NPCCharacter} */
 var MagicSchoolLaboratoryStudent = null;
 var MagicSchoolLaboratoryBattleWage = "";
 var MagicSchoolLaboratoryLastSpell = "";

@@ -9,7 +9,7 @@ var C004_ArtClass_ArtRoom_SarahStage = 0;
 
 // Chapter 4 - ArtRoom Load
 function C004_ArtClass_ArtRoom_Load() {
-	
+
 	// Get the image file for each girls
 	LeaveIcon = "Wait";
 	C004_ArtClass_ArtRoom_Jennifer = "Jennifer";
@@ -20,7 +20,7 @@ function C004_ArtClass_ArtRoom_Load() {
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "") && (C004_ArtClass_ArtRoom_JuliaStage <= 1)) C004_ArtClass_ArtRoom_Julia = "Julia_DoublePose";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "") && (C004_ArtClass_ArtRoom_JuliaStage == 2)) C004_ArtClass_ArtRoom_Julia = "Julia_DoublePoseNoTop";
 	if ((C004_ArtClass_ArtRoom_ExtraModel == "") && (C004_ArtClass_ArtRoom_JuliaStage >= 3)) C004_ArtClass_ArtRoom_Julia = "Julia_DoublePoseNaked";
-	
+
 	// Define the extra model picture
 	if (C004_ArtClass_ArtRoom_ExtraModel == "Sarah") C004_ArtClass_ArtRoom_Sarah = "Sarah_Empty";
 	if (C004_ArtClass_ArtRoom_ExtraModel == "Jennifer") C004_ArtClass_ArtRoom_Jennifer = "Jennifer_Empty";
@@ -43,7 +43,7 @@ function C004_ArtClass_ArtRoom_Run() {
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Julia + ".jpg", 300, 0);
 	if (C004_ArtClass_ArtRoom_ExtraModel != "") DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_ExtraModelImage + "_Extra.jpg", 600, 0);
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C004_ArtClass_ArtRoom_Sarah + ".jpg", 900, 0);
-	
+
 }
 
 // Chapter 4 - ArtRoom Click

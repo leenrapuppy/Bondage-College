@@ -7,10 +7,10 @@ function C101_KinbakuClub_ClubRoom2_Load() {
 // Chapter  101 - Club Room 2 Run
 function C101_KinbakuClub_ClubRoom2_Run() {
 
-	// Draw the background image 
+	// Draw the background image
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom2Arrows.jpg", 0, 0);
-	
-	// Draw erica when tied
+
+	// Draw Erica when tied
 	if (C101_KinbakuClub_Erica_EricaTied) {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/EricaBoundBackground.png", 0, 0);
 		DrawActor("Erica", 0, 265, 0.4);

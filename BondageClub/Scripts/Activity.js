@@ -1,4 +1,5 @@
 "use strict";
+/** @type {null | string[][]} */
 var ActivityDictionary = null;
 var ActivityOrgasmGameButtonX = 0;
 var ActivityOrgasmGameButtonY = 0;

@@ -4,13 +4,17 @@ var SarahBackground = "";
 var SarahStatus = "";
 var AmandaStatus = "";
 var SophieStatus = "";
+/** @type {null | NPCCharacter} */
 var Sarah = null;
+/** @type {null | NPCCharacter} */
 var Amanda = null;
+/** @type {null | NPCCharacter} */
 var Sophie = null;
 var SarahInside = true;
 var AmandaInside = false;
 var SophieInside = false;
 var SarahUnlockQuest = false;
+/** @type {Character[]} */
 var SarahCharacter = [];
 var SophieUpsetCount = 0;
 var SophieFightDone = false;

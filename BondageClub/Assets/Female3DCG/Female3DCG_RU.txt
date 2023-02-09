@@ -306,6 +306,8 @@ Elegant Skirt
 Элегантная юбка
 Ruffled Skirt
 Юбка с оборками
+Cross Skirt
+Поперечная юбка
 Suit Lower
 Нижний костюм
 Catsuit Panties
@@ -316,6 +318,8 @@ Pantyhose
 Колготки
 Crotchless Pantyhose
 Колготки с вырезом
+Gradient Pantyhose
+Колготки с градиентом
 Stockings Dark
 Чулки Темные
 Stockings Light
@@ -1203,6 +1207,8 @@ Style 49
 Стиль 49
 Style 50
 Стиль 50
+Style 51
+Стиль 51
 Dreadlocks 1
 Дреды 1
 Left eye
@@ -2229,6 +2235,10 @@ Medical Patches
 Медицинские Пластыри
 Smooth Latex Mask
 Гладкая Латексная Маска
+Custom Latex Hood
+Настраиваемый латесаный капюшон
+Cat Mask Harness
+Кошачья ременная маска
 Nose
 Нос
 Nose Hook
@@ -2270,7 +2280,7 @@ Leather Hood Eyes
 Dog Hood
 Капюшон собаки
 Foxy Mask
-Лисья маска
+Маска лисы
 Pony Hood
 Капюшон для пони
 Leather Hood Mouth
@@ -2484,7 +2494,11 @@ Medical Bed
 Wooden Rack
 Деревянная Стойка
 Wooden Horse
-Деревянная лошадка
+Деревянная лошадь
+Lucky Wheel
+Колесо удачи
+Wheel of Fortune
+Колесо Фортуны
 Blanket
 Одеяло
 Bed Ropes
@@ -2528,4 +2542,4 @@ Toe Tape
 High Thigh Boots
 Высокие сапоги до бедра
 Monoheel
-Моноколесо
+Монокаблук

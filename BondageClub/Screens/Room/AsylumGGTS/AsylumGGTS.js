@@ -1,9 +1,12 @@
 "use strict";
 var AsylumGGTSBackground = "AsylumGGTSRoom";
+/** @type {null | NPCCharacter} */
 var AsylumGGTSComputer = null;
 var AsylumGGTSIntroDone = false;
 var AsylumGGTSTimer = 0;
+/** @type {null | string} */
 var AsylumGGTSTask = null;
+/** @type {null | Character} */
 var AsylumGGTSTaskTarget = null;
 var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
@@ -364,7 +367,7 @@ function AsylumGGTSTaskDone(C, T) {
  */
 function AsylumGGTSCanRemove(C, Group) {
 	let Item = InventoryGet(C, Group);
-	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;	
+	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
 	if ((Item.Asset.Name.substr(0, 10) != "Futuristic") && (Item.Asset.Name != "FuckMachine")) return false;
 	if (InventoryOwnerOnlyItem(Item)) return false;
 	return true;
@@ -409,12 +412,12 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ItemFuckMachineIntensity") && !InventoryIsWorn(C, "FuckMachine", "ItemDevices")) return false; // Must have training belt to change intensity
 	if ((T == "ItemEarsDeaf") && !InventoryIsWorn(C, "FuturisticEarphones", "ItemEars")) return false; // Must have headphones to change deaf level
 	if ((T == "ItemMaskBlind") && !InventoryIsWorn(C, "FuturisticMask", "ItemHead")) return false; // Must have mask to change blind level
-	if ((T == "ItemTransform") 
+	if ((T == "ItemTransform")
 		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms")
 	) return false; // Must be wearing an item that can be transformed
-	if ((T == "ItemChangeGag") 
+	if ((T == "ItemChangeGag")
 		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth3")
@@ -734,7 +737,7 @@ function AsylumGGTSAutomaticTask() {
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
-	
+
 	if (AsylumGGTSTask == "ItemChangeGag"){
 		AsylumGGTSConfigureGag("ItemMouth");
 		AsylumGGTSConfigureGag("ItemMouth2");
@@ -764,7 +767,7 @@ function AsylumGGTSAutomaticTask() {
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
-	
+
 	// If we must enforce a new rule
 	if (AsylumGGTSTask.substr(0, 7) == "NewRule") {
 		AsylumGGTSAddRule(AsylumGGTSTask.substr(7, 100), false);

@@ -3,6 +3,7 @@ interface AssetGroupDefinition {
 	Group: AssetGroupName;
 	ParentGroup?: string;
 	Category?: 'Appearance' | 'Item' | 'Script';
+	InheritColor?: AssetGroupName;
 	/** Whether the group should have an asset selected at random at character creation. */
 	Default?: boolean;
 	IsRestraint?: boolean;
@@ -14,7 +15,6 @@ interface AssetGroupDefinition {
 	Random?: boolean;
 	Color?: string[];
 	ParentSize?: string;
-	ParentColor?: string;
 	Clothing?: boolean;
 	Underwear?: boolean;
 	BodyCosplay?: boolean;
@@ -32,13 +32,13 @@ interface AssetGroupDefinition {
 	Top?: number;
 	FullAlpha?: boolean;
 	Blink?: boolean;
-	InheritColor?: string;
 	FreezeActivePose?: string[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	HasPreviewImages?: boolean;
 }
 
 type AssetBonusName = "KidnapDomination" | "KidnapSneakiness" | "KidnapBruteForce";
@@ -212,6 +212,7 @@ interface AssetDefinition {
 	AllowHide?: AssetGroupItemName[];
 	AllowHideItem?: string[];
 	AllowType?: string[];
+	AllowTighten?: boolean;
 	DefaultColor?: ItemColor;
 	Opacity?: number;
 	MinOpacity?: number;

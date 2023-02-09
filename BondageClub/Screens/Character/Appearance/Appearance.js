@@ -4,7 +4,9 @@ var CharacterAppearanceOffset = 0;
 var CharacterAppearanceNumPerPage = 9;
 var CharacterAppearanceHeaderText = "";
 var CharacterAppearanceHeaderTextTime = 0;
+/** @type {null | string} */
 var CharacterAppearanceBackup = null;
+/** @type {null | string} */
 var CharacterAppearanceInProgressBackup = null;
 var CharacterAppearanceAssets = [];
 var CharacterAppearanceColorPickerGroupName = "";
@@ -21,8 +23,11 @@ var CharacterAppearanceForceUpCharacter = -1;
 var CharacterAppearancePreviousEmoticon = "";
 var CharacterAppearanceMode = "";
 var CharacterAppearanceMenuMode = "";
+/** @type {null | Item} */
 var CharacterAppearanceCloth = null;
+/** @type {string[]} */
 var AppearanceMenu = [];
+/** @type {Character[]} */
 var AppearancePreviews = [];
 var AppearanceUseCharacterInPreviewsSetting = false;
 
@@ -86,6 +91,9 @@ function CharacterAppearanceValidate(C) {
 					Refresh = true;
 					break;
 				}
+
+	// Updates the character's leash state
+	CharacterRefreshLeash(C);
 
 	// If we must refresh the character and push the appearance to the server
 	if (Refresh) CharacterRefresh(C);
@@ -207,19 +215,30 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 				// If we found no asset, just move to next group
 				if (!SelectedAsset)
 					continue;
-				/** @type {string|string[]} */
-				var SelectedColor = SelectedAsset.Group.ColorSchema[Math.floor(Math.random() * SelectedAsset.Group.ColorSchema.length)];
-				if ((SelectedAsset.Group.ColorSchema[0] == "Default") && (Math.random() < 0.5)) SelectedColor = "Default";
-				if (SelectedAsset.Group.InheritColor != null) SelectedColor = "Default";
-				else if (SelectedAsset.Group.ParentColor != "")
-					if (CharacterAppearanceGetCurrentValue(C, SelectedAsset.Group.ParentColor, "Color") != "None")
-						SelectedColor = CharacterAppearanceGetCurrentValue(C, SelectedAsset.Group.ParentColor, "Color");
+
+				// Pick a random color from the allowed color list
+				/** @type {ItemColor} */
+				let SelectedColor = CommonRandomItemFromList("", SelectedAsset.Group.ColorSchema);
+				// 50% chance of using the default color
+				if ((SelectedAsset.Group.ColorSchema[0] == "Default") && (Math.random() < 0.5))
+					SelectedColor = "Default";
+
+				// The asset or its group gets its color from another group.
+				// Use Default to not get CommonDrawAppearanceBuild confused
+				if (SelectedAsset.Group.InheritColor || SelectedAsset.InheritColor)
+					SelectedColor = "Default";
+
 				// Rare chance of keeping eyes of a different color
-				if (SelectedAsset.Group.Name == "Eyes2" && Math.random() < 0.995)
-					for (let A = 0; A < C.Appearance.length; A++)
-						if (C.Appearance[A].Asset.Group.Name == "Eyes")
-							SelectedColor = C.Appearance[A].Color;
-				if (SelectedColor == "Default" && SelectedAsset.DefaultColor != null) SelectedColor = SelectedAsset.DefaultColor;
+				if (SelectedAsset.Group.Name == "Eyes2" && Math.random() < 0.995) {
+					const otherEye = C.Appearance.find(a => a.Asset.Group.Name == "Eyes");
+					if (otherEye)
+						SelectedColor = otherEye.Color;
+				}
+
+				// The asset has a default color list, set it
+				if (SelectedColor == "Default" && SelectedAsset.DefaultColor != null)
+					SelectedColor = SelectedAsset.DefaultColor;
+
 				/** @type {Item} */
 				var NA = {
 					Asset: SelectedAsset,
@@ -752,8 +771,8 @@ function AppearanceRun() {
 						() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, false, true) : "",
 						() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, true, true) : "",
 						!WardrobeGroupAccessible(C, AssetGroup[A]),
-						AssetGroup[A].AllowNone || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
-					var Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
+						AssetGroup[A].HasPreviewImages || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
+					const Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
 					const ColorButtonText = ItemColorGetColorButtonText(Color);
 					const ColorButtonColor = ColorButtonText.startsWith("#") ? ColorButtonText : "#fff";
 					const CanCycleColors = !!Item && WardrobeGroupAccessible(C, AssetGroup[A]) && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item);
@@ -1106,7 +1125,7 @@ function AppearanceClick() {
 				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]))
 					if (MouseYIn(145 + (A - CharacterAppearanceOffset) * 95, 65))
 						if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-							if (!AssetGroup[A].AllowNone && !AppearancePreviewUseCharacter(AssetGroup[A])) {
+							if (!AssetGroup[A].HasPreviewImages && !AppearancePreviewUseCharacter(AssetGroup[A])) {
 								CharacterAppearanceNextItem(C, AssetGroup[A].Name, MouseX > 1500);
 							}
 							else {

@@ -122,8 +122,7 @@ function ModularItemCreateDrawFunction(data) {
 	const drawFunctionName = `${data.functionPrefix}Draw`;
 	const drawFunction = function () {
 		const currentModule = data.currentModule || ModularItemBase;
-		const drawFunction = data.drawFunctions[currentModule];
-		return drawFunction();
+		return data.drawFunctions[currentModule]();
 	};
 	if (data.scriptHooks && data.scriptHooks.draw) {
 		window[drawFunctionName] = function () {
@@ -141,8 +140,7 @@ function ModularItemCreateClickFunction(data) {
 	const clickFunctionName = `${data.functionPrefix}Click`;
 	const clickFunction = function () {
 		const currentModule = data.currentModule || ModularItemBase;
-		const clickFunction = data.clickFunctions[currentModule];
-		return clickFunction();
+		return data.clickFunctions[currentModule]();
 	};
 	if (data.scriptHooks && data.scriptHooks.click) {
 		window[clickFunctionName] = function () {
@@ -177,7 +175,7 @@ function ModularItemUpdateModules(Modules) {
 		mod.Options.forEach((option, i) => {
 			option.Name = `${mod.Key}${i}`;
 			option.OptionType = "ModularItemOption";
-		})
+		});
 	}
 	return /** @type {ModularItemModule[]} */(Modules);
 }
@@ -266,7 +264,7 @@ function ModularItemCreateDrawData(itemCount, asset, drawImages) {
 	const pageCount = Math.ceil(itemCount / itemsPerPage);
 
 	/** @type {[number, number][]} */
-	const positions = []
+	const positions = [];
 	let i = 0;
 	while (i < itemCount) {
 		i += itemsPerPage;
@@ -536,7 +534,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues, Baseline
 		AllowActivity: Array.isArray(asset.AllowActivity) ? asset.AllowActivity.slice() : [],
 		Attribute: Array.isArray(asset.Attribute) ? asset.Attribute.slice() : [],
 		Tint: asset.AllowTint ? Array.isArray(asset.Tint) ? asset.Tint.slice() : [] : undefined,
-	})
+	});
 	if (BaselineProperty != null) {
 		ModularItemSanitizeProperties(BaselineProperty, BaseLineProperties, asset);
 	}
@@ -620,7 +618,7 @@ function ModularItemConstructType(modules, values) {
 }
 
 /**
- * Seperate a modular item type string into a list with the types of each individual module.
+ * Separate a modular item type string into a list with the types of each individual module.
  * @param {string} Type - The modular item type string
  * @returns {string[] | null} - A list with the options of each individual module or `null` if the input type wasn't a string
  */
@@ -910,13 +908,13 @@ function ModularItemHideElement(ID, Module) {
 		return ModularItemModuleIsActive(Module);
 	}
 
-    if (ModularItemModuleIsActive(Module)) {
-        Element.style.display = "block";
-        return true;
-    } else {
-        Element.style.display = "none";
-        return false;
-    }
+	if (ModularItemModuleIsActive(Module)) {
+		Element.style.display = "block";
+		return true;
+	} else {
+		Element.style.display = "none";
+		return false;
+	}
 }
 
 /**
@@ -933,7 +931,7 @@ function ModularItemCustomChatPrefix(Name, Data) {
 			newOption: { OptionType: "ModularItemOption", Name: Name },
 			previousIndex: 0,
 			newIndex: 0,
-		})
+		});
 	} else {
 		return Data.chatMessagePrefix;
 	}

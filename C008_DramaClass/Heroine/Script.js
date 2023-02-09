@@ -64,7 +64,7 @@ function C008_DramaClass_Heroine_Run() {
 }
 
 // Chapter 8 - Heroine Click
-function C008_DramaClass_Heroine_Click() {	
+function C008_DramaClass_Heroine_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C008_DramaClass_Heroine_CurrentStage);
@@ -79,7 +79,7 @@ function C008_DramaClass_Heroine_Click() {
 
 		// The damsel can tie up a knight if she's +10 submissive, the other knight can tie up a knight if she's +5 submissive
 		if ((ActorGetValue(ActorSubmission) < 10) && C008_DramaClass_Heroine_PlayerIsDamsel && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromDamsel"); return; }
-		if ((ActorGetValue(ActorSubmission) < 5) && C008_DramaClass_Heroine_PlayerIsVillain && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromKnight"); return; }	
+		if ((ActorGetValue(ActorSubmission) < 5) && C008_DramaClass_Heroine_PlayerIsVillain && !ActorIsRestrained() && (ClickInv != "CuffsKey")) { OverridenIntroText = GetText("RefuseBondageFromKnight"); return; }
 
 		// Both heroines react differently to the crop
 		if ((ClickInv == "Crop") && !C008_DramaClass_Heroine_ViolenceDone) {
@@ -222,21 +222,21 @@ function C008_DramaClass_Heroine_Spank() {
 function C008_DramaClass_Heroine_Masturbate() {
 
 	// Cannot work if the girl is locked in a chastity belt
-	if (ActorIsChaste()) { OverridenIntroText = GetText("MasturbateChaste"); return; }	
+	if (ActorIsChaste()) { OverridenIntroText = GetText("MasturbateChaste"); return; }
 	OverridenIntroImage = "";
 	C008_DramaClass_Heroine_MastubateCount++;
-	
+
 	// Amanda will climax if she's properly tied up
-	if ((CurrentActor == "Amanda") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) { 
+	if ((CurrentActor == "Amanda") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && ActorIsGagged() && ActorHasInventory("TwoRopes")) {
 		C008_DramaClass_Heroine_OrgasmDone = true;
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
-	
+
 	// Sarah will climax if she was beaten up
-	if ((CurrentActor == "Sarah") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && C008_DramaClass_Heroine_ViolenceDone) { 
+	if ((CurrentActor == "Sarah") && (C008_DramaClass_Heroine_MastubateCount >= 3) && !C008_DramaClass_Heroine_OrgasmDone && C008_DramaClass_Heroine_ViolenceDone) {
 		C008_DramaClass_Heroine_OrgasmDone = true;
 		ActorAddOrgasm();
 		ActorChangeAttitude(1, 0);

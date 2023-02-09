@@ -1,11 +1,18 @@
 "use strict";
 var DailyJobBackground = "MainHall";
+/** @type {null | NPCCharacter} */
 var DailyJobOpponent = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppyMistress = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy1 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy2 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy3 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy4 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobDojoTeacher = null;
 
 /**

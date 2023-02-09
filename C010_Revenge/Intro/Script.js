@@ -12,7 +12,7 @@ function C010_Revenge_Intro_Load() {
 
 	// Time is always 14:15 on the intro, no timer
 	StopTimer(14.25 * 60 * 60 * 1000);
-	
+
 }
 
 // Chapter 10 - Revenge Run
@@ -27,8 +27,8 @@ function C010_Revenge_Intro_Run() {
 		if (TextPhase >= 2) DrawText(GetText("AmandaSarah3"), 400, 350, "White");
 		if (TextPhase >= 3) DrawText(GetText("AmandaSarah4"), 400, 450, "White");
 	}
-	
-	// Sidney or Jennifer intro	
+
+	// Sidney or Jennifer intro
 	if (GameLogQuery("C007_LunchBreak", "Sidney", "Stranded") || GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded")) {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/BackgroundSidneyJennifer.jpg", 0, 0);
 		DrawPlayerTransition();

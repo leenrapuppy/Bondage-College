@@ -68,7 +68,7 @@ function C009_Library_Jennifer_Load() {
 	LoadInteractions();
 	C009_Library_Jennifer_IsArtist = ((PlayerGetSkillLevel("Arts") >= 1) && !Common_PlayerRestrained);
 	Common_SelfBondageAllowed = false;
-	
+
 	// A few variables on what already happened
 	C009_Library_Jennifer_BookAlreadyFound = (C009_Library_Library_BookProgress > 40);
 	C009_Library_Jennifer_TennisVictory = GameLogQuery("C007_LunchBreak", "Jennifer", "TennisVictory");
@@ -87,7 +87,7 @@ function C009_Library_Jennifer_Load() {
 		C009_Library_Jennifer_SetPose();
 
 	} else C009_Library_Jennifer_LoadFromPlayerScreen = false;
-	
+
 	// Recalls the previous text if needed
 	if (C009_Library_Jennifer_IntroText != "") OverridenIntroText = C009_Library_Jennifer_IntroText;
 	C009_Library_Jennifer_IntroText = "";
@@ -109,7 +109,7 @@ function C009_Library_Jennifer_Run() {
 }
 
 // Chapter 9 Library - Jennifer Click
-function C009_Library_Jennifer_Click() {	
+function C009_Library_Jennifer_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C009_Library_Jennifer_CurrentStage);
@@ -122,10 +122,10 @@ function C009_Library_Jennifer_Click() {
 
 	// Jennifer can be restrained on stage 300 to 400
 	if ((C009_Library_Jennifer_CurrentStage >= 300) && (C009_Library_Jennifer_CurrentStage < 400) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-	
+
 		// If we must skip the chit chat to get to the action
 		if (C009_Library_Jennifer_CurrentStage < 320) C009_Library_Jennifer_CurrentStage = 320;
-	
+
 		// Jennifer doesn't like the crop but becomes more submissive
 		if ((ClickInv == "Crop") && (!C009_Library_Jennifer_CropDone)) {
 			C009_Library_Jennifer_CropDone = true;
@@ -146,7 +146,7 @@ function C009_Library_Jennifer_Click() {
 			C009_Library_Jennifer_RestrainPlayer();
 			return;
 		}
-		
+
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		C009_Library_Jennifer_CalcParams();
@@ -175,7 +175,7 @@ function C009_Library_Jennifer_Click() {
 		C009_Library_Jennifer_MastubateCount = 0;
 		C009_Library_Jennifer_OrgasmDone = false;
 	}
-	
+
 }
 
 // Chapter 9 Library - Jennifer query to get the egg back
@@ -184,7 +184,7 @@ function C009_Library_Jennifer_QueryEgg() {
 	if ((ActorGetValue(ActorLove) >= 5) || (ActorGetValue(ActorSubmission) >= 5) || (PlayerGetSkillLevel("Seduction") >= 1)) {
 		OverridenIntroText = GetText("GetEgg");
 		PlayerAddInventory("VibratingEgg", 1);
-	}		
+	}
 }
 
 // Chapter 9 Library - Jennifer - When the player leaves
@@ -352,7 +352,7 @@ function C009_Library_Jennifer_ReleaseJennifer() {
 		ActorSetCloth("Clothed");
 		CurrentTime = CurrentTime + 50000;
 		C009_Library_Jennifer_CalcParams();
-		C009_Library_Jennifer_SetPose();		
+		C009_Library_Jennifer_SetPose();
 	} else {
 		OverridenIntroText = GetText("UnlockBeforeRelease");
 		C009_Library_Jennifer_CurrentStage = 320;

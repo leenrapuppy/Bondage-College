@@ -9,6 +9,7 @@ var GLDrawCacheTotalImages = 0;
 /** @type {"webgl2"|"webgl"|"No WebGL"} */
 var GLVersion;
 
+/** @type {HTMLCanvasElement} */
 var GLDrawCanvas;
 
 /**
@@ -22,8 +23,10 @@ const GLDrawContextResetSeconds = 10;
  */
 const GLDrawRevertToDraw2DSeconds = 50;
 
+/** @type {ReturnType<typeof setTimeout>} */
 let GLDrawContextLostTimeout;
 let GLDrawRecoveryMode = false;
+/** @type {ReturnType<typeof setTimeout>} */
 let GLDrawCrashTimeout;
 
 var GLDrawAlphaThreshold = 0.01;
@@ -181,7 +184,7 @@ function GLDrawInitCharacterCanvas(canvas) {
 			return GLDrawInitCharacterCanvas(null);
 		}
 	} else {
-		GLDrawClearRect(canvas.GL, 0, 0, 1000, CanvasDrawHeight);
+		GLDrawClearRect(canvas.GL, 0, 0, 1000, CanvasDrawHeight, 0);
 	}
 	if (canvas.GL.program == null) {
 		GLDrawMakeGLProgam(canvas.GL);
@@ -333,22 +336,6 @@ function GLDrawCreateProgram(gl, vertexShader, fragmentShader) {
 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1,]), gl.STATIC_DRAW);
 
 	return program;
-}
-
-/**
- * Draws an image from a given url to a WebGLRenderingContext, used when the character is blinking
- * @param {string} url - URL of the image to render
- * @param {WebGL2RenderingContext} gl - WebGL context
- * @param {number} dstX - Position of the image on the X axis
- * @param {number} dstY - Position of the image on the Y axis
- * @param {string} color - Color of the image to draw
- * @param {boolean} fullAlpha - Whether or not the full alpha should be rendered
- * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
- * @param {number} opacity - The opacity at which to draw the image
- * @returns {void} - Nothing
- */
-function GLDrawImageBlink(url, gl, dstX, dstY, color, fullAlpha, alphaMasks, opacity, rotate) {
-	GLDrawImage(url, gl, dstX, dstY, GLDrawCanvasBlinkOffset, color, fullAlpha, alphaMasks, opacity, rotate);
 }
 
 /**
@@ -564,7 +551,7 @@ function GLDrawHexToRGBA(color, alpha = 1) {
  */
 function GLDrawAppearanceBuild(C) {
 	const blinkOffset = 500;
-	GLDrawClearRect(GLDrawCanvas.GL, 0, 0, 1000, CanvasDrawHeight);
+	GLDrawClearRect(GLDrawCanvas.GL, 0, 0, 1000, CanvasDrawHeight, 0);
 	CommonDrawCanvasPrepare(C);
 	CommonDrawAppearanceBuild(C, {
 		clearRect: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h, 0),

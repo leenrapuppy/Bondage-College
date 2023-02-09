@@ -39,14 +39,14 @@ const ExtendedXY = [
  */
 const ExtendedXYWithoutImages = [
 	[], //0 placeholder
-    [[1385, 450]], //1 option per page
-    [[1260, 450], [1510, 450]], //2 options per page
-    [[1135, 450], [1385, 450], [1635, 450]], //3 options per page
-    [[1260, 450], [1510, 450], [1260, 525], [1510, 525]], //4 options per page
-    [[1135, 450], [1385, 450], [1635, 450], [1260, 525], [1510, 525]], //5 options per page
-    [[1135, 450], [1385, 450], [1635, 450], [1135, 525], [1385, 525], [1635, 525]], //6 options per page
-    [[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1135, 525], [1385, 525], [1635, 525]], //7 options per page
-    [[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1010, 525], [1260, 525], [1510, 525], [1760, 525]], //8 options per page
+	[[1385, 450]], //1 option per page
+	[[1260, 450], [1510, 450]], //2 options per page
+	[[1135, 450], [1385, 450], [1635, 450]], //3 options per page
+	[[1260, 450], [1510, 450], [1260, 525], [1510, 525]], //4 options per page
+	[[1135, 450], [1385, 450], [1635, 450], [1260, 525], [1510, 525]], //5 options per page
+	[[1135, 450], [1385, 450], [1635, 450], [1135, 525], [1385, 525], [1635, 525]], //6 options per page
+	[[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1135, 525], [1385, 525], [1635, 525]], //7 options per page
+	[[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1010, 525], [1260, 525], [1510, 525], [1760, 525]], //8 options per page
 ];
 
 /**
@@ -121,7 +121,7 @@ function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
 			DialogFocusItem.Property = Object.assign(
 				DialogFocusItem.Property,
 				(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-			)
+			);
 			const RefreshDialog = (CurrentScreen != "Crafting");
 			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
@@ -145,7 +145,7 @@ function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
  *     The full dialog key will be <Prefix><Option.Name>
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
- * @param {boolean} [ShowImages=true] - Denotes wether images should be shown for the specific item
+ * @param {boolean} [ShowImages=true] - Denotes whether images should be shown for the specific item
  * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
@@ -190,6 +190,16 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	DrawButton(1775, 25, 90, 90, "", "White",
 		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"));
+
+	// If the assets allows tightening / loosening
+	if (Asset.AllowTighten) {
+		let Difficulty = DialogFocusItem.Difficulty;
+		if (Difficulty == null) Difficulty = 0;
+		DrawText(DialogFindPlayer("Tightness") + ": " + Difficulty.toString(), 1200, 90, "White", "Silver");
+		DrawButton(1080, 170, 240, 65, DialogFindPlayer("Tighten"), "White");
+		DrawButton(1080, 260, 240, 65, DialogFindPlayer("Loosen"), "White");
+	}
+
 }
 
 /**
@@ -200,7 +210,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
  * @param {number} Y - The Y coordinate of the button
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
  *     The full dialog key will be <Prefix><Option.Name>
- * @param {boolean} ShowImages - Denotes wether images should be shown for the specific item
+ * @param {boolean} ShowImages - Denotes whether images should be shown for the specific item
  * @param {Item} Item - The item in question; defaults to {@link DialogFocusItem}
  * @param {boolean | null} IsSelected - Whether the button is already selected or not. If `null` compute this value by checking if the item's current type matches `Option`.
  * @see {@link ExtendedItemDraw}
@@ -212,6 +222,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	const C = CharacterGetCurrent();
 	const ImageHeight = ShowImages ? 220 : 0;
 	const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
+	let Effect = null;
 
 	switch (Option.OptionType) {
 		case "ModularItemModule":
@@ -220,6 +231,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 			break;
 		case "ModularItemOption":
 			Type = Option.Name;
+			Effect = Option.Property && Option.Property.Effect || null;
 			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
@@ -228,6 +240,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 			break;
 		default:  // Assume we're dealing with `ExtendedItemOption` at this point
 			Type = (Option.Property && Option.Property.Type) || null;
+			Effect = Option.Property && Option.Property.Effect || null;
 			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
@@ -239,9 +252,9 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
 	DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 	if (ShowImages) {
-		DrawImageResize(AssetSource, X + 2, Y, 221, 221)
+		DrawImageResize(AssetSource, X + 2, Y, 221, 221);
 		if (Option.OptionType !== "ModularItemModule") {
-			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type), X + 2, Y);
+			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type, Effect), X + 2, Y);
 		}
 	}
 	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
@@ -323,7 +336,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
  * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
- * @param {boolean} [ShowImages=true] - Denotes wether images are shown for the specific item
+ * @param {boolean} [ShowImages=true] - Denotes whether images are shown for the specific item
  * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
@@ -383,6 +396,25 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 			ExtendedItemHandleOptionClick(C, Options, Option);
 		}
 	}
+
+	// If the assets allows tightening / loosening
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten) 
+		if (MouseIn(1080, 170, 240, 65) || MouseIn(1080, 260, 240, 65)) {
+			if (DialogFocusItem.Difficulty == null) DialogFocusItem.Difficulty = 0;
+			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 4;
+			if (MouseIn(1080, 260, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty - 4;
+			if (DialogFocusItem.Difficulty < -10) DialogFocusItem.Difficulty = -10;
+			let MaxDifficulty = SkillGetLevel(Player, "Bondage") + 4;
+			if (DialogFocusItem.Asset.Difficulty != null) MaxDifficulty = MaxDifficulty + DialogFocusItem.Asset.Difficulty;
+			if (DialogFocusItem.Difficulty > MaxDifficulty) DialogFocusItem.Difficulty = MaxDifficulty;
+			CharacterRefresh(C, true);
+			if (CurrentScreen == "ChatRoom") {
+				ChatRoomCharacterUpdate(C);
+				ChatRoomPublishAction(C, (MouseIn(1080, 170, 240, 65)) ? "ActionTighten" : "ActionLoosen", DialogFocusItem, null);
+				DialogLeave();
+			}
+		}
+
 }
 
 /**
@@ -534,8 +566,10 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
  */
 function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
 	const C = CharacterGetCurrent();
+
 	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
+		|| ExtendedItemCheckBuyGroups(Option)
 		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);
 }
 
@@ -577,6 +611,20 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
 }
 
 /**
+ * Checks whether the character meets an option's required bought items
+ * @param {ExtendedItemOption|ModularItemOption} Option - The option being checked
+ * @returns {string|undefined} undefined if the requirement is met, otherwise the error message
+ */
+function ExtendedItemCheckBuyGroups(Option) {
+	if (Option.PrerequisiteBuyGroup) {
+		const requiredAsset = Asset.find(A => A.BuyGroup && A.BuyGroup === Option.PrerequisiteBuyGroup);
+		if (requiredAsset && !InventoryAvailable(Player, requiredAsset.Name, requiredAsset.Group.Name)) {
+			return DialogFindPlayer("OptionNeedsToBeBought");
+		}
+	}
+}
+
+/**
  * Checks whether a change from the given current option to the newly selected option is valid.
  * @param {Character} C - The character wearing the item
  * @param {Item} Item - The extended item to validate
@@ -584,9 +632,8 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
  * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The currently applied option on the item
  * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
  */
-function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption) {
-	const CurrentProperty = Item && Item.Property;
-	const CurrentLockedBy = CurrentProperty && CurrentProperty.LockedBy;
+function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
+	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
 
 	if (CurrentOption && CurrentOption.ChangeWhenLocked === false && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
@@ -594,11 +641,8 @@ function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption
 	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
 		// Otherwise use the standard prerequisite check
 		return DialogText;
-	} else {
-		const OldEffect = CurrentProperty && CurrentProperty.Effect;
-		if (OldEffect && OldEffect.includes("Lock") && Property && Property.AllowLock === false) {
-			return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
-		}
+	} else if (InventoryItemHasEffect(Item, "Lock", true) && !AllowLock) {
+		return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
 	}
 
 	return "";
@@ -670,9 +714,10 @@ function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
  * @param {Character} C - The target character
  * @param {Asset} Asset - The asset for the typed item
  * @param {string | null} Type - The type of the asse
+ * @param {EffectName[]} [Effects]
  * @returns {InventoryIcon[]} - The inventory icons
  */
-function ExtendItemGetIcons(C, Asset, Type=null) {
+function ExtendItemGetIcons(C, Asset, Type=null, Effects=null) {
 	const IsBlocked = InventoryIsPermissionBlocked(C, Asset.Name, Asset.Group.Name, Type);
 	const IsLimited = InventoryIsPermissionLimited(C, Asset.Name, Asset.Group.Name, Type);
 
@@ -685,6 +730,18 @@ function ExtendItemGetIcons(C, Asset, Type=null) {
 	if (FavoriteDetails && FavoriteDetails.Icon) {
 		icons.push(FavoriteDetails.Icon);
 	}
+
+	if (Array.isArray(Effects)) {
+		for (const [icon, effects] of /** @type {[InventoryIcon, EffectName[]][]} */(Object.entries(DialogEffectIconTable))) {
+			for (const effect of effects) {
+				if (Effects.includes(effect)) {
+					icons.push(icon);
+					break;
+				}
+			}
+		}
+	}
+
 	return icons;
 }
 
@@ -725,9 +782,9 @@ function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, 
 		if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, item)) {
 			return DialogFindPlayer("CantChangeWhileLocked");
 		} else {
-			return ExtendedItemValidate(C, item, option, currentOption)
+			return ExtendedItemValidate(C, item, option, currentOption);
 		}
-	}
+	};
 
 	if (ValidationCallback) {
 		window[validateFunctionName] = function (C, item, option, currentOption) {
@@ -743,7 +800,7 @@ function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, 
  * @param {string} Name - The name of the button and its pseudo-type
  * @param {number} X - The X coordinate of the button
  * @param {number} Y - The Y coordinate of the button
- * @param {boolean} ShowImages — Denotes wether images should be shown for the specific item
+ * @param {boolean} ShowImages — Denotes whether images should be shown for the specific item
  * @param {boolean} IsSelected - Whether the button is selected or not
  * @returns {void} Nothing
  */

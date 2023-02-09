@@ -1,5 +1,6 @@
 "use strict";
 var MagicSchoolEscapeBackground = "MagicSchoolEscape";
+/** @type {null | NPCCharacter} */
 var MagicSchoolEscapeInstructor = null;
 var MagicSchoolEscapeSeconds = 120;
 var MagicSchoolEscapeTimer = 0;

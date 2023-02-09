@@ -9,12 +9,12 @@ function C003_MorningDetention_DetentionRoom_Load() {
 
 	// Set the timer limits
 	StartTimer(9 * 60 * 60 * 1000, "C003_MorningDetention", "Outro");
-	
+
 }
 
 // Chapter 3 - Detention Room Run
 function C003_MorningDetention_DetentionRoom_Run() {
-	
+
 	// Yuki mode changes with time or if she's in trouble
 	C003_MorningDetention_DetentionRoom_Yuki = (Math.round((CurrentTime - 180000) / 120000) % 3) + 1;
 	if ((C003_MorningDetention_DetentionRoom_SleepTimer > 0) && (CurrentTime >= C003_MorningDetention_DetentionRoom_SleepTimer)) C003_MorningDetention_DetentionRoom_Yuki = 4; // Sleeping

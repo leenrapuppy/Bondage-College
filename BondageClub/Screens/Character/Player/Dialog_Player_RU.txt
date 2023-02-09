@@ -81,10 +81,10 @@
 (По умолчанию вы сдерживаетесь, используя свой полный навык связывания. Вы можете использовать меньше своих навыков и облегчить побег своим жертвам.)
 ###_PLAYER
 (Adjust your evasion skill.)
-(Настройте свой навык уклонения.)
+(Настройте свой навык побега.)
 ###_NPC
 (By default, you struggle using your full evasion skill.  You can use less of your skill and make it harder for you to struggle free.)
-(По умолчанию вы боретесь, используя свой полный навык уклонения. Вы можете использовать меньше своего мастерства, и вам будет труднее освободиться.)
+(По умолчанию вы боретесь, используя свой полный навык побега. Вы можете использовать меньше своего мастерства, и вам будет труднее освободиться.)
 ###_PLAYER
 (Craft an item.)
 (Создать предмет.)
@@ -147,34 +147,34 @@
 (Don't change your skill.)
 (Не меняй свой навык.)
 (Use your full evasion skill.  100%)
-(Используйте свой полный навык уклонения. 100%)
+(Используйте свой полный навык побега. 100%)
 ###_NPC
 (You will now use your full evasion skill when trying to struggle free.  100%)
-(Теперь вы будете использовать свой полный навык уклонения при попытке освободиться. 100%)
+(Теперь вы будете использовать свой полный навык побега при попытке освободиться. 100%)
 ###_PLAYER
 (Use most of your evasion skill.  75%)
-(Используйте большую часть своего навыка уклонения. 75%)
+(Используйте большую часть своего навыка побега. 75%)
 ###_NPC
 (You will now use most of your evasion skill when trying to struggle free.  75%)
-(Теперь вы будете использовать большую часть своего навыка уклонения, пытаясь освободиться. 75%)
+(Теперь вы будете использовать большую часть своего навыка побега, пытаясь освободиться. 75%)
 ###_PLAYER
 (Use half of your evasion skill.  50%)
-(Используй половину своего навыка уклонения. 50%)
+(Используй половину своего навыка побега. 50%)
 ###_NPC
 (You will now use half of your evasion skill when trying to struggle free.  50%)
-(Теперь вы будете использовать половину своего навыка уклонения, пытаясь освободиться. 50%)
+(Теперь вы будете использовать половину своего навыка побега, пытаясь освободиться. 50%)
 ###_PLAYER
 (Use very little of your evasion skill.  25%)
-(Используйте очень мало своего навыка уклонения. 25%)
+(Используйте очень мало своего навыка побега. 25%)
 ###_NPC
 (You will now use very little of your evasion skill when trying to struggle free.  25%)
-(Теперь вы будете использовать очень мало своего навыка уклонения, пытаясь освободиться. 25%)
+(Теперь вы будете использовать малую часть своего навыка побега, пытаясь освободиться. 25%)
 ###_PLAYER
 (Use none of your evasion skill.  0%)
-(Не используй свой навык уклонения. 0%)
+(Не используй свой навык побега 0%)
 ###_NPC
 (You will now use none of your evasion skill when trying to struggle free.  0%)
-(Теперь вы не будете использовать ни один из своих навыков уклонения при попытке освободиться. 0%)
+(Теперь вы не будете использовать свой навык побега при попытке освободиться. 0%)
 ###_PLAYER
 (Yes! Get me out of this room!)
 (Да! Вытащи меня из этой комнаты!)
@@ -986,18 +986,18 @@ Blocked due to item permissions
 Заблокирован из-за разрешений на предметы
 (As you enter the luxurious hallway, a maid comes to greet you.)  Welcome to the Bondage Club, is this your first visit?
 (Когда вы входите в роскошный коридор, вам навстречу выходит горничная.) Добро пожаловать в Клуб Бондажа, это ваш первый визит?
-SourceCharacter is offering you to start a trial period as  PronounPossessive submissive.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter is offering you to start a trial period as PronounPossessive submissive.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter предлагает вам начать испытательный срок в качестве  PronounPossessive сабмиссива. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
-The Bondage Club рад сообщить, что SourceCharacter начинает минимальный 7-дневный испытательный срок в качестве сабмиссива.
+Бондаж Клуб рад сообщить, что SourceCharacter начинает минимальный 7-дневный испытательный срок в качестве сабмиссива.
 SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which PronounPossessive submissive must consent to wear.
 SourceCharacter подготовила великолепную церемонию ошейника. Горничная приносит рабский ошейник, который PronounPossessive сабмиссив должен согласиться носить.
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
-The Bondage Club объявляет, что SourceCharacter отменил пробное владение TargetCharacter.
+Бондаж Клуб  объявляет, что SourceCharacter отменила пробное владение TargetCharacter.
 The Bondage Club announces that SourceCharacter released TargetCharacter from PronounPossessive ownership.
-The Bondage Club объявляет, что SourceCharacter освободил TargetCharacter от PronounPossessive владения.
+Бондаж Клуб  объявляет, что SourceCharacter освободил TargetCharacter от PronounPossessive владения.
 The Bondage Club is proud to announce that SourceCharacter is now fully collared.  PronounPossessive fate is in PronounPossessive owners hands.
-The Bondage Club с гордостью сообщает, что SourceCharacter теперь полностью в ошейнике. PronounPossessive судьба в руках PronounPossessive Хозяйки.
+Бондаж Клуб с гордостью сообщает, что SourceCharacter теперь полностью в ошейнике. PronounPossessive судьба в руках PronounPossessive Хозяйки.
 Your owner is now allowing you to access your wardrobe and change clothes.
 Ваша хозяйка теперь позволяет вам получить доступ к своему гардеробу и переодеться.
 Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
@@ -1059,7 +1059,23 @@ Your owner released you from the slave collar.
 Your owner is now allowing you to change your nickname.
 Твоя хозяйка теперь позволяет вам изменить свой ник.
 Your owner is now preventing you from changing your nickname.
-Твоя хозяйка теперь запрещает вам менять свой ник.
+Твоя хозяйка теперь запрещает тебе менять свой ник.
+Your owner has changed the Bondage Club areas you can access.
+твоя хозяйка изменила зоны Бондаж Клуба, к которым ты можешь получить доступ.
+Your owner has changed the appearance zones you can modify.
+Твоя хозяйка изменила зоны внешнего вида, которые ты можешь изменить.
+Your owner has changed the item zones you can access.
+Твоя хозяйка изменила зоны предметов, к которым ты можешь получить доступ.
+Your owner has changed your list of forbidden words.  You can use /forbiddenwords to review the words.
+Твоя хозяйка изменила твой список запрещенных слов. Ты можешь использовать /forbiddenwords для просмотра этих слов.
+Saying a forbidden word is blocked by your owner.  You can use /forbiddenwords to review the words.
+Произнесение запретного слова заблокировано твоей хозяйкой. Ты можешь использовать /forbiddenwords для просмотра этих слов.
+You said a forbidden word and will be silenced for 5 minutes.  You can use /forbiddenwords to review the words.
+Ты произнесла запретное слово и будешь молчать 5 минут.  Ты можешь использовать /forbiddenwords для просмотра этих слов.
+You said a forbidden word and will be silenced for 15 minutes.  You can use /forbiddenwords to review the words.
+Ты произнесла запретное слово и будешь молчать 15 минут.  Ты можешь использовать /forbiddenwords для просмотра этих слов.
+You said a forbidden word and will be silenced for 30 minutes.  You can use /forbiddenwords to review the words.
+Ты произнесла запретное слово и будешь молчать 30 минут.  Ты можешь использовать /forbiddenwords для просмотра этих слов.
 Your lover is now allowing you to use lovers locks on yourself.
 Ваша возлюбленная теперь позволяет вам использовать любовные замки на себе.
 Your lover is now preventing you from using lovers locks on yourself.
@@ -1071,15 +1087,15 @@ Your lover is now preventing your owner from using lovers locks on you.
 SourceCharacter is asking you to be PronounPossessive lover.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter просит вас стать PronounPossessive любовью. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
-The Bondage Club рад сообщить, что SourceCharacter и TargetCharacter начинают минимальный 7-дневный период в качестве любовников.
+Бондаж Клуб рад сообщить, что SourceCharacter и TargetCharacter начинают минимальный 7-дневный период в качестве любовников.
 SourceCharacter is asking you to become PronounPossessive fiancée.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter просит вас стать PronounPossessive невестой. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
-The Bondage Club рад сообщить, что SourceCharacter и TargetCharacter теперь помолвлены и начинают минимальный 7-дневный период в качестве женихов.
+Бондаж Клуб  рад сообщить, что SourceCharacter и TargetCharacter теперь помолвлены и начинают минимальный 7-дневный период в качестве женихов.
 SourceCharacter is proposing you to become PronounPossessive wife.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter предлагает вам стать PronounPossessive женой. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
-The Bondage Club  с гордостью сообщает, что SourceCharacter и TargetCharacter теперь женаты. Пусть это продлится долго.
+Бондаж Клуб  с гордостью сообщает, что SourceCharacter и TargetCharacter теперь женаты. Пусть это продлится долго.
 Your submissive is now fully released from your ownership.
 Ваш сабмиссив теперь полностью освобожден от вашего владения.
 The member number is invalid or you do not own this submissive.
@@ -1100,7 +1116,7 @@ TargetCharacterName was moved to the left by SourceCharacter.
 TargetCharacterName был перемещен влево SourceCharacter.
 TargetCharacterName was moved to the right by SourceCharacter.
 TargetCharacterName был перемещен вправо по SourceCharacter.
-SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
+SourceCharacter swapped TargetCharacterName and DestinationCharacterName1 places.
 SourceCharacter поменяла TargetCharacterName и DestinationCharacterName местами.
 SourceCharacter shuffles the position of everyone in the room randomly.
 SourceCharacter случайным образом перемешивает положение всех в комнате.
@@ -1354,12 +1370,12 @@ Trigger Shock
 Триггерный шок
 Save Voice Commands
 Сохранить голосовые команды
-SourceCharacter changes the voice command settings on DestinationCharacter FocusAssetGroup.
-SourceCharacter изменяет настройки голосовых команд на DestinationCharacter FocusAssetGroup.
+SourceCharacter changes the voice command settings on DestinationCharacter AssetName.
+SourceCharacter изменяет настройки голосовых команд на DestinationCharacter AssetName.
 DestinationCharacterName vibrator switches modes!
 DestinationCharacterName вибратор переключает режимы!
 DestinationCharacterName vibrator lets out a sharp jolt!
-DestinationCharacterName вибратор испускает резкий удар!
+DestinationCharacterName вибратор производит резкий удар током!
 Anyone
 Кто угодно
 Others
@@ -2367,8 +2383,8 @@ DestinationCharacterName belt detects an orgasm and shocks TargetPronounObject!
 DestinationCharacterName belt detects tampering and shocks TargetPronounObject!
 Пояс на DestinationCharacterName обнаруживает вмешательство и бьет TargetPronounObject током!
 DestinationCharacterName belt detects TargetPronounPossessive struggling and delivers an intense shock!
-Пояс на DestinationCharacterName обнаруживает TargetPronounObject борьбу и наносит сильный удар!
-DestinationCharacterName bindings tighten around TargetPronounObject body with a hiss as they lock themselves automatically.
+Пояс на DestinationCharacterName обнаруживает TargetPronounObject борьбу и наносит сильный удар током!
+DestinationCharacterName bindings tighten around TargetPronounPossessive body with a hiss as they lock themselves automatically.
 Привязки на DestinationCharacterName затягиваются вокруг TargetPronounObject тела с шипением, автоматически фиксируясь.
 DestinationCharacterName bindings release TargetPronounObject with a hiss.
 Привязки на DestinationCharacterName с шипением освобождают TargetPronounObject.
@@ -2941,7 +2957,7 @@ SourceCharacter устанавливает для DestinationCharacter AssetName
 DestinationCharacterName AssetName gives TargetPronounObject a light shock.
 DestinationCharacterName AssetName вызывает у TargetPronounObject легкий шок.
 DestinationCharacterName AssetName lets out a sharp jolt!
-DestinationCharacterName AssetName производит резкий удар!
+DestinationCharacterName AssetName наносит резкий удар током!
 DestinationCharacterName AssetName delivers an intense shock!
 DestinationCharacterName AssetName доставляет сильный шок!
 DestinationCharacterName collar gives her a light shock.
@@ -3471,7 +3487,7 @@ Glans
 (You need a few tries but you're able to somewhat whip your own butt and feel the pain.)
 (Вам нужно несколько попыток, но вы можете немного отхлестать себя по заднице и почувствовать боль.)
 (You lash the leather crop pretty hard on your own butt.  Jumping from each good hit.)
-(Вы довольно сильно хлещете кожаным хлыстом по собственной заднице. Прыгаете от каждого хорошего удара.)
+(Вы довольно сильно хлещете кожаным хлыстом по собственной заднице. Подпрыгиваете от каждого хорошего удара.)
 (You slowly massage your pussy with the wand.  Trembling from pleasure and excitement.)
 (Вы медленно массируете свою киску палочкой. Дрожа от удовольствия и возбуждения.)
 Select the size of the double ended dildo.
@@ -3647,7 +3663,7 @@ Select position
 Zipper
 Молния
 Position
-Позици
+Позиция
 Kneeling
 На коленях
 SourceCharacter helps TargetCharacter up into a kneeling position.
@@ -3709,7 +3725,7 @@ SourceCharacter устанавливает высокую интенсивнос
 DestinationCharacterName love chastity belt gives TargetPronounObject a light shock.
 Любовный пояс верности на DestinationCharacterName вызывает у TargetPronounObject легкий шок.
 DestinationCharacterName love chastity belt lets out a sharp jolt!
-Любовный пояс верности на DestinationCharacterName испускает резкий удар!
+Любовный пояс верности на DestinationCharacterName наносит резкий удар током!
 DestinationCharacterName love chastity belt delivers an intense shock!
 Пояс верности любви на DestinationCharacterName доставляет сильный шок!
 SourceCharacter removes shield from DestinationCharacter love chastity belt.
@@ -4732,6 +4748,12 @@ Add some text
 Добавьте немного текста
 Ears
 Уши
+No Ears
+Без ушей
+SourceCharacter attaches ears to DestinationCharacter cat mask harness.
+SourceCharacter прикрепляет уши к ременной маске кошки DestinationCharacter.
+SourceCharacter detaches the ears from DestinationCharacter cat mask harness.
+SourceCharacter отсоединяет уши от ременной маске кошки DestinationCharacter.
 Earless
 Безухий
 Select part of the nose.
@@ -5135,7 +5157,7 @@ The obedience belt on SourceCharacter shocks her.
 The obedience belt on SourceCharacter shocks her for having an orgasm.
 Пояс послушания на SourceCharacter шокирует ее за то, что она испытала оргазм.
 The obedience belt on SourceCharacter shocks her for standing up.
-Пояс послушания на SourceCharacter ударил ее за то, что она встала.
+Пояс послушания на SourceCharacter шокирует ее за то, что она попыталась встать.
 Slender
 Тонкий
 Choker
@@ -6241,3 +6263,165 @@ Over Hair
 Поверх волос
 SourceCharacter adjusts the fit of the filters on DestinationCharacter respirator
 SourceCharacter регулирует посадку фильтров на респираторе DestinationCharacter
+Select Hood Details
+Выберите детали капюшона
+Select Mouth Panel
+Выбор панели рта
+Mouth Panel
+Панель рта
+No Mouth
+Нет рта
+Pinhole
+Булавочное отверстие
+Round Mouth
+Круглый рот
+Shaped Mouth
+Форма рта
+No Mouth - Transparent
+Без рта - прозрачный
+Pinhole - Transparent
+Булавочное отверстие - прозрачный
+Round Mouth - Transparent
+Круглый рот - прозрачный
+Shaped Mouth - Transparent
+Форма рта - прозрачный
+SourceCharacter changes the mouth panel on DestinationCharacter latex hood.
+SourceCharacter изменяет панель рта на латексном капюшоне DestinationCharacter.
+Select Eye Panel
+Выберите панели глаз
+Eye Panel
+Панель глаз
+No Eyeholes
+Без отверстий
+Pinholes
+Булавочные отверстия
+Round Eyes
+Круглые глаза
+Shaped Eyes
+Форма глаз
+No Eyeholes - Transparent
+Без отверстий - прозрачный
+Pinholes - Transparent
+Булавочные отверстия - прозрачные
+Round Eyes - Transparent
+Круглые глаза - прозрачные
+Shaped Eyes - Transparent
+Форма глаз - прозрачные
+SourceCharacter changes the eye panel on DestinationCharacter latex hood.
+SourceCharacter изменяет панель глаз на латексном капюшоне DestinationCharacter.
+Select Head Panel
+Выберите панель головы
+Head Panel
+Панель головы
+SourceCharacter changes the head panel on DestinationCharacter latex hood.
+SourceCharacter изменяет панель головы на латексном капюшоне DestinationCharacter.
+Select Mouth Panel Fill
+Выберите заполнение панели рта
+Mouth Panel Fill
+Заполнение панели рта
+Opaque with Pinhole
+Непрозрачное с булавочным отверстием
+Transparent with Pinhole
+Прозрачное с булавочным отверстием
+SourceCharacter changes the mouth panel fill on DestinationCharacter latex hood.
+SourceCharacter изменяет заполнение панели рта на латексном капюшоне DestinationCharacter.
+Select Eye Panel Fill
+Выберите заполнение панели глаз
+Eye Panel Fill
+Заполнение панели глаз
+Opaque with Pinholes
+Непрозрачное с булавочными отверстиями
+Transparent with Pinholes
+Прозрачное с булавочными отверстиями
+SourceCharacter changes the eye panel fill on DestinationCharacter latex hood.
+SourceCharacter изменяет заполнение панели глаз на латексном капюшоне DestinationCharacter.
+Select Hair Options
+Выберите варианты прически
+Hair Options
+Варианты прически
+Show Hair
+Показать волосы
+Hide Hair
+Скрыть волосы
+Show Back Hair Only
+Показать только волосы сзади
+Hide Hair and Accessories
+Скрыть волосы и аксессуары
+SourceCharacter changes the hair opening on DestinationCharacter latex hood.
+SourceCharacter изменяет отверстие для волос на латексном капюшоне DestinationCharacter.
+Select Hood Cover Options
+Выберите варианты покрытия капюшона
+Hood Cover
+Покрытие капюшона
+No Hood Cover
+Без покрытия
+Open Opaque Hood Cover
+Открытое непрозрачное покрытие
+Closed Opaque Hood Cover
+Закрытое непрозрачное покрытие
+Open Transparent Hood Cover
+Открытое прозрачное покрытие
+Closed Transparent Hood Cover
+Закрытое прозрачное покрытие
+SourceCharacter changes the hood cover on DestinationCharacter latex hood.
+SourceCharacter изменяет покрытие капюшона на латексном капюшоне DestinationCharacter.
+Configure the game
+Настройте игру
+Configure
+Настроить
+Choose the wheel configuration
+Настройте колесо
+Choose the stand for the wheel
+Выберите подставку для колеса
+Stand
+Подставка
+Wooden Stand
+Деревянная подставка
+Metal Stand
+Металлическая подставка
+SourceCharacter mounts DestinationCharacter lucky wheel stand on a wooden stand.
+SourceCharacter закрепляет DestinationCharacter на деревянную подставку для колеса удачи.
+SourceCharacter mounts DestinationCharacter lucky wheel stand on a metal stand.
+SourceCharacter закрепляет DestinationCharacter на металлическую подставку для колеса удачи.
+Choose whether you want extras or not
+Выберите, нужны ли вам дополнения или нет
+Extras
+Дополнения
+No Extras
+Без дополнений
+SourceCharacter adds some toys to DestinationCharacter lucky wheel.
+SourceCharacter добавляет несколько игрушек в колесо удачи DestinationCharacter.
+SourceCharacter removes the toys from DestinationCharacter lucky wheel.
+SourceCharacter удаляет игрушки из колеса удачи DestinationCharacter.
+Choose the arrow design
+Выберите дизайн стрелки
+Arrow
+Стрелка
+Arrow 1
+Стрелка 1
+Arrow 2
+Стрелка 2
+Butt Plug
+Анальная пробка
+SourceCharacter changes DestinationCharacter lucky wheel arrow for a tear design.
+SourceCharacter изменяет стрелку колеса удачи DestinationCharacter на дизайн слезы.
+SourceCharacter changes DestinationCharacter lucky wheel arrow for an arrow design.
+SourceCharacter изменяет стрелку колеса удачи DestinationCharacter на дизайн стрелки.
+SourceCharacter changes DestinationCharacter lucky wheel arrow for butt plug.
+SourceCharacter изменяет стрелку колеса удачи DestinationCharacter на анальную пробку.
+Choose the wheel's position
+Выберите положение колеса
+Front
+Спереди
+SourceCharacter places TargetCharacter behind the wheel.
+SourceCharacter помещает TargetCharacter за колесом.
+SourceCharacter moves TargetCharacter in front of the wheel.
+SourceCharacter помещает TargetCharacter перед колесом.
+Prize NUM
+Приз NUM
+Spin the wheel!
+Вращать колесо!
+SourceCharacter grabs DestinationCharacter lucky wheel and spins it!
+SourceCharacter хватается за колесо удачи DestinationCharacter и крутит его!
+SourceCharacter's lucky wheel clicked wildly until it finally stopped on “SectionName”.
+SourceCharacter's колесо удачи бешено щелкало, пока, наконец, не остановилось на “SectionName”.

@@ -1,16 +1,17 @@
 "use strict";
 var LoginBackground = "Dressing";
 var LoginMessage = "";
+/** @type {null | string[][]} */
 var LoginCredits = null;
 var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "bjugh", "bryce", "Cathryn", 
-	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin", 
-	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "M4c0202", "Michal", "Michel", 
-	"Mike", "Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Ross", "Samuel", "Schrödingers", 
-	"Setsu", "Shadow", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "William", 
+	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "bjugh", "bryce", "Cathryn",
+	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin",
+	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "M4c0202", "Michal", "Michel",
+	"Mike", "Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Ross", "Samuel", "Schrödingers",
+	"Setsu", "Shadow", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "William",
 ];
 
 /* eslint-enable */
@@ -897,8 +898,7 @@ function LoginDoLogin() {
 	if (!LoginSubmitted && ServerIsConnected) {
 		var Name = ElementValue("InputName");
 		var Password = ElementValue("InputPassword");
-		var letters = /^[a-zA-Z0-9]+$/;
-		if (Name.match(letters) && Password.match(letters) && (Name.length > 0) && (Name.length <= 20) && (Password.length > 0) && (Password.length <= 20)) {
+		if (Name.match(ServerAccountPasswordRegex) && Password.match(ServerAccountPasswordRegex)) {
 			LoginSetSubmitted();
 			ServerSend("AccountLogin", { AccountName: Name, Password: Password });
 		} else LoginStatusReset("InvalidNamePassword");

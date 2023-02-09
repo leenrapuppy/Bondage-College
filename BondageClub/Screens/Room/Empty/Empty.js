@@ -1,5 +1,6 @@
 "use strict";
 var EmptyBackground = "MainHall";
+/** @type {Character[]} */
 var EmptyCharacter = [];
 var EmptyCharacterOffset = 0;
 

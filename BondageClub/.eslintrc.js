@@ -49,13 +49,13 @@ module.exports = {
 			files: ['Female3DCG.js'],
 			rules: {
 				'sort-keys-custom/sort-keys-custom': [
-					'warn', [
+					'off', [
 						// Object key sort order for assets and asset groups
 						'Name', // Assets
 						'Group', // Asset Groups
 						'ParentGroup', // Asset Groups
 						'ParentSize', // Asset Groups
-						'ParentColor', // Asset Groups
+						'InheritColor', // Asset Groups
 						'Category', // Asset Groups
 						'Priority', // Both
 						'Value', // Assets

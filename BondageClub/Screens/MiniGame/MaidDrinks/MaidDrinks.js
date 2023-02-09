@@ -1,12 +1,15 @@
 "use strict";
 var MaidDrinksBackground = "Bar";
+/** @type {null | NPCCharacter} */
 var MaidDrinksCustomerLeft = null;
+/** @type {null | NPCCharacter} */
 var MaidDrinksCustomerRight = null;
 var MaidDrinksCustomerLeftTimer = -1;
 var MaidDrinksCustomerRightTimer = -1;
 var MaidDrinksCustomerLeftVisible = false;
 var MaidDrinksCustomerRightVisible = false;
 var MaidDrinksMaxSequence = 1000;
+/** @type {{ Type: number, Time: number }[]} */
 var MaidDrinksMove = [];
 var MaidDrinksLastMoveType = -1;
 var MaidDrinksLastMoveTypeTimer = -1;

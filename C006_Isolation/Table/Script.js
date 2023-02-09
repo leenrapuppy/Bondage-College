@@ -13,7 +13,7 @@ function C006_Isolation_Table_Run() {
 }
 
 // Chapter 6 - Cell Table Click
-function C006_Isolation_Table_Click() {	
+function C006_Isolation_Table_Click() {
 
 	// Regular interactions
 	ClickInteraction(C006_Isolation_Table_CurrentStage);

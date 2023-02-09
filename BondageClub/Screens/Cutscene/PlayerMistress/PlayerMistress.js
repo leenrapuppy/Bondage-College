@@ -1,8 +1,12 @@
 "use strict";
 var PlayerMistressBackground = "Management";
+/** @type {null | NPCCharacter} */
 var PlayerMistressMistressLeft = null;
+/** @type {null | NPCCharacter} */
 var PlayerMistressMistressRight = null;
+/** @type {null | NPCCharacter} */
 var PlayerMistressMaidLeft = null;
+/** @type {null | NPCCharacter} */
 var PlayerMistressMaidRight = null;
 
 /**

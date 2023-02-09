@@ -41,7 +41,7 @@ function C101_KinbakuClub_Lauren_CalcParams() {
 	C101_KinbakuClub_Lauren_LaurenBallGagged = ActorHasInventory("BallGag");
 	C101_KinbakuClub_Lauren_LaurenTapeGagged = ActorHasInventory("TapeGag");
 	C101_KinbakuClub_Lauren_LaurenClothGagged = ActorHasInventory("ClothGag");
-	
+
 }
 
 
@@ -66,7 +66,7 @@ function C101_KinbakuClub_Lauren_Load() {
 			LeaveIcon = "";
 		}
 	}
-	
+
 	// When player returns after capturing Lauren or Lauren captures player
 	if (C101_KinbakuClub_Lauren_CurrentStage >= 300) LeaveIcon = "";
 	if (C101_KinbakuClub_Lauren_CurrentStage == 450 || C101_KinbakuClub_Lauren_CurrentStage == 460 || C101_KinbakuClub_Lauren_CurrentStage == 470) LeaveIcon = "Leave";
@@ -130,17 +130,17 @@ function C101_KinbakuClub_Lauren_Run() {
 }
 
 // Chapter 101 - Lauren Click
-function C101_KinbakuClub_Lauren_Click() {	
+function C101_KinbakuClub_Lauren_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C101_KinbakuClub_Lauren_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Lauren can be tied up at stage 310
 	if (((C101_KinbakuClub_Lauren_CurrentStage == 450) || (C101_KinbakuClub_Lauren_CurrentStage == 460) || (C101_KinbakuClub_Lauren_CurrentStage == 470)) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-		
+
 		ActorApplyRestrain(ClickInv);
-		
+
 	}
 
 	C101_KinbakuClub_Lauren_CalcParams()
@@ -152,7 +152,7 @@ function C101_KinbakuClub_Lauren_TiedNod() {
 	C101_KinbakuClub_Lauren_NodDone = true;
 }
 
-// Chapter 101 - Lauren - Recive a blindfold
+// Chapter 101 - Lauren - Receive a blindfold
 function C101_KinbakuClub_Lauren_GetBlindfold() {
 	C101_KinbakuClub_Lauren_BlindfoldAvailable = false;
 	PlayerAddInventory("Blindfold", 1);
@@ -167,7 +167,7 @@ function C101_KinbakuClub_Lauren_AlreadyCuffed() {
 	}
 }
 
-// Chapter 101 - Lauren - Player takes cuffs and cuffs themself.
+// Chapter 101 - Lauren - Player takes cuffs and cuffs themselves.
 function C101_KinbakuClub_Lauren_PlayerCuffed() {
 	CurrentTime = CurrentTime + 30000;
 	PlayerLockInventory("Cuffs");

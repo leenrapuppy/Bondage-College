@@ -390,7 +390,14 @@ var PlatformTemplate = [
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 }
 		],
-		OnBind: function() { if (PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey") && (Math.random() >= 0.8)) { PlatformMessageSet("You found keys for shackles on the guard."); PlatformEventSet("EdlaranKey"); } }
+		OnBind: function() { 
+			if (PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey")) {
+				if (Math.random() >= 0.8) {
+					PlatformMessageSet("You found keys for shackles on the guard.");
+					PlatformEventSet("EdlaranKey");
+				} else PlatformMessageSet("The keys are not on this guard.");
+			} 
+		}
 	},
 	{
 		Name: "Camille",
@@ -466,7 +473,14 @@ var PlatformTemplate = [
 		Attack: [
 			{ Name: "FireProjectile", Speed: 1000 }
 		],
-		OnBind: function() { if (!PlatformEventDone("EdlaranJoin") && !PlatformEventDone("EdlaranForestKey") && PlatformEventDone("EdlaranForestIntro") && (Math.random() >= 0.8)) { PlatformMessageSet("You found keys for chains on the bandit."); PlatformEventSet("EdlaranForestKey"); } }
+		OnBind: function() { 
+			if (!PlatformEventDone("EdlaranJoin") && !PlatformEventDone("EdlaranForestKey") && PlatformEventDone("EdlaranForestIntro")) {
+				if (Math.random() >= 0.8) {
+					PlatformMessageSet("You found keys for chains on the bandit.");
+					PlatformEventSet("EdlaranForestKey");
+				} else PlatformMessageSet("The keys are not on this bandit.");
+			} 
+		}
 	},
 	{
 		Name: "Lyn", // MMD Z: 41.00

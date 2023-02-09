@@ -115,7 +115,7 @@ function C101_KinbakuClub_Slaves_Load() {
 // Chapter 101 - Slaves Run
 function C101_KinbakuClub_Slaves_Run() {
 	BuildInteraction(C101_KinbakuClub_Slaves_CurrentStage);
-	
+
 	// Composite images
 	// Player trying on collar loosely
 	if (C101_KinbakuClub_Slaves_CurrentStage == 100) {
@@ -155,7 +155,7 @@ function C101_KinbakuClub_Slaves_Run() {
 		if (PlayerHasLockedInventory("BallGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesBallGag.png", 875, 60);
 		if (PlayerHasLockedInventory("ClothGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesClothGag.png", 870, 128);
 		if (PlayerHasLockedInventory("TapeGag")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesTapeGag.png", 887, 130);
-		
+
 		// Players clothing etc.
 		if (PlayerHasLockedInventory("ChastityBelt")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesChastityBelt.png", 850, 330);
 		if (C101_KinbakuClub_Slaves_PlayerBreastsExposed) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesExposed.jpg", 855, 210);
@@ -175,7 +175,7 @@ function C101_KinbakuClub_Slaves_Run() {
 		if (C101_KinbakuClub_Slaves_CurrentStage == 280 || C101_KinbakuClub_Slaves_CurrentStage == 290 || C101_KinbakuClub_Slaves_CurrentStage == 300) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJennaWandPleasure.png", 895, 55);
 		if (C101_KinbakuClub_Slaves_CurrentStage == 285 || C101_KinbakuClub_Slaves_CurrentStage == 286) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJennaWandStop.png", 860, 55);
 		if (C101_KinbakuClub_Slaves_CurrentStage == 295) DrawImage(CurrentChapter + "/" + CurrentScreen + "/PlayerManaclesJennaSlap.png", 885, 35);
-	
+
 		//Jenna hands only
 		if (C101_KinbakuClub_Slaves_CurrentStage == 210) {
 			// Special hands images, which default to normal tease and text after 5 seconds
@@ -192,7 +192,7 @@ function C101_KinbakuClub_Slaves_Run() {
 			if (C101_KinbakuClub_Slaves_HandsSpecial == 5) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TeaseLightSpank.png", 827, 319); // Light Spank and tease (Belly button)
 			if (C101_KinbakuClub_Slaves_HandsSpecial == 6) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TeaseSpank.png", 812, 157); // Spank while holding Collar
 			if (C101_KinbakuClub_Slaves_HandsSpecial == 7) DrawImage(CurrentChapter + "/" + CurrentScreen + "/TeaseHoldCollar.png", 855, 145); // Jenna holding collar and not brushing
-		
+
 			// hands normal teasing images, staged general teasing actions
 			if (C101_KinbakuClub_Slaves_HandsSpecial == 0 || C101_KinbakuClub_Slaves_HandsSpecial == 4 || C101_KinbakuClub_Slaves_HandsSpecial == 9) {
 				if (!C101_KinbakuClub_Slaves_PlayerBreastsExposed) {
@@ -263,7 +263,7 @@ function C101_KinbakuClub_Slaves_Click() {
 	ClickInteraction(C101_KinbakuClub_Slaves_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	if (C101_KinbakuClub_Slaves_CurrentStage == 120) InventoryClick(GetClickedInventory(), "C101_KinbakuClub", "Slaves");
-	
+
 	if ((C101_KinbakuClub_Slaves_CurrentStage == 100) || (C101_KinbakuClub_Slaves_CurrentStage == 110)) {
 		if ((ClickInv == "BallGag") && !PlayerHasLockedInventory("BallGag")) {
 			PlayerUngag();
@@ -504,9 +504,9 @@ function C101_KinbakuClub_Slaves_RandomSelection() {
 	for (var i = 0; i < 8; i++) {
 		randomNumbers.push(Math.floor((Math.random() * 12) + 1));
 	}
-	
+
 	var active = C101_KinbakuClub_Slaves_PlayerArousal < 500;
-	
+
 	C101_KinbakuClub_Slaves_Option1 = active && randomNumbers.includes(1) ? true : false;
 	C101_KinbakuClub_Slaves_Option2 = active && randomNumbers.includes(2) ? true : false;
 	C101_KinbakuClub_Slaves_Option3 = active && randomNumbers.includes(3) ? true : false;
@@ -519,7 +519,7 @@ function C101_KinbakuClub_Slaves_RandomSelection() {
 	C101_KinbakuClub_Slaves_Option10 = active && randomNumbers.includes(10) ? true : false;
 	C101_KinbakuClub_Slaves_Option11 = active && randomNumbers.includes(11) ? true : false;
 	C101_KinbakuClub_Slaves_Option12 = active && randomNumbers.includes(12) ? true : false;
-	
+
 	C101_KinbakuClub_Slaves_TextDisplay()
 	C101_KinbakuClub_Slaves_CalcParams();
 }
@@ -540,7 +540,7 @@ function C101_KinbakuClub_Slaves_PlayerClitTease() {
 	if (!Common_PlayerChaste) {
 		OverridenIntroText = GetText("PantiesDown");
 		C101_KinbakuClub_Slaves_HandsSpecial = 2;
-	} 
+	}
 }
 
 // Chapter 101 - Slaves - Tease select 1 (Pinch your arm.)
@@ -725,7 +725,7 @@ function C101_KinbakuClub_Slaves_CryWolf() {
 		C101_KinbakuClub_Slaves_CurrentStage = 210;
 		C101_KinbakuClub_Slaves_NotGaggingForIt = false;
 	}
-	
+
 }
 
 // Chapter 101 - Slaves - Player says banana and then immediately says she is OK
@@ -761,7 +761,7 @@ function C101_KinbakuClub_Slaves_UnderwearBack() {
 	}
 }
 
-// Chapter 101 - Slaves - Jenna rolls back a stage of exposure and and decreases arousal. 
+// Chapter 101 - Slaves - Jenna rolls back a stage of exposure and and decreases arousal.
 function C101_KinbakuClub_Slaves_TeaseStageBack() {
 		if (C101_KinbakuClub_Slaves_PlayerBreastsExposed && !C101_KinbakuClub_Slaves_PlayerPantiesDown) C101_KinbakuClub_Slaves_PlayerBreastsExposed = false;
 		if (C101_KinbakuClub_Slaves_PlayerPantiesDown) C101_KinbakuClub_Slaves_PlayerBreastsExposed = false;
@@ -780,7 +780,7 @@ function C101_KinbakuClub_Slaves_ArousalVariation() {
 	C101_KinbakuClub_Slaves_PlayerArousal = (C101_KinbakuClub_Slaves_PlayerArousal + C101_KinbakuClub_Slaves_Random + C101_KinbakuClub_Slaves_PlayerArousalMod)
 }
 
-// Chapter 101 - Slaves - 
+// Chapter 101 - Slaves -
 function C101_KinbakuClub_Slaves_Relief() {
 	if (ActorGetValue(ActorLove) > 2 && !C101_KinbakuClub_Slaves_NotTriedHardEnough) {
 		C101_KinbakuClub_Slaves_PlayerArousal = C101_KinbakuClub_Slaves_PlayerArousal -50

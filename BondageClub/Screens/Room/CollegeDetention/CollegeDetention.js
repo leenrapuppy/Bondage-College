@@ -1,5 +1,6 @@
 "use strict";
 var CollegeDetentionBackground = "CollegeDetention";
+/** @type {null | NPCCharacter} */
 var CollegeDetentionYuki = null;
 var CollegeDetentionYukiLove = 0;
 var CollegeDetentionYukiWillReleaseAt = 0;

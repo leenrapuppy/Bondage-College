@@ -1,5 +1,11 @@
 //#region Common
 
+declare namespace SocketIO {
+	type Socket = import("socket.io-client").Socket;
+}
+
+declare function io(serv: string): SocketIO.Socket;
+
 interface String {
 	replaceAt(index: number, character: string): string;
 }
@@ -142,6 +148,7 @@ type ItemVulvaFuturisticVibratorAccessMode = "" | "ProhibitSelf" | "LockMember";
  *   Allows the item to be taken off at the club management.
  *
  * @property Leash - Marks the item as being usable as a leash.
+ * @property IsLeashed - Marks a leash item as being held.
  * @property CrotchRope - Marks the item as being a crotchrope-style item.
  *   Used for the auto-stimulation events.
  *
@@ -184,7 +191,7 @@ type EffectName =
 
 	"Chaste" | "BreastChaste" | "ButtChaste" |
 
-	"Leash" | "CrotchRope" |
+	"Leash" | "IsLeashed" | "CrotchRope" |
 
 	"ReceiveShock" | "TriggerShock" |
 
@@ -192,7 +199,10 @@ type EffectName =
 
 	"BlockMouth" | "OpenMouth" |
 
-	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" | "GagTotal2" |
+	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" |
+
+	// Those are only supposed to be "transient", as in, they appear because of stacked gags
+	"GagTotal2" | "GagTotal3" | "GagTotal4" |
 
 	"BlindLight" | "BlindNormal" | "BlindHeavy" | "BlindTotal" |
 	"BlurLight" | "BlurNormal" | "BlurHeavy" | "BlurTotal" |
@@ -230,11 +240,11 @@ type AssetGroupItemName =
 type AssetGroupBodyName =
 	'Blush' | 'BodyLower' | 'BodyUpper' | 'Bra' | 'Bracelet' | 'Cloth' |
 	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
-	'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
+	'Eyes' | 'Eyes2' | 'Fluids' | 'FacialHair' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
-	'HairFront' | 'FacialHair' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'LeftHand' | 'Mask' |
+	'HairFront' | 'FacialHair' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'Jewelry' | 'LeftAnklet' | 'LeftHand' | 'Mask' |
 	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'Pronouns' | 'RightAnklet' | 'RightHand' |
-	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
+	'Shoes' | 'Socks' | 'SocksLeft' | 'SocksRight' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
 type AssetGroupName = AssetGroupBodyName | AssetGroupItemName;
@@ -266,7 +276,7 @@ type CraftingPropertyType =
 
 type AssetAttribute =
 	"Skirt" |
-	"ShortHair" |
+	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" |
 	"CanAttachMittens"
 	;
 
@@ -445,6 +455,7 @@ interface SourceCharacterDictionaryEntry {
  */
 interface TargetCharacterDictionaryEntry {
 	TargetCharacter: number;
+	Index?: number;
 }
 
 /**
@@ -643,6 +654,7 @@ interface IChatRoomMessageMetadata {
 	senderName?: string;
 	/** The character targetted by the message */
 	TargetCharacter?: Character;
+	AdditionalTargets?: Record<number, Character>;
 	/** The character sending the message */
 	SourceCharacter?: Character;
 	/** The member number of the target */
@@ -784,7 +796,6 @@ interface AssetGroup {
 	Random?: boolean;
 	ColorSchema: string[];
 	ParentSize: string;
-	ParentColor: string;
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
@@ -802,7 +813,7 @@ interface AssetGroup {
 	DrawingTop: number;
 	DrawingFullAlpha: boolean;
 	DrawingBlink: boolean;
-	InheritColor?: string;
+	InheritColor: AssetGroupName | null;
 	FreezeActivePose: string[];
 	PreviewZone?: RectTuple;
 	DynamicGroupName: AssetGroupName;
@@ -812,6 +823,7 @@ interface AssetGroup {
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	HasPreviewImages: boolean;
 }
 
 /** An object defining a drawable layer of an asset */
@@ -845,7 +857,7 @@ interface AssetLayer {
 	/** The drawing priority of this layer. Inherited from the parent asset/group if not specified in the layer
 	definition. */
 	Priority: number;
-	InheritColor?: string;
+	InheritColor?: AssetGroupName;
 	Alpha: AlphaDefinition[];
 	/** The asset that this layer belongs to */
 	Asset: Asset;
@@ -976,6 +988,7 @@ interface Asset {
 	AllowHide?: AssetGroupItemName[];
 	AllowHideItem?: string[];
 	AllowType?: string[];
+	AllowTighten?: boolean;
 	DefaultColor?: ItemColor;
 	Opacity: number;
 	MinOpacity: number;
@@ -998,7 +1011,7 @@ interface Asset {
 	DynamicAudio: ((C: Character) => string) | null;
 	CharacterRestricted: boolean;
 	AllowRemoveExclusive: boolean;
-	InheritColor?: string;
+	InheritColor?: AssetGroupName;
 	DynamicBeforeDraw: boolean;
 	DynamicAfterDraw: boolean;
 	DynamicScriptDraw: boolean;
@@ -1082,12 +1095,6 @@ interface ItemActivity {
 	Blocked?: ItemActivityRestriction;
 }
 
-interface LogRecord {
-	Name: string;
-	Group: string;
-	Value: number;
-}
-
 type ItemColor = string | string[];
 
 /** An item is a pair of asset and its dynamic properties that define a worn asset. */
@@ -1100,29 +1107,13 @@ interface Item {
 }
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
-
-type InventoryIcon = FavoriteIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
-
-interface DialogInventoryItem extends Item {
-	Worn: boolean;
-	Icons: InventoryIcon[];
-	SortOrder: string;
-	Hidden: boolean;
-	Vibrating: boolean;
-}
+type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
+type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
 
 interface InventoryItem {
 	Group: string;
 	Name: string;
 	Asset: Asset;
-}
-
-interface FavoriteState {
-	TargetFavorite: boolean;
-	PlayerFavorite: boolean;
-	Icon: FavoriteIcon;
-	UsableOrder: DialogSortOrder;
-	UnusableOrder: DialogSortOrder;
 }
 
 interface Skill {
@@ -1380,6 +1371,7 @@ interface Character {
 		LARP?: GameLARPParameters,
 		MagicBattle?: GameMagicBattleParameters,
 		GGTS?: GameGGTSParameters,
+		Poker?: GamePokerParameters,
 	};
 	BlackList: number[];
 	RunScripts?: boolean;
@@ -1992,7 +1984,7 @@ interface ItemPropertiesCustom {
 
 	// #endregion
 
-	/** A comma-seperated string with the futuristic vibrator's trigger words */
+	/** A comma-separated string with the futuristic vibrator's trigger words */
 	TriggerValues?: string;
 	/** A string denoting who has permission to use the vibrator's trigger words */
 	AccessMode?: ItemVulvaFuturisticVibratorAccessMode;
@@ -2102,6 +2094,8 @@ interface ExtendedItemOption {
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	/** A buy group to check for that option to be available */
+	PrerequisiteBuyGroup?: string;
 	/**
 	 * A unique (automatically assigned) identifier of the struct type
 	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
@@ -2237,7 +2231,7 @@ interface ModularItemConfig {
 		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
 	 */
 	BaselineProperty?: ItemProperties;
@@ -2340,10 +2334,10 @@ interface ModularItemOptionBase {
 	Effect?: string[];
 	/** Whether the option forces a given pose */
 	SetPose?: string;
-	/** If set, the option changes the asset's default priority */
-	OverridePriority?: number;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
+	/** A buy group to check for that module to be available */
+	PrerequisiteBuyGroup?: string;
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name?: string;
 	/** A unique (automatically assigned) identifier of the struct type */
@@ -2433,7 +2427,7 @@ interface ModularItemData {
 		validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>,
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;
@@ -2504,7 +2498,7 @@ interface TypedItemConfig {
 		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemConfig.ScriptHooks} functions.
 	 */
 	BaselineProperty?: ItemProperties;
@@ -2596,7 +2590,7 @@ interface TypedItemData {
 		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
 	/**
-	 * To-be initialized properties independant of the selected item module(s).
+	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;
@@ -2850,8 +2844,27 @@ interface ICommand {
 	Clear?: false;
 }
 
+type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "LockPick";
+
+interface StruggleMinigame {
+	Setup: (C: Character, PrevItem: Item, NextItem: Item) => void;
+	Draw: (C: Character) => void;
+	HandleEvent?: (EventType: "KeyDown"|"Click") => void;
+}
+
+//#region Poker Minigame
+
+type PokerGameType = "TwoCards" | "TexasHoldem";
+type PokerMode = "" | "DEAL" | "FLOP" | "TURN" | "RIVER" | "RESULT" | "END";
 type PokerPlayerType = "None" | "Set" | "Character";
-type PokerPlayerFamily = "None" | "Player";
+type PokerPlayerFamily = "None" | "Player" | "Illustration" | "Model";
+type PokerHand = number[];
+
+interface PokerAsset {
+	Family: PokerPlayerFamily;
+	Type: PokerPlayerType;
+	Opponent: string[];
+}
 
 interface PokerPlayer {
 	Type: PokerPlayerType;
@@ -2861,7 +2874,7 @@ interface PokerPlayer {
 
 	/* Runtime values */
 	Difficulty?: number;
-	Hand?: any[];
+	Hand?: PokerHand;
 	HandValue?: number;
 	Cloth?: Item;
 	ClothLower?: Item;
@@ -2869,16 +2882,21 @@ interface PokerPlayer {
 	Panties?: Item;
 	Bra?: Item;
 	Character?: Character;
-	Data?: {
-		cache: Record<any, any>;
-	};
-	Image?: void;
+	Data?: TextCache;
+	Image?: string;
 	TextColor?: string;
-	TextSingle?: string;
-	TextMultiple?: string;
+	TextSingle?: TextCache;
+	TextMultiple?: TextCache;
+	Text?: string;
 	WebLink?: string;
-	Alternate?: void;
+	Alternate?: number;
 }
+
+interface GamePokerParameters {
+	Challenge?: string;
+}
+
+//#endregion
 
 // #region Online Games
 
@@ -3275,6 +3293,19 @@ interface ItemColorStateType {
 	drawExport: (data: string) => Promise<void>;
 }
 
+/** A hexadecimal color code */
+type HexColor = string;
+
+/** A HSV color value */
+interface HSVColor {
+	H: number;
+	S: number;
+	V: number;
+}
+
+/** The color picker callback called when selection completes. */
+type ColorPickerCallbackType = (Color: string) => void;
+
 //#end region
 
 // #region property
@@ -3302,5 +3333,113 @@ type PropertyTextEventListener = (
 
 /** A record type with custom event listeners for one or more text input fields. */
 type PropertyTextEventListenerRecord = Partial<Record<PropertyTextNames, PropertyTextEventListener>>;
+
+// #end region
+
+// #region Log
+
+interface LogRecord {
+	Name: string;
+	Group: LogGroupType;
+	Value: number;
+}
+
+/** The logging groups as supported by the {@link LogRecord.Group} */
+type LogGroupType = keyof LogNameType;
+
+/** An interface mapping {@link LogRecord.Group} types to valid {@link LogRecord.Name} types */
+interface LogNameType {
+	Arcade: "DeviousChallenge",
+	Asylum: "Committed" | "Isolated" | "ForceGGTS" | "ReputationMaxed" | "Escaped",
+	BadGirl: "Caught" | "Joined" | "Stolen" | "Hide",
+	Cell: "Locked" | "KeyDeposit",
+	College: "TeacherKey",
+	Import: "BondageCollege",
+	Introduction: "MaidOpinion" | "DailyJobDone",
+	LockPick: "FailedLockPick",
+	LoverRule: "BlockLoverLockSelf" | "BlockLoverLockOwner",
+	MagicSchool: "Mastery",
+	Maid: "JoinedSorority" | "LeadSorority" | "MaidsDisabled",
+	MainHall: "IntroductionDone",
+	Management: "ClubMistress" | "ClubSlave" | "ReleasedFromOwner" | "MistressWasPaid",
+	"NPC-Amanda": "AmandaLover" | "AmandaCollared" | "AmandaCollaredWithCurfew" | "AmandaMistress",
+	"NPC-AmandaSarah": "AmandaSarahLovers",
+	"NPC-Jennifer": "JenniferLover" | "JenniferCollared" | "JenniferMistress",
+	"NPC-Sarah": "SarahLover" | "SarahCollared" | "SarahCollaredWithCurfew",
+	"NPC-SarahIntro": "SarahWillBePunished" | "SarahCameWithPlayer",
+	"NPC-Sidney": "JenniferLover" | "JenniferMistress" | "JenniferCollared",
+	// NOTE: A number of owner rules can have arbitrary suffices, and can thus not be expressed as string literals
+	OwnerRule: (
+		"BlockChange"
+		| "BlockTalk"
+		| "BlockEmote"
+		| "BlockWhisper"
+		| "BlockChangePose"
+		| "BlockAccessSelf"
+		| "BlockAccessOther"
+		| "BlockKey"
+		| "BlockOwnerLockSelf"
+		| "BlockRemote"
+		| "BlockRemoteSelf"
+		| "BlockNickname"
+		| "ReleasedCollar"
+		| "BlockScreen"
+		| "BlockAppearance"
+		| "BlockItemGroup"
+		| "ForbiddenWords"
+		| "BlockTalkForbiddenWords"
+		| string
+	),
+	Pony: "JoinedStable",
+	PonyExam: "JoinedStable",
+	PrivateRoom: (
+		"RentRoom"
+		| "Expansion"
+		| "SecondExpansion"
+		| "Wardrobe"
+		| "Cage"
+		| "OwnerBeepActive"
+		| "OwnerBeepTimer"
+		| "Security"
+		| "BedWhite"
+		| "BedBlack"
+		| "BedPink"
+	),
+	Rule: "BlockChange" | "LockOutOfPrivateRoom" | "BlockCage" | "SleepCage",
+	Sarah: "KidnapSophie",
+	Shibari: "Training",
+	SkillModifier: "ModifierDuration" | "ModifierLevel",
+	SlaveMarket: "Auctioned",
+	Trainer: "JoinedStable",
+	TrainerExam: "JoinedStable",
+}
+
+// #end region
+
+// #region dialog
+
+interface FavoriteState {
+	TargetFavorite: boolean;
+	PlayerFavorite: boolean;
+	Icon: FavoriteIcon;
+	UsableOrder: DialogSortOrder;
+	UnusableOrder: DialogSortOrder;
+}
+
+interface DialogInventoryItem extends Item {
+	Worn: boolean;
+	Icons: InventoryIcon[];
+	SortOrder: string;
+	Hidden: boolean;
+	Vibrating: boolean;
+}
+
+interface DialogSelfMenuOptionType {
+	Name: string;
+	IsAvailable: () => boolean;
+	Load?: () => void;
+	Draw: () => void;
+	Click: () => void;
+}
 
 // #end region

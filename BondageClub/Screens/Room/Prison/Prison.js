@@ -1,25 +1,38 @@
 "use strict";
 var PrisonBackground = "Prison";
+/** @type {null | number} */
 var PrisonNextEventTimer = null;
 var PrisonNextEvent = false;
+/** @type {null | boolean} */
 var PrisonerMetalCuffsKey = null;
+/** @type {null | boolean} */
 var PrisonerMetalPadlockKey = null;
+/** @type {null | boolean} */
 var PrisonerIntricatePadlockKey = null;
+/** @type {null | boolean} */
 var PrisonerSleepingPills = null;
+/** @type {null | boolean} */
 var PrisonerSpankingToys = null;
+/** @type {null | boolean} */
 var PrisonerConfiscatedHandhelds = null;
 
 var PrisonBehavior = 0;
 
+/** @type {null | NPCCharacter} */
 var PrisonMaid = null;
+/** @type {null | Item[]} */
 var PrisonMaidAppearance = null;
 var PrisonMaidIsPresent = true;
 var PrisonMaidIsAngry =false;
+/** @type {null | string} */
 var PrisonMaidCharacter = null;
 var PrisonMaidCharacterList = ["Friendly", "Neutral", "Evil", "Chaotic"];
+/** @type {null | number} */
 var PrisonMaidChaotic = null;
 
+/** @type {null | NPCCharacter} */
 var PrisonSub = null;
+/** @type {null | Item[]} */
 var PrisonSubAppearance = null;
 var PrisonSubBehindBars = false;
 var PrisonSubSelfCuffed = false;
@@ -28,10 +41,12 @@ var PrisonSubAskedCuff = false;
 var PrisonSubIsLeaveOut = true;
 var PrisonSubIsStripSearch = false;
 
+/** @type {null | NPCCharacter} */
 var PrisonPolice = null;
 var PrisonPoliceIsPresent = false;
 var PrisonPlayerCatchedBadGirl = false;
 
+/** @type {null | Item[]} */
 var PrisonPlayerAppearance = null;
 var PrisonPlayerBehindBars = false;
 var PrisonPlayerForIllegalChange = false;

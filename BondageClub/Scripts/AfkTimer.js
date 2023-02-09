@@ -4,9 +4,12 @@ var AfkTimerIncrementMs = 1000 * 60; // 1 minutes
 var AfkTimerTimout = 5; // AfkTimerIncrementMs * 5  ==> 5 minutes
 var AfkTimerIdle = 0;
 var AfkTimerIsSet = false;
+/** @type {null | boolean} */
 var AfkTimerIsEnabled = null;
 var AfkTimerEventsList = ['mousedown', 'mousemove', 'keypress', 'touchstart'];
+/** @type {null | ReturnType<typeof setInterval>} */
 var AfkTimerID = null;
+/** @type {null | string} */
 var AfkTimerOldEmoticon = null;
 
 /**
@@ -54,7 +57,7 @@ function AfkTimerStop() {
 
 /**
  * Enables or disables the afk timer. Is called, when the player changes her settings in the preferences dialog
- * @param {boolean} Enabled - Determines, wether the afk timer will be enabled (true) or disabled (false).
+ * @param {boolean} Enabled - Determines, whether the afk timer will be enabled (true) or disabled (false).
  * @returns {void} - Nothing
  */
 function AfkTimerSetEnabled(Enabled) {

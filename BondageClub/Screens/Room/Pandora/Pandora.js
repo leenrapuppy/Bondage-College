@@ -17,9 +17,11 @@ var PandoraModeAppearance = null;
 var PandoraMessage = null;
 /** @type {NPCCharacter[]} */
 var PandoraParty = [];
+/** @type {null | NPCCharacter} */
 var PandoraFightCharacter = null;
 var PandoraRandomNPCList = ["MemberNew", "MemberOld", "Cosplay", "Mistress", "Slave", "Maid", "Guard"];
 var PandoraMoveDirectionTimer = { Direction: "", Timer: 0 };
+/** @type {null | PandoraBaseRoom} */
 var PandoraTargetRoom = null;
 var PandoraClothes = "Random";
 var PandoraWillpower = 20;

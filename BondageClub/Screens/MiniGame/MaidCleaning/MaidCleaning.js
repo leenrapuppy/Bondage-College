@@ -1,5 +1,6 @@
 "use strict";
 var MaidCleaningBackground = "";
+/** @type {null | { X: number, Y: number, T: number }[]} */
 var MaidCleaningSpots = null;
 var MaidCleaningPlayerX = 0;
 var MaidCleaningPlayerY = 0;

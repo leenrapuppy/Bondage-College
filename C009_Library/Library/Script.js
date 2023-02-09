@@ -15,10 +15,10 @@ function C009_Library_Library_Load() {
 	LeaveIcon = "Wait";
 	Common_BondageAllowed = true;
 	Common_SelfBondageAllowed = true;
-	
+
 	// Makes sure the player is clothed when exploring
 	if (!Common_PlayerRestrained) PlayerClothes("Clothed");
-	
+
 	// Jennifer can be gone from the start if chapter 10 was triggered for her or Sidney
 	if (GameLogQuery("C007_LunchBreak", "Jennifer", "Stranded") || GameLogQuery("C007_LunchBreak", "Sidney", "Stranded")) C009_Library_Library_JenniferGone = true;
 
@@ -107,7 +107,7 @@ function C009_Library_Library_Click() {
 
 	// Checks if the user clicks on any regular item
 	InventoryClick(GetClickedInventory(), "C009_Library", "Library");
-	
+
 	// In Zone 1, the player can search (left), zone 2 (up) or zone 3 (right)
 	var E = true;
 	if (E && (C009_Library_Library_CurrentZone == "001") && (MouseX >= 0) && (MouseX <= 200) && (MouseY >= 400) && (MouseY <= 600)) E = C009_Library_Library_StartSearch(10);
@@ -171,5 +171,5 @@ function C009_Library_Library_Click() {
 	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 110) && (MouseX <= 380) && (MouseY >= 50) && (MouseY <= 320)) E = C009_Library_Library_StartSearch(100);
 	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 940) && (MouseX <= 1200) && (MouseY >= 200) && (MouseY <= 470)) E = C009_Library_Library_StartSearch(105);
 	if (E && (C009_Library_Library_CurrentZone == "010") && (MouseX >= 530) && (MouseX <= 800) && (MouseY >= 50) && (MouseY <= 320)) E = C009_Library_Library_StartSearch(106);
-	
+
 }

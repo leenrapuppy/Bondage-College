@@ -66,6 +66,7 @@ Cloth,Jacket,Jacket
 Cloth,MaleTankTop1,Male Cloth Tank-Top 
 Cloth,ButtonShirt,Button Shirt
 Cloth,SlaveRags,Slave Rags
+Cloth,Hoodie,Cropped Hoodie
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -84,6 +85,7 @@ ClothAccessory,Scarf,Scarf
 ClothAccessory,Glitter,Glitter
 ClothAccessory,CatsuitCollar,Catsuit Collar
 ClothAccessory,Poncho,Poncho
+ClothAccessory,JewelrySet,Piercing Set
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
 Necklace,Necklace2,Beaded Necklace
@@ -219,6 +221,7 @@ Bra,FlowerBra,Flower Bra
 Bra,Bra10,Style 4
 Bra,CoconutBra,Coconut Bra
 Bra,SleevelessSlimLatexLeotard,Slim Latex Leotard (Sleeveless)
+Bra,DominatrixLeotard,Dominatrix Leotard
 Corset,,Corset
 Corset,Corset1,Corset + Garters
 Corset,Corset2,Corset
@@ -298,6 +301,44 @@ Socks,Pantyhose2,Crotchless Pantyhose
 Socks,GradientPantyhose,Gradient Pantyhose
 Socks,CowPrintedSocks,Cow Printed Socks
 Socks,HaremStockings,Harem Stockings
+SocksRight,,Right Leg
+SocksRight,Socks0,Ankle
+SocksRight,Socks1,Short
+SocksRight,Socks2,Regular
+SocksRight,Socks3,Middle Leg
+SocksRight,Socks4,High Leg
+SocksRight,Socks5,Full Leg
+SocksRight,Stockings1,Stockings Dark
+SocksRight,Stockings2,Stockings Light
+SocksRight,Stockings3,Silky Stockings
+SocksRight,Stockings4,Fishnet Stockings
+SocksRight,Socks6,Frill Socks
+SocksRight,SocksFur,Socks with Fur
+SocksRight,SocksStriped1,Striped Socks
+SocksRight,LatexSocks1,Latex Socks
+SocksRight,FootlessSocks1,Footless Socks
+SocksRight,LeatherSocks1,Short Leather Socks
+SocksRight,CowPrintedSocks,Cow Printed Socks
+SocksRight,HaremStockings,Harem Stockings
+SocksLeft,,Left Leg
+SocksLeft,Socks0,Ankle
+SocksLeft,Socks1,Short
+SocksLeft,Socks2,Regular
+SocksLeft,Socks3,Middle Leg
+SocksLeft,Socks4,High Leg
+SocksLeft,Socks5,Full Leg
+SocksLeft,Stockings1,Stockings Dark
+SocksLeft,Stockings2,Stockings Light
+SocksLeft,Stockings3,Silky Stockings
+SocksLeft,Stockings4,Fishnet Stockings
+SocksLeft,Socks6,Frill Socks
+SocksLeft,SocksFur,Socks with Fur
+SocksLeft,SocksStriped1,Striped Socks
+SocksLeft,LatexSocks1,Latex Socks
+SocksLeft,FootlessSocks1,Footless Socks
+SocksLeft,LeatherSocks1,Short Leather Socks
+SocksLeft,CowPrintedSocks,Cow Printed Socks
+SocksLeft,HaremStockings,Harem Stockings
 RightAnklet,,Anklet (Right)
 RightAnklet,BandAnklet,Band Anklet
 RightAnklet,Ribbon,Ribbon
@@ -508,6 +549,8 @@ Mask,PetNose,Pet Nose
 Mask,Glitter,Glitter
 Mask,HeadHarness,Head Harness
 Mask,FestivalFoxMask,Festival Fox Mask
+Jewelry,,Jewelry
+Jewelry,JewelrySet,Piercing Set
 TailStraps,,Tail Strap
 TailStraps,TailStrap,Kitty Tail Strap
 TailStraps,HorseTailStrap,Horse Tail Strap
@@ -762,16 +805,14 @@ Emoticon,Emoticon,Emoticon
 Eyebrows,,Eyebrows
 Eyebrows,Eyebrows1,Eyebrows 1
 Eyebrows,Eyebrows2,Eyebrows 2
-Eyebrows,Eyebrows3,Eyebrows 3
-Eyebrows,Eyebrows4,Eyebrows 4
-Eyebrows,Eyebrows5,Eyebrows 5
-Eyebrows,Eyebrows6,Eyebrows 6
 Eyebrows,Eyebrows7,Eyebrows 7
 Eyebrows,Eyebrows8,Eyebrows 8
 Hands,,Hands
 Hands,Default,Default
 Head,,Head
-Head,Default,Default
+Head,Default,Regular Ears
+Head,SmallEars,Small Ears
+Head,NoEars,Subtle Ears
 ItemFeet,,Feet
 ItemFeet,NylonRope,Nylon Rope
 ItemFeet,HempRope,Hemp Rope
@@ -859,6 +900,7 @@ ItemVulvaPiercings,AdornedClitPiercing,Adorned Clitoris Piercing
 ItemVulvaPiercings,VibeHeartClitPiercing,Vibrating Heart Clitoris Piercing
 ItemVulvaPiercings,TapedClitEgg,Taped Vibrating Egg
 ItemVulvaPiercings,ClitRing,Clitoris Ring
+ItemVulvaPiercings,VibeEggGlans,Vibrating Egg
 ItemButt,,Butt
 ItemButt,BlackButtPlug,Black Butt Plug
 ItemButt,PenisPlug,Penis Butt Plug
@@ -949,6 +991,7 @@ ItemTorso,ThinLeatherStraps,Thin Leather Straps
 ItemTorso,LockingSwimsuit,Locking Swimsuit
 ItemTorso,LockingSwimsuit2,Locking Swimsuit 2
 ItemTorso,LeatherChestHarness1,Leather Chest Harness 1
+ItemTorso,NavelBar1,Navel Bar
 ItemTorso2,,Torso
 ItemTorso2,LockingSwimsuit,Locking Swimsuit
 ItemTorso2,LeatherStrapHarness,Leather Strap Body Harness
@@ -974,6 +1017,7 @@ ItemTorso2,Ribbons,Ribbons
 ItemTorso2,ThinLeatherStraps,Thin Leather Straps
 ItemTorso2,LockingSwimsuit2,Locking Swimsuit 2
 ItemTorso2,LeatherChestHarness1,Leather Chest Harness 1
+ItemTorso2,NavelBar1,Navel Bar
 ItemNipples,,Nipples
 ItemNipples,NippleClamp,Nipple Clamps
 ItemNipples,VibeNippleClamp,Vibrating Nipple Clamps

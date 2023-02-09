@@ -54,14 +54,14 @@ function C012_AfterClass_Amanda_CalcParams() {
 	C012_AfterClass_Amanda_AllowPajamas = GameLogQuery(CurrentChapter, CurrentActor, "AllowPajamas");
 	C012_AfterClass_Amanda_HasEgg = ActorHasInventory("VibratingEgg");
 	C012_AfterClass_Amanda_HasBelt = ActorHasInventory("ChastityBelt");
-	C012_AfterClass_Amanda_IsGagged = ActorIsGagged();	
+	C012_AfterClass_Amanda_IsGagged = ActorIsGagged();
 	C012_AfterClass_Amanda_IsRoped = (ActorHasInventory("Rope") || ActorHasInventory("TwoRopes") || ActorHasInventory("ThreeRopes"));
 	C012_AfterClass_Amanda_IsStrapped = ActorHasInventory("Armbinder");
 	C012_AfterClass_Amanda_IsRestrained = ActorIsRestrained();
 	C012_AfterClass_Amanda_PleasurePlayerAvail = (!Common_PlayerChaste && !ActorIsGagged() && !ActorIsRestrained() && Common_ActorIsOwned && !GameLogQuery(CurrentChapter, "Player", "NextPossibleOrgasm"));
 	C012_AfterClass_Amanda_SexAvail = (!Common_PlayerRestrained && !Common_PlayerChaste && !GameLogQuery(CurrentChapter, "Player", "NextPossibleOrgasm") && !GameLogQuery(CurrentChapter, "Amanda", "NextPossibleOrgasm"));
 	if (GameLogQuery(CurrentChapter, "", "EventBlockChanging") && (C012_AfterClass_Dorm_Guest.indexOf(Common_PlayerOwner) >= 0) && !Common_PlayerNaked) C012_AfterClass_Amanda_SexAvail = false;
-	C012_AfterClass_Amanda_CanMasturbate = (!Common_PlayerRestrained && !C012_AfterClass_Amanda_HasBelt && (ActorGetValue(ActorCloth) == "Naked"));	
+	C012_AfterClass_Amanda_CanMasturbate = (!Common_PlayerRestrained && !C012_AfterClass_Amanda_HasBelt && (ActorGetValue(ActorCloth) == "Naked"));
 	C012_AfterClass_Amanda_CanKickOut = (!Common_ActorIsOwner && !Common_ActorIsLover);
 	C012_AfterClass_Amanda_SidneyIsOwner = (Common_PlayerOwner == "Sidney");
 	C012_AfterClass_Amanda_HaveCuffs = (PlayerHasInventory("Cuffs") && !Common_PlayerRestrained);
@@ -76,15 +76,15 @@ function C012_AfterClass_Amanda_CalcParams() {
 
 // Chapter 12 After Class - Amanda Load
 function C012_AfterClass_Amanda_Load() {
-	
+
 	// Loads the scene
 	LoadInteractions();
 	ActorLoad("Amanda", "Dorm");
 	Common_PlayerPose = "";
 	if (C012_AfterClass_Amanda_CurrentStage == 3915) Common_PlayerPose = "HogtiePunishment";
-	
+
 	// Amanda's parameters
-	C012_AfterClass_Amanda_CalcParams();	
+	C012_AfterClass_Amanda_CalcParams();
 	C012_AfterClass_Amanda_ChatAvail = !GameLogQuery(CurrentChapter, CurrentActor, "ChatDone");
 	C012_AfterClass_Amanda_SpankCount = 0;
 	C012_AfterClass_Amanda_SpankMaxCount = 10 - Math.floor(ActorGetValue(ActorLove) / 7);
@@ -96,10 +96,10 @@ function C012_AfterClass_Amanda_Load() {
 		OverridenIntroText = C012_AfterClass_Amanda_IntroText;
 		C012_AfterClass_Amanda_IntroText = "";
 	} else {
-		
+
 		// If the player is grounded
 		if (GameLogQuery(CurrentChapter, "", "EventGrounded")) {
-			
+
 			// Skip to the punishment end phase, no talking while being grounded
 			C012_AfterClass_Amanda_AllowLeave();
 			C012_AfterClass_Amanda_CurrentStage = 3999;
@@ -128,17 +128,17 @@ function C012_AfterClass_Amanda_Load() {
 			// A random event can be triggered when Amanda is clicked on
 			if (C012_AfterClass_Amanda_CurrentStage == 0)
 				if ((CurrentText != null) && (Math.floor(Math.random() * 8) == 0)) {
-					
+
 					// Generic Domme event
 					if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric") && Common_ActorIsOwner)
 						C012_AfterClass_Amanda_RandomAmandaDommeEvent();
-					
+
 					// Amanda might ask the player to use the bed with Sarah
 					if (C012_AfterClass_Amanda_DatingSarah && (C012_AfterClass_Amanda_CurrentStage == 0) && !ActorSpecificIsRestrained("Amanda") && !ActorSpecificIsRestrained("Sarah") && !ActorSpecificIsGagged("Amanda") && !ActorSpecificIsGagged("Sarah") && !GameLogQuery(CurrentChapter, "Amanda", "NextPossibleOrgasm") && !GameLogQuery(CurrentChapter, "Sarah", "NextPossibleOrgasm")) {
 						C012_AfterClass_Amanda_CurrentStage = 823;
 						LeaveIcon = "";
 					}
-					
+
 					// Unlocking Pajamas event after 22
 					if (!GameLogQuery(CurrentChapter, CurrentActor, "AllowPajamas") && (CurrentTime >= 22 * 60 * 60 * 1000) && (C012_AfterClass_Amanda_CurrentStage == 0) && !Common_PlayerGagged && !Common_PlayerRestrained && !ActorIsRestrained() && !ActorIsGagged()) {
 						C012_AfterClass_Amanda_CurrentStage = 660;
@@ -150,7 +150,7 @@ function C012_AfterClass_Amanda_Load() {
 						C012_AfterClass_Amanda_CurrentStage = 670;
 						LeaveIcon = "";
 					}
-					
+
 				}
 
 		}
@@ -167,7 +167,7 @@ function C012_AfterClass_Amanda_Run() {
 
 	// Draw the watching actors for ceremonies
 	if (((C012_AfterClass_Amanda_CurrentStage >= 392) && (C012_AfterClass_Amanda_CurrentStage < 400)) || ((C012_AfterClass_Amanda_CurrentStage >= 293) && (C012_AfterClass_Amanda_CurrentStage < 300))) C012_AfterClass_Dorm_DrawOtherActors();
-	
+
 	// Draw the actor alone or with the player depending on the stage
 	if ((C012_AfterClass_Amanda_CurrentStage < 800) || (C012_AfterClass_Amanda_CurrentStage >= 900)) {
 		if ((C012_AfterClass_Amanda_CurrentStage != 3932) && (C012_AfterClass_Amanda_CurrentStage != 635) && (C012_AfterClass_Amanda_CurrentStage != 636) && (C012_AfterClass_Amanda_CurrentStage != 791) && (C012_AfterClass_Amanda_CurrentStage != 194)) {
@@ -177,7 +177,7 @@ function C012_AfterClass_Amanda_Run() {
 			} else {
 				DrawInteractionActor();
 				if ((C012_AfterClass_Amanda_CurrentStage >= 392) && (C012_AfterClass_Amanda_CurrentStage < 400)) DrawActor("Player", 600, 100, 1);
-			}		
+			}
 		}
 	} else {
 		DrawActor("Sarah", 475, 0, 1);
@@ -198,10 +198,10 @@ function C012_AfterClass_Amanda_Click() {
 		C012_AfterClass_Amanda_IntroText = OverridenIntroText;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// Amanda can be restrained on stage 0 and 10
 	if ((C012_AfterClass_Amanda_CurrentStage <= 10) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-		
+
 		// Amanda becomes more submissive from the crop
 		if (ClickInv == "Crop") {
 			if (ActorIsGagged()) OverridenIntroText = GetText("CropWhileGagged");
@@ -236,7 +236,7 @@ function C012_AfterClass_Amanda_Click() {
 			OverridenIntroText = GetText("RefuseBondage");
 			return;
 		}
-		
+
 		// Amanda can only wear the belt if she's naked
 		if (!ActorIsChaste() && (ActorGetValue(ActorCloth) != "Naked") && (ClickInv == "ChastityBelt")) {
 			OverridenIntroText = GetText("NakedForBelt");
@@ -252,14 +252,14 @@ function C012_AfterClass_Amanda_Click() {
 		// Cannot use rope or armbinder in the school play costumes
 		if (((ActorGetValue(ActorCloth) == "Villain") || (ActorGetValue(ActorCloth) == "Heroine") || (ActorGetValue(ActorCloth) == "Damsel")) && ((ClickInv == "Rope") || (ClickInv == "Armbinder"))) {
 			OverridenIntroText = GetText("NoRestrainInCostume");
-			return;			
+			return;
 		}
-		
+
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		C012_AfterClass_Amanda_CalcParams();
 
-	}	
+	}
 
 	// Amanda can be restrained to pleasure the player on stage 633
 	if ((C012_AfterClass_Amanda_CurrentStage <= 633) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained && !ActorIsRestrained()) {
@@ -269,14 +269,14 @@ function C012_AfterClass_Amanda_Click() {
 			C012_AfterClass_Amanda_CurrentStage = 634;
 		}
 	}
-	
+
 }
 
 // Chapter 12 After Class - Amanda can make love with the player if (Love + seduction * 2) >= 12 or >= 25 on the next time or Amanda is the player girlfriend/submissive
 function C012_AfterClass_Amanda_GaggedAnswer() {
 	if (ActorIsGagged()) {
 		var GagTalk = Math.floor(Math.random() * 8) + 1;
-		OverridenIntroText = GetText("GaggedAnswer" + GagTalk.toString());		
+		OverridenIntroText = GetText("GaggedAnswer" + GagTalk.toString());
 	}
 }
 
@@ -352,8 +352,8 @@ function C012_AfterClass_Amanda_TestSubmit() {
 				OverridenIntroText = GetText("UnchasteFirst");
 			} else {
 				if (PlayerHasLockedInventory("Collar")) {
-					OverridenIntroText = GetText("PlayerUncollarFirst");					
-				} else {					
+					OverridenIntroText = GetText("PlayerUncollarFirst");
+				} else {
 					if (Common_PlayerRestrained) {
 						OverridenIntroText = GetText("PlayerUnrestrainFirst");
 					} else {
@@ -400,7 +400,7 @@ function C012_AfterClass_Amanda_PlayerStandUp() {
 
 // Chapter 12 After Class - The player can trigger a random Domme event from Amanda (3000 events)
 function C012_AfterClass_Amanda_RandomAmandaDommeEvent() {
-	
+
 	// Makes sure the next random event can be triggered
 	if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric")) {
 
@@ -412,7 +412,7 @@ function C012_AfterClass_Amanda_RandomAmandaDommeEvent() {
 
 	// If Amanda doesn't respond, she checks her notes
 	if (C012_AfterClass_Amanda_CurrentStage == 0) C012_AfterClass_Amanda_CheckNotes();
-	
+
 }
 
 // Chapter 12 After Class - As a Domme, Amanda can force the player to change
@@ -440,35 +440,35 @@ function C012_AfterClass_Amanda_TestUnbind() {
 
 	// Bound and gagged, there's not much she can do
 	if (ActorIsGagged() && ActorIsRestrained()) {
-		C012_AfterClass_Amanda_GaggedAnswer();		
+		C012_AfterClass_Amanda_GaggedAnswer();
 	}
 	else {
 
 		// Before the next event time, she will always refuse (skip is owned)
 		if (!GameLogQuery(CurrentChapter, CurrentActor, "EventGeneric") || Common_ActorIsOwned) {
-			
+
 			// Check if the event succeeds randomly (skip is owned)
 			if (EventRandomChance("Love") || Common_ActorIsOwned) {
-				
+
 				// Can only release if not restrained
 				if (!ActorIsRestrained()) {
 					if (ActorIsGagged()) OverridenIntroText = GetText("ReleasePlayerGagged");
-					else OverridenIntroText = GetText("ReleasePlayer");				
+					else OverridenIntroText = GetText("ReleasePlayer");
 					PlayerReleaseBondage();
 					CurrentTime = CurrentTime + 50000;
 				} else OverridenIntroText = GetText("CannotReleasePlayer");
-				
+
 			} else EventSetGenericTimer();
-			
+
 		}
-		
+
 	}
-	
+
 }
 
 // Chapter 12 After Class - When the player disobey, she can get punished
 function C012_AfterClass_Amanda_DoActivity(ActivityType, Enjoyment, BonusStage) {
-	
+
 	// Launch the activity, some can have a bonus stage
 	C012_AfterClass_Amanda_CurrentStage = EventDoActivity(ActivityType, Enjoyment, C012_AfterClass_Amanda_CurrentStage, 3290, BonusStage);
 
@@ -509,7 +509,7 @@ function C012_AfterClass_Amanda_ConfiscateCrop() {
 
 // Chapter 12 After Class - Amanda can confiscate the player keys
 function C012_AfterClass_Amanda_BegForOrgasm() {
-	
+
 	// If the player begs for it, Amanda will do it randomly based on love, if not it's based on hate
 	if (EventRandomChance("Love")) {
 		ActorAddOrgasm();
@@ -528,7 +528,7 @@ function C012_AfterClass_Amanda_IsChangingBlocked() {
 
 // Chapter 12 After Class - Amanda will tell the player if she can change clothes or not
 function C012_AfterClass_Amanda_TestBlockChanging() {
-	
+
 	// The less love, the higher the chances Amanda will block changing
 	if (EventRandomChance("Hate")) {
 		OverridenIntroText = "";
@@ -543,7 +543,7 @@ function C012_AfterClass_Amanda_ReleaseBeforePunish() {
 	ActorSetPose("ReadyToPunish");
 	if (Common_PlayerRestrained || Common_PlayerGagged) {
 		if (Common_PlayerNaked) {
-			C012_AfterClass_Amanda_CurrentStage = 3903;		
+			C012_AfterClass_Amanda_CurrentStage = 3903;
 			OverridenIntroText = GetText("ReleaseBeforePunishAlreadyNaked");
 		}
 		else OverridenIntroText = GetText("ReleaseBeforePunishNotNaked");
@@ -551,9 +551,9 @@ function C012_AfterClass_Amanda_ReleaseBeforePunish() {
 		CurrentTime = CurrentTime + 50000;
 	} else {
 		if (Common_PlayerNaked) {
-			C012_AfterClass_Amanda_CurrentStage = 3903;		
+			C012_AfterClass_Amanda_CurrentStage = 3903;
 			OverridenIntroText = GetText("PunishSinceNaked");
-		}		
+		}
 	}
 }
 
@@ -650,7 +650,7 @@ function C012_AfterClass_Amanda_TestChange() {
 	if (!ActorIsRestrained()) {
 		if ((ActorGetValue(ActorLove) >= 10) || (ActorGetValue(ActorSubmission) >= 10) || Common_ActorIsOwned || Common_ActorIsLover) {
 			if (Common_ActorIsOwned) OverridenIntroText = GetText("AcceptChangeFromMistress");
-			else 
+			else
 				if (Common_ActorIsLover) OverridenIntroText = GetText("AcceptChangeFromLover");
 				else OverridenIntroText = GetText("AcceptChange");
 			C012_AfterClass_Amanda_CurrentStage = 600;
@@ -759,14 +759,14 @@ function C012_AfterClass_Amanda_StartPleasurePlayer() {
 
 // Chapter 12 After Class - When Amanda pleasures the player
 function C012_AfterClass_Amanda_PleasurePlayer() {
-	
+
 	// The more it progresses, the faster Amanda must go
 	CurrentTime = CurrentTime + 50000;
 	var StartCount = C012_AfterClass_Amanda_PleasurePlayerCount;
 	if ((C012_AfterClass_Amanda_PleasurePlayerCount >= 0) && (C012_AfterClass_Amanda_PleasurePlayerCount <= 1) && (C012_AfterClass_Amanda_PleasurePlayerSpeed == 0)) C012_AfterClass_Amanda_PleasurePlayerCount++;
 	if ((C012_AfterClass_Amanda_PleasurePlayerCount >= 2) && (C012_AfterClass_Amanda_PleasurePlayerCount <= 3) && (C012_AfterClass_Amanda_PleasurePlayerSpeed == 1)) C012_AfterClass_Amanda_PleasurePlayerCount++;
 	if ((C012_AfterClass_Amanda_PleasurePlayerCount >= 4) && (C012_AfterClass_Amanda_PleasurePlayerCount <= 9) && (C012_AfterClass_Amanda_PleasurePlayerSpeed == 2)) C012_AfterClass_Amanda_PleasurePlayerCount++;
-	
+
 	// At 6 counts, an orgasm is achieved, the next one will be slower
 	if (C012_AfterClass_Amanda_PleasurePlayerCount >= 6) {
 		OverridenIntroText = GetText("OrgasmFromAmandaPleasure");
@@ -780,7 +780,7 @@ function C012_AfterClass_Amanda_PleasurePlayer() {
 	} else {
 		if (StartCount == C012_AfterClass_Amanda_PleasurePlayerCount) OverridenIntroText = GetText("PleasureFromAmandaNoProgress");
 	}
-	
+
 }
 
 // Chapter 12 After Class - When Amanda pleasures the player and is forced in a new position or speed
@@ -806,7 +806,7 @@ function C012_AfterClass_Amanda_EndPleasureFromAmanda(LoveFactor, SubFactor) {
 
 // Chapter 12 After Class - When the player kisses Amanda
 function C012_AfterClass_Amanda_Kiss() {
-	CurrentTime = CurrentTime + 50000;	
+	CurrentTime = CurrentTime + 50000;
 	if (Common_ActorIsOwner) OverridenIntroText = GetText("KissAmandaOwner");
 	else if (C012_AfterClass_Amanda_IsGagged) OverridenIntroText = GetText("KissAmandaGagged");
 	else if (!GameLogQuery(CurrentChapter, CurrentActor, "Kiss")) {
@@ -934,7 +934,7 @@ function C012_AfterClass_Amanda_TestTalk() {
 	if (!ActorIsGagged()) {
 		if (!ActorIsRestrained()) C012_AfterClass_Amanda_CurrentStage = 20;
 		else OverridenIntroText = GetText("ReleaseBeforeTalk");
-	} else C012_AfterClass_Amanda_GaggedAnswer();	
+	} else C012_AfterClass_Amanda_GaggedAnswer();
 }
 
 // Chapter 12 After Class - When the player breaks up with Amanda

@@ -1,15 +1,28 @@
 "use strict";
 var MainHallBackground = "MainHall";
+/** @type {null | number} */
 var MainHallStartEventTimer = null;
+/** @type {null | number} */
 var MainHallNextEventTimer = null;
 var MainHallRandomEventOdds = 0;
+/** @type {null | NPCCharacter} */
 var MainHallMaid = null;
 var MainHallIsMaid = false;
 var MainHallIsHeadMaid = false;
 var MainHallHasOwnerLock = false;
 var MainHallHasLoverLock = false;
 var MainHallHasSlaveCollar = false;
+/** The max number of known tips */
+var MainHallMaxTip = 30;
+/** The index of the current tip */
 var MainHallTip = 0;
+/** The max delay to wait before changing the current tip */
+var MainHallTipCycleDelay = 10000;
+/**
+ * The timer that tracks the last time the tip cycled
+ * @type {number}
+ */
+var MainHallTipCycleTimer = null;
 var MainHallMaidWasCalledManually = false;
 var MainHallAsylumOpen = true;
 var MainHallBeingPunished = false;
@@ -146,7 +159,6 @@ function MainHallLoad() {
 		if (Player.Appearance[A].Asset.Name == "SlaveCollar")
 			if (Player.Appearance[A].Property)
 				MainHallHasSlaveCollar = true;
-	MainHallTip = Math.floor(Math.random() * 21);
 	CommonReadCSV("NoArravVar", "Room", "Management", "Dialog_NPC_Management_RandomGirl");
 	CommonReadCSV("NoArravVar", "Room", "KidnapLeague", "Dialog_NPC_KidnapLeague_RandomKidnapper");
 	CommonReadCSV("NoArravVar", "Room", "Private", "Dialog_NPC_Private_Custom");
@@ -165,6 +177,8 @@ function MainHallLoad() {
  */
 function MainHallRun() {
 	KidnapLeagueResetOnlineBountyProgress();
+
+	MainHallCycleTips();
 
 	// Out of punishment mode
 	if (!MainHallBeingPunished) {
@@ -303,7 +317,10 @@ function MainHallRun() {
 			MainHallStartEventTimer = CommonTime();
 			MainHallNextEventTimer = CommonTime() + 40000 + Math.floor(Math.random() * 40000);
 		} else {
-			DrawText(TextGet("OnlinePlayers") + " " + CurrentOnlinePlayers.toString(), 1650, 960, "White", "Black");
+			MainCanvas.textAlign = "right";
+			DrawText(TextGet("OnlinePlayers") + " " + CurrentOnlinePlayers.toString(), 1740, 950, "White", "Black");
+			MainCanvas.textAlign = "center";
+			DrawButton(1775, 900, 90, 90, "", "White", "Icons/Changelog.png", TextGet("OpenChangelog"));
 			DrawButton(1885, 900, 90, 90, "", "White", "Icons/ServiceBell.png", TextGet("RequestMaid"));
 		}
 		MainHallMaidWasCalledManually = false;
@@ -317,6 +334,16 @@ function MainHallRun() {
 		}
 	}
 
+}
+
+/**
+ * Randomly select a new tip to display
+ */
+function MainHallCycleTips() {
+	if (!MainHallTipCycleTimer || (MainHallTipCycleTimer + MainHallTipCycleDelay) <= CommonTime()) {
+		MainHallTip = Math.floor(Math.random() * MainHallMaxTip);
+		MainHallTipCycleTimer = CommonTime();
+	}
 }
 
 /**
@@ -377,8 +404,8 @@ function MainHallClick() {
 			window.location = window.location;
 		}
 	}
-	
-	if (MouseIn(1645, 145, 90, 90)) MainHallMoveToChatSelect()
+
+	if (MouseIn(1645, 145, 90, 90)) MainHallMoveToChatSelect();
 
 	// The options below are only available if the player can move
 	if (Player.CanWalk() && (!Player.IsRestrained() || !Player.GameplaySettings.OfflineLockedRestrained)) {
@@ -454,6 +481,8 @@ function MainHallClick() {
 				MainHallNextEventTimer = CommonTime() + 40000 + Math.floor(Math.random() * 40000);
 				MainHallMaidWasCalledManually = true;
 			}
+		} else if (MouseIn(1775, 900, 90, 90)) {
+			MainHallOpenChangelog();
 		}
 	}
 

@@ -1,7 +1,10 @@
 "use strict";
 var MaidQuartersBackground = "MaidQuarters";
+/** @type {null | NPCCharacter} */
 var MaidQuartersMaid = null;
+/** @type {null | NPCCharacter} */
 var MaidQuartersMaidInitiation = null;
+/** @type {{ Cloth?: Item, Hat?: Item, ItemArms?: Item, ItemLegs?: Item, ItemFeet?: Item }} */
 var MaidQuartersItemClothPrev = { Cloth: null, Hat: null, ItemArms: null, ItemLegs: null, ItemFeet: null };
 var MaidQuartersMaidReleasedPlayer = false;
 var MaidQuartersCanBecomeMaid = false;
@@ -21,6 +24,7 @@ var MaidQuartersCurrentRescueCompleted = false;
 var MaidQuartersOnlineDrinkStarted = false;
 var MaidQuartersOnlineDrinkCount = 0;
 var MaidQuartersOnlineDrinkValue = 0;
+/** @type {number[]} */
 var MaidQuartersOnlineDrinkCustomer = [];
 var MaidQuartersOnlineDrinkFromOwner = false;
 

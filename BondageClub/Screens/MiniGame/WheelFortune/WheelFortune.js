@@ -2,12 +2,15 @@
 var WheelFortuneBackground = "Black";
 var WheelFortuneEntryModule = "";
 var WheelFortuneEntryScreen = "";
+/** @type {null | Character} */
 var WheelFortuneCharacter = null;
 var WheelFortuneRoleplay = false;
+var WheelFortuneForced = false;
 var WheelFortunePos = 0;
 var WheelFortunePosMax = 0;
 var WheelFortuneVelocity = 0;
 var WheelFortuneVelocityTime = 0;
+/** @type {null | number} */
 var WheelFortunePosY = null;
 var WheelFortuneInitY = 0;
 var WheelFortuneInitTime = 0;
@@ -362,6 +365,40 @@ var WheelFortuneOption = [
 		}
 	},
 	{
+		// Pet bondage
+		ID: "[",
+		Color: "Orange",
+		Script: function() {
+			CharacterNaked(Player);
+			InventoryWearRandom(Player, "ItemArms", 8, null, false, true, ["BitchSuit", "HempRope", "Chains", "ArmbinderJacket", "StraitLeotard", "LeatherStraitJacket", "BoxTieArmbinder", "Bolero", "PantyhoseBodyOpen", "SeamlessStraitDress", "SeamlessStraitDressOpen"], true);
+			InventoryWearRandom(Player, "HairAccessory1", 8, null, false, true, ["Ears1", "Ears2", "PonyEars1", "BunnyEars1", "BunnyEars2", "PuppyEars1", "FoxEars1", "WolfEars1", "WolfEars2", "FoxEars2", "FoxEars3", "PuppyEars2"], true);
+			InventoryWearRandom(Player, "TailStraps", 8, null, false, true, ["FoxTailsStrap", "PuppyTailStrap", "RaccoonStrap", "PuppyTailStrap1", "FoxTailStrap1", "FoxTailStrap2", "WolfTailStrap1", "WolfTailStrap2", "WolfTailStrap3"], true);
+			if (InventoryGet(Player, "ItemMouth") == null) InventoryWearRandom(Player, "ItemMouth", 8);
+			if (InventoryGet(Player, "ItemNeck") == null) InventoryWearRandom(Player, "ItemNeck", 8);
+			if ((InventoryGet(Player, "ItemNeckRestraints") == null) && WheelFortuneCanWear("ChainLeash", "ItemNeckRestraints")) InventoryWear(Player, "ChainLeash", "ItemNeckRestraints", null, 8);
+			CharacterSetActivePose(Player, "Kneel", true);
+			ChatRoomCharacterUpdate(Player);
+		}
+	},
+	{
+		// Web bondage
+		ID: "]",
+		Color: "Orange",
+		Script: function() {
+			if (WheelFortuneCanWear("WebBlindfold", "ItemHead")) {
+				InventoryWear(Player, "WebBlindfold", "ItemHead", "Default", 15);
+				InventoryRandomExtend(Player, "ItemHead");
+			}
+			if (WheelFortuneCanWear("WebGag", "ItemMouth")) InventoryWear(Player, "WebGag", "ItemMouth", "Default", 15);
+			if (WheelFortuneCanWear("Web", "ItemArms")) {
+				InventoryWear(Player, "Web", "ItemArms", "Default", 15);
+				InventoryRandomExtend(Player, "ItemArms");
+			}
+			CharacterRefresh(Player);
+			ChatRoomCharacterUpdate(Player);
+		}
+	},
+	{
 		// Maid outfit
 		ID: "@",
 		Color: "Blue",
@@ -489,13 +526,15 @@ var WheelFortuneOption = [
 
 /**
  * Returns TRUE if the wheel of fortune can add an item on the specified asset slot
- * @param {AssetGroupName} Group - The asset group to focus
+ * @param {String} AssetName - The asset name
+ * @param {AssetGroupName} GroupName - The asset group to focus
  * @returns {boolean} - TRUE if we can add
  */
-function WheelFortuneCanWear(Group) {
-	if (InventoryGroupIsBlocked(Player, Group)) return false;
-	let Item = InventoryGet(Player, Group);
+function WheelFortuneCanWear(AssetName, GroupName) {
+	if (InventoryGroupIsBlocked(Player, GroupName)) return false;
+	let Item = InventoryGet(Player, GroupName);
 	if ((Item != null) && (InventoryGetLock(Item) != null)) return false;
+	if (InventoryIsPermissionBlocked(Player, AssetName, GroupName)) return false;
 	return true;
 }
 
@@ -505,17 +544,19 @@ function WheelFortuneCanWear(Group) {
  */
 function WheelFortuneFuturisticBondage() {
 	CharacterNaked(Player);
-	if (WheelFortuneCanWear("ItemArms")) InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticArmbinder", "FuturisticStraitjacket"]), "ItemArms", "Default", 15);
-	if (WheelFortuneCanWear("ItemFeet")) InventoryWear(Player, "FuturisticAnkleCuffs", "ItemFeet", "Default", 15);
-	if (WheelFortuneCanWear("ItemLegs")) InventoryWear(Player, "FuturisticLegCuffs", "ItemLegs", "Default", 15);
-	if (WheelFortuneCanWear("ItemBoots")) InventoryWear(Player, "FuturisticHeels2", "ItemBoots", "Default", 15);
-	if (WheelFortuneCanWear("ItemPelvis")) InventoryWear(Player, "FuturisticTrainingBelt", "ItemPelvis", "Default", 15);
-	if (WheelFortuneCanWear("ItemBreast")) InventoryWear(Player, "FuturisticBra", "ItemBreast", "Default", 15);
-	if (WheelFortuneCanWear("ItemTorso")) InventoryWear(Player, "FuturisticHarness", "ItemTorso", "Default", 15);
-	if (WheelFortuneCanWear("ItemMouth")) InventoryWear(Player, CommonRandomItemFromList("", ["FuturisticPanelGag", "FuturisticHarnessPanelGag", "FuturisticHarnessBallGag"]), "ItemMouth", "Default", 15);
-	if (WheelFortuneCanWear("ItemHead")) InventoryWear(Player, "FuturisticMask", "ItemHead", "Default", 15);
-	if (WheelFortuneCanWear("ItemNeck")) InventoryWear(Player, "FuturisticCollar", "ItemNeck", "Default", 15);
-	if (WheelFortuneCanWear("ItemEars")) InventoryWear(Player, "FuturisticEarphones", "ItemEars", "Default", 15);
+	let AssetName = CommonRandomItemFromList("", ["FuturisticArmbinder", "FuturisticStraitjacket"]);
+	if (WheelFortuneCanWear(AssetName, "ItemArms")) InventoryWear(Player, AssetName, "ItemArms", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticAnkleCuffs", "ItemFeet")) InventoryWear(Player, "FuturisticAnkleCuffs", "ItemFeet", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticLegCuffs", "ItemLegs")) InventoryWear(Player, "FuturisticLegCuffs", "ItemLegs", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticHeels2", "ItemBoots")) InventoryWear(Player, "FuturisticHeels2", "ItemBoots", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticTrainingBelt", "ItemPelvis")) InventoryWear(Player, "FuturisticTrainingBelt", "ItemPelvis", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticBra", "ItemBreast")) InventoryWear(Player, "FuturisticBra", "ItemBreast", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticHarness", "ItemTorso")) InventoryWear(Player, "FuturisticHarness", "ItemTorso", "Default", 15);
+	AssetName = CommonRandomItemFromList("", ["FuturisticPanelGag", "FuturisticHarnessPanelGag", "FuturisticHarnessBallGag"]);
+	if (WheelFortuneCanWear(AssetName, "ItemMouth")) InventoryWear(Player, AssetName, "ItemMouth", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticMask", "ItemHead")) InventoryWear(Player, "FuturisticMask", "ItemHead", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticCollar", "ItemNeck")) InventoryWear(Player, "FuturisticCollar", "ItemNeck", "Default", 15);
+	if (WheelFortuneCanWear("FuturisticEarphones", "ItemEars")) InventoryWear(Player, "FuturisticEarphones", "ItemEars", "Default", 15);
 	CharacterRefresh(Player);
 	ChatRoomCharacterUpdate(Player);
 }
@@ -525,9 +566,9 @@ function WheelFortuneFuturisticBondage() {
  * @returns {void} - Nothing
  */
 function WheelFortuneHogtie() {
-	if (!WheelFortuneCanWear("ItemArms")) return;
-	InventoryRemove(Player, "ItemArms");
 	let ItemName = CommonRandomItemFromList("", ["HempRope", "LeatherCuffs", "OrnateCuffs", "WoodenCuffs", "ThinLeatherStraps"]);
+	if (!WheelFortuneCanWear(ItemName, "ItemArms")) return;
+	InventoryRemove(Player, "ItemArms");
 	let Type = (ItemName == "ThinLeatherStraps") ? "Hogtie" : "Hogtied";
 	InventoryWear(Player, ItemName, "ItemArms", "Default", 15);
 	InventoryGet(Player, "ItemArms").Property = { Type: Type, SetPose: ["Hogtied"], Difficulty: 0, Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], Effect: ["Block", "Freeze", "Prone"] };
@@ -540,10 +581,10 @@ function WheelFortuneHogtie() {
  * @returns {void} - Nothing
  */
 function WheelFortuneShibari() {
-	if (WheelFortuneCanWear("ItemArms")) InventoryWear(Player, "HempRope", "ItemArms", "Default", 15);
-	if (WheelFortuneCanWear("ItemLegs")) InventoryWear(Player, "HempRope", "ItemLegs", "Default", 15);
-	if (WheelFortuneCanWear("ItemFeet")) InventoryWear(Player, "HempRope", "ItemFeet", "Default", 15);
-	if (WheelFortuneCanWear("ItemTorso")) {
+	if (WheelFortuneCanWear("HempRope", "ItemArms")) InventoryWear(Player, "HempRope", "ItemArms", "Default", 15);
+	if (WheelFortuneCanWear("HempRope", "ItemLegs")) InventoryWear(Player, "HempRope", "ItemLegs", "Default", 15);
+	if (WheelFortuneCanWear("HempRope", "ItemFeet")) InventoryWear(Player, "HempRope", "ItemFeet", "Default", 15);
+	if (WheelFortuneCanWear("HempRopeHarness", "ItemTorso")) {
 		InventoryWear(Player, "HempRopeHarness", "ItemTorso", "Default", 15);
 		if (Math.random() > 0.66) InventoryGet(Player, "ItemTorso").Property = { Type: "Diamond", Difficulty: 0, Effect: [] };
 		else if (Math.random() > 0.5) InventoryGet(Player, "ItemTorso").Property = { Type: "Harness", Difficulty: 0, Effect: [] };
@@ -627,6 +668,14 @@ function WheelFortuneInventoryWear(Group, Minutes) {
 		Item = InventoryGet(Player, Group);
 		if (Group == "ItemDevices") Item.Property = { Type: (WheelFortuneEncaseClosedList.includes(Item.Asset.Name)) ? "Closed" : null, Difficulty: 50, SelfUnlock: false, Effect:  ["Freeze", "Prone", "Enclose"]};
 		Try++;
+		if (InventoryBlockedOrLimited(Player, Item)) {
+			InventoryRemove(Player, Group, false);
+			Item = InventoryGet(Player, Group);
+		}
+	}
+	if (Try > 30) {
+		CharacterRefresh(Player);
+		return;
 	}
 
 	// Applies a lock if needed
@@ -656,6 +705,7 @@ function WheelFortuneLoad() {
 	WheelFortuneList = "";
 	if ((WheelFortuneCharacter.OnlineSharedSettings != null) && (WheelFortuneCharacter.OnlineSharedSettings.WheelFortune != null)) WheelFortuneList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
 	if ((WheelFortuneList == null) || (typeof WheelFortuneList !== "string") || (WheelFortuneList.length < 2)) WheelFortuneList = WheelFortuneDefault;
+	if (Player.GetDifficulty() >= 2) WheelFortuneRoleplay = false;
 
 	// Shuffles the wheel to give a random order
 	WheelFortunePos = Math.floor(Math.random() * 80);
@@ -716,7 +766,7 @@ function WheelFortuneLoad() {
 			DrawTextFit(TextGet("Option" + Wheel[W]), X + 250 * Zoom, PosY + 44 * Zoom, 440, TextColor, "Silver");
 
 		}
-                
+
     }
 
 	// Draw the border and arrow
@@ -768,14 +818,16 @@ function WheelFortuneRun() {
 	DrawRect(0, 0, 2000, 1000, "#00000080")
 	DrawCharacter(Player, 100, 0, 1, true);
 	let BackColor = (WheelFortuneVelocity == 0) ? "White" : "Silver";
-	DrawButton(1885, 25, 90, 90, "", BackColor, "Icons/Exit.png", TextGet("Exit"));
+	DrawButton(1885, 25, 90, 90, "", (WheelFortuneForced ? "Pink" : BackColor), "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1770, 25, 90, 90, "", BackColor, "Icons/Random.png", TextGet("Random"));
 	WheelFortuneDraw(WheelFortuneList, WheelFortunePos, WheelFortunePosMax, 750, 0, 1);
-	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? "Title" : "Wait"), 1375, 200, 550, 200, "White");
-	MainCanvas.textAlign = "left";
-	DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
-	MainCanvas.textAlign = "center";
-	if (WheelFortuneCharacter.IsPlayer()) DrawButton(1400, 800, 440, 80, TextGet("Customize"), BackColor);
+	DrawTextWrap(TextGet((WheelFortuneVelocity == 0) ? (WheelFortuneForced ? "Forced" : "Title") : "Wait"), 1375, 200, 550, 200, "White");
+	if (Player.GetDifficulty() <= 1) {
+		MainCanvas.textAlign = "left";
+		DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
+		MainCanvas.textAlign = "center";
+	} else DrawTextWrap(TextGet("NoRoleplay"), 1375, 400, 550, 200, "White");
+	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
 
 }
 
@@ -789,10 +841,11 @@ function WheelFortuneClick() {
 	if (WheelFortuneVelocity != 0) return;
 
 	// When the user wishes to exit
-	if (MouseIn(1885, 25, 90, 90)) WheelFortuneExit();
+	if (MouseIn(1885, 25, 90, 90) && !WheelFortuneForced) WheelFortuneExit();
 
 	// When the user wishes to do a random spin
 	if (MouseIn(1770, 25, 90, 90)) {
+		WheelFortuneForced = false;
 		WheelFortuneVelocity = WheelFortuneVelocity + 3000 + (Math.random() * 3000);
 		WheelFortuneVelocityTime = CommonTime();
 		let Msg = TextGet("Spin" + (WheelFortuneRoleplay ? "Roleplay" : ""));
@@ -801,11 +854,10 @@ function WheelFortuneClick() {
 	}
 
 	// When the user wants to customize the wheel
-	if (MouseIn(1400, 800, 440, 80) && WheelFortuneCharacter.IsPlayer())
-		CommonSetScreen("Online", "WheelFortuneCustomize");
+	if (MouseIn(1400, 800, 440, 80)) CommonSetScreen("Online", "WheelFortuneCustomize");
 
 	// Roleplay check box
-	if (MouseIn(1436, 468, 64, 64)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
+	if (MouseIn(1436, 468, 64, 64) && (Player.GetDifficulty() <= 1)) WheelFortuneRoleplay = !WheelFortuneRoleplay;
 
 }
 
@@ -831,6 +883,7 @@ function WheelFortuneMouseUp() {
 		if ((WheelFortunePosY < 400) && (MouseY == -1)) WheelFortunePosY = -1;
 		if ((WheelFortunePosY > 600) && (MouseY == -1)) WheelFortunePosY = 1001;
 		if ((WheelFortuneInitTime + 1000 >= CommonTime()) && (Math.abs(WheelFortuneInitY - WheelFortunePosY) > 300)) {
+			WheelFortuneForced = false;
 			WheelFortuneVelocity = (WheelFortunePosY - WheelFortuneInitY) * 3;
 			if (WheelFortuneVelocity > 0) WheelFortuneVelocity = WheelFortuneVelocity + 800 + (Math.random() * 800);
 			if (WheelFortuneVelocity < 0) WheelFortuneVelocity = WheelFortuneVelocity - 800 - (Math.random() * 800);
@@ -865,5 +918,5 @@ function WheelFortuneResult() {
  * @returns {void} - Nothing
  */
 function WheelFortuneExit() {
-	if (WheelFortuneVelocity == 0) CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	if ((WheelFortuneVelocity == 0) && !WheelFortuneForced) CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
 }

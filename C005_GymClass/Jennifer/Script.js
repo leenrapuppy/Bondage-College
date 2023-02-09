@@ -30,13 +30,13 @@ function C005_GymClass_Jennifer_Load() {
 	LoadInteractions();
 	StartTimer(11.5 * 60 * 60 * 1000, CurrentChapter, "Outro");
 	LeaveIcon = "";
-	
+
 	// Jennifer scene specific parameters
 	C005_GymClass_Jennifer_EggInside = (ActorHasInventory("VibratingEgg"));
 	C005_GymClass_Jennifer_EggConfirm = false;
 	C005_GymClass_Jennifer_PlayerHasBallGag = (PlayerHasInventory("BallGag"));
 	C005_GymClass_Jennifer_PlayerHasTapeGag = (PlayerHasInventory("TapeGag"));
-	
+
 	// If the player can collect the hard mode bonus (better bonus if the match was perfect)
 	if (C005_GymClass_Jennifer_DefeatedHardMode && !C005_GymClass_Jennifer_DefeatedHardModeBonus) {
 		ActorChangeAttitude(1, 1);
@@ -46,7 +46,7 @@ function C005_GymClass_Jennifer_Load() {
 		}
 		C005_GymClass_Jennifer_DefeatedHardModeBonus = true;
 	}
-	
+
 	// If there's no egg, we skip the stage 0
 	if (!C005_GymClass_Jennifer_EggInside && (C005_GymClass_Jennifer_CurrentStage == 0))
 		C005_GymClass_Jennifer_CurrentStage = 5;
@@ -56,7 +56,7 @@ function C005_GymClass_Jennifer_Load() {
 		C005_GymClass_Jennifer_RopeGiven = true;
 		PlayerAddInventory("Rope", 1);
 	}
-	
+
 	// If the rope was given, we take it back if there was a defeat
 	if ((C005_GymClass_Jennifer_RopeGiven == true) && (C005_GymClass_Jennifer_CurrentStage == 210)) {
 		C005_GymClass_Jennifer_RopeGiven = false;
@@ -66,7 +66,7 @@ function C005_GymClass_Jennifer_Load() {
 	// If the player won, we restrain Jennifer
 	if ((C005_GymClass_Jennifer_CurrentStage == 400) && !ActorHasInventory("Rope") && PlayerHasInventory("Rope")) {
 		PlayerRemoveInventory("Rope", 1);
-		ActorAddInventory("Rope");		
+		ActorAddInventory("Rope");
 	}
 
 }
@@ -78,16 +78,16 @@ function C005_GymClass_Jennifer_Run() {
 
 // Chapter 5 - Jennifer Click
 function C005_GymClass_Jennifer_Click() {
-	
+
 	// Regular interactions
 	ClickInteraction(C005_GymClass_Jennifer_CurrentStage);
-	
+
 	// If we want to access player inventory (we can do it at every moment expect when Jennifer is tied up)
 	if ((MouseX <= 74) || (C005_GymClass_Jennifer_CurrentStage < 400) || (C005_GymClass_Jennifer_CurrentStage >= 500)) {
 		InventoryClick(GetClickedInventory(), "C005_GymClass", "Jennifer");
 	}
 	else {
-		
+
 		// Retrieve which item was clicked
 		var ClickInv = GetClickedInventory();
 
@@ -97,8 +97,8 @@ function C005_GymClass_Jennifer_Click() {
 			if (C005_GymClass_Jennifer_CropDone == false) { C005_GymClass_Jennifer_CropDone = true; ActorChangeAttitude(-1, 1); }
 			CurrentTime = CurrentTime + 60000;
 		}
-		
-		// When the user wants to use a BallGag	
+
+		// When the user wants to use a BallGag
 		if ((ClickInv == "BallGag") && ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained && ((C005_GymClass_Jennifer_CurrentStage == 400) || (C005_GymClass_Jennifer_CurrentStage == 410) || (C005_GymClass_Jennifer_CurrentStage == 430))) {
 			OverridenIntroText = GetText("BallGag");
 			C005_GymClass_Jennifer_CurrentStage = 420;
@@ -116,10 +116,10 @@ function C005_GymClass_Jennifer_Click() {
 			ActorAddInventory("TapeGag");
 			PlayerRemoveInventory("TapeGag", 1);
 			CurrentTime = CurrentTime + 60000;
-		}		
-		
+		}
+
 		// When the user wants to use the vibrating egg on Jennifer
-		if ((ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
+		if ((ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 			if (C005_GymClass_Jennifer_EggConfirm == false) {
 				C005_GymClass_Jennifer_EggConfirm = true;
 				OverridenIntroText = GetText("VibratingEggWarning");
@@ -131,7 +131,7 @@ function C005_GymClass_Jennifer_Click() {
 				C005_GymClass_Jennifer_EggInside = true;
 			}
 		}
-		
+
 	}
 }
 
@@ -143,7 +143,7 @@ function C005_GymClass_Jennifer_StartPractice() {
 
 // Chapter 5 - Jennifer Explain Mobile
 function C005_GymClass_Jennifer_ExplainMobile() {
-	if (IsMobile) 
+	if (IsMobile)
 		OverridenIntroText = GetText("ExplainMobile");
 }
 

@@ -42,7 +42,7 @@ function C101_KinbakuClub_JennaIntro_Load() {
 
 // Chapter 101 - Jenna Run
 function C101_KinbakuClub_JennaIntro_Run() {
-    BuildInteraction(C101_KinbakuClub_JennaIntro_CurrentStage);
+	BuildInteraction(C101_KinbakuClub_JennaIntro_CurrentStage);
 }
 
 
@@ -50,13 +50,13 @@ function C101_KinbakuClub_JennaIntro_Run() {
 function C101_KinbakuClub_JennaIntro_Click() {
 
 	// Regular and inventory interactions
-    ClickInteraction(C101_KinbakuClub_JennaIntro_CurrentStage);
-    var ClickInv = GetClickedInventory();
-    if (ClickInv == "Player") {
-        C101_KinbakuClub_JennaIntro_IntroText = OverridenIntroText;
-        C101_KinbakuClub_JennaIntro_LeaveIcon = LeaveIcon;
-        InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
-    }
+	ClickInteraction(C101_KinbakuClub_JennaIntro_CurrentStage);
+	var ClickInv = GetClickedInventory();
+	if (ClickInv == "Player") {
+		C101_KinbakuClub_JennaIntro_IntroText = OverridenIntroText;
+		C101_KinbakuClub_JennaIntro_LeaveIcon = LeaveIcon;
+		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
+	}
 }
 
 // Chapter 101 - Short cut to club room with skills and items
@@ -134,6 +134,6 @@ function C101_KinbakuClub_JennaIntro_CuffPlayer() {
 
 // Chapter 101 - When the club set on the player to discipline her for evil ending Natalie.
 function C101_KinbakuClub_JennaIntro_Discipline() {
-    SetScene(CurrentChapter, "Discipline");
+	SetScene(CurrentChapter, "Discipline");
 }
 

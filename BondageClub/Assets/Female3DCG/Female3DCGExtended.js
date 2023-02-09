@@ -83,7 +83,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Flowers", },
 					},
 					{
-						Name: "Dots",
+						Name: "PolkaDots",
 						Property: { Type: "PolkaDots", },
 					},
 					{
@@ -197,7 +197,7 @@ var AssetFemale3DCGExtended = {
 			},
 		}, //BallCapFront
 	},
-		LeftHand: {
+	LeftHand: {
 		Rings: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
@@ -401,23 +401,53 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Cloth", Key: "c",
 						Options: [
-						{}, //c0 - Base
-						{}, //c1 - BaseStained
-						{}, //c2 - Torn1
-						{}, //c3 - Torn1Stained
+							{}, //c0 - Base
+							{}, //c1 - BaseStained
+							{}, //c2 - Torn1
+							{}, //c3 - Torn1Stained
 						],
 					},
 					{
 						Name: "Belt", Key: "b",
 						Options: [
-						{}, //b0
-						{}, //b1
-						{}, //b2
+							{}, //b0
+							{}, //b1
+							{}, //b2
 						],
 					},
 				],
 			},
 		}, //SlaveRags
+		Hoodie: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Hood", Key: "h",
+						Options: [
+							{}, //h0 - Down
+							{}, //h1 - Up Regular
+							{}, //h2 - Up Ears
+						],
+					},
+					{
+						Name: "Length", Key: "l", DrawImages: false,
+						Options: [
+							{}, //l0 - Cropped
+							{}, //l1 - Bolero
+						//{}, //l2 - Full Length - not yet implemented
+						],
+					},
+					//{
+					// Name: "Pouch", Key: "p", // Pouch option not yet implemented
+					// Options: [
+					// {}, //p0 - Hands Out
+					// {}, //p1 - Hands In
+					// ],
+					//},
+				],
+			},
+		}, //Hoodie
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
@@ -1034,14 +1064,14 @@ var AssetFemale3DCGExtended = {
 						}
 					},
 					{
-						Name: "Unzipped",
+						Name: "z1", // Unzipped
 						Property: {
 							Type: "z1",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
 						}
 					},
 					{
-						Name: "Exposed",
+						Name: "z2", // Exposed
 						Property: {
 							Type: "z2",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
@@ -1535,7 +1565,7 @@ var AssetFemale3DCGExtended = {
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 						Random: false,
 					}, {
-						Name: "ZipHogtie",
+						Name: "ZipHogtied",
 						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: {
 							Type: "ZipHogtied",
@@ -2757,15 +2787,15 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Plaque", Key: "p",
 						Options: [
-						{}, //p0 - Border
-						{}, //p1 - Border
+							{}, //p0 - Border
+							{}, //p1 - Border
 						]
 					},
 					{
 						Name: "Dirt", Key: "d",
 						Options: [
-						{}, //d0 - Clean
-						{}, //d1 - Dirty
+							{}, //d0 - Clean
+							{}, //d1 - Dirty
 						]
 					},
 					{
@@ -2792,8 +2822,8 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "PostIt", Key: "m",
 						Options: [
-						{}, //m0 - Postit
-						{}, //m1 - No PostIt
+							{}, //m0 - Postit
+							{}, //m1 - No PostIt
 						]
 					},
 					{
@@ -3349,18 +3379,20 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules: [
 					{
-						Name: "MPanel", Key: "m", DrawImages: false,
+						Name: "MPanel", Key: "m",
 						Options:[
 							{ // m0 - No Mouth
-								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								Property: {
+									Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m1 - Hole Only
-								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								Property: {
+									Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m2 - Round Mouth
@@ -3370,15 +3402,17 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: ["OpenMouth"] }
 							},
 							{ // m4 - No Mouth Transparent
-								Property: { Effect: ["GagEasy","BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								Property: {
+									Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m5 - Hole Only Transparent
-								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38,
-											Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								Property: {
+									Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m6 - Round Mouth Transparent
@@ -3387,13 +3421,109 @@ var AssetFemale3DCGExtended = {
 							{ // m7 - Shaped Mouth Transparent
 								Property: { Effect: ["OpenMouth"] }
 							},
-							{ // m8 - Open
-								Property: { Effect: ["OpenMouth"] }
+							{ // m8 - Round Mouth Opaque, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m9 - Round Mouth Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m10 - Round Mouth Opaque, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m11 - Round Mouth Opaque, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m12 - Shaped Mouth Opaque, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m13 - Shaped Mouth Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m14 - Shaped Mouth Opaque, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m15 - Shaped Mouth Opaque, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m16 - Round Mouth Transparent, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m17 - Round Mouth Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m18 - Round Mouth Transparent, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m19 - Round Mouth Transparent, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m20 - Shaped Mouth Transparent, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m21 - Shaped Mouth Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m22 - Shaped Mouth Transparent, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m23 - Shaped Mouth Transparent, filled Transparent + pinhole
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m24 - Open
+								Property: { Effect: []}
 							},
 						]
 					},
 					{
-						Name: "EPanel", Key: "e", DrawImages: false,
+						Name: "EPanel", Key: "e",
 						Options:[
 							{ // e0 - No Eyes
 								Property: { Effect: ["BlindHeavy"]
@@ -3414,82 +3544,79 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{ // e5 - Hole Only Transparent
-								Property: { Effect: ["BlindLight"]
-								}
+								Property: { Effect: []}
 							},
 							{ // e6 - Round Eyes Transparent
 								Property: { Effect: []}
 							},
 							{ // e7 - Shaped Eyes Transparent
 								Property: { Effect: []}
-							}
-
+							},
+							{ // e8 - Round Eyes Opaque, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e9 - Round Eyes Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e10 - Round Eyes Opaque, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e11 - Round Eyes Opaque, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
+							{ // e12 - Shaped Eyes Opaque, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e13 - Shaped Eyes Opaque, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e14 - Shaped Eyes Opaque, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e15 - Shaped Eyes Opaque, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
+							{ // e16 - Round Eyes Transparent, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e17 - Round Eyes Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e18 - Round Eyes Transparent, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e19 - Round Eyes Transparent, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
+							{ // e20 - Shaped Eyes Transparent, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e21 - Shaped Eyes Transparent, filled Opaque + pinhole
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e22 - Shaped Eyes Transparent, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e23 - Shaped Eyes Transparent, filled Transparent + pinhole
+								Property: { Effect: []}
+							},
 						]
 					},
 					{
 						Name: "HeadT", Key: "x", DrawImages: false,
 						Options:[{},{},] // Opaque, Transparent
-					},
-					//{ //separate keys to control transparency, may be useful later
-					//	Name: "Mouth Transparency", Key: "y", DrawImages: false,
-					//	Options:[{},{},] // Opaque, Transparent
-					//},
-					//{
-					//	Name: "Eye Transparency", Key: "w", DrawImages: false,
-					//	Options:[{},{},] // Opaque, Transparent
-					//},
-					{
-						Name: "MFill", Key: "f", DrawImages: false,
-						Options: [
-							{// f0 - Open
-								Property: { Effect: [""] }
-							},
-							{// f1 - Opaque
-								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38
-								}
-							},
-							{// f2 - Transparent
-								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38
-								}
-							},
-							{// f3 - Opaque Hole
-								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38
-								}
-							},
-							{// f4 - Transparent Hole
-								Property: { Effect: ["BlockMouth"],
-											OverridePriority: 38
-								}
-							},
-						]
-					},
-					{
-						Name: "EFill", Key: "s", DrawImages: false,
-						Options: [
-							{ // s0 - Open
-								Property: { Effect: [""]
-								}
-							},
-							{ // s1 - Opaque
-								Property: { Effect: ["BlindLight"]
-								}
-							},
-							{ // s2 - Transparent
-								Property: { Effect: [""]
-								}
-							},
-							{ // s3 - Opaque Hole
-								Property: { Effect: [""]
-								}
-							},
-							{ // s4 - Transparent Hole
-								Property: { Effect: [""]
-								}
-							},
-						]
 					},
 					{
 						Name: "HairShow", Key: "h", DrawImages: false,
@@ -3521,33 +3648,33 @@ var AssetFemale3DCGExtended = {
 							{// z1 - Open
 								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: [""],
-								Hide: ["HairFront"],
-								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-								Block: ["ItemHead"],
+									Hide: ["HairFront"],
+									HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+									Block: ["ItemHead"],
 								}
 							},
 							{// z2 - Closed
 								Prerequisite: ["EyesEmpty"],
 								Property: {
-								Effect: ["BlindHeavy","GagEasy","BlockMouth"],
-								Hide: ["HairFront","Mask"],
-								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
+									Effect: ["BlindHeavy","GagEasy","BlockMouth"],
+									Hide: ["HairFront","Mask"],
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
 								}
 							},
 							{// z3 - Open Transparent
 								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: [""],
-								Hide: ["HairFront"],
-								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-								Block: ["ItemHead"],
+									Hide: ["HairFront"],
+									HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+									Block: ["ItemHead"],
 								}
 							},
 							{// z4 - Closed Transparent
 								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
-								Hide: ["HairFront"],
-								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
+									Hide: ["HairFront"],
+									HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
 								}
 							},
 						]
@@ -3562,12 +3689,123 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Options: [
 					{ Name: "NoEars", Property: { Type: null } },
-					{ Name: "Ears", Property: { Type: "Ear" } },
+					{ Name: "Ear", Property: { Type: "Ear" } },
 				],
 				ChangeWhenLocked: false,
 			}
 		}, // HarnessCatMask
 	}, // ItemHood
+	Jewelry: {
+		JewelrySet: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Nose", Key: "n",
+						Options:
+						[
+							{}, // n0 - none
+							{}, // n1 - septum ring
+							{}, // n2 - stud right
+							{}, // n3 - stud left
+							{}, // n4 - ring right
+							{}, // n5 - ring left
+						],
+					},
+					{
+						Name: "Ears", Key: "e",
+						Options:
+						[
+							{}, // e0 - none
+							{}, // e1 - stud both
+							{}, // e2 - stud right
+							{}, // e3 - stud left
+							{}, // e4 - ring both
+							{}, // e5 - ring right
+							{}, // e6 - ring left
+							{}, // e7 - hoop both
+							{}, // e8 - hoop right
+							{}, // e9 - hoop left
+						],
+					},
+					{
+						Name: "Face", Key: "f",
+						Options:
+						[
+							{}, // f0 - none
+							{}, // f1 - dermals both
+							{}, // f2 - dermals right
+							{}, // f3 - dermals left
+							{}, // f4 - bridge
+						],
+					},
+				],
+			},
+		}, //JewelrySet
+	}, // Jewelry
+	Eyebrows: {
+		Eyebrows2: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Style", Key: "s",
+						Options: [
+							{}, // s0 eyebrows2
+							{}, // s1 eyebrows3
+							{}, // s2 eyebrows4
+							{}, // s3 eyebrows5
+							{}, // s4 eyebrows6
+						]
+					},
+					{
+						Name: "Piercing", Key: "p",
+						Options: [
+							{
+								Property: { Type: null }
+							}, // p0 none
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 BarRight
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 BarLeft
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p3 BarBoth
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p4 RingRight
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p5 RingLeft
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p6 RingBoth
+						]
+					},
+				]
+			},
+		},
+	},
+	Mouth: {
+		Full: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Lips", Key: "l",
+						Options: [
+							{}, // l0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l1 - middle
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l2 - left
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l3 - right
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l4 - both sides
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l5 - triple
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l6 - vertical labret
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l7 - vertical labret with rings
+						]
+					},
+					{
+						Name: "Tongue", Key: "t",
+						Options: [
+							{}, // t0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t1 - one stud
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t2 - double studs
+						]
+					},
+				]
+			},
+		},
+	},
 	ItemDevices: {
 		FuturisticCrate: {
 			Archetype: ExtendedArchetype.MODULAR,
@@ -4834,6 +5072,9 @@ var AssetFemale3DCGExtended = {
 		TapedClitEgg: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // TapedClitEgg
+		VibeEggGlans: {
+			Archetype: ExtendedArchetype.VIBRATING
+		}, // VibeEggGlans
 	}, // ItemVulvaPiercings
 	ItemButt: {
 		AnalHook: {
@@ -5299,7 +5540,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null },
 					},
 					{
-						Name: "NoGarter",
+						Name: "Garterless",
 						Property: { Type: "Garterless" },
 					},
 				],
@@ -5368,13 +5609,13 @@ var AssetFemale3DCGExtended = {
 						Name: "LowSec",
 						Property: { Type: null }
 					}, {
-						Name: "MedSec",
+						Name: "h2", // MedSec
 						Property: { Type: "h2" , Difficulty: 5 , Effect: ["CrotchRope"]}
 					}, {
-						Name: "MedSecBreast",
+						Name: "h3", // MedSecBreast
 						Property: { Type: "h3" , Difficulty: 5 }
 					}, {
-						Name: "MaxSec",
+						Name: "h4", // MaxSec
 						Property: { Type: "h4" , Difficulty: 10, Effect: ["CrotchRope"] }
 					}
 				],
@@ -5477,6 +5718,32 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // FuturisticHarness
+		NavelBar1: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Jewel",
+						Key: "j",
+						DrawImages: false,
+						Options: [
+							{ Property: {} }, // j0 - Detached
+							{ Property: {} }, // j1 - Attached
+						],
+					},
+					{
+						Name: "Chain",
+						Key: "c",
+						DrawImages: false,
+						Options: [
+							{ Property: {} }, // c0 - Detached
+							{ Property: {} }, // c1 - Single Chain
+							{ Property: {} }, // c2 - Waist Chain
+						],
+					},
+				],
+			},
+		} // NavelBar1
 	}, // ItemTorso
 	ItemTorso2: {
 		LockingSwimsuit: {
@@ -5522,6 +5789,10 @@ var AssetFemale3DCGExtended = {
 				},
 			}
 		}, // FuturisticHarness
+		NavelBar1: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemTorso", AssetName: "NavelBar1" },
+		}, // NavelBar1
 	}, //ItemTorso2
 	Shoes: {
 		FuturisticHeels2: {
@@ -5852,7 +6123,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Tip",
 						Property: {
-							Type: null,
+							Type: "Tip",
 							Effect: ["BlockMouth", "GagEasy"],
 						},
 					},
@@ -6544,38 +6815,37 @@ var AssetFemale3DCGExtended = {
 			},
 		}, //StitchGag
 		LatexRespirator: {
-            Archetype: ExtendedArchetype.MODULAR,
-            Config: {
-                ChatSetting: ModularItemChatSetting.PER_MODULE,
-                Modules: [
-                    {
-                        Name: "Filter", Key: "f",
-                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes
-                    },
-                    {
-                        Name: "Glow", Key: "g",
-                        Options: [ {}, {},] //  Glow off or on
-                    },
-                    {
-                        Name: "Straps", Key: "s",
-                        Options: [ {}, {},] // No Straps, Straps
-                    },
-                    {
-                        Name: "Mask", Key: "m",
-                        Options: [
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "Filter", Key: "f",
+						Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes
+					},
+					{
+						Name: "Glow", Key: "g",
+						Options: [ {}, {},] //  Glow off or on
+					},
+					{
+						Name: "Straps", Key: "s",
+						Options: [ {}, {},] // No Straps, Straps
+					},
+					{
+						Name: "Mask", Key: "m",
+						Options: [
 							{Property: {Effect: ["BlockMouth"]}},
 							{Property: {Effect: ["BlockMouth", "GagVeryLight"]}},
 							{Property: {Effect:[""]}},
-
 						] // Mask, Thick Filters, No Mask
-                    },
+					},
 					{
 						Name: "Length", Key: "l",
 						Options: [{},{}] // Behind Hair, Over Hair
 					},
-                ]
-            }
-        }, //LatexRespirator
+				]
+			}
+		}, //LatexRespirator
 	}, // ItemMouth3
 	Mask: {
 		BunnyMask1: {
@@ -6789,7 +7059,7 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotSuspended", "CanKneel"],
 						Random: false,
 					},
-			],
+				],
 				Dialog: {
 					Load: "SelectRopeBondage",
 					TypePrefix: "RopeBondage",
@@ -7271,7 +7541,7 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Spread",
+						Name: "Spread2",
 						Property: {
 							Type: "Spread2",
 							Difficulty: 3,
@@ -7281,7 +7551,7 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "LegsClosed",
+						Name: "Spread3",
 						Property: {
 							Type: "Spread3",
 							Difficulty: 3,
@@ -7450,15 +7720,15 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Plaque", Key: "p",
 						Options: [
-						{}, //p0 - Border
-						{}, //p1 - Border
+							{}, //p0 - Border
+							{}, //p1 - Border
 						]
 					},
 					{
 						Name: "Dirt", Key: "d",
 						Options: [
-						{}, //d0 - Clean
-						{}, //d1 - Dirty
+							{}, //d0 - Clean
+							{}, //d1 - Dirty
 						]
 					},
 					{
@@ -7477,8 +7747,8 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "PostIt", Key: "m",
 						Options: [
-						{}, //m0 - Postit
-						{}, //m1 - No PostIt
+							{}, //m0 - Postit
+							{}, //m1 - No PostIt
 						]
 					},
 					{
@@ -7661,7 +7931,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null, },
 					},
 					{
-						Name: "ExtraPadding",
+						Name: "Poofy",
 						Property: { Type: "Poofy", HideItem: ["ClothLowerSkirt3", "ClothLowerTennisSkirt1"] },
 					},
 				],
@@ -8069,7 +8339,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Flower", },
 					},
 					{
-						Name: "Butterflies",
+						Name: "Butterfly",
 						Property: { Type: "Butterfly", },
 					},
 					{
@@ -8354,14 +8624,14 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Solid",
+						Name: "Gloves",
 						Property: {
 							Type: "Gloves",
 							Hide: ["Hands"],
 						},
 					},
 					{
-						Name: "Seethrough",
+						Name: "AltGloves",
 						Property: {
 							Type: "AltGloves",
 						},
@@ -8393,13 +8663,13 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Seethrough",
+						Name: "Gloves",
 						Property: {
 							Type: "Gloves",
 						},
 					},
 					{
-						Name: "Solid",
+						Name: "AltGloves",
 						Property: {
 							Type: "AltGloves",
 							Hide: ["Hands"],

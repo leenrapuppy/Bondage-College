@@ -8,20 +8,20 @@ var C002_FirstClass_Mildred_ConfirmUnlock = false;
 // Chapter 2 - Mildred Load
 function C002_FirstClass_Mildred_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	ActorLoad("Mildred", "Classroom");
 	LoadInteractions();
 	C002_FirstClass_Mildred_ConfirmUnlock = false;
 	if (C002_FirstClass_Mildred_CurrentStage == 0) StartTimer(8.5 * 60 * 60 * 1000, "C002_FirstClass", "SarahIntro");
-	
+
 	// When re-entering, jump from 50 to 200 and stop any whipping
 	if (C002_FirstClass_Mildred_CurrentStage == 50) C002_FirstClass_Mildred_CurrentStage = 200;
 	if ((C002_FirstClass_Mildred_CurrentStage >= 410) && (C002_FirstClass_Mildred_CurrentStage <= 440)) C002_FirstClass_Mildred_CurrentStage = C002_FirstClass_Mildred_CurrentStage - 100;
-	
+
 	// When the talk is over, allow the player to leave
 	if (C002_FirstClass_Mildred_CurrentStage >= 200) LeaveIcon = "Leave";
 	else LeaveIcon = "";
-	
+
 }
 
 // Chapter 2 - Mildred Run
@@ -30,18 +30,18 @@ function C002_FirstClass_Mildred_Run() {
 }
 
 // Chapter 2 - Mildred Click
-function C002_FirstClass_Mildred_Click() {	
+function C002_FirstClass_Mildred_Click() {
 
 	// Regular interactions
 	ClickInteraction(C002_FirstClass_Mildred_CurrentStage);
 	var ClickedInv = GetClickedInventory();
-	
+
 	// Beyond -3 love, the teacher spank the player
 	if ((C002_FirstClass_Mildred_CurrentStage <= 50) && (ActorGetValue(ActorLove) <= -3) && !C002_FirstClass_Mildred_BeatingDone) {
 		OverridenIntroText = GetText("SurpriseAttack");
 		C002_FirstClass_Mildred_CurrentStage = 100;
 		C002_FirstClass_Mildred_BeatingDone = true;
-	}	
+	}
 
 	// When the user wants to use the gag
 	if ((C002_FirstClass_Mildred_CurrentStage >= 310) && (ClickedInv == "BallGag") && (ActorHasInventory("BallGag") == false) && (Common_PlayerNotRestrained)) {
@@ -96,11 +96,11 @@ function C002_FirstClass_Mildred_Click() {
 		ActorAddInventory("Cuffs");
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the talk is over, allow the player to leave
 	if (C002_FirstClass_Mildred_CurrentStage == 50)
 		LeaveIcon = "Leave";
-	
+
 }
 
 // Chapter 2 - Mildred Restrain Player
@@ -117,7 +117,7 @@ function C002_FirstClass_Mildred_RestrainPlayer() {
 
 // Chapter 2 - Mildred Disturb Class
 function C002_FirstClass_Mildred_Disturb() {
-	
+
 	// After 4 attempts to disturb Mildred, she cuffs and gags the player
 	C002_FirstClass_Mildred_DisturbCount++;
 	if (C002_FirstClass_Mildred_DisturbCount == 1) OverridenIntroText = GetText("Disturb1");
@@ -133,7 +133,7 @@ function C002_FirstClass_Mildred_Disturb() {
 
 // Chapter 2 - Mildred Subdue
 function C002_FirstClass_Mildred_Subdue() {
-	
+
 	// Count the number of girls who agree
 	var AgreeCount = 0;
 	if (C002_FirstClass_Classroom_SidneyAgree) AgreeCount++;
@@ -145,9 +145,9 @@ function C002_FirstClass_Mildred_Subdue() {
 		OverridenIntroText = GetText("SubdueAlone");
 		C002_FirstClass_Mildred_CurrentStage = 220;
 		GameLogAdd("SubdueFail");
-		LeaveIcon = "";		
+		LeaveIcon = "";
 	}
-	
+
 	// With one helper, both the player and the helper end up bound and gagged
 	if (AgreeCount == 1) {
 		if (C002_FirstClass_Classroom_SidneyAgree) { OverridenIntroText = GetText("SubdueSidney"); CurrentActor = "Sidney"; ActorAddInventory("Cuffs"); ActorAddInventory("BallGag"); }

@@ -16,7 +16,7 @@ function C011_LiteratureClass_SelectDesk_Load() {
 
 	// Set the timer limits at 15:35
 	StartTimer(15.6666667 * 60 * 60 * 1000, CurrentChapter, "MildredIntro");
-	
+
 	// Load the scene parameters (loads Jennifer first in case we are starting directly in chapter 10)
 	LoadInteractions();
 	LeaveIcon = "";
@@ -33,18 +33,18 @@ function C011_LiteratureClass_SelectDesk_Load() {
 
 // Chapter 11 - Literature Class Select Desk Run
 function C011_LiteratureClass_SelectDesk_Run() {
-	
+
 	// Build the text interactions
 	BuildInteraction(C011_LiteratureClass_SelectDesk_CurrentStage);
 
 }
 
 // Chapter 11 - Literature Class Select Desk Click
-function C011_LiteratureClass_SelectDesk_Click() {	
+function C011_LiteratureClass_SelectDesk_Click() {
 
 	// Regular interactions
 	ClickInteraction(C011_LiteratureClass_SelectDesk_CurrentStage);
-	
+
 	// The player can click on herself
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
@@ -69,11 +69,11 @@ function C011_LiteratureClass_SelectDesk_SelectBack() {
 
 // Chapter 11 - Literature Class - Check the front row neighbors
 function C011_LiteratureClass_SelectDesk_CheckFront() {
-	
+
 	// Loads Natalie
 	ActorLoad("Natalie", "");
 	LeaveIcon = "";
-	
+
 	// If Natalie was stranded, she will be angry at the player
 	if (GameLogQuery("C007_LunchBreak", "Natalie", "Stranded")) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 190;
@@ -103,7 +103,7 @@ function C011_LiteratureClass_SelectDesk_CheckBack() {
 	// Loads Natalie
 	ActorLoad("Sidney", "");
 	LeaveIcon = "";
-	
+
 	// Sidney can ignore the player
 	if (C011_LiteratureClass_SelectDesk_SidneyIgnorePlayer) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 280;
@@ -117,7 +117,7 @@ function C011_LiteratureClass_SelectDesk_CheckBack() {
 		OverridenIntroText = GetText("SidneyPig");
 		return;
 	}
-	
+
 	// With 8 submission or more, Sidney switches to sub mode
 	if (ActorGetValue(ActorSubmission) >= 8) {
 		C011_LiteratureClass_SelectDesk_CurrentStage = 240;
@@ -145,7 +145,7 @@ function C011_LiteratureClass_SelectDesk_CheckBack() {
 		OverridenIntroText = GetText("SidneyLove");
 		return;
 	}
-	
+
 }
 
 // Chapter 11 - Literature Class - Unload the current actor

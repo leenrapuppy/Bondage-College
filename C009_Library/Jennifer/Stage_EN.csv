@@ -81,7 +81,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 176,0,0,,Do you feel|more confident?,"I think I do, I'm still nervous but I feel better.|Should I dress back up?  I don't want to get caught.",178,0,0,
 176,0,0,,You have guts|for a loner.,"Please don't call me a loner, I don't like that.|Should I dress back up?  I don't want to get caught.",178,-1,0,
 176,0,0,,Congrats Jen.|You made it.,"Thanks COMMON_PLAYERNAME, I appreciate.|Should I dress back up?  I don't want to get caught.",178,0,0,
-177,0,0,Painted,You're my favorite|model Jennifer.,It's very flatteting.  You painted me|this morning and now you will draw me.,177,0,0,FavoriteModel()
+177,0,0,Painted,You're my favorite|model Jennifer.,It's very flattering.  You painted me|this morning and now you will draw me.,177,0,0,FavoriteModel()
 177,0,0,,(Draw a quick sketch.)|(5 minutes),(You quickly draw her and show her the result.)|This is nice.  You could show it to Julia.,178,0,0,DrawJennifer(5)
 177,0,0,,(Draw her fully.)|(15 minutes),"(You draw her carefully and show her the result.)|Very nice and flattering, I would love a copy.",178,0,0,DrawJennifer(15)
 177,0,0,,(Draw a work of art.)|(30 minutes),(You draw her masterfully and show her the result.)|Wow!  I didn't know you had so much talent.,178,0,0,DrawJennifer(30)

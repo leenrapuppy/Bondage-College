@@ -19,14 +19,14 @@ function C002_FirstClass_Classroom_CalcStage() {
 
 // Chapter 2 - Classroom Load
 function C002_FirstClass_Classroom_Load() {
-		
+
 	// Set the classroom timer limits at 8:30 or 9:00
 	if (C002_FirstClass_Classroom_Sarah == "SarahEmpty") StartTimer(8.5 * 60 * 60 * 1000, "C002_FirstClass", "SarahIntro");
 	else StartTimer(9 * 60 * 60 * 1000, "C002_FirstClass", "Outro");
-	
+
 	// Self bondage is only allowed if Mildred was subdued
 	Common_SelfBondageAllowed = C002_FirstClass_Classroom_MildredSubdueSuccess;
-	
+
 	// Get the image file for each girls
 	C002_FirstClass_Classroom_Sidney = ActorSpecificGetImage("Sidney");
 	C002_FirstClass_Classroom_Mildred = ActorSpecificGetImage("Mildred");
@@ -43,7 +43,7 @@ function C002_FirstClass_Classroom_Run() {
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Mildred.toString() + ".jpg", 300, 0);
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Amanda.toString() + ".jpg", 600, 0);
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C002_FirstClass_Classroom_Sarah.toString() + ".jpg", 900, 0);
-	
+
 }
 
 // Chapter 2 - Classroom Click

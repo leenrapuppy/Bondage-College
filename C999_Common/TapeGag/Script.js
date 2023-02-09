@@ -7,7 +7,7 @@ function C999_Common_TapeGag_Load() {
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	LoadInteractions();
-	
+
 	// Set the correct starting stage
 	if (PlayerHasLockedInventory("TapeGag") == true) C999_Common_TapeGag_CurrentStage = 10;
 	else C999_Common_TapeGag_CurrentStage = 0;

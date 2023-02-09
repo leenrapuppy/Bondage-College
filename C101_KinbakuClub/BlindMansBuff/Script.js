@@ -50,19 +50,19 @@ function C101_KinbakuClub_BlindMansBuff_Run() {
 }
 
 // Chapter 101 - BlindMansBuff Click
-function C101_KinbakuClub_BlindMansBuff_Click() {	
+function C101_KinbakuClub_BlindMansBuff_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C101_KinbakuClub_BlindMansBuff_CurrentStage);
 	var ClickInv = GetClickedInventory();
 	if (C101_KinbakuClub_BlindMansBuff_CurrentStage <= 25 && ClickInv == "Player") {
-        C101_KinbakuClub_BlindMansBuff_IntroText = OverridenIntroText;
-        C101_KinbakuClub_BlindMansBuff_LeaveIcon = LeaveIcon;
+		C101_KinbakuClub_BlindMansBuff_IntroText = OverridenIntroText;
+		C101_KinbakuClub_BlindMansBuff_LeaveIcon = LeaveIcon;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 
 	// Recalculates the scene parameters
-    C101_KinbakuClub_BlindMansBuff_CalcParams();
+	C101_KinbakuClub_BlindMansBuff_CalcParams();
 }
 
 

@@ -8,7 +8,7 @@ function C999_Common_ButtPlug_Load() {
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	LoadInteractions();
-	
+
 	// Set the correct stage
 	C999_Common_ButtPlug_ConfirmInsert = false;
 	C999_Common_ButtPlug_CurrentStage = 0;
@@ -44,7 +44,7 @@ function C999_Common_ButtPlug_Insert() {
 			PlayerLockInventory("ButtPlug");
 			C999_Common_ButtPlug_CurrentStage = 10;
 			C999_Common_ButtPlug_HasLoosePlug = PlayerHasInventory("ButtPlug");
-		}		
+		}
 	} else {
 		OverridenIntroText = GetText("ChastityBelt");
 	}
