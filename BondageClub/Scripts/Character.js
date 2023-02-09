@@ -1766,6 +1766,13 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 			})) refresh = true;
 		} else if (C.UnregisterHook("BeforeSortLayers", "HideRestraints")) refresh = true;
 
+		for (let A = 0; A < C.DrawAppearance.length; A++) {
+			if (C.DrawAppearance[A].Asset && C.DrawAppearance[A].Asset.NotVisibleOnScreen && (C.DrawAppearance[A].Asset.NotVisibleOnScreen.length > 0)) {
+				refresh = true;
+				break;
+			}
+		}
+
 		// Hook for layer visibility
 		// Visibility is a string individual layers have. If an item has any layers with visibility, it should have the LayerVisibility: true property
 		// We basically check the player's items and see if any are visible that have the LayerVisibility property.

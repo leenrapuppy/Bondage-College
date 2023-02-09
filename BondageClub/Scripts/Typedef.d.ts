@@ -22,6 +22,7 @@ interface WebGL2RenderingContext {
 	program?: WebGLProgram;
 	programFull?: WebGLProgram;
 	programHalf?: WebGLProgram;
+	programTexMask?: WebGLProgram;
 	textureCache?: Map<string, any>;
 	maskCache?: Map<string, any>;
 }
@@ -870,6 +871,7 @@ interface AssetLayer {
 	Opacity: number;
 	MinOpacity: number;
 	MaxOpacity: number;
+	BlendingMode: GlobalCompositeOperation;
 	LockLayer: boolean;
 	MirrorExpression?: string;
 	AllowModuleTypes?: string[];
@@ -931,6 +933,7 @@ interface Asset {
 	ParentGroupName?: string | null;
 	Enable: boolean;
 	Visible: boolean;
+	NotVisibleOnScreen?: string[];
 	Wear: boolean;
 	Activity: string | null;
 	AllowActivity?: string[];
@@ -2999,6 +3002,7 @@ type DrawCanvasCallback = (
  * @param {RectTuple[]} [alphaMasks] - A list of alpha masks to apply to the image when drawing
  * @param {number} [opacity=1] - The opacity at which to draw the image with
  * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
+ * @param {string} [blendingMode="source-over"] - blending mode for drawing the image
  */
 type DrawImageCallback = (
 	src: string,
@@ -3007,6 +3011,7 @@ type DrawImageCallback = (
 	alphasMasks: RectTuple[],
 	opacity?: number,
 	rotate?: boolean,
+	blendingMode?: string
 ) => void;
 
 /**
@@ -3020,6 +3025,7 @@ type DrawImageCallback = (
  * @param {RectTuple[]} [alphaMasks] - A list of alpha masks to apply to the image when drawing
  * @param {number} [opacity=1] - The opacity at which to draw the image with
  * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
+ * @param {GlobalCompositeOperation} [blendingMode="source-over"] - blending mode for drawing the image
  */
 type DrawImageColorizeCallback = (
 	src: string,
@@ -3030,6 +3036,7 @@ type DrawImageColorizeCallback = (
 	alphaMasks?: RectTuple[],
 	opacity?: number,
 	rotate?: boolean,
+	blendingMode?: GlobalCompositeOperation,
 ) => void;
 
 interface CommonDrawCallbacks {

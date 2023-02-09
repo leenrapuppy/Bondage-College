@@ -4716,6 +4716,37 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, //LuckyWheel
+		FoldingScreen: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
+				Options: [
+					{
+						Name: "Opaque",
+						Property: 
+						{ 
+							Type: "Opaque",
+							Hide: ["BodyLower", "BodyUpper", "Hands", "HairFront", "HairBack", "Glasses",
+								"ItemMouth","ItemMouth2", "ItemMouth3", "FacialHair", "HairAccessory1",
+								"HairAccessory2", "HairAccessory3", "Hat", "Mask", "ItemEars", "ItemHead",
+								"Cloth", "ClothLower", "ClothAccessory", "Necklace", "Suit", "SuitLower",
+								"Bra", "Panties", "Garters", "Socks", "RightAnklet", "LeftAnklet", "Shoes",
+								"Gloves", "TailStraps", "Wings", "ItemFeet", "ItemLegs", "ItemVulva",
+								"ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemTorso2",
+								"ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", 
+								"ItemHandheld", "ItemBoots", "Pussy", "Corset", "Bracelet", "LeftHand" ,
+								"RightHand"
+							],
+						},
+					},
+					{
+						Name: "Shadow",
+						Property: { Type: "Shadow", Hide: [] },
+					},
+				],
+				BaselineProperty: { Opacity: 1 },
+			},
+		}, // FoldingScreen
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {

@@ -69,6 +69,9 @@ interface AssetDefinition {
 	/** Whether the asset appears visually. Defaults to true. */
 	Visible?: boolean;
 
+	/** A list of screens where current asset won't be shown. */
+	NotVisibleOnScreen?: string[];
+
 	/** Whether the asset can be worn. Defaults to true. An unwearable asset will not actually end up in the group it's used on. */
 	Wear?: boolean;
 
@@ -337,7 +340,7 @@ interface AssetLayerDefinition {
 	/** The color group that layer is part of. Layers part of the same color group get a selector in the Color Picker UI */
 	ColorGroup?: string;
 
-	/** Whether the layer shows up in the Color Picker UI. Defaults to true. */
+	/** Whether the layer is hidden in the Color Picker UI. Defaults to false. */
 	HideColoring?: boolean;
 	AllowTypes?: string[];
 	HasType?: boolean;
@@ -369,6 +372,13 @@ interface AssetLayerDefinition {
 	Opacity?: number;
 	MinOpacity?: number;
 	MaxOpacity?: number;
+
+	/** Set canvas globalCompositeOperation for current layer.
+	 *  Use "destination-in" if you want to use layer as an alpha mask.
+	 *  Note that game uses WebGL when available, so you might need to implement
+	 *  similar blending mode if it's not done already (currently in GLDrawImage() in GLDraw.js).
+	 */
+	BlendingMode?: GlobalCompositeOperation;
 
 	/** Specify that this is (one of) the asset's lock layer. See DrawsLock at the asset level. */
 	LockLayer?: boolean;

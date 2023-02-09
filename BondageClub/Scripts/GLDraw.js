@@ -153,10 +153,12 @@ function GLDrawMakeGLProgam(gl) {
 	const fragmentShader = GLDrawCreateShader(gl, GLDrawFragmentShaderSource, gl.FRAGMENT_SHADER);
 	const fragmentShaderFullAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceFullAlpha, gl.FRAGMENT_SHADER);
 	const fragmentShaderHalfAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceHalfAlpha, gl.FRAGMENT_SHADER);
+	const fragmentShaderTexMask = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceTexMask, gl.FRAGMENT_SHADER);
 
 	gl.program = GLDrawCreateProgram(gl, vertexShader, fragmentShader);
 	gl.programFull = GLDrawCreateProgram(gl, vertexShader, fragmentShaderFullAlpha);
 	gl.programHalf = GLDrawCreateProgram(gl, vertexShader, fragmentShaderHalfAlpha);
+	gl.programTexMask = GLDrawCreateProgram(gl, vertexShader, fragmentShaderTexMask);
 
 	gl.program.u_alpha = gl.getUniformLocation(gl.program, "u_alpha");
 	gl.programFull.u_color = gl.getUniformLocation(gl.programFull, "u_color");
@@ -232,6 +234,24 @@ var GLDrawFragmentShaderSource = `
     if (alphaColor.w < ` + GLDrawAlphaThreshold + `) discard;
     gl_FragColor = texColor;
     gl_FragColor.a *= u_alpha;
+  }
+`;
+
+/**
+ * Source used for the Texture Mask Fragment Shader
+ * @constant
+ * @type {string}
+ */
+var GLDrawFragmentShaderSourceTexMask = `
+  precision mediump float;
+
+  varying vec2 v_texcoord;
+
+  uniform sampler2D u_texture;
+
+  void main() {
+    vec4 texColor = texture2D(u_texture, v_texcoord);
+    gl_FragColor = texColor;
   }
 `;
 
@@ -350,9 +370,10 @@ function GLDrawCreateProgram(gl, vertexShader, fragmentShader) {
  * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @param {number} [opacity=1] - The opacity at which to draw the image
  * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
+ * @param {GlobalCompositeOperation} [blendingMode="source-over"] - blending mode for drawing the image
  * @returns {void} - Nothing
  */
-function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks, opacity, rotate = false) {
+function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks, opacity, rotate = false, blendingMode = "source-over") {
 	offsetX = offsetX || 0;
 	opacity = typeof opacity === "number" ? opacity : 1;
 	const tex = GLDrawLoadImage(gl, url);
@@ -360,12 +381,25 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
 	if (rotate) dstX = 500 - dstX;
 	const sign = rotate ? -1 : 1;
 
-	const program = (color == null) ? gl.program : (fullAlpha ? gl.programFull : gl.programHalf);
+	const program = GLChooseProgram(gl, color, fullAlpha, blendingMode);
 
 	gl.useProgram(program);
 
 	gl.enable(gl.BLEND);
-	gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+	switch (blendingMode) {
+		case "source-atop":
+			gl.blendFuncSeparate(gl.DST_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ZERO, gl.ONE);
+			break;
+		case "destination-over":
+			gl.blendFuncSeparate(gl.ONE_MINUS_DST_ALPHA, gl.ONE, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+			break;
+		case "destination-in":
+			gl.blendFuncSeparate(gl.ZERO, gl.SRC_ALPHA, gl.DST_ALPHA, gl.SRC_ALPHA);
+			break;
+		default:
+			gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+			break;
+	}
 
 	gl.bindBuffer(gl.ARRAY_BUFFER, program.position_buffer);
 	gl.enableVertexAttribArray(program.a_position);
@@ -391,6 +425,29 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
 	if (program.u_color != null) gl.uniform4fv(program.u_color, GLDrawHexToRGBA(color, opacity));
 
 	gl.drawArrays(gl.TRIANGLES, 0, 6);
+}
+
+/**
+ * Chooses right program using input parameters
+ * @param {WebGL2RenderingContext} gl - WebGL context
+ * @param {string} color - Color of the image to draw
+ * @param {boolean} fullAlpha - Whether or not the full alpha should be rendered
+ * @param {GlobalCompositeOperation} blendingMode - blending mode for drawing the image
+ * @returns {WebGLProgram} - The chosen WebGL program
+ */
+function GLChooseProgram(gl, color, fullAlpha, blendingMode) {
+	if (blendingMode == 'destination-in') {
+		return gl.programTexMask;
+	}
+	if (color == null) {
+		return gl.program;
+	}
+
+	if (fullAlpha) {
+		return gl.programFull;
+	} else {
+		return gl.programHalf;
+	}
 }
 
 /**
@@ -556,10 +613,10 @@ function GLDrawAppearanceBuild(C) {
 	CommonDrawAppearanceBuild(C, {
 		clearRect: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h, 0),
 		clearRectBlink: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h, blinkOffset),
-		drawImage: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, null, null, alphaMasks, opacity, rotate),
-		drawImageBlink: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, blinkOffset, null, null, alphaMasks, opacity, rotate),
-		drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, color, fullAlpha, alphaMasks, opacity, rotate),
-		drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, blinkOffset, color, fullAlpha, alphaMasks, opacity, rotate),
+		drawImage: (src, x, y, alphaMasks, opacity, rotate, blendingMode) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, null, null, alphaMasks, opacity, rotate, blendingMode),
+		drawImageBlink: (src, x, y, alphaMasks, opacity, rotate, blendingMode) => GLDrawImage(src, GLDrawCanvas.GL, x, y, blinkOffset, null, null, alphaMasks, opacity, rotate, blendingMode),
+		drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode),
+		drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode) => GLDrawImage(src, GLDrawCanvas.GL, x, y, blinkOffset, color, fullAlpha, alphaMasks, opacity, rotate, blendingMode),
 		drawCanvas: (Img, x, y, alphaMasks) => GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, 0, alphaMasks),
 		drawCanvasBlink: (Img, x, y, alphaMasks) => GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, blinkOffset, alphaMasks),
 	});
