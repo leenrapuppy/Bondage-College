@@ -77,7 +77,7 @@ var ServerAccountUpdate = new class AccountUpdater {
 		this.Queue = new Map;
 		/**
 		 * @private
-		 * @type {null | NodeJS.Timeout}
+		 * @type {null | ReturnType<typeof setTimeout>}
 		 */
 		this.Timeout = null;
 		/**
