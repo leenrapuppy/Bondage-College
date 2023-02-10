@@ -17,7 +17,7 @@ function InventoryItemVulvaFuturisticVibratorLoad() {
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
-		VibratorModeLoad([VibratorModeSet.ADVANCED, VibratorModeSet.STANDARD]);
+		VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 		if ((DialogFocusItem != null) && (DialogFocusItem.Property != null) && (DialogFocusItem.Property.TriggerValues == null)) DialogFocusItem.Property.TriggerValues = CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers);
 
 		ItemVulvaFuturisticVibratorTriggerValues = DialogFocusItem.Property.TriggerValues.split(',');
@@ -189,6 +189,15 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
  * @param {boolean} IgnoreSame
  */
 function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame=false) {
+	const Mode = Option.Property?.Mode;
+	if (
+		C.ArousalSettings?.DisableAdvancedVibes
+		&& VibratorModeOptions.Advanced.some(i => i.Name === Mode)
+	) {
+		// Abort, the character has advanced vibrator modes disabled
+		return;
+	}
+
 	var OldIntensity = Item.Property.Intensity;
 	VibratorModeSetProperty(Item, Option.Property);
 	CharacterRefresh(C);
