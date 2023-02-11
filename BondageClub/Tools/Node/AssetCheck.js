@@ -118,6 +118,34 @@ function loadCSV(path, expectedWidth) {
 	return data;
 }
 
+/**
+ * Checks for {@link AssetDefinition.DynamicGroupName}
+ * @param {readonly AssetGroupDefinition[]} groupDefinitions
+ */
+function testDynamicGroupName(groupDefinitions) {
+	/** @type {[AssetGroupDefinition, AssetDefinition][]} */
+	const assetsList = [];
+	for (const groupDef of groupDefinitions) {
+		for (const asset of groupDef.Asset) {
+			if (typeof asset !== "string") {
+				assetsList.push([groupDef, asset]);
+			}
+		}
+	}
+
+	// If `DynamicGroupName` is set, check whether the dynamically referenced item actually exists
+	for (const [groupDef, assetDef] of assetsList) {
+		const DynamicGroupName = (assetDef.DynamicGroupName !== undefined) ? assetDef.DynamicGroupName : groupDef.DynamicGroupName;
+		if (
+			DynamicGroupName !== undefined
+			&& DynamicGroupName !== groupDef.Group
+			&& !assetsList.some(([g, a]) => a.Name === assetDef.Name && g.Group === DynamicGroupName)
+		) {
+			error(`${groupDef.Group}:${assetDef.Name}: Missing DynamicGroupName-referenced item: ${DynamicGroupName}:${assetDef.Name}`);
+		}
+	}
+}
+
 (function () {
 	const context = vm.createContext({ OuterArray: Array, Object: Object });
 	for (const file of neededFiles) {
@@ -313,4 +341,6 @@ function loadCSV(path, expectedWidth) {
 			});
 		});
 	});
+
+	testDynamicGroupName(AssetFemale3DCG);
 })();
