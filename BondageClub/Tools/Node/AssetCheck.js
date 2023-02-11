@@ -146,6 +146,33 @@ function testDynamicGroupName(groupDefinitions) {
 	}
 }
 
+/**
+ * Checks for the option names of typed items
+ * @param {any} extendedItemConfig
+ */
+function testTypedOptionName(extendedItemConfig) {
+	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
+		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
+			if (
+				assetConfig.Archetype !== "typed"
+				|| (assetConfig.Config === undefined)
+				|| (assetConfig.Config.Options === undefined)
+			) {
+				continue;
+			}
+			const invalidOptions = assetConfig.Config.Options.filter(o => {
+				const type = o?.Property?.Type;
+				return !(o.Name === type || type === null);
+			});
+			if (invalidOptions.length !== 0) {
+				const n = invalidOptions.length;
+				const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
+				error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
+			}
+		}
+	}
+}
+
 (function () {
 	const context = vm.createContext({ OuterArray: Array, Object: Object });
 	for (const file of neededFiles) {
@@ -343,4 +370,5 @@ function testDynamicGroupName(groupDefinitions) {
 	});
 
 	testDynamicGroupName(AssetFemale3DCG);
+	testTypedOptionName(AssetFemale3DCGExtended);
 })();
