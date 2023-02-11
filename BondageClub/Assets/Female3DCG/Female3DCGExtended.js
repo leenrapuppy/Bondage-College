@@ -4723,8 +4723,8 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Opaque",
-						Property: 
-						{ 
+						Property:
+						{
 							Type: "Opaque",
 							Hide: ["BodyLower", "BodyUpper", "Hands", "HairFront", "HairBack", "Glasses",
 								"ItemMouth","ItemMouth2", "ItemMouth3", "FacialHair", "HairAccessory1",
@@ -4733,7 +4733,7 @@ var AssetFemale3DCGExtended = {
 								"Bra", "Panties", "Garters", "Socks", "RightAnklet", "LeftAnklet", "Shoes",
 								"Gloves", "TailStraps", "Wings", "ItemFeet", "ItemLegs", "ItemVulva",
 								"ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemTorso2",
-								"ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", 
+								"ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands",
 								"ItemHandheld", "ItemBoots", "Pussy", "Corset", "Bracelet", "LeftHand" ,
 								"RightHand"
 							],
@@ -8390,7 +8390,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null, },
 					},
 					{
-						Name: "ExtraPadding",
+						Name: "Poofy",
 						Property: { Type: "Poofy", HideItem: ["ClothLowerSkirt3", "ClothLowerTennisSkirt1"], },
 					},
 				],
