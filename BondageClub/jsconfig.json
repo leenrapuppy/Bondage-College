@@ -3,7 +3,8 @@
 		"module": "commonjs",
 		"target": "ES2018",
 		"lib": ["es2018", "dom"],
-		"checkJs": true
+		"checkJs": true,
+		"types": [],
 	},
 	"include": ["Scripts/**/*", "Screens/**/*", "Assets/**/*", "Backgrounds/**/*.js"],
 	"exclude": ["Scripts/lib/**/*.js"]
