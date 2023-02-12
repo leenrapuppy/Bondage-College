@@ -3689,7 +3689,7 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Options: [
 					{ Name: "NoEars", Property: { Type: null } },
-					{ Name: "Ear", Property: { Type: "Ear" } },
+					{ Name: "Ears", Property: { Type: "Ears" } },
 				],
 				ChangeWhenLocked: false,
 			}

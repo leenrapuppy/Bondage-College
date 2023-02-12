@@ -7743,8 +7743,8 @@ var AssetFemale3DCG = [
 				Block: [],
 				Layer: [
 					{ Name: "Base", HasType: false, },
-					{ Name: "EarsUnder", HasType: false, AllowTypes: ["Ear"], },
-					{ Name: "EarsOver", HasType: false, AllowTypes: ["Ear"], Priority: 53, CopyLayerColor: "EarsUnder" },
+					{ Name: "EarsUnder", HasType: false, AllowTypes: ["Ears"], },
+					{ Name: "EarsOver", HasType: false, AllowTypes: ["Ears"], Priority: 53, CopyLayerColor: "EarsUnder" },
 					{ Name: "Metal", HasType: false, },
 					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false }
 				]
