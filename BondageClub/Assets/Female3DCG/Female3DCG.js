@@ -3268,7 +3268,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Emoticon",
-		Priority: 60,
+		Priority: 100,
 		Left: 250,
 		Top: 0,
 		AllowNone: false,
@@ -8445,12 +8445,12 @@ var AssetFemale3DCG = [
 				NotVisibleOnScreen: ["Appearance"],
 				FixedPosition: true,
 				Layer: [
-					{ Name: "Paper1", Priority: 58, MinOpacity: 1, AllowTypes: ["Opaque"], },
-					{ Name: "Frame1", Priority: 59, MinOpacity: 1, AllowTypes: ["Opaque"], },
-					{ Name: "Shadow", Priority: 57, MinOpacity: 1, AllowTypes: ["Shadow"], BlendingMode: "source-atop", },
-					{ Name: "Paper2", Priority: 58, MinOpacity: 0, AllowTypes: ["Shadow"], BlendingMode: "destination-over", CopyLayerColor: "Paper1", },
-					{ Name: "Frame2", Priority: 59, MinOpacity: 1, AllowTypes: ["Shadow"], CopyLayerColor: "Frame1", },
-					{ Name: "Mask", Priority: 60, MinOpacity: 0, AllowTypes: ["Shadow"], BlendingMode: "destination-in" , AllowColorize: false, },
+					{ Name: "Paper1", Priority: 71, MinOpacity: 1, AllowTypes: ["Opaque"], },
+					{ Name: "Frame1", Priority: 72, MinOpacity: 1, AllowTypes: ["Opaque"], },
+					{ Name: "Shadow", Priority: 70, MinOpacity: 1, AllowTypes: ["Shadow"], BlendingMode: "source-atop", },
+					{ Name: "Paper2", Priority: 71, MinOpacity: 0, AllowTypes: ["Shadow"], BlendingMode: "destination-over", CopyLayerColor: "Paper1", },
+					{ Name: "Frame2", Priority: 72, MinOpacity: 1, AllowTypes: ["Shadow"], CopyLayerColor: "Frame1", },
+					{ Name: "Mask", Priority: 73, MinOpacity: 0, AllowTypes: ["Shadow"], BlendingMode: "destination-in" , AllowColorize: false, },
 				],
 			},
 		],
