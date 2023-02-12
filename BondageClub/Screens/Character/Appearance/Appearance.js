@@ -431,6 +431,16 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 		return true;
 	}
 
+	if (assetToCheck && assetToCheck.NotVisibleOnScreen && assetToCheck.NotVisibleOnScreen.indexOf(CurrentScreen) >= 0)
+		return false;
+
+	if (C.Pose != null) {
+		for (let A = 0; A < C.Pose.length; A++) {
+			const P = Pose.find(p => p.Name === C.Pose[A]);
+			if (P && P.Hide && P.Hide.includes(GroupName)) return false;
+		}
+	}
+
 	for (const item of C.DrawAppearance) {
 		if (CharacterAppearanceItemIsHidden(item.Asset.Name, item.Asset.Group.Name)) continue;
 		let HidingItem = false;
@@ -453,16 +463,6 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 			else return false;
 		}
 	}
-
-	if (assetToCheck.NotVisibleOnScreen && assetToCheck.NotVisibleOnScreen.indexOf(CurrentScreen) >= 0)
-		return false;
-
-	if (C.Pose != null)
-		for (let A = 0; A < C.Pose.length; A++)
-			for (let P = 0; P < Pose.length; P++)
-				if (Pose[P].Name === C.Pose[A])
-					if ((Pose[P].Hide != null) && (Pose[P].Hide.indexOf(GroupName) >= 0))
-						return false;
 	return true;
 }
 
