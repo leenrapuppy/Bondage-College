@@ -296,16 +296,16 @@ var AssetFemale3DCG = [
 			{
 				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"],
 				Layer: [
-					{Name: "HoodDownBack", HasType: false, AllowModuleTypes: ["h0"], Priority: 6},
-					{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },]},
 					{Name: "Main", HasType: false, AllowModuleTypes: ["l0"]},
 					{Name: "MainBolero", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "Main"},
+					{Name: "HoodDownBack", HasType: false, AllowModuleTypes: ["h0"], Priority: 6},
+					{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },]},
 					{Name: "HoodDownMid", HasType: false, AllowModuleTypes: ["h0"], CopyLayerColor: "HoodDownBack"},
 					{Name: "HoodDownTrim", HasType: false},
 					{Name: "HoodUpMid", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack"},
-					{Name: "HoodUpFront", HasType: false, AllowModuleTypes: ["h1"], Priority: 60},
-					{Name: "HoodUpFrontEars", HasType: false, AllowModuleTypes: ["h2"], CopyLayerColor: "HoodUpFront", Priority: 60},
-					{Name: "HoodUpTrim", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownTrim", Priority: 60},
+					{Name: "HoodUpFront", HasType: false, AllowModuleTypes: ["h1"], Priority: 57},
+					{Name: "HoodUpFrontEars", HasType: false, AllowModuleTypes: ["h2"], CopyLayerColor: "HoodUpFront", Priority: 57},
+					{Name: "HoodUpTrim", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownTrim", Priority: 57},
 					{Name: "Laces", HasType: false},
 					{Name: "Waist", HasType: false, AllowModuleTypes: ["l0"]},
 					{Name: "Wrists", HasType: false, CopyLayerColor: "Waist"},
@@ -7655,7 +7655,7 @@ var AssetFemale3DCG = [
 				Block: ["ItemEars"],
 				Layer: [
 					// Head Panel Parts
-					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
+					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","x1h3","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
 					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"], ColorGroup: "Panels" },
 					{ Name: "PanelHeadTransparent", HasType: false, AllowModuleTypes: ["x1"], CopyLayerColor: "PanelHead" },
 					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: true }, // master colour for highlighting
@@ -7743,8 +7743,8 @@ var AssetFemale3DCG = [
 				Block: [],
 				Layer: [
 					{ Name: "Base", HasType: false, },
-					{ Name: "EarsUnder", HasType: false, AllowTypes: ["Ear"], },
-					{ Name: "EarsOver", HasType: false, AllowTypes: ["Ear"], Priority: 53, CopyLayerColor: "EarsUnder" },
+					{ Name: "EarsUnder", HasType: false, AllowTypes: ["Ears"], },
+					{ Name: "EarsOver", HasType: false, AllowTypes: ["Ears"], Priority: 53, CopyLayerColor: "EarsUnder" },
 					{ Name: "Metal", HasType: false, },
 					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false }
 				]
@@ -8242,7 +8242,7 @@ var AssetFemale3DCG = [
 				Name: "PetBed", Fetish: ["Pet"], Value: 50, Difficulty: -25, SelfBondage: 0, Time: 5, RemoveTime: 5, Effect: ["Tethered"], RemoveAtLogin: true, SetPose: ["Kneel"], FixedPosition: true, Extended: true, HasType: false,
 				Layer: [
 					{ Name: "Lining", Priority: 1, AllowColorize: false},
-					{ Name: "Bed", AllowColorize: true, Alpha: [{ Masks: [[0, 800, 500, 900]] }] },
+					{ Name: "Bed", Priority: 58, AllowColorize: true, Alpha: [{ Masks: [[0, 800, 500, 900]] }] },
 					{ Name: "Blanket", Priority: 4, AllowColorize: true, AllowTypes: ["Blanket"] },
 					{ Name: "Inner", Priority: 2, AllowColorize: true, AllowTypes: ["Blanket"]},
 				],
