@@ -998,8 +998,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "DominatrixLeotard", Gender: "F", Fetish: ["Lingerie", "Leather"], Prerequisite: ["HasBreasts"], Priority: 20, Value: 40, AllowPose: ["Hogtied"], Hide: ["ItemNipples"],
 				Layer: [
+					{ Name: "Net", CopyLayerColor: "Base" },
 					{ Name: "Base" },
-					{ Name: "Net" },
 					{ Name: "Buckles" },
 				],
 			},
