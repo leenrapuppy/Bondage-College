@@ -183,10 +183,22 @@ function testTypedOptionName(extendedItemConfig) {
 	}
 
 	// We need to strigify and parse the asset array to have correct Array and Object prototypes, because VM uses different ones
-	// This unfortunately results in Functions being lost and replaced with undefined
+	// This unfortunately results in Functions being lost and replaced with a dummy function
 	/** @type {AssetGroupDefinition[]} */
-	const AssetFemale3DCG = JSON.parse(JSON.stringify(context.AssetFemale3DCG));
-	const AssetFemale3DCGExtended = JSON.parse(JSON.stringify(context.AssetFemale3DCGExtended));
+	const AssetFemale3DCG = JSON.parse(
+		JSON.stringify(
+			context.AssetFemale3DCG,
+			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
+		),
+		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
+	);
+	const AssetFemale3DCGExtended = JSON.parse(
+			JSON.stringify(
+			context.AssetFemale3DCGExtended,
+			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
+		),
+		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
+	);
 
 	if (!Array.isArray(AssetFemale3DCG)) {
 		error("AssetFemale3DCG not found");
@@ -361,7 +373,11 @@ function testTypedOptionName(extendedItemConfig) {
 				}
 
 				[dialog.ChatPrefix, dialog.TypePrefix].forEach((prefix) => {
-					if (prefix && !dialogArray.find(e => e[0] === prefix + option.Name)) {
+					if (
+						prefix
+						&& typeof prefix !== "function"
+						&& !dialogArray.find(e => e[0] === prefix + option.Name)
+					) {
 						error(`Missing Dialog: '${prefix + option.Name}'`);
 					}
 				});
