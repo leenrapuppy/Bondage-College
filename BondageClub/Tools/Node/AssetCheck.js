@@ -173,6 +173,181 @@ function testTypedOptionName(extendedItemConfig) {
 	}
 }
 
+/**
+ * Checks for the option names of typed items
+ * @param {any} extendedItemConfig
+ * @param {string[][]} dialogArray
+ */
+function testExtendedItemDialog(extendedItemConfig, dialogArray) {
+	const dialogSet = new Set(dialogArray.map(i => i[0]));
+	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
+		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
+			/** @type {Set<string>} */
+			let missingDialog = new Set();
+			switch (assetConfig.Archetype) {
+				case "typed":
+					missingDialog = testTypedItemDialog(groupName, assetName, assetConfig, dialogSet);
+					break;
+				case "modular":
+					missingDialog = testModularItemDialog(groupName, assetName, assetConfig, dialogSet);
+					break;
+			}
+
+			if (missingDialog.size !== 0) {
+				const missingString = Array.from(missingDialog).sort();
+				error(`${groupName}:${assetName}: found ${missingDialog.size} missing dialog keys: ${missingString}`);
+			}
+		}
+	}
+}
+
+/**
+ * Construct all prefix/suffix combinations and add them to `diffSet` if they are not part of `referenceSet`.
+ * Performs an inplace update of `diffSet`.
+ * @param {readonly (undefined | string)[]} prefixIter
+ * @param {readonly (undefined | string)[]} suffixIter
+ * @param {Readonly<Set<string>>} referenceSet
+ * @param {Set<string>} diffSet
+ */
+function gatherDifference(prefixIter, suffixIter, referenceSet, diffSet) {
+	for (const prefix of prefixIter) {
+		if (prefix === undefined) {
+			continue;
+		}
+		for (const suffix of suffixIter) {
+			if (suffix === undefined) {
+				continue;
+			}
+			const key =`${prefix}${suffix}`;
+			if (!referenceSet.has(key)) {
+				diffSet.add(key);
+			}
+		}
+	}
+}
+
+/**
+ * Version of {@link gatherDifference} designed for handling the `fromTo` typed item chat setting.
+ * @param {readonly (undefined | string)[]} prefixIter
+ * @param {readonly string[]} suffixIter
+ * @param {Readonly<Set<string>>} referenceSet
+ * @param {Set<string>} diffSet
+ */
+function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
+	for (const prefix of prefixIter) {
+		if (prefix === undefined) {
+			continue;
+		}
+		for (const suffix1 of suffixIter) {
+			for (const suffix2 of suffixIter) {
+				if (suffix1 === suffix2 || suffix1 === undefined || suffix2 === undefined) {
+					continue;
+				}
+				const key =`${prefix}${suffix1}To${suffix2}`;
+				if (!referenceSet.has(key)) {
+					diffSet.add(key);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Return a set of all expected typed item dialog keys that are absent for a given iten.
+ * Helper function for {@link testExtendedItemDialog}.
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {any} assetConfig
+ * @param {Readonly<Set<string>>} dialogSet
+ * @returns {Set<string>}
+ */
+function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
+	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Dialog) {
+		return new Set();
+	}
+
+	/** @type {string} */
+	const chatSetting = assetConfig.Config?.ChatSetting ?? "toOnly";
+	/** @type {Record<string, string | undefined>} */
+	const dialogConfig = {
+		Load: `${groupName}${assetName}Select`,
+		TypePrefix: `${groupName}${assetName}`,
+		ChatPrefix: `${groupName}${assetName}Set`,
+		...(assetConfig.Config?.Dialog ?? {}),
+	};
+	if (
+		typeof dialogConfig.ChatPrefix === "function"  // Can't validate callables via the CI
+		|| chatSetting === "silent"  // No dialog when silent
+		|| !groupName.includes("Item")  // Type changes of clothing based items never have a chat message
+	) {
+		dialogConfig.ChatPrefix = undefined;
+	}
+
+	/** @type {Set<string>} */
+	const ret = new Set();
+	const optionNames = assetConfig.Config?.Options?.map(o => !o.HasSubscreen ? o.Name : undefined) ?? [];
+	gatherDifference([dialogConfig.TypePrefix], optionNames, dialogSet, ret);
+	gatherDifference([dialogConfig.Load], [""], dialogSet, ret);
+	if (chatSetting === "toOnly") {
+		gatherDifference([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+	} else if (chatSetting === "fromTo") {
+		gatherDifferenceFromTo([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+	}
+	return ret;
+}
+
+/**
+ * Return a set of all expected modular item dialog keys that are absent for a given iten.
+ * Helper function for {@link testExtendedItemDialog}.
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {any} assetConfig
+ * @param {Readonly<Set<string>>} dialogSet
+ * @returns {Set<string>}
+ */
+function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
+	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Dialog) {
+		return new Set();
+	}
+
+	/** @type {string} */
+	const chatSetting = assetConfig.Config?.ChatSetting ?? "perOption";
+	/** @type {Record<string, string | undefined>} */
+	const dialogConfig = {
+		Select: `${groupName}${assetName}Select`,
+		ModulePrefix: `${groupName}${assetName}Module`,
+		OptionPrefix: `${groupName}${assetName}Option`,
+		ChatPrefix: `${groupName}${assetName}Set`,
+		...(assetConfig.Config?.Dialog ?? {}),
+	};
+	if (typeof dialogConfig.ChatPrefix === "function" || !groupName.includes("Item")) {
+		dialogConfig.ChatPrefix = undefined;
+	}
+
+	/** @type {string[]} */
+	const modulesNames = assetConfig.Config?.Modules?.map(m => m.Name) ?? [];
+	/** @type {string[]} */
+	const optionNames = [];
+	for (const module of assetConfig.Config?.Modules ?? []) {
+		optionNames.push(...(module.Options.map((o, i) => !o.HasSubscreen ? `${module.Key}${i}` : undefined) ?? []));
+	}
+
+	/** @type {Set<string>} */
+	const ret = new Set();
+	gatherDifference([dialogConfig.Select, dialogConfig.ModulePrefix], modulesNames, dialogSet, ret);
+	gatherDifference([dialogConfig.OptionPrefix], optionNames, dialogSet, ret);
+	if (chatSetting === "perOption") {
+		gatherDifference([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+	} else if (chatSetting === "perModule") {
+		// Ignore a module if every single one of its options links to a subscreen
+		const modulesNamesNoSubscreen = assetConfig.Config?.Modules?.map(m => m.Options.every(o => o.HasSubscreen) ? undefined : m.Name) ?? [];
+		gatherDifference([dialogConfig.ChatPrefix], modulesNamesNoSubscreen, dialogSet, ret);
+	}
+	return ret;
+}
+
 (function () {
 	const context = vm.createContext({ OuterArray: Array, Object: Object });
 	for (const file of neededFiles) {
@@ -193,7 +368,7 @@ function testTypedOptionName(extendedItemConfig) {
 		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
 	);
 	const AssetFemale3DCGExtended = JSON.parse(
-			JSON.stringify(
+		JSON.stringify(
 			context.AssetFemale3DCGExtended,
 			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
 		),
@@ -387,4 +562,5 @@ function testTypedOptionName(extendedItemConfig) {
 
 	testDynamicGroupName(AssetFemale3DCG);
 	testTypedOptionName(AssetFemale3DCGExtended);
+	testExtendedItemDialog(AssetFemale3DCGExtended, dialogArray);
 })();
