@@ -296,10 +296,10 @@ var AssetFemale3DCG = [
 			{
 				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"],
 				Layer: [
-					{Name: "HoodDownBack", HasType: false, AllowModuleTypes: ["h0"], Priority: 6},
-					{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },]},
 					{Name: "Main", HasType: false, AllowModuleTypes: ["l0"]},
 					{Name: "MainBolero", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "Main"},
+					{Name: "HoodDownBack", HasType: false, AllowModuleTypes: ["h0"], Priority: 6},
+					{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },]},
 					{Name: "HoodDownMid", HasType: false, AllowModuleTypes: ["h0"], CopyLayerColor: "HoodDownBack"},
 					{Name: "HoodDownTrim", HasType: false},
 					{Name: "HoodUpMid", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack"},
