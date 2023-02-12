@@ -540,7 +540,7 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 	const allOptions = TypedItemGetOptions(item.Asset.Group.Name, item.Asset.Name);
 	// Avoid blocked & non-random options
 	const availableOptions = allOptions
-		.filter(o => o.Random !== false || !InventoryBlockedOrLimited(C, item, o.Property.Type));
+		.filter(o => o.Random !== false && !InventoryBlockedOrLimited(C, item, o.Property.Type));
 
 	/** @type {ExtendedItemOption} */
 	let option;
