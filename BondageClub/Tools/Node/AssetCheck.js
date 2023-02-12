@@ -175,7 +175,7 @@ function testTypedOptionName(extendedItemConfig) {
 
 /**
  * Checks for the option names of typed items
- * @param {any} extendedItemConfig
+ * @param {ExtendedItemConfig} extendedItemConfig
  * @param {string[][]} dialogArray
  */
 function testExtendedItemDialog(extendedItemConfig, dialogArray) {
@@ -229,7 +229,7 @@ function gatherDifference(prefixIter, suffixIter, referenceSet, diffSet) {
 /**
  * Version of {@link gatherDifference} designed for handling the `fromTo` typed item chat setting.
  * @param {readonly (undefined | string)[]} prefixIter
- * @param {readonly string[]} suffixIter
+ * @param {readonly (undefined | string)[]} suffixIter
  * @param {Readonly<Set<string>>} referenceSet
  * @param {Set<string>} diffSet
  */
@@ -257,7 +257,7 @@ function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
  * Helper function for {@link testExtendedItemDialog}.
  * @param {string} groupName
  * @param {string} assetName
- * @param {any} assetConfig
+ * @param {TypedItemAssetConfig} assetConfig
  * @param {Readonly<Set<string>>} dialogSet
  * @returns {Set<string>}
  */
@@ -267,9 +267,8 @@ function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
 		return new Set();
 	}
 
-	/** @type {string} */
 	const chatSetting = assetConfig.Config?.ChatSetting ?? "toOnly";
-	/** @type {Record<string, string | undefined>} */
+	/** @type {Partial<TypedItemDialogConfig>} */
 	const dialogConfig = {
 		Load: `${groupName}${assetName}Select`,
 		TypePrefix: `${groupName}${assetName}`,
@@ -302,7 +301,7 @@ function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
  * Helper function for {@link testExtendedItemDialog}.
  * @param {string} groupName
  * @param {string} assetName
- * @param {any} assetConfig
+ * @param {ModularItemAssetConfig} assetConfig
  * @param {Readonly<Set<string>>} dialogSet
  * @returns {Set<string>}
  */
@@ -312,9 +311,8 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 		return new Set();
 	}
 
-	/** @type {string} */
 	const chatSetting = assetConfig.Config?.ChatSetting ?? "perOption";
-	/** @type {Record<string, string | undefined>} */
+	/** @type {Partial<ModularItemDialogConfig>} */
 	const dialogConfig = {
 		Select: `${groupName}${assetName}Select`,
 		ModulePrefix: `${groupName}${assetName}Module`,
@@ -326,9 +324,8 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 		dialogConfig.ChatPrefix = undefined;
 	}
 
-	/** @type {string[]} */
 	const modulesNames = assetConfig.Config?.Modules?.map(m => m.Name) ?? [];
-	/** @type {string[]} */
+	/** @type {(string | undefined)[]} */
 	const optionNames = [];
 	for (const module of assetConfig.Config?.Modules ?? []) {
 		optionNames.push(...(module.Options.map((o, i) => !o.HasSubscreen ? `${module.Key}${i}` : undefined) ?? []));
@@ -367,6 +364,7 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 		),
 		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
 	);
+	/** @type {ExtendedItemConfig} */
 	const AssetFemale3DCGExtended = JSON.parse(
 		JSON.stringify(
 			context.AssetFemale3DCGExtended,
@@ -433,7 +431,7 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 					}
 					if (assetConfig.Config) {
 						if (assetConfig.Archetype === "typed") {
-							const HasSubscreen = !localError && assetConfig.Config.Options.some(option => !!option.HasSubscreen);
+							const HasSubscreen = !localError && assetConfig.Config.Options?.some(option => !!option.HasSubscreen);
 							if (!HasSubscreen) {
 								if (Asset.AllowEffect !== undefined) {
 									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowEffect (unless they use subscreens)`);
