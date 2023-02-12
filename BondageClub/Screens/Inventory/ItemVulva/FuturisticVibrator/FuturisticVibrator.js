@@ -1,6 +1,7 @@
 "use strict";
 
 var ItemVulvaFuturisticVibratorTriggers = ["Increase", "Decrease", "Disable", "Edge", "Random", "Deny", "Tease", "Shock"];
+/** @type {string[]} */
 var ItemVulvaFuturisticVibratorTriggerValues = [];
 
 /** @type {{EVERYONE: "", PROHIBIT_SELF: "ProhibitSelf", LOCK_MEMBER_ONLY: "LockMember"}} */
@@ -16,7 +17,7 @@ function InventoryItemVulvaFuturisticVibratorLoad() {
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
-		VibratorModeLoad([VibratorModeSet.ADVANCED, VibratorModeSet.STANDARD]);
+		VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 		if ((DialogFocusItem != null) && (DialogFocusItem.Property != null) && (DialogFocusItem.Property.TriggerValues == null)) DialogFocusItem.Property.TriggerValues = CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers);
 
 		ItemVulvaFuturisticVibratorTriggerValues = DialogFocusItem.Property.TriggerValues.split(',');
@@ -94,10 +95,12 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 		if (temp != "" && typeof temp === "string") {
 			DialogFocusItem.Property.TriggerValues = temp;
 			if (CurrentScreen == "ChatRoom") {
-				var Dictionary = [];
-				Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-				Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber});
-				Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name});
+				/** @type {ChatMessageDictionary} */
+				var Dictionary = [
+					{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
+					{Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber},
+					{Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name},
+				];
 				ChatRoomPublishCustomAction("FuturisticVibratorSaveVoiceCommandsAction", true, Dictionary);
 			}
 			InventoryItemVulvaFuturisticVibratorExit();
@@ -111,6 +114,11 @@ function InventoryItemVulvaFuturisticVibratorExit() {
 		ElementRemove("FuturisticVibe" + ItemVulvaFuturisticVibratorTriggers[I]);
 }
 
+/**
+ * @param {string} msg
+ * @param {string[]} TriggerValues
+ * @returns {string[]}
+ */
 function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 	var commandsReceived = [];
 
@@ -148,6 +156,11 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 	return commandsReceived;
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {ItemVulvaFuturisticVibratorAccessMode} Option
+ */
 function InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, Option) {
 	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
 	Item.Property.AccessMode = Option;
@@ -155,6 +168,11 @@ function InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, Option) {
 	ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 }
 
+/**
+ * @param {Item} Item
+ * @param {boolean} Increase
+ * @returns {VibratorMode}
+ */
 function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
 	if (Item.Property.Mode == VibratorMode.MAXIMUM) return (Increase ? VibratorMode.MAXIMUM : VibratorMode.HIGH);
 	if (Item.Property.Mode == VibratorMode.HIGH) return (Increase ? VibratorMode.MAXIMUM : VibratorMode.MEDIUM);
@@ -164,7 +182,22 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
 	return (Increase ? ((Item.Property.Mode == VibratorMode.OFF) ? VibratorMode.LOW : VibratorMode.MAXIMUM ): VibratorMode.LOW);
 }
 
-function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame) {
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {ExtendedItemOption} Option
+ * @param {boolean} IgnoreSame
+ */
+function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame=false) {
+	const Mode = Option.Property?.Mode;
+	if (
+		C.ArousalSettings?.DisableAdvancedVibes
+		&& VibratorModeOptions.Advanced.some(i => i.Name === Mode)
+	) {
+		// Abort, the character has advanced vibrator modes disabled
+		return;
+	}
+
 	var OldIntensity = Item.Property.Intensity;
 	VibratorModeSetProperty(Item, Option.Property);
 	CharacterRefresh(C);
@@ -199,6 +232,11 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 	}
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {number} LastTime
+ */
 function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	if (!Item) return;
 	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
