@@ -635,13 +635,14 @@ function ExtendedItemCheckBuyGroups(Option) {
 function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
 	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
 
-	if (CurrentOption && CurrentOption.ChangeWhenLocked === false && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
+	if (CurrentOption && CurrentOption.ChangeWhenLocked !== true && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
 		return DialogFindPlayer("CantChangeWhileLocked");
 	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
 		// Otherwise use the standard prerequisite check
 		return DialogText;
-	} else if (InventoryItemHasEffect(Item, "Lock", true) && !AllowLock) {
+	} else if (CurrentOption.AllowLock && !AllowLock && InventoryItemHasEffect(Item, "Lock", true)) {
+		// We're switching from a locked, lockable option to one that can't be locked. Prevent that.
 		return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
 	}
 
