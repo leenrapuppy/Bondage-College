@@ -7788,7 +7788,7 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				Dialog: {
-					ChatPrefix: "ItemNeckRestraintsPetPost",
+					ChatPrefix: "ItemNeckRestraintsPetPostSet",
 				}
 			},
 		},//PetPost
