@@ -134,6 +134,8 @@ Button Shirt
 纽扣衬衫
 Slave Rags
 奴隶破布
+Cropped Hoodie
+齐胸兜帽衫
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -170,6 +172,8 @@ Catsuit Collar
 紧身衣项圈
 Poncho
 庞乔斗篷
+Piercing Set
+穿刺套装
 Necklace
 项链
 Fancy Necklace
@@ -418,6 +422,8 @@ Style 4
 样式 4
 Coconut Bra
 椰子文胸
+Dominatrix Leotard
+女王高叉衣
 Corset
 束腰
 Corset + Garters
@@ -544,6 +550,10 @@ Cow Printed Socks
 奶牛印花袜
 Harem Stockings
 后宫丝袜
+Right Leg
+右腿
+Left Leg
+左腿
 Anklet (Right)
 踝绳 (右)
 Band Anklet
@@ -860,6 +870,10 @@ Pet Nose
 宠物鼻
 Head Harness
 头束带
+Festival Fox Mask
+狐妖面具
+Jewelry
+珠宝
 Tail Strap
 尾巴
 Kitty Tail Strap
@@ -1168,14 +1182,6 @@ Eyebrows 1
 眉毛 1
 Eyebrows 2
 眉毛 2
-Eyebrows 3
-眉毛 3
-Eyebrows 4
-眉毛 4
-Eyebrows 5
-眉毛 5
-Eyebrows 6
-眉毛 6
 Eyebrows 7
 眉毛 7
 Eyebrows 8
@@ -1186,6 +1192,12 @@ Default
 默认
 Head
 头
+Regular Ears
+普通耳朵
+Small Ears
+小耳朵
+Subtle Ears
+隐藏耳朵
 Feet
 脚
 Nylon Rope
@@ -1474,6 +1486,8 @@ Locking Swimsuit 2
 上锁泳衣2
 Leather Chest Harness 1
 皮革胸部束带1
+Navel Bar
+脐钉
 Nipples
 乳头
 Nipple Clamps
@@ -2368,6 +2382,8 @@ Lucky Wheel
 幸运轮盘
 Wheel of Fortune
 命运之轮
+Folding Screen
+折叠屏风
 Blanket
 毛毯
 Bed Ropes

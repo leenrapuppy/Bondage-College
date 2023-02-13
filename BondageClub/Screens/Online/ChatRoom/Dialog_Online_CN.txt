@@ -320,6 +320,12 @@
 ###_PLAYER
 (Spin the Wheel of Fortune.)
 (转动命运之轮。)
+(Force her to spin your Wheel of Fortune.)
+(强迫她转动你的命运之轮。)
+###_NPC
+(She will be required to spin your Wheel of Fortune.)
+(她会被要求转动你的命运之轮。)
+###_PLAYER
 (Generate a new GGTS task.)
 (生成一个新的GGTS任务）
 (Give her a five minutes pause.)
