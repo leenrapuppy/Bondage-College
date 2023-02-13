@@ -294,7 +294,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"],
+				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
 				Layer: [
 					{Name: "Main", HasType: false, AllowModuleTypes: ["l0"]},
 					{Name: "MainBolero", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "Main"},
