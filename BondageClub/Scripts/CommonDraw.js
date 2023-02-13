@@ -164,9 +164,8 @@ function CommonDrawAppearanceBuild(C, {
 		if (InheritColor != null) {
 			const ParentAsset = InventoryGet(C, InheritColor);
 			if (ParentAsset != null) {
-				Color = Array.isArray(ParentAsset.Color) ? ParentAsset.Color[0] : ParentAsset.Color;
-				if (!CommonDrawColorValid(Color, ParentAsset.Asset.Group))
-					Color = "Default";
+				const ParentColor = Array.isArray(ParentAsset.Color) ? ParentAsset.Color[0] : ParentAsset.Color;
+				Color = CommonDrawColorValid(ParentColor, ParentAsset.Asset.Group) ? ParentColor : "Default";
 				ColorInherited = true;
 			}
 		}

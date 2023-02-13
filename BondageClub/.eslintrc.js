@@ -55,7 +55,7 @@ module.exports = {
 						'Group', // Asset Groups
 						'ParentGroup', // Asset Groups
 						'ParentSize', // Asset Groups
-						'InheritColor', // Asset Groups
+						'ParentColor', // Asset Groups
 						'Category', // Asset Groups
 						'Priority', // Both
 						'Value', // Assets
