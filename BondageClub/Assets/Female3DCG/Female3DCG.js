@@ -795,6 +795,14 @@ var AssetFemale3DCG = [
 					{ Name: "Metal" },
 				],
 			},
+			{
+				Name: "CheerleaderSkirt", Value: 30, Left: 100, HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], ParentGroup: null, DefaultColor: ["#c91616", "#e0b51d", "#c91616"], AllowPose: ["KneelingSpread"],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Straps" },
+					{ Name: "Innerstrips" },
+				],
+			},
 			// Penis Compatible Clothing
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
