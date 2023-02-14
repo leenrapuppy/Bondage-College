@@ -43,25 +43,25 @@ function C008_DramaClass_Julia_Load() {
 	if (C008_DramaClass_Julia_CurrentStage < 300) C008_DramaClass_Julia_CurrentStage = C008_DramaClass_Theater_GlobalStage;
 	ActorLoad("Julia", "Theater");
 	LoadInteractions();
-	
+
 	// On a perfect play, the player gains a level in arts
 	if ((C008_DramaClass_Julia_CurrentStage == 300) && C008_DramaClass_Theater_PerfectPlay) {
 		C008_DramaClass_Theater_PerfectPlay = false;
 		GameLogSpecificAdd(CurrentChapter, "", "PerfectPlay");
 		PlayerAddSkill("Arts", 1);
 	}
-	
+
 	// Cannot leave before Julia gave her instructions
 	if (C008_DramaClass_Julia_CurrentStage < 100) LeaveIcon = "";
 	if (C008_DramaClass_Julia_CurrentStage == 330) C008_DramaClass_Julia_CurrentStage = 400;
 	if (C008_DramaClass_Julia_CurrentStage == 340) C008_DramaClass_Julia_CurrentStage = 500;
-	
+
 	// Set the role variables
 	C008_DramaClass_Julia_IsDamsel = (C008_DramaClass_JuliaIntro_PlayerRole == "Damsel");
 	C008_DramaClass_Julia_IsHeroine = (C008_DramaClass_JuliaIntro_PlayerRole == "Heroine");
 	C008_DramaClass_Julia_IsVillain = (C008_DramaClass_JuliaIntro_PlayerRole == "Villain");
 	C008_DramaClass_Julia_CalcParams();
-	
+
 	// Keep the ending type
 	C008_DramaClass_Julia_EndingKiss = (C008_DramaClass_Theater_Ending == "Kiss");
 	C008_DramaClass_Julia_EndingHug = (C008_DramaClass_Theater_Ending == "Hug");
@@ -78,19 +78,19 @@ function C008_DramaClass_Julia_Run() {
 }
 
 // Chapter 8 - Julia Click
-function C008_DramaClass_Julia_Click() {	
+function C008_DramaClass_Julia_Click() {
 
 	// Regular interaction click
 	ClickInteraction(C008_DramaClass_Julia_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Julia can be restrained on stage 410
 	if ((C008_DramaClass_Julia_CurrentStage == 410) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-	
+
 		// The damsel cannot tie up the other damsel unless she's +5 submissive
 		if ((ActorGetValue(ActorSubmission) < 5) && (C008_DramaClass_Julia_IsDamsel) && !ActorIsRestrained() && (ClickInv != "CuffsKey")) {
 			OverridenIntroText = GetText("RefuseBondage");
-			return;			
+			return;
 		}
 
 		// Julia cannot wear a belt or a collar
@@ -114,7 +114,7 @@ function C008_DramaClass_Julia_Click() {
 		PlayerRandomBondage();
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 }
 
 // Chapter 8 - Julia Refuse Script
@@ -191,10 +191,10 @@ function C008_DramaClass_Julia_Masturbate() {
 	OverridenIntroImage = "";
 	C008_DramaClass_Julia_MastubateCount++;
 	if (C008_DramaClass_Julia_MastubateCount <= 3) ActorChangeAttitude(-1, 0);
-	if ((C008_DramaClass_Julia_MastubateCount >= 3) && !C008_DramaClass_Julia_OrgasmDone && ActorHasInventory("VibratingEgg")) { 
+	if ((C008_DramaClass_Julia_MastubateCount >= 3) && !C008_DramaClass_Julia_OrgasmDone && ActorHasInventory("VibratingEgg")) {
 		C008_DramaClass_Julia_OrgasmDone = true;
-		ActorAddOrgasm(); 
-		ActorChangeAttitude(2, 0); 
+		ActorAddOrgasm();
+		ActorChangeAttitude(2, 0);
 		OverridenIntroText = GetText("Orgasm");
 		OverridenIntroImage = "BackgroundOrgasm.jpg";
 	}
@@ -229,7 +229,7 @@ function C008_DramaClass_Julia_Rebellion() {
 	if (!Common_PlayerGagged) PlayerLockInventory("ClothGag");
 	CurrentActor = "Sarah";
 	if (!ActorIsRestrained()) { ActorAddInventory("Rope"); ActorSetCloth("Underwear"); }
-	if (!ActorIsGagged()) ActorAddInventory("ClothGag");	
+	if (!ActorIsGagged()) ActorAddInventory("ClothGag");
 	CurrentActor = "Amanda";
 	if (!ActorIsRestrained()) { ActorAddInventory("Rope"); ActorSetCloth("Underwear"); }
 	if (!ActorIsGagged()) ActorAddInventory("ClothGag");

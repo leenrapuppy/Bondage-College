@@ -2,8 +2,6 @@
 [Message]: 发送一条包含/的消息. 如: //message会发送 /message
 [Message]: Display the message as an action
 [Message]: 以动作来表现跟随的信息
-[Message]: Display the message as an action,without including your name. **[Message] does the same
-[Message]: 以动作来表现跟随的信息，但不包含你的名字. **[Message]是同样的效果
 : Toggle AFK emote
 :切换AFK表情
 [MemberNumber]: Ban the player from the room
@@ -68,5 +66,7 @@ use safeword
 [MemberNumber]:将玩家从白名单移除
 Display your forbidden words set by your owner
 显示你的主人设置的禁止词
+Spin your Wheel of Fortune
+转动你的命运之轮
 [MemberNumber]: Release a submissive from your ownership
 [MemberNumber]: 释放一个被你拥有的顺从者

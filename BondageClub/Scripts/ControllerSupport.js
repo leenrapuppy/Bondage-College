@@ -1,6 +1,8 @@
 "use strict";
 /* eslint-disable no-redeclare */
-var ControllerButtonsX = [];//there probably is a way to use just one list, but i don't want to bother and this works anyway
+/** @type {number[]} */
+var ControllerButtonsX = [];//there probably is a way to use just one list, but I don't want to bother and this works anyway
+/** @type {number[]} */
 var ControllerButtonsY = [];
 var ControllerActive = true;
 var ControllerCurrentButton = 0;
@@ -30,8 +32,10 @@ var Calibrating = false;
 var ControllerStick = false;
 var waitasec = false;
 var ControllerSensitivity = 5;
+/** @type {number[]} */
 var ControllerIgnoreStick = [];
 var ControllerDeadZone = 0.01;
+/** @type {Record<string, boolean>} */
 var ControllerGameActiveButttons = {};
 
 /**
@@ -57,7 +61,7 @@ function setButton(X, Y) {
 	}
 }
 /**
- * checks, wether a button is already in the lists (i realise now, that i could have used .includes but it works)
+ * checks, whether a button is already in the lists (I realize now, that I could have used .includes but it works)
  * @param {any} X X value of the button
  * @param {any} Y Y value of the button
  */

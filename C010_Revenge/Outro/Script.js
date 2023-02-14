@@ -2,7 +2,7 @@ var C010_Revenge_Outro_GoodEnding = false;
 
 // Chapter 10 - Outro Load
 function C010_Revenge_Outro_Load() {
-	
+
 	// Time is always 15:15:00 in the outro, reset the poses if needed
 	StopTimer(15.25 * 60 * 60 * 1000);
 	if (C010_Revenge_AmandaSarah_ItemStolen) PlayerRestoreAllInventory();
@@ -22,10 +22,10 @@ function C010_Revenge_Outro_Load() {
 
 // Chapter 10 - Outro Run
 function C010_Revenge_Outro_Run() {
-	
+
 	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
-	
+
 	// Sets the correct text to fetch
 	var OutroText = "";
 	if (GameLogQuery("C007_LunchBreak", "Amanda", "Stranded") || GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) OutroText = "AmandaSarah";
@@ -33,8 +33,8 @@ function C010_Revenge_Outro_Run() {
 
 	// Draw the background image
 	if (TextPhase >= 2) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
-    if (TextPhase < 2) DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + OutroText + ".jpg", 800, 0);
-	
+	if (TextPhase < 2) DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + OutroText + ".jpg", 800, 0);
+
 	// Shows the text
 	if (C010_Revenge_Outro_GoodEnding) OutroText = OutroText + "Good";
 	DrawText(GetText(OutroText + "1"), 400, 150, "White");

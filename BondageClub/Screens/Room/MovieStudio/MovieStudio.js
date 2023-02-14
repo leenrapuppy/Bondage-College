@@ -1,16 +1,22 @@
 "use strict";
 var MovieStudioBackground = "MovieStudio";
+/** @type {null | NPCCharacter} */
 var MovieStudioDirector = null;
 var MovieStudioCurrentMovie = "";
 var MovieStudioCurrentScene = "";
 var MovieStudioCurrentRole = "";
+/** @type {null | NPCCharacter} */
 var MovieStudioActor1 = null;
+/** @type {null | NPCCharacter} */
 var MovieStudioActor2 = null;
+/** @type {null | number} */
 var MovieStudioTimer = null;
 var MovieStudioMeter = 0;
 var MovieStudioDecay = 0;
+/** @type {string[]} */
 var MovieStudioActivity = [];
 var MovieStudioMoney = 0;
+/** @type {null | Item[]} */
 var MovieStudioOriginalClothes = null;
 
 /**

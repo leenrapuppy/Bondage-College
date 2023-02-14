@@ -1,5 +1,6 @@
 "use strict";
 var CollegeEntranceBackground = "CollegeEntrance";
+/** @type {null | NPCCharacter} */
 var CollegeEntranceStudent = null;
 
 /**

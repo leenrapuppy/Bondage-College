@@ -1,5 +1,6 @@
 "use strict";
 var PlayerAuctionBackground = "SlaveMarket";
+/** @type {null | NPCCharacter[]} */
 var PlayerAuctionCustomer = null;
 var PlayerAuctionBidCurrent = -1;
 var PlayerAuctionBidTime = 0;

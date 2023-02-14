@@ -40,17 +40,39 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
 /**
  * Custom click function for adding the `Shock` menu.
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {boolean} Futuristic - Whether this concerns a futuristic item or not
  * @returns {void} - Nothing
  */
-function InventoryItemPelvisSciFiPleasurePantiesClick(OriginalFunction) {
-	if (!FuturisticAccessClick(OriginalFunction) || !DialogFocusItem) {
+function InventoryItemPelvisSciFiPleasurePantiesClickHook(OriginalFunction, Futuristic=true) {
+	if (!Futuristic) {
+		OriginalFunction();
+	} else if (!FuturisticAccessClick(OriginalFunction)) {
 		return;
 	}
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+
+	if (DialogFocusItem && ModularItemModuleIsActive(ModularItemBase)) {
 		if (MouseIn(1175, 818, 64, 64) && !ExtendedItemPermissionMode) {
-			DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
+			const Property = DialogFocusItem.Property;
+			ExtendedItemCustomClick("ShowText", () => Property.ShowText = !Property.ShowText);
 		} else if (MouseIn(1637, 825, 225, 55)) {
 			ExtendedItemCustomClick("TriggerShock", PropertyShockPublishAction);
 		}
 	}
+}
+
+/** @type {ExtendedItemChatCallback<ModularItemOption>} */
+function InventoryItemPelvisSciFiPleasurePantiesChatPrefix({previousOption, newOption}) {
+	if (DialogFocusItem == null) {
+		return "";
+	}
+
+	const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
+	const IntensityPattern = /^(i)(\d+)$/g;
+	if (!IntensityPattern.test(newOption.Name)) {
+		return Prefix;
+	}
+
+	const Change = Number.parseInt(newOption.Name.slice(1)) - Number.parseInt(previousOption.Name.slice(1));
+	const StateChange = (Change > 0) ? "Increase" : "Decrease";
+	return `${Prefix}${StateChange}`;
 }

@@ -1,29 +1,47 @@
 "use strict";
 var NurseryBackground = "Nursery";
+/** @type {null | string} */
 var NurserySituation = null;
 var NurseryJustClicked = null;
+/** @type {null | NPCCharacter} */
 var NurseryNurse = null;
+/** @type {null | NPCCharacter} */
 var NurseryABDL1 = null;
+/** @type {null | NPCCharacter} */
 var NurseryABDL2 = null;
 /** 0 = Good girl; 1 = ready to be forgiven; >= 2 = severity of naughtiness. */
 var NurseryPlayerBadBabyStatus = 0;
+/** @type {null | boolean} */
 var NurseryPlayerInappropriateCloth = null;
 var NurseryCoolDownTime = 0;
+/** @type {null | Item[]} */
 var NurseryPlayerAppearance = null;
 //var NurseryNurseAppearance = null;
 //var NurseryAdultBabyAppearance = null;
 var RandomNumber = 0;
+/** @type {null | string} */
 var RandomResult = null;
+/** @type {null | string} */
 var RandomResultB = null;
 var PreviousDress = "";
 var PreviousDressColor = "";
+/** @type {null | boolean} */
 var NurseryPlayerKeepsLoosingBinky = null;
-/** message about nursery gate  */
+/**
+ * message about nursery gate
+ * @type {null | boolean}
+ */
 var NurseryGateMsg = null;
-/** message about ease of opening nursery gate */
+/**
+ * message about ease of opening nursery gate
+ * @type {number}
+ */
 var NurseryLeaveMsg = null;
+/** @type {null | number} */
 var NurseryEscapeAttempts = null;
+/** @type {null | number} */
 var NursuryEscapeFailMsg = null;
+/** @type {null | number} */
 var NurseryRepeatOffender = null;
 
 

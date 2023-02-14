@@ -23,7 +23,7 @@ var C004_ArtClass_Sarah_PaintAvail = true;
 // Chapter 4 - Sarah Load
 function C004_ArtClass_Sarah_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	ActorLoad("Sarah", "ArtRoom");
 	LoadInteractions();
 	C004_ArtClass_Sarah_EggConfirm = false;
@@ -53,14 +53,14 @@ function C004_ArtClass_Sarah_Run() {
 function C004_ArtClass_Sarah_Click() {
 
 	// Regular interactions
-	ClickInteraction(C004_ArtClass_Sarah_CurrentStage);	
+	ClickInteraction(C004_ArtClass_Sarah_CurrentStage);
 	if (C004_ArtClass_Sarah_CurrentStage > 130) OverridenIntroImage = "";
 	var ClickInv = GetClickedInventory();
 
 	// When the user wants to use any item and bondage isn't allowed
 	if (!Common_BondageAllowed && ((ClickInv == "Rope") || (ClickInv == "BallGag") || (ClickInv == "TapeGag") || (ClickInv == "Crop") || (ClickInv == "Cuffs") || (ClickInv == "VibratingEgg")) && Common_PlayerNotRestrained)
 		OverridenIntroText = GetText("NoBondage");
-	
+
 	// When the user wants to use the rope
 	if (Common_BondageAllowed && (C004_ArtClass_Sarah_CurrentStage >= 150) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		OverridenIntroText = GetText("Rope");
@@ -74,8 +74,8 @@ function C004_ArtClass_Sarah_Click() {
 	// When the user wants to use a gag without tying her
 	if (Common_BondageAllowed && ((ClickInv == "BallGag") || (ClickInv == "TapeGag")) && !ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && !ActorHasInventory("TapeGag") && Common_PlayerNotRestrained)
 		OverridenIntroText = GetText("BondageBeforeGag");
-		
-	// When the user wants to use a BallGag	
+
+	// When the user wants to use a BallGag
 	if (Common_BondageAllowed && (ClickInv == "BallGag") && ActorHasInventory("Rope") && !ActorHasInventory("BallGag") && Common_PlayerNotRestrained) {
 		OverridenIntroText = GetText("BallGag");
 		C004_ArtClass_Sarah_CurrentStage = 170;
@@ -105,7 +105,7 @@ function C004_ArtClass_Sarah_Click() {
 	}
 
 	// When the user wants to use the vibrating egg on Sarah
-	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
+	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Sarah_EggConfirm == false) {
 			C004_ArtClass_Sarah_EggConfirm = true;
 			OverridenIntroText = GetText("VibratingEggWarning");
@@ -117,7 +117,7 @@ function C004_ArtClass_Sarah_Click() {
 			C004_ArtClass_Sarah_EggInside = true;
 		}
 	}
-	
+
 	// Set if the crotch robe/orgasm mode is ready
 	C004_ArtClass_Sarah_CrotchRopeReady = (C004_ArtClass_Sarah_IsModel && ActorHasInventory("VibratingEgg") && !C004_ArtClass_Sarah_OrgasmDone);
 
@@ -125,7 +125,7 @@ function C004_ArtClass_Sarah_Click() {
 
 // Chapter 4 - Sarah Shibari Comment - Start Julia Stage 4
 function C004_ArtClass_Sarah_ShibariComment() {
-	if (C004_ArtClass_ArtRoom_JuliaStage == 3) 
+	if (C004_ArtClass_ArtRoom_JuliaStage == 3)
 		C004_ArtClass_ArtRoom_JuliaStage = 4;
 }
 

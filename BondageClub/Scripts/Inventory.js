@@ -708,7 +708,6 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	let Item = InventoryGet(C, AssetGroup);
 	InventoryWearCraft(Item, Craft);
 	CharacterRefresh(C, true);
-	InventoryExpressionTrigger(C, Item);
 }
 
 /**
@@ -1087,18 +1086,6 @@ function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
 	if (Property === undefined) Property = Item.Asset[PropertyName];
 	if (Property === undefined && CheckGroup) Property = Item.Asset.Group[PropertyName];
 	return Property;
-}
-
-/**
-* Check if we must trigger an expression for the character after an item is used/applied
-* @param {Character} C - The character that we must validate
-* @param {Item} item - The item from appearance that we must validate
-*/
-function InventoryExpressionTrigger(C, item) {
-	if (item && item.Asset) {
-		const expressions = item.Asset.DynamicExpressionTrigger(C);
-		if (expressions) InventoryExpressionTriggerApply(C, expressions);
-	}
 }
 
 /**

@@ -40,24 +40,24 @@ function C004_ArtClass_Julia_Load() {
 	if (C004_ArtClass_Julia_CurrentStage == 100) C004_ArtClass_Julia_CurrentStage = 110;
 	if (C004_ArtClass_Julia_CurrentStage == 130) C004_ArtClass_Julia_CurrentStage = 140;
 	if ((C004_ArtClass_Julia_CurrentStage == 160) || (C004_ArtClass_Julia_CurrentStage == 180)) C004_ArtClass_Julia_CurrentStage = 170;
-	C004_ArtClass_Julia_Sandro = ((C004_ArtClass_ArtRoom_JuliaStage >= 1) && Common_PlayerNotGagged);	
+	C004_ArtClass_Julia_Sandro = ((C004_ArtClass_ArtRoom_JuliaStage >= 1) && Common_PlayerNotGagged);
 	C004_ArtClass_Julia_AllowUnderwear = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerNotGagged && Common_PlayerClothed);
 	C004_ArtClass_Julia_AllowNaked = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerNotGagged && Common_PlayerUnderwear);
 	C004_ArtClass_Julia_GetImage();
-	
+
 	// When the talk is over, allow the player to leave
 	if (C004_ArtClass_Julia_CurrentStage >= 60) LeaveIcon = "Leave";
-	else LeaveIcon = "";	
+	else LeaveIcon = "";
 	C004_ArtClass_Julia_BigHugReady = (!C004_ArtClass_Julia_BigHugDone && Common_PlayerNotGagged && (C004_ArtClass_Julia_CurrentStage >= 60));
 	C004_ArtClass_Julia_AllowShibari = ((Common_BondageAllowed == false) && (C004_ArtClass_ArtRoom_JuliaStage >= 4));
-	
+
 	// If we allow the player to beg to be released or do self bondage
 	C004_ArtClass_Julia_CanBegForRelease = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && Common_PlayerRestrained && Common_PlayerGagged);
 	C004_ArtClass_Julia_CanDoSelfBondage = ((C004_ArtClass_ArtRoom_ExtraModel == "Player") && !Common_PlayerRestrained && !Common_PlayerGagged && Common_PlayerNaked && Common_BondageAllowed && PlayerHasInventory("Rope") && (PlayerGetSkillLevel("RopeMastery") >= 1));
 
 	// A player with seduction has an extra option
 	if (PlayerGetSkillLevel("Seduction") == 0) C004_ArtClass_Julia_WorkOfArtReady = false;
-	
+
 }
 
 // Chapter 4 - Julia Run
@@ -66,12 +66,12 @@ function C004_ArtClass_Julia_Run() {
 }
 
 // Chapter 4 - Julia Click
-function C004_ArtClass_Julia_Click() {	
+function C004_ArtClass_Julia_Click() {
 
 	// Regular interactions
 	ClickInteraction(C004_ArtClass_Julia_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// When the talk is over, allow the player to leave
 	if (C004_ArtClass_Julia_CurrentStage >= 60) LeaveIcon = "Leave";
 
@@ -81,7 +81,7 @@ function C004_ArtClass_Julia_Click() {
 
 	// When the user wants to use the rope on Julia
 	if (Common_BondageAllowed && (ClickInv == "Rope") && !ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
-	
+
 		// It can work if Julia is submissive, else the player gets tied up
 		if (ActorGetValue(ActorSubmission) > 0) {
 			OverridenIntroText = GetText("RopeJulia");
@@ -100,7 +100,7 @@ function C004_ArtClass_Julia_Click() {
 
 		// Time and item are consumed
 		PlayerRemoveInventory("Rope", 1);
-		CurrentTime = CurrentTime + 60000;		
+		CurrentTime = CurrentTime + 60000;
 	}
 
 	// When the user wants to use the BallGag
@@ -126,7 +126,7 @@ function C004_ArtClass_Julia_Click() {
 		C004_ArtClass_Julia_IsGagged = true;
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the crop
 	if (Common_BondageAllowed && (ClickInv == "Crop") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		OverridenIntroText = GetText("Crop");
@@ -134,7 +134,7 @@ function C004_ArtClass_Julia_Click() {
 	}
 
 	// When the user wants to use the vibrating egg on Julia
-	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {		
+	if (Common_BondageAllowed && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg") && ActorHasInventory("Rope") && Common_PlayerNotRestrained) {
 		if (C004_ArtClass_Julia_EggConfirm == false) {
 			C004_ArtClass_Julia_EggConfirm = true;
 			OverridenIntroText = GetText("VibratingEggWarning");
@@ -145,10 +145,10 @@ function C004_ArtClass_Julia_Click() {
 			C004_ArtClass_Julia_EggInside = true;
 		}
 	}
-	
+
 	// Get the correct image for Julia
 	C004_ArtClass_Julia_GetImage();
-	
+
 }
 
 // Chapter 4 - Julia Big Hug
@@ -164,13 +164,13 @@ function C004_ArtClass_Julia_BigHug() {
 
 // Chapter 4 - Julia Remove Top
 function C004_ArtClass_Julia_RemoveTop() {
-	if (C004_ArtClass_ArtRoom_JuliaStage <= 1) 
+	if (C004_ArtClass_ArtRoom_JuliaStage <= 1)
 		C004_ArtClass_ArtRoom_JuliaStage = 2;
 }
 
 // Chapter 4 - Julia Strip
 function C004_ArtClass_Julia_Strip() {
-	if (C004_ArtClass_ArtRoom_JuliaStage <= 2) 
+	if (C004_ArtClass_ArtRoom_JuliaStage <= 2)
 		C004_ArtClass_ArtRoom_JuliaStage = 3;
 }
 
@@ -287,7 +287,7 @@ function C004_ArtClass_Julia_Tickle() {
 		else OverridenIntroText = GetText("TickleRestrained");
 		ActorChangeAttitude(1, 0);
 		C004_ArtClass_Julia_TickleDone = true;
-	}	
+	}
 }
 
 // Chapter 4 - Julia Change Model
@@ -305,10 +305,10 @@ function C004_ArtClass_Julia_BegForRelease() {
 			CurrentTime = CurrentTime + 60000;
 		} else {
 			OverridenIntroText = GetText("PlayerStayGagged");
-		}		
+		}
 	} else {
 		OverridenIntroText = GetText("JuliaRestrainedPlayerGagged");
-	}	
+	}
 }
 
 // Chapter 4 - Julia Gagged Speech

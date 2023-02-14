@@ -1145,7 +1145,7 @@ TargetCharacterName was moved to the left by SourceCharacter.
 TargetCharacterName被SourceCharacter移到了左边.
 TargetCharacterName was moved to the right by SourceCharacter.
 TargetCharacterName被SourceCharacter移到了右边.
-SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
+SourceCharacter swapped TargetCharacterName and DestinationCharacterName1 places.
 SourceCharacter交换了TargetCharacterName和DestinationCharacterName位置.
 SourceCharacter shuffles the position of everyone in the room randomly.
 SourceCharacter随机安排了房间中所有人的位置.
@@ -1290,7 +1290,7 @@ SourceCharacter 阻挡了 TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter 试图帮助 TargetCharacter 摆脱束缚。
 SourceCharacter gives TargetCharacter some lockpicks to help TargetType2Pronouns with.
-SourceCharacter 给 TargetCharacter 一些开锁工具以便TargetType2Pronouns自助。
+SourceCharacter 给 TargetCharacter 一些开锁工具以便TargetPronounObject自助。
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter抓住TargetCharacter的牵绳。
 SourceCharacter releases the leash of TargetCharacter.
@@ -1383,8 +1383,8 @@ Trigger Shock
 触发电击
 Save Voice Commands
 保存语音命令
-SourceCharacter changes the voice command settings on DestinationCharacter FocusAssetGroup.
-SourceCharacter 更改 DestinationCharacter FocusAssetGroup 的语音命令设置。
+SourceCharacter changes the voice command settings on DestinationCharacter AssetName.
+SourceCharacter改变了DestinationCharacterAssetName上的语言命令设置。
 DestinationCharacterName vibrator switches modes!
 DestinationCharacterName振动玩具更改了模式！
 Anyone
@@ -3609,108 +3609,88 @@ Dildo Intensity
 假阳具强度
 SourceCharacter chains DestinationCharacter mittens to the baby harness.
 SourceCharacter用锁链把DestinationCharacter无指手套连接到婴儿束带。
-Unlock Butt
-解锁臀部
-Lock Butt
-锁上臀部
-Remove Shield
-移除贞操护盾
-Remove Vibe
-移除振动棒
-Remove Shock
-移除电击
-Add Shield
-添加贞操护盾
-Add Vibe
-添加跳蛋
-Add Shock
-添加电击器
-SourceCharacter unlocks DestinationCharacter love chastity belt butt.
-SourceCharacter解开了DestinationCharacter爱人贞操带的臀部锁。
-SourceCharacter locks DestinationCharacter love chastity belt butt.
-SourceCharacter锁上了DestinationCharacter爱人贞操带的臀部锁。
-DestinationCharacterName love chastity belt starts teasing TargetPronounObject lightly.
-DestinationCharacterName爱人贞操带微微逗弄起TargetPronounObject来。
-DestinationCharacterName love chastity belt builds up to a moderate pace.
-DestinationCharacterName爱人贞操带逐渐提升到中等的频率。
-DestinationCharacterName love chastity belt starts buzzing strongly!
-DestinationCharacterName爱人贞操带猛烈地颤动起来！
-DestinationCharacterName love chastity belt jumps up to maximum intensity!
-DestinationCharacterName爱人贞操带突然以最大强度振动起来！
-DestinationCharacterName love chastity belt stops vibrating.
-DestinationCharacterName爱人贞操带停止振动。
-DestinationCharacterName love chastity belt slows down into a light tease.
-DestinationCharacterName爱人贞操带慢下来，仅仅在轻微逗弄。
-DestinationCharacterName love chastity belt returns to a moderate pace.
-DestinationCharacterName爱人贞操带恢复了中等的频率。
-DestinationCharacterName love chastity belt slows down a tiny bit.
-DestinationCharacterName爱人贞操带稍微慢下来一点。
-SourceCharacter sets DestinationCharacter love chastity belt to low intensity.
-SourceCharacter将DestinationCharacter爱人贞操带设置为低强度。
-SourceCharacter sets DestinationCharacter love chastity belt to moderate intensity.
-SourceCharacter将DestinationCharacter爱人贞操带设置为中强度。
-SourceCharacter sets DestinationCharacter love chastity belt to high intensity.
-SourceCharacter将DestinationCharacter爱人贞操带设置为高强度。
-SourceCharacter removes shield from DestinationCharacter love chastity belt.
-SourceCharacter移除了DestinationCharacter爱人贞操带上的贞操护盾。
-SourceCharacter locks shield to DestinationCharacter love chastity belt.
-SourceCharacter锁定了DestinationCharacter爱人贞操带上的贞操护盾。
-SourceCharacter locks vibe to DestinationCharacter love chastity belt.
-SourceCharacter锁定了DestinationCharacter爱人贞操带上的振动棒。
-SourceCharacter locks shock device to DestinationCharacter love chastity belt.
-SourceCharacter锁定了DestinationCharacter爱人贞操带电击装置。
+Select front shield
+选择前部护盾
+Select back shield
+选择后部护盾
+Select shock level
+选择电击强度
+Back Shield
+后部护盾
+Shock Level
+电击强度
+Close
+关闭
+Vibe Unit
+振动单元
+Shock Unit
+电击单元
+The front chastity shield on DestinationCharacter AssetName opens.
+DestinationCharacterAssetName的前部贞操护盾打开了。
+The front chastity shield on DestinationCharacter AssetName closes.
+DestinationCharacterAssetName的前部贞操护盾关闭了。
+SourceCharacter locks the vibe to DestinationCharacter AssetName.
+SourceCharacter将振动器锁在了DestinationCharacterAssetName上。
+SourceCharacter locks the shock unit to DestinationCharacter AssetName.
+SourceCharacter将电击单元锁在了DestinationCharacterAssetName上。
+The rear chastity shield on DestinationCharacter AssetName opens.
+DestinationCharacterAssetName的后部贞操护盾打开了。
+The rear chastity shield on DestinationCharacter AssetName closes.
+DestinationCharacterAssetName的后部贞操护盾关闭了。
+DestinationCharacterName AssetName activates tease vibe mode.
+DestinationCharacterAssetName开始以玩弄模式振动。
+DestinationCharacterName AssetName builds up to vibration level 1.
+DestinationCharacterAssetName的振动强度提升到级别1。
+DestinationCharacterName AssetName starts buzzing at vibration level 2!
+DestinationCharacterNameAssetName开始以级别2的强度振动！
+DestinationCharacterName AssetName jumps up to vibration level 3!
+DestinationCharacterNameAssetName的振动强度突然到达级别3！
+DestinationCharacterName AssetName vibration mode is deactivated.
+DestinationCharacterNameAssetName振动模式关闭。
+DestinationCharacterName AssetName slows down to tease vibe mode.
+DestinationCharacterNameAssetName减慢为玩弄模式。
+DestinationCharacterName AssetName returns to vibration level 1.
+DestinationCharacterNameAssetName的振动强度回到了级别1。
+DestinationCharacterName AssetName slows down to vibration level 2.
+DestinationCharacterNameAssetName的振动强度降低到了级别2。
+DestinationCharacter AssetName are set to shock level 1.
+DestinationCharacterAssetName被设置为级别1。
+DestinationCharacter AssetName are set to shock level 2.
+DestinationCharacterAssetName被设置为级别2。
+DestinationCharacter AssetName are set to shock level 3.
+DestinationCharacterAssetName被设置为级别3。
+Cannot change without the Vibe Unit attachment
+没有振动单元配件时无法更改
+Cannot change without the shock unit attachment
+没有电击单元配件时无法更改
+Cannot trigger without the shock unit attachment
+没有电击单元配件时无法触发
 Select crotch shield
 选择胯部护盾
 Select orgasm lock
 选择高潮锁
-Select shock level
-选择电击强度
 Orgasm Lock
 高潮锁
-Shock Level
-电击强度
 Normal Mode
 通常模式
 Edge Mode
 寸止模式
 Denial Mode
 拒绝模式
-The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties open.
-DestinationCharacter高科技快感管理内裤前部和后部的贞操护盾打开了。
-The front chastity shields on DestinationCharacter sci-fi pleasure panties closes.
-DestinationCharacter高科技快感管理内裤前部的贞操护盾关闭了。
-The read chastity shields on DestinationCharacter sci-fi pleasure panties closes.
-DestinationCharacter高科技快感管理内裤后部的贞操护盾关闭了。
-The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties close.
-DestinationCharacter高科技快感管理内裤前部和后部的贞操护盾关闭了。
-DestinationCharacterName sci-fi pleasure panties activates tease vibe mode.
-DestinationCharacterName高科技快感管理内裤开始以玩弄模式振动。
-DestinationCharacterName sci-fi pleasure panties builds up to vibration level 1.
-DestinationCharacterName高科技快感管理内裤的振动强度提升到级别1。
-DestinationCharacterName sci-fi pleasure panties starts buzzing at vibration level 2!
-DestinationCharacterName高科技快感管理内裤开始以级别2的强度振动！
-DestinationCharacterName sci-fi pleasure panties jumps up to vibration level 3!
-DestinationCharacterName高科技快感管理内裤的振动强度突然到达级别3！
-DestinationCharacterName sci-fi pleasure panties vibration mode is deactivated.
-DestinationCharacterName高科技快感管理内裤的振动模式关闭。
-DestinationCharacterName sci-fi pleasure panties slows down to tease vibe mode.
-DestinationCharacterName高科技快感管理内裤减慢为玩弄模式。
-DestinationCharacterName sci-fi pleasure panties returns to vibration level 1.
-DestinationCharacterName高科技快感管理内裤的振动强度回到了级别1。
-DestinationCharacterName sci-fi pleasure panties slows down to vibration level 2.
-DestinationCharacterName高科技快感管理内裤的振动强度降低到了级别2。
-The special mode on DestinationCharacter sci-fi pleasure panties deactivates, allowing orgasms again.
-DestinationCharacterName高科技快感管理内裤的特殊模式关闭了，现在允许高潮。
-The edging mode on DestinationCharacter sci-fi pleasure panties activates, preventing orgasms no matter what.
-DestinationCharacterName高科技快感管理内裤的寸止模式启动了，无论如何也不会再得到高潮。
-The denial mode on DestinationCharacter sci-fi pleasure panties activates, teasing them endlessly.
-DestinationCharacterName高科技快感管理内裤的拒绝模式启动了，开始无休止地逗弄。
-DestinationCharacter sci-fi pleasure panties are set to shock level 1.
-DestinationCharacterName高科技快感管理内裤的电击强度设置为级别1。
-DestinationCharacter sci-fi pleasure panties are set to shock level 2.
-DestinationCharacterName高科技快感管理内裤的电击强度设置为级别2。
-DestinationCharacter sci-fi pleasure panties are set to shock level 3.
-DestinationCharacterName高科技快感管理内裤的电击强度设置为级别3。
+The front and rear chastity shields on DestinationCharacter AssetName open.
+DestinationCharacterAssetName前部和后部的贞操护盾打开了。
+The front chastity shields on DestinationCharacter AssetName closes.
+DestinationCharacterAssetName前部的贞操护盾关闭了。
+The read chastity shields on DestinationCharacter AssetName closes.
+DestinationCharacterAssetName后部的贞操护盾关闭了。
+The front and rear chastity shields on DestinationCharacter AssetName close.
+DestinationCharacterAssetName前部和后部的贞操护盾关闭了。
+The special mode on DestinationCharacter AssetName deactivates, allowing orgasms again.
+DestinationCharacterNameAssetName的特殊模式关闭了，现在允许高潮。
+The edging mode on DestinationCharacter AssetName activates, preventing orgasms no matter what.
+DestinationCharacterNameAssetName的寸止模式启动了，无论如何也不会再得到高潮。
+The denial mode on DestinationCharacter AssetName activates, teasing them endlessly.
+DestinationCharacterNameAssetName的拒绝模式启动了，开始无休止地逗弄。
 Save text
 保存文本
 Select a module.
@@ -3739,12 +3719,6 @@ Carrot
 胡萝卜
 SourceCharacter changes the custom name tag on DestinationCharacter collar.
 SourceCharacter改变了DestinationCharacter项圈上的自定义名牌。
-SourceCharacter changes the text on DestinationCharacter collar name tag.
-SourceCharacter改变了DestinationCharacter自定义名牌上的文字。
-SourceCharacter changes the wooden sign on TargetCharacterName.
-SourceCharacter改变了TargetCharacterName的木制挂牌。
-SourceCharacter changes the text on DestinationCharacterName Doll Box.
-SourceCharacter改变了DestinationCharacterName人偶箱上的文字。
 Select what tag you want to use
 选择你想要使用的名牌
 SourceCharacter uses a NameTagType name tag on DestinationCharacter collar.
@@ -4283,8 +4257,8 @@ Select suit options
 选择禁闭拘束服选项
 Configure suit restraints
 选择套装拘束
-Configure shock module
-选择点击模块
+Configure shock intensity
+选择电击强度
 Restraints
 拘束具
 Shock Collar
@@ -4295,8 +4269,6 @@ Thighs Locked
 锁上大腿
 Locked Down
 全部锁上
-No Shock Module
-无电击模块
 SourceCharacter unbuckles all of the belts on DestinationCharacter suit
 SourceCharacter解开了DestinationCharacter禁闭拘束服上的所有皮带。
 SourceCharacter buckles the belts on DestinationCharacter ankles
@@ -4305,10 +4277,12 @@ SourceCharacter buckles the belts on DestinationCharacter thighs
 SourceCharacter扣上了DestinationCharacter大腿上的皮带
 SourceCharacter buckles all of the belts on DestinationCharacter suit
 SourceCharacter扣上了DestinationCharacter禁闭拘束服上的所有皮带。
-SourceCharacter deactivates DestinationCharacter collar shock module.
-SourceCharacter关闭了DestinationCharacter项圈上的电击模块。
-SourceCharacter activates DestinationCharacter collar shock module.
-SourceCharacter激活了DestinationCharacter项圈上的电击模块。
+SourceCharacter sets DestinationCharacter shock unit to low intensity.
+SourceCharacter将DestinationCharacter电击单元设置为低强度。
+SourceCharacter sets DestinationCharacter shock unit to moderate intensity.
+SourceCharacter将DestinationCharacter电击单元设置为中强度。
+SourceCharacter sets DestinationCharacter shock unit to high intensity.
+SourceCharacter将DestinationCharacter电击单元设置为高强度。
 Configure straitjacket
 设置拘束衣
 Configure crotch panel
@@ -4513,12 +4487,6 @@ No lover locks on yourself
 不能对自己使用恋人锁
 Your owner cannot use lover locks on you
 你的主人不能对你使用恋人锁
-Edit Text:
-编辑文字：
-SourceCharacter modifies DestinationCharacterName canvas hood to read "NewText"
-SourceCharacter修改DestinationCharacterName帆布头套上的文本为"NewText"
-Edit Text
-编辑文字
 Select Text Orientation
 选择文字方向
 SW-NE
@@ -4531,8 +4499,6 @@ SourceCharacter removes the text from DestinationCharacterName AssetName
 SourceCharacter移除了DestinationCharacterNameAssetName上的文本
 SourceCharacter changes the text on DestinationCharacterName AssetName to read "NewText"
 SourceCharacter修改DestinationCharacterNameAssetName上的文本为"NewText"
-SourceCharacter modifies DestinationCharacter bowl to read "NewText"
-SourceCharacter修改DestinationCharacter宠物碗上的文本为"NewText"
 Select Halo Type
 选择光环类型
 Broken
@@ -5037,8 +5003,8 @@ Configure Collar
 配置项圈
 Configure Collar Type
 配置项圈类型
-Configure Shock Module
-配置电击模块
+Configure Shock Intensity
+配置电击强度
 Collar Type
 项圈类型
 Slender
@@ -5195,10 +5161,6 @@ Hexagon
 六边形
 Lines
 线条
-SourceCharacter removes the text from DestinationCharacterName smooth latex mask.
-SourceCharacter移除了DestinationCharacterName平滑乳胶面具上的文字。
-SourceCharacter changes the text on DestinationCharacterName smooth latex mask to read 'NewText'.
-SourceCharacter改变DestinationCharacterName平滑乳胶面具上的文字为'NewText'。
 SourceCharacter changes the pattern on DestinationCharacter smooth latex mask.
 SourceCharacter改变了DestinationCharacter平滑乳胶面具上的图案。
 Select Lens Quality
@@ -5287,6 +5249,112 @@ All Visible
 全部可见
 SourceCharacter adjusts the visibility of gags and blindfolds on DestinationCharacter smooth latex mask.
 SourceCharacter调整了DestinationCharacter平滑乳胶面具上口塞和眼罩的可见性。
+Select Hood Details
+选择头套细节
+Select Mouth Panel
+选择嘴部遮罩
+Mouth Panel
+嘴部遮罩
+No Mouth
+没有嘴部
+Pinhole
+针孔
+Round Mouth
+圆形嘴
+Shaped Mouth
+造型嘴
+No Mouth - Transparent
+没有嘴部 - 透明
+Pinhole - Transparent
+针孔 - 透明
+Round Mouth - Transparent
+圆形嘴 - 透明
+Shaped Mouth - Transparent
+造型嘴 - 透明
+SourceCharacter changes the mouth panel on DestinationCharacter latex hood.
+SourceCharacter改变了DestinationCharacter乳胶头套的嘴部遮罩。
+Select Eye Panel
+选择眼部遮罩
+Eye Panel
+眼部遮罩
+No Eyeholes
+没有眼孔
+Pinholes
+针孔
+Round Eyes
+圆形眼睛
+Shaped Eyes
+造型眼睛
+No Eyeholes - Transparent
+没有眼孔 - 透明
+Pinholes - Transparent
+针孔 - 透明
+Round Eyes - Transparent
+圆形眼睛 - 透明
+Shaped Eyes - Transparent
+造型眼睛 - 透明
+SourceCharacter changes the eye panel on DestinationCharacter latex hood.
+SourceCharacter调整了DestinationCharacter乳胶头套上的眼部遮罩。
+Select Head Panel
+选择头部遮罩
+Head Panel
+头部遮罩
+SourceCharacter changes the head panel on DestinationCharacter latex hood.
+SourceCharacter调整了DestinationCharacter乳胶头套上的头部遮罩。
+Select Mouth Panel Fill
+选择嘴部遮罩填充
+Mouth Panel Fill
+嘴部遮罩填充
+Opaque with Pinhole
+不透明且有针孔
+Transparent with Pinhole
+透明且有针孔
+SourceCharacter changes the mouth panel fill on DestinationCharacter latex hood.
+SourceCharacter调整了DestinationCharacter乳胶头套上的嘴部遮罩填充。
+Select Eye Panel Fill
+选择眼睛遮罩填充
+Eye Panel Fill
+眼睛遮罩填充
+Opaque with Pinholes
+不透明且有针孔
+Transparent with Pinholes
+透明且有针孔
+SourceCharacter changes the eye panel fill on DestinationCharacter latex hood.
+SourceCharacter调整了DestinationCharacter乳胶头套上的眼睛遮罩填充。
+Select Hair Options
+选择头发选项
+Hair Options
+头发选项
+Show Hair
+显示头发
+Hide Hair
+隐藏头发
+Show Back Hair Only
+只显示背后头发
+SourceCharacter changes the hair opening on DestinationCharacter latex hood.
+SourceCharacter调整了DestinationCharacter乳胶头套上的头发开口。
+Select Hood Cover Options
+选择头套覆盖选项
+Hood Cover
+头套覆盖
+No Hood Cover
+没有头套覆盖
+Open Opaque Hood Cover
+打开不透明头套覆盖
+Closed Opaque Hood Cover
+关闭不透明头套覆盖
+Open Transparent Hood Cover
+打开透明头套覆盖
+Closed Transparent Hood Cover
+关闭透明头套覆盖
+SourceCharacter changes the hood cover on DestinationCharacter latex hood.
+SourceCharacter调整了DestinationCharacter乳胶头套上的头套覆盖。
+No Ears
+没有耳朵
+SourceCharacter attaches ears to DestinationCharacter cat mask harness.
+SourceCharacter在DestinationCharacter的猫猫面具束带上添加了耳朵。
+SourceCharacter detaches the ears from DestinationCharacter cat mask harness.
+SourceCharacter从DestinationCharacter的猫猫面具束带上移除了耳朵。
 Select bridle Gag Accessories
 选择缰绳口塞配件
 Select Gag Accessory
@@ -5695,6 +5763,8 @@ SourceCharacter flicks the glow switch on DestinationCharacter respirator.
 SourceCharacter切换了DestinationCharacter呼吸器上的灯光开关。
 Use Mask
 使用面罩
+Thick Filters
+厚过滤器
 No Mask
 没有面罩
 SourceCharacter changes the mask on DestinationCharacter respirator.
@@ -5739,6 +5809,68 @@ SourceCharacter loosely ties a rope around DestinationCharacter rags.
 SourceCharacter在DestinationCharacter破布上松垮地系上绳子。
 SourceCharacter locks a chain to hold DestinationCharacter rags.
 SourceCharacter在DestinationCharacter破布上锁上链条。
+Configure the game
+配置游戏
+Configure
+配置
+Choose the wheel configuration
+选择轮盘配置
+Choose the stand for the wheel
+选择轮盘支架
+Stand
+支架
+Wooden Stand
+木质支架
+Metal Stand
+金属支架
+SourceCharacter mounts DestinationCharacter lucky wheel stand on a wooden stand.
+SourceCharacter将DestinationCharacter幸运轮盘安装在了一个木质支架上。
+SourceCharacter mounts DestinationCharacter lucky wheel stand on a metal stand.
+SourceCharacter将DestinationCharacter幸运轮盘安装在了一个金属支架上。
+Choose whether you want extras or not
+选择你是否需要额外配件
+Extras
+有额外配件
+No Extras
+没有额外配件
+SourceCharacter adds some toys to DestinationCharacter lucky wheel.
+SourceCharacter在DestinationCharacter的幸运轮盘上加了一下玩具。
+SourceCharacter removes the toys from DestinationCharacter lucky wheel.
+SourceCharacter从DestinationCharacter的幸运轮盘上移除了玩具。
+Choose the arrow design
+选择箭头造型
+Arrow
+箭头
+Arrow 1
+箭头 1
+Arrow 2
+箭头 2
+Butt Plug
+肛塞
+SourceCharacter changes DestinationCharacter lucky wheel arrow for a tear design.
+SourceCharacter将DestinationCharacter幸运轮盘的箭头改为眼泪造型。
+SourceCharacter changes DestinationCharacter lucky wheel arrow for an arrow design.
+SourceCharacter将DestinationCharacter幸运轮盘的箭头改为箭头造型。
+SourceCharacter changes DestinationCharacter lucky wheel arrow for butt plug.
+SourceCharacter将DestinationCharacter幸运轮盘的箭头改为肛塞造型。
+Choose the wheel's position
+选择轮盘的位置
+Front
+前方
+Back
+背后
+SourceCharacter places TargetCharacter behind the wheel.
+SourceCharacter将TargetCharacter放置在轮盘后。
+SourceCharacter moves TargetCharacter in front of the wheel.
+SourceCharacter将TargetCharacter放置在轮盘前。
+Prize NUM
+奖项NUM
+Spin the wheel!
+转动轮盘！
+SourceCharacter grabs DestinationCharacter lucky wheel and spins it!
+SourceCharacter握住DestinationCharacter的幸运轮盘然后转了一下！
+SourceCharacter's lucky wheel clicked wildly until it finally stopped on “SectionName”.
+SourceCharacter的幸运轮盘咔哒咔哒地旋转着，最终在“SectionName”停了下来。
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
@@ -6027,8 +6159,6 @@ Select Shoulder Straps.
 选择肩部束带。
 Shoulder Straps
 肩部束带
-Back
-背后
 Wrapping
 交叉
 SourceCharacter shifts DestinationCharacter armbinder to the left of TargetPronounObject.

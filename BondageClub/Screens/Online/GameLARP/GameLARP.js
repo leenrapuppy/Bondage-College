@@ -36,19 +36,25 @@ var GameLARPTeamList = ["None", "Red", "Green", "Blue", "Yellow", "Cyan", "Purpl
 var GameLARPTimerDelay = [20, 60];
 var GameLARPEntryClass = "";
 var GameLARPEntryTeam = "";
+/** @type { { Sender: number, Time: number, RNG: number, Data: IChatRoomGameResponse["Data"], Success?: boolean }[] } */
 var GameLARPProgress = [];
+/** @type {Character[]} */
 var GameLARPPlayer = [];
 /** @type {GameLARPOption[]} */
 var GameLARPOption = [];
 var GameLARPAction = "";
+/** @type {Asset[]} */
 var GameLARPInventory = [];
 var GameLARPInventoryOffset = 0;
 var GameLARPTurnAdmin = 0;
 var GameLARPTurnPosition = 0;
 var GameLARPTurnAscending = true;
+/** @type {null | number} */
 var GameLARPTurnTimer = null;
 var GameLARPTurnTimerDelay = GameLARPTimerDelay[0];
+/** @type {null | Character} */
 var GameLARPTurnFocusCharacter = null;
+/** @type {null | string} */
 var GameLARPTurnFocusGroup = null;
 
 /**

@@ -1,6 +1,8 @@
 "use strict";
 var ChessBackground = "CollegeClass";
+/** @type {null | Character} */
 var ChessCharacterWhite = null;
+/** @type {null | Character} */
 var ChessCharacterBlack = null;
 var ChessEndStatus = "";
 var ChessMinorPieceWhite = 8;

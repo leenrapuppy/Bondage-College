@@ -1,14 +1,20 @@
 "use strict";
 
 var MagicBackground = "Magic";
+/** @type {null | NPCCharacter} */
 var MagicPerformer = null;
+/** @type {null | Item[]} */
 var MagicPerformerAppearance = null;
 
+/** @type {null | NPCCharacter} */
 var MagicAssistant = null;
+/** @type {null | Item[]} */
 var MagicAssistantAppearance = null;
 
+/** @type {null | Item[]} */
 var MagicPlayerAppearance = null;
 
+/** @type {null | string} */
 var MagicTrick = null;
 var MagicTrickList = ["ChangeBinds", "Dance", "BindAsstant", "BoxTiedLight", "GetCoin", "BoxTiedHeavy", "MilkCan", "WaterCell", "Song", "AsstantChange"];
 var MagicRestraintList = ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemArms", "ItemFeet", "ItemLegs", "ItemHead", "ItemMisc", "ItemDevices"];

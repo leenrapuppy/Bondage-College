@@ -1,8 +1,12 @@
 "use strict";
 var SlaveAuctionBackground = "SlaveMarket";
+/** @type {null | NPCCharacter} */
 var SlaveAuctionVendor = null;
+/** @type {null | NPCCharacter} */
 var SlaveAuctionSlave = null;
+/** @type {null | NPCCharacter} */
 var SlaveAuctionCustomerLeft = null;
+/** @type {null | NPCCharacter} */
 var SlaveAuctionCustomerRight = null;
 var SlaveAuctionBidCurrent = "";
 var SlaveAuctionBidTime = 0;

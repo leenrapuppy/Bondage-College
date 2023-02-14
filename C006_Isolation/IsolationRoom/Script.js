@@ -69,8 +69,8 @@ function C006_Isolation_IsolationRoom_Click() {
 		if ((MouseX >= 830) && (MouseX <= 1000) && (MouseY >= 180) && (MouseY <= 300) && (!C006_Isolation_IsolationRoom_AllowCutRope)) SetScene(CurrentChapter, "Table");
 		if (C006_Isolation_IsolationRoom_AllowCutRope) StruggleClick("C006_CutRope", "Hard", GetText("CutRope"), GetText("CutRopeSuccess"), 910, 220, 100);
 	}
-	
-	// Opens the inventory screen 
+
+	// Opens the inventory screen
 	InventoryClick(GetClickedInventory(), CurrentChapter, "IsolationRoom");
 
 }
@@ -83,8 +83,8 @@ function C006_Isolation_IsolationRoom_StruggleDone() {
 	if ((C006_Isolation_IsolationRoom_Stage == 1) && (StruggleType == "C006_Collar")) { PlayerUnlockInventory("Collar"); C006_Isolation_IsolationRoom_Stage++; }
 	if ((C006_Isolation_IsolationRoom_Stage == 2) && (StruggleType == "C006_CellDoor")) C006_Isolation_IsolationRoom_Stage++;
 	if ((C006_Isolation_IsolationRoom_Stage == 3) && (StruggleType == "C006_CutRope")) SetScene(CurrentChapter, "Outro");
-	
+
 	// Can only have one orgasm from the crotch rope at any stage
 	if (StruggleType == "C006_Crotch") C006_Isolation_IsolationRoom_OrgasmReady = false;
-	
+
 }

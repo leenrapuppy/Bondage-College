@@ -265,7 +265,12 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 
 	if (!DrawCanvas) DrawCanvas = MainCanvas;
 
-	var OverrideDark = CurrentModule == "MiniGame" || ((Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars"))) || CurrentScreen == "InformationSheet";
+	var OverrideDark = (
+		CurrentModule == "MiniGame"
+		|| ((Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars")))
+		|| CurrentScreen == "InformationSheet"
+		|| CurrentScreen === "Crafting"
+	);
 
 	if ((C != null) && ((C.ID == 0) || (OverrideDark || Player.GetBlindLevel() < 3 ))) {
 
@@ -488,9 +493,10 @@ function DrawImageResize(Source, X, Y, Width, Height) {
  * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
+ * @param {GlobalCompositeOperation} [BlendingMode="source-over"] - blending mode for drawing the image
  * @returns {boolean} - whether the image was complete or not
  */
-function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
+function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate, BlendingMode) {
 	const Img = DrawGetImage(Source);
 	if (!Img.complete) return false;
 	if (!Img.naturalWidth) return true;
@@ -514,6 +520,7 @@ function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
 	Opacity = typeof Opacity === "number" ? Opacity : 1;
 	Canvas.save();
 	Canvas.globalAlpha = Opacity;
+	Canvas.globalCompositeOperation = BlendingMode;
 	Canvas.drawImage(SourceImage, X, Y);
 	Canvas.restore();
 	return true;
@@ -594,9 +601,10 @@ function DrawImage(Source, X, Y, Invert) {
  * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
+ * @param {GlobalCompositeOperation} [BlendingMode="source-over"] - blending mode for drawing the image
  * @returns {boolean} - whether the image was complete or not
  */
-function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha, AlphaMasks, Opacity, Rotate) {
+function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha, AlphaMasks, Opacity, Rotate, BlendingMode) {
 
 	// Make sure that the starting image is loaded
 	const Img = DrawGetImage(Source);
@@ -657,6 +665,7 @@ function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha
 	Opacity = typeof Opacity === "number" ? Opacity : 1;
 	Canvas.save();
 	Canvas.globalAlpha = Opacity;
+	Canvas.globalCompositeOperation = BlendingMode;
 	Canvas.drawImage(ColorCanvas.canvas, 0, 0, Img.width, Img.height, X, Y, Img.width * Zoom, Img.height * Zoom);
 	Canvas.restore();
 
@@ -771,35 +780,35 @@ function DrawImageEx(
  * @returns {Array<string>} - A list of string that being fragmented.
  */
 function fragmentText(text, maxWidth) {
-    let words = text.split(' '),
-        lines = [],
-        line = "";
+	let words = text.split(' '),
+		lines = [],
+		line = "";
 
-    if (MainCanvas.measureText(text).width < maxWidth) {
-        return [text];
-    }
+	if (MainCanvas.measureText(text).width < maxWidth) {
+		return [text];
+	}
 
-    while (words.length > 0) {
-        while (MainCanvas.measureText(words[0]).width >= maxWidth) {
-            let temp = words[0];
-            words[0] = temp.slice(0, -1);
-            if (words.length > 1) {
-                words[1] = temp.slice(-1) + words[1];
-            } else {
-                words.push(temp.slice(-1));
-            }
-        }
-        if (MainCanvas.measureText(line + words[0]).width < maxWidth) {
-            line += words.shift() + " ";
-        } else {
-            lines.push(line);
-            line = "";
-        }
-        if (words.length === 0) {
-            lines.push(line);
-        }
-    }
-    return lines;
+	while (words.length > 0) {
+		while (MainCanvas.measureText(words[0]).width >= maxWidth) {
+			let temp = words[0];
+			words[0] = temp.slice(0, -1);
+			if (words.length > 1) {
+				words[1] = temp.slice(-1) + words[1];
+			} else {
+				words.push(temp.slice(-1));
+			}
+		}
+		if (MainCanvas.measureText(line + words[0]).width < maxWidth) {
+			line += words.shift() + " ";
+		} else {
+			lines.push(line);
+			line = "";
+		}
+		if (words.length === 0) {
+			lines.push(line);
+		}
+	}
+	return lines;
 }
 
 /**
@@ -1329,7 +1338,7 @@ function DrawProcess(time) {
 	let B = window[CurrentScreen + "Background"];
 
 	if ((B != null) && (B != "")) {
-		const ValidScreenForVFX = CurrentModule != "Character" && B != "Sheet";
+		const ValidScreenForVFX = CurrentModule != "Character" && B != "Sheet" && CurrentScreen !== "Crafting";
 		const blurLevel = Player.GetBlurLevel();
 		if (ValidScreenForVFX && blurLevel > 0) {
 			MainCanvas.filter = `blur(${blurLevel}px)`;

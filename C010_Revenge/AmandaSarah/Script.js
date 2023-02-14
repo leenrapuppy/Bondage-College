@@ -15,11 +15,11 @@ function C010_Revenge_AmandaSarah_Load() {
 
 	// Set the timer limits at 15:15
 	StartTimer(15.25 * 60 * 60 * 1000, "C010_Revenge", "Outro");
-	
+
 	// Load the scene parameters (loads Sarah first in case we are starting directly in chapter 10)
 	ActorLoad("Sarah", "");
 	ActorLoad(C010_Revenge_AmandaSarah_CurrentActor, "");
-	if (C010_Revenge_AmandaSarah_CurrentStage == 0) { ActorSpecificSetPose("Amanda", "Furious"); ActorSpecificSetPose("Sarah", "Angry"); }	
+	if (C010_Revenge_AmandaSarah_CurrentStage == 0) { ActorSpecificSetPose("Amanda", "Furious"); ActorSpecificSetPose("Sarah", "Angry"); }
 	LoadInteractions();
 	LeaveIcon = "";
 	Common_SelfBondageAllowed = false;
@@ -32,7 +32,7 @@ function C010_Revenge_AmandaSarah_Load() {
 
 // Chapter 10 - Amanda and Sarah Revenge Run
 function C010_Revenge_AmandaSarah_Run() {
-	
+
 	// Build the text interactions
 	BuildInteraction(C010_Revenge_AmandaSarah_CurrentStage);
 
@@ -44,7 +44,7 @@ function C010_Revenge_AmandaSarah_Run() {
 				DrawActor("Amanda", 500, 0, 1.0);
 			} else {
 				DrawActor("Amanda", 525, 50, 0.8);
-				DrawActor("Sarah", 675, 0, 1.0);		
+				DrawActor("Sarah", 675, 0, 1.0);
 			}
 		} else {
 			if (!C010_Revenge_AmandaSarah_AmandaGone || !C010_Revenge_AmandaSarah_SarahGone) {
@@ -53,9 +53,9 @@ function C010_Revenge_AmandaSarah_Run() {
 				else
 					DrawInteractionActor();
 			}
-		}		
+		}
 	}
-	
+
 	// Between 100 and 160, draw the player in the middle of the girls
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 100) && (C010_Revenge_AmandaSarah_CurrentStage <= 160)) {
 		DrawActor("Amanda", 525, 50, 0.8);
@@ -70,7 +70,7 @@ function C010_Revenge_AmandaSarah_Run() {
 		DrawActor("Amanda", 475, 25, 0.8);
 		DrawActor("Sarah", 850, 30, 0.8);
 	}
-	
+
 	// Between 170 and 180, draw the player in front of the locker, at 190 or more she's inside
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 170) && (C010_Revenge_AmandaSarah_CurrentStage <= 180)) DrawActor("Player", 600, 150, 1.0);
 	if ((C010_Revenge_AmandaSarah_CurrentStage >= 190) && (C010_Revenge_AmandaSarah_CurrentStage <= 300)) DrawActor("Player", 690, 20, 0.75);
@@ -80,27 +80,27 @@ function C010_Revenge_AmandaSarah_Run() {
 		DrawActor("Sarah", 600, 20, 0.75);
 		DrawActor("Amanda", 767, 25, 0.75);
 	}
-	
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge Click
-function C010_Revenge_AmandaSarah_Click() {	
+function C010_Revenge_AmandaSarah_Click() {
 
 	// Regular interactions
 	ClickInteraction(C010_Revenge_AmandaSarah_CurrentStage);
-	
+
 	// The player can click on herself
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
 		C010_Revenge_AmandaSarah_IntroText = OverridenIntroText;
-		C010_Revenge_AmandaSarah_CurrentActor = CurrentActor; 
+		C010_Revenge_AmandaSarah_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - Switch the focus to another actor
-function C010_Revenge_AmandaSarah_SwitchFocus(ActorToFocus) {	
+function C010_Revenge_AmandaSarah_SwitchFocus(ActorToFocus) {
 	if (C010_Revenge_AmandaSarah_CurrentStage < 400) ActorSetPose("Angry");
 	ActorLoad(ActorToFocus, "");
 	if (C010_Revenge_AmandaSarah_CurrentStage < 400) ActorSetPose("Furious");
@@ -146,7 +146,7 @@ function C010_Revenge_AmandaSarah_CalmDown(ActorToCalm) {
 
 // Chapter 10 - Amanda and Sarah Revenge - When the actor enters the locker
 function C010_Revenge_AmandaSarah_EnterLocker(ActorInLocker) {
-	
+
 	// Puts the actor(s) in the locker
 	if ((ActorInLocker == "Amanda") || (ActorInLocker == "Both")) ActorSpecificSetPose("Amanda", "Locker");
 	if ((ActorInLocker == "Sarah") || (ActorInLocker == "Both")) ActorSpecificSetPose("Sarah", "Locker");
@@ -176,13 +176,13 @@ function C010_Revenge_AmandaSarah_CloseLocker(ActorInLocker) {
 
 // Chapter 10 - Amanda and Sarah Revenge - Steal Items
 function C010_Revenge_AmandaSarah_StealItems() {
-	
+
 	// Backup the player inventory
 	PlayerSaveAllInventory();
 	PlayerRemoveAllInventory();
 	C010_Revenge_AmandaSarah_ItemStolen = true;
 	CurrentTime = CurrentTime + 50000;
-	
+
 	// If Sarah and Amanda are not in belt, and they like (+20 total) or submit (+20 total) to the player, we skip the stripping part
 	if (!ActorSpecificHasInventory("Amanda", "ChastityBelt") && !ActorSpecificHasInventory("Sarah", "ChastityBelt") && ((ActorSpecificGetValue("Amanda", ActorLove) + ActorSpecificGetValue("Sarah", ActorLove) >= 20) || (ActorSpecificGetValue("Amanda", ActorSubmission) + ActorSpecificGetValue("Sarah", ActorSubmission) >= 20))) {
 		C010_Revenge_AmandaSarah_CurrentStage = 160;
@@ -190,7 +190,7 @@ function C010_Revenge_AmandaSarah_StealItems() {
 		Common_PlayerPose = "BackShy";
 		OverridenIntroText = GetText("LockerNoStrip");
 	}
-	
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - Recover the stolen items and clothes
@@ -203,7 +203,7 @@ function C010_Revenge_AmandaSarah_RecoverItems() {
 
 // Chapter 10 - Amanda and Sarah Revenge - Starts the fight 2 VS 1
 function C010_Revenge_AmandaSarah_StartFight() {
-		
+
 	// Sets the fight difficulty
 	var AmandaDifficulty = "Normal";
 	var SarahDifficulty = "Easy";
@@ -218,14 +218,14 @@ function C010_Revenge_AmandaSarah_StartFight() {
 
 // Chapter 10 - Amanda and Sarah Revenge - When the fight ends
 function C010_Revenge_AmandaSarah_EndFight(Victory) {
-	
-	// Change the girls attitude depending on the victory or defeat	
+
+	// Change the girls attitude depending on the victory or defeat
 	ActorSpecificChangeAttitude("Amanda", -2, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Sarah", -2, Victory ? 2 : -2);
 	GameLogSpecificAdd("C010_Revenge", "Amanda", Victory ? "FightVictory" : "FightDefeat");
 	GameLogSpecificAdd("C010_Revenge", "Sarah", Victory ? "FightVictory" : "FightDefeat");
 	C010_Revenge_AmandaSarah_AllowFight = false;
-	
+
 	// On a victory, we jump to stage 400 right away, on a defeat, we show a custom text
 	if (Victory) {
 		C010_Revenge_Outro_GoodEnding = true;
@@ -252,7 +252,7 @@ function C010_Revenge_AmandaSarah_TestForBelt() {
 	// If they don't like the player, the play is sub or the player locked a belt on them, she gets a chastity belt
 	if (ActorSpecificHasInventory("Amanda", "ChastityBelt")) { C010_Revenge_AmandaSarah_CurrentStage = 130; OverridenIntroText = GetText("BeltForAmandaBelt"); return; }
 	if (ActorSpecificHasInventory("Sarah", "ChastityBelt")) { C010_Revenge_AmandaSarah_CurrentStage = 130; OverridenIntroText = GetText("BeltForSarahBelt"); return; }
-	if (ActorSpecificGetValue("Amanda", ActorLove) + ActorSpecificGetValue("Sarah", ActorLove) < 0) { C010_Revenge_AmandaSarah_CurrentStage = 130; OverridenIntroText = GetText("BeltForHate"); return; } 
+	if (ActorSpecificGetValue("Amanda", ActorLove) + ActorSpecificGetValue("Sarah", ActorLove) < 0) { C010_Revenge_AmandaSarah_CurrentStage = 130; OverridenIntroText = GetText("BeltForHate"); return; }
 	if (ActorSpecificGetValue("Amanda", ActorSubmission) + ActorSpecificGetValue("Sarah", ActorSubmission) < 0) { C010_Revenge_AmandaSarah_CurrentStage = 130; OverridenIntroText = GetText("BeltForSub"); return; }
 
 }
@@ -274,7 +274,7 @@ function C010_Revenge_AmandaSarah_BeltComment() {
 
 // At 15:10, Amanda & Sarah return to the locker
 function C010_Revenge_AmandaSarah_ReturnToLocker() {
-	
+
 	// The player can be caught masturbating while she waits
 	OverridenIntroImage = "";
 	if (Common_PlayerPose == "LockerMasturbate") {
@@ -289,7 +289,7 @@ function C010_Revenge_AmandaSarah_ReturnToLocker() {
 		C010_Revenge_AmandaSarah_CurrentStage = 250;
 	}
 	LeaveIcon = "";
-	
+
 }
 
 // Chapter 10 - Amanda and Sarah Revenge - Wait in the locker (Spends 2 minutes)
@@ -320,7 +320,7 @@ function C010_Revenge_AmandaSarah_MasturbateLocker() {
 		}
 
 	}
-	
+
 	// Spends 2 minutes
 	CurrentTime = CurrentTime + 110000;
 	if (CurrentTime >= 15.16667 * 60 * 60 * 1000) C010_Revenge_AmandaSarah_ReturnToLocker();

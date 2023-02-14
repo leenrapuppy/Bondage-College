@@ -1766,6 +1766,13 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 			})) refresh = true;
 		} else if (C.UnregisterHook("BeforeSortLayers", "HideRestraints")) refresh = true;
 
+		for (let A = 0; A < C.DrawAppearance.length; A++) {
+			if (C.DrawAppearance[A].Asset && C.DrawAppearance[A].Asset.NotVisibleOnScreen && (C.DrawAppearance[A].Asset.NotVisibleOnScreen.length > 0)) {
+				refresh = true;
+				break;
+			}
+		}
+
 		// Hook for layer visibility
 		// Visibility is a string individual layers have. If an item has any layers with visibility, it should have the LayerVisibility: true property
 		// We basically check the player's items and see if any are visible that have the LayerVisibility property.
@@ -1851,15 +1858,7 @@ function CharacterClearOwnership(C) {
 	}
 
 	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
-	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item, {
-		C,
-		fromSelf: true,
-		fromOwner: false,
-		fromLover: false,
-		fromFriend: false,
-		fromWhitelist: false,
-		sourceMemberNumber: C.MemberNumber,
-	}, null));
+	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
 	CharacterRefresh(C);
 }
 
@@ -1944,4 +1943,76 @@ function CharacterSetNickname(C, Nick) {
 	}
 
 	return null;
+}
+
+/**
+ * Updates the leash state on a character
+ *
+ * @param {Character} C
+ */
+function CharacterRefreshLeash(C) {
+	if (!C.IsPlayer()) return;
+
+	const leashes = Player.Appearance.filter(i => InventoryItemHasEffect(i, "Leash", true));
+
+	// We aren't wearing a leash anymore, break the link
+	// This can happen if someone removed the leash while in the process of being leashed away
+	if (leashes.length === 0) {
+		if (ChatRoomLeashPlayer !== null) {
+			ChatRoomLeashPlayer = null;
+		}
+		return;
+	}
+
+	// Check for a dynamic leash and update its state
+	const dynamicLeash = leashes.find(i => i.Asset.AllowEffect.includes("IsLeashed"));
+	if (dynamicLeash) {
+		if (!dynamicLeash.Property) dynamicLeash.Property = {};
+		if (!Array.isArray(dynamicLeash.Property.Effect)) dynamicLeash.Property.Effect = [];
+
+		if (ChatRoomLeashPlayer !== null) {
+			dynamicLeash.Property.Effect.push("IsLeashed");
+		} else if (ChatRoomLeashPlayer === null) {
+			dynamicLeash.Property.Effect = dynamicLeash.Property.Effect.filter(e => e !== "IsLeashed");
+		}
+
+		ChatRoomCharacterUpdate(Player);
+	}
+}
+
+/**
+ * Create and return a character's script item, if appropriate
+ * @param {Character} C
+ * @returns {Item}
+ */
+function CharacterScriptGet(C) {
+	let script = InventoryGet(C, "ItemScript");
+	if (!script) {
+		InventoryWear(C, "Script", "ItemScript");
+		script = InventoryGet(C, "ItemScript");
+	}
+
+	script.Property = script.Property || {};
+	// Propagate change and try to reload the item. If the script permissions
+	// on the target were wrong, then it'll be null
+	CharacterScriptRefresh(C);
+
+	script = InventoryGet(C, "ItemScript");
+	return script;
+}
+
+/**
+ * Refresh the character's script
+ * @param {Character} C
+ */
+function CharacterScriptRefresh(C) {
+	ChatRoomCharacterUpdate(C);
+}
+
+/**
+ * Remove a character's script item
+ * @param {Character} C
+ */
+function CharacterScriptRemove(C) {
+	InventoryRemove(C, "ItemScript", true);
 }

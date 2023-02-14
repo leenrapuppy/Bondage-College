@@ -144,7 +144,7 @@ function KinkyDungeonGetEnemy(enemytags, Level, Index, Tile, requireTags, requir
 		let noOverride = ["boss", "miniboss", "elite", "minor"];
 		let overrideFloor = false;
 		for (let t of tags) {
-			if (!noOverride.includes(t)) {
+			if (!enemy.noOverrideFloor && !noOverride.includes(t)) {
 				// We don't override the floor just for having the seniority tags specified
 				if (enemy.tags[t]) {
 					overrideFloor = true;
@@ -231,26 +231,18 @@ function KinkyDungeonCallGuard(x, y, noTransgress, normalDrops, requireTags) {
 	//if (!noTransgress)
 	// KinkyDungeonAggroAction('call', {});
 	let point = KinkyDungeonGetNearbyPoint(x, y, true, undefined, true, true);
+	if (!point) point = KinkyDungeonGetRandomEnemyPoint(true);
 	if (point) {
 		if (!KinkyDungeonJailGuard()) {
-
-			let params = KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]];
-			let guardtag = params.guardType;
-
-			let mapMod = null;
-			if (KDGameData.MapMod) {
-				mapMod = KDMapMods[KDGameData.MapMod];
-			}
 			// Jail tag
-			let jt = (mapMod && mapMod.guardType ? mapMod.guardType : (guardtag ? guardtag : "guardCall"));
+			let jt = KDGameData.GuardFaction?.length > 0 ? KinkyDungeonFactionTag[KDGameData.GuardFaction[Math.floor(KDRandom() * KDGameData.GuardFaction.length)]] : "guardCall";
 
-			let Enemy =  KinkyDungeonGetEnemy(["Guard"], MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], '0', requireTags ? requireTags : [jt], true, undefined, ["gagged"]);
+			let Enemy =  KinkyDungeonGetEnemy(["Guard", jt], MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], '0', requireTags ? requireTags : [jt, "jail"], true, undefined, ["gagged"]);
 			if (!Enemy) {
-				jt = guardtag;
-				Enemy = KinkyDungeonGetEnemy(["Guard"], MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], '0', [jt], false, undefined, ["gagged"]);
+				Enemy = KinkyDungeonGetEnemy(["Guard", jt], MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], '0', [jt, "jail"], false, undefined, ["gagged"]);
 				if (!Enemy) {
 					jt = "guardCall";
-					Enemy = KinkyDungeonGetEnemy(["Guard"], MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], '0', [jt], false);
+					Enemy = KinkyDungeonGetEnemy(["Guard", jt], MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], '0', [jt, "jail"], false);
 				}
 			}
 			let guard = {summoned: true, noRep: true, noDrop: !normalDrops, Enemy: Enemy, id: KinkyDungeonGetEnemyID(),
@@ -264,6 +256,11 @@ function KinkyDungeonCallGuard(x, y, noTransgress, normalDrops, requireTags) {
 			KinkyDungeonJailGuard().gy = point.y;
 			KinkyDungeonJailGuard().gxx = point.x;
 			KinkyDungeonJailGuard().gyy = point.y;
+			if (KinkyDungeonFindPath(KinkyDungeonJailGuard().x, KinkyDungeonJailGuard().y, KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, true, false, true, KinkyDungeonMovableTilesSmartEnemy) < 15) {
+				let p = KinkyDungeonGetRandomEnemyPoint(true, true, undefined, 20, 10);
+				KinkyDungeonJailGuard().x = p.x;
+				KinkyDungeonJailGuard().y = p.y;
+			}
 			return KinkyDungeonJailGuard();
 		}
 	}

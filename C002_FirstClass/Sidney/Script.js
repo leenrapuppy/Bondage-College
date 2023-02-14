@@ -9,7 +9,7 @@ var C002_FirstClass_Sidney_AmandaWhipDone = false;
 var C002_FirstClass_Sidney_SarahWhipDone = false;
 
 // Change the Amanda and Sarah variables
-function C002_FirstClass_Sidney_AmandaSarahVariables() {	
+function C002_FirstClass_Sidney_AmandaSarahVariables() {
 	C002_FirstClass_Sidney_AmandaWhipReady = ((C002_FirstClass_Sidney_CurrentStage == 100) && (Common_PlayerNotGagged) && (Common_PlayerNotRestrained) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (C002_FirstClass_Sidney_AmandaWhipDone == false) && (PlayerHasInventory("Crop")) && ((ActorSpecificHasInventory("Amanda", "Rope")) || (ActorSpecificHasInventory("Amanda", "Cuffs"))));
 	C002_FirstClass_Sidney_SarahWhipReady = ((C002_FirstClass_Sidney_CurrentStage == 100) && (Common_PlayerNotGagged) && (Common_PlayerNotRestrained) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (C002_FirstClass_Sidney_SarahWhipDone == false) && (PlayerHasInventory("Crop")) && ((ActorSpecificHasInventory("Sarah", "Rope")) || (ActorSpecificHasInventory("Sarah", "Cuffs"))));
 }
@@ -17,13 +17,13 @@ function C002_FirstClass_Sidney_AmandaSarahVariables() {
 // Chapter 2 - Sidney Load
 function C002_FirstClass_Sidney_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	ActorLoad("Sidney", "Classroom");
 	LoadInteractions();
 	C002_FirstClass_Sidney_PlayerHasRope = PlayerHasInventory("Rope");
 	if (C002_FirstClass_Classroom_MildredSubdueSuccess) C002_FirstClass_Sidney_BowRemarkReady = false;
 	C002_FirstClass_Sidney_BondageBefore = (ActorGetValue(ActorBondageCount) > 0);
-	
+
 	// Stage jumps depending on actor bondage if subdue was tried
 	if ((C002_FirstClass_Classroom_MildredSubdueFailed) || (C002_FirstClass_Classroom_MildredSubdueSuccess)) {
 		if ((parseInt(C002_FirstClass_Sidney_CurrentStage) < 100) && (Common_PlayerNotGagged) && (C002_FirstClass_Classroom_MildredSubdueSuccess)) C002_FirstClass_Sidney_SubdueRemarkReady = true;
@@ -50,15 +50,15 @@ function C002_FirstClass_Sidney_Run() {
 }
 
 // Chapter 2 - Sidney Click
-function C002_FirstClass_Sidney_Click() {	
+function C002_FirstClass_Sidney_Click() {
 
 	// Keep the stage on entry
 	var EntryStage = C002_FirstClass_Sidney_CurrentStage;
 
 	// Regular interactions
-	ClickInteraction(C002_FirstClass_Sidney_CurrentStage);	
+	ClickInteraction(C002_FirstClass_Sidney_CurrentStage);
 	var ClickedInv = GetClickedInventory();
-	
+
 	// If the player wants to gag Sidney
 	if ((C002_FirstClass_Sidney_CurrentStage >= 100) && (ClickedInv == "BallGag") && (ActorHasInventory("BallGag") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope")) || (ActorHasInventory("Cuffs"))) {
@@ -160,5 +160,5 @@ function C002_FirstClass_Sidney_SarahWhip() {
 	OverridenIntroImage = "Sidney_Crop.jpg";
 	GameLogAdd("CropSarah");
 	C002_FirstClass_Sidney_SarahWhipDone = true;
-	C002_FirstClass_Sidney_AmandaSarahVariables();	
+	C002_FirstClass_Sidney_AmandaSarahVariables();
 }

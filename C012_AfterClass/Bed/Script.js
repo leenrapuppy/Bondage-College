@@ -47,12 +47,12 @@ function C012_AfterClass_Bed_Load() {
 		else C012_AfterClass_Bed_CurrentStage = 800;
 		if (ActorSpecificHasInventory("Amanda", "ChastityBelt")) OverridenIntroImage = "AmandaChastityBeltSarahBed.jpg";
 		else OverridenIntroImage = "AmandaSarahBed.jpg";
-	
+
 	} else {
 
 		// If there's no partner in bed
 		if (C012_AfterClass_Bed_Partner == "") {
-			
+
 			// Starts the masturbation mini game
 			LeaveIcon = "Leave";
 			LeaveScreen = "Dorm";
@@ -62,9 +62,9 @@ function C012_AfterClass_Bed_Load() {
 			C012_AfterClass_Bed_MistressApproveMasturbate = "";
 			if (PlayerHasLockedInventory("VibratingEgg")) C012_AfterClass_Bed_MasturbationRequired = 2;
 			else C012_AfterClass_Bed_MasturbationRequired = 3;
-			
+
 		} else {
-			
+
 			// With a partner, they can make love, some girls are a little harder to please
 			C012_AfterClass_Bed_CanDateSarah = ((Common_PlayerLover == "") && !GameLogQuery(CurrentChapter, "Amanda", "DatingSarah"));
 			ActorLoad(C012_AfterClass_Bed_Partner, "Dorm");
@@ -80,15 +80,15 @@ function C012_AfterClass_Bed_Load() {
 			C012_AfterClass_Bed_SexPleasurePartner = ActorHasInventory("VibratingEgg") ? 3 : 0;
 			C012_AfterClass_Bed_SexPleasurePlayer = PlayerHasLockedInventory("VibratingEgg") ? 3 : 0;
 			if (CurrentActor == "Amanda") C012_AfterClass_Bed_SexPleasurePartner = C012_AfterClass_Bed_SexPleasurePartner - 1;
-			if (CurrentActor == "Sarah") C012_AfterClass_Bed_SexPleasurePartner = C012_AfterClass_Bed_SexPleasurePartner + 2;		
+			if (CurrentActor == "Sarah") C012_AfterClass_Bed_SexPleasurePartner = C012_AfterClass_Bed_SexPleasurePartner + 2;
 			if (CurrentActor == "Sidney") C012_AfterClass_Bed_SexPleasurePartner = C012_AfterClass_Bed_SexPleasurePartner + 1;
 			if (CurrentActor == "Jennifer") C012_AfterClass_Bed_SexPleasurePartner = C012_AfterClass_Bed_SexPleasurePartner - 2;
 			LeaveIcon = "";
 
 		}
-		
+
 	}
-	
+
 }
 
 // Chapter 12 After Class - Bed Run
@@ -101,7 +101,7 @@ function C012_AfterClass_Bed_Run() {
 }
 
 // Chapter 12 After Class - Bed Click
-function C012_AfterClass_Bed_Click() {	
+function C012_AfterClass_Bed_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Bed_CurrentStage);
@@ -116,20 +116,20 @@ function C012_AfterClass_Bed_EndChapter(OutroType) {
 
 // Chapter 12 After Class - Checks if there's no guest that's not related to the player (love or BDSM)
 function C012_AfterClass_Bed_AllRelatedGuest() {
-	
+
 	// Loops in all guests to find one that's not related
 	for (var G = 0; G < C012_AfterClass_Dorm_Guest.length; G++) {
 		ActorLoad(C012_AfterClass_Dorm_Guest[G], "Dorm");
 		if (!Common_ActorIsLover && !Common_ActorIsOwner && !Common_ActorIsOwned) {
-			CurrentActor = "";		
-			return false;			
-		}	
+			CurrentActor = "";
+			return false;
+		}
 	}
-	
+
 	// If the player Mistress is around, she might punish her for masturbating or changing clothes
 	for (var G = 0; G < C012_AfterClass_Dorm_Guest.length; G++) {
 		if (Common_ActorIsOwner && (CurrentActor == Common_PlayerOwner)) {
-			
+
 			// If the player strips without being allowed, she gets punished
 			if (!Common_PlayerNaked && GameLogQuery(CurrentChapter, "", "EventBlockChanging")) {
 				CurrentTime = CurrentTime + 50000;
@@ -141,7 +141,7 @@ function C012_AfterClass_Bed_AllRelatedGuest() {
 				LeaveIcon = "";
 				return false;
 			} else {
-				
+
 				// Hints the player if she will get punished or not
 				if (EventRandomChance("Hate")) C012_AfterClass_Bed_MistressApproveMasturbate = "NO";
 				else C012_AfterClass_Bed_MistressApproveMasturbate = "YES";
@@ -150,7 +150,7 @@ function C012_AfterClass_Bed_AllRelatedGuest() {
 
 		}
 	}
-	
+
 	// No guest found, we allow the player to masturbate
 	CurrentActor = "";
 	return true;
@@ -167,7 +167,7 @@ function C012_AfterClass_Bed_StartMasturbate() {
 			if (C012_AfterClass_Bed_MistressApproveMasturbate == "NO") OverridenIntroText = GetText("LayMistressDisapprove");
 			PlayerClothes("Naked");
 			C012_AfterClass_Bed_CurrentStage = 100;
-			CurrentTime = CurrentTime + 50000;			
+			CurrentTime = CurrentTime + 50000;
 		} else if (CurrentActor == "") OverridenIntroText = GetText("CannotMasturbateWithGuest");
 	}
 }
@@ -229,13 +229,13 @@ function C012_AfterClass_Bed_Climax() {
 
 // Chapter 12 After Class - When the player wants to leave the bed with a lover
 function C012_AfterClass_Bed_LeaveBedFromSex() {
-	
+
 	// If the actor is the owner and she didn't came, she will not let the player leave the bed
 	if (Common_ActorIsOwner && (C012_AfterClass_Bed_SexPleasurePartner > -100)) {
 		OverridenIntroText = GetText("SexStop" + CurrentActor + "Refuse");
 		return;
 	}
-	
+
 	// The actor will dislike the player if she didn't had her orgasm
 	if (C012_AfterClass_Bed_SexPleasurePartner > -100) ActorChangeAttitude(-1, 0);
 	if ((C012_AfterClass_Bed_SexPleasurePlayer < -100) && (C012_AfterClass_Bed_SexPleasurePartner > -100)) { ActorChangeAttitude(-1, 0); OverridenIntroText = GetText("SexStop" + CurrentActor + "PartnerNoOrgasm"); }
@@ -250,47 +250,47 @@ function C012_AfterClass_Bed_BackToDorm() {
 	SetScene(CurrentChapter, "Dorm");
 }
 
-// Chapter 12 After Class - Main sex event with the partenr, there's a pleasure factor for each and a flag to tell if an orgasm is possible or not
+// Chapter 12 After Class - Main sex event with the partner, there's a pleasure factor for each and a flag to tell if an orgasm is possible or not
 function C012_AfterClass_Bed_Sex(PleasurePartner, PleasurePlayer, CanOrgasm, WorkAnim) {
-	
+
 	// Raise the level for both lovers
 	CurrentTime = CurrentTime + 50000;
 	C012_AfterClass_Bed_SexPleasurePartner = C012_AfterClass_Bed_SexPleasurePartner + PleasurePartner;
 	C012_AfterClass_Bed_SexPleasurePlayer = C012_AfterClass_Bed_SexPleasurePlayer + PleasurePlayer;
-	
+
 	// More sex options opens when the scene progress
 	C012_AfterClass_Bed_SexCount++;
 	C012_AfterClass_Bed_SexSoft = (C012_AfterClass_Bed_SexCount >= 3);
 	C012_AfterClass_Bed_SexWild = (C012_AfterClass_Bed_SexCount >= 6);
-	
+
 	// if an orgasm can be achieved from the activity, we trigger both orgasms at level 10 and they can be simultaneous
 	var PartnerOrgasm = false;
 	var PlayerOrgasm = false;
 	if (CanOrgasm) {
-		
+
 		// When the partner achieves her orgasm
-		if (C012_AfterClass_Bed_SexPleasurePartner >= 10) { 
-			PartnerOrgasm = true; 
-			C012_AfterClass_Bed_SexPleasurePartner = -10000000; 
+		if (C012_AfterClass_Bed_SexPleasurePartner >= 10) {
+			PartnerOrgasm = true;
+			C012_AfterClass_Bed_SexPleasurePartner = -10000000;
 			ActorChangeAttitude(1, 0);
 			OverridenIntroText = GetText("Sex" + CurrentActor + "PartnerOrgasm");
 			GameLogSpecificAddTimer(CurrentChapter, CurrentActor, "NextPossibleOrgasm", ActorHasInventory("VibratingEgg") ? CurrentTime + 3600000 : CurrentTime + 7200000);
 		}
-		
+
 		// When the player achieves her orgasm
-		if (C012_AfterClass_Bed_SexPleasurePlayer >= 10) { 
-			PlayerOrgasm = true; 
+		if (C012_AfterClass_Bed_SexPleasurePlayer >= 10) {
+			PlayerOrgasm = true;
 			C012_AfterClass_Bed_SexPleasurePlayer = -10000000;
 			GameLogSpecificAddTimer(CurrentChapter, "Player", "NextPossibleOrgasm", PlayerHasLockedInventory("VibratingEgg") ? CurrentTime + 1800000 : CurrentTime + 3600000);
 
 			// A simultaneous orgasm gives one extra love
 			if (PartnerOrgasm) {
 				OverridenIntroText = GetText("Sex" + CurrentActor + "SimultaneousOrgasm");
-				ActorChangeAttitude(1, 0);				
+				ActorChangeAttitude(1, 0);
 			} else OverridenIntroText = GetText("Sex" + CurrentActor + "PlayerOrgasm");
 
 		}
-		
+
 		// If the sex scene must end, we jump to the next stage
 		if ((C012_AfterClass_Bed_SexPleasurePlayer < -100) && (C012_AfterClass_Bed_SexPleasurePartner < -100))
 			C012_AfterClass_Bed_CurrentStage = parseInt(C012_AfterClass_Bed_CurrentStage) + 10;
@@ -305,7 +305,7 @@ function C012_AfterClass_Bed_Sex(PleasurePartner, PleasurePlayer, CanOrgasm, Wor
 // Chapter 12 After Class - Renders a final image after sex
 function C012_AfterClass_Bed_AfterSex() {
 	CurrentTime = CurrentTime + 50000;
-	C012_AfterClass_Bed_PrepareImage(false, false);	
+	C012_AfterClass_Bed_PrepareImage(false, false);
 }
 
 // Chapter 12 After Class - When everyone gets off the bed

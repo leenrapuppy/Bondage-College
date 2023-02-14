@@ -16,25 +16,25 @@ function C006_Isolation_Horse_Run() {
 }
 
 // Chapter 6 - Horse Click
-function C006_Isolation_Horse_Click() {	
+function C006_Isolation_Horse_Click() {
 
 	// Regular interactions
 	ClickInteraction(C006_Isolation_Horse_CurrentStage);
-	
+
 	// The collar can be used to get a better grip on the bolt
 	if ((GetClickedInventory() == "Collar") && C006_Isolation_Horse_BoltSeen && !C006_Isolation_Horse_BoltUndone) {
-		OverridenIntroText = GetText("UndoBolt");		
+		OverridenIntroText = GetText("UndoBolt");
 		C006_Isolation_Horse_BoltSeen = false;
 		C006_Isolation_Horse_BoltUndone = true;
 		C006_Isolation_Horse_MetalAvail = true;
 		CurrentTime = CurrentTime + 10000;
 	}
-	
+
 }
 
 // Chapter 6 - Horse Allow Bolt
 function C006_Isolation_Horse_AllowBolt() {
-	if (!C006_Isolation_Horse_BoltUndone) 
+	if (!C006_Isolation_Horse_BoltUndone)
 		C006_Isolation_Horse_BoltSeen = true;
 }
 

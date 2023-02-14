@@ -571,24 +571,17 @@ const CommonCommands = [
 		},
 	},
 	{
-		Tag: "wheelspin",
+		Tag: "wheel",
 		Action: () => {
+			if (!InventoryAvailable(Player, "WheelFortune", "ItemDevices")) return;
 			document.getElementById("InputChat").style.display = "none";
 			document.getElementById("TextAreaChatLog").style.display = "none";
 			ChatRoomChatHidden = true;
-			LuckyWheelBackground = ChatRoomData.Background;
-			LuckyWheelList = Player.OnlineSharedSettings.LuckyWheel;
-			LuckyWheelCharacterName = CharacterNickname(Player);
-			CommonSetScreen("MiniGame", "LuckyWheel");
-		},
-	},
-	{
-		Tag: "wheelconfigure",
-		Action: () => {
-			document.getElementById("InputChat").style.display = "none";
-			document.getElementById("TextAreaChatLog").style.display = "none";
-			ChatRoomChatHidden = true;
-			CommonSetScreen("Online", "LuckyWheelCustomize");
+			WheelFortuneEntryModule = CurrentModule;
+			WheelFortuneEntryScreen = CurrentScreen;
+			WheelFortuneBackground = ChatRoomData.Background;
+			WheelFortuneCharacter = Player;
+			CommonSetScreen("MiniGame", "WheelFortune");
 		},
 	},
 	{

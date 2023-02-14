@@ -1,0 +1,120 @@
+Return to the main hall
+返回大廳
+Destroy an item
+摧毀一件物品
+Craft your item
+製作物品
+Cancel
+取消
+Previous
+上一頁
+Next
+下一頁
+No lock
+無鎖
+Select an empty slot to craft a new item, or click on the item to edit.
+為你新製作的物品選擇一個欄位，或者點擊物品來編輯它。
+Select a crafted item slot to destroy.
+選擇一個已經製作的物品欄來摧毀。
+Select an item to craft or search on your left.
+從你的左邊選擇一個物品來製作或者研究。
+Select a property for your AssetDescription.
+為你的AssetDescription選擇一個特性。
+Select a lock to use with your PropertyName AssetDescription.
+為你的PropertyName AssetDescription選擇一個鎖。
+Enter a name and description for your PropertyName AssetDescription.
+為你的PropertyName AssetDescription輸入一個名稱和描述。
+Pick the item colors
+選擇該物品的顏色
+Name of the crafted item
+製作物品的名稱
+Engrave a description
+雕刻描述
+Enter or pick the colors
+輸入或者選擇顏色
+Item drawing priority
+物品繪圖優先度
+Private (only you can use it)
+私用（只有你能使用它）
+Automatic selection:
+自動選擇：
+Empty
+空
+Normal
+正常
+Large
+大型
+Small
+小型
+Thick
+厚實
+Thin
+輕薄
+Secure
+牢靠
+Loose
+鬆弛
+Decoy
+誘餌
+Malleable
+柔韌
+Rigid
+堅硬
+Simple
+簡潔
+Puzzling
+費解
+Painful
+痛苦
+Comfy
+舒適
+Strong
+強力
+Flexible
+柔韌
+Nimble
+靈敏
+Arousing
+煽情
+Dull
+倦怠
+No special property.
+無特殊特性
+Harder to understand gagged speech.
+更難理解塞口說話。
+Easier to understand gagged speech.
+更易理解塞口說話。
+Harder to see through.
+更難看透。
+Easier to see through.
+更易看透。
+Harder to struggle out.
+更難掙脫。
+Easier to struggle out.
+更易掙脫。
+Can always struggle out.
+總是能掙脫。
+Takes less time to wear and remove.
+穿上或移除所花費的時間更少。
+Takes more time to wear and remove.
+穿上或移除所花費的時間更多。
+Easier to picklock.
+更易撬鎖。
+Harder to picklock.
+更難撬鎖。
+More painful for the wearer.
+讓穿戴者更痛苦。
+Comfier for the wearer.
+讓穿戴者更舒適。
+Cannot use brute force to struggle out.
+無法使用蠻力掙脫。
+Cannot use squeeze out to struggle out.
+無法使用擠出去來掙脫。
+Cannot use unfasten to struggle out.
+無法使用打開扣鎖來掙脫。
+Harder to resist an orgasm.
+更難抵抗高潮。
+Easier to resist an orgasm.
+更易抵抗高潮。
+Open Colorpicker
+打開顏色選擇器

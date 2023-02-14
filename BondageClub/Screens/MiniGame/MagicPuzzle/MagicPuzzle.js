@@ -9,6 +9,7 @@ var MagicPuzzleStarted = false;
 var MagicPuzzleTimer = 0;
 var MagicPuzzleLastMouseX = 0;
 var MagicPuzzleLastMouseY = 0;
+/** @type { { X: number, Y: number }[] } */
 var MagicPuzzleTrail = [];
 var MagicPuzzleTrailLimit = 20;
 var MagicPuzzleTrailRainbow = false;
@@ -45,27 +46,27 @@ function MagicPuzzleTime(Time) {
  * @returns {void} - Nothing
  */
 function MagicPuzzleValidate(X, Y) {
-	
+
 	// Gets the pixel color at position
 	if (MiniGameEnded) return;
 	if ((X < 0) || (X > 1999)) X = 0;
 	if ((Y < 0) || (Y > 999)) Y = 0;
 	let Data = MainCanvas.getImageData(X, Y, 1, 1).data;
-	
+
 	// In the dark zone, ends in failure
 	if ((Data[0] < 100) && (Data[1] < 100) && (Data[2] < 100)) {
 		MiniGameEnded = true;
 		MagicPuzzleFinish = CommonTime();
 		return;
 	}
-	
+
 	// When starting the game, fully in the green zone
 	if (((Data[0] > 100) || (Data[2] > 100)) && !MagicPuzzleStarted) {
 		MiniGameEnded = true;
 		MagicPuzzleFinish = CommonTime();
 		return;
 	}
-	
+
 	// When reaching the red zone, it ends in victory
 	if ((Data[0] > 100) && (Data[1] < 100) && (Data[2] < 100) && MagicPuzzleStarted) {
 		MiniGameEnded = true;
@@ -124,7 +125,7 @@ function MagicPuzzleRun() {
 		MagicPuzzleValidate(MouseX + MagicPuzzleSize, MouseY + MagicPuzzleSize);
 		MagicPuzzleStarted = true;
 	}
-	
+
 	// If there's a timer and it runs out
 	if (!MiniGameEnded && (MagicPuzzleTimer > 0) && (CommonTime() > MagicPuzzleTimer)) {
 		MagicPuzzleFinish = CommonTime();
@@ -189,7 +190,7 @@ function MagicPuzzleBuildTrail() {
 function MagicPuzzleDrawTrail() {
 	if (MagicPuzzleTrail.length > 0) {
 		const initialSquares = { first: MagicPuzzleTrail[0], second: MagicPuzzleTrail[0] };
-		
+
 		MagicPuzzleTrail.reduce((prevSquares, currSquare, index) => {
 			const startingColor = MagicPuzzleTrailRainbow ? ColorPickerHSVToCSS({ H: Math.random(), S: 1, V: 1 }) : "#0000FF";
 			const fadePercentage = 0.8 * index / MagicPuzzleTrail.length;

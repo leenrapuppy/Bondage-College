@@ -318,6 +318,8 @@
 (You give her the keys to your private padlocks)
 (你给了她你私人小锁的钥匙)
 ###_PLAYER
+(Spin the Wheel of Fortune.)
+(转动命运之轮。)
 (Generate a new GGTS task.)
 (生成一个新的GGTS任务）
 (Give her a five minutes pause.)

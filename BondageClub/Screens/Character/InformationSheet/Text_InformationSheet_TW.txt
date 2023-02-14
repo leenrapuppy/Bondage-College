@@ -1,0 +1,280 @@
+Name:
+名字：
+Nickname:
+暱稱：
+Title:
+稱號：
+None
+無
+Mistress
+女主人
+Dominatrix
+主宰者
+Club Slave
+俱樂部奴隸
+Head Maid
+女僕長
+Maid
+女僕
+Bondage Maid
+束縛女僕
+Master Kidnapper
+綁架大師
+Kidnapper
+綁匪
+Patient
+患者
+Permanent Patient
+永久患者
+Escaped Patient
+出逃患者
+Nurse
+護士
+Doctor
+醫生
+Lady Luck
+幸運女士
+Patron
+贊助者
+College Student
+學生
+Nawashi
+繩師
+Houdini
+逃脫大師
+Foal
+母馬
+Farm Horse
+農場馬
+Cold Blood Horse
+冷血馬
+Warm Blood Horse
+溫血馬
+Hot Blood Horse
+熱血馬
+Wild Mustang
+野馬
+Shining Unicorn
+閃耀獨角獸
+Flying Pegasus
+翱翔天馬
+Majestic Alicorn
+威嚴神駒
+Mole
+間諜
+Infiltrator
+滲透者
+Agent
+探員
+Operative
+密探
+Superspy
+超級間諜
+Wizard
+法師
+Magus
+魔戰士
+Magician
+魔術師
+Sorcerer
+術士
+Sage
+賢者
+Oracle
+先知
+Witch
+女巫
+Warlock
+邪術師
+Little One
+小不點
+Baby
+小寶貝
+Diaper Lover
+紙尿褲愛好者
+Bondage Baby
+被縛寶貝
+Duchess
+女公爵
+Switch
+轉換者(Switch)
+Kitten
+貓咪
+Puppy
+狗狗
+Foxy
+狐狸
+Bunny
+兔兔
+Doll
+玩偶
+Demon
+惡魔
+Angel
+天使
+Succubus
+魅魔
+Good Girl
+Good Girl
+Good Slave Girl
+Good Slave Girl
+Good Slave
+Good Slave
+Drone
+Drone
+Pronouns:
+稱謂：
+Member Number:
+成員編號:
+-
+-
+- Relationships -
+- 關係 -
+Lover:
+戀人:
+Owner:
+主人:
+GGTS
+GGTS
+Money:
+金錢:
+Member for
+加入了
+Bondage Club Birthday! 
+俱樂部生日！
+Friends for
+認識了
+On trial for
+試任了
+Collared for
+認主了
+Lover for
+戀愛了
+Dating for
+約會了
+Engaged for
+訂婚了
+Married for
+結婚了
+day(s)
+天
+Unknown
+未知
+- Reputation -
+- 聲望 -
+Dungeoneer:
+地下城探險家：
+Dominant:
+支配者：
+Submissive:
+順從者：
+Maid Sorority:
+女僕社團：
+Kidnappers League:
+綁匪聯盟：
+Asylum Nurse:
+收容所護士：
+Asylum Patient:
+收容所病員：
+LARP Battles:
+體感對戰：
+Gambling Hall:
+賭場：
+ABDL:
+戀尿布：
+House Maiestas:
+麥斯塔威法社：
+House Vincula:
+溫庫拉束限社：
+House Amplector:
+安派托懷圍社：
+House Corporis:
+科潑裡軀形社：
+difficulty for NumberOfDays day(s)
+難度已遊玩NumberOfDays天
+Roleplay
+角色扮演
+Regular
+通常
+Hardcore
+硬核
+Extreme
+極限
+- Skills -
+- 技能 -
+Bondage:
+捆綁：
+Self-bondage:
+自縛：
+Lock-Picking:
+開鎖：
+Evasion:
+逃脫：
+Willpower:
+意志：
+Infiltration:
+潛入：
+Dressage:
+馬術：
+Skills modifier:
+技能倍率：
+ Time left:
+剩餘時間：
+- Traits -
+- 特點 -
+Spend more time with her to know her traits
+與她繼續交往以了解她的愛好特點
+Violent:
+暴力：
+Peaceful:
+和平：
+Horny:
+飢渴：
+Frigid:
+冰冷：
+Rude:
+粗魯：
+Polite:
+禮貌：
+Wise:
+明智：
+Dumb:
+愚蠢：
+Serious:
+嚴肅：
+Playful:
+貪玩：
+Relation:
+關係：
+(Perfect)
+(完美)
+(Great)
+(很棒)
+(Good)
+(不錯)
+(Fair)
+(還行)
+(Neutral)
+(一般)
+(Poor)
+(較差)
+(Bad)
+(很差)
+(Horrible)
+(可怕)
+(Atrocious)
+(仇恨)
+Permission:
+權限：
+Everyone, no exceptions
+所有人
+Everyone, except blacklist
+所有人，除了黑名單成員
+Owner, Lovers, whitelist & Dominants
+主人、戀人、白名單&支配者
+Owner, Lovers and whitelist only
+僅主人、戀人和白名單
+Owner and Lovers only
+僅主人和戀人
+Owner only
+僅主人

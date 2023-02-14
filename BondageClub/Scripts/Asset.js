@@ -21,6 +21,7 @@ var AssetActivityMirrorGroups = new Map();
  * @returns {AssetGroup}
  */
 function AssetGroupAdd(Family, GroupDef) {
+	const AllowNone = typeof GroupDef.AllowNone === "boolean" ? GroupDef.AllowNone : true;
 	/** @type {AssetGroup} */
 	var A = {
 		Family: Family,
@@ -31,13 +32,13 @@ function AssetGroupAdd(Family, GroupDef) {
 		Category: (GroupDef.Category == null) ? "Appearance" : GroupDef.Category,
 		IsDefault: (GroupDef.Default == null) ? true : GroupDef.Default,
 		IsRestraint: (GroupDef.IsRestraint == null) ? false : GroupDef.IsRestraint,
-		AllowNone: (GroupDef.AllowNone == null) ? true : GroupDef.AllowNone,
+		AllowNone,
 		AllowColorize: (GroupDef.AllowColorize == null) ? true : GroupDef.AllowColorize,
 		AllowCustomize: (GroupDef.AllowCustomize == null) ? true : GroupDef.AllowCustomize,
 		Random: (GroupDef.Random == null) ? true : GroupDef.Random,
 		ColorSchema: (GroupDef.Color == null) ? ["Default"] : GroupDef.Color,
 		ParentSize: (GroupDef.ParentSize == null) ? "" : GroupDef.ParentSize,
-		ParentColor: (GroupDef.ParentColor == null) ? "" : GroupDef.ParentColor,
+		InheritColor: (GroupDef.InheritColor == null) ? null : GroupDef.InheritColor,
 		Clothing: (GroupDef.Clothing == null) ? false : GroupDef.Clothing,
 		Underwear: (GroupDef.Underwear == null) ? false : GroupDef.Underwear,
 		BodyCosplay: (GroupDef.BodyCosplay == null) ? false : GroupDef.BodyCosplay,
@@ -55,13 +56,13 @@ function AssetGroupAdd(Family, GroupDef) {
 		DrawingTop: (GroupDef.Top == null) ? 0 : GroupDef.Top,
 		DrawingFullAlpha: (GroupDef.FullAlpha == null) ? true : GroupDef.FullAlpha,
 		DrawingBlink: (GroupDef.Blink == null) ? false : GroupDef.Blink,
-		InheritColor: GroupDef.InheritColor,
 		FreezeActivePose: Array.isArray(GroupDef.FreezeActivePose) ? GroupDef.FreezeActivePose : [],
 		PreviewZone: GroupDef.PreviewZone,
 		DynamicGroupName: GroupDef.DynamicGroupName || GroupDef.Group,
 		MirrorActivitiesFrom: GroupDef.MirrorActivitiesFrom || null,
 		ColorSuffix: GroupDef.ColorSuffix,
 		ExpressionPrerequisite: GroupDef.ExpressionPrerequisite || [],
+		HasPreviewImages: typeof GroupDef.HasPreviewImages === "boolean" ? GroupDef.HasPreviewImages : AllowNone,
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetActivityMirrorGroupSet(A);
@@ -103,6 +104,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		ParentGroupName: AssetDef.ParentGroup,
 		Enable: (AssetDef.Enable == null) ? true : AssetDef.Enable,
 		Visible: (AssetDef.Visible == null) ? true : AssetDef.Visible,
+		NotVisibleOnScreen: Array.isArray(AssetDef.NotVisibleOnScreen) ? AssetDef.NotVisibleOnScreen : [],
 		Wear: (AssetDef.Wear == null) ? true : AssetDef.Wear,
 		Activity: (typeof AssetDef.Activity === "string" ? AssetDef.Activity : null),
 		ActivityAudio: Array.isArray(AssetDef.ActivityAudio) ? AssetDef.ActivityAudio : [],
@@ -154,6 +156,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		RemoveItemOnRemove: (AssetDef.RemoveItemOnRemove == null) ? Group.RemoveItemOnRemove : Group.RemoveItemOnRemove.concat(AssetDef.RemoveItemOnRemove),
 		AllowEffect: AssetDef.AllowEffect,
 		AllowBlock: AssetDef.AllowBlock,
+		AllowTighten: AssetDef.AllowTighten,
 		AllowType: AssetDef.AllowType,
 		AllowHide: AssetDef.AllowHide,
 		AllowHideItem: AssetDef.AllowHideItem,
@@ -173,8 +176,6 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		DynamicDescription: (typeof AssetDef.DynamicDescription === 'function') ? AssetDef.DynamicDescription : function () { return this.Description; },
 		DynamicPreviewImage: (typeof AssetDef.DynamicPreviewImage === 'function') ? AssetDef.DynamicPreviewImage : function () { return ""; },
 		DynamicAllowInventoryAdd: (typeof AssetDef.DynamicAllowInventoryAdd === 'function') ? AssetDef.DynamicAllowInventoryAdd : function () { return true; },
-		// @ts-ignore: this has no type, because we are in JS file
-		DynamicExpressionTrigger: (typeof AssetDef.DynamicExpressionTrigger === 'function') ? AssetDef.DynamicExpressionTrigger : function () { return this.ExpressionTrigger; },
 		// @ts-ignore: this has no type, because we are in JS file
 		DynamicName: (typeof AssetDef.DynamicName === 'function') ? AssetDef.DynamicName : function () { return this.Name; },
 		DynamicGroupName: (AssetDef.DynamicGroupName || Group.DynamicGroupName),
@@ -212,6 +213,8 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
 		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
 		ExpressionPrerequisite: Array.isArray(AssetDef.ExpressionPrerequisite) ? AssetDef.ExpressionPrerequisite : Group.ExpressionPrerequisite,
+		TextMaxLength: typeof AssetDef.TextMaxLength === "object" ? AssetDef.TextMaxLength : null,
+		TextFont: typeof AssetDef.TextFont === "string" ? AssetDef.TextFont : null,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid
@@ -311,7 +314,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 	const L = Object.assign({
 		Name: Layer.Name || null,
 		AllowColorize: AssetLayerAllowColorize(Layer, AssetDefinition, A.Group),
-		CopyLayerColor: Layer.CopyLayerColor || null,
+		CopyLayerColor: typeof Layer.CopyLayerColor === "string" ? Layer.CopyLayerColor : null,
 		ColorGroup: Layer.ColorGroup,
 		HideColoring: typeof Layer.HideColoring === "boolean" ? Layer.HideColoring : false,
 		AllowTypes: Array.isArray(Layer.AllowTypes) ? Layer.AllowTypes : null,
@@ -331,6 +334,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		Opacity: typeof Layer.Opacity === "number" ? AssetParseOpacity(Layer.Opacity) : 1,
 		MinOpacity: typeof Layer.MinOpacity === "number" ? AssetParseOpacity(Layer.Opacity) : A.MinOpacity,
 		MaxOpacity: typeof Layer.MaxOpacity === "number" ? AssetParseOpacity(Layer.Opacity) : A.MaxOpacity,
+		BlendingMode: Layer.BlendingMode || "source-over",
 		LockLayer: typeof Layer.LockLayer === "boolean" ? Layer.LockLayer : false,
 		MirrorExpression: Layer.MirrorExpression,
 		AllowModuleTypes: Layer.AllowModuleTypes,

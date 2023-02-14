@@ -1,0 +1,48 @@
+Select your appearance
+選擇你的外貌
+ Select TargetCharacterName's appearance
+選擇TargetCharacterName的外貌
+You must pick an item of type:
+你必須選擇該類別的物品：
+Set wardrobe character name:
+設置衣櫃角色名：
+Invalid name for character.
+角色名無效
+Reset character
+重設角色
+Randomize clothes
+隨機服裝
+Randomize character
+隨機角色
+Strip clothes
+脫下衣物
+Show character in previews
+在預覽中顯示角色
+Strip item
+脫下物品
+Next
+下一頁
+Previous
+前一頁
+Cancel changes
+取消改動
+Accept changes
+確認改動
+Wardrobe
+衣櫃
+Wardrobe can be bought in your private room.
+衣櫃可以在私人房間中購買
+Edit item permissions
+編輯物品權限許可
+Use this item
+使用該物品
+Unable to use due to player permissions
+因權限設定無法使用
+Select a color
+選擇一種顏色
+Select colors
+選擇顏色
+Unable to change color due to player permissions
+因權限設定無法修改顏色
+blocked by owner
+被主人屏蔽

@@ -1,7 +1,10 @@
 "use strict";
 var AsylumEntranceBackground = "AsylumEntrance";
+/** @type {null | NPCCharacter} */
 var AsylumEntranceNurse = null;
+/** @type {null | NPCCharacter} */
 var AsylumEntranceKidnapNurse = null;
+/** @type {null | NPCCharacter} */
 var AsylumEntranceEscapedPatient = null;
 var AsylumEntranceEscapedPatientWillBribe = false;
 var AsylumEntranceEscapedPatientWillJoin = false;

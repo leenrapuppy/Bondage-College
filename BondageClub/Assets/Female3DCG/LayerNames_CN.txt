@@ -174,6 +174,10 @@ Dark Stripes
 暗条纹
 Bands
 束带
+Upper
+上半
+Lower
+下半
 Hat
 帽子
 Bonnet
@@ -528,10 +532,6 @@ Sheet Front
 前部覆盖物
 Sheet
 覆盖物
-Upper
-上半
-Lower
-下半
 Caps
 盖子
 Plastic
@@ -540,6 +540,30 @@ Net
 网子
 Arms
 手臂
+Wooden Stand
+木质支架
+MetalStand
+金属支架
+Metal Stand Frame
+金属支架边框
+Metal Stand Text
+金属支架文本
+Wheel Border
+轮盘边界
+Toys
+玩具
+Flogger
+鞭打
+Gag
+口塞
+Arrow
+箭头
+Rope Sections
+绳子分区
+Chain Sections
+锁链分区
+Gag Sections
+口塞分区
 Hook
 钩子
 Nose
@@ -600,8 +624,6 @@ Openings
 开口
 Blindfold
 眼罩
-Gag
-口塞
 Drawings
 图画
 Lenses
@@ -728,6 +750,8 @@ Pussy Toy
 阴部玩具
 Clitoris Toy
 阴蒂玩具
+Attachment
+附件
 Lid
 盖子
 Restraint Frame
@@ -814,3 +838,27 @@ Arm Strap
 手臂束带
 Fade
 变暗
+Head
+头部
+Face Lining
+面部线条
+Eye Lining
+眼睛线条
+Mouth Lining
+嘴部线条
+Eye Panel
+眼睛遮罩
+Eye Fill Panels
+眼睛填充遮罩
+Mouth Panel
+嘴部遮罩
+Mouth Fill Panel
+嘴部填充遮罩
+Hair Inside Hood
+头发在头套内
+Cover Hood
+覆盖头套
+Zipper
+拉链
+Crosses
+十字架

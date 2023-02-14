@@ -130,6 +130,12 @@ See-through Top
 Прозрачный верх
 Jacket
 Кофта
+Male Cloth Tank-Top 
+Мужская тканевая майка
+Button Shirt
+Рубашка на пуговицах
+Slave Rags
+Тряпки раба
 Cloth Accessory
 Аксессуар для верха
 Student Scarf
@@ -194,6 +200,8 @@ Bandana
 Бандана
 Fur Scarf
 Меховой Шарф
+Latex Respirator
+Латексный респиратор
 Flower Garland
 Цветочная гирлянда
 Rope Necklace
@@ -220,6 +228,8 @@ Reverse Bunny Suit
 Обратный костюм кролика
 Slim Latex Leotard (Sleeveless)
 Тонкий латексный купальник (без рукавов)
+Male Seamless Catsuit
+Мужской бесшовный кэтсьют
 Bottom
 Низ
 Skirt
@@ -296,6 +306,8 @@ Elegant Skirt
 Элегантная юбка
 Ruffled Skirt
 Юбка с оборками
+Cross Skirt
+Поперечная юбка
 Suit Lower
 Нижний костюм
 Catsuit Panties
@@ -306,6 +318,8 @@ Pantyhose
 Колготки
 Crotchless Pantyhose
 Колготки с вырезом
+Gradient Pantyhose
+Колготки с градиентом
 Stockings Dark
 Чулки Темные
 Stockings Light
@@ -314,6 +328,8 @@ Silky Stockings
 Шелковые чулки
 Fishnet Stockings
 Чулки в сеточку
+Male Catsuit Panties
+Мужские трусы от кэтсьюта
 Bra
 Бюстгальтер
 Style 1
@@ -358,6 +374,8 @@ Smooth Lacing Leather Armbinder
 Гладкий кожаный армбидер
 Canvas Straitjacket 1
 Холщовая смирительная рубашка 1
+SleepSac
+Спальный мешок
 Latex Bra
 Латексный Бюстгальтер
 Bondage Harness
@@ -510,6 +528,8 @@ String Thong
 Стринги нить
 Micro Thong
 Микро стринги
+Boxer Shorts
+Боксерские трусы
 Socks
 Носки
 Ankle
@@ -1187,6 +1207,8 @@ Style 49
 Стиль 49
 Style 50
 Стиль 50
+Style 51
+Стиль 51
 Dreadlocks 1
 Дреды 1
 Left eye
@@ -2121,6 +2143,8 @@ Web Gag
 Паутинный Кляп
 Rope Gag
 Веревочный Кляп
+Rope Ball Gag
+Веревочный кляп с узлом
 Milk Bottle
 Бутылка для молока
 Medical Mask
@@ -2211,6 +2235,10 @@ Medical Patches
 Медицинские Пластыри
 Smooth Latex Mask
 Гладкая Латексная Маска
+Custom Latex Hood
+Настраиваемый латесаный капюшон
+Cat Mask Harness
+Кошачья ременная маска
 Nose
 Нос
 Nose Hook
@@ -2252,7 +2280,7 @@ Leather Hood Eyes
 Dog Hood
 Капюшон собаки
 Foxy Mask
-Лисья маска
+Маска лисы
 Pony Hood
 Капюшон для пони
 Leather Hood Mouth
@@ -2466,7 +2494,11 @@ Medical Bed
 Wooden Rack
 Деревянная Стойка
 Wooden Horse
-Деревянная лошадка
+Деревянная лошадь
+Lucky Wheel
+Колесо удачи
+Wheel of Fortune
+Колесо Фортуны
 Blanket
 Одеяло
 Bed Ropes
@@ -2510,4 +2542,4 @@ Toe Tape
 High Thigh Boots
 Высокие сапоги до бедра
 Monoheel
-Моноколесо
+Монокаблук

@@ -216,7 +216,7 @@ function KD_GetMapTile(index, indX, indY, tilesFilled, indexFilled, tagCounts, r
 	let Weights = [];
 
 	for (let mapTile of Object.values(KDMapTilesList)) {
-		if (mapTile.primInd == index) {
+		if (mapTile.primInd == index || (mapTile.flexEdge && mapTile.flexEdge['0,0'])) {
 			if (!KDCheckMapTileFilling(mapTile, indX, indY, indices, requiredAccess, indexFilled)) continue;
 
 			if (!KDCheckMapTileAccess(mapTile, indX, indY, indexFilled, requiredAccess)) continue;
@@ -267,21 +267,47 @@ function KD_GetMapTile(index, indX, indY, tilesFilled, indexFilled, tagCounts, r
  * @returns {boolean}
  */
 function KDCheckMapTileFilling(mapTile, indX, indY, indices, requiredAccess, indexFilled) {
+	let passCount = 0;
 	// Skip over larger tiles that dont fit the tilesFilled map or are already filled
 	for (let xx = 1; xx <= mapTile.w; xx++)
 		for (let yy = 1; yy <= mapTile.h; yy++) {
+			let fail = false;
 			// The index store of the map tile, we compare to the indices of indexfilled
 			let ind = mapTile.index[xx + ',' + yy];
+			// Skip map tile if out of bounds
+			if (!indices[(xx + indX - 1) + ',' + (yy + indY - 1)]) return false;
 			// Skip this mapTile if it doesnt fit
-			if (ind != indices[(xx + indX - 1) + ',' + (yy + indY - 1)]) return false;
+			if (ind != indices[(xx + indX - 1) + ',' + (yy + indY - 1)] && KDLooseIndexRankingSuspend(indices[(xx + indX - 1) + ',' + (yy + indY - 1)], ind, mapTile.w, mapTile.h, xx, yy)) {
+				if (mapTile.flexEdge && mapTile.flexEdge[xx + ',' + yy] && ((mapTile.flexEdgeSuper && mapTile.flexEdgeSuper[xx + ',' + yy]) || (
+					(!indices[(xx + indX - 1) + ',' + (yy + indY - 1)].includes('u') || indexFilled[(xx + indX - 1) + ',' + (yy + indY - 1 - 1)])
+					&& (!indices[(xx + indX - 1) + ',' + (yy + indY - 1)].includes('d') || indexFilled[(xx + indX - 1) + ',' + (yy + indY - 1 + 1)])
+					&& (!indices[(xx + indX - 1) + ',' + (yy + indY - 1)].includes('l') || indexFilled[(xx + indX - 1 - 1) + ',' + (yy + indY - 1)])
+					&& (!indices[(xx + indX - 1) + ',' + (yy + indY - 1)].includes('r') || indexFilled[(xx + indX - 1 + 1) + ',' + (yy + indY - 1)])
+				))) fail = true;
+				else return false;
+			}
 			// Skip this mapTile if it's already filled
 			if (indexFilled[(xx + indX - 1) + ',' + (yy + indY - 1)]) return false;
 			// Make sure none of the tile overlaps with required access...
 			if (mapTile.w != 1 || mapTile.h != 1 || (mapTile.inaccessible && mapTile.inaccessible.length > 0)) {
 				if (requiredAccess[(xx + indX - 1) + ',' + (yy + indY - 1)]) return false;
 			}
+			if (!fail)
+				passCount += 1;
 		}
-	return true;
+	return passCount > 0;
+}
+
+function KDLooseIndexRankingSuspend(indexCheck, indexTile, w, h, xx, yy) {
+	if (w == 1 && h == 1) return true; // Tiles that are 1/1 dont get requirements suspended
+	if (xx > 1 && xx < w && yy > 1 && yy < h) return false; // Suspended tiles in the middle
+	if (!indexCheck) return true; // This means we hit the border
+	if (!indexTile) return true; // This is bad but it shouldnt crash the game. We just dont place the tile
+	if (indexCheck.includes('u') && yy == 1 && !indexTile.includes('u')) return true; // Dont suspend if we dont have the appropriate index entrance
+	if (indexCheck.includes('d') && yy == h && !indexTile.includes('d')) return true; // Dont suspend if we dont have the appropriate index entrance
+	if (indexCheck.includes('l') && xx == 1 && !indexTile.includes('l')) return true; // Dont suspend if we dont have the appropriate index entrance
+	if (indexCheck.includes('r') && xx == w && !indexTile.includes('r')) return true; // Dont suspend if we dont have the appropriate index entrance
+	return false;
 }
 
 /**
@@ -336,7 +362,7 @@ function KD_PasteTile(tile, x, y, data) {
 			KinkyDungeonMapSetForce(x + xx, y + yy, tileTile);
 			if (tileTile == 'B' && KinkyDungeonStatsChoice.has("Nowhere")) {
 				if (KDRandom() < 0.5)
-					KinkyDungeonTiles.set((x + xx) + "," + (y + yy), {
+					KinkyDungeonTilesSet((x + xx) + "," + (y + yy), {
 						Type: "Trap",
 						Trap: "BedTrap",
 					});
@@ -358,20 +384,20 @@ function KD_PasteTile(tile, x, y, data) {
 			if (poi.chance && KDRandom() > poi.chance)
 				poi.used = true;
 		}
-	for (let tileLoc of tile.Tiles) {
+	for (let tileLoc of Object.entries(tile.Tiles)) {
 		let xx = parseInt(tileLoc[0].split(',')[0]);
 		let yy = parseInt(tileLoc[0].split(',')[1]);
 		if (xx != undefined && yy != undefined) {
-			let gennedTile = KDCreateTile(xx+x, yy+y, tileLoc[1], data);
+			let gennedTile = KDCreateTile(xx+x, yy+y, Object.assign({}, tileLoc[1]), data);
 			if (gennedTile)
-				KinkyDungeonTiles.set((xx + x) + "," + (yy + y), gennedTile);
+				KinkyDungeonTilesSet((xx + x) + "," + (yy + y), gennedTile);
 		}
 	}
-	for (let tileLoc of tile.Skin) {
+	for (let tileLoc of Object.entries(tile.Skin)) {
 		let xx = parseInt(tileLoc[0].split(',')[0]);
 		let yy = parseInt(tileLoc[0].split(',')[1]);
 		if (xx != undefined && yy != undefined) {
-			KinkyDungeonTilesSkin.set((xx + x) + "," + (yy + y), tileLoc[1]);
+			KinkyDungeonTilesSkin[(xx + x) + "," + (yy + y)] = tileLoc[1];
 		}
 	}
 	/*for (let jail of tile.Jail) {
@@ -382,11 +408,11 @@ function KD_PasteTile(tile, x, y, data) {
 
 	}*/
 
-	for (let tileLoc of tile.effectTiles) {
+	for (let tileLoc of Object.entries(tile.effectTiles)) {
 		let xx = parseInt(tileLoc[0].split(',')[0]);
 		let yy = parseInt(tileLoc[0].split(',')[1]);
 		if (xx != undefined && yy != undefined) {
-			for (let eTile of tileLoc[1]) {
+			for (let eTile of Object.entries(tileLoc[1])) {
 				KDCreateEffectTileTile(xx+x, yy+y, eTile[1], data);
 			}
 		}
@@ -482,12 +508,12 @@ let KDTileGen = {
 				KinkyDungeonMapSet(x, y, 'C');
 				return {
 					NoTrap: tileGenerator.NoTrap,
-					Type: tileGenerator.Lock ? "Lock" : undefined, Lock: tileGenerator.Lock,
+					Type: tileGenerator.Lock ? "Lock" : undefined, Lock: tileGenerator.Lock == "Red" ? KDRandomizeRedLock() : tileGenerator.Lock,
 					Loot: tileGenerator.Lock == "Blue" ? "blue" : (tileGenerator.Loot ? tileGenerator.Loot : "chest"),
 					//Faction: tileGenerator.Faction,
 					Roll: KDRandom(),
 					Special: tileGenerator.Lock == "Blue",
-					RedSpecial: tileGenerator.Lock == "Red",
+					RedSpecial: tileGenerator.Lock?.includes("Red"),
 					lootTrap: KDGenChestTrap(false, x, y, (tileGenerator.Loot ? tileGenerator.Loot : "chest"), tileGenerator.Lock, tileGenerator.NoTrap),
 				};
 			} else {
@@ -509,7 +535,7 @@ let KDTileGen = {
 			Faction: faction,
 			Roll: KDRandom(),
 			Special: tileGenerator.Lock == "Blue",
-			RedSpecial: tileGenerator.Lock == "Red",
+			RedSpecial: tileGenerator.Lock?.includes("Red"),
 			lootTrap: KDGenChestTrap(false, x, y, (tileGenerator.Loot ? tileGenerator.Loot : "chest"), tileGenerator.Lock, tileGenerator.NoTrap),
 		};
 	},
@@ -533,6 +559,13 @@ let KDTileGen = {
 			|| "Ddg".includes(KinkyDungeonMapGet(x, y - 1))
 			|| "Ddg".includes(KinkyDungeonMapGet(x, y + 1)))
 			nodoorchance = 1.0;
+		else if (
+			!(KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(x + 1, y)) && KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(x - 1, y)))
+			&& !(KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(x, y + 1)) && KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(x, y - 1)))
+		) {
+			// No doors if there isn't a straight path
+			nodoorchance = 1.0;
+		}
 
 		// The door algorithm has been deprecated
 		//let doorlockchance = data.params.doorlockchance; // Max treasure chest count
@@ -543,7 +576,7 @@ let KDTileGen = {
 			} else {
 				KinkyDungeonMapSet(x, y, 'd');
 			}
-			return {Type: "Door", Lock: tileGenerator.Lock, OffLimits: tileGenerator.OffLimits};
+			return {Type: "Door", Lock: tileGenerator.Lock == "Red" ? KDRandomizeRedLock() : tileGenerator.Lock, OffLimits: tileGenerator.OffLimits};
 		} else {
 			KinkyDungeonMapSet(x, y, '2');
 		}
@@ -597,13 +630,12 @@ let KDTileGen = {
 		let trapchance = data.params.trapchance || 0.1;
 		if (tileGenerator.Always || KDRandom() < trapchance)
 			data.traps.push(({x: x, y: y}));
-		else
-			KinkyDungeonMapSet(x, y, '2');
+		KinkyDungeonMapSet(x, y, '2');
 		return null;
 	},
 	"Charger": (x, y, tile, tileGenerator, data) => {
 		if (tileGenerator.priority) {
-			return {Type: "Charger", NoRemove: tile == '=', lightColor: KDChargerColor, Light: (tile == '=' ? KDChargerLight : undefined)};
+			return {Type: "Charger", NoRemove: KinkyDungeonMapGet(x, y) == '=', lightColor: KDChargerColor, Light: (KinkyDungeonMapGet(x, y) == '=' ? KDChargerLight : undefined)};
 		}
 		KinkyDungeonMapSet(x, y, '-');
 		data.chargerlist.push(({x: x, y: y}));

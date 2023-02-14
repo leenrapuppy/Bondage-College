@@ -164,13 +164,12 @@ const VibratorModeDataLookup = {};
  * @param {VibratingItemConfig | undefined} config - The item's vibrator item configuration
  * @returns {void} - Nothing
  */
-function VibratorModeRegister(asset, config) {
-	const data = VibratorModeCreateData(asset, {
-		Options: [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]
-	});
+function VibratorModeRegister(asset, config={}) {
+	const data = VibratorModeCreateData(asset, config);
 	VibratorModeCreateLoadFunction(data);
 	VibratorModeCreateDrawFunction(data);
 	VibratorModeCreateClickFunction(data);
+	VibratorModeCreateExitFunction(data);
 	VibratorModeCreateScriptDrawFunction(data);
 	VibratorModeSetAssetProperties(data);
 }
@@ -181,16 +180,20 @@ function VibratorModeRegister(asset, config) {
  * @param {VibratingItemConfig} config - The item's extended item configuration
  * @returns {VibratingItemData} - The generated vibrating item data for the asset
  */
-function VibratorModeCreateData(asset, {
-	Options = [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]
-} = {}) {
+function VibratorModeCreateData(asset, { Options, ScriptHooks }) {
 	const key = `${asset.Group.Name}${asset.Name}`;
 	return VibratorModeDataLookup[key] = {
 		key,
 		asset,
-		options: Options,
+		options: Array.isArray(Options) ? Options : [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED],
 		functionPrefix: `Inventory${key}`,
 		dynamicAssetsFunctionPrefix: `Assets${key}`,
+		scriptHooks: {
+			load: ScriptHooks ? ScriptHooks.Load : undefined,
+			click: ScriptHooks ? ScriptHooks.Click : undefined,
+			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
+			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+		},
 	};
 }
 
@@ -199,11 +202,17 @@ function VibratorModeCreateData(asset, {
  * @param {VibratingItemData} data - The vibrating item data for the asset
  * @returns {void} - Nothing
  */
-function VibratorModeCreateLoadFunction({ options, functionPrefix }) {
+function VibratorModeCreateLoadFunction({ options, functionPrefix, scriptHooks }) {
 	const loadFunctionName = `${functionPrefix}Load`;
-	window[loadFunctionName] = function() {
-		VibratorModeLoad(options);
-	};
+	if (typeof scriptHooks.load === "function") {
+		window[loadFunctionName] = function() {
+			scriptHooks.load(() => VibratorModeLoad(options));
+		};
+	} else {
+		window[loadFunctionName] = function() {
+			VibratorModeLoad(options);
+		};
+	}
 }
 
 /**
@@ -211,11 +220,17 @@ function VibratorModeCreateLoadFunction({ options, functionPrefix }) {
  * @param {VibratingItemData} data - The vibrating item data for the asset
  * @returns {void} - Nothing
  */
-function VibratorModeCreateDrawFunction({ options, functionPrefix }) {
+function VibratorModeCreateDrawFunction({ options, functionPrefix, scriptHooks }) {
 	const drawFunctionName = `${functionPrefix}Draw`;
-	window[drawFunctionName] = function() {
-		VibratorModeDraw(options);
-	};
+	if (typeof scriptHooks.draw === "function") {
+		window[drawFunctionName] = function() {
+			scriptHooks.draw(() => VibratorModeDraw(options));
+		};
+	} else {
+		window[drawFunctionName] = function() {
+			VibratorModeDraw(options);
+		};
+	}
 }
 
 /**
@@ -223,11 +238,29 @@ function VibratorModeCreateDrawFunction({ options, functionPrefix }) {
  * @param {VibratingItemData} data - The vibrating item data for the asset
  * @returns {void} - Nothing
  */
-function VibratorModeCreateClickFunction({ options, functionPrefix }) {
+function VibratorModeCreateClickFunction({ options, functionPrefix, scriptHooks }) {
 	const clickFunctionName = `${functionPrefix}Click`;
-	window[clickFunctionName] = function() {
-		VibratorModeClick(options);
-	};
+	if (typeof scriptHooks.click === "function") {
+		window[clickFunctionName] = function() {
+			scriptHooks.click(() => VibratorModeDraw(options));
+		};
+	} else {
+		window[clickFunctionName] = function() {
+			VibratorModeClick(options);
+		};
+	}
+}
+
+/**
+ * Creates an asset's extended item exit function
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeCreateExitFunction({ functionPrefix, scriptHooks }) {
+	const exitFunctionName = `${functionPrefix}Exit`;
+	if (typeof scriptHooks.exit === "function") {
+		window[exitFunctionName] = scriptHooks.exit;
+	}
 }
 
 /**
@@ -299,11 +332,12 @@ function VibratorModeLoad(Options) {
 /**
  * Common draw function for vibrators
  * @param {VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
-function VibratorModeDraw(Options) {
+function VibratorModeDraw(Options, Y=450) {
 	ExtendedItemDrawHeader(1387, 100);
-	VibratorModeDrawControls(Options);
+	VibratorModeDrawControls(Options, Y);
 }
 
 /**
@@ -312,8 +346,7 @@ function VibratorModeDraw(Options) {
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
-function VibratorModeDrawControls(Options, Y) {
-	Y = typeof Y === "number" ? Y : 450;
+function VibratorModeDrawControls(Options, Y=450) {
 	let C = CharacterGetCurrent();
 	Options = Options || [VibratorModeSet.STANDARD];
 	var Property = DialogFocusItem.Property;
@@ -342,8 +375,12 @@ function VibratorModeDrawControls(Options, Y) {
 function VibratorModeClick(Options, Y) {
 	Y = typeof Y === "number" ? Y : 450;
 	let C = CharacterGetCurrent();
+
 	// Exit Button
-	if (MouseIn(1885, 25, 90, 85)) DialogFocusItem = null;
+	if (MouseIn(1885, 25, 90, 85)) {
+		ExtendedItemExit();
+		return;
+	}
 
 	Options.some((OptionName) => {
 		var OptionGroup = VibratorModeOptions[OptionName];
@@ -352,7 +389,7 @@ function VibratorModeClick(Options, Y) {
 			if (I % 3 === 0) Y += 75;
 			if (MouseIn(X, Y, 200, 55)) {
 				if ((Option.Property != null) && (DialogFocusItem.Property != null) && (Option.Property.Mode !== DialogFocusItem.Property.Mode) && !(OptionName == VibratorModeSet.ADVANCED && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes))
-					VibratorModeSetMode(Option);
+					VibratorModeSetOption(Option);
 				return true;
 			}
 		});
@@ -386,14 +423,24 @@ function VibratorModeGetOption(ModeName) {
 
 }
 
+/**
+ * Manually set a vibrating item's mode
+ * @param {Item} Item
+ * @param {VibratorMode} Mode
+ */
+function VibratorModeSetMode(Item, Mode) {
+	if (!Item || !Mode) return;
 
+	const option = VibratorModeGetOption(Mode);
+	VibratorModeSetProperty(Item, option.Property);
+}
 
 /**
- * Sets a new mode for a vibrating item and publishes a corresponding chatroom message
+ * Sets a vibrating item's option and publishes the corresponding chatroom message
  * @param {ExtendedItemOption} Option - The extended item option defining the new mode to be set
  * @returns {void} - Nothing
  */
-function VibratorModeSetMode(Option) {
+function VibratorModeSetOption(Option) {
 	var C = CharacterGetCurrent();
 	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 	var OldIntensity = DialogFocusItem.Property.Intensity;

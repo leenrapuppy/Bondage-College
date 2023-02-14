@@ -122,8 +122,7 @@ function ModularItemCreateDrawFunction(data) {
 	const drawFunctionName = `${data.functionPrefix}Draw`;
 	const drawFunction = function () {
 		const currentModule = data.currentModule || ModularItemBase;
-		const drawFunction = data.drawFunctions[currentModule];
-		return drawFunction();
+		return data.drawFunctions[currentModule]();
 	};
 	if (data.scriptHooks && data.scriptHooks.draw) {
 		window[drawFunctionName] = function () {
@@ -141,8 +140,7 @@ function ModularItemCreateClickFunction(data) {
 	const clickFunctionName = `${data.functionPrefix}Click`;
 	const clickFunction = function () {
 		const currentModule = data.currentModule || ModularItemBase;
-		const clickFunction = data.clickFunctions[currentModule];
-		return clickFunction();
+		return data.clickFunctions[currentModule]();
 	};
 	if (data.scriptHooks && data.scriptHooks.click) {
 		window[clickFunctionName] = function () {
@@ -177,7 +175,7 @@ function ModularItemUpdateModules(Modules) {
 		mod.Options.forEach((option, i) => {
 			option.Name = `${mod.Key}${i}`;
 			option.OptionType = "ModularItemOption";
-		})
+		});
 	}
 	return /** @type {ModularItemModule[]} */(Modules);
 }
@@ -231,6 +229,7 @@ function ModularItemCreateModularData(asset, {
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 		},
 		drawFunctions: {},
 		clickFunctions: {},
@@ -265,7 +264,7 @@ function ModularItemCreateDrawData(itemCount, asset, drawImages) {
 	const pageCount = Math.ceil(itemCount / itemsPerPage);
 
 	/** @type {[number, number][]} */
-	const positions = []
+	const positions = [];
 	let i = 0;
 	while (i < itemCount) {
 		i += itemsPerPage;
@@ -450,6 +449,7 @@ function ModularItemClickCommon({ paginate, positions, drawImages }, exitCallbac
 		// Permission toggle button
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
 			ChatRoomCharacterUpdate(Player);
+			ExtendedItemRequirementCheckMessageMemo.clearCache();
 		}
 		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
 		return;
@@ -534,7 +534,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues, Baseline
 		AllowActivity: Array.isArray(asset.AllowActivity) ? asset.AllowActivity.slice() : [],
 		Attribute: Array.isArray(asset.Attribute) ? asset.Attribute.slice() : [],
 		Tint: asset.AllowTint ? Array.isArray(asset.Tint) ? asset.Tint.slice() : [] : undefined,
-	})
+	});
 	if (BaselineProperty != null) {
 		ModularItemSanitizeProperties(BaselineProperty, BaseLineProperties, asset);
 	}
@@ -579,6 +579,12 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.BlinkState === "boolean") mergedProperty.BlinkState = Property.BlinkState;
 	if (typeof Property.AutoPunishUndoTime === "number") mergedProperty.AutoPunishUndoTime = Property.AutoPunishUndoTime;
 	if (typeof Property.AutoPunish === "number") mergedProperty.AutoPunish = Property.AutoPunish;
+	if (typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text)) mergedProperty.Text = Property.Text;
+	if (typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2)) mergedProperty.Text2 = Property.Text2;
+	if (typeof Property.Text3 === "string" && DynamicDrawTextRegex.test(Property.Text3)) mergedProperty.Text3 = Property.Text3;
+	if (typeof Property.PunishOrgasm === "boolean") mergedProperty.PunishOrgasm = Property.PunishOrgasm;
+	if (typeof Property.PunishStandup === "boolean") mergedProperty.PunishStandup = Property.PunishStandup;
+	if (typeof Property.NextShockTime === "number") mergedProperty.NextShockTime = Property.NextShockTime;
 	return mergedProperty;
 }
 
@@ -612,7 +618,7 @@ function ModularItemConstructType(modules, values) {
 }
 
 /**
- * Seperate a modular item type string into a list with the types of each individual module.
+ * Separate a modular item type string into a list with the types of each individual module.
  * @param {string} Type - The modular item type string
  * @returns {string[] | null} - A list with the options of each individual module or `null` if the input type wasn't a string
  */
@@ -663,6 +669,11 @@ function ModularItemSetType(module, index, data) {
 
 		if (!IsCloth) {
 			const groupName = data.asset.Group.Name;
+
+			// If the item triggers an expression, start the expression change
+			if (option.Expression) {
+				InventoryExpressionTriggerApply(C, option.Expression);
+			}
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, groupName);
 
@@ -897,13 +908,13 @@ function ModularItemHideElement(ID, Module) {
 		return ModularItemModuleIsActive(Module);
 	}
 
-    if (ModularItemModuleIsActive(Module)) {
-        Element.style.display = "block";
-        return true;
-    } else {
-        Element.style.display = "none";
-        return false;
-    }
+	if (ModularItemModuleIsActive(Module)) {
+		Element.style.display = "block";
+		return true;
+	} else {
+		Element.style.display = "none";
+		return false;
+	}
 }
 
 /**
@@ -920,7 +931,7 @@ function ModularItemCustomChatPrefix(Name, Data) {
 			newOption: { OptionType: "ModularItemOption", Name: Name },
 			previousIndex: 0,
 			newIndex: 0,
-		})
+		});
 	} else {
 		return Data.chatMessagePrefix;
 	}

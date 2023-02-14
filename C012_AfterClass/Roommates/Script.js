@@ -13,7 +13,7 @@ var C012_AfterClass_Roommates_WearingTennisOutfit = false;
 
 // Chapter 12 After Class - Roommates Load
 function C012_AfterClass_Roommates_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LoadInteractions();
 	C012_AfterClass_Roommates_ChitChatCount = 0;
@@ -47,7 +47,7 @@ function C012_AfterClass_Roommates_Run() {
 }
 
 // Chapter 12 After Class - Roommates Click
-function C012_AfterClass_Roommates_Click() {	
+function C012_AfterClass_Roommates_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_Roommates_CurrentStage);
@@ -56,7 +56,7 @@ function C012_AfterClass_Roommates_Click() {
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
 		C012_AfterClass_Roommates_IntroText = OverridenIntroText;
-		C012_AfterClass_Roommates_CurrentActor = CurrentActor; 
+		C012_AfterClass_Roommates_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 
@@ -71,7 +71,7 @@ function C012_AfterClass_Roommates_Leave() {
 
 // Chapter 12 After Class - A roommate might answer when the player knocks
 function C012_AfterClass_Roommates_Knock() {
-	
+
 	// Amanda is available after 21:00
 	CurrentTime = CurrentTime + 50000;
 	if ((CurrentTime >= 21 * 60 * 60 * 1000) && !GameLogQuery(CurrentChapter, "Amanda", "EnterDormFromLibrary") && !GameLogQuery(CurrentChapter, "Amanda", "EnterDormFromRoommates")) {
@@ -112,7 +112,7 @@ function C012_AfterClass_Roommates_ChitChat() {
 	C012_AfterClass_Roommates_ChitChatCount++;
 	CurrentTime = CurrentTime + 290000;
 	if (C012_AfterClass_Roommates_ChitChatCount % 5 == 4) ActorChangeAttitude(1, 0);
-	
+
 	// Sarah will kick the player out after 20:00
 	if ((CurrentTime >= 20 * 60 * 60 * 1000) && (CurrentActor == "Sarah")) {
 		OverridenIntroText = GetText("SarahKickOutAfter20");
@@ -124,7 +124,7 @@ function C012_AfterClass_Roommates_ChitChat() {
 		OverridenIntroText = GetText("JenniferKickOutAfter18");
 		C012_AfterClass_Roommates_CurrentStage = 311;
 	}
-	
+
 }
 
 // Chapter 12 After Class - Tests if Amanda will follow the player to her dorm

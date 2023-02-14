@@ -1,6 +1,8 @@
 "use strict";
 var TennisBackground = "CollegeTennisPlay";
+/** @type {null | NPCCharacter} */
 var TennisCharacterLeft = null;
+/** @type {null | NPCCharacter} */
 var TennisCharacterRight = null;
 var TennisCharacterLeftPoint = 0;
 var TennisCharacterRightPoint = 0;

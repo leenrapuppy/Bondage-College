@@ -22,19 +22,19 @@ function C008_DramaClass_Dressing_Click() {
 
 // Chapter 8 - Dressing Search
 function C008_DramaClass_Dressing_Search() {
-	
+
 	// On the first search, we find the costume
 	C008_DramaClass_Dressing_SearchCount++;
 	if (C008_DramaClass_Dressing_SearchCount == 1) {
 		OverridenIntroText = GetText("FindCostume");
 	}
-	
+
 	// On the third search, we find a chastity belt
 	if (C008_DramaClass_Dressing_SearchCount == 3) {
 		OverridenIntroText = GetText("FindBelt");
 		PlayerAddInventory("ChastityBelt", 1);
 	}
-	
+
 }
 
 // Chapter 8 - Dressing - Dress back up

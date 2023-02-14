@@ -26,6 +26,8 @@ Entering the room...
 Входим в комнату...
 Duplicate join request
 Дублировать запрос на присоединение
+Remove unwanted rooms
+Удалить ненужные комнаты
 Filter Rooms
 Фильтр комнат
 Return to room view

@@ -540,8 +540,7 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 	const allOptions = TypedItemGetOptions(item.Asset.Group.Name, item.Asset.Name);
 	// Avoid blocked & non-random options
 	const availableOptions = allOptions
-		.filter(option => option.Random !== false)
-		.filter(option => !InventoryBlockedOrLimited(C, item, option.Property.Type));
+		.filter(o => o.Random !== false && !InventoryBlockedOrLimited(C, item, o.Property.Type));
 
 	/** @type {ExtendedItemOption} */
 	let option;
@@ -568,7 +567,7 @@ function TypedItemCustomChatPrefix(Name, Data) {
 			newOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
 			previousIndex: 0,
 			newIndex: 0,
-		})
+		});
 	} else {
 		return Data.dialog.chatPrefix;
 	}

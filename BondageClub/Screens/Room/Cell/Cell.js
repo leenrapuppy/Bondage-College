@@ -2,6 +2,7 @@
 var CellBackground = "Cell";
 var CellMinutes = 5;
 var CellOpenTimer = 0;
+/** @type {null | NPCCharacter} */
 var CellKeyDepositStaff = null;
 
 /**

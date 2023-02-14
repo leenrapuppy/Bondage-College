@@ -4,19 +4,19 @@ var C999_Common_Manacles_HasKey = false;
 
 // Chapter Common - Manacles Load
 function C999_Common_Manacles_Load() {
-	
+
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	C999_Common_Manacles_HasKey = (PlayerHasInventory("PadlockKey"))
 	LoadInteractions();
-	
+
 	// Set the correct starting stage
 	if (PlayerHasLockedInventory("Manacles") == true) C999_Common_Manacles_CurrentStage = 10;
 	else C999_Common_Manacles_CurrentStage = 0;
-	
+
 	// If the player has a loose Manacles
 	C999_Common_Manacles_HasLooseManacles = PlayerHasInventory("Manacles");
-	
+
 }
 
 // Chapter Common - Manacles Run, we draw the regular player image if the item is on

@@ -1,11 +1,13 @@
 "use strict";
 
 var StableBackground = "HorseStable";
+/** @type {null | NPCCharacter} */
 var StableTrainer = null;
+/** @type {null | NPCCharacter} */
 var StablePony = null;
 var StablePonyPass = false;
 var StablePonyFail = false;
-/** @type Item[] */
+/** @type {Item[]} */
 var StablePlayerAppearance = null;
 /** @type {"Pony" | "Trainer" | null} */
 var StablePlayerOutfitWorn = null;
@@ -14,7 +16,9 @@ var StablePlayerTrainingLessons = 0;
 var StablePlayerTrainingBehavior = 0;
 var StableTrainerTrainingExercises = 0;
 var StablePlayerInIsolation = false;
+/** @type {null | number} */
 var StablePlayerInIsolationStart = null;
+/** @type {null | number} */
 var StablePlayerInIsolationEnd = null;
 var StableExamPoint = 0;
 

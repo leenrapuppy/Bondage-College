@@ -20,11 +20,11 @@ function C010_Revenge_SidneyJennifer_Load() {
 
 	// Set the timer limits at 15:15
 	StartTimer(15.25 * 60 * 60 * 1000, "C010_Revenge", "Outro");
-	
+
 	// Load the scene parameters (loads Jennifer first in case we are starting directly in chapter 10)
 	ActorLoad("Jennifer", "");
 	ActorLoad(C010_Revenge_SidneyJennifer_CurrentActor, "");
-	if (C010_Revenge_SidneyJennifer_CurrentStage == 0) { ActorSpecificSetPose("Sidney", "Angry"); ActorSpecificSetPose("Jennifer", "Angry"); }	
+	if (C010_Revenge_SidneyJennifer_CurrentStage == 0) { ActorSpecificSetPose("Sidney", "Angry"); ActorSpecificSetPose("Jennifer", "Angry"); }
 	LoadInteractions();
 	LeaveIcon = "";
 	Common_SelfBondageAllowed = false;
@@ -38,7 +38,7 @@ function C010_Revenge_SidneyJennifer_Load() {
 
 // Chapter 10 - Sidney and Jennifer Revenge Run
 function C010_Revenge_SidneyJennifer_Run() {
-	
+
 	// Build the text interactions
 	BuildInteraction(C010_Revenge_SidneyJennifer_CurrentStage);
 
@@ -50,12 +50,12 @@ function C010_Revenge_SidneyJennifer_Run() {
 				DrawActor("Sidney", 500, 0, 1.0);
 			} else {
 				DrawActor("Sidney", 525, 50, 0.8);
-				DrawActor("Jennifer", 700, 0, 1.0);		
+				DrawActor("Jennifer", 700, 0, 1.0);
 			}
 		} else {
 			if ((C010_Revenge_SidneyJennifer_CurrentStage == 38) || (C010_Revenge_SidneyJennifer_CurrentStage == 142)) DrawActor(CurrentActor, 650, -100, 0.833);
 			else DrawActor(CurrentActor, 600, 0, 1.0);
-		}			
+		}
 	}
 
 	// Include the player once she's naked
@@ -71,23 +71,23 @@ function C010_Revenge_SidneyJennifer_Run() {
 		DrawActor("Sidney", 500, -350, 0.75);
 		DrawActor("Player", 600, -150, 1);
 	}
-	
+
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge Click
-function C010_Revenge_SidneyJennifer_Click() {	
+function C010_Revenge_SidneyJennifer_Click() {
 
 	// Regular interactions
 	ClickInteraction(C010_Revenge_SidneyJennifer_CurrentStage);
-	
+
 	// The player can click on herself in most stages
 	var ClickInv = GetClickedInventory();
 	if ((ClickInv == "Player") && (C010_Revenge_SidneyJennifer_CurrentStage <= 170)) {
 		C010_Revenge_SidneyJennifer_IntroText = OverridenIntroText;
-		C010_Revenge_SidneyJennifer_CurrentActor = CurrentActor; 
+		C010_Revenge_SidneyJennifer_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
-	
+
 	// Can be restrained at stage 38 (Jennifer) or 142 (Sidney)
 	if (((C010_Revenge_SidneyJennifer_CurrentStage == 38) || (C010_Revenge_SidneyJennifer_CurrentStage == 142)) && (ClickInv != "") && (ClickInv != "Player")) {
 
@@ -107,10 +107,10 @@ function C010_Revenge_SidneyJennifer_Click() {
 		if ((ClickInv == "Crop") && (C010_Revenge_SidneyJennifer_CurrentStage == 142)) OverridenIntroText = GetText("CropSidney");
 
 	}
-	
+
 }
 
-// Chapter 10 - Sidney and Jennifer Revenge - Switch to a provoking pose 
+// Chapter 10 - Sidney and Jennifer Revenge - Switch to a provoking pose
 function C010_Revenge_SidneyJennifer_ProvokePose() {
 	ActorSpecificSetPose("Sidney", "Furious");
 	ActorSpecificSetPose("Jennifer", "Furious");
@@ -194,13 +194,13 @@ function C010_Revenge_SidneyJennifer_Untie() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - Steal Items
 function C010_Revenge_SidneyJennifer_StealItems() {
-	
+
 	// Backup and remove the player inventory
 	PlayerSaveAllInventory();
 	PlayerRemoveAllInventory();
 	C010_Revenge_SidneyJennifer_ItemStolen = true;
 	CurrentTime = CurrentTime + 50000;
-	
+
 }
 
 // Chapter 10 - Sidney and Jennifer Revenge - Recover the stolen items and clothes
@@ -213,7 +213,7 @@ function C010_Revenge_SidneyJennifer_RecoverItems() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - Starts the fight 2 VS 1
 function C010_Revenge_SidneyJennifer_StartFight() {
-		
+
 	// Sets the fight difficulty
 	var SidneyDifficulty = "Hard";
 	var JenniferDifficulty = "Normal";
@@ -227,7 +227,7 @@ function C010_Revenge_SidneyJennifer_StartFight() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the fight ends
 function C010_Revenge_SidneyJennifer_EndFight(Victory) {
-	
+
 	// Change the girls attitude depending on the victory or defeat
 	ActorSpecificChangeAttitude("Sidney", 0, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Jennifer", -1, Victory ? 2 : -2);
@@ -237,7 +237,7 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 	ActorSpecificSetPose("Jennifer", "Angry");
 	C010_Revenge_SidneyJennifer_FightVictory = Victory;
 	C010_Revenge_SidneyJennifer_AllowFight = false;
-	
+
 	// If this was the hallway fight
 	if (C010_Revenge_SidneyJennifer_CurrentStage <= 100) {
 
@@ -253,9 +253,9 @@ function C010_Revenge_SidneyJennifer_EndFight(Victory) {
 			OverridenIntroText = GetText("FightDefeatHallway");
 			C010_Revenge_SidneyJennifer_CurrentStage = 40;
 		}
-		
+
 	}
-	
+
 	// If this was the outside fight
 	if ((C010_Revenge_SidneyJennifer_CurrentStage >= 150) && (C010_Revenge_SidneyJennifer_CurrentStage <= 180)) {
 
@@ -370,7 +370,7 @@ function C010_Revenge_SidneyJennifer_SidneyCute() {
 	OverridenIntroImage = "";
 	if (C010_Revenge_SidneyJennifer_CuteDone) {
 		C010_Revenge_SidneyJennifer_CuteDone = true;
-		ActorChangeAttitude(-1, 1);		
+		ActorChangeAttitude(-1, 1);
 	}
 }
 
@@ -432,7 +432,7 @@ function C010_Revenge_SidneyJennifer_StartRace() {
 
 // Chapter 10 - Sidney and Jennifer Revenge - When the race ends
 function C010_Revenge_SidneyJennifer_EndRace(Victory) {
-	
+
 	// Change the girls attitude depending on the victory or defeat
 	ActorSpecificChangeAttitude("Sidney", 0, Victory ? 2 : -2);
 	ActorSpecificChangeAttitude("Jennifer", Victory ? 2 : -2, 0);

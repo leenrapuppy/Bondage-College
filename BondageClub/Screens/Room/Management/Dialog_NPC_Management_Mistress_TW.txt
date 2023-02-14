@@ -1,0 +1,1327 @@
+###_NPC
+Don't waste your time talking, I cannot understand.
+別浪費時間說話，我聽不懂。
+(DialogCharacterName comes in front of you.)  What are you doing?  Don't touch my pet.
+（DialogCharacterName出現在你面前。）你在做什麼？不要碰我的寵物。
+(DialogCharacterName grabs your arm.)  You're getting on my nerves.  Never touch my kitty.
+（DialogCharacterName抓住你的手臂。）你讓我很緊張。永遠不要碰我的小貓。
+(DialogCharacterName grabs your hair.)  Touch my pet again and you'll get in a world of trouble!
+（DialogCharacterName抓住你的頭髮。）再碰我的寵物，你的麻煩就大了！
+(She pulls you to her by the hair.)  Never touch my pet!  Now you're in trouble.
+（她拽著你的頭髮把你拉到她身邊。）別碰我的寵物！現在你有麻煩了。
+Submissive girl, what are you doing standing up in my presence?  Get on your knees if you want to speak to me.
+順從的女孩，你在我面前站著做什麼？如果你想和我說話，跪下。
+We Mistresses have been speaking.  It seems you're not fit to wear the heels anymore.
+我們這些女主人討論過了。看來你不適合再穿著這雙高跟鞋了了。
+(She looks at you and grins.)  Be direct and don't waste my time naked girl.
+（她看著你，咧嘴一笑。）直接點，別浪費我的時間，赤裸的女孩。
+My respects to you Mistress DialogPlayerName.
+向你致敬，女主人DialogPlayerName。
+Greetings head maid DialogPlayerName.  Is there a problem that the sorority cannot handle?
+向你問候，女僕長DialogPlayerName。遇到了女僕社團處理不了的問題嗎？
+Greetings master kidnapper DialogPlayerName.  I trust you're having a good time hunting.
+向你問候，綁架大師DialogPlayerName。我相信你在狩獵時玩得很開心。
+Welcome little maid.  How can I help you?
+歡迎，小女僕。我怎麼幫你？
+Welcome kidnapper.  How can I help you?
+歡迎，綁匪。我怎麼幫你？
+Be direct and don't waste my time girl.
+直接點，別浪費我的時間，女孩。
+###_PLAYER
+How come Sarah is locked down?
+Sarah怎麼被關起來了？
+###_NPC
+Sarah you say?  Oh yes, the blond college student.  Mistress Sophie reserved a room for her punishment.
+你說Sarah？哦，是的，那位金髮碧眼的大學生。女主人Sophie為懲罰她預留了一個房間。
+###_PLAYER
+I have a few questions.
+我有幾個問題。
+###_NPC
+Don't be shy, but don't waste my time.
+不要害羞，但不要浪費我的時間。
+###_PLAYER
+Who's that bound girl?
+那個被束縛的女孩是誰？
+###_NPC
+She's my kitty.  She stays with me while I work.
+她是我的小貓。我工作的時候她陪著我。
+###_PLAYER
+Can we talk about chastity devices?
+我們能談談貞操裝置嗎？
+###_NPC
+Absolutely, what would you like to know?
+當然，你想知道什麼？
+###_PLAYER
+About Dominant/submissive relationships...
+關於支配者/順從者關係……
+###_NPC
+I'm listening.  How can I educate you?
+我在聽。我要教你什麼？
+###_PLAYER
+About love relationships...
+關於戀愛關係……
+###_NPC
+(She smiles.) What is it ?
+（她微笑。）這是什麼？
+###_PLAYER
+About club Mistresses...
+關於俱樂部女主人……
+###_NPC
+Speak up.  What would you like to know?
+說吧。你想知道什麼？
+###_PLAYER
+About club slaves...
+關於俱樂部奴隸……
+###_NPC
+Yes, what would you like to know?
+是的，你想知道什麼？
+###_PLAYER
+Sorry, I need to go.  (Leave her.)
+對不起，我得走了。（離開她。）
+Oops, I'm sorry Miss.  (Kneel for her.)
+啊，對不起，女士。（向她跪下。）
+###_NPC
+(She smirks as you kneel down for her.)  Good girl.  What can I do for you?
+（當你像她跪下時，她邪惡地笑起來。）乖女孩。我能為你做什麼？
+###_PLAYER
+(Bow your head and kneel.)
+（低頭跪下。）
+We cannot talk then.  (Leave her.)
+那我們沒得談了。（離開她。）
+What do you do in the club?
+你在俱樂部做什麼？
+###_NPC
+I'm both a Mistress and a manager.  I prepare collaring ceremonies and hold keys for chastity devices.
+我既是女主人又是經理。我策劃授項圈儀式，並持有貞操裝置的鑰匙。
+###_PLAYER
+Who owns the club?
+誰擁有俱樂部？
+###_NPC
+The club is owned by every member, but the Head Mistress is truly in charge.
+俱樂部由每個會員擁有，但女主人總管是實際負責人。
+###_PLAYER
+Can I tie you up?
+我可以綁你嗎？
+###_NPC
+Don't make me laugh.
+別逗我笑。
+Forget it girl.  Don't bug me with such stupid questions.
+算了吧，女孩。別用這麼蠢的問題煩我了。
+I said forget it!  Ask me again and you'll be in a world of trouble.
+我說算了吧！再問我一次，你麻煩就大了。
+Now you're in trouble!
+現在你惹上麻煩了！
+###_PLAYER
+Will you tie me up?
+你會綁我嗎？
+###_NPC
+I don't have time for that.
+我沒時間。
+Forget it girl.  Don't bug me with these kinds of questions.
+算了吧，女孩。別這種問題來煩我了。
+###_PLAYER
+Are there other slave collar models?
+有其他奴隸項圈的樣式嗎？
+###_NPC
+There is, some fancy slaves want fancy collars.  There's a $30 fee to change your collar.  Are you willing to pay?
+有，愛美奴隸想要花俏的項圈。更換項圈需要$30。你願意支付嗎？
+###_PLAYER
+Let's talk about something else.
+我們談些別的吧。
+###_NPC
+What's on your mind girl?  Don't waste my time.
+你在想什麼，女孩？不要浪費我的時間。
+###_PLAYER
+I'm sorry Mistress.
+對不起，女主人。
+###_NPC
+Sorry isn't enough.  Strip girl.
+對不起還不夠。脫掉衣服，女孩。
+###_PLAYER
+What does that mean?
+這是什麼意思？
+###_NPC
+It means you're going to strip right now.
+意思是你現在要脫衣服。
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+You need to know your place.  Strip girl.
+你需要搞清楚你的地位。脫掉衣服，女孩。
+###_PLAYER
+Strip here?  No way!
+在這裡脫衣服？不可能！
+###_NPC
+(She slaps your face pretty hard.)  Oh yes you will!
+（她狠狠地扇了你一巴掌。）哦，是的，你會脫的！
+###_PLAYER
+Yes Mistress.
+是的，女主人。
+###_NPC
+(You slowly strip for her as she smiles.)
+（你慢慢地為她脫衣服，她露出微笑。）
+###_PLAYER
+I'm not stripping!
+我不脫！
+###_NPC
+We'll see about that!  (She painfully locks your arm behind your back until you give up and strip.)
+我們走著瞧！（她把你的手臂難受地按在背後，直到你放棄並脫衣服。）
+###_PLAYER
+(Strip slowly.)
+（慢慢脫衣服。）
+That's embarrassing.
+這太羞人了。
+###_NPC
+And it's about to get worse.  (She forces an armbinder on you and straps it tight.)
+並且還會更羞人。（她強行給你綁上束手，然後把它收緊。）
+###_PLAYER
+Are you happy now?
+你現在高興了？
+###_NPC
+Not yet.  (She forces an armbinder on you and straps it tight.)
+還沒。（她強行給你綁上束手，然後把它收緊。）
+###_PLAYER
+(Blush and bow your head.)
+（臉紅並低下頭。）
+###_NPC
+Good girl.  (She forces an armbinder on you and straps it tight.)
+乖女孩。（她強行給你綁上單手套，然後把它收緊。）
+###_PLAYER
+This is really tight.
+這真的很緊。
+###_NPC
+Have you learned your lesson?  Will you be good, or I need to restrict you even more?
+你吸取教訓了嗎？你會乖乖的，或者我得束縛你更多才行？
+###_PLAYER
+(Tug on the binder.)
+（拽動單手套。）
+Yes, I've learned my lesson.
+是的，我已經吸取教訓了。
+###_NPC
+Alright.  (She straps your legs with a belt.)  I will release you later, you can struggle for my amusement.
+好。（她用皮帶綁住你的腿。）我稍後會放開你，你可以掙扎一下，讓我開心開心。
+###_PLAYER
+What lesson?
+什麼教訓？
+###_NPC
+I'll show you.  (She uses many more items on you.)  I will release you later, you can struggle for my amusement.
+我會讓你知道的。（她在你身上使用了更多的物品。）我之後再放開你，你可以掙扎一下，讓我開心開心。
+###_PLAYER
+Fuck you!
+去你的！
+###_NPC
+Oh yeah?  (She uses many more items on you.)  I will release you later, you can struggle for my amusement.
+哦耶？ （她在你身上使用了更多的物品。）我之後再放開你，你可以掙扎一下，讓我開心開心。
+###_PLAYER
+(Nod and blush.)
+（點頭並臉紅。）
+###_NPC
+How's the bratty girl doing?
+這個壞女孩過得怎麼樣？
+###_PLAYER
+Can you please help me?
+你能幫我嗎？
+###_NPC
+Struggle some more, I'm having fun.
+再掙扎一下，我很開心。
+###_PLAYER
+(Whimper and beg for mercy.)
+（嗚咽求饒。）
+###_NPC
+Very well, I will help you.  (She releases you.)  Don't annoy me anymore.
+很好，我會幫你的。（她放開了你。）別再惹我了。
+###_PLAYER
+(Leave her.)
+（離開她。）
+Who's the Head Mistress?
+女主人總管是誰？
+###_NPC
+Mistress Sophie is the club current Head Mistress.  She's a strict but fair manager.
+女主人Sophie是俱樂部現任的女主人總管。她是一位嚴格但公平的經理。
+###_PLAYER
+How do you choose the Head Mistress?
+你們如何選出女主人總管？
+###_NPC
+There's an electoral process between Mistresses.  You'll learn more if you become a club Mistress yourself.
+女主人中有一個選舉的過程。如果你成為了俱樂部女主人，你會了解更多的。
+###_PLAYER
+Can I meet the Head Mistress?
+我能見到女主人總管嗎？
+###_NPC
+She's not available now.  Please come back later.
+她現在沒空。請待會再過來吧。
+What's on your mind girl?  Time is money.
+你在想什麼，女孩？時間就是金錢。
+###_PLAYER
+I'm sorry.  Please forgive me Mistress.
+對不起。請原諒我的女主人。
+###_NPC
+(She gives you a stern look.)  Don't do it again.
+（她嚴厲地看了你一眼。）別再這樣了。
+###_PLAYER
+I won't do it again.
+我不會再這樣做了。
+###_NPC
+(She gives you a stern look.)  Fine.
+（她嚴厲地看了你一眼。）很好。
+###_PLAYER
+I'll do what I want.
+我想怎麼做就怎麼做。
+###_NPC
+You dare to defy me?  Now you're in trouble!
+你敢違抗我？現在你有麻煩了！
+###_PLAYER
+(Nod politely and look down.)
+（禮貌地點點頭，看向地面。）
+I will pay the $30.
+我會支付$30。
+###_NPC
+Good.  What kind of model would you prefer?
+好。你喜歡什麼樣的造型？
+###_PLAYER
+I don't have enough money.
+我沒有足夠的錢。
+###_NPC
+That's not my problem.  Get to work or get lost.
+那不是我的問題。去工作，或者走吧。
+###_PLAYER
+I'll think about it.
+我會考慮一下。
+###_NPC
+Fine.  And stop wasting my time.  Is there anything else you need?
+很好。別再浪費我的時間了。你還有什麼需要的嗎？
+###_PLAYER
+The regular slave collar please.
+請給我普通的奴隸項圈。
+###_NPC
+(She calls a maid and swaps your collars.)  Here you go girl.  Is there anything else you need?
+（她召來了一個女僕，更換了你的項圈。）給你，女孩。你還有什麼需要的嗎？
+###_PLAYER
+The leather posture collar please.
+請給我皮革姿勢項圈。
+The steel posture collar please.
+請給我鋼姿勢項圈領。
+The leather pet collar please.
+請給我皮革寵物項圈。
+The High collar please.
+請給我高項圈。
+The Bell collar please.
+請給我鈴鐺項圈。
+Can I see more collar selections please?
+請問我可以看看更多的項圈選擇嗎？
+###_NPC
+(She nods and shows the other types.)  Sure girl but make sure not to waste my time ok?
+（她點頭並展示另外的類型。）當然女孩，但請確保不要浪費我的時間，好嗎？
+###_PLAYER
+I've changed my mind.
+我改變主意了。
+###_NPC
+Stop wasting my time girl.  Is there anything else you need?
+別浪費我的時間，女孩。你還有什麼需要的嗎？
+###_PLAYER
+The Bow collar please.
+請給我蝴蝶結項圈。
+The Maid collar please.
+請給我女僕項圈。
+The Bat collar please.
+請給我蝙蝠項圈。
+The High Security collar please.
+請給我高安全項圈。
+The Spike collar please.
+請給我尖刺項圈。
+Can I see the ones before please?
+請問我可以看看之前的嗎？
+###_NPC
+(With a slightly annoyed look she agrees.)  Don't take too long or else.
+（她同意了，帶著略帶生氣的表情。）不要花太長時間。
+(She nods and shows more types.)  Sure girl.
+（她點頭並展示更多類型。）當然，女孩。
+###_PLAYER
+The leather corset collar please.
+請給我皮革貼頸項圈。
+The Bordelle collar please.
+請給我波戴爾項圈。
+The strict posture collar please.
+請給我嚴苛姿勢項圈。
+The latex posture collar please.
+請給我乳膠姿勢項圈。
+The heart collar please.
+請給我心心項圈。
+The noble corset collar please.
+請給我貴族貼頸項圈。
+The ornate collar please.
+請給我華麗項圈。
+The slender Steel collar please.
+請給我纖細不鏽鋼項圈。
+The heart link choker please.
+請給我心形環貼頸項鍊。
+Why the ears and tail?
+為什麼有耳朵和尾巴？
+###_NPC
+She's a neko, a girl with cat features.  Don't judge her, she's a good kitty.
+她是一隻貓娘，一個有貓貓特徵的女孩。別對她太嚴格，她是一隻好貓。
+###_PLAYER
+You keep her restrained all day?
+你把她束縛了一整天？
+###_NPC
+Yes, she's not allowed to stray or talk while I work.
+是的，她在我工作的時候，她被禁止到處跑或者說話。
+###_PLAYER
+She's enjoying herself?
+她開心嗎？
+###_NPC
+Absolutely, she's my submissive and she's a bondage slut.
+當然，她是我的sub，她非常喜歡被綁起來。
+###_PLAYER
+Can I play with her?
+我可以玩弄她嗎？
+###_NPC
+(She ponders for a little while.)  You could, but there's a requirement.
+（她沉思了一會。）你可以，但有一個要求。
+(She checks your locks.)  Get a maid to release you first.  I don't have time for that.
+（她檢查你的鎖。）讓女僕先把你放開。我沒有時間做那個。
+Forget it.  I don't let any Dominant touch my pet.
+算了吧。我不讓任何支配者碰我的寵物。
+###_PLAYER
+Can I release her?
+我可以放開她嗎？
+###_NPC
+No.  Don't even dare to try.
+不，想都別想。
+Forget it girl.  Don't bug me again on that subject.
+算了吧，女孩。別再在那個問題上煩我了。
+Fine, and stop staring at my pet.
+好，並且別再盯著我的寵物了。
+###_PLAYER
+What requirement?
+什麼要求？
+###_NPC
+If you want to play with her, you must join her.  Do you agree?
+如果你想和她一起玩，你必須加入她。你同意嗎？
+###_PLAYER
+Please tell me.
+請告訴我。
+I'm not sure I understand.
+我不確定我理解的是對的。
+###_NPC
+I'm not going to repeat again.  If you want to play with her, you must join her.
+我不再重複。如果你想和她一起玩，你必須加入她。
+###_PLAYER
+Alright!  I'll do it!
+好吧！我會的！
+###_NPC
+(She smirks.)  Very well, strip girl.
+（她邪惡地笑了笑。）很好，脫衣服吧，女孩。
+###_PLAYER
+I can't do that.
+這我不能做。
+###_NPC
+Don't waste my time then.  Is there anything else you want?
+那就不要浪費我的時間了。你還有什麼想要的嗎？
+###_PLAYER
+Yes Mistress.  (Strip for her.)
+是的，女主人。（為她脫掉衣服。）
+###_NPC
+And it will get tighter.  (She adds more items.)  You two can play now.
+並且還會綁得更緊。（她用了更多物品。）現在，你們兩個可以玩了。
+###_PLAYER
+You're a great Mistress.
+你是很棒的女主人。
+###_NPC
+I try my best.  (She adds more items.)  You two can play now.
+我會盡力。（她用了更多物品。）現在，你們兩個可以玩了。
+Enjoy your predicament.  (She adds more items.)  You two can play now.
+享受你的束縛吧。（她用了更多物品。）現在，你們兩個可以玩了。
+Play some more, I'm having fun.
+多玩會，我現在很開心。
+Very well, I will help you.  (She releases you.)  I hope you had fun with my pet.
+很好，我會幫你的。（她放開了你。）希望你和我的寵物玩得開心。
+###_PLAYER
+Can you please release her?
+你能放開她嗎？
+###_NPC
+No, Mistress Sophie already made plans.  Do not interfere.
+不，女主人Sophie已經有計劃了。別打擾。
+###_PLAYER
+She's my property, let her go.
+她是我的財產，放了她吧。
+###_NPC
+Of course, I will send a maid to warn Mistress Sophie and free your slave.
+當然，我會派一個女僕去告知女主人索菲，並釋放你的奴隸。
+###_PLAYER
+Very well, punish her properly then.
+很好，那就好好懲罰她吧。
+###_NPC
+Don't worry, Mistress Sophie will discipline her well.
+別擔心，女主人Sophie會好好管教她的。
+###_PLAYER
+Thank you.
+謝謝你。
+###_NPC
+It's my duty.  Is there something else you need?
+這是我的職責。你還有什麼需要的嗎？
+###_PLAYER
+What are the rules for chastity items?
+貞操物品的規矩是什麼？
+###_NPC
+The maids will not remove your chastity devices.  So if you get locked without a key, you'll need to come and see us.  Bring money.
+女僕們不會移除你的貞操物品。因此，如果你在沒有鑰匙，而且被鎖上了，你需要來找我們。帶上錢來。
+###_PLAYER
+Can a slave with an owner be unlocked?
+有主人的奴隸可以被解鎖嗎？
+###_NPC
+Yes, but we will query the owner first.
+是的，但我們會先詢問主人。
+###_PLAYER
+I'm stuck, I need your help.
+我被困住了，我需要你的幫助。
+###_NPC
+(She smirks.)  So, a subbie girl got herself locked?  What's your story?
+（她邪惡地笑了笑。）所以，一個順從的女孩把自己鎖起來了？你經歷了什麼呢？
+(She laughs.)  Better learn to enjoy it girl.  I'm not releasing you.
+（她笑起來。）女孩，最好是去享受它哦。我不會放開你的。
+###_PLAYER
+A friend of mine needs your help.
+我的一個朋友需要你的幫助。
+###_NPC
+What friend?  You're alone girl.
+什麼朋友？你是一個人來的，女孩。
+Alright, but make it snappy.
+好，但乾脆點。
+###_PLAYER
+I wanted to protect myself.
+我想保護自己。
+###_NPC
+Since you're not owned, all there is to do is pay the unlocking fee and lick my heels.  (She points to her boot.)
+既然你沒有被擁有，那你要做的就只是支付解鎖費用，然後舔我的鞋跟。（她指了指著她的靴子。）
+###_PLAYER
+I was inspecting the device and it locked on me.
+我正在查看物品，它就鎖在我身上了。
+Someone played a prank on me.
+有人對我惡作劇。
+I've played a crazy "Truth or Dare" game.
+我玩了一次瘋狂的“真心話大冒險”。
+###_NPC
+I understand.  But since you're owned, I need your Mistress approval to unlock any chastity item from you.
+我懂了。但既然你已經有主人了，我需要你的女主人允許，才能解鎖你身上的貞操物品。
+(She grins.)  Of course.  Since you're owned, I need your Mistress approval to unlock any chastity item from you.
+（她笑了。）當然。既然你已經有主人了，我需要你的女主人允許，才能解鎖你身上的貞操物品。
+###_PLAYER
+I've played a crazy game of: "Truth or Dare".
+我玩了一次瘋狂的“真心話大冒險”。
+###_NPC
+I hope you won that game.  Since you're owned, I need your Mistress approval to unlock any chastity item from you.
+我真希望你贏了那遊戲。既然你已經擁有了，我需要你的女主人允許，才能解鎖你身上的貞操物品。
+###_PLAYER
+My Mistress wanted to protect me.
+我的女主人想要保護我。
+###_NPC
+Very well, but you know that I need your Mistress approval to unlock any chastity item from you.
+很好，但你知道的，我需要你的女主人允許，才能解鎖你身上的貞操物品。
+###_PLAYER
+My owner punished me.
+我的主人懲罰了我。
+###_NPC
+I bet you deserved it.  You know that I need your Mistress approval to unlock any chastity item from you.
+我猜你活該。你知道的，我需要你的女主人允許，才能解鎖你身上的貞操物品。
+###_PLAYER
+I'm not kissing your ass or licking your heels.
+我我不會親你的屁股，更不會舔你的鞋跟。
+###_NPC
+You can't blame me for trying.  Just pay the unlocking fee of $25 then.
+你不能因為我說就怪我。那就支付$25的解鎖費吧。
+###_PLAYER
+Lick your heels?  That's the regular procedure?
+舔你的鞋跟？那是正規程序嗎？
+###_NPC
+My duty, my rules.  You lick or your leave?
+我的職責，我的規則。你是舔呢還是走呢？
+###_PLAYER
+Fine.  (Lick her heels.)
+好吧。（舔她的鞋跟。）
+###_NPC
+(You bend down and slowly lick her heels as she laughs.)  Good girl, the unlocking fee is $25.
+（你彎下腰慢慢舔她的鞋跟，她笑起來。）乖女孩，開鎖費用是$25。
+###_PLAYER
+I won't lick your heels!
+我不可能舔你的鞋跟！
+###_NPC
+(She laughs.)  Then you stay chaste. 
+（她笑起來。）那你就繼續待在貞操物品裡吧。
+###_PLAYER
+That's extortion!
+這是敲詐！
+###_NPC
+No, that's a lesson.  You pay or you go?
+不，這是教訓。你付錢呢還是走呢？
+###_PLAYER
+Please unlock the bra.  (Pay her $25.)
+請解鎖胸罩。（付給她$25。）
+###_NPC
+Alright.  (You remove your clothes and she unlocks the bra.)  How does it feel?
+好吧。（你脫掉衣服，她解鎖你的胸罩。）感覺如何？
+###_PLAYER
+Please unlock the belt.  (Pay her $25.)
+請解鎖貞操帶。（付給她$25。）
+###_NPC
+Alright.  (You remove your clothes and she unlocks the belt.)  How does it feel?
+好的。（你脫掉衣服，她解鎖貞操帶。）感覺如何？
+###_PLAYER
+Please unlock the nipple piercings.  (Pay her $25.)
+請解鎖乳頭穿刺。（付給她$25。）
+###_NPC
+Alright.  (You remove your clothes and she unlocks the piercings.)  How does it feel?
+好吧。（你脫掉衣服，她解鎖了穿刺。）感覺如何？
+###_PLAYER
+Please unlock the clitoris piercing.  (Pay her $25.)
+請解鎖陰蒂穿刺。（付給她$25。）
+###_NPC
+Alright.  (You remove your clothes and she unlocks the piercing.)  How does it feel?
+好吧。（你脫掉衣服，她解鎖了穿刺。）感覺如何？
+###_PLAYER
+Please unlock the plug.  (Pay her $25.)
+請解鎖肛塞。（付給她$25。）
+###_NPC
+Alright.  (You remove your clothes and she unlocks the butt plug.)  How does it feel?
+好吧。（你脫掉衣服，她解鎖了肛門塞。）感覺如何？
+Get to work then.  I'm not doing any discount.
+那就去工作吧。我這裡不打折。
+Think about ways to stop wasting my time girl.
+能不能別再浪費我的時間了，女孩。
+###_PLAYER
+Better!  I'll never get stuck again.
+好多了！我保證再也不會被困住了。
+###_NPC
+(She laughs.)  They all say that, and they all come back.
+（她笑起來。）人人都這麼說，結果都回來了。
+###_PLAYER
+This is great!
+這很棒！
+###_NPC
+Be careful not to get locked again.  I don't do discount for multiple release.
+小心，別再次被鎖上了。多來釋放幾次，我也不會給你打折的。
+###_PLAYER
+(Blush.)  This is wonderful, thanks Mistress.
+（臉紅起來。）這太好了，謝謝女主人。
+###_NPC
+She pets your head.  Good girl, be careful not to get locked again.
+她輕輕摸你的頭。乖女孩，小心別再被鎖上了。
+###_PLAYER
+My owner isn't a club member.
+我的主人不是俱樂部會員。
+###_NPC
+That's not a problem girl.  We will call her to get her approval.
+這不是問題女孩。我們會打電話給她，以獲得她的批准。
+###_PLAYER
+My Mistress is a college student.
+我的女主人是一名大學生。
+My owner is in my private room.
+我的主人在我的私人房間裡。
+###_NPC
+Excellent.  I will send a maid to get her approval.
+很好。我會派一個女僕去徵得她的同意。
+###_PLAYER
+Mistress is in the club right now.
+女主人現在在俱樂部。
+###_NPC
+Good.  I will send a maid to get her approval.
+好的。我會派一個女僕去徵得她的同意。
+###_PLAYER
+I can go get my owner.
+我可以去找我的主人。
+###_NPC
+You don't need to do anything.  I will send a maid to get her approval.
+你不需要做任何事情。我會派一個女僕去徵得她的同意。
+###_PLAYER
+I'm not sure where my owner is.
+我不確定我的主人在哪裡。
+###_NPC
+Don't worry, we will find her.  I will send a maid to get her approval.
+別擔心，我們會找到她的。我會派一個女僕去徵得她的同意。
+###_PLAYER
+My Mistress isn't around.
+我的女主人不在這裡。
+That's easy!
+這很容易！
+###_NPC
+It's not that easy, there's a $20 fee to contact your Mistress and a $25 fee for any item to remove.  And you won't get any refund if she refuses.
+這並不容易，聯繫你的女主人需要$20的費用，要移除任一物品需要$25的費用。如果她拒絕，你不會得到退款的。
+###_PLAYER
+Thanks Mistress.
+謝謝女主人。
+###_NPC
+Hold on girl, there's a $20 fee to contact your Mistress and a $25 fee for any item to remove.  And you won't get any refund if she refuses.
+等一下，聯繫你的女主人需要$20的費用，要移除任一物品需要$25的費用。如果她拒絕，你不會得到退款的。
+###_PLAYER
+Does it cost anything?
+有什麼費用嗎？
+###_NPC
+Of course, there's a $20 fee to contact your Mistress and a $25 fee for any item to remove.  And you won't get any refund if she refuses.
+當然，聯繫你的女主人需要$20的費用，要移除任一物品需要$25的費用。如果她拒絕，你不會得到退款的。
+###_PLAYER
+Please contact her. (Pay her $20.)
+請聯絡她吧。（付給她$20。）
+###_NPC
+(She takes your money and sends a maid to contact your owner.)  Come back in a few minutes
+（她拿了你的錢，派了一個女僕聯繫你的主人。）幾分鐘後回來
+(She grins.)  Welcome back, chaste girl.
+（她咧開嘴笑了。）歡迎回來，在貞操物品裡的女孩。
+###_PLAYER
+Have you contacted my owner?
+你聯繫我的主人了嗎？
+###_NPC
+Not yet, don't be hasty.  Come back in a few minutes.
+還沒有，別著急。幾分鐘後回來。
+Yes, and your Mistress accepted to get you out.  It cost $25 for each item to unlock.
+是的，你的女主人同意放你出去。每件物品的解鎖費用為$25。
+Yes, and your Mistress refused to unlock you.  You will stay chaste girl.
+是的，你的女主人拒絕解鎖你。你會留在貞操物品裡，女孩。
+###_PLAYER
+I'll wait. (Leave her.)
+那我會等的。（離開她。）
+###_NPC
+Which chastity device should I unlock?  The fee is $25 per item.
+我應該解鎖哪個貞操物品？每件費用是$25。
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the bra.)
+很好，脫衣服吧，順從的女孩。（你脫掉衣服，她解開胸罩。）
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the belt.)
+很好，脫衣服吧，順從的女孩。（你脫掉衣服，她解開貞操帶。）
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the piercings.)
+很好，脫衣服吧，順從的女孩。（你脫掉衣服，她打開穿刺。）
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the piercing.)
+很好，脫衣服吧，順從的女孩。（你脫掉衣服，她打開穿刺。）
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the plug.)
+很好，脫衣服吧，順從的女孩。（你脫掉衣服，她打開塞子。）
+###_PLAYER
+I'm fine now.  Thanks.
+我現在很好。謝謝。
+###_NPC
+Alright.  If you ask again, you will have to go through the same procedure.
+好吧。如果你再來問，剛才的過程我們會再講一遍。
+###_PLAYER
+I'll be right back.  (Leave her.)
+我馬上就回來。（離開她。）
+Yes Mistress.  (Bow your head.)
+是的女主人。（低下頭。）
+###_NPC
+Good girl.  Enjoy your chaste life.  (She smirks.)
+乖女孩。享受你在貞操物品裡的生活吧。（她邪惡地笑起來。）
+###_PLAYER
+What?  That's unfair!
+什麼？這不公平！
+###_NPC
+Life isn't fair girl.  I'm not unlocking you.  (She grins.)
+生活就是不公平的，女孩。我不會解鎖你。（她咧嘴笑起來。）
+###_PLAYER
+Alright.
+好吧。
+###_NPC
+Good.  Is there anything else you need?
+很好。你還有什麼需要的嗎？
+###_PLAYER
+She's in my private room.
+她在我的私人房間裡。
+###_NPC
+I'll make a deal with you then.  I'll send a maid to your room, and she will unlock all of your friends that are not owned by someone else for $50.
+那我和你做個交易。我會派一個女僕到你的房間，花費$50，她會解鎖你所有沒被擁有的朋友。
+###_PLAYER
+In my room Mistress.
+在我的房間裡，女主人。
+Deal!  (Pay her $50.)
+成交！（付給她$50。）
+###_NPC
+Very good.  (She takes the money and sends a maid to your private room.)  Anything else?
+很好。（她拿了錢，派了一個女僕前往你的私人房間。）還有別的需要嗎？
+###_PLAYER
+What is a D/s family?
+主奴家族是什麼？
+###_NPC
+You can build your own D/s family or join a Dominant family.  A submissive can only have one Mistress.  A Mistress can have many collared submissives.
+你可以建立自己的主奴家族，或加入一個支配者的家族。一個順從者只能有一個女主人。一個女主人可以有許多戴上項圈的順從者。
+###_PLAYER
+Is there a fee to collar or be collared?
+給別人戴上項圈或被戴上項圈要收費嗎？
+###_NPC
+Yes, the Dominant must pay $100 for each pet, we provide the locking collar.  If a slave wants freedom, she will pay $60 on the first occurrence and $200 on others.
+是的，支配者必須為每隻寵物支付$100，我們提供上鎖的項圈。如果奴隸想要自由，頭一次發生這種事情時她需要支付$60，之後需要支付$200。
+###_PLAYER
+Will you be my Mistress?
+你願意做我的女主人嗎？
+###_NPC
+I've heard about you girl.  They say you're one of the best slaves around.  You would offer yourself to me?
+我聽說過你，女孩。他們說你是這裡最好的奴隸之一。你願意把自己獻給我嗎？
+Girl, my standards are high.  If I get a new slave, she would have to be the perfect submissive.
+姑娘，我的標準很高。如果我要收一個新奴隸，她必須是完美的順從者。
+###_PLAYER
+Can I collar and own anyone?
+我可以給任何人戴上項圈來擁有她嗎？
+###_NPC
+BDSM is consensual.  As long as the person isn't already owned and consent to be your slave, you can collar her.
+BDSM要求自願。只要這個人還沒有被擁有，並同意成為你的奴隸，你就可以給她戴上項圈。
+###_PLAYER
+I want to collar a submissive.
+我想給一個順從者戴上項圈。
+###_NPC
+Perfect!  Go get your consenting pet and bring her here.  You will need to pay $100 for the slave collar and the ceremony.
+完美！找到同意你的寵物，把她帶到這裡。你會需要為奴隸項圈和儀式支付$100。
+###_PLAYER
+A Dominant wants to collar me.
+一位支配者想給我戴上項圈。
+###_NPC
+You must be thrilled sub girl, but your Dominant will arrange the collaring ceremony, not you.  Ask her politely to contact us.
+你一定很興奮，順從的女孩，但你的女主人會安排授項圈儀式，而不是你來安排。禮貌地請求你的女主人與我們聯繫吧。
+###_PLAYER
+I want to break my trial period.
+我想中止我的的試任期。
+###_NPC
+Breaking a trial period is alright, it happens everyday.  But are you totally sure?  You really thought about it?
+中止試任期沒有問題，每天都會發生。但你完全確定嗎？你真的考慮嗎？
+###_PLAYER
+I want to be released from my owner.
+我想從我的主人那裡得到釋放。
+###_NPC
+I'm sorry to hear that.  Breaking a BDSM bond is serious.  Tell me your story, why do you want to leave?
+我很遺憾聽到這個消息。破壞BDSM的紐帶是非常嚴肅的事情。跟我講講你的故事，你為什麼要離開？
+Girl, it's too soon for that.  There's a seven days delay before we will uncollar anyone.
+女孩，這還為時過早。我們解開任何人的項圈前，需要先等夠7天。
+Girl, I know your owner.  Go to your room and speak with her about it.
+姑娘，我認識你的主人。去你的房間和她談談。
+An extreme slave girl like you isn't allowed to leave her owner.  Only your Mistress can release you.  Accept the weight of your choices and go back to her.
+像你這種極限的女奴，是不能離開自己的主人的。只有你的女主人才能釋放你。承受你的選擇的重量，然後回到她身邊吧。
+As long as you don't ask anything idiotic.
+只要你不問任何愚蠢的事情。
+###_PLAYER
+My Mistress doesn't want to join the club.
+我的女主人不想加入俱樂部。
+###_NPC
+I understand.  BDSM is consensual, you have the right to leave your owner.  Since we don't encourage flyby slaves, there's a fee for your freedom.
+我明白。BDSM是自願的，你有權離開你的主人。我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+My owner is a student, she's not mature enough.
+我的主人是學生，她還不夠成熟。
+###_NPC
+That makes sense.  BDSM is consensual, you have the right to leave your owner.  Since we don't encourage flyby slaves, there's a fee for your freedom.
+我能理解。BDSM是自願的，你有權離開你的主人。我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+My owner disappeared.
+我的主人消失了。
+###_NPC
+Poor girl, I'm sure you'll find another owner someday.  Since we don't encourage flyby slaves, there's a fee for your freedom.
+可憐的女孩，我相信你總有一天會找到另一個主人的。我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+My limits were broken too many times.
+我的限制被打破太多次了。
+###_NPC
+I'm sorry for you, some limits are not meant to be broken.  Since we don't encourage flyby slaves, there's a fee for your freedom.
+我為你感到難過，有些限制是不應該被打破的。我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+I've found a better Mistress.
+我找到了一個更好的女主人。
+###_NPC
+The Bondage Club isn't a shopping mall for Dominants.  (She frowns at you.)  Since we don't encourage flyby slaves, there's a fee for your freedom.
+束縛俱樂部不是賣支配者的購物中心。（她對你皺眉。）我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+My owner doesn't want me anymore.
+我的主人不再要我了。
+###_NPC
+Poor girl, I'm sure you'll find a good owner someday.  But since we don't encourage flyby slaves, there's a fee for your freedom.
+可憐的女孩，我相信你總有一天會找到一個好主人的。我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+Mistress wants to become a slave.
+女主人想成為一個奴隸。
+###_NPC
+People change you know.  It can happen to the best of us.  Since we don't encourage flyby slaves, there's a fee for your freedom.
+人總是會變的，你知道的。可能我們中最好的人就變了。我們不鼓勵那種路過式的奴隸，因此你需要為自由支付費用。
+###_PLAYER
+I guess I don't have any good reason.
+我想我沒有任何充分的理由。
+###_NPC
+Then that collar stays around your neck girl.  Go see your Mistress and work things out with her.
+那麼，這個項圈會留在你脖子上，女孩。去見你的女主人，跟她好好講講吧。
+###_PLAYER
+How much does it cost?
+這要多少錢？
+###_NPC
+The regular cost to be released from your owner bond is $200.  But since everyone can make mistakes, it cost $60 if it's the first time you do it.
+從BDSM的紐帶中解放的成本，一般是$200。但由於每個人都會犯錯，如果你是第一次，花費是$60。
+###_PLAYER
+I'm kind of poor.
+我有點窮。
+(Let her talk.)
+（讓她說話。）
+Why are there two different prices?
+為什麼會有兩種不同的價格？
+###_NPC
+We want to make sure that our members take their D/s relationship seriously.  You can see the higher price as a punitive measure.
+我們希望確保我們的成員認真對待他們的主奴關係。你可以將更高的價格視為一種懲罰措施。
+###_PLAYER
+I want my freedom. (Pay her $60)
+我要我的自由。（付給她$60）
+###_NPC
+Very well, it seems that we've lost a pet.  I will remove the slave collar from your neck.
+很好，看起來我們失去了一隻寵物。我會從你脖子上取下奴隸項圈。
+###_PLAYER
+I want my freedom. (Pay her $200)
+我要我的自由。（付給她$200）
+###_NPC
+Take your time before getting collared again.  I will remove the slave collar from your neck.
+在再次戴上項圈前，享受你的自由吧。我會從你脖子上取下奴隸項圈。
+###_PLAYER
+Let me think about it.
+讓我想想。
+###_NPC
+Think girl, this is a serious decision.
+想想吧，女孩，這是一個嚴肅的決定。
+###_PLAYER
+Alright.  (Expose your neck.)
+好吧。（露出你的脖子。）
+###_NPC
+(She gets a special key and unlocks the collar from your neck.)  You're free girl, enjoy the club as you see fit.
+（她拿來一把特殊的鑰匙，解開你脖子上的項圈。）你自由了，女孩，按你喜歡的方式享受俱樂部吧。
+###_PLAYER
+(Bow your head and expose your neck.)
+（低下頭，露出脖子。）
+I won't get collared again.  (Expose your neck.)
+我不會再被戴上項圈了。（露出你的脖子。）
+Thanks a lot.
+非常感謝。
+###_NPC
+My pleasure.  Is there anything else you need?
+我的榮幸。你還有什麼需要的嗎？
+###_PLAYER
+I will!
+我會！
+(Nod happily.)
+（高興地點頭。）
+###_NPC
+Is there anything else you need?
+你還有什麼需要的嗎？
+###_PLAYER
+Yes Miss.  Would you collar someone like me?
+是的，小姐。你會給像我這樣的人戴上項圈嗎？
+###_NPC
+I might be interested, but I need to know you better first.  Is there a place we could meet?
+我可能有興趣，但我需要先更好地了解你。有地方可以見面嗎？
+###_PLAYER
+I need a strong woman like you to control me.
+我需要一個像你這樣強大的女人來控制我。
+(Nod slowly and bow your head.)
+（慢慢點頭，然後低下頭。）
+###_NPC
+Of course, think very carefully slave girl.
+當然，考慮清楚了，女奴。
+###_PLAYER
+I have my private room in the club.
+我在俱樂部有我的私人房間。
+###_NPC
+That could certainly work.  I'll take my kitty to her cage and go see your place right after.
+那當然可以。我會把我的小貓帶到她的籠子裡，然後馬上去你那裡看看。
+###_PLAYER
+Yes, we could use my room Miss.
+是的，我們可以使用我的房間，女士。
+I don't know.
+我不知道。
+###_NPC
+It's fine girl.  Let me know if you can find a good place where we could meet after my shift.
+好的，女孩。如果你知道我輪班後哪裡適合我們見面，就跟我說吧。
+###_PLAYER
+Great, I'll see you there.
+太好了，我會去那裡見你的。
+Take your time Miss.
+慢慢來，女士。
+You're welcome any time.
+隨時歡迎你。
+Yes, I want to break my trial.
+是的，我想中止我的試任期。
+###_NPC
+(She announces the end of your trial period and makes it official.)  You're free girl, enjoy the club.
+（她宣布你的試用期結束並正式宣布。）你自由了，女孩，享受俱樂部吧。
+###_PLAYER
+Let me think some more.
+讓我再想一想。
+What are club slaves?
+什麼是俱樂部奴隸？
+###_NPC
+Submissive girls can take slavery contracts with the club and get paid for it.  They become prey for anyone to play with while under that contract.
+順從的女孩可以與俱樂部簽訂奴隸合約並獲得報酬。在該合約生效時，他們會成為所有人可以玩弄的的獵物。
+###_PLAYER
+What are the slave contract terms?
+奴隸合約的條款是什麼？
+###_NPC
+The contract lasts for one hour and the girl gets paid $50 at the end of it.  A special collar will be locked for the contract duration.
+奴隸合約持續一小時，女孩在合約結束時獲得$50的報酬。在合約期間，會被鎖上一中專門的項圈。
+###_PLAYER
+There's a special collar?
+原來有專門的項圈嗎？
+###_NPC
+Regular slaves wear the red collar, which means they are already taken.  Club slaves wear the green collar, which means they are open for anyone.
+普通奴隸佩戴紅項圈，這意味著他們已經被擁有了。俱樂部奴隸佩戴綠項圈，這意味著他們對任何人開放使用。
+###_PLAYER
+What must club slaves do?
+俱樂部奴隸必須做什麼？
+###_NPC
+Club slaves can still enjoy the club but must be naked at all times.  They can be approached by any club member to be restrained or played with.
+俱樂部奴隸仍然可以享受俱樂部，但必須始終赤身裸體。任何俱樂部會員都可以接近他們，束縛或玩弄他們。
+###_PLAYER
+What if the sub is already owned?
+如果順從者已經被擁有，怎麼辦呢？
+###_NPC
+As long as the owner doesn't disapprove, a regular slave can take a club slave contract for one hour.  We will swap collars and lock the slave collar again in the end.
+只要主人不反對，一個普通的奴隸也可以接受一小時的俱樂部奴隸合約。最後，我們會換回項圈，並重新鎖上奴隸項圈。
+###_PLAYER
+Can I become a club slave?
+我可以成為俱樂部奴隸嗎？
+###_NPC
+No, you're not submissive enough.
+不，你不夠順從。
+(She checks your locks.)  No, your Mistress has put an owner lock on you, get released first.
+（她檢查你的鎖。）不，你的女主人給你上了主人鎖，你先想辦法被放開吧。
+(She checks your locks.)  No, your Lover has put a lover lock on you, get released first.
+（她檢查你的鎖。）不，你的戀人給你上了愛人鎖，你先想辦法被放開吧。
+You could, are you sure you understand the terms and commitments?  Do you accept the contract?
+你可以，你確定你了解條款和承諾嗎？你接受合約嗎？
+Alright girl, but don't waste my time.
+好吧，女孩，但不要浪費我的時間。
+###_PLAYER
+I accept the terms.  I want to be a club slave.
+我接受條款。我想成為俱樂部的奴隸。
+###_NPC
+Very good, it's time to strip girl.
+很好，該脫衣服了，女孩。
+Since you're already naked, it's time for your collar slave.
+既然你已經光著身子了，那該給你戴上項圈了，奴隸。
+###_PLAYER
+Let's review the rules first.
+讓我們先回顧一下規則。
+###_NPC
+Fine, what troubles you?
+好吧，你遇到什麼麻煩了？
+###_PLAYER
+Yes Miss.  (Strip.)
+是的，女士。（脫衣服。）
+###_NPC
+(You strip down as she smirks.)  It's time for your collar slave.
+（你脫掉衣服，她邪惡地笑了笑。）該給你戴上項圈了，奴隸。
+###_PLAYER
+My pleasure.  (Strip.)
+我的榮幸。（脫衣服。）
+Very well.  (Present your neck.)
+好的。（展示你的脖子。）
+###_NPC
+(She removes your regular collar and straps a club slave collar around your neck.  She locks it securely with a strong padlock.)  Good girl.
+（她取下你的普通項圈，給你的脖子繫上俱樂部奴隸項圈。她用一把結實的掛鎖把它牢牢鎖住。）乖女孩。
+(She straps a club slave collar around your neck.  She locks it securely with a strong padlock.)  Good girl.
+（她給你的脖子繫上俱樂部奴隸項圈。她用一把結實的掛鎖把它牢牢鎖住。）乖女孩。
+###_PLAYER
+Please don't strap it too tight.
+請不要把它綁得太緊。
+###_NPC
+(She removes your regular collar and straps a club slave collar around your neck.  She locks it securely with a strong padlock.)  Don't complain.
+（她取下你的普通項圈，給你的脖子繫上俱樂部奴隸項圈。她用一把結實的掛鎖把它牢牢鎖住。）不要抱怨。
+(She straps a club slave collar around your neck.  She locks it securely with a strong padlock.)  Don't complain.
+（她給你的脖子繫上俱樂部奴隸項圈。她用一把結實的掛鎖把它牢牢鎖住。）不要抱怨。
+###_PLAYER
+It's an honor to serve the club.
+很榮幸為俱樂部服務。
+###_NPC
+(She removes your regular collar and straps a club slave collar around your neck.  She locks it securely with a strong padlock.)  Slave, make us proud.
+（她取下你的常規項圈，在你的脖子上繫上一個俱樂部奴隸項圈。她用一把堅固的掛鎖把它牢牢鎖住。）奴隸，讓我們感到自豪。
+(She straps a club slave collar around your neck.  She locks it securely with a strong padlock.)  Slave, make us proud.
+（她在你的脖子上繫上一個俱樂部奴隸項圈。她用一把堅固的掛鎖把它牢牢鎖住。）奴隸，讓我們感到自豪。
+###_PLAYER
+Am I ready Miss?
+女士，我準備好了嗎？
+###_NPC
+You're ready slave.  Go in the club and make sure everyone see's you.  Make our customers and members happy.
+你準備好了，奴隸。走進俱樂部，確保每個人都看到你。讓我們的客戶和會員滿意吧。
+###_PLAYER
+I should wander in the club?
+我應該在俱樂部裡閒逛嗎？
+###_NPC
+Absolutely.  Go in the club and make sure everyone see's you.  Make our customers and members happy.
+當然。走進俱樂部，確保每個人都看到你。讓我們的客戶和會員滿意吧。
+Get going girl!  Go in the club and make sure everyone see's you.  Make our customers and members happy.
+去吧，女孩！走進俱樂部，確保每個人都看到你。讓我們的客戶和會員滿意吧。
+Don't stay here girl, you're on duty.  Go in the club and make sure everyone see's you.  Make our customers and members happy.
+別待在這裡，女孩，你該當班了。走進俱樂部，確保每個人都看到你。讓我們的客戶和會員滿意吧。
+Your slave time is done girl.  Are you here to complete your contract?
+你的奴隸時間結束了，女孩。你是來完成你的合約的嗎？
+###_PLAYER
+Miss, I wish to complete my contract.
+女士，我想完成我的合約。
+###_NPC
+Very good, did you enjoy your experience?
+很好，你享受你的經歷嗎？
+###_PLAYER
+(Bow your head and leave her.)
+（低下頭並離開她。）
+It was very kinky Miss.
+那非常的色，女士。
+###_NPC
+(She swaps your collars and laughs.)  Very good, here's your money slave.  (She gives you $50.)
+（她換回你的項圈，笑出聲來。）很好，這是你的錢，奴隸。（她給你$50。）
+(She removes your collar and laughs.)  Very good, here's your money slave.  (She gives you $50.)
+（她解開你的項圈，笑出聲來。）很好，這是你的錢，奴隸。（她給你$50。）
+###_PLAYER
+I loved it.  I hope to do it again.
+我愛死了。我希望再做一次。
+###_NPC
+(She swaps your collars and grins.)  You can come back anytime.  Here's your money slave.  (She gives you $50.)
+（她換回你的項圈，咧嘴一笑。）你可以隨時回來。這是你的錢，奴隸。（她給你$50。）
+(She removes your collar and grins.)  You can come back anytime.  Here's your money slave.  (She gives you $50.)
+（她解開你的項圈，咧嘴一笑。）你可以隨時回來。這是你的錢，奴隸。（她給你$50。）
+###_PLAYER
+Maybe I'm not fit to be a public slave.
+也許我不適合當公共奴隸。
+###_NPC
+(She swaps your collars and nods.)  Going public isn't for everyone.  Here's your money girl.  (She gives you $50.)
+（她換回你的項圈，點點頭。）公開做這個並不適合所有人。這是你的錢，女孩。（她給你$50。）
+(She removes your collar and nods.)  Going public isn't for everyone.  Here's your money girl.  (She gives you $50.)
+（她解開你的項圈，點點頭。）公開做這個並不適合所有人。這是你的錢，女孩。（她給你$50。）
+###_PLAYER
+What are club Mistresses?
+什麼是俱樂部女主人？
+###_NPC
+We Mistresses are the final arbiters in the club.  We make the rules and enforce them.  It's hard work but it's rewarding.
+我們女主人是俱樂部的最終仲裁者。我們制定規則並執行規則。這是一項艱苦的工作，但這也是很有收穫的。
+###_PLAYER
+What are the requirements?
+那這有什麼要求呢？
+###_NPC
+To apply to be a club Mistress, someone must be a club member for at least one month and be known to be really dominant.
+要申請成為俱樂部女主人的話，必須成為俱樂部會員至少一個月，並且被認為是真正的支配者。
+###_PLAYER
+Do they get paid?
+這會得到報酬嗎？
+###_NPC
+Absolutely.  The salary is $150 per week and they will receive the official Mistress outfit that I'm wearing right now.
+當然。工資是每週$150，並且會得到我現在穿的這套官方女主人服裝。
+###_PLAYER
+Do they have privileges?
+女主人們有什麼特權嗎？
+###_NPC
+They have a special privilege that comes with responsibilities.  Every Mistress gets unique club padlocks and keys.
+女主人們有一種特殊的特權，這也伴隨著責任。每個女主人都有獨特的俱樂部掛鎖和鑰匙。
+###_PLAYER
+What if a Mistress turns submissive?
+如果女主人變得順從會怎麼樣？
+###_NPC
+She will be kicked out of the group and her Mistress clothes will be confiscated.
+她會被踢出小組，她的女主人服裝會被沒收。
+###_PLAYER
+Can I become a club Mistress?
+我可以成為俱樂部女主人嗎？
+###_NPC
+You've made quite a reputation for yourself in the club.  Are you serious about becoming a Mistress?
+你在俱樂部裡已經為自己贏得了相當的聲譽。你是真的要成為女主人嗎？
+We've noticed your good reputation but it's not enough.  Work harder to become an elite Dominant.
+我們注意到你的良好聲譽，但這還不夠。再努力一些成為支配者中的精英吧。
+You?  Don't make me laugh.  Being a Mistress is for real Dominants only.
+你？別逗我笑了。只有真正的支配者才能成為女主人。
+Girl, you're a new member.  You must be a club member for at least one month before you can apply.
+女孩，你是新成員。必須成為俱樂部會員至少一個月，你才能申請。
+###_PLAYER
+I'm here to collect my salary.
+我是來領工資的。
+###_NPC
+(She checks her book and gives you $150.)  Here you go Mistress DialogPlayerName.  Come again in seven days for your next pay.
+（她查看她的筆記，給了你$150。）給你這些，女主人DialogPlayerName。7天後來領取下一份工資吧。
+(She checks her book and frowns.)  You're too early Mistress DialogPlayerName.  It takes a full week between each payment.
+（她檢查她的書，皺起眉頭。）你太早了，女主人DialogPlayerName。每次支付薪酬需要間隔一整週。
+###_PLAYER
+That's all I wanted to know.
+我就想知道這些了。
+###_NPC
+Good.  Now, get to the point or get going.
+好的。現在，直接說重點，或者快走吧。
+###_PLAYER
+Yes, I'm serious.
+是的，我是認真的。
+###_NPC
+Excellent!  First, we need to prepare a perfect outfit for you.  Do you prefer black, red or silver?
+棒極了！首先，我們需要為你準備一套完美的服裝。你喜歡黑色、紅色還是銀色？
+###_PLAYER
+Do you think I can do it?
+你覺得我能做好嗎？
+###_NPC
+Not with this attitude.  You'll know when you're ready, and it's not now.
+這種態度你是做不好的。當你準備好時你會知道的，現在不是。
+Sure, take your time.
+當然，慢慢來。
+###_PLAYER
+Black.
+黑色的。
+###_NPC
+Good.  (She snaps her fingers and a submissive girl comes to dress you up.)
+好的。（她打了個響指，一個順從的女孩過來幫你穿衣。）
+###_PLAYER
+Red.
+紅色的。
+Silver.
+銀色的。
+This is perfect, I love it.
+這真完美，我喜歡這個。
+###_NPC
+(She smiles.)  It's time for your inauguration party Mistress DialogPlayerName.
+（她笑了。）接下來是你的就職派對，女主人DialogPlayerName。
+###_PLAYER
+Good girl.  (Spank the dressing girl.)
+乖女孩。（拍打為你穿衣的女孩。）
+###_NPC
+(She grins.)  It's time for your inauguration party Mistress DialogPlayerName.
+（她咧嘴一笑。）接下來是你的就職派對，女主人DialogPlayerName。
+###_PLAYER
+So much power!
+我充滿了力量！
+###_NPC
+(She nods.)  It's time for your inauguration party Mistress DialogPlayerName.
+（她點點頭。）接下來是你的就職派對，女主人DialogPlayerName。
+###_PLAYER
+Excellent!  (Do the inauguration party.)
+棒極了！（參加就職派對。）
+This should be fun.  (Do the party.)
+這應該會很有趣。（參加派對。）
+What does it mean?
+這是什麼意思？
+###_NPC
+It means that you're not Dominant enough and you're getting kicked out of the Mistresses circle.
+這意味著你的支配力不夠，你要被踢出女主人圈子了。
+###_PLAYER
+You're kicking me out?
+你要把我趕出去？
+###_NPC
+Correct, you're not Dominant enough, so you're getting kicked out of the Mistresses circle.
+沒錯，你的支配力不夠，所以你要被踢出女主人圈子了。
+Girl, you've really lost your Dominant touch and you're getting kicked out of the Mistresses circle.
+女孩，你真的是失去了你的支配力，你要被踢出女主人圈子了。
+###_PLAYER
+That's unfair!
+這不公平！
+###_NPC
+Don't make it harder than it should be, you've brought this on yourself.  Now get naked for your shaming.
+別把這整得難堪，這是你自己導致的。現在，為了讓你理解羞辱，脫光衣服吧。
+###_PLAYER
+I understand.
+我明白了。
+###_NPC
+Very good, you did bring this on yourself.  Now get naked for your shaming.
+很好，這是你自己導致的。現在，為了讓你理解羞辱，脫光衣服吧。
+###_PLAYER
+My shaming?
+理解羞辱？
+###_NPC
+Yes, your shaming period will last for an hour.  You will have to wander the club naked, so everyone knows you're not a Mistress anymore.
+是的，你這次羞辱會持續一個小時。你將會被迫赤身裸體地在俱樂部裡閒逛，這樣每個人都知道你不再是女主人了。
+###_PLAYER
+(Grumble and get naked.)
+（抱怨並脫光衣服。）
+###_NPC
+You're not allowed to wear clothes for the next hour.  Now surrender your Mistress outfit and items.
+在接下來的一個小時內，你不能穿衣服。現在交出你的女主人服裝和物品。
+###_PLAYER
+(Stay silent and get naked.)
+（保持沉默，赤身裸體。）
+Fine, take it.  (Give your Mistress items.)
+好吧，拿走吧。（交出你的女主人物品。）
+###_NPC
+(She takes your Mistress items and sighs.)  Such a pity, you had so much potential.  Carry on girl.
+（她接過你的女主人物品，嘆了口氣。）真可惜，明明有很大的潛力。繼續吧，女孩。
+###_PLAYER
+That sucks!  (Give your Mistress items.)
+這真糟！（交出你的女主人物品。）
+What exactly does it mean to be a lover?
+成為情人究竟意味著什麼？
+###_NPC
+The lover's relationship is based on mutual trust and caring.  The details may differ from one relationship to another.
+愛人的關係是建立在相互信任和關懷的基礎上的。各對關係之間的細節各異。
+###_PLAYER
+Is there a fee to host a wedding?
+舉辦婚禮需要收費嗎？
+###_NPC
+There's a $100 fee required from both partners.  But before any wedding, you'll have to spend time with your lover.
+雙方都需要支付$100的費用。但在婚禮之前，你必須與你的愛人共度時光。
+###_PLAYER
+Can I ask anyone to be my lover?
+我可以請求任何人做我的愛人嗎？
+###_NPC
+Yes, but you can only have up to five official lovers at a time.  And as long as that lucky one
+是的，但你同時最多只能有五個官方愛人。如果你夠幸運的話。
+###_PLAYER
+I want to break up with one of my lovers.
+我想和我的一個戀人分手。
+###_NPC
+Which one are you talking about ?
+你說的是哪一個？
+###_PLAYER
+The first.
+第一個。
+###_NPC
+Breaking up while dating is alright, it happens all the time.  But are you totally sure?  Have you really thought about it?
+在約會期間分手沒有問題，每天都會發生。但你完全確定嗎？你真的考慮嗎？
+I'm sorry to hear that.  Breaking a lovers bond is a big decision.  Tell me your story, why do you want to end your relationship?
+我很遺憾聽到這個消息。中止戀人關係是一個重大決定。告訴我你的故事，你為什麼要結束你們的關係？
+No girl.  Try to fix things up with her first.  I can only officialize a divorce if you've been wed for a least a week.
+不行，女孩。試著先和她溝通一下。我只能在你們結婚至少一週後，讓你們正式地離婚。
+I know your lover, she's probably in your room right now.  Go talk with her, this is none of my business.
+我認識你的愛人，她現在可能在你的房間裡。去和她談談，這不關我的事。
+###_PLAYER
+The second.
+第二個。
+The third.
+第三個。
+The fourth.
+第四個。
+The fifth.
+第五個。
+Yes, I want to break up.
+是的，我想分手。
+###_NPC
+(She announces the end of your relationship and makes it official.)  You're free to go girl, enjoy the club.
+（她宣布你們的關係結束，並正式記錄檔案。）你可以走了，女孩，享受俱樂部吧。
+Think carefully girl, this is a serious decision.
+仔細想想，女孩，這是一個嚴肅的決定。
+###_PLAYER
+(Remain silent.)
+（保持沉默。）
+###_NPC
+Good, is there anything else you need?
+好的，請問你還有什麼需要嗎？
+###_PLAYER
+She doesn't want to join the club.
+她不想加入俱樂部。
+###_NPC
+It's a shame, but I understand. Let me ask again, are you really sure about this?
+很遺憾，但我理解。讓我再問一遍，你真的確定嗎？
+###_PLAYER
+She is a student, she's not mature enough.
+她是學生，還不夠成熟。
+###_NPC
+That makes sense. Let me ask again, are you really sure about this?
+我能理解。讓我再問一遍，你真的確定嗎？
+###_PLAYER
+She disappeared.
+她不見了。
+###_NPC
+Poor girl, I'm sure you'll find another lover someday. Let me ask again, are you really sure about this?
+可憐的女孩，我相信你總有一天會找到另一個愛人的。我再問一遍，你真的確定嗎？
+###_PLAYER
+She abused my trust.
+她濫用了我的信任。
+###_NPC
+Poor girl, Some people do not know what they are doing. Let me ask again, are you really sure about this?
+可憐的女孩，有些人總是不知道自己做了什麼。我再問一遍，你真的確定嗎？
+###_PLAYER
+I've found a better lover.
+我找到了更好的愛人。
+###_NPC
+(She shakes her head) I only hope that you've discussed this with her before coming here... Let me ask again, are you really sure about this?
+（她搖搖頭）希望你來之前跟她商量過……我再問一遍，你真的確定嗎？
+###_PLAYER
+My lover doesn't want me anymore.
+我的愛人不再想要我了。
+###_NPC
+Poor girl, I'm sure you'll find a good lover someday. Let me ask again, are you really sure about this?
+可憐的女孩，我相信你總有一天會找到一個好愛人的。我再問一遍，你真的確定嗎？
+Then you'd better work things out with her. Take some time to discuss.
+那你最好和她好好談談。花一些時間來溝通。

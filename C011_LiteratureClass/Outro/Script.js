@@ -3,7 +3,7 @@ var C011_LiteratureClass_Outro_MaxTextPhase = 3;
 
 // Chapter 11 - Outro Load
 function C011_LiteratureClass_Outro_Load() {
-	
+
 	// Time is always 16:30:00 in the outro, reset the poses if needed
 	StopTimer(16.5 * 60 * 60 * 1000);
 	PlayerUnlockInventory("Cuffs");
@@ -24,7 +24,7 @@ function C011_LiteratureClass_Outro_Load() {
 	if (GameLogQuery(CurrentChapter, "", "StrictLeader")) C011_LiteratureClass_Outro_Type = "StrictLeader";
 	if (GameLogQuery(CurrentChapter, "", "FairLeader")) C011_LiteratureClass_Outro_Type = "FairLeader";
 	if (GameLogQuery(CurrentChapter, "", "EasyLeader")) C011_LiteratureClass_Outro_Type = "EasyLeader";
-	
+
 	// A special outro type can occur where the player gets invited to the bondage club if at least 10 girls were tied up during the day
 	if (ActorGetTotalBondageCount() >= 10) {
 		C011_LiteratureClass_Outro_Type = "BondageClub";
@@ -54,7 +54,7 @@ function C011_LiteratureClass_Outro_Run() {
 		if (TextPhase >= 2) DrawText(GetText("OutroClub3"), 400, 300, "White");
 		if (TextPhase >= 3) DrawText(GetText("OutroClub4"), 400, 400, "White");
 		if (TextPhase >= 4) DrawText(GetText("OutroClub5"), 400, 500, "White");
-	
+
 	} else {
 
 		// Shows the regular outro text
@@ -62,9 +62,9 @@ function C011_LiteratureClass_Outro_Run() {
 		DrawText(GetText("Outro1"), 400, 150, "White");
 		if (TextPhase >= 1) DrawText(GetText(C011_LiteratureClass_Outro_Type), 400, 300, "White");
 		if (TextPhase >= 2) DrawText(GetText("Outro2"), 400, 450, "White");
-	
+
 	}
-	
+
 
 }
 

@@ -4,6 +4,7 @@
 var Player;
 /** @type {number|string} */
 var KeyPress = "";
+/** @type {string} */
 var CurrentModule;
 /** @type {string} */
 var CurrentScreen;
@@ -22,6 +23,7 @@ var CommonPhotoMode = false;
 var GameVersion = "R0";
 const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
 var CommonVersionUpdated = false;
+/** @type {null | { pageX: number, pageY: number }} */
 var CommonTouchList = null;
 
 /**
@@ -488,6 +490,22 @@ function CommonColorIsValid(Color) {
 }
 
 /**
+ * Check that the passed string looks like an acceptable email address.
+ *
+ * @param {string} Email
+ * @returns {boolean}
+ */
+function CommonEmailIsValid(Email) {
+	if (Email.length >= 5 && Email.length <= 100) return false;
+
+	const parts = Email.split("@");
+	if (parts.length !== 2) return false;
+	if (parts[1].indexOf(".") === -1) return false;
+
+	return ServerAccountEmailRegex.test(Email);
+}
+
+/**
  * Get a random item from a list while making sure not to pick the previous one.
  * @template T
  * @param {T} ItemPrevious - Previously selected item from the given list
@@ -638,16 +656,17 @@ function CommonThrottle(func) {
 /**
  * Creates a wrapper for a function to limit how often it can be called. The player-defined wait interval setting determines the
  * allowed frequency. Below 100 ms the function will be throttled and above will be debounced.
- * @param {function} func - The function to limit calls of
+ * @template {() => void} FunctionType
+ * @param {FunctionType} func - The function to limit calls of
  * @param {number} [minWait=0] - A lower bound for how long the wait interval can be, 0 by default
  * @param {number} [maxWait=1000] - An upper bound for how long the wait interval can be, 1 second by default
- * @returns {function} - A debounced or throttled version of the function
+ * @returns {FunctionType} - A debounced or throttled version of the function
  */
 function CommonLimitFunction(func, minWait = 0, maxWait = 1000) {
 	const funcDebounced = CommonDebounce(func);
 	const funcThrottled = CommonThrottle(func);
 
-	return function () {
+	return /** @type {FunctionType} */(function () {
 		const wait = Math.min(
 			Math.max(
 				Player.GraphicsSettings ? Player.GraphicsSettings.AnimationQuality : 100, minWait
@@ -656,7 +675,7 @@ function CommonLimitFunction(func, minWait = 0, maxWait = 1000) {
 		);
 		const args = [wait].concat(Array.from(arguments));
 		return wait < 100 ? funcThrottled.apply(this, args) : funcDebounced.apply(this, args);
-	};
+	});
 }
 
 /**
@@ -901,7 +920,8 @@ function CommonPadlockUnlock(C, Item) {
 		}
 	}
 	InventoryUnlock(C, C.FocusGroup.Name);
-	ChatRoomPublishAction(C, Item, null, true, "ActionUnlock");
+	ChatRoomPublishAction(C, "ActionUnlock", Item, null);
+	DialogLeave();
 }
 
 /**

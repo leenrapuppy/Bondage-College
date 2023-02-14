@@ -3,6 +3,7 @@ interface AssetGroupDefinition {
 	Group: AssetGroupName;
 	ParentGroup?: string;
 	Category?: 'Appearance' | 'Item' | 'Script';
+	InheritColor?: AssetGroupName;
 	/** Whether the group should have an asset selected at random at character creation. */
 	Default?: boolean;
 	IsRestraint?: boolean;
@@ -14,7 +15,6 @@ interface AssetGroupDefinition {
 	Random?: boolean;
 	Color?: string[];
 	ParentSize?: string;
-	ParentColor?: string;
 	Clothing?: boolean;
 	Underwear?: boolean;
 	BodyCosplay?: boolean;
@@ -32,13 +32,13 @@ interface AssetGroupDefinition {
 	Top?: number;
 	FullAlpha?: boolean;
 	Blink?: boolean;
-	InheritColor?: string;
 	FreezeActivePose?: string[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	HasPreviewImages?: boolean;
 }
 
 type AssetBonusName = "KidnapDomination" | "KidnapSneakiness" | "KidnapBruteForce";
@@ -68,6 +68,9 @@ interface AssetDefinition {
 
 	/** Whether the asset appears visually. Defaults to true. */
 	Visible?: boolean;
+
+	/** A list of screens where current asset won't be shown. */
+	NotVisibleOnScreen?: string[];
 
 	/** Whether the asset can be worn. Defaults to true. An unwearable asset will not actually end up in the group it's used on. */
 	Wear?: boolean;
@@ -212,6 +215,7 @@ interface AssetDefinition {
 	AllowHide?: AssetGroupItemName[];
 	AllowHideItem?: string[];
 	AllowType?: string[];
+	AllowTighten?: boolean;
 	DefaultColor?: ItemColor;
 	Opacity?: number;
 	MinOpacity?: number;
@@ -230,7 +234,6 @@ interface AssetDefinition {
 	DynamicDescription?: (C: Character) => string;
 	DynamicPreviewImage?: (C: Character) => string;
 	DynamicAllowInventoryAdd?: (C: Character) => boolean;
-	DynamicExpressionTrigger?: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName?: (C: Character) => string;
 
 	/** The real group name used when building the file paths for the asset's layers */
@@ -313,6 +316,15 @@ interface AssetDefinition {
 
 	/** A list of prerequisite checks that must pass for the group's expressions to be selectable */
 	ExpressionPrerequisite?: string[];
+
+	/** A record with the maximum length for each text-based properties with an input field. */
+	TextMaxLength?: null | Partial<Record<PropertyTextNames, number>>;
+
+	/**
+	 * The font used for dynamically drawing text.
+	 * Requires {@link AssetDefinition.DynamicAfterDraw} to be set.
+	 */
+	TextFont?: null | string;
 }
 
 interface AssetLayerDefinition {
@@ -328,7 +340,7 @@ interface AssetLayerDefinition {
 	/** The color group that layer is part of. Layers part of the same color group get a selector in the Color Picker UI */
 	ColorGroup?: string;
 
-	/** Whether the layer shows up in the Color Picker UI. Defaults to true. */
+	/** Whether the layer is hidden in the Color Picker UI. Defaults to false. */
 	HideColoring?: boolean;
 	AllowTypes?: string[];
 	HasType?: boolean;
@@ -360,6 +372,13 @@ interface AssetLayerDefinition {
 	Opacity?: number;
 	MinOpacity?: number;
 	MaxOpacity?: number;
+
+	/** Set canvas globalCompositeOperation for current layer.
+	 *  Use "destination-in" if you want to use layer as an alpha mask.
+	 *  Note that game uses WebGL when available, so you might need to implement
+	 *  similar blending mode if it's not done already (currently in GLDrawImage() in GLDraw.js).
+	 */
+	BlendingMode?: GlobalCompositeOperation;
 
 	/** Specify that this is (one of) the asset's lock layer. See DrawsLock at the asset level. */
 	LockLayer?: boolean;

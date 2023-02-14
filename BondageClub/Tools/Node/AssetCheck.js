@@ -28,6 +28,8 @@ const neededFiles = [
 	"Screens/Inventory/ItemMouth/FuturisticPanelGag/FuturisticPanelGag.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarAutoShockUnit/CollarAutoShockUnit.js",
 	"Screens/Inventory/ItemArms/PrisonLockdownSuit/PrisonLockdownSuit.js",
+	"Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js",
+	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];
@@ -228,6 +230,10 @@ function loadCSV(path, expectedWidth) {
 
 			if (!localError) {
 				GroupAssets.push(Asset);
+			}
+
+			if (Asset.TextFont != null && Asset.DynamicAfterDraw !== true) {
+				error(`Asset ${Group.Group}:${Asset.Name}: Assets should only define "TextFont" if "DynamicAfterDraw" is set to true`);
 			}
 		}
 	}

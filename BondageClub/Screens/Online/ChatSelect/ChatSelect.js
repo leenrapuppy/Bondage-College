@@ -1,6 +1,8 @@
 "use strict";
 var ChatSelectBackground = "BrickWall";
+/** @type {boolean} */
 var ChatSelectAllowedInFemaleOnly;
+/** @type {boolean} */
 var ChatSelectAllowedInMaleOnly;
 
 /**

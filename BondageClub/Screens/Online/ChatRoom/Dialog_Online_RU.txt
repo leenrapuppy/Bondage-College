@@ -364,6 +364,36 @@
 (Select the option.)
 (Выбери вариант.)
 ###_PLAYER
+(Advanced rules.)
+(Расширенные правила.)
+###_NPC
+(Select the advanced rule to configure.)
+(Выберите расширенное правило для настройки.)
+###_PLAYER
+(Restrict Bondage Club areas.)
+(Ограничить зоны Бондаж Клуба.)
+###_NPC
+(The areas you've selected will be blocked for your submissive.)
+(Зоны, которые вы выбрали, будут заблокированы для вашего сабмиссива.)
+###_PLAYER
+(Lock specific appearance zones.)
+(Заблокируйте определенные зоны внешности.)
+###_NPC
+(The appearance zones you've selected will be locked for your submissive.)
+(Выбранные вами зоны внешности будут заблокированы для вашего сабмиссива.)
+###_PLAYER
+(Lock specific item zones.)
+(Заблокируйте определенные зоны предметов.)
+###_NPC
+(The item zones you've selected will be locked for your submissive.)
+(Выбранные вами зоны предметов будут заблокированы для вашего сабмиссива.)
+###_PLAYER
+(Forbidden words list.)
+(Список запрещенных слов.)
+###_NPC
+(The forbidden words list for your submissive has been updated.)
+(Список запрещенных слов для вашего сабмиссива был обновлен.)
+###_PLAYER
 (Allow her wardrobe access.)
 (Разреши ей доступ в гардероб.)
 ###_NPC

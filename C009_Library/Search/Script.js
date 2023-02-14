@@ -37,7 +37,7 @@ function C009_Library_Search_Run() {
 }
 
 // Chapter 9 Library - Search Area Click
-function C009_Library_Search_Click() {	
+function C009_Library_Search_Click() {
 
 	// Regular interactions
 	ClickInteraction(C009_Library_Search_CurrentStage);
@@ -83,7 +83,7 @@ function C009_Library_Search_Masturbate() {
 			C009_Library_Yuki_AllowSecondChance = false;
 			SetScene(CurrentChapter, "Yuki");
 			LeaveIcon = "";
-			GameLogAdd("CaughtInHole");	
+			GameLogAdd("CaughtInHole");
 		} else {
 			C009_Library_Search_MasturbateCount++;
 			if (C009_Library_Search_MasturbateCount == 3) { GameLogSpecificAdd(CurrentChapter, "", "SweetGwendolineOrgasm"); OverridenIntroText = GetText("Orgasm"); }
@@ -93,7 +93,7 @@ function C009_Library_Search_Masturbate() {
 				C009_Library_Search_MasturbateCount = 0;
 			}
 		}
-		
+
 	}
 }
 

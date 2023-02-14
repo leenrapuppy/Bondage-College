@@ -1,0 +1,335 @@
+###_NPC
+Can you mime what you're trying to say?
+你能像演默劇一樣表達你想說的東西嗎？
+Hello, I want to get a device like the one you're wearing, for my slave.
+你好，我想要給我的奴隸一個像你身上正穿著的那種裝置
+###_PLAYER
+Hello, welcome to the store.
+你好，歡迎來到商店
+###_NPC
+Thanks, do you have it in multiple colors?
+謝謝，你這裡有它的彩色版本嗎？
+###_PLAYER
+(Nod happily.)
+（開心地點點頭）
+###_NPC
+Do you have it in multiple colors?
+你這裡有它的彩色版本嗎？
+###_PLAYER
+(Nod politely.)
+（禮貌地點點頭）
+In every possible color.
+各種顏色都有
+###_NPC
+Very good, and do you have a larger size?  My girl has a big head.
+很好，還有，你這裡有尺寸大一點的嗎？我的女孩有個大腦袋
+###_PLAYER
+(Nod slowly.)
+（緩緩點點頭）
+(Shake your head no.)
+（搖搖頭表示沒有）
+###_NPC
+That's disappointing.  I might be back later then.  Take care.
+真令人失望。也許我下次還回來再來。保重
+###_PLAYER
+(Shrug with your shoulders.)
+（聳聳肩）
+###_NPC
+You don't know?  I'll go check with the manager then.  Take care.
+你不知道？我去問問經理。保重
+###_PLAYER
+(Nod affirmatively.)
+（肯定地點點頭）
+###_NPC
+Perfect!  And what about the fabric?  It's good quality?
+完美！還有，它的材質怎麼樣？它的品質很好嗎？
+###_PLAYER
+I don't know.
+我不知道
+It's very well made.
+它製作精良
+###_NPC
+Sold!  I'll go pay the manager.  Thanks girl.
+我買了！我去找經理付款。謝謝你，女孩
+###_PLAYER
+It's kind of cheap to be honest.
+老實說它確實有點廉價
+###_NPC
+Really?  I'll buy it from somewhere else then.  Take care.
+真的嗎？我應該別的地方買這件東西。保重
+###_PLAYER
+(Nod your head yes.)
+（點點頭）
+###_NPC
+Cute gag, I'm thinking of getting the same model for my girlfriend.
+真是可愛的口塞，我正想要給我的女朋友買個同款的
+Is it comfy?  I don't want to hurt my lover.
+它舒服嗎？我不想傷害我的愛人
+###_PLAYER
+(Do mumbled noises.)
+（發出口齒不清的聲音）
+###_NPC
+(She giggles.)  Is it comfy?  I don't want to hurt my lover.
+（她輕笑著）它舒服嗎？我不想傷害我的愛人
+###_PLAYER
+(Hum a song and rock your head.)
+（哼一首歌並搖搖你的頭）
+###_NPC
+(She sings a little.)  Is it comfy?  I don't want to hurt my lover.
+（她唱了一小段）它舒服嗎？我不想傷害我的愛人
+###_PLAYER
+(Pretend you're in pain.)
+（假裝你很痛苦）
+###_NPC
+Forget it then, I don't want to hurt my sweetie.  Bye bye.
+忘了它吧，我不想傷害我的甜心。拜拜
+###_PLAYER
+(Show that you're not in pain.)
+（向她展示你並不難受）
+###_NPC
+Very nice, and is it effective?  I don't want to be able to understand her.
+很好，還有它確實有效嗎？我不想聽懂她說的話
+###_PLAYER
+(Try to talk normally.)
+（嘗試正常地說話）
+###_NPC
+Fair enough.  I like the sound of gagged girls.  Will you wrap it up?  It's a present.
+差不多了。我喜歡被口塞堵住的女孩的聲音。你能把它包起來嗎？這是一份禮物
+###_PLAYER
+(Mumble incomprehensibly on purpose.)
+（故意含糊不清地說著）
+###_NPC
+Very nice.  I like the sound of gagged girls.  Will you wrap it up?  It's a present.
+非常好。我喜歡被口塞堵住的女孩的聲音。你能把它包起來嗎？這是一份禮物
+###_PLAYER
+(Try to talk as best as you can.)
+（盡你最大的可能說話）
+###_NPC
+That's not good, I think I can still understand you.  Forget it, bye bye.
+不行，我覺得我還是你能聽清楚你講話。算了，拜拜
+###_PLAYER
+(Nod yes.)
+（點頭同意）
+###_NPC
+(She smiles.)  You've just sold a gag, thanks for the demonstration.  I'll go pay now.
+（她微笑著）多謝你的示範，你已經賣出去了一個口塞。我這就付你報酬
+Too bad, I'll go buy elsewhere then.  Bye bye.
+太糟了，我去別的地方看看。拜拜
+A restrained demonstration?  I'm actually looking to get restraints like that.
+一個拘束器示範？事實上，我正想要一個那樣的拘束器
+###_PLAYER
+It's for your slave?
+這是給你的奴隸的嗎？
+###_NPC
+(She blushes.)  No, it's for myself.  Do you think it would look good on me?
+（她羞紅了臉）不，這是我自己用的。你覺得我用著會好看嗎？
+###_PLAYER
+It's for yourself?
+這是給你自己用的嗎？
+###_NPC
+(She blushes.)  Yes, it's for myself.  Do you think it would look good on me?
+（她羞紅了臉）對，我給自己用。你覺得我用著會好看嗎？
+###_PLAYER
+It's for your lover?
+這是給你愛人的嗎？
+It will look great on you.
+你用著會很好看
+###_NPC
+(She looks at herself and nods.)  And it really secure?  Can you escape now?
+（她看了看自己然後點點頭）還有它真的安全嗎？你能自己掙脫嗎？
+###_PLAYER
+Frankly, I'm not sure.
+老實說，我不確定
+###_NPC
+Thanks for your honesty, I'll find something else to buy.  Ciao!
+感謝你的誠實。我去買點別的。再見！
+###_PLAYER
+You have the perfect shape for it.
+簡直是為你量身定做的
+Maybe I could show you something else.
+也許我可以給你看看別的
+I could, but I'm an escape artist.
+我可以做到，但我是個逃脫藝術家
+###_NPC
+It's not what I'm looking for then.  Thanks for your help anyway.
+它不是我在找的那個。無論如何，感謝你的幫助
+###_PLAYER
+After some struggling you could escape.
+通過一些掙扎你可以逃脫
+Trust me, it's impossible to escape.
+相信我，絕對逃不出來
+###_NPC
+Wonderful!  (She blushes again.)  Would you like to use it on me later?
+好極了！（她再次羞紅了臉）你願意等會在我身上用一下嗎？
+###_PLAYER
+(Pretend to struggle in vain.)
+（假裝徒勞地掙扎）
+Sure!  If I see you later.
+當然！如果我等一下能找到你
+###_NPC
+It's a deal then!  I'll buy it.  Thanks for your help.
+那就說好了！我買了。感謝你的幫助
+###_PLAYER
+Sounds good, we could restrain each other.
+聽起來不錯，我們可以互相拘束
+I can't.  There's a store policy.
+我不能那麼做。從原則上來講這只是個商店
+###_NPC
+Alright.  I need to think some more.  I'll be back later.
+好吧。我需要再想想。我等會再來
+###_PLAYER
+No, I'm too submissive Miss.
+不，我太m了小姐
+Girl, you're in trouble when I finish my shift.
+小姐，等我忙完你就有麻煩了
+###_NPC
+(She shivers.)  It's a deal Miss, I'll buy it.  Thanks for your help.
+（她顫抖著）那就說好了，女士，我會買的。感謝你的幫助
+You have lovely legs you know, and this item fits perfectly on you.
+你知道的，你有一雙漂亮的腿，這件商品非常適合你
+###_PLAYER
+You have great legs also.
+你也有一雙漂亮的腿
+###_NPC
+Thanks sweetie.  (She winks.)  Does it leave marks on the skin?  Little marks are sexy.
+謝謝你甜心（她眨眨眼）它會在身上留下印子嗎？輕微的印記很性感
+###_PLAYER
+(Blush a little.)  Thanks a lot.
+（微微羞紅了臉）非常感謝
+###_NPC
+You're cute when you blush.  (She winks.)  Does it leave marks on the skin?  Little marks are sexy.
+你害羞的樣子真可愛（她眨了眨眼）它會在身上留下印子嗎？輕微的印記很性感
+###_PLAYER
+Are you flirting with me girl?
+你在跟我調情嗎，女孩？
+###_NPC
+Maybe, you're cute.  (She winks.)  Does it leave marks on the skin?  Little marks are sexy.
+大概，你真的很可愛。（她眨了眨眼）它會在你的身上留下印子嗎？輕微的印子很性感
+###_PLAYER
+No marks at all
+不會有任何印子
+###_NPC
+(She ponders.)  It's not what I'm look for then.  Thanks anyway pretty lady.
+（她沉思著）這不是我想要的。無論如何，謝謝你，美麗的女士
+###_PLAYER
+Yes, little sexy marks.
+是的，會有一點點性感的印記
+###_NPC
+Nice.  And what about the price?  Is the quality good for the price?
+很好。那麼價格如何？它的質量對得起它的價格嗎？
+###_PLAYER
+Yes, pretty good marks.
+是的，會有恰到好處的印記
+Yes, huge marks.
+是的，會有很大的印記
+At this price, there's no better.
+在這個價位沒有更好的了
+###_NPC
+(She nods.)  You're an angel.  Can I kiss you, sexy angel?
+（她點了點頭）你真是個天使。我能親一下你嗎，性感的天使？
+###_PLAYER
+The price is fair for this quality.
+這個價格對得起它的質量
+It could be a little cheaper.
+它還能再便宜點
+You're not my type.
+你不是我的菜
+###_NPC
+(She snobs you.)  Fine!  I'll go shop elsewhere.
+好吧！我去別的地方買
+###_PLAYER
+Sorry, I can't flirt with customers.
+抱歉，我不能和顧客調情
+A kiss?  Sure, why not.
+一個吻？當然，為什麼不呢？
+###_NPC
+(You share a lovely kiss.)  You've sold me with your lips, sexy angel.  I'll go pay.  Thanks.
+（你享受了一個充滿愛意的親吻）你已經把你的嘴唇賣給我了，性感的天使。我這就去付款，謝謝你
+###_PLAYER
+Oh yes!  Absolutely.
+喔，當然！無可置疑
+###_NPC
+Girl.  The vendor told me you're demonstrating some feet restraints?
+女孩，銷售員告訴我你在示範一些足部拘束器
+###_PLAYER
+Yes, would you like to try it?
+是的，你想試試嗎？
+###_NPC
+(She laughs.)  No girl, it's not for me.  Do you enjoy being restrained?
+（她大笑著）不，女孩，這不是給我自己用的。你喜歡被束縛嗎？
+###_PLAYER
+Yes, it's a nice item.
+是的，這是個好東西
+###_NPC
+It looks good on you.  Do you enjoy being restrained?
+在你身上它看起來很棒。你喜歡被束縛嗎？
+###_PLAYER
+Yes Miss.  (Wiggle your feet.)
+是的，女士（扭動你的腳）
+I love it Miss.
+我喜歡，女士
+###_NPC
+(She spanks your butt lightly.)  Good girl.  How tight can it get?
+（她在你的屁股上輕輕打了下）好女孩。它能有多緊？
+###_PLAYER
+Yes, it's fun.
+是的，這很有趣
+Not really, but it's my job.
+並沒有，但這是我的工作
+###_NPC
+(She frowns and looks away.)  Actually, I'm looking for something else.  Have a good day.
+（她皺著眉頭，把目光移開了）事實上，我在找別的東西。祝你過得愉快
+###_PLAYER
+It's kind of loose.
+它有點鬆
+###_NPC
+That's not good enough for me then.  I'll get something else.  Have a good day.
+對我來說它不夠好。我去買點別的。祝你過得愉快
+###_PLAYER
+Not too tight.
+並不是很緊
+It can be tight.
+它可以很緊
+###_NPC
+That's awesome.  Struggle and hop around for me girl.
+好極了。替我試著掙扎下然後到處跳跳，女孩
+###_PLAYER
+Very, very tight.
+非常非常緊
+(Struggle for her.)
+（替她掙扎下）
+###_NPC
+Great.  You've did a good demonstration.  I'll buy it.  Thanks girl.
+很好。你做了個很好的示範，我買了。謝謝你，女孩
+###_PLAYER
+(Wiggle your feet.)
+（扭動你的腳）
+###_NPC
+Alright.  You've did a fair demonstration.  I'll buy it.  Thanks girl.
+好吧。你的示範還行，我買了。謝謝你，女孩
+###_PLAYER
+(Don't move.)
+（不動）
+###_NPC
+(She yawns.)  Is that the best you can do?  You've lost your sale girl.  Have a good day.
+（她打了個哈欠）你能做的就只有這樣了嗎？你失去你的生意了，女孩。祝你過得愉快
+###_PLAYER
+Great!  Can you help me before you pay?
+好極了！在你付款前能幫我解開嗎？
+###_NPC
+Fine, I will help you.  (She releases you from the item.)  I'll go pay now.
+好吧，我幫你。（她把你解開）現在我該去付款了
+Stay like that, you can sell it again to another customer.
+保持那樣待好，你還能給別的顧客再賣一份
+###_PLAYER
+(Struggle in the device.)
+（掙扎著）
+(Go back to the store vendor.)
+（回到商店店員那邊）
+Can you help me before you go?
+在你離開前能幫我解開嗎？
+###_NPC
+Fine, I will help you.  (She releases you from the item.)  Take care!
+好吧，我幫你（她把你解開）保重！
+Stay like that, you're a poor saleswoman anyway.
+在那待好，畢竟你只不過是個女銷售員罷了

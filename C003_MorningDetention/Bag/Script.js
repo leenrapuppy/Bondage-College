@@ -27,7 +27,7 @@ function C003_MorningDetention_Bag_Click() {
 }
 
 // Chapter 3 - Bag Steal Pill
-function C003_MorningDetention_Bag_StealPill() {	
+function C003_MorningDetention_Bag_StealPill() {
 
 	// Steal the sleeping pill from the bag
 	PlayerAddInventory("SleepingPill", 1);
@@ -38,7 +38,7 @@ function C003_MorningDetention_Bag_StealPill() {
 }
 
 // Chapter 3 - Bag Steal Egg
-function C003_MorningDetention_Bag_StealEgg() {	
+function C003_MorningDetention_Bag_StealEgg() {
 
 	// Steal the vibrating egg from the bag
 	PlayerAddInventory("VibratingEgg", 1);
