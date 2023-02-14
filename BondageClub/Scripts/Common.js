@@ -496,7 +496,7 @@ function CommonColorIsValid(Color) {
  * @returns {boolean}
  */
 function CommonEmailIsValid(Email) {
-	if (Email.length >= 5 && Email.length <= 100) return false;
+	if (Email.length < 5 || Email.length > 100) return false;
 
 	const parts = Email.split("@");
 	if (parts.length !== 2) return false;

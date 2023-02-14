@@ -1,5 +1,7 @@
 Configure the options on your lucky wheel
 配置你的幸运轮盘的选项
+View the options on DestinationCharacter lucky wheel
+查看DestinationCharacter幸运轮盘的选项
 Next options
 下一个选项
 Check all
@@ -94,6 +96,10 @@ Shibari bondage
 绳艺束缚
 Futuristic bondage
 未来束缚
+Pet bondage
+宠物束缚
+Web bondage
+蛛网束缚
 Maid outfit
 女仆装
 ABDL outfit

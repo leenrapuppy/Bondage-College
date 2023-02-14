@@ -277,7 +277,7 @@ type CraftingPropertyType =
 
 type AssetAttribute =
 	"Skirt" |
-	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" |
+	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens"
 	;
 
@@ -797,6 +797,7 @@ interface AssetGroup {
 	Random?: boolean;
 	ColorSchema: string[];
 	ParentSize: string;
+	ParentColor: AssetGroupName | "";
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;

@@ -703,7 +703,12 @@ function WheelFortuneLoad() {
 
 	// Resets to the default wheel if the character wheel is incorrect
 	WheelFortuneList = "";
-	if ((WheelFortuneCharacter.OnlineSharedSettings != null) && (WheelFortuneCharacter.OnlineSharedSettings.WheelFortune != null)) WheelFortuneList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
+	if ((WheelFortuneCharacter.OnlineSharedSettings != null) && (WheelFortuneCharacter.OnlineSharedSettings.WheelFortune != null)) {
+		// Validate whether the (shared) selected options actually exist
+		const selectedWheelIDs = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
+		const allWheelIDs = WheelFortuneOption.map(o => o.ID);
+		WheelFortuneList = selectedWheelIDs.split("").filter(id => allWheelIDs.includes(id)).join("");
+	}
 	if ((WheelFortuneList == null) || (typeof WheelFortuneList !== "string") || (WheelFortuneList.length < 2)) WheelFortuneList = WheelFortuneDefault;
 	if (Player.GetDifficulty() >= 2) WheelFortuneRoleplay = false;
 

@@ -669,6 +669,8 @@ Unlocked
 解锁
 Cannot change while locked
 不能在被锁定时使用
+Option needs to be bought
+需要购买的选项
 Delete
 删除
 Confirm
@@ -1097,6 +1099,8 @@ Your owner has changed the item zones you can access.
 你的主人改变了你能够接触的物品区域。
 Your owner has changed your list of forbidden words.  You can use /forbiddenwords to review the words.
 你的主人改变了你的禁止词列表。你可以使用/forbiddenwords来查看这些词。
+Your owner requires you to spin the Wheel of Fortune.
+你的主人要求你转动命运之轮。
 Saying a forbidden word is blocked by your owner.  You can use /forbiddenwords to review the words.
 你被你的主人禁止说出禁止词。你可以使用/forbiddenwords来查看这些词。
 You said a forbidden word and will be silenced for 5 minutes.  You can use /forbiddenwords to review the words.
@@ -1257,6 +1261,10 @@ SourceCharacter picks the lock on DestinationCharacter PrevAsset.
 SourceCharacter撬开了DestinationCharacterPrevAsset上的锁。
 SourceCharacter unlocks and removes the PrevAsset from DestinationCharacter FocusAssetGroup.
 SourceCharacter打开并移除了DestinationCharacterFocusAssetGroup上的PrevAsset.
+SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter收紧了位于DestinationCharacter的FocusAssetGroup上的PrevAsset。
+SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter解松了位于DestinationCharacter的FocusAssetGroup上的PrevAsset。
 SourceCharacter rolls DiceType. The result is: DiceResult.
 SourceCharacter丢了DiceType.结果是: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
@@ -1279,6 +1287,12 @@ SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter
 SourceCharacter 试图操作 TargetCharacter 身上的 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while swapping a PrevAsset for a NextAsset on TargetCharacter.
 SourceCharacter 试图将 TargetCharacter 身上的 PrevAsset 换成 NextAsset，但是操作被中断了。
+SourceCharacter slips out of her PrevAsset.
+SourceCharacter从她的PrevAsset滑脱出来。
+SourceCharacter hops off the PrevAsset.
+SourceCharacter从她的PrevAsset跳下来。
+SourceCharacter escapes from the PrevAsset.
+SourceCharacter从她的PrevAsset逃脱出来。
 SourceCharacter slowly heads for the door.
 SourceCharacter 缓慢向房门走去。
 SourceCharacter stops heading for the door.
@@ -1554,7 +1568,7 @@ SourceCharacter移除了DestinationCharacter项圈上的金属环。
 SourceCharacter attaches a ring to DestinationCharacter collar.
 SourceCharacter将一个金属环附在DestinationCharacter项圈上。
 Detached
-分开
+移除
 Bind wrists
 绑上手腕
 Bind elbows
@@ -1602,7 +1616,7 @@ SourceCharacter解开了DestinationCharacter皮革腿铐上的锁链。
 SourceCharacter attaches the leather leg cuffs chain on DestinationCharacter legs.
 SourceCharacter将DestinationCharacter腿上的皮革腿铐上的锁链连在一起。
 Attached
-合并
+添加
 SourceCharacter detaches DestinationCharacter AssetName.
 SourceCharacter解开了DestinationCharacterAssetName。
 SourceCharacter attaches DestinationCharacter AssetName.
@@ -4795,6 +4809,12 @@ SourceCharacter gives TargetCharacter a cute Pony teddy.
 SourceCharacter给了TargetCharacter一只可爱的小马泰迪。
 Page
 页
+Tightness
+松紧度
+Tighten
+收紧
+Loosen
+解松
 Set the height
 设置高度
 % of full height:
@@ -4805,50 +4825,6 @@ SourceCharacter raises the height of DestinationCharacter suspension.
 SourceCharacter提高了DestinationCharacter吊起的高度。
 SourceCharacter lowers the height of DestinationCharacter suspension.
 SourceCharacter降低了DestinationCharacter吊起的束缚的高度。
-Select silk bondage.
-选择丝质束带的束缚。
-Crotch Strap
-胯部束带
-Crotch Strap (Over Panties)
-胯部束带（在内裤上）
-SourceCharacter uses the silk on DestinationCharacter to create a crotch strap.
-SourceCharacter用丝质束带给DestinationCharacter绑上了胯部束带。
-SourceCharacter uses the silk on DestinationCharacter to create a crotch strap over TargetPronounPossessive panties.
-SourceCharacter用丝质束带在DestinationCharacter内裤外侧绑了一个胯部束带。
-SourceCharacter uses the silk on DestinationCharacter to create a swiss seat pattern.
-SourceCharacter用丝质束带给DestinationCharacter绑成了瑞士座样式。
-SourceCharacter uses the silk on DestinationCharacter to create a kikkou hip pattern.
-SourceCharacter用丝质束带给DestinationCharacter绑了一个龟甲臀缚。
-Waist Strap
-腰部系带
-Star Harness
-星形束缚带
-Diamond Harness
-菱形束缚带
-SourceCharacter uses the silk on DestinationCharacter to create a waist strap.
-SourceCharacter用丝质束带给DestinationCharacter绑上了腰部系带。
-SourceCharacter uses the silk on DestinationCharacter to create a body harness.
-SourceCharacter用丝质束带给DestinationCharacter绑上了身体束缚带。
-SourceCharacter uses the silk on DestinationCharacter to create a star harness.
-SourceCharacter用丝质束带给DestinationCharacter绑上了星形束缚带。
-SourceCharacter uses the silk on DestinationCharacter to create a diamond harness.
-SourceCharacter用丝质束带给DestinationCharacter绑上了菱形束缚带。
-Select silk clothing.
-选择丝质束带衣服。
-Single Strip
-单条
-Bra
-胸罩
-Strapless Bra
-无吊带胸罩
-Skimpy Swimsuit
-暴露的泳装
-Double Strips
-双条
-Thong
-丁字裤
-Panties
-内裤
 Select strap bondage.
 选择束带束缚。
 Boxtie
@@ -4893,6 +4869,10 @@ The slime girl recedes back into the slime on TargetCharacter.
 史莱姆女孩缩回了TargetCharacter身上的史莱姆里。
 A slime girl emerges from the slime around TargetCharacter.
 TargetCharacter身上的史莱姆里钻出来一个史莱姆女孩。
+Crotch Strap
+胯部束带
+Waist Strap
+腰部系带
 SourceCharacter uses the straps on DestinationCharacter to create a crotch strap.
 SourceCharacter使用束带给DestinationCharacter绑上了胯部束带。
 SourceCharacter uses the straps on DestinationCharacter to create a waist strap.
@@ -4997,6 +4977,26 @@ Automatically locks
 自动上锁
 Allowed Limited Item
 允许限制物品
+Lightly gags
+轻度塞口
+Gags
+塞口
+Heavily gags
+重度塞口
+Totally gags
+完全塞口
+Lightly deafens
+轻度遮耳
+Deafens
+遮耳
+Heavily deafens
+重度遮耳
+Lightly blinds
+轻度遮眼
+Blinds
+遮眼
+Heavily blinds
+重度遮眼
 Cannot use this option when wearing the item
 已经佩戴时无法使用该选项
 Configure Collar
@@ -5255,44 +5255,80 @@ Select Mouth Panel
 选择嘴部遮罩
 Mouth Panel
 嘴部遮罩
-No Mouth
-没有嘴部
-Pinhole
-针孔
-Round Mouth
-圆形嘴
-Shaped Mouth
-造型嘴
-No Mouth - Transparent
-没有嘴部 - 透明
-Pinhole - Transparent
-针孔 - 透明
-Round Mouth - Transparent
-圆形嘴 - 透明
-Shaped Mouth - Transparent
-造型嘴 - 透明
+Solid Opaque
+无缝不透明
+Pinhole Opaque
+针孔不透明
+Round Opaque Open
+圆形不透明开口
+Shaped Opaque Open
+造型不透明开口
+Solid Transparent
+无缝透明
+Pinhole Transparent
+针孔透明
+Round Transparent Open
+圆形透明开口
+Shaped Transparent Open
+造型透明Open
+Round Opaque Fill
+圆形不透明填充
+Round Opaque Fill w/ Pinhole
+圆形不透明填充附带针孔
+Round Opaque Fill Transparent
+圆形不透明填充透明
+Round Opaque Fill Transparent w/ Pinhole
+圆形不透明填充透明附带针孔
+Shaped Opaque Fill
+造型不透明填充
+Shaped Opaque Fill w/ Pinhole
+造型不透明填充附带针孔
+Shaped Opaque Fill Transparent
+造型不透明填充透明
+Shaped Opaque Fill Transparent w/ Pinhole
+造型不透明填充透明附带针孔
+Round Transparent Fill Opaque
+圆形透明填充不透明
+Round Transparent Fill Opaque w/ Pinhole
+圆形透明填充不透明附带针孔
+Round Transparent Fill
+圆形透明填充
+Round Transparent Fill w/ Pinhole
+圆形透明填充附带针孔
+Shaped Transparent Fill Opaque
+造型透明填充不透明
+Shaped Transparent Fill Opaque w/ Pinhole
+造型透明填充不透明附带针孔
+Shaped Transparent Fill
+造型透明填充
+Shaped Transparent Fill w/ Pinhole
+造型透明填充附带针孔
 SourceCharacter changes the mouth panel on DestinationCharacter latex hood.
 SourceCharacter改变了DestinationCharacter乳胶头套的嘴部遮罩。
 Select Eye Panel
 选择眼部遮罩
 Eye Panel
 眼部遮罩
-No Eyeholes
-没有眼孔
-Pinholes
-针孔
-Round Eyes
-圆形眼睛
-Shaped Eyes
-造型眼睛
-No Eyeholes - Transparent
-没有眼孔 - 透明
-Pinholes - Transparent
-针孔 - 透明
-Round Eyes - Transparent
-圆形眼睛 - 透明
-Shaped Eyes - Transparent
-造型眼睛 - 透明
+Pinholes Opaque
+针孔不透明
+Pinholes Transparent
+针孔透明
+Round Opaque Fill w/ Pinholes
+圆形不透明填充附带针孔
+Round Opaque Fill Transparent w/ Pinholes
+圆形不透明填充透明附带针孔
+Shaped Opaque Fill w/ Pinholes
+造型不透明填充附带针孔
+Shaped Opaque Fill Transparent w/ Pinholes
+造型不透明填充透明附带针孔
+Round Transparent Fill Opaque w/ Pinholes
+圆形透明填充不透明附带针孔
+Round Transparent Fill w/ Pinholes
+圆形透明填充附带针孔
+Shaped Transparent Fill Opaque w/ Pinholes
+造型透明填充不透明附带针孔
+Shaped Transparent Fill w/ Pinholes
+造型透明填充附带针孔
 SourceCharacter changes the eye panel on DestinationCharacter latex hood.
 SourceCharacter调整了DestinationCharacter乳胶头套上的眼部遮罩。
 Select Head Panel
@@ -5331,6 +5367,8 @@ Hide Hair
 隐藏头发
 Show Back Hair Only
 只显示背后头发
+Hide Hair and Accessories
+隐藏头发和配饰
 SourceCharacter changes the hair opening on DestinationCharacter latex hood.
 SourceCharacter调整了DestinationCharacter乳胶头套上的头发开口。
 Select Hood Cover Options
@@ -5355,6 +5393,132 @@ SourceCharacter attaches ears to DestinationCharacter cat mask harness.
 SourceCharacter在DestinationCharacter的猫猫面具束带上添加了耳朵。
 SourceCharacter detaches the ears from DestinationCharacter cat mask harness.
 SourceCharacter从DestinationCharacter的猫猫面具束带上移除了耳朵。
+Select Eyebrow Options
+选择眉毛选项
+Style
+样式
+Piercings
+穿刺
+Eyebrows2
+眉毛2
+Eyebrows3
+眉毛3
+Eyebrows4
+眉毛4
+Eyebrows5
+眉毛5
+Eyebrows6
+眉毛6
+Bar Right
+右侧条纹
+Bar Left
+左侧条纹
+Bar Both Sides
+两侧条纹
+Ring Right
+右侧环
+Ring Left
+左侧环
+Ring Both Sides
+两侧环
+Select Piercing Options
+选择穿刺选项
+Select Lip Piercings
+选择嘴唇穿刺
+Lips
+嘴唇
+Middle Ring
+中间环
+Left Ring
+左侧环
+Right Ring
+右侧环
+Rings Both Sides
+两侧环
+Triple Rings
+三个环
+Labret
+唇钉
+Labret and Rings
+唇钉和唇环
+Select Tongue Piercings
+选择舌头穿刺
+Tongue
+舌头
+Single Stud
+单钉
+Double Studs
+双钉
+Select Piercings
+选择穿刺
+Select Nose Piercings
+选择鼻子穿刺
+Septum Ring
+中隔环
+Right Stud
+右侧钉
+Left Stud
+左侧钉
+Select Ear Piercings
+选择耳朵穿刺
+Studs
+耳钉
+Rings
+耳环
+Hoops
+大耳环
+Right Hoop
+右侧大耳环
+Left Hoop
+左侧大耳环
+Select Facial Piercings
+选择面部穿刺
+Face
+面部
+Double Dermals
+双真皮钉
+Right Dermals
+右侧真皮钉
+Left Dermals
+左侧真皮钉
+Bridge Piercing
+鼻梁钉
+Select Hoodie Options
+选择连帽衫选项
+Select Hood Position and Shape
+选择兜帽位置和造型
+Hood Down
+拉下兜帽
+Hood Up - Regular
+拉起兜帽-常规
+Hood Up - Pet Ears
+拉起兜帽-宠物耳朵
+SourceCharacter adjusts the hood of DestinationCharacter hoodie.
+SourceCharacter调整了DestinationCharacter连帽衫的兜帽。
+Select Hoodie Length
+选择连帽衫长度
+Length
+长度
+Cropped
+胸下
+Bolero
+胸上
+Full Length
+完整
+SourceCharacter adjusts the length of DestinationCharacter hoodie.
+SourceCharacter调整了DestinationCharacter连帽衫的长度。
+Hands in or out of the Pouch?
+手在口袋里面还是外面？
+Pouch
+口袋
+Hands Out
+手在外面
+Hands In
+手在里面
+SourceCharacter takes DestinationCharacter hands out of the hoodie's pouch.
+SourceCharacter将DestinationCharacter手拿到连帽衫的口袋外面。
+SourceCharacter puts DestinationCharacter hands into the hoodie's pouch.
+SourceCharacter将DestinationCharacter手塞进连帽衫的口袋里面。
 Select bridle Gag Accessories
 选择缰绳口塞配件
 Select Gag Accessory
@@ -5679,6 +5843,12 @@ SourceCharacter puts a post it on DestinationCharacter sign.
 SourceCharacter在DestinationCharacter标牌上贴了一张便条纸。
 SourceCharacter removes the postit on DestinationCharacter sign.
 SourceCharacter移除了DestinationCharacter标牌上的便条纸。
+Hanging
+悬挂
+SourceCharacter let go of DestinationCharacter leash
+SourceCharacter松开了DestinationCharacter牵绳
+SourceCharacter grabs DestinationCharacter leash
+SourceCharacter抓住了DestinationCharacter牵绳
 Choose what to stitch
 选择要缝线的位置
 Right Eye
@@ -6175,6 +6345,26 @@ SourceCharacter adds wrapping shoulder straps to DestinationCharacter armbinder.
 SourceCharacter在DestinationCharacter单手套上添加了包覆肩膀束带。
 SourceCharacter adds harness shoulder straps to DestinationCharacter armbinder.
 SourceCharacter在DestinationCharacter单手套上添加了马具肩膀束带。
+Customise Navel Bar.
+自定义脐钉。
+Choose Chain Option.
+选择链条选项。
+Choose Jewel Option.
+选择珠宝选项。
+Single Chain
+单链条
+Waist Chain
+腰链条
+SourceCharacter removes the chain from DestinationCharacter navel bar.
+SourceCharacter从DestinationCharacter脐钉上移除了链条。
+SourceCharacter adds a single chain to DestinationCharacter navel bar.
+SourceCharacter在DestinationCharacter脐钉上添加了单链条。
+SourceCharacter adds a waist chain to DestinationCharacter navel bar.
+SourceCharacter在DestinationCharacter脐钉上添加了腰链条。
+SourceCharacter removes the jewel from DestinationCharacter navel bar.
+SourceCharacter从DestinationCharacter脐钉上移除了珠宝。
+SourceCharacter adds a jewel to DestinationCharacter navel bar.
+SourceCharacter从DestinationCharacter脐钉上添加了珠宝。
 Select Bulge Type.
 选择凸起类型。
 Tucked
@@ -6193,3 +6383,9 @@ Default
 默认
 Change Opacity
 改变遮光度
+Shadow
+阴影
+SourceCharacter folds DestinationCharacter folding screen.
+SourceCharacter折起了DestinationCharacter折叠屏风。
+SourceCharacter unfolds DestinationCharacter folding screen.
+SourceCharacter展开了DestinationCharacter折叠屏风。

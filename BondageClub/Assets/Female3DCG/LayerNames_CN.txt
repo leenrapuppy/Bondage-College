@@ -118,6 +118,10 @@ Bra
 胸罩
 Shine
 高光
+Leather
+皮革
+Buckles
+搭扣
 Skirt
 裙子
 Cloth
@@ -396,12 +400,12 @@ Bars
 杆子
 Wood
 木质
-Buckles
-搭扣
 Ropes
 绳子
 Suspension Rope
 悬挂绳
+Inv. Suspension Rope
+反向悬挂绳
 Suspension Chain
 悬挂锁链
 Mesh
@@ -428,8 +432,6 @@ Binder Straps
 束手束带
 Shoulder Straps
 肩部束带
-Leather
-皮革
 Middle Ring
 中间环
 Left Ring
@@ -470,6 +472,10 @@ Sticker
 贴纸
 PlaqueBolts
 标牌螺栓
+Clip
+扣环
+Handle
+抓手
 Harness
 束带
 Stripes
@@ -564,6 +570,10 @@ Chain Sections
 锁链分区
 Gag Sections
 口塞分区
+Shadow
+影子
+Paper
+纸
 Hook
 钩子
 Nose
@@ -824,6 +834,8 @@ Veins
 脉络
 Shade
 阴影
+Bar
+穿刺棒
 Cock Ring
 阴茎环
 Penis
@@ -838,6 +850,8 @@ Arm Strap
 手臂束带
 Fade
 变暗
+Eyebrow
+眉毛
 Head
 头部
 Face Lining
@@ -862,3 +876,13 @@ Zipper
 拉链
 Crosses
 十字架
+Hood Inner
+兜帽内侧
+Hood Outer
+兜帽外侧
+Hood Trim
+兜帽边缘
+Waist and Wrists
+腰和手腕
+Markings
+标记
