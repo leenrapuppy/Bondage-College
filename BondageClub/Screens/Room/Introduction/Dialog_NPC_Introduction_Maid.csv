@@ -177,7 +177,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 260,270,Can I tie you up now?,"(She giggles.)  Not now, I have work to do here.  But I'm sure you'll find victims if you wander around.",SaveMaidOpinion(),!IsHeadMaid
 260,270,Can I tie you up now?,(She giggles.)  If you wish head maid DialogPlayerName.,SaveMaidOpinion(),IsHeadMaid
 270,,,Your introduction class is done.  I hope you have fun in the club!,,
-270,,You were a great teacher.,Oh, well thank you!  (She smiles.)  You're a good student.,DialogRemove(),
+270,,You were a great teacher.,"Oh, well thank you!  (She smiles.)  You're a good student.",DialogRemove(),
 270,,Thanks!  Have a great time.  (Leave her.),,DialogLeave(),
 270,,Can you teach me more about rope bondage?,"If you like rope bondage that much, try the Shibari Dojo.  You might learn a few new tricks.",,
 270,,Tell me about the other types of restraints.,"Some items are impossible to struggle out from, so you'll need to find help.  Also, items like cuffs can be locked, and you'll need a key to unlock them.",,
