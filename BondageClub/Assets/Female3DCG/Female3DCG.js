@@ -294,18 +294,18 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"],
+				Name: "Hoodie", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
 				Layer: [
 					{Name: "Main", HasType: false, AllowModuleTypes: ["l0"]},
 					{Name: "MainBolero", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "Main"},
 					{Name: "HoodDownBack", HasType: false, AllowModuleTypes: ["h0"], Priority: 6},
-					{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },]},
+					{Name: "HoodUpBack", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", Priority: 4, Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },], HideForAttribute: ["HoodieFix"]},
 					{Name: "HoodDownMid", HasType: false, AllowModuleTypes: ["h0"], CopyLayerColor: "HoodDownBack"},
 					{Name: "HoodDownTrim", HasType: false},
-					{Name: "HoodUpMid", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack"},
-					{Name: "HoodUpFront", HasType: false, AllowModuleTypes: ["h1"], Priority: 57},
-					{Name: "HoodUpFrontEars", HasType: false, AllowModuleTypes: ["h2"], CopyLayerColor: "HoodUpFront", Priority: 57},
-					{Name: "HoodUpTrim", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownTrim", Priority: 57},
+					{Name: "HoodUpMid", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownBack", HideForAttribute: ["HoodieFix"]},
+					{Name: "HoodUpFront", HasType: false, AllowModuleTypes: ["h1"], Priority: 57, HideForAttribute: ["HoodieFix"]},
+					{Name: "HoodUpFrontEars", HasType: false, AllowModuleTypes: ["h2"], CopyLayerColor: "HoodUpFront", Priority: 57, HideForAttribute: ["HoodieFix"]},
+					{Name: "HoodUpTrim", HasType: false, AllowModuleTypes: ["h1","h2"], CopyLayerColor: "HoodDownTrim", Priority: 57, HideForAttribute: ["HoodieFix"]},
 					{Name: "Laces", HasType: false},
 					{Name: "Waist", HasType: false, AllowModuleTypes: ["l0"]},
 					{Name: "Wrists", HasType: false, CopyLayerColor: "Waist"},
@@ -4593,7 +4593,7 @@ var AssetFemale3DCG = [
 			{ Name: "LeatherStraitJacket", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 200, Difficulty: 7, SelfBondage: 8, Time: 45, RemoveTime: 30, AllowLock: true, Hide: ["Cloth", "ItemNipplesPiercings"], HideItemAttribute: ["Skirt"], HideItem: ["ItemNipplesLactationPump", "ClothAccessoryPoncho"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld"], Extended: true, SelfUnlock: false },
 			{ Name: "FurStraitJacket", Value: 150, Difficulty: 6, SelfBondage: 7, Time: 45, RemoveTime: 30, AllowLock: true, Hide: ["Cloth", "ItemNipplesPiercings"], HideItemAttribute: ["Skirt"], HideItem: ["ItemNipplesLactationPump", "ClothAccessoryPoncho"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld"], DrawLocks: false, SelfUnlock: false, ParentGroup: null },
 			{
-				Name: "Bolero", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 33, Value: 100, Difficulty: 11, SelfBondage: 7, Time: 35, RemoveTime: 20, AllowLock: true, DefaultColor: ["#E080A0", "Default"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], HideItem: ["ClothAccessoryStudentOutfit3Scarf", "ClothAccessoryStudentOutfit3Bow1", "ClothAccessoryStudentOutfit3Bow2", "ClothAccessoryStudentOutfit3Bow3", "ClothAccessoryBunnyCollarCuffs"], Block: ["ItemHands", "ItemHandheld"],
+				Name: "Bolero", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 33, Value: 100, Difficulty: 11, SelfBondage: 7, Time: 35, RemoveTime: 20, AllowLock: true, DefaultColor: ["#E080A0", "Default"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], HideItem: ["ClothAccessoryStudentOutfit3Scarf", "ClothAccessoryStudentOutfit3Bow1", "ClothAccessoryStudentOutfit3Bow2", "ClothAccessoryStudentOutfit3Bow3", "ClothAccessoryBunnyCollarCuffs"], Block: ["ItemHands", "ItemHandheld"], Attribute: ["HoodieFix"],
 				Alpha: [{ Group: ["Cloth", "Necklace", "Suit"], Masks: [[270, 190, 480, 60], [230, 190, -480, 60], [0, 250, 182, 100], [318, 250, 182, 100]] }],
 				Layer: [
 					{ Name: "Leather" },
@@ -4728,7 +4728,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Zipties", Gender: "F", Prerequisite: ["HasBreasts"], Value: 20, Difficulty: 6, SelfBondage: 1, RemoveTime: 6, BuyGroup: "Zipties", Audio: "ZipTie", SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Extended: true },
 			{
-				Name: "BoxTieArmbinder", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], DefaultColor: ["#222222", "#ffffff"], Value: 140, Difficulty: 11, SelfBondage: 7, Time: 40, RemoveTime: 30, AllowLock: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], HideItem: ["ClothAccessoryStudentOutfit3Scarf", "ClothAccessoryStudentOutfit3Bow1", "ClothAccessoryStudentOutfit3Bow2", "ClothAccessoryStudentOutfit3Bow3", "ClothAccessoryBunnyCollarCuffs", "ClothAccessoryPoncho"], Block: ["ItemHands", "ItemHandheld"], SelfUnlock: false,
+				Name: "BoxTieArmbinder", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], DefaultColor: ["#222222", "#ffffff"], Value: 140, Difficulty: 11, SelfBondage: 7, Time: 40, RemoveTime: 30, AllowLock: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], HideItem: ["ClothAccessoryStudentOutfit3Scarf", "ClothAccessoryStudentOutfit3Bow1", "ClothAccessoryStudentOutfit3Bow2", "ClothAccessoryStudentOutfit3Bow3", "ClothAccessoryBunnyCollarCuffs", "ClothAccessoryPoncho"], Block: ["ItemHands", "ItemHandheld"], SelfUnlock: false, Attribute: ["HoodieFix"],
 				Alpha: [{Group: ["Cloth", "Necklace", "Suit"], Masks: [[0, 190, 500, 60], [0, 250, 175, 90], [325, 250, 175, 90]]},],
 				Layer: [
 					{ Name: "Base" },

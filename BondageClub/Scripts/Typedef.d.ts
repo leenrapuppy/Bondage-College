@@ -277,7 +277,7 @@ type CraftingPropertyType =
 
 type AssetAttribute =
 	"Skirt" |
-	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" |
+	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens"
 	;
 
