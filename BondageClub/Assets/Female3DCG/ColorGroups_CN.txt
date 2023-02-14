@@ -58,3 +58,17 @@ Misc
 杂项
 Wheel Sections
 转盘分区
+Linings
+线条
+Panels
+面板
+Cover Hood Parts
+兜帽组件
+Fixing
+固定
+Tubes
+管子
+Glow
+发光
+Eyes
+眼睛

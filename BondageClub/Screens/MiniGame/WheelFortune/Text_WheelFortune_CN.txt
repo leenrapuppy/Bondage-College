@@ -1,11 +1,17 @@
 Use your mouse or finger to grab and spin the wheel
 使用你的鼠标或者手指来转动轮盘
+Your owner requires you to spin the Wheel of Fortune
+你的主人要求你转动命运之轮
 Hold your breath
 屏住呼吸
 Roleplay mode
 角色扮演模式
+Roleplay mode isn't available on hardcore or extreme difficulty
+角色扮演模式对于硬核和极限难度不可使用
 Customize your wheel
 定制你的轮盘
+View wheel customization
+查看轮盘配置
 Random Spin
 随机转动
 Don't spin the wheel
@@ -100,6 +106,10 @@ Shibari bondage
 绳艺束缚
 Futuristic bondage
 未来束缚
+Pet bondage
+宠物束缚
+Web bondage
+蛛网束缚
 Maid outfit
 女仆装
 ABDL outfit
