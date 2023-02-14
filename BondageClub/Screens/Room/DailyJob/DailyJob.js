@@ -1,11 +1,18 @@
 "use strict";
 var DailyJobBackground = "MainHall";
+/** @type {null | NPCCharacter} */
 var DailyJobOpponent = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppyMistress = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy1 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy2 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy3 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobPuppy4 = null;
+/** @type {null | NPCCharacter} */
 var DailyJobDojoTeacher = null;
 
 /**
@@ -22,7 +29,7 @@ function DailyJobPlayerFullRestrain() { CharacterFullRandomRestrain(Player, "ALL
 function DailyJobPuppyLoad(GirlNum) {
 	var C = (GirlNum == "0") ? Player : CharacterLoadNPC("NPC_DailyJob_PuppyGirl" + GirlNum);
 	CharacterNaked(C);
-	InventoryWearRandom(C, "ItemArms", 8, null, false, true, ["BitchSuit", "BitchSuitExposed", "HempRope", "Chains", "ArmbinderJacket", "StraitLeotard", "LeatherStraitJacket", "BoxTieArmbinder"], true);
+	InventoryWearRandom(C, "ItemArms", 8, null, false, true, ["BitchSuit", "HempRope", "Chains", "ArmbinderJacket", "StraitLeotard", "LeatherStraitJacket", "BoxTieArmbinder", "Bolero", "PantyhoseBodyOpen", "SeamlessStraitDress", "SeamlessStraitDressOpen"], true);
 	InventoryWearRandom(C, "HairAccessory1", 8, null, false, true, ["Ears1", "Ears2", "PonyEars1", "BunnyEars1", "BunnyEars2", "PuppyEars1", "FoxEars1", "WolfEars1", "WolfEars2", "FoxEars2", "FoxEars3", "PuppyEars2"], true);
 	InventoryWearRandom(C, "TailStraps", 8, null, false, true, ["FoxTailsStrap", "PuppyTailStrap", "RaccoonStrap", "PuppyTailStrap1", "FoxTailStrap1", "FoxTailStrap2", "WolfTailStrap1", "WolfTailStrap2", "WolfTailStrap3"], true);
 	if (InventoryGet(C, "ItemMouth") == null) InventoryWearRandom(C, "ItemMouth", 8);

@@ -133,6 +133,7 @@ function CommonDrawAppearanceBuild(C, {
 			}).join("");
 		}
 		let Opacity = (Property && typeof Property.Opacity === "number") ? Property.Opacity : Layer.Opacity;
+		let BlendingMode = Layer.BlendingMode;
 		Opacity = Math.min(Layer.MaxOpacity, Math.max(Layer.MinOpacity, Opacity));
 		const BlinkExpression = (A.OverrideBlinking ? !AG.DrawingBlink : AG.DrawingBlink) ? "Closed/" : Expression;
 		/** @type {RectTuple[]} */
@@ -253,31 +254,52 @@ function CommonDrawAppearanceBuild(C, {
 		let PoseFolder = typeof Layer.PoseMapping[Pose] === "string" ? Layer.PoseMapping[Pose] : Pose;
 		if (PoseFolder) PoseFolder += '/';
 		if (Layer.HasImage && (!Layer.LockLayer || ItemLocked)) {
+			/** Check whether the asset requires a custom suffix
+			 * @type {string | undefined} */
+			let SuffixName = undefined;
+			if ((A.ColorSuffix != null) && (Color != null)) {
+				// eslint-disable-next-line dot-notation
+				SuffixName = (Color.indexOf("#") == 0) ? A.ColorSuffix["HEX_COLOR"] : A.ColorSuffix[Color];
+			}
+
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
 			if ((Color != null) && (Color.indexOf("#") == 0) && Layer.AllowColorize) {
+				const ColorName = ((SuffixName == undefined) || (L != "")) ? "" : "_" + SuffixName;
 
 				drawImageColorize(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + L + ".png", X, Y,
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
 					Color,
-					AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
+					AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 				drawImageColorizeBlink(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + L + ".png", X, Y,
-					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
+					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 			} else {
-				const ColorName = ((Color == null) || (Color == "Default") || (Color == "") || (Color.length == 1) ||
-					(Color.indexOf("#") == 0)) ? "" : "_" + Color;
+				let ColorName = (
+					(Color == null)
+					|| (Color == "Default")
+					|| (Color == "")
+					|| (Color.length == 1)
+					|| (Color.indexOf("#") == 0)
+				) ? "" : "_" + Color;
+
+				if (L != "") {
+					ColorName = "";
+				} else if (SuffixName != undefined) {
+					ColorName = ((SuffixName == "Default") || (SuffixName == "")) ? "" : "_" + SuffixName;
+				}
+
 				drawImage(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png",
 					X, Y,
-					AlphaMasks, Opacity, Rotate
+					AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 				drawImageBlink(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + ColorName + L +
 					".png",
-					X, Y, AlphaMasks, Opacity, Rotate
+					X, Y, AlphaMasks, Opacity, Rotate, BlendingMode
 				);
 			}
 		}
@@ -316,7 +338,7 @@ function CommonDrawAppearanceBuild(C, {
 
 /**
  * Determines whether the provided color is valid
- * @param {any} Color - The color
+ * @param {string} Color - The color
  * @param {AssetGroup} AssetGroup - The asset group the color is being used fo
  * @returns {boolean} - Whether the color is valid
  */

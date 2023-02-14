@@ -2,7 +2,7 @@ var C008_DramaClass_Outro_Crime = "";
 
 // Chapter 8 - Outro Load
 function C008_DramaClass_Outro_Load() {
-	
+
 	// Time is always 14:00:00 in the outro, unlock if needed
 	StopTimer(14 * 60 * 60 * 1000);
 	PlayerReleaseBondage();
@@ -17,7 +17,7 @@ function C008_DramaClass_Outro_Load() {
 	ActorSpecificSetPose("Amanda", "");
 	ActorSpecificSetPose("Sarah", "");
 	ActorSpecificSetPose("Julia", "");
-	
+
 	// Gets the correct crime in chapter 7 for text and next chapter
 	if (GameLogQuery("C007_LunchBreak", "Amanda", "Stranded")) C008_DramaClass_Outro_Crime = "AmandaStranded";
 	if (GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) C008_DramaClass_Outro_Crime = "SarahStranded";
@@ -28,10 +28,10 @@ function C008_DramaClass_Outro_Load() {
 
 // Chapter 8 - Outro Run
 function C008_DramaClass_Outro_Run() {
-	
+
 	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
-	
+
 	// If there was a crime that leads to chapter 10
 	if ((C008_DramaClass_Outro_Crime == "AmandaStranded") || (C008_DramaClass_Outro_Crime == "SarahStranded") || (C008_DramaClass_Outro_Crime == "SidneyStranded") || (C008_DramaClass_Outro_Crime == "JenniferStranded")) {
 
@@ -47,7 +47,7 @@ function C008_DramaClass_Outro_Run() {
 		if (TextPhase <= 1) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Bell.jpg", 800, 0);
 		if ((TextPhase >= 2) && ((C008_DramaClass_Outro_Crime == "AmandaStranded") || (C008_DramaClass_Outro_Crime == "SarahStranded"))) DrawImage(CurrentChapter + "/" + CurrentScreen + "/AmandaSarah.jpg", 800, 0);
 		if ((TextPhase >= 2) && ((C008_DramaClass_Outro_Crime == "SidneyStranded") || (C008_DramaClass_Outro_Crime == "JenniferStranded"))) DrawImage(CurrentChapter + "/" + CurrentScreen + "/SidneyJennifer.jpg", 800, 0);
-		
+
 	} else {
 
 		// Draw the outro text to lead to chapter 9

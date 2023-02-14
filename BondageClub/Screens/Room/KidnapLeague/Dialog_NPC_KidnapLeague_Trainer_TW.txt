@@ -1,0 +1,538 @@
+###_NPC
+It seems that someone got kidnapped recently.  (She giggles.)  I can't understand you though.
+好像有人最近被綁架了呢。（她呵呵地笑。）但我不太明白你想說什麼。
+(She bows her head.)  Congratulations on your victory!  I'm your victim.
+（她低下頭。）恭喜你勝利了！我是你的受害者了。
+(She smiles.)  That was a fun fight wasn't it?
+（她微笑。）那是一場有趣的戰鬥，不是嗎？
+You need to find and kidnap BOUNTYNAME.  She usually kidnaps newcomers.  If you succeed, you'll get paid $BOUNTYAMOUNT.
+你需要找到並綁架BOUNTYNAME。她經常綁架新人。如果你成功，你將獲得$BOUNTYAMOUNT的報酬。
+Your bounty is BOUNTYNAME.  She really likes Japanese rope bondage.  The bounty amount is $BOUNTYAMOUNT.
+你的賞金目標是BOUNTYNAME。她很喜歡日本式的繩子束縛。她的賞金是$BOUNTYAMOUNT。
+Find and restrain BOUNTYNAME for a bounty of $BOUNTYAMOUNT.  She's a big spender and loves to shop.
+找到並束縛BOUNTYNAME，她的賞金是$BOUNTYAMOUNT。她是個大手筆，喜歡購物。
+There's a bounty of $BOUNTYAMOUNT for BOUNTYNAME.  She's a part time maid for the club.
+BOUNTYNAME有$BOUNTYAMOUNT賞金。她是俱樂部的兼職女僕。
+Very good! Here's your pay.  (She gives you $BOUNTYAMOUNT.)  Did she give you trouble?
+很好！這是你的報酬。（她給了你$BOUNTYAMOUNT。）她給你添麻煩了嗎？
+(She tries to avoid the gag for a few seconds but surrenders quickly as you insist.)
+（她嘗試避開堵嘴了幾秒，但你堅持了不久後，她迅速投降了。）
+(You remove her gag and she smiles.)  Thanks!  Would you like to do another practice fight?
+（你拿開她的嘴，她笑了。）謝謝！你想再打一場練習嗎？
+(She struggles for fun but allows you to restrain her.)  I can't count the number of times I've been tied up this month.
+（她玩笑地掙扎著，但還是讓你束縛住她。）我這個月我被捆綁的次數我已經數不清了。
+(You free her arms and she cracks her fingers.)  Ready for another round?
+（你鬆開她的手臂，她捏響手指。）準備好再打一輪了嗎？
+(She wiggles her butt as you restrain her legs.)  A good kidnapper never forgets the legs.
+（你束縛她的腿，她擺了擺屁股。）一個好的綁匪永遠不會忘記束縛腿。
+(You release her legs from the bondage device.)  Anything else before we can continue?
+（你鬆開她的腿上的束縛道具。）在我們能繼續之前，還有什麼事情嗎？
+(She stands on her toes as you restrain her feet.)  Bondage is great isn't it?
+（你束縛她的雙腳，她踮起腳尖。）束縛很棒，不是嗎？
+(You release her feet and she wiggles them.)  Thanks a lot, it's not easy to be forced like that.
+（你鬆開她的腳，她扭動雙腳。）非常感謝，被強迫成這樣並不容易。
+(You strap the collar on her while she blushes.)  Collars are important in both BDSM and kidnappings.
+（你給她戴上項圈，她臉紅起來。）項圈在BDSM和綁架中都很重要。
+(You remove the collar fastened around her neck.)  Much better!
+（你取下繫在她脖子上的項圈。）好多了！
+(You lock the belt on her as she panics.)  Oh, come on!  That's not fair or funny.
+（你把貞操帶鎖在她身上，她驚慌失措。）哦，別這樣！這既不公平也不可笑。
+(You unlock the device from her waist and she nods.)  That was cruel, even for a kidnapper.
+（你解開她腰上的道具，她點點頭。）這太殘忍了，即使對綁匪來說太殘忍。
+(You strap it on her head as she sighs.)  Please don't leave me like this for too long.
+（你把這道具綁在她的頭上，她嘆氣時。）請不要讓我保持這樣太久。
+(You remove the device as she hums a happy song.)  Thanks!  I appreciate it.
+（你移除了道具，她快樂地哼起歌。）謝謝！我很感激。
+(You strap the harness on her torso as she blushes.)  This is pretty kinky Miss.
+（你將束縛帶繫在她的軀幹上，她臉上泛紅。）女士，這很色哦。
+(She stretches as you release her from the harness.)  It will be easier to breath like that.
+（當你解開她身上的束縛帶時，她伸展身體。）這樣呼吸會更容易。
+(She whimpers as you whip her breast.)  Hey!  I'm only here to help you practice!
+（你鞭打她的胸脯，她嗚咽著。）嘿！我只是來幫你練習的！
+(You swing the crop on her torso.)  Ow! I wouldn't do that to you, use it on the other kidnappers.
+（你將硬鞭揮向她的軀幹。）噢！如果是我，就不會對你這樣，對其他綁架者使用它好嗎。
+(You whip her butt as she grumbles.)  Whip the kidnappers, not the teacher!
+（你鞭打她的屁股，她抱怨著。）去打綁匪，別打老師！
+(You lash the leather crop pretty hard on her butt.)  Ahh! I'm glad I'm not facing you in a real match.
+（你把她的皮鞭狠狠地抽在她屁股上。）啊！我很高興我沒有在真正的比賽中面對你。
+(You restrain her feet with the rope and suspend her from the ceiling.)  Woah!  Maybe you should go to the Dojo.
+（你用繩子束縛住她的腳，把她吊在天花板上。）哇！也許你應該去道場。
+(You let her down from the ceiling and release her feet.)  Thanks a lot!  I was getting dizzy.
+（你把她從天花板放上下來，並解開她的腳。）非常感謝！我已經有點頭暈了。
+Why are you here girl?  The kidnappers league isn't for club slaves.
+你在這裡幹什麼，女孩？綁匪聯盟可不是俱樂部奴隸該來的地方。
+###_PLAYER
+Can we talk about kidnappings?
+我們能談談綁架嗎？
+###_NPC
+No, your duty as a club slave is to serve our customers.
+不，你作為俱樂部奴隸的職責是為我們的客戶服務。
+###_PLAYER
+(Leave her.)
+（離開她。）
+###_NPC
+(She grins.)  Hello naked girl.  Welcome to the Kidnappers League.
+（她咧嘴笑起來。）你好，裸體的女孩。歡迎來到綁匪聯盟。
+Welcome to the Kidnappers League.  Are you here to register as a kidnapper?
+歡迎來到綁匪聯盟。你是來登記成為綁匪的嗎？
+It's wonderful to see you Miss.  It's always thrilling to see one of our best kidnappers.
+很高興見到你，女士。見到我們最好之一的綁匪總是令人興奮。
+Hi DialogPlayerName, it's always nice to see you.  Do you want to practice with me?
+嗨，DialogPlayerName，很高興見到你。你想和我一起練習嗎？
+Welcome to the league dear member.  Do you need any information, or do you want to practice with me?
+歡迎加入聯盟，親愛的會員。你需要什麼訊息嗎，或者你想和我一起練習嗎？
+###_PLAYER
+Hi, I'm DialogPlayerName.
+嗨，我是DialogPlayerName。
+###_NPC
+I'm DialogCharacterName, it's nice to meet you.  I register league kidnappers and do practice fights.
+我是DialogCharacterName，很高興認識你。我註冊聯盟綁架者，並做戰鬥練習。
+###_PLAYER
+How do kidnappings work?
+綁架是怎麼進行的？
+###_NPC
+There's a lot to explain on fighting and kidnapping.  What would you like to know?
+關於戰鬥和綁架有一大堆要說的。你想知道什麼？
+###_PLAYER
+Tell me about the league.
+說說聯盟吧。
+###_NPC
+Sure!  What would you like to know?
+當然！你想知道什麼？
+###_PLAYER
+I want to join the Kidnappers League.
+我想加入綁匪聯盟。
+###_NPC
+Excellent!  We are always eager to get new members.  Do you know the league rules and accept them?
+完美！我們總是渴望得到獲得新成員。你知道聯盟的規則，並接受它嗎？
+###_PLAYER
+I want to leave the league.
+我想離開聯盟。
+###_NPC
+I'm sorry to hear that, but you can come back later.  You will lose your reputation in the league though. Are you sure you want to leave?
+我很遺憾聽到這個消息，但你可以以後再回來。此外，你也會失去聯盟的聲望。你確定要離開嗎？
+###_PLAYER
+I'll take a bounty hunter job.
+我接賞金獵人的工作。
+###_NPC
+We have many kidnapping bounties available.  Are you looking for an easy target, or more of a challenge?
+我們有許多可以接的綁架賞金。你是在尋找一個簡單的目標，還是更有挑戰的？
+###_PLAYER
+Do you have other jobs?
+你還有其他工作嗎？
+###_NPC
+Yes, we need someone to hand over a package to an agent in the field. You'll have to carry this suitcase into the online public chatrooms and have your permissions set to public.
+是的，我們需要有人將包裹交付給現場的特工。你必須將此手提箱帶入在線公共聊天室，並將你的權限設定為公開。
+###_PLAYER
+Who's my bounty target again?
+誰是我的賞金目標？
+I've succeeded, my bounty was kidnapped.
+我成功了，我的賞金目標被綁架了。
+I've failed to kidnap my bounty.
+我沒能綁架我的賞金目標。
+###_NPC
+Maybe the challenge was too tough for you.  You can take a break or pick up another bounty if you want.
+也許這挑戰對你來說太難了。你可以休息一下，或接下另一個賞金，如果你願意。
+###_PLAYER
+(Return the suitcase)
+（歸還手提箱）
+###_NPC
+Maybe the challenge was too tough for you.  You can take a break or pick up a bounty if you want.
+也許這挑戰對你來說太難了。你可以休息一下，或接一個賞金，如果你願意。
+###_PLAYER
+(Return the ransacked laptop)
+（歸還被洗劫的筆記型電腦）
+###_NPC
+Oh, it looks like someone got ahold of the package...
+哦，看來有人拿到了包裹……
+###_PLAYER
+I want to practice kidnappings with you.
+我想和你練習綁架。
+###_NPC
+Great!  I can go easy on you or use all my tricks if you're confident enough.  Which will it be?
+太棒了！我可以讓你輕鬆一些，或者如果你有足夠的信心，我會用上我所有的技巧。選哪個？
+###_PLAYER
+Let's talk later.  (Leave her.)
+以後再說吧。（離開她。）
+What do I do then?
+那我該怎麼辦？
+###_NPC
+Well, we haven't heard back from the agent yet. But I'm sure they'll find you in time.
+好吧，我們還沒有收到特工的回覆。但我相信他們會及時找到你的。
+###_PLAYER
+I need to change my permissions first.
+我需要先更改我的權限。
+###_NPC
+Sounds good! See you soon.
+聽起來不錯！再見。
+###_PLAYER
+This is not for me.
+這不適合我。
+###_NPC
+It's fine.  Would you like to talk then?
+沒關係。那你想談談嗎？
+###_PLAYER
+It's a laptop, isn't it?
+是筆記型電腦，不是嗎？
+###_NPC
+Oh... I guess you know what you're doing.
+哦……我想你知道你在做什麼。
+###_PLAYER
+I will deliver it.
+我會交付它。
+###_NPC
+(She attaches a suitcase to your hand with a cable)
+（她用電纜將一個手提箱連接到你的手上）
+###_PLAYER
+I've changed my mind.
+我改變主意了。
+(Nod yes)
+（點頭同意）
+###_NPC
+That's alright. You put your body on the line, so you'll get paid for the trouble. (She gives you MONEYAMOUNT$)
+沒關係。你親身奔赴前線，所以也會得到對應遇到的麻煩的報酬。（她給你MONEYAMOUNT$）
+###_PLAYER
+Please go easy on me.
+請讓我輕鬆一些。
+A regular match please.
+普通的對抗就可以了。
+Give me a tough fight.
+來場硬仗。
+I can face any challenge!
+任何挑戰我都行！
+Tell me the rules.
+告訴我規則。
+###_NPC
+First, all league members can kidnap and be kidnapped at any time in the Bondage Club.  Do you agree to that?
+首先，所有聯盟成員都可以在束縛俱樂部中隨時綁架和被綁架。你同意這個嗎？
+###_PLAYER
+I know the rules.
+我知道規則。
+###_NPC
+So, you agree that you can kidnap and be kidnapped at any time in the Bondage Club.
+因此，你同意在束縛俱樂部中隨時可以綁架和被綁架。
+###_PLAYER
+I accept.
+我接受。
+###_NPC
+We kidnap each other for fun but it's always consensual.  If someone panics or wants to be released, you must let her go.
+我們為了好玩而互相綁架，但這總是雙方同意的。如果有人被嚇到，或想要被釋放，你必須讓她走。
+###_PLAYER
+I refuse.
+我拒絕。
+###_NPC
+Then you cannot join the kidnappers league, sorry.
+那你就不能加入綁匪聯盟了，抱歉。
+You can fight while you kidnap, but you can't do anything that would leave permanent marks or damage on your opponents.
+你可以在綁架時進行戰鬥，但你不能做任何會在對手身上留下永久痕跡或造成傷害的事情。
+You're ready to join the league then!  Are you in?
+你已經準備好加入聯盟了！你加入嗎？
+###_PLAYER
+I'm in!  (Join the league.)
+我加入！（加入聯盟。）
+###_NPC
+Welcome to the Kidnappers League!  I hope you have fun and cause lots of trouble.
+歡迎來到綁匪聯盟！我希望你玩得開心，並帶來很多麻煩。
+Alright, let me know if you ever think about joining the league again.
+好吧，如果你再次考慮加入聯盟，請告訴我。
+###_PLAYER
+I quit.  (Leave the league.)
+我不做了。（離開聯盟。）
+###_NPC
+Fine, you won't be kidnapped and cannot kidnap any longer.
+好吧，你不會被綁架，也不能再綁架了。
+###_PLAYER
+I need to think some more. (Stay.)
+我需要再想一想。（留下來。）
+###_NPC
+Perfect!  I'm glad you're staying with us.
+完美！很高興你和我們在一起。
+###_PLAYER
+What is the Kidnappers League?
+什麼是綁匪聯盟？
+###_NPC
+We are a kinky group that enjoys kidnapping and being kidnapped.  Even though we play rough, it's always consensual.
+我們是一個喜歡綁架和被綁架的色情群體。雖然我們玩得很暴力，但也總是自願的。
+###_PLAYER
+The league members kidnap each other all the time?
+聯盟成員一直在互相綁架？
+###_NPC
+Pretty much.  (She giggles.)  Members can stalk, attack, and kidnap each other everywhere and at any time in the Bondage Club.
+差不多。（她呵呵笑起來。）在束縛俱樂部中，成員間可以隨時隨地跟蹤、攻擊和綁架對方。
+###_PLAYER
+Do people get hurt?
+人會受傷嗎？
+###_NPC
+It can happen when a fight gets too intense.  We try to never do anything that could cause permanent injuries.
+當戰鬥過於激烈時，就會發生這種情況。我們盡量不做任何可能導致永久性傷害的事情。
+###_PLAYER
+How can a kidnapping be consensual?
+綁架怎麼可能是自願的？
+###_NPC
+Just like BDSM, the kidnappings are consensual.  We all agree that we can be kidnapped, and we can leave the league if we want to quit.
+就像BDSM一樣，綁架是雙方自願的。我們都同意我們可以被綁架，如果我們想退出，我們可以離開聯盟。
+###_PLAYER
+How much does it cost?
+要多少錢？
+###_NPC
+There's no cost to join and there are bounty hunter jobs that you can take if you need some money.
+加入是免費的，如果你需要一些錢，你可以從事賞金獵人工作。
+###_PLAYER
+Can members leave the league?
+成員可以離開聯盟嗎？
+###_NPC
+Of course.  Though you will lose any reputation you gained in the league.
+當然。但你會失去以前在聯盟中獲得的所有聲望。
+###_PLAYER
+That's everything I need to know.
+夠了。
+###_NPC
+Excellent.  Can I help you with anything else?
+很好。還有什麼別的可以幫到你？
+###_PLAYER
+How do I kidnap?
+我要怎麼綁架？
+###_NPC
+To kidnap, you must fight your opponent and break her willpower.  You can use many types of moves and items to make her submit to you.
+要綁架的話，你必須與對手戰鬥並擊垮她的意志力。你可以使用多種類型的行動和物品讓她服從你。
+###_PLAYER
+How do I win a kidnapping fight?
+我如何贏得綁架戰鬥？
+###_NPC
+To win, you must break your opponent's willpower before getting yours broken.  The first to break will submit, and then their arms can be restrained.
+要想獲勝，你必須在對手擊垮你的意志力之前，先擊垮對手的意志力。最先被擊垮的會順從於對方，這時被擊垮的一方的手臂就可以束縛起來了。
+###_PLAYER
+How can I attack?
+我該如何攻擊？
+###_NPC
+Both kidnappers attack at the same time and can perform four different moves.  Each move has strengths and weaknesses against other moves.
+兩個綁匪同時攻擊，可以執行四種不同的行動。每個行動都有相對於其他動作的優勢和劣勢。
+###_PLAYER
+What are these different moves?
+這些不同的動作是什麼？
+###_NPC
+We call them the "BDSM" moves, they are: Brute force, Domination, Sneakiness, and Meditation.  You will get 8 moves when you begin a fight.
+我們稱它們為“BDSM”動作，它們是：蠻力、支配、潛行和冥想。開始戰鬥時，你將獲得8個行動。
+###_PLAYER
+What's an upper hand in a fight?
+戰鬥中的優勢是什麼？
+###_NPC
+You get the upper hand when you carry out a good move against your opponent.  It will allow you to restrain your opponent or get free yourself.
+當你對敵人使用一個有利的動作時，你就取得了優勢。它可以讓你束縛你的對手，或讓你自己得到解放。
+###_PLAYER
+Can I use items that are not restraints?
+我可以使用不是約束的物品嗎？
+###_NPC
+Yes, many unique items can be used passively to boost your moves strength.  They cannot be bought from the store, try to find them within the club.
+是的，許多獨特的物品可以用來被動增強你的行動強度。它們不能從商店購買，請嘗試在俱樂部內找到它們。
+###_PLAYER
+That's everything I need to know.
+我需要的我都知道了。
+###_NPC
+Excellent.  Can I help you with anything else?
+非常好。還有什麼別的可以幫到你？
+###_PLAYER
+(Listen.)
+（聽。）
+###_NPC
+Brute force is about using physical strength and endurance against your opponent.  You can slap, kick, punch, and choke, but don't go too far.
+蠻力是使用體力和耐力來對付你的對手。你可以拍打、踢、打和掐，但不要走得太遠。
+Brute force is good versus Domination and bad versus Sneakiness.  Brute force is halved if clothes are removed.
+蠻力對支配有利，對潛行不利。如果被脫掉衣服，蠻力減半。
+Domination consists of intimidating, insulting, and making your opponent feel weaker than you, which breaks their morale.
+支配包括恐嚇、侮辱和讓你的對手感覺比你弱，這會破壞他們的士氣。
+Domination is good versus Sneakiness and bad versus Brute force.  Domination is halved when gagged.
+支配對潛行有利，對蠻力不利。被堵嘴時支配減半。
+Sneakiness means to ambush, trip, surprise, sneak, tickle, or use tricks to break your opponent.
+潛行是指伏擊、絆倒、突襲、潛伏、搔搔癢或使用詭計來擊敗對手。
+Sneakiness is good versus Brute force and bad versus Domination.  Sneakiness is halved if feet are restrained.
+潛行對蠻力是有利，對支配是不利。如果腳被束縛，潛行會減半。
+Meditation is used to recover.  If you use that move, you will get 8 new fresh moves that you'll be able to use in the next round.
+冥想帶來恢復。如果你使用該動作，你將獲得8個新的動作，可以在下一輪使用。
+Meditation is weak against everything, so you will probably take a hit when you use it, but come back stronger.
+冥想對任何動作都不利，所以當你使用它時，你可能會受到打擊，但接下來你會更強大。
+The strategy is using the right move at the right time and recovering when the timing is best.  Do not get caught off guard.  Anything else?
+策略就是在正確的時間使用正確的東走，並在最佳時機選擇恢復。不要被打個措手不及。還有別的需要嗎？
+###_PLAYER
+I want an easy bounty.
+我想要一個簡單的賞金目標。
+Give me some challenge.
+給我一些有挑戰。
+I'll take your top bounty.
+我會領取你們這裡的最高賞金目標。
+###_NPC
+Very well.  Is there something else you want?
+很好。你還有什麼想要的嗎？
+###_PLAYER
+I'll go get her.
+我去搞定她。
+###_NPC
+Good!  Come back when you've kidnapped her for your reward.
+好！你綁架了她後，回來領你的報酬。
+###_PLAYER
+That girl is in deep trouble!
+那個女孩有大麻煩了！
+###_NPC
+Perfect!  Come back when you've kidnapped her for your reward.
+完美！你綁架了她後，回來領你的報酬。
+###_PLAYER
+I'll try my best.
+我會盡力的。
+###_NPC
+Alright, good luck.  Come back when you've kidnapped her for your reward.
+好吧，祝你好運。你綁架了她後，回來領你的報酬。
+###_PLAYER
+Yeah, she put up quite a fight.
+是的，她確實打得很厲害。
+###_NPC
+That was to be expected of her.  Would you like to take another bounty?
+我覺得她的確會這樣。你想領另外一個賞金目標嗎？
+###_PLAYER
+It was no problem, I represent the league.
+沒問題，我代表聯盟。
+###_NPC
+Very good, I like your attitude.  Would you like to take another bounty then?
+很好，很喜歡你的態度。你想領另外一個賞金目標嗎？
+###_PLAYER
+It was a fair and fun fight.
+這是一場公平而有趣的戰鬥。
+###_NPC
+That's what we aim for in the league.  Would you like to take another bounty?
+這就是我們在聯盟中的目標。你想領另外一個賞金目標嗎？
+###_PLAYER
+No worries, I'm happy to win or lose anyway.
+不用擔心，無論輸贏，我都很高興。
+###_NPC
+You're quite a kinky kidnapper.  Would you like to take another bounty?
+你真是個變態的綁匪。你想領另外一個賞金目標嗎？
+###_PLAYER
+No trouble, I can take on anyone.
+沒問題，我可以對付任何人。
+###_NPC
+You'll go far in the club Miss.  Would you like to take another bounty?
+你會在俱樂部裡走得很遠，女士。你想領另外一個賞金目標嗎？
+(She struggles for fun.)  I hope you enjoyed our practice fight.
+（她玩笑地掙扎著。）我希望你享受我們的練習賽。
+I hope you enjoyed our practice fight.
+我希望你享受我們的練習賽。
+###_PLAYER
+Now you know who's boss.
+現在你知道誰是這裡的老大了。
+###_NPC
+(She nods politely.)  Yes Miss.
+（她禮貌地點點頭。）是的，女士。
+###_PLAYER
+It was a fun match.
+這是一場有趣的對抗。
+###_NPC
+(She nods happily.)  Absolutely!
+（她高興地點點頭。）當然！
+###_PLAYER
+I got lucky I guess.
+我覺得這次是我走運。
+###_NPC
+(She shakes her head no.)  It's more than simple luck.
+（她搖頭，表示否認。）這不僅僅是運氣。
+(She struggles some more.)  If you release me, we can do another match.
+（她又掙扎了一些。）如果你放開我，我們可以再打一場。
+Would you like to talk some more?  Or do another fight?
+你還想多聊幾句嗎？還是再打一場？
+###_PLAYER
+What can I do with my victims?
+我可以對我的受害者做些什麼？
+###_NPC
+Anything you want, as long as you don't go over their limits.  You can tickle, spank, tease, or even make love with them.
+任何你想做的，只要你不超過他們的限制。你可以搔癢、打屁股、調戲，甚至和他們做愛。
+###_PLAYER
+Struggle some more!
+接著掙扎吧！
+###_NPC
+(She struggles but doesn't really try to escape.)  It's all part of the fun.
+（她掙扎著，但並沒有真正試圖逃跑。）這都是樂趣的一部分。
+###_PLAYER
+Let's chit chat.
+我們聊一聊。
+###_NPC
+What would you like to talk about?
+你想談什麼？
+###_PLAYER
+I want to try another practice fight.
+我想嘗試另一場練習賽。
+Congratulations!  That was fun.
+恭喜！那很有趣。
+###_NPC
+Yes!  I hope you've learned a few tricks.
+是的！我希望你已經學會了一些技巧。
+###_PLAYER
+Yes, but you're too strong for me.
+是的，但你對我來說太強大了。
+###_NPC
+You'll learn new tricks and you'll get stronger.
+你會學到新的技巧，你會變得更強大。
+###_PLAYER
+(Struggle to talk.)
+（掙扎著說話。）
+###_NPC
+Do you need help with that gag?
+你需要幫忙解決這個口塞嗎？
+###_PLAYER
+(Blush and bow your head.)
+（臉紅並低下頭。）
+###_NPC
+Poor sweetie.  Do you need help with that gag?
+可憐的小可愛。你需要幫忙解決這個口塞嗎？
+###_PLAYER
+(Nod in agreement.)
+（點頭同意。）
+###_NPC
+Very well.  (She removes your gag.)  But in a real kidnapping you won't be released that easily.
+很好。（她移除你的口塞。）但在真正的綁架中，你不會那麼容易得到釋放的。
+###_PLAYER
+(Shake your head no.)
+（搖頭，表示否認。）
+###_NPC
+You're a good loser, I respect that.
+你是一個很好的失敗者，我尊重這一點。
+###_PLAYER
+I'll train to become the best kidnapper.
+我會接受訓練，成為最好的綁匪。
+###_NPC
+Impressive!  I can release you now or you can struggle if you prefer.
+令人印象深刻！我現在可以放開你，或者如果你願意，你也可以掙扎出來。
+###_PLAYER
+I will practice and get better.
+我會練習並變得更好。
+###_NPC
+Exactly!  I can release you now or you can struggle if you prefer.
+就是這樣！我現在可以放開你，或者如果你願意，你也可以掙扎出來。
+###_PLAYER
+Maybe I'm not fit to be a kidnapper.
+也許我不適合做綁匪。
+###_NPC
+Nonsense!  It just takes practice. I can release you now or you can struggle if you prefer.
+無稽之談！我現在可以放開你，或者如果你願意，你也可以掙扎出來。
+###_PLAYER
+(Struggle in your restraints.)
+（在你的束縛中掙扎。）
+###_NPC
+You can struggle on your own or I can release you now if you prefer.
+你可以自己掙扎，或者如果你願意，我現在可以放開你。
+I can release you for another kidnapping if you want.
+如果你願意，我可以放開你，並進行另一次綁架。
+###_PLAYER
+I'm already out!
+我已經出來了！
+###_NPC
+Well done.  Would you like to talk or try again?
+做得好。你想談談還是再試一次？
+###_PLAYER
+Can you help me out?
+你能幫我嗎？
+###_NPC
+(She releases you.)  Here you go.  Would you like to talk or try again?
+（她放開你。）放開你了。你想談談還是再試一次？
+###_PLAYER
+(Make pleading eyes.)
+（做出懇求的眼神。）
+(Leave her to struggle by yourself.)
+（離開她，自己掙扎。）

@@ -9,20 +9,20 @@ function C008_DramaClass_DressingRoom_Load() {
 // Chapter 8 - Dressing Room Run
 function C008_DramaClass_DressingRoom_Run() {
 
-	// Draw the background image 
+	// Draw the background image
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
-	
+
 	// Draw Sarah
 	if (!GameLogQuery("C007_LunchBreak", "Sarah", "Stranded")) {
 		if (C008_DramaClass_SarahIntro_CurrentStage == 0) DrawImage(CurrentChapter + "/" + CurrentScreen + "/SarahSearch.png", 0, 0);
 		else DrawActor("Sarah", 130, 50, 0.575);
 	}
-	
+
 	// Draw Amanda
 	if (!GameLogQuery("C007_LunchBreak", "Amanda", "Stranded")) {
 		if (C008_DramaClass_AmandaIntro_CurrentStage == 0) DrawImage(CurrentChapter + "/" + CurrentScreen + "/AmandaSearch.png", 800, 0);
 		else DrawActor("Amanda", 800, 50, 0.575);
-	} 
+	}
 
 }
 

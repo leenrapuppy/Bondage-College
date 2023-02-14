@@ -16,7 +16,7 @@ function C006_Isolation_CellGround_Run() {
 }
 
 // Chapter 6 - Cell Ground Click
-function C006_Isolation_CellGround_Click() {	
+function C006_Isolation_CellGround_Click() {
 	ClickInteraction(C006_Isolation_CellGround_CurrentStage);
 }
 

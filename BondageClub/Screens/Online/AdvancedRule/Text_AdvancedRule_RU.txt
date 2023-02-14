@@ -1,0 +1,192 @@
+Check all
+Отметить все
+Check none
+Убрать отметки
+Apply the advanced rule
+Применить расширенное правило
+Check the Bondage Club areas that your submissive won't be able to enter.
+Отметьте области Бондаж-клуба, в которые ваш сабмиссив не сможет войти.
+Check the appearance zones that your submissive won't be able to change by herself.
+Отметьте зоны внешности, которые ваша сабмиссив не сможет изменить самостоятельно.
+Check the item zones that your submissive won't be able to access on herself.
+Отметьте зоны предметов, к которым ваш сабмиссив не сможет получить доступ на себе.
+Club Shop
+Клубный магазин
+Private Room
+Приватная комната
+Introduction Class
+Ознакомительный класс
+Maid Quarters
+Комната для прислуги
+Kidnappers League
+Лига Похитителей
+Shibari Dojo
+Шибари Додзе
+Explore the Club
+Исследуйте Клуб
+Look for Trouble
+Ищите неприятности
+Slave Market
+Рынок рабынь
+Timer Cell
+Таймер клетки
+LARP Battles
+LARP Битвы
+Visit the College
+Посетить колледж
+Asylum
+Психушка
+Bondage Poker
+Бондаж покер
+Infiltration
+Проникновение
+Movie Studio
+Киностудия
+Magic School
+Магическая школа
+Bondage Brawl
+Бондаж драка
+Item Crafting
+Создание предметов
+Gambling
+Играть в азартные игры
+Prison
+Тюрьма
+Photographic
+Фотостудия
+Stable
+Конюшня
+Houdini's Theater
+Театр Гудини
+The Nursery
+Детская
+Cafe
+Кафе
+Arcade
+Аркада
+Cloth
+Верх
+Cloth Accessory
+Аксессуар для верха
+Necklace
+Для шеи
+Upper Suit
+Верхний костюм
+Bottom
+Низ
+Lower Suit
+Нижний костюм
+Bra
+Бюстгальтер
+Corset
+Корсет
+Panties
+Трусики
+Socks
+Носки
+Right Anklet
+Правый ножной браслет
+Left Anklet
+Левый ножной браслет
+Garters
+Подвязки
+Shoes
+Обувь
+Hat
+Головной убор
+Hair Accessory
+Аксессуар для волос
+Hair Accessory (All)
+Аксессуары для волос (Все)
+Ears
+Уши
+Gloves
+Перчатки
+Left Hand Rings
+Кольца для левой руки
+Right Hand Rings
+Кольца для правой руки
+Bracelet
+Браслет
+Glasses
+Очки
+Mask
+Маска
+Tail Strap
+Ремень с хвостом
+Wings
+Крылья
+Height
+Рост
+Upper Body
+Верхняя часть тела
+Lower Body
+Нижняя часть тела
+Front Hair
+Передние волосы
+Back Hair
+Волосы сзади
+Left Eye
+Левый глаз
+Right Eye
+Правый глаз
+Mouth
+Рот
+Nipples
+Соски
+Pussy
+Киска
+Feet & Toes
+Ступни и пальцы ног
+Lower Legs
+Лодыжки
+Upper Legs
+Бедра
+Pussy & Vagina
+Киска и влагалище
+Clitoris
+Клитор
+Butt / Anal
+Задница / Анал
+Pelvis & Belly
+Таз и живот
+Torso (Left)
+Торс (слева)
+Torso (Right)
+Торс (справа)
+Nipples
+Соски
+Nipples Piercings
+Пирсинг в соски
+Breast
+Грудь
+Hands
+Кисти
+Arms & Shoulders
+Руки и плечи
+Neck
+Шея
+Neck Accessories
+Аксессуары для шеи
+Neck Restraints
+Ограничители для шеи
+Mouth (Left)
+Рот (слева)
+Mouth (Center)
+Рот (в центре)
+Mouth (Right)
+Рот (справа)
+Nose
+Нос
+Ears
+Уши
+Head
+Голова
+Hood
+Капюшоны
+Misc (Top Left)
+Разное (вверху слева)
+Device (Bottom Left & Right)
+Девайсы (внизу слева и справа)
+Addon (Top Right)
+Дополнительно (вверху справа)

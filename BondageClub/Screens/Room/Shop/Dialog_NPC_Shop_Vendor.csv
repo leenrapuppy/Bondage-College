@@ -19,10 +19,10 @@ ItemPelvis,,,(You snap the belt around her waist while she sighs.)  Damn it.  I 
 RemoveItemPelvis,,,"(You unlock the belt from her waist, and she smiles.)  I owe you one.",,
 ItemHead,,,(You strap the device on her head as she complains.)  The store!  Think about the store!,,
 RemoveItemHead,,,(You remove the device and she looks relived.)  Thanks.  Nothing was stolen?,,
-ItemBreastSpankingToysWhip,,,(She whimpers as you whip her breast.)  Ouch!  You're whipping too hard.,,
-ItemBreastSpankingToysCrop,,,(You swing the crop on her torso as she grumbles.)  That's what they call trying the merchandise.,,
-ItemPelvisSpankingToysWhip,,,(You whip her butt as she whimpers.)  Oooww.  Are you a satisfied customer?,,
-ItemPelvisSpankingToysCrop,,,(You lash the leather crop pretty hard on her butt.)  Damn it!  I need a better job.,,
+ItemBreastWhip,,,(She whimpers as you whip her breast.)  Ouch!  You're whipping too hard.,,
+ItemBreastCrop,,,(You swing the crop on her torso as she grumbles.)  That's what they call trying the merchandise.,,
+ItemPelvisWhip,,,(You whip her butt as she whimpers.)  Oooww.  Are you a satisfied customer?,,
+ItemPelvisCrop,,,(You lash the leather crop pretty hard on her butt.)  Damn it!  I need a better job.,,
 0,,,Greetings Mistress DialogPlayerName.  What are you looking for today?,,"DialogLogQuery(""ClubMistress"", ""Management"")"
 0,,,(She looks at you and giggles.)  Are you looking for some clothes?,,Player.IsNaked()
 0,,,Welcome to the Bondage Club store.  How can I help you today?,,
@@ -37,7 +37,7 @@ ItemPelvisSpankingToysCrop,,,(You lash the leather crop pretty hard on her butt.
 0,,I need to run.  (Leave her.),,DialogLeave(),
 20,0,Check my items.  I've bought everything.,No way!  Well a deal is a deal.  You can strap me up if you want.,VendorBondage(),BoughtEverything
 20,0,I'll remember that deal.,Sure!  Do you have more questions for me?,,
-30,,What's the job?,Selling gears.  Customers wants to know if the items are secure and good looking.  You could demonstrate for them.,,
+30,,What's the job?,Modelling gear so our customers can see that the items are secure and good looking.  You'd demonstrate and convince them.,,
 30,,How much does it pay?,"I can give you 10% of the selling price, minimum $7, for each item you help me to sell.  It's a good commission.",,
 30,31,I'm ready!,"Very well, let me find an item to promote.  (She checks on the shelves for an item to use on you.)",,!Player.IsRestrained()
 30,,I'm ready!,No you're not.  (She giggles.)  Get out of these restraints first.,,Player.IsRestrained()

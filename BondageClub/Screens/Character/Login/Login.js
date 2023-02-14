@@ -1,16 +1,17 @@
 "use strict";
 var LoginBackground = "Dressing";
 var LoginMessage = "";
+/** @type {null | string[][]} */
 var LoginCredits = null;
 var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "ArashiSama", "Aylea", "bjugh", "BlueWinter", "bryce", "Christian", "Clash", 
-	"DarkStar", "Deadly", "Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", "Hayden", 
-	"JoeyDubDee", "Kimuriel", "Micah", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Misa", 
-	"Nick", "Nightcore", "Rika", "Riley", "Samuel", "Shadow", "SirRobben", "Tam", 
-	"Tarram", "The", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf"
+	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "bjugh", "bryce", "Cathryn",
+	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin",
+	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "M4c0202", "Michal", "Michel",
+	"Mike", "Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Ross", "Samuel", "Schrödingers",
+	"Setsu", "Shadow", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "William",
 ];
 
 /* eslint-enable */
@@ -153,10 +154,65 @@ function LoginRun() {
 /**
  * The list of item fixups to apply on login.
  *
- * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string} }[]}
+ * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string, Option?: string} }[]}
  */
 let LoginInventoryFixups = [
 	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
+	{ Old: { Group: "ItemVulvaPiercings", Name: "WeightedClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Weight" } },
+	{ Old: { Group: "ItemVulvaPiercings", Name: "BellClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Bell" } },
+	{ Old: { Group: "ItemArms", Name: "BitchSuitExposed"}, New: { Group: "ItemArms", Name: "BitchSuit", Option: "Exposed" } },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysBaguette" }, New: { Group: "ItemHandheld", Name: "Baguette"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysBallgag" }, New: { Group: "ItemHandheld", Name: "Ballgag"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysBelt" }, New: { Group: "ItemHandheld", Name: "Belt"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysBroom" }, New: { Group: "ItemHandheld", Name: "Broom"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysCandleWax" }, New: { Group: "ItemHandheld", Name: "CandleWax"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysCane" }, New: { Group: "ItemHandheld", Name: "Cane"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysCattleProd" }, New: { Group: "ItemHandheld", Name: "CattleProd"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysCrop" }, New: { Group: "ItemHandheld", Name: "Crop"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysElectricToothbrush" }, New: { Group: "ItemHandheld", Name: "ElectricToothbrush"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysFeather" }, New: { Group: "ItemHandheld", Name: "Feather"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysFeatherDuster" }, New: { Group: "ItemHandheld", Name: "FeatherDuster"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysFlogger" }, New: { Group: "ItemHandheld", Name: "Flogger"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysGavel" }, New: { Group: "ItemHandheld", Name: "Gavel"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysGlassEmpty" }, New: { Group: "ItemHandheld", Name: "GlassEmpty"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysGlassFilled" }, New: { Group: "ItemHandheld", Name: "GlassFilled"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysHairbrush" }, New: { Group: "ItemHandheld", Name: "Hairbrush"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysHeartCrop" }, New: { Group: "ItemHandheld", Name: "HeartCrop"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysIceCube" }, New: { Group: "ItemHandheld", Name: "IceCube"} },
+	{ Old: { Group: "ItemHands", Name: "KeyProp" }, New: { Group: "ItemHandheld", Name: "KeyProp"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysLargeDildo" }, New: { Group: "ItemHandheld", Name: "LargeDildo"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysLongDuster" }, New: { Group: "ItemHandheld", Name: "LongDuster"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysLongSock" }, New: { Group: "ItemHandheld", Name: "LongSock"} },
+	{ Old: { Group: "ItemHands", Name: "MedicalInjector" }, New: { Group: "ItemHandheld", Name: "MedicalInjector"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysLotion" }, New: { Group: "ItemHandheld", Name: "Lotion"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPaddle" }, New: { Group: "ItemHandheld", Name: "Paddle"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPanties" }, New: { Group: "ItemHandheld", Name: "Panties"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPetToy" }, New: { Group: "ItemHandheld", Name: "PetToy"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPhone1" }, New: { Group: "ItemHandheld", Name: "Phone1"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPhone2" }, New: { Group: "ItemHandheld", Name: "Phone2"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPlasticWrap" }, New: { Group: "ItemHandheld", Name: "PlasticWrap"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysPotionBottle" }, New: { Group: "ItemHandheld", Name: "PotionBottle"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysRainbowWand" }, New: { Group: "ItemHandheld", Name: "RainbowWand"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysRopeCoilLong" }, New: { Group: "ItemHandheld", Name: "RopeCoilLong"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysRopeCoilShort" }, New: { Group: "ItemHandheld", Name: "RopeCoilShort"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysRuler" }, New: { Group: "ItemHandheld", Name: "Ruler"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysScissors" }, New: { Group: "ItemHandheld", Name: "Scissors"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysShockRemote" }, New: { Group: "ItemHandheld", Name: "ShockRemote"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysShockWand" }, New: { Group: "ItemHandheld", Name: "ShockWand"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysSmallDildo" }, New: { Group: "ItemHandheld", Name: "SmallDildo"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysSmallVibratingWand" }, New: { Group: "ItemHandheld", Name: "SmallVibratingWand"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysSpatula" }, New: { Group: "ItemHandheld", Name: "Spatula"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysSword" }, New: { Group: "ItemHandheld", Name: "Sword"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysTapeRoll" }, New: { Group: "ItemHandheld", Name: "TapeRoll"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysTennisRacket" }, New: { Group: "ItemHandheld", Name: "TennisRacket"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysToothbrush" }, New: { Group: "ItemHandheld", Name: "Toothbrush"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysTowel" }, New: { Group: "ItemHandheld", Name: "Towel"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysVibeRemote" }, New: { Group: "ItemHandheld", Name: "VibeRemote"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysVibratingWand" }, New: { Group: "ItemHandheld", Name: "VibratingWand"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysVibrator" }, New: { Group: "ItemHandheld", Name: "Vibrator"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysWartenbergWheel" }, New: { Group: "ItemHandheld", Name: "WartenbergWheel"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysWhip" }, New: { Group: "ItemHandheld", Name: "Whip"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysWhipPaddle" }, New: { Group:"ItemHandheld", Name:"WhipPaddle" } },
 ];
 
 /**
@@ -167,13 +223,18 @@ let LoginInventoryFixups = [
  * and applies the specified asset fixups by swapping Old with New in the list
  * of owned items, in the various player item lists, and in the appearance.
  *
- * Note that it copies properties verbatim, so its better if the Old and New
- * asset definitions are kept compatible.
+ * If you're only moving items around, it should work just fine as long as
+ * the `Old` and `New` asset definitions are compatible.
+ * If it's an asset merge (say 3 into one typed asset), it will either set
+ * the fixed up item to the specified `Option` or the first one if unspecified.
+ *
+ * TODO: only typed items are supported.
  *
  * @param {Record<string, string[]>} Inventory - The server-provided inventory object
- * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
+ * @param {{Group: string, Name: string, Property?: any}[]} Appearance - The server-provided appearance object
+ * @param {CraftingItem[]} Crafting - The server-provided, uncompressed crafting data
  */
-function LoginPerformInventoryFixups(Inventory, Appearance) {
+function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
 	// Skip fixups on new characters
 	if (!Inventory || !Appearance) return;
 
@@ -183,10 +244,12 @@ function LoginPerformInventoryFixups(Inventory, Appearance) {
 		const group = Inventory[fixup.Old.Group];
 		let idx = group && group.indexOf(fixup.Old.Name);
 		if (group && idx != -1) {
+			// Replace the old with the new in the inventory, making sure we don't add a duplicate
 			group.splice(idx, 1);
 			if (!Inventory[fixup.New.Group])
 				Inventory[fixup.New.Group] = [];
-			Inventory[fixup.New.Group].push(fixup.New.Name);
+			if (!Inventory[fixup.New.Group].includes(fixup.New.Name))
+				Inventory[fixup.New.Group].push(fixup.New.Name);
 		}
 
 		// Update the player's item lists
@@ -204,14 +267,60 @@ function LoginPerformInventoryFixups(Inventory, Appearance) {
 			// The item is currently worn, remove it
 			let worn = Appearance[idx];
 			Appearance.splice(idx, 1);
-			// Add the new one, unless there's already something there
-			if (!Appearance.find(a => a.Group === fixup.New.Group)) {
-				worn.Group = fixup.New.Group;
-				worn.Name = fixup.New.Name;
-				Appearance.push(worn);
+
+			// There're already something else in that slot, preserve it
+			if (Appearance.find(a => a.Group === fixup.New.Group))
+				return;
+
+			// Set up the new item and its properties
+			worn.Group = fixup.New.Group;
+			worn.Name = fixup.New.Name;
+
+			const asset = AssetGet("Female3DCG", worn.Group, worn.Name);
+			let opt = null;
+			if (asset.Archetype) {
+				switch (asset.Archetype) {
+					case ExtendedArchetype.TYPED:
+						{
+							const opts = TypedItemGetOptions(fixup.New.Group, fixup.New.Name);
+							if (typeof fixup.New.Option === "undefined")
+								opt = opts[0];
+							else
+								opt = opts.find(o => o.Name === fixup.New.Option);
+
+							if (!opt) {
+								console.error(`Unknown option ${fixup.New.Option}`);
+								return;
+							}
+						}
+						break;
+				}
+
+				// Replace old previous properties with the wanted ones
+				if (opt && opt.Property)
+					worn.Property = Object.assign(opt.Property);
+			} else if (asset.Extended) {
+				// Old-style extended item
+
+			} else {
+				delete worn.Property;
 			}
+
+			// Push back the updated data
+			Appearance.push(worn);
 		}
+
+		// Move crafts over to the new name
+		if (Array.isArray(Crafting)) {
+			Crafting.forEach(C => {
+				if (C == null) return;
+				if (C.Item !== fixup.Old.Name) return;
+				C.Item = fixup.New.Name;
+			});
+		}
+
 	});
+
 	if (listsUpdated)
 		ServerPlayerBlockItemsSync();
 }
@@ -552,6 +661,7 @@ function LoginResponse(C) {
 			if (typeof C.LastChatRoomBan == "string")
 				Player.LastChatRoomBan = CommonConvertStringToArray(C.LastChatRoomBan);
 			Player.LastChatRoomBlockCategory = C.LastChatRoomBlockCategory;
+			Player.LastChatRoomSpace = C.LastChatRoomSpace;
 
 			// Loads the ownership data
 			Player.Ownership = C.Ownership;
@@ -581,6 +691,7 @@ function LoginResponse(C) {
 			Player.OnlineSharedSettings = C.OnlineSharedSettings;
 			Player.GraphicsSettings = C.GraphicsSettings;
 			Player.NotificationSettings = C.NotificationSettings;
+			Player.GenderSettings = C.GenderSettings;
 			Player.SavedExpressions = C.SavedExpressions;
 			if (!Array.isArray(Player.SavedExpressions)) {
 				Player.SavedExpressions = [];
@@ -625,7 +736,8 @@ function LoginResponse(C) {
 			LoginDifficulty(false);
 
 			// Loads the player character model and data
-			LoginPerformInventoryFixups(C.Inventory, C.Appearance);
+			C.Crafting = CraftingDecompressServerData(C.Crafting);
+			LoginPerformInventoryFixups(C.Inventory, C.Appearance, C.Crafting);
 			ServerAppearanceLoadFromBundle(Player, C.AssetFamily, C.Appearance, C.MemberNumber);
 			InventoryLoad(Player, C.Inventory);
 			LogLoad(C.Log);
@@ -786,8 +898,7 @@ function LoginDoLogin() {
 	if (!LoginSubmitted && ServerIsConnected) {
 		var Name = ElementValue("InputName");
 		var Password = ElementValue("InputPassword");
-		var letters = /^[a-zA-Z0-9]+$/;
-		if (Name.match(letters) && Password.match(letters) && (Name.length > 0) && (Name.length <= 20) && (Password.length > 0) && (Password.length <= 20)) {
+		if (Name.match(ServerAccountPasswordRegex) && Password.match(ServerAccountPasswordRegex)) {
 			LoginSetSubmitted();
 			ServerSend("AccountLogin", { AccountName: Name, Password: Password });
 		} else LoginStatusReset("InvalidNamePassword");

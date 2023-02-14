@@ -1,9 +1,12 @@
 "use strict";
 var AsylumGGTSBackground = "AsylumGGTSRoom";
+/** @type {null | NPCCharacter} */
 var AsylumGGTSComputer = null;
 var AsylumGGTSIntroDone = false;
 var AsylumGGTSTimer = 0;
+/** @type {null | string} */
 var AsylumGGTSTask = null;
+/** @type {null | Character} */
 var AsylumGGTSTaskTarget = null;
 var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
@@ -12,7 +15,7 @@ var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2, 3 & 4 tasks
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "ActivityNod", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemHandsFuturisticMittens", "ItemPose", "ItemRemoveLimb", "ItemRemoveBody", "ItemRemoveHead", "ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "ItemFuckMachineIntensity", "UnlockRoom", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "ItemBootsFuturisticHeels", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "ItemChangeGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ActivityKiss", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"],
 	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ItemEarsDeaf", "ItemMaskBlind", "ItemBeltToFuck", "ItemFuckToBelt", "ActivityBite", "ActivityLick"],
 	["QueryCanFailMaster", "QueryLoveMaster", "QuerySurrenderMaster", "QueryWhoControlMaster", "QueryServeObeyMaster"]
@@ -63,7 +66,7 @@ function AsylumGGTSLevelCompleted() {
  * @returns {number} - Nothing
  */
 function AsylumGGTSGetLevel(C) {
-	return ((C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
+	return ((C != null) && (C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
 }
 
 /**
@@ -364,7 +367,7 @@ function AsylumGGTSTaskDone(C, T) {
  */
 function AsylumGGTSCanRemove(C, Group) {
 	let Item = InventoryGet(C, Group);
-	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;	
+	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
 	if ((Item.Asset.Name.substr(0, 10) != "Futuristic") && (Item.Asset.Name != "FuckMachine")) return false;
 	if (InventoryOwnerOnlyItem(Item)) return false;
 	return true;
@@ -388,6 +391,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && !C.CanTalk()) return false; // Kiss, lick & bite require being able to talk
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && (Player.Effect != null) && (Player.Effect.indexOf("BlockMouth") >= 0)) return false; // Kiss, lick & bite require being able to use mouth
 	if ((T == "ActivityMasturbateHand") && C.IsVulvaChaste()) return false; // Cannot masturbate if chaste
+	if ((T == "ActivityMasturbateHand") && InventoryIsWorn(C, "FuckMachine", "ItemDevices")) return false; // Cannot masturbate if wearing the fuck machine
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
 	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
@@ -408,11 +412,16 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ItemFuckMachineIntensity") && !InventoryIsWorn(C, "FuckMachine", "ItemDevices")) return false; // Must have training belt to change intensity
 	if ((T == "ItemEarsDeaf") && !InventoryIsWorn(C, "FuturisticEarphones", "ItemEars")) return false; // Must have headphones to change deaf level
 	if ((T == "ItemMaskBlind") && !InventoryIsWorn(C, "FuturisticMask", "ItemHead")) return false; // Must have mask to change blind level
-	if ((T == "ItemTransform") 
+	if ((T == "ItemTransform")
 		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms")
 	) return false; // Must be wearing an item that can be transformed
+	if ((T == "ItemChangeGag")
+		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
+		&& !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3")
+		&& !InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth3")
+	) return false; // Must be wearing a harness or panel gag
 	if ((T == "PoseOverHead") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
@@ -420,6 +429,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "LockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == true)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "UnlockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == false)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "RestrainLegs") && !C.CanInteract()) return false; // To restrain own legs, must be able to interact
+	if ((T == "RestrainLegs") && InventoryIsWorn(C, "FuckMachine", "ItemDevices")) return false; // Cannot restrain own legs if wearing the fuck machine
 	if ((T.substr(0, 4) == "Item") && (T.length >= 15) && !C.CanInteract()) return false; // To use an item, must be able to interact
 	if ((T == "ItemHandsFuturisticMittens") && ((InventoryGet(C, "ItemHands") != null) || InventoryGroupIsBlocked(C, "ItemHands"))) return false;
 	if ((T == "ItemHeadFuturisticMask") && ((InventoryGet(C, "ItemHead") != null) || InventoryGroupIsBlocked(C, "ItemHead"))) return false;
@@ -484,7 +494,46 @@ function AsylumGGTSTransformGag(Group) {
 }
 
 /**
- * Processes the tasks that doesn't need any player input.  GGTS does everything and ends the task automatically.
+ * Changes the inflation setting on the ballgag or panelgag
+ * @param {string} Group - The group name to transform
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSConfigureGag(Group) {
+	let Item = InventoryGet(Player, Group);
+	//Do nothing if the slot is empty or not a configurable futuristic gag
+	if((Item == null) || (Item.Asset == null) || !((Item.Asset.Name === "FuturisticHarnessBallGag") || (Item.Asset.Name === "FuturisticPanelGag") || (Item.Asset.Name === "FuturisticHarnessPanelGag"))){
+		return;
+	}
+
+	let Type = (Item.Property.Type == null) ? "" : Item.Property.Type;
+	if (Item.Asset.Name === "FuturisticHarnessBallGag"){
+		Type = CommonRandomItemFromList(Type, ["", "Ball", "Plug"]);
+	}
+	else if ((Item.Asset.Name === "FuturisticPanelGag") || (Item.Asset.Name === "FuturisticHarnessPanelGag")){
+		Type = CommonRandomItemFromList(Type, ["", "LightBall", "Ball", "Plug"]);
+	}
+
+	if(Type === ""){
+		Item.Property.Effect = ['BlockMouth', 'GagLight'];
+		Item.Color = ['#50913C', 'Default'];
+	}
+	else if(Type === "LightBall") {
+		Item.Property.Effect = ['BlockMouth', 'GagVeryLight'];
+		Item.Color = ['#80713C', 'Default'];
+	}
+	else if(Type === "Ball"){
+		Item.Property.Effect = ['BlockMouth', 'GagMedium'];
+		Item.Color = ['#B0513C', 'Default'];
+	}
+	else if(Type === "Plug"){
+		Item.Property.Effect = ['BlockMouth', 'GagTotal'];
+		Item.Color = ['#E0313C', 'Default'];
+	}
+	Item.Property.Type = (Type == "") ? null : Type;
+}
+
+/**
+ * Processes the tasks that doesn't need any player input.	GGTS does everything and ends the task automatically.
  * @returns {void} - Nothing
  */
 function AsylumGGTSAutomaticTask() {
@@ -689,6 +738,14 @@ function AsylumGGTSAutomaticTask() {
 		return AsylumGGTSEndTaskSave();
 	}
 
+	if (AsylumGGTSTask == "ItemChangeGag"){
+		AsylumGGTSConfigureGag("ItemMouth");
+		AsylumGGTSConfigureGag("ItemMouth2");
+		AsylumGGTSConfigureGag("ItemMouth3");
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+
 	// The ItemBeltToFuck task automatically remove the training belt and adds the fuck machine
 	if (AsylumGGTSTask == "ItemBeltToFuck") {
 		let Item = InventoryGet(Player, "ItemPelvis");
@@ -710,7 +767,7 @@ function AsylumGGTSAutomaticTask() {
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
-	
+
 	// If we must enforce a new rule
 	if (AsylumGGTSTask.substr(0, 7) == "NewRule") {
 		AsylumGGTSAddRule(AsylumGGTSTask.substr(7, 100), false);
@@ -751,8 +808,8 @@ function AsylumGGTSAutomaticTask() {
  */
 function AsylumGGTSFindTaskTarget(T) {
 
-	// Only in public GGTS when there's at least another character
-	if ((ChatSearchReturnToScreen == "AsylumGGTS") || (ChatRoomCharacter.length <= 1)) return null;
+	// Only in public GGTS when there's at least another character and the player isn't blind
+	if ((ChatSearchReturnToScreen == "AsylumGGTS") || (ChatRoomCharacter.length <= 1) || Player.IsBlind()) return null;
 
 	// Nurses can use items on other players with less reputation or herself
 	if ((ReputationGet("Asylum") > 0) && (T.substr(0, 4) == "Item") && (T.length >= 15)) {
@@ -1093,16 +1150,16 @@ function AsylumGGTSAddStrike() {
 	// Level 6 is infinite, getting a strike subtract 1 hour
 	if (AsylumGGTSGetLevel(Player) >= 6) return AsylumGGTSSpendMinute(60);
 
+	// On the third strike, we unlock the room if we can
+	if ((Player.Game.GGTS.Strike >= 2) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
+		AsylumGGTSTask = "UnlockRoom";
+		AsylumGGTSAutomaticTask();
+	}
+
 	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-
-	// On the third strike, we unlock the room if we can
-	if ((Player.Game.GGTS.Strike >= 3) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
-		AsylumGGTSTask = "UnlockRoom";
-		AsylumGGTSAutomaticTask();
-	}
 
 	// On the third strike, we open the leg cuffs if we can
 	if ((Player.Game.GGTS.Strike >= 3) && InventoryIsWorn(Player, "FuturisticAnkleCuffs", "ItemFeet")) {
@@ -1255,16 +1312,17 @@ function AsylumGGTSDialogInteraction(Interaction) {
 	ServerSend("ChatRoomChat", { Content: "GGTS" + Interaction + "|" + CurrentCharacter.MemberNumber.toString(), Type: "Hidden" });
 	AsylumGGTSMessage("Interaction" + Interaction, CurrentCharacter);
 	DialogLeave();
-	
+
 }
 
 /**
  * Called from chat room, processes hidden GGTS messages
  * @param {Character} SenderCharacter - The character sending the message
  * @param {String} Interaction - The message sent
+ * @param {IChatRoomMessage} data - The full message recieved
  * @returns {Object} - Nothing to be used
  */
-function AsylumGGTSHiddenMessage(SenderCharacter, Interaction) {
+function AsylumGGTSHiddenMessage(SenderCharacter, Interaction, data) {
 	if (Interaction == "GGTSNewTask|" + Player.MemberNumber.toString()) return AsylumGGTSNewTask();
 	if (Interaction == "GGTSSpeed5|" + Player.MemberNumber.toString()) return AsylumGGTSSpeed = 0.5;
 	if (Interaction == "GGTSSpeed10|" + Player.MemberNumber.toString()) return AsylumGGTSSpeed = 1;
@@ -1309,4 +1367,12 @@ function AsylumGGTSDrawCharacter(C, X, Y, Zoom) {
 			MainCanvas.font = CommonGetFont(36);
 		}
 	}
+}
+
+/**
+ * Resets the state of the GGTS game
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSReset() {
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
 }

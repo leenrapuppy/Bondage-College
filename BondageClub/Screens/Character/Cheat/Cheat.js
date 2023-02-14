@@ -1,10 +1,11 @@
 "use strict";
 var CheatBackground = "Sheet";
 var CheatAllow = false;
-var CheatList = ["DoubleReputation", "DoubleSkill", "DoubleMoney", "DoubleItemSpeed", "BlockRandomKidnap", "SkipTrialPeriod", "AutoShowTraits", "NoLoveDecay", "CantLoseMistress", "FreeCollegeOutfit", "MiniGameBonus", "FreeNPCDress", "ChangeNPCTrait", "DoubleGGTSTime"];
+var CheatList = ["DoubleReputation", "DoubleSkill", "DoubleMoney", "DoubleItemSpeed", "BlockRandomKidnap", "SkipTrialPeriod", "AutoShowTraits", "NoLoveDecay", "CantLoseMistress", "FreeCollegeOutfit", "MiniGameBonus", "FreeNPCDress", "ChangeNPCTrait", "DoubleGGTSTime", "DoubleBrawlExperience"];
 var CheatBonusList = ["DoubleMoney", "DoubleSkill"];
 var CheatBonusFactor = 2;
 var CheatBonusTime = 1552967946711;
+/** @type {string[]} */
 var CheatActivated = [];
 var CheatBrowserName = "";
 var CheatBrowserVersion = "";

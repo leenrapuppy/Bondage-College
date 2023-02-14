@@ -1,6 +1,6 @@
 // Chapter 101 - Kinbaku Club Load
 function C101_KinbakuClub_Transition_Load() {
-	
+
 	// Time is always 18:00:00 in the outro
 	if (CurrentTime >= 18 * 60 * 60 * 1000) CurrentTime = 18 * 60 * 60 * 1000;
 	StopTimer(CurrentTime);
@@ -9,7 +9,7 @@ function C101_KinbakuClub_Transition_Load() {
 // Chapter 101 - Kinbaku Club Run
 function C101_KinbakuClub_Transition_Run() {
 
-	// Paints the background	
+	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Jenna.jpg", 800, 0);
 
@@ -31,7 +31,7 @@ function C101_KinbakuClub_Transition_Run() {
 		if (TextPhase >= 3) DrawText(GetText("Enslaved4"), 400, 400, "White");
 		if (TextPhase >= 4) DrawText(GetText("Enslaved5"), 400, 500, "White");
 	}
-	
+
 	if (C101_KinbakuClub_Lauren_PlayerChairCuffed || C101_KinbakuClub_Lauren_PlayerStrappado) {
 		DrawRect(0, 0, 800, 600, "black");
 		if (TextPhase >= 0) DrawText(GetText("ChairCuffed1"), 400, 100, "White");
@@ -66,7 +66,7 @@ function C101_KinbakuClub_Transition_Run() {
 	//	if (TextPhase >= 2) DrawText(GetText("ChloeSub3"), 400, 360, "White");
 	//	if (TextPhase >= 3) DrawText(GetText("ChloeSub4"), 400, 480, "White");
 	//}
-	
+
 	//if (C101_KinbakuClub_Chloe_PlayerLeftChairTied) {
 	//	DrawRect(0, 0, 800, 600, "black");
 	//	if (TextPhase >= 0) DrawText(GetText("LeftChair1"), 400, 120, "White");

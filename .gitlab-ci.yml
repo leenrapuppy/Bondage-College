@@ -1,5 +1,5 @@
 variables:
-  NPM_PREFIX: BondageClub/Tools/Node/
+  NPM_PREFIX: BondageClub/
 
 check:
   stage: build
@@ -8,6 +8,6 @@ check:
   image: node:16
   script:
     - npm --prefix $NPM_PREFIX ci
-    - npm --prefix $NPM_PREFIX run -s lintscripts
-    - npm --prefix $NPM_PREFIX run -s assetcheck-typescript -- --pretty
-    - npm --prefix $NPM_PREFIX run -s assetcheck
+    - npm --prefix $NPM_PREFIX run -s scripts:lint
+    - npm --prefix $NPM_PREFIX run -s assets:typecheck -- --pretty
+    - npm --prefix $NPM_PREFIX run -s assets:check

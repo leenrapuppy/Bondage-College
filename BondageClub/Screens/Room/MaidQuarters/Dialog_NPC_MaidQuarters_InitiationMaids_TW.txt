@@ -1,0 +1,100 @@
+###_NPC
+(The maids laugh at your mumbles and try to cheer you up.)
+（在聽到你的咕噥之後，女僕們大笑了起來）
+(A maid comes close to you with a large wooden paddle.)  I'm first today?  Sweet!  Show me your butt.
+（一個女僕拿著一個巨型木拍走了過來）我先來？寶貝，讓我康康你的屁股
+###_PLAYER
+Wait!  Are you serious?
+等等，你認真的？
+(Present your butt.)
+（向她展示你的屁股）
+###_NPC
+(She lightly hits your butt with the paddle and giggle.)  Welcome to the sorority!
+（她一邊笑一邊輕輕的用木拍打你的屁股）歡迎加入聯誼會！
+###_PLAYER
+(Whimper lightly.)
+（小聲嗚咽）
+###_NPC
+(She gives the paddle to another maid which steps forward.)  My turn!
+（她把拍子遞給了另一個女僕）輪到我了！
+###_PLAYER
+That wasn't too bad.
+這還好欸
+(Nod happily.)
+（開心的點頭）
+###_NPC
+(She swings the paddle on the same spot as before.)  Right on!  Welcome sister.
+（她站在之前的位置上揮了揮拍）來，讓我們好好歡迎新姐妹
+###_PLAYER
+Don't hit too hard!
+打輕點
+(Stare at the floor.)
+（盯著地板）
+###_NPC
+(She tosses the flogging device to another maid.)  Don't worry, this won't hurt me.
+（她把揮鞭裝置遞給了另一個女僕）別擔心，這個傷不了我
+###_PLAYER
+(Stand strong.)
+（忍住）
+###_NPC
+(She wacks your butt pretty good and laughs.)  One of us!
+（她大笑著，狠狠的打了你的屁股）歡迎成為我們的一員！
+###_PLAYER
+Careful with that.
+你小心點。。。
+(Try to dodge her.)
+（試圖躲開）
+###_NPC
+(You try to dodge but she hits you easily and laughs.)  Nice try sis!
+（儘管你試圖躲開，但是她還是輕鬆的的命中了你，然後她大笑起來）想得美！
+###_PLAYER
+(Cry a little.)
+（啜泣）
+###_NPC
+(Another maid picks the paddle.)  Don't cry little sister, it will be over soon.
+（另一個女僕接過了拍子）別哭了姐妹，這就快結束了
+###_PLAYER
+(Try to look tough.)
+（盡量忍住）
+###_NPC
+(Another maid picks the paddle.)  We have a tough cookie here sisters!
+（另一個女僕接過拍子）姐妹們，這是個堅強的孩子！
+###_PLAYER
+Please stop!
+求求了，別打了！
+Do your worst.
+打重點
+###_NPC
+(She swings a pretty mean one that stings right on impact.)  Sisters in pain, sisters for life!
+（她揮舞的相當大力，一發直擊了你）疼痛的姐妹，終生的姐妹！
+###_PLAYER
+(Fall on the floor.)
+（倒向地上）
+###_NPC
+(They catch you before you fall and another one picks the paddle.)  Be strong, this is the last one.
+（女僕們在你倒下之前架住了你，另一位女僕拿起了拍子）再忍忍，這就是最後一下了
+###_PLAYER
+(Try to stay strong.)
+（嘗試忍住）
+###_NPC
+(Another maid picks the paddle and smiles.)  You're a pro sis, this is the last one.
+（另一個女僕微笑著拿著拍子）你已經習慣了吧，姐妹。這下就是最後一下了
+###_PLAYER
+(Close your eyes and prepare for impact.)
+（閉上眼睛，等待最後一擊）
+###_NPC
+(She smashes the paddle with strength, almost making you fall.)  You've done it!  Welcome to the maid sorority!
+（她重重的揮下了最後一擊，你差點因此而摔倒）你做到了！歡迎加入女僕聯誼會！
+###_PLAYER
+(Whimper and try to beg for mercy.)
+（嗚咽著求饒）
+(Defy them and present your butt proudly.)
+（驕傲的展示自己的屁股）
+Oh my god!
+我的天啊
+(Catch your breath.)
+（調整一下呼吸）
+(Jump of joy clumsily.)
+（笨拙的雀躍）
+(Cry a few tears.)
+（抽泣）

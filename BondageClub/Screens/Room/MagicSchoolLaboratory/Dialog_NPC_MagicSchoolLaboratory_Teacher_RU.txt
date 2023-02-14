@@ -112,7 +112,7 @@ What do spells do?
 It depends on the spell.  Physical spells can dress up or strip down, animate restraints and gags.  Mental spells can arouse, charm or hypnotize someone.
 Это зависит от заклинания. Физические заклинания могут одевать или раздевать, оживлять ограничения и кляпы. Ментальные заклинания могут кого-то возбудить, очаровать или загипнотизировать.
 ###_PLAYER
-Enough questions.
+That's all the questions I had.
 Достаточно вопросов.
 ###_NPC
 (She nods.)  Is there anything else I can help you with?

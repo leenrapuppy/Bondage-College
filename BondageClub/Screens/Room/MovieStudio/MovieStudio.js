@@ -1,16 +1,22 @@
 "use strict";
 var MovieStudioBackground = "MovieStudio";
+/** @type {null | NPCCharacter} */
 var MovieStudioDirector = null;
 var MovieStudioCurrentMovie = "";
 var MovieStudioCurrentScene = "";
 var MovieStudioCurrentRole = "";
+/** @type {null | NPCCharacter} */
 var MovieStudioActor1 = null;
+/** @type {null | NPCCharacter} */
 var MovieStudioActor2 = null;
+/** @type {null | number} */
 var MovieStudioTimer = null;
 var MovieStudioMeter = 0;
 var MovieStudioDecay = 0;
+/** @type {string[]} */
 var MovieStudioActivity = [];
 var MovieStudioMoney = 0;
+/** @type {null | Item[]} */
 var MovieStudioOriginalClothes = null;
 
 /**
@@ -29,13 +35,13 @@ function MovieStudioCanGetCamera() { return (!InventoryAvailable(Player, "Camera
  * Returns TRUE if the player can receive the gavel as a payment
  * @returns {boolean} - TRUE if the player can get the item
  */
-function MovieStudioCanGetGavel() { return (!InventoryAvailable(Player, "SpankingToysGavel", "ItemHands") && (MovieStudioCurrentRole == "Mistress") && (MovieStudioActor1.TrialDone)); }
+function MovieStudioCanGetGavel() { return (!InventoryAvailable(Player, "Gavel", "ItemHandheld") && (MovieStudioCurrentRole == "Mistress") && (MovieStudioActor1.TrialDone)); }
 
 /**
  * Returns TRUE if the player can receive the long duster as a payment
  * @returns {boolean} - TRUE if the player can get the item
  */
-function MovieStudioCanGetLongDuster() { return (!InventoryAvailable(Player, "SpankingToysLongDuster", "ItemHands") && (MovieStudioCurrentRole == "Maid") && (MovieStudioActor1.CanGetLongDuster)); }
+function MovieStudioCanGetLongDuster() { return (!InventoryAvailable(Player, "LongDuster", "ItemHandheld") && (MovieStudioCurrentRole == "Maid") && (MovieStudioActor1.CanGetLongDuster)); }
 
 /**
  * When the player fails the movie, we jump back to the director
@@ -239,6 +245,7 @@ function MovieStudioChange(Cloth) {
 	InventoryRemove(Player, "ItemHead");
 	InventoryRemove(Player, "ItemArms");
 	InventoryRemove(Player, "ItemHands");
+	InventoryRemove(Player, "ItemHandheld");
 	InventoryRemove(Player, "ItemLegs");
 	InventoryRemove(Player, "ItemFeet");
 	InventoryRemove(Player, "ItemBoots");
@@ -510,31 +517,25 @@ function MovieStudioDoActivity(Activity) {
 		MovieStudioActor2.Stage = "500";
 		DialogLeave();
 	}
-	if (Activity == "InterviewMaidNoWeapon") { InventoryRemove(Player, "ItemHands"); InventoryRemove(MovieStudioActor1, "ItemHands"); DialogLeave(); }
+	if (Activity == "InterviewMaidNoWeapon") { InventoryRemove(Player, "ItemHandheld"); InventoryRemove(MovieStudioActor1, "ItemHandheld"); DialogLeave(); }
 	if (Activity == "InterviewMaidGetCrop") {
-		InventoryWear(Player, "SpankingToys", "ItemHands");
-		InventoryGet(Player, "ItemHands").Property = { Type: "Crop" };
+		InventoryWear(Player, "Crop", "ItemHandheld");
 		CharacterRefresh(Player);
-		InventoryWear(MovieStudioActor1, "SpankingToys", "ItemHands");
-		InventoryGet(MovieStudioActor1, "ItemHands").Property = { Type: "Crop" };
+		InventoryWear(MovieStudioActor1, "Crop", "ItemHandheld");
 		CharacterRefresh(MovieStudioActor1);
 		DialogLeave();
 	}
 	if (Activity == "InterviewMaidGetWhip") {
-		InventoryWear(Player, "SpankingToys", "ItemHands");
-		InventoryGet(Player, "ItemHands").Property = { Type: "Whip" };
+		InventoryWear(Player, "Whip", "ItemHandheld");
 		CharacterRefresh(Player);
-		InventoryWear(MovieStudioActor1, "SpankingToys", "ItemHands");
-		InventoryGet(MovieStudioActor1, "ItemHands").Property = { Type: "Whip" };
+		InventoryWear(MovieStudioActor1, "Whip", "ItemHandheld");
 		CharacterRefresh(MovieStudioActor1);
 		DialogLeave();
 	}
 	if (Activity == "InterviewMaidGetProd") {
-		InventoryWear(Player, "SpankingToys", "ItemHands");
-		InventoryGet(Player, "ItemHands").Property = { Type: "CattleProd" };
+		InventoryWear(Player, "CattleProd", "ItemHandheld");
 		CharacterRefresh(Player);
-		InventoryWear(MovieStudioActor1, "SpankingToys", "ItemHands");
-		InventoryGet(MovieStudioActor1, "ItemHands").Property = { Type: "CattleProd" };
+		InventoryWear(MovieStudioActor1, "CattleProd", "ItemHandheld");
 		CharacterRefresh(MovieStudioActor1);
 		DialogLeave();
 	}
@@ -567,8 +568,7 @@ function MovieStudioDoActivity(Activity) {
 		MovieStudioActor1.TrialDone = true;
 		MovieStudioActor1.Stage = "2100";
 		MovieStudioActor2.Stage = "2100";
-		InventoryWear(Player, "SpankingToys", "ItemHands");
-		InventoryGet(Player, "ItemHands").Property = { Type: "Gavel" };
+		InventoryWear(Player, "Gavel", "ItemHandheld");
 		CharacterRefresh(Player);
 		DialogLeave();
 	}
@@ -673,10 +673,9 @@ function MovieStudioDoActivity(Activity) {
 	}
 	if (Activity == "InterviewWearDusterGag") { InventoryWear(Player, "DusterGag", "ItemMouth"); MovieStudioChangeMeter(-10); }
 	if (Activity == "InterviewRemoveGag") { InventoryRemove(Player, "ItemMouth"); MovieStudioChangeMeter(-10); }
-	if (Activity == "InterviewLeaveHandItem") { InventoryRemove(Player, "ItemHands"); MovieStudioChangeMeter(-10); }
+	if (Activity == "InterviewLeaveHandItem") { InventoryRemove(Player, "ItemHandheld"); MovieStudioChangeMeter(-10); }
 	if ((Activity == "InterviewTakeFeatherDuster") || (Activity == "InterviewTakeLongDuster") || (Activity == "InterviewTakeElectricToothbrush") || (Activity == "InterviewTakeVibratingWand")) {
-		InventoryWear(Player, "SpankingToys", "ItemHands");
-		InventoryGet(Player, "ItemHands").Property = { Type: Activity.replace("InterviewTake", "") };
+		InventoryWear(Player, Activity.replace("InterviewTake", ""), "ItemHandheld");
 		CharacterRefresh(Player);
 		MovieStudioChangeMeter(-10);
 	}
@@ -712,7 +711,7 @@ function MovieStudioDoActivity(Activity) {
 	if (Activity == "InterviewMaidGagFromMistress") { InventoryWear(Player, "DusterGag", "ItemMouth"); CharacterSetFacialExpression(Player, "Eyes", "Closed", 8); CharacterSetFacialExpression(Player, "Eyes2", "Closed", 8); }
 	if (Activity == "InterviewMaidCleanForMistress") { Player.InterviewCleanCount = (Player.InterviewCleanCount == null) ? 1 : Player.InterviewCleanCount + 1; CharacterSetFacialExpression(Player, "Eyes", "Angry", 8); CharacterSetFacialExpression(Player, "Eyes", "Angry", 8); }
 	if (Activity == "InterviewMaidStripByMistress") {
-		InventoryRemove(Player, "ItemHands");
+		InventoryRemove(Player, "ItemHandheld");
 		CharacterRelease(Player);
 		CharacterNaked(Player);
 		InventoryWear(Player, "MaidHairband1", "Hat", "Default");
@@ -745,7 +744,7 @@ function MovieStudioDoActivity(Activity) {
 		InventoryWearRandom(MovieStudioActor2, "ItemLegs");
 		InventoryWearRandom(MovieStudioActor2, "ItemArms");
 		MovieStudioActor2.Stage = "1300";
-		MovieStudioActor1.CanGetLongDuster = (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "LongDuster"));
+		MovieStudioActor1.CanGetLongDuster = (InventoryIsWorn(Player, "LongDuster", "ItemHandheld"));
 	}
 	if ((Activity == "InterviewMaidHelpDrink") || (Activity == "InterviewMaidHelpDust") || (Activity == "InterviewMaidHelpTickle") || (Activity == "InterviewMaidHelpSpank") || (Activity == "InterviewMaidHelpCaress")) {
 		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "Medium", 8);
@@ -794,24 +793,24 @@ function MovieStudioCanDoActivity(Activity) {
 	if (Activity == "InterviewMaidFriendshipRestrained3") return ((MovieStudioActor1.Friendship == "3") && Player.IsRestrained());
 	if (Activity == "InterviewMaidFriendshipUnrestrained3") return ((MovieStudioActor1.Friendship == "3") && !Player.IsRestrained());
 	if (Activity == "InterviewMaidFriendship4") return (MovieStudioActor1.Friendship == "4");
-	if (Activity == "InterviewMaidNoWeapon") return (InventoryGet(Player, "ItemHands") != null);
-	if (Activity == "InterviewMaidGetCrop") return ((InventoryGet(Player, "ItemHands") == null) || (InventoryGet(Player, "ItemHands").Property.Type != "Crop"));
-	if (Activity == "InterviewMaidGetWhip") return ((InventoryGet(Player, "ItemHands") == null) || (InventoryGet(Player, "ItemHands").Property.Type != "Whip"));
-	if (Activity == "InterviewMaidGetProd") return ((InventoryGet(Player, "ItemHands") == null) || (InventoryGet(Player, "ItemHands").Property.Type != "CattleProd"));
+	if (Activity == "InterviewMaidNoWeapon") return (InventoryGet(Player, "ItemHandheld") != null);
+	if (Activity == "InterviewMaidGetCrop") return (!InventoryIsWorn(Player, "Crop", "ItemHandheld"));
+	if (Activity == "InterviewMaidGetWhip") return (!InventoryIsWorn(Player, "Whip", "ItemHandheld"));
+	if (Activity == "InterviewMaidGetProd") return (!InventoryIsWorn(Player, "CattleProd", "ItemHandheld"));
 	if (Activity == "InterviewMistressGag") return (InventoryGet(MovieStudioActor2, "ItemMouth") == null);
-	if (Activity == "InterviewMistressCrop") return ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property.Type == "Crop"));
-	if (Activity == "InterviewMistressWhip") return ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property.Type == "Whip"));
-	if (Activity == "InterviewMistressProd") return ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property.Type == "CattleProd"));
+	if (Activity == "InterviewMistressCrop") return (!InventoryIsWorn(Player, "Crop", "ItemHandheld"));
+	if (Activity == "InterviewMistressWhip") return (!InventoryIsWorn(Player, "Whip", "ItemHandheld"));
+	if (Activity == "InterviewMistressProd") return (!InventoryIsWorn(Player, "CattleProd", "ItemHandheld"));
 	if (Activity == "InterviewMistressPunishCross") return !InventoryIsWorn(CurrentCharacter, "X-Cross", "ItemDevices");
-	if (Activity == "InterviewMistressPunishGavel") return InventoryIsWorn(Player, "SpankingToys", "ItemHands");
+	if (Activity == "InterviewMistressPunishGavel") return !InventoryIsWorn(Player, "Gavel", "ItemHandheld");
 	if (Activity == "InterviewWearDusterGag") return (InventoryGet(Player, "ItemMouth") == null);
-	if (Activity == "InterviewLeaveHandItem") return !(InventoryGet(Player, "ItemHands") == null);
-	if (Activity == "InterviewMaidFeatherDusterJournalist") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "FeatherDuster"));
-	if (Activity == "InterviewMaidLongDusterJournalist") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "LongDuster"));
-	if (Activity == "InterviewMaidToothbrushJournalist") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "ElectricToothbrush"));
-	if (Activity == "InterviewMaidWandOrgasmJournalist") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "VibratingWand") && (MovieStudioActor2.OweFavor == null));
-	if (Activity == "InterviewMaidWandRepeatOrgasmJournalist") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "VibratingWand") && (MovieStudioActor2.OweFavor != null));
-	if (Activity == "InterviewMaidCleanForMistress") return ((InventoryIsWorn(Player, "SpankingToys", "ItemHands") && ((InventoryGet(Player, "ItemHands").Property.Type == "FeatherDuster") || (InventoryGet(Player, "ItemHands").Property.Type == "LongDuster"))) || InventoryIsWorn(Player, "DusterGag", "ItemMouth"));
+	if (Activity == "InterviewLeaveHandItem") return !(InventoryGet(Player, "ItemHandheld") == null);
+	if (Activity == "InterviewMaidFeatherDusterJournalist") return (InventoryIsWorn(Player, "FeatherDuster", "ItemHandheld"));
+	if (Activity == "InterviewMaidLongDusterJournalist") return (InventoryIsWorn(Player, "LongDuster", "ItemHandheld"));
+	if (Activity == "InterviewMaidToothbrushJournalist") return (InventoryIsWorn(Player, "ElectricToothbrush", "ItemHandheld"));
+	if (Activity == "InterviewMaidWandOrgasmJournalist") return (InventoryIsWorn(Player, "VibratingWand", "ItemHandheld") && (MovieStudioActor2.OweFavor == null));
+	if (Activity == "InterviewMaidWandRepeatOrgasmJournalist") return (InventoryIsWorn(Player, "VibratingWand", "ItemHandheld") && (MovieStudioActor2.OweFavor != null));
+	if (Activity == "InterviewMaidCleanForMistress") return (InventoryIsWorn(Player, "FeatherDuster", "ItemHandheld") || InventoryIsWorn(Player, "LongDuster", "ItemHandheld") || InventoryIsWorn(Player, "DusterGag", "ItemMouth"));
 	if (Activity == "InterviewMaidCleanForMistressPerfect") return ((Player.InterviewCleanCount != null) && (Player.InterviewCleanCount >= 3));
 	if (Activity == "InterviewMaidReleaseJournalist") return (!MovieStudioActor2.CanInteract());
 	if (Activity == "InterviewMaidReturnFavor") return (MovieStudioActor2.OweFavor);
@@ -832,9 +831,8 @@ function MovieStudioGetCamera() {
  * @returns {void} - Nothing
  */
 function MovieStudioGetGavel() {
-	InventoryAdd(Player, "SpankingToysGavel", "ItemHands");
-	InventoryWear(Player, "SpankingToys", "ItemHands");
-	InventoryGet(Player, "ItemHands").Property = { Type: "Gavel" };
+	InventoryAdd(Player, "Gavel", "ItemHandheld");
+	InventoryWear(Player, "Gavel", "ItemHandheld");
 	CharacterRefresh(Player);
 }
 
@@ -843,9 +841,8 @@ function MovieStudioGetGavel() {
  * @returns {void} - Nothing
  */
 function MovieStudioGetLongDuster() {
-	InventoryAdd(Player, "SpankingToysLongDuster", "ItemHands");
-	InventoryWear(Player, "SpankingToys", "ItemHands");
-	InventoryGet(Player, "ItemHands").Property = { Type: "LongDuster" };
+	InventoryAdd(Player, "LongDuster", "ItemHandheld");
+	InventoryWear(Player, "LongDuster", "ItemHandheld");
 	CharacterRefresh(Player);
 }
 

@@ -5,26 +5,23 @@
 // In the load function, add this before your load function, without changing functions from the
 // futuristic panel gag functions. Just make sure your item loads after the panel gag and not before in index.html:
 /*
- 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticLoadAccessDenied()
-	} else
+ 	if (!FuturisticAccessLoad()) {
+		return;
+	}
 */
 
 // In the draw function, add:
 /*
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticDrawAccessDenied()
-	} else
+ 	if (!FuturisticAccessDraw()) {
+		return;
+	}
 */
 
 // In the click function, add:
 /*
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticClickAccessDenied()
-	} else
+ 	if (!FuturisticAccessClick()) {
+		return;
+	}
 */
 
 // In the exit function, add:
@@ -45,39 +42,49 @@ var FuturisticAccessLegGroups = ["ItemLegs", "ItemFeet", "ItemBoots"];
 var FuturisticAccessChastityGroups = ["ItemPelvis", "ItemTorso", "ItemButt", "ItemVulva", "ItemVulvaPiercings", "ItemBreast", "ItemNipples", "ItemNipplesPiercings"];
 
 /**
- * Hook script for injecting futuristic features into an archetypical item
- * @param {function} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
+ * Helper function for the futuristic hook scripts.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
+ * @param {() => void} DeniedFunction - The function that is called when validation fails.
+ * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessLoad(OriginalFunction) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+function FuturisticAccess(OriginalFunction, DeniedFunction) {
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticLoadAccessDenied()
-	} else OriginalFunction();
+		DeniedFunction();
+		return false;
+	} else {
+		if (OriginalFunction != null) {
+			OriginalFunction();
+		}
+		return true;
+	}
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
- * @param {function} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
+ * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessClick(OriginalFunction) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticClickAccessDenied()
-	} else OriginalFunction();
+function FuturisticAccessLoad(OriginalFunction=null) {
+	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticLoadAccessDenied);
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
- * @param {function} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
+ * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessDraw(OriginalFunction) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemFuturisticValidate(C) !== "") {
-		InventoryItemFuturisticDrawAccessDenied()
-	} else OriginalFunction();
+function FuturisticAccessClick(OriginalFunction=null) {
+	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticClickAccessDenied);
+}
+
+/**
+ * Hook script for injecting futuristic features into an archetypical item
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
+ * @returns {boolean} - Whether the validation was successful or not.
+ */
+function FuturisticAccessDraw(OriginalFunction=null) {
+	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticDrawAccessDenied);
 }
 
 /**
@@ -115,7 +122,7 @@ function InventoryItemFuturisticLoadAccessDenied() {
 
 // Draw the futuristic item ACCESS DENIED screen
 function InventoryItemFuturisticDrawAccessDenied() {
-	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 225);
 
 	DrawText(DialogFindPlayer("FuturisticItemLoginScreen"), 1500, 600, "White", "Gray");
 
@@ -134,19 +141,19 @@ function InventoryItemFuturisticClickAccessDenied() {
 	if (MouseIn(1400, 800, 200, 64)) {
 		var pw = ElementValue("PasswordField").toUpperCase();
 		if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "PasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+			let C = CharacterGetCurrent();
 			CommonPadlockUnlock(C, DialogFocusItem);
 			DialogFocusItem = null;
 			Player.FocusGroup = null;
 			InventoryItemFuturisticExitAccessDenied();
 		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "TimerPasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+			let C = CharacterGetCurrent();
 			CommonPadlockUnlock(C, DialogFocusItem);
 			DialogFocusItem = null;
 			Player.FocusGroup = null;
 			InventoryItemFuturisticExitAccessDenied();
 		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "CombinationPadlock" && pw == DialogFocusItem.Property.CombinationNumber) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+			let C = CharacterGetCurrent();
 			InventoryItemMiscCombinationPadlockUnlock(C, DialogFocusItem);
 			DialogFocusItem = null;
 			Player.FocusGroup = null;
@@ -155,7 +162,7 @@ function InventoryItemFuturisticClickAccessDenied() {
 			FuturisticAccessDeniedMessage = DialogFindPlayer("CantChangeWhileLockedFuturistic");
 			AudioPlayInstantSound("Audio/AccessDenied.mp3");
 			if (CurrentScreen == "ChatRoom") {
-				InventoryItemFuturisticPublishAccessDenied((Player.FocusGroup != null) ? Player : CurrentCharacter);
+				InventoryItemFuturisticPublishAccessDenied(CharacterGetCurrent());
 			}
 		}
 	}

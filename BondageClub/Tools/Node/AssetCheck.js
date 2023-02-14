@@ -7,10 +7,29 @@ const BASE_PATH = "../../";
 const neededFiles = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
+	"Scripts/Asset.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
+	"Scripts/Property.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
+	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
+	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
+	"Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js",
+	"Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js",
+	"Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js",
+	"Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js",
+	"Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js",
+	"Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js",
+	"Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js",
+	"Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js",
+	"Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js",
+	"Screens/Inventory/ItemArms/TransportJacket/TransportJacket.js",
+	"Screens/Inventory/ItemMouth/FuturisticPanelGag/FuturisticPanelGag.js",
+	"Screens/Inventory/ItemNeckAccessories/CollarAutoShockUnit/CollarAutoShockUnit.js",
+	"Screens/Inventory/ItemArms/PrisonLockdownSuit/PrisonLockdownSuit.js",
+	"Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js",
+	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];
@@ -178,20 +197,43 @@ function loadCSV(path, expectedWidth) {
 								if (Asset.AllowBlock !== undefined) {
 									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowBlock (unless they use subscreens)`);
 								}
+								if (Asset.AllowHide !== undefined) {
+									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHide (unless they use subscreens)`);
+								}
+								if (Asset.AllowHideItem !== undefined) {
+									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHideItem (unless they use subscreens)`);
+								}
 							}
 						}
 					}
 					if (assetConfig.Archetype === "typed" && Asset.AllowType !== undefined) {
 						error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowType`);
 					}
-					if (!["modular", "typed"].includes(assetConfig.Archetype)) {
+					if (!["modular", "typed", "vibrating"].includes(assetConfig.Archetype)) {
 						error(`Extended asset archetype for ${Group.Group}:${Asset.Name}: Unknown Archetype ${assetConfig.Archetype}`);
+					}
+				}
+			}
+
+			if (Array.isArray(Asset.Layer)) {
+				for (const layerDef of Asset.Layer) {
+					// Check for conflicting layer properties
+					if (Array.isArray(layerDef.HideForAttribute) && Array.isArray(layerDef.ShowForAttribute)) {
+						for (const attribute of layerDef.HideForAttribute) {
+							if (layerDef.ShowForAttribute.includes(attribute)) {
+								error(`Layer ${Group.Group}:${Asset.Name}:${layerDef.Name}: Attribute "${attribute}" should NOT appear in both HideForAttribute and ShowForAttribute`);
+							}
+						}
 					}
 				}
 			}
 
 			if (!localError) {
 				GroupAssets.push(Asset);
+			}
+
+			if (Asset.TextFont != null && Asset.DynamicAfterDraw !== true) {
+				error(`Asset ${Group.Group}:${Asset.Name}: Assets should only define "TextFont" if "DynamicAfterDraw" is set to true`);
 			}
 		}
 	}
@@ -228,10 +270,6 @@ function loadCSV(path, expectedWidth) {
 
 		// Check all type-valid assets for specific data
 		for (const Asset of Assets[Group.Group]) {
-			// Ignore SpankingToys, because it's a snowflake
-			if (Asset.Name === "SpankingToys" && Group.Group !== "ItemHands") continue;
-
-
 			// Description name
 			const descriptionIndexAsset = assetDescriptions.findIndex(d => d[0] === Group.Group && d[1] === Asset.Name);
 			if (descriptionIndexAsset < 0) {

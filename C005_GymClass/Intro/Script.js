@@ -3,7 +3,7 @@ function C005_GymClass_Intro_Load() {
 
 	// Time is always 10:30 on the intro, no timer
 	StopTimer(10.5 * 60 * 60 * 1000);
-	
+
 	// Do not allow bondage when we begin
 	Common_BondageAllowed = false;
 	Common_SelfBondageAllowed = false;
@@ -12,7 +12,7 @@ function C005_GymClass_Intro_Load() {
 
 // Chapter 5 - Intro Run
 function C005_GymClass_Intro_Run() {
-	
+
 	// Paints the background
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Background.jpg", 0, 0);
 	DrawPlayerTransition();
@@ -32,6 +32,6 @@ function C005_GymClass_Intro_Click() {
 	if (TextPhase >= 5) {
 		PlayerClothes("Judo");
 		Common_SelfBondageAllowed = false;
-		SetScene(CurrentChapter, "Jennifer");		
+		SetScene(CurrentChapter, "Jennifer");
 	}
 }

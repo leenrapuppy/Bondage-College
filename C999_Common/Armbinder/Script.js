@@ -3,18 +3,18 @@ var C999_Common_Armbinder_HasLooseArmbinder = 0;
 
 // Chapter Common - Armbinder Load
 function C999_Common_Armbinder_Load() {
-	
+
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	LoadInteractions();
-	
+
 	// Set the correct starting stage
 	if (PlayerHasLockedInventory("Armbinder") == true) C999_Common_Armbinder_CurrentStage = 10;
 	else C999_Common_Armbinder_CurrentStage = 0;
-	
+
 	// If the player has a loose Armbinder
 	C999_Common_Armbinder_HasLooseArmbinder = PlayerHasInventory("Armbinder");
-	
+
 }
 
 // Chapter Common - Armbinder Run, we draw the regular player image if the item is on

@@ -4,7 +4,7 @@ var PreferenceMessage = "";
 var PreferenceSafewordConfirm = false;
 var PreferenceColorPick = "";
 var PreferenceSubscreen = "";
-var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications"];
+var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "CensoredWords", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications", "Gender", "Scripts"];
 var PreferencePageCurrent = 1;
 var PreferenceChatColorThemeList = ["Light", "Dark", "Light2", "Dark2"];
 var PreferenceChatColorThemeIndex = 0;
@@ -34,11 +34,13 @@ var PreferenceArousalVisibleList = ["All", "Access", "Self"];
 var PreferenceArousalVisibleIndex = 0;
 var PreferenceArousalAffectStutterList = ["None", "Arousal", "Vibration", "All"];
 var PreferenceArousalAffectStutterIndex = 0;
+/** @type {null | string[]} */
 var PreferenceArousalActivityList = null;
 var PreferenceArousalActivityIndex = 0;
 var PreferenceArousalActivityFactorSelf = 0;
 var PreferenceArousalActivityFactorOther = 0;
 var PreferenceArousalZoneFactor = 0;
+/** @type {null | string[]} */
 var PreferenceArousalFetishList = null;
 var PreferenceArousalFetishIndex = 0;
 var PreferenceArousalFetishFactor = 0;
@@ -48,20 +50,67 @@ var PreferenceVisibilityAssetIndex = 0;
 var PreferenceVisibilityHideChecked = false;
 var PreferenceVisibilityBlockChecked = false;
 var PreferenceVisibilityCanBlock = true;
+/** @type {null | Asset} */
 var PreferenceVisibilityPreviewAsset = null;
+/** @type {ItemPermissions[]} */
 var PreferenceVisibilityHiddenList = [];
+/** @type {ItemPermissions[]} */
 var PreferenceVisibilityBlockList = [];
 var PreferenceVisibilityResetClicked = false;
+/** @type {null | number} */
 var PreferenceDifficultyLevel = null;
 var PreferenceDifficultyAccept = false;
 var PreferenceGraphicsFontList = ["Arial", "TimesNewRoman", "Papyrus", "ComicSans", "Impact", "HelveticaNeue", "Verdana", "CenturyGothic", "Georgia", "CourierNew", "Copperplate"];
 var PreferenceGraphicsPowerModes = ["low-power", "default", "high-performance"];
 var PreferenceGraphicsFontIndex = 0;
+/** @type {null | number} */
 var PreferenceGraphicsAnimationQualityIndex = null;
+/** @type {null | number} */
 var PreferenceGraphicsPowerModeIndex = null;
+/** @type {null | WebGLContextAttributes} */
 var PreferenceGraphicsWebGLOptions = null;
 var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
+/** @type {string[]} */
+var PreferenceCensoredWordsList = [];
+var PreferenceCensoredWordsOffset = 0;
+/** @type {ScriptPermissionProperty[]} */
+const PreferenceScriptPermissionProperties = ["Hide", "Block"];
+/** @type {null | "global" | "Hide" | "Block"} */
+let PreferenceScriptHelp = null;
+/** @type {null | ReturnType<typeof setTimeout>} */
+let PreferenceScriptTimeoutHandle = null;
+/** @type {null | number} */
+let PreferenceScriptTimer = null;
+let PreferenceScriptWarningAccepted = false;
+
+const ScriptPermissionLevel = Object.freeze({
+	SELF: "Self",
+	OWNER: "Owner",
+	LOVERS: "Lovers",
+	FRIENDS: "Friends",
+	WHITELIST: "Whitelist",
+	PUBLIC: "Public",
+});
+
+const ScriptPermissionBits = Object.freeze({
+	[ScriptPermissionLevel.SELF]: 1,
+	[ScriptPermissionLevel.OWNER]: 2,
+	[ScriptPermissionLevel.LOVERS]: 4,
+	[ScriptPermissionLevel.FRIENDS]: 8,
+	[ScriptPermissionLevel.WHITELIST]: 16,
+	[ScriptPermissionLevel.PUBLIC]: 32,
+});
+
+const maxScriptPermission = Object.values(ScriptPermissionBits)
+	.reduce((sum, bit) => sum | bit, 0);
+
+/**
+ * An object defining which genders a setting is active for
+ * @typedef {object} GenderSetting
+ * @property {boolean} Female - Whether the setting is active for female cases
+ * @property {boolean} Male - Whether the setting is active for male cases
+ */
 
 /**
  * Compares the arousal preference level and returns TRUE if that level is met, or an higher level is met
@@ -334,6 +383,7 @@ function PreferenceInitPlayer() {
 		OnlineSharedSettings: JSON.stringify(C.OnlineSharedSettings) || "",
 		GraphicsSettings: JSON.stringify(C.GraphicsSettings) || "",
 		NotificationSettings: JSON.stringify(C.NotificationSettings) || "",
+		GenderSettings: JSON.stringify(C.GenderSettings) || "",
 	};
 
 	// Non-player specific settings
@@ -363,6 +413,8 @@ function PreferenceInitPlayer() {
 	if (typeof C.ChatSettings.ShowChatHelp !== "boolean") C.ChatSettings.ShowChatHelp = true;
 	if (typeof C.ChatSettings.ShrinkNonDialogue !== "boolean") C.ChatSettings.ShrinkNonDialogue = false;
 	if (typeof C.ChatSettings.WhiteSpace !== "string") C.ChatSettings.WhiteSpace = "Preserve";
+	if (typeof C.ChatSettings.CensoredWordsList !== "string") C.ChatSettings.CensoredWordsList = "";
+	if (typeof C.ChatSettings.CensoredWordsLevel !== "number") C.ChatSettings.CensoredWordsLevel = 0;
 
 	// Visual settings
 	// @ts-ignore: Individual properties validated separately
@@ -449,6 +501,7 @@ function PreferenceInitPlayer() {
 	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
 	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];
 	if (!C.LastChatRoomBlockCategory) C.LastChatRoomBlockCategory = [];
+	if (typeof C.LastChatRoomSpace !== "string") C.LastChatRoomSpace = ChatRoomSpaceType.MIXED;
 
 	// Restriction settings
 	// @ts-ignore: Individual properties validated separately
@@ -491,6 +544,19 @@ function PreferenceInitPlayer() {
 		C.OnlineSharedSettings.GameVersion = GameVersion;
 	}
 	if (typeof C.OnlineSharedSettings.ItemsAffectExpressions !== "boolean") C.OnlineSharedSettings.ItemsAffectExpressions = true;
+
+	// Set up script permissions for asset properties
+	if (!C.OnlineSharedSettings.ScriptPermissions || typeof C.OnlineSharedSettings.ScriptPermissions !== "object") C.OnlineSharedSettings.ScriptPermissions = {
+		Hide: {permission: 0},
+		Block: {permission: 0},
+	};
+	const ScriptPermissions = C.OnlineSharedSettings.ScriptPermissions;
+	for (const property of PreferenceScriptPermissionProperties) {
+		if (!ScriptPermissions[property] || typeof ScriptPermissions[property] !== "object") ScriptPermissions[property] = {};
+		if (typeof ScriptPermissions[property].permission !== "number" || ScriptPermissions[property].permission < 0 || ScriptPermissions[property].permission > maxScriptPermission) {
+			ScriptPermissions[property].permission = 0;
+		}
+	}
 
 	// Graphical settings
 	// @ts-ignore: Individual properties validated separately
@@ -540,6 +606,12 @@ function PreferenceInitPlayer() {
 	if (typeof NS.Larp !== "object") NS.Larp = PreferenceInitNotificationSetting(NS.Larp, defaultAudio, NotificationAlertType.NONE);
 	if (typeof NS.Test !== "object") NS.Test = PreferenceInitNotificationSetting(NS.Test, defaultAudio, NotificationAlertType.TITLEPREFIX);
 	C.NotificationSettings = NS;
+
+	// Graphical settings
+	// @ts-ignore: Individual properties validated separately
+	if (!C.GenderSettings) C.GenderSettings = {};
+	if (typeof C.GenderSettings.AutoJoinSearch !== "object") C.GenderSettings.AutoJoinSearch = PreferenceInitGenderSetting();
+	if (typeof C.GenderSettings.HideShopItems !== "object") C.GenderSettings.HideShopItems = PreferenceInitGenderSetting();
 
 	// Forces some preferences depending on difficulty
 
@@ -604,6 +676,17 @@ function PreferenceInitNotificationSetting(setting, audio, defaultAlertType) {
 	setting.AlertType = alertType;
 	setting.Audio = audio;
 	return setting;
+}
+
+/**
+ * Initialise a Gender setting
+ * @returns {GenderSetting} - The setting to use
+ */
+function PreferenceInitGenderSetting() {
+	return {
+		Female: false,
+		Male: false
+	};
 }
 
 /**
@@ -674,6 +757,12 @@ function PreferenceLoad() {
 	PreferenceGraphicsAnimationQualityIndex = (PreferenceGraphicsAnimationQualityList.indexOf(Player.GraphicsSettings.AnimationQuality) < 0) ? 0 : PreferenceGraphicsAnimationQualityList.indexOf(Player.GraphicsSettings.AnimationQuality);
 	PreferenceGraphicsWebGLOptions = GLDrawGetOptions();
 	PreferenceGraphicsPowerModeIndex = (PreferenceGraphicsPowerModes.indexOf(PreferenceGraphicsWebGLOptions.powerPreference) < 0) ? 0 : PreferenceGraphicsPowerModes.indexOf(PreferenceGraphicsWebGLOptions.powerPreference);
+
+	// Prepares the censored words list
+	PreferenceCensoredWordsOffset = 0;
+	PreferenceCensoredWordsList = [];
+	if ((Player.ChatSettings.CensoredWordsList != null) && (Player.ChatSettings.CensoredWordsList != "")) PreferenceCensoredWordsList = Player.ChatSettings.CensoredWordsList.split("|");
+
 }
 
 /**
@@ -838,11 +927,18 @@ function PreferenceClick() {
 
 	// Open the selected subscreen
 	for (let A = 0; A < PreferenceSubscreenList.length; A++)
-		if (MouseIn(500 + 500 * Math.floor(A / 7), 160 + 110 * (A % 7), 400, 90)) {
+		if (MouseIn(500 + 420 * Math.floor(A / 7), 160 + 110 * (A % 7), 400, 90)) {
 			if (typeof window["PreferenceSubscreen" + PreferenceSubscreenList[A] + "Load"] === "function")
 				CommonDynamicFunction("PreferenceSubscreen" + PreferenceSubscreenList[A] + "Load()");
 			PreferenceSubscreen = PreferenceSubscreenList[A];
 			PreferencePageCurrent = 1;
+			if (PreferenceSubscreenList[A] === "Scripts") {
+				PreferenceScriptTimer = Date.now() + 5000;
+				PreferenceScriptTimeoutHandle = setTimeout(() => {
+					PreferenceScriptTimer = null;
+					PreferenceScriptTimeoutHandle = null;
+				}, 5000);
+			}
 			break;
 		}
 
@@ -1092,6 +1188,7 @@ function PreferenceExit() {
 			OnlineSharedSettings: Player.OnlineSharedSettings,
 			GraphicsSettings: Player.GraphicsSettings,
 			NotificationSettings: Player.NotificationSettings,
+			GenderSettings: Player.GenderSettings,
 			ItemPermission: Player.ItemPermission,
 			LabelColor: Player.LabelColor,
 			LimitedItems: CommonPackItemArray(Player.LimitedItems),
@@ -1124,8 +1221,7 @@ function PreferenceSubscreenAudioRun() {
 }
 
 /**
- * Sets the audio preferences for the player. Redirected to from the main Run function if the player is in the audio
- * settings subscreen
+ * Sets the controller preferences for the player. Redirected to from the main Run function.
  * @returns {void} - Nothing
  */
 function PreferenceSubscreenControllerRun() {
@@ -1195,6 +1291,34 @@ function PreferenceSubscreenControllerRun() {
 	}
 	MainCanvas.textAlign = "center";
 }
+
+/**
+ * Sets the censored words for the player. Redirected to from the main Run function.
+ * @returns {void} - Nothing
+ */
+ function PreferenceSubscreenCensoredWordsRun() {
+
+	// Draw the header
+	DrawText(TextGet("CensorTitle"), 930, 105, "Black", "Silver");
+	DrawButton(1830, 60, 90, 90, "", "White", "Icons/Exit.png", TextGet("CensorExit"));
+	DrawText(TextGet("CensorLevel"), 200, 205, "Black", "Silver");
+	DrawButton(350, 175, 550, 60, TextGet("CensorLevel" + Player.ChatSettings.CensoredWordsLevel), "White");
+	DrawText(TextGet("CensorWord"), 1080, 205, "Black", "Silver");
+	ElementPosition("InputWord", 1385, 200, 300);
+	DrawButton(1550, 175, 180, 60, TextGet("CensorAdd"), "White");
+	if (PreferenceCensoredWordsList.length > 32) DrawButton(1830, 175, 90, 90, "", "White", "Icons/Next.png");
+
+	// List all words with a delete button
+	MainCanvas.textAlign = "left";
+	for (let O = PreferenceCensoredWordsOffset; O < PreferenceCensoredWordsList.length && O < PreferenceCensoredWordsOffset + 32; O++) {
+		let X = 100 + Math.floor((O - PreferenceCensoredWordsOffset)/ 8) * 450;
+		let Y = 270 + ((O % 8) * 84);
+		DrawButton(X, Y, 60, 60, "", "White", "Icons/Small/Remove.png");
+		DrawText(PreferenceCensoredWordsList[O], X + 100, Y + 30, "Black", "Gray");
+	}
+	MainCanvas.textAlign = "center";
+
+ }
 
 /**
  * Sets the chat preferences for the player. Redirected to from the main Run function if the player is in the chat
@@ -1450,6 +1574,130 @@ function PreferenceSubscreenGraphicsRun() {
 }
 
 /**
+ * Sets the gender preferences for a player. Redirected to from the main Run function if the player is in the
+ * gender settings subscreen
+ * @returns {void} - Nothing
+ */
+function PreferenceSubscreenGenderRun() {
+	// Character and exit buttons
+	DrawCharacter(Player, 50, 50, 0.9);
+	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
+
+	MainCanvas.textAlign = "left";
+
+	DrawText(TextGet("GenderPreferences"), 500, 125, "Black", "Gray");
+	DrawText(TextGet("GenderFemales"), 1410, 160, "Black", "Gray");
+	DrawText(TextGet("GenderMales"), 1590, 160, "Black", "Gray");
+
+	PreferenceGenderDrawSetting(500, 225, TextGet("GenderAutoJoinSearch"), Player.GenderSettings.AutoJoinSearch);
+	PreferenceGenderDrawSetting(500, 305, TextGet("GenderHideShopItems"), Player.GenderSettings.HideShopItems);
+
+	MainCanvas.textAlign = "center";
+}
+
+/**
+ * Draws the two checkbox row for a gender setting
+ * @param {number} Left - The X co-ordinate the row starts on
+ * @param {number} Top - The Y co-ordinate the row starts on
+ * @param {string} Text - The text for the setting's description
+ * @param {GenderSetting} Setting - The player setting the row corresponds to
+ * @returns {void} - Nothing
+ */
+function PreferenceGenderDrawSetting(Left, Top, Text, Setting) {
+	DrawText(Text, Left, Top, "Black", "Gray");
+	DrawCheckbox(Left + 950, Top - 32, 64, 64, "", Setting.Female);
+	DrawCheckbox(Left + 950 + 155, Top - 32, 64, 64, "", Setting.Male);
+}
+
+function PreferenceSubscreenScriptsRun() {
+	const helpColour = "#ff8";
+
+	// Character, exit & help buttons
+	DrawCharacter(Player, 50, 50, 0.9);
+	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
+
+	MainCanvas.textAlign = "left";
+
+	DrawText(TextGet("ScriptsPreferences"), 500, 125, "Black", "Gray");
+
+	if (!PreferenceScriptWarningAccepted) {
+		PreferenceScriptsDrawWarningScreen();
+		return;
+	}
+
+	// Slightly wacky x-coordinate because DrawTextWrap assumes text is centered (500 - 1300/2 = -150)
+	DrawTextWrap(TextGet("ScriptsExplanation"), -150, 150, 1300, 120, "Black");
+	DrawButton(1815, 190, 90, 90, "", PreferenceScriptHelp === "global" ? helpColour : "White", "Icons/Question.png");
+
+	/** @type {ScriptPermissionLevel[]} */
+	const permissions = Object.values(ScriptPermissionLevel);
+
+	// Can be used to page properties in the future
+	/** @type {ScriptPermissionProperty[]} */
+	const propertiesPage = PreferenceScriptPermissionProperties;
+
+	MainCanvas.textAlign = "center";
+	for (const [i, property] of propertiesPage.entries()) {
+		DrawTextFit(TextGet(`ScriptsPermissionProperty${property}`), 850 + 300 * i, 320, 124, "Black", "Gray");
+		const helpHover = MouseIn(720 + 300 * i, 296, 48, 48);
+		const iconColour = PreferenceScriptHelp === property ? "_Yellow" : helpHover ? "_Cyan" : "";
+		DrawImageResize(`Icons/Question${iconColour}.png`, 720 + 300 * i, 296, 48, 48);
+		MainCanvas.moveTo(700 + 300 * i, 270);
+		MainCanvas.strokeStyle = "rgba(0, 0, 0, 0.5)";
+		MainCanvas.lineTo(700 + 300 * i, 270 + (permissions.length + 1) * 90);
+		MainCanvas.stroke();
+		for (const [j, permissionLevel] of permissions.entries()) {
+			const disabled = permissionLevel !== ScriptPermissionLevel.PUBLIC
+				&& permissionLevel !== ScriptPermissionLevel.SELF
+				&& (
+					ValidationHasScriptPermission(Player, property, ScriptPermissionLevel.PUBLIC)
+					|| !ValidationHasScriptPermission(Player, property, ScriptPermissionLevel.SELF)
+				);
+			DrawCheckbox(816 + 300 * i, 386 + 90 * j, 64, 64, "", ValidationHasScriptPermission(Player, property, permissionLevel), disabled);
+		}
+	}
+	MainCanvas.textAlign = "left";
+
+	MainCanvas.moveTo(500, 370);
+	MainCanvas.strokeStyle = "rgba(0, 0, 0, 0.5)";
+	MainCanvas.lineTo(700 + propertiesPage.length * 300, 370);
+	MainCanvas.stroke();
+
+	for (const [i, permissionName] of permissions.entries()) {
+		DrawText(TextGet(`ScriptsPermissionLevel${permissionName}`), 500, 410 + 90 * i, "Black", "Gray");
+	}
+
+	if (PreferenceScriptHelp === "global") {
+		const helpHeight = 90 + 90 * permissions.length;
+		DrawRect(500, 270, 1300, helpHeight, helpColour);
+		MainCanvas.strokeStyle = "Black";
+		MainCanvas.strokeRect(500, 270, 1300, helpHeight);
+		DrawTextWrap(TextGet("ScriptsHelpGlobal"), -110, 270, 1260, helpHeight, "Black");
+		MainCanvas.textAlign = "center";
+		return;
+	} else if (PreferenceScriptHelp) {
+		const helpHeight = 90 * permissions.length
+		DrawRect(500, 370, 1300, helpHeight, helpColour);
+		MainCanvas.strokeStyle = "Black";
+		MainCanvas.strokeRect(500, 370, 1300, helpHeight);
+		DrawTextWrap(TextGet(`ScriptsHelp${PreferenceScriptHelp}`), -110, 370, 1260, helpHeight, "Black");
+	}
+
+	MainCanvas.textAlign = "center";
+}
+
+function PreferenceScriptsDrawWarningScreen() {
+	DrawText(TextGet("ScriptsWarningTitle"), 500, 220, "#c80800", "Gray");
+	DrawTextWrap(TextGet("ScriptsWarning"), -140, 250, 1280, 240, "Black");
+
+	MainCanvas.textAlign = "center";
+	const disabled = PreferenceScriptTimer != null;
+	const seconds = PreferenceScriptTimer ? Math.ceil((PreferenceScriptTimer - Date.now()) / 1000) : null;
+	DrawButton(500, 500, 400, 64, `${TextGet("ScriptsWarningAccept")}${seconds ? ` (${seconds})` : ""}`, disabled ? "rgba(0, 0, 0, 0.12)" : "White", null, null, disabled);
+	MainCanvas.textAlign = "left";
+}
+
+/**
  * Handles click events for the audio preference settings.  Redirected from the main Click function.
  * @returns {void} - Nothing
  */
@@ -1571,7 +1819,7 @@ function PreferenceSubscreenAudioExit() {
 }
 
 /**
- * Handles click events for the audio preference settings.  Redirected from the main Click function.
+ * Handles click events for the controller preference settings.  Redirected from the main Click function.
  * @returns {void} - Nothing
  */
 function PreferenceSubscreenControllerClick() {
@@ -1609,6 +1857,47 @@ function PreferenceSubscreenControllerClick() {
 		}
 	}
 }
+
+/**
+ * Handles click events for the censored words preference settings.  Redirected from the main Click function.
+ * @returns {void} - Nothing
+ */
+ function PreferenceSubscreenCensoredWordsClick() {
+
+	// When the user clicks on the header buttons
+	if (MouseIn(1830, 60, 250, 65)) PreferenceSubscreenCensoredWordsExit();
+	if (MouseIn(1550, 175, 180, 60)) {
+		let Word = ElementValue("InputWord").trim().toUpperCase().replace("|", "");
+		if ((Word != "") && (PreferenceCensoredWordsList.indexOf(Word) < 0)) {
+			PreferenceCensoredWordsList.push(Word);
+			PreferenceCensoredWordsList.sort();
+			ElementValue("InputWord", "");
+		}
+		return;
+	}
+	if (MouseIn(350, 175, 550, 60)) {
+		Player.ChatSettings.CensoredWordsLevel++;
+		if (Player.ChatSettings.CensoredWordsLevel > 2) Player.ChatSettings.CensoredWordsLevel = 0;
+		return;
+	}
+	if (MouseIn(1830, 175, 250, 65)) {
+		PreferenceCensoredWordsOffset = PreferenceCensoredWordsOffset + 32;
+		if (PreferenceCensoredWordsOffset >= PreferenceCensoredWordsList.length) PreferenceCensoredWordsOffset = 0;
+		return;
+	}
+
+	// When the user clicks to delete one of the words
+	for (let O = PreferenceCensoredWordsOffset; O < PreferenceCensoredWordsList.length && O < PreferenceCensoredWordsOffset + 32; O++) {
+		let X = 100 + Math.floor((O - PreferenceCensoredWordsOffset)/ 8) * 450;
+		let Y = 270 + ((O % 8) * 84);
+		if (MouseIn(X, Y, 60, 60)) {
+			PreferenceCensoredWordsList.splice(O, 1);
+			if (PreferenceCensoredWordsOffset >= PreferenceCensoredWordsList.length) PreferenceCensoredWordsOffset = 0;
+			return;
+		}
+	}
+
+ }
 
 /**
  * Handles the click events for the chat settings of a player.  Redirected from the main Click function.
@@ -1806,13 +2095,143 @@ function PreferenceSubscreenSecurityClick() {
 	if (MouseIn(500, 365, 250, 50)) {
 		var EmailOld = ElementValue("InputEmailOld");
 		var EmailNew = ElementValue("InputEmailNew");
-		var E = /^[a-zA-Z0-9@.!#$%&'*+/=?^_`{|}~-]+$/;
-		if ((EmailOld.match(E) || (EmailOld == "")) && (EmailOld.length <= 100) && (EmailNew.match(E) || (EmailNew == "")) && (EmailNew.length <= 100))
+
+		if ((EmailOld == "" || CommonEmailIsValid(EmailOld)) && (EmailNew == "" || CommonEmailIsValid(EmailNew)))
 			ServerSend("AccountUpdateEmail", { EmailOld: EmailOld, EmailNew: EmailNew });
 		else
 			ElementValue("InputEmailNew", TextGet("UpdateEmailInvalid"));
 	}
 
+}
+
+/**
+ * Handles the click events for the notifications settings of a player.  Redirected from the main Click function.
+ * @returns {void} - Nothing
+ */
+function PreferenceSubscreenGenderClick() {
+	if (MouseIn(1815, 75, 90, 90)) PreferenceSubscreen = "";
+
+	PreferenceGenderClickSetting(1450, 225, Player.GenderSettings.AutoJoinSearch, false);
+	PreferenceGenderClickSetting(1450, 305, Player.GenderSettings.HideShopItems, false);
+}
+
+/**
+ * Handles the click for a gender setting row
+ * @param {number} Left - The X co-ordinate the row starts on
+ * @param {number} Top - The Y co-ordinate the row starts on
+ * @param {GenderSetting} Setting - The player setting the row corresponds to
+ * @param {boolean} MutuallyExclusive - Whether only one option can be enabled at a time
+ * @returns {void} - Nothing
+ */
+function PreferenceGenderClickSetting(Left, Top, Setting, MutuallyExclusive) {
+	if (MouseIn(Left, Top - 32, 64, 64)) {
+		Setting.Female = !Setting.Female;
+		if (MutuallyExclusive && Setting.Female) {
+			Setting.Male = false;
+		}
+	}
+
+	if (MouseIn(Left + 155, Top - 32, 64, 64)) {
+		Setting.Male = !Setting.Male;
+		if (MutuallyExclusive && Setting.Male) {
+			Setting.Female = false;
+		}
+	}
+}
+
+function PreferenceSubscreenScriptsClick() {
+	if (MouseIn(1815, 75, 90, 90)) {
+		PreferenceSubscreenScriptsExitClick();
+		return;
+	}
+
+	if (!PreferenceScriptWarningAccepted) {
+		PreferenceSubscreenScriptsWarningClick();
+		return;
+	}
+
+	if (PreferenceScriptHelp === "global") {
+		PreferenceScriptHelp = null;
+		return;
+	} else if (MouseIn(1815, 190, 90, 90)) {
+		PreferenceScriptHelp = "global";
+		return;
+	}
+
+	const ScriptPermissions = Player.OnlineSharedSettings.ScriptPermissions;
+
+	/** @type {ScriptPermissionLevel[]} */
+	const permissions = Object.values(ScriptPermissionLevel);
+
+	// Can be used to page properties in the future
+	/** @type {ScriptPermissionProperty[]} */
+	const propertiesPage = PreferenceScriptPermissionProperties;
+
+	for (const [i, property] of propertiesPage.entries()) {
+		if (MouseIn(720 + 300 * i, 296, 48, 48)) {
+			if (PreferenceScriptHelp === property) {
+				PreferenceScriptHelp = null;
+				return;
+			} else {
+				PreferenceScriptHelp = property;
+				return;
+			}
+		}
+
+		for (const [j, permissionLevel] of permissions.entries()) {
+			if (MouseIn(816 + 300 * i, 386 + 90 * j, 64, 64)) {
+				const levelSelf = permissionLevel === ScriptPermissionLevel.SELF;
+				const levelPublic = permissionLevel === ScriptPermissionLevel.PUBLIC;
+				const selfAllowed = ValidationHasScriptPermission(Player, property, ScriptPermissionLevel.SELF);
+				const publicAllowed = ValidationHasScriptPermission(Player, property, ScriptPermissionLevel.PUBLIC);
+				if (levelSelf) {
+					ScriptPermissions[property].permission = selfAllowed ? 0 : ScriptPermissionBits[permissionLevel];
+				} else if (levelPublic) {
+					ScriptPermissions[property].permission = publicAllowed ? 0 : maxScriptPermission;
+				} else if (selfAllowed && !publicAllowed) {
+					ScriptPermissions[property].permission ^= ScriptPermissionBits[permissionLevel];
+				}
+				return;
+			}
+		}
+	}
+
+	PreferenceScriptHelp = null;
+}
+
+function PreferenceSubscreenScriptsExitClick() {
+	PreferenceSubscreen = "";
+	if (PreferenceScriptTimeoutHandle != null) {
+		clearTimeout(PreferenceScriptTimeoutHandle);
+		PreferenceScriptTimeoutHandle = null;
+	}
+	PreferenceScriptTimer = null;
+	const scriptItem = InventoryGet(Player, "ItemScript");
+	if (scriptItem) {
+		const params = ValidationCreateDiffParams(Player, Player.MemberNumber);
+		const { result, valid } = ValidationResolveScriptDiff(null, scriptItem, params);
+		if (!valid) {
+			console.info("Cleaning script item after permissions modification");
+			if (result) {
+				Player.Appearance = Player.Appearance.map((item) => {
+					return item.Asset.Group.Name === "ItemScript" ? result : item;
+				});
+			} else {
+				InventoryRemove(Player, "ItemScript", false);
+			}
+			if (ServerPlayerIsInChatRoom()) {
+				ChatRoomCharacterUpdate(Player);
+			} else {
+				CharacterRefresh(Player);
+			}
+		}
+	}
+}
+
+function PreferenceSubscreenScriptsWarningClick() {
+	if (PreferenceScriptTimer == null && MouseIn(500, 500, 400, 64)) {
+		PreferenceScriptWarningAccepted = true;
+	}
 }
 
 /**
@@ -2020,7 +2439,7 @@ function PreferenceSubscreenDifficultyExit() {
 }
 
 /**
- * Loads the Preferences screen.
+ * Loads the preference security screen.
  * @returns {void} - Nothing
  */
 function PreferenceSubscreenSecurityLoad() {
@@ -2030,11 +2449,25 @@ function PreferenceSubscreenSecurityLoad() {
 }
 
 /**
+ * Loads the preference censored words screen.
+ * @returns {void} - Nothing
+ */
+ function PreferenceSubscreenCensoredWordsLoad() {
+	PreferenceCensoredWordsOffset = 0;
+	ElementCreateInput("InputWord", "text", "", "50");
+}
+
+/**
  * Get the sensory deprivation setting for the player
  * @returns {boolean} - Return true if sensory deprivation is active, false otherwise
  */
-function PreferenceIsPlayerInSensDep(BypassBlindness) {
-	return (Player.GameplaySettings && ((Player.GameplaySettings.SensDepChatLog == "SensDepNames") || (Player.GameplaySettings.SensDepChatLog == "SensDepTotal") || (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme")) && (Player.GetDeafLevel() >= 3) && (Player.GetBlindLevel() >= 3 || BypassBlindness));
+function PreferenceIsPlayerInSensDep() {
+	return (
+		Player.GameplaySettings
+		&& ((Player.GameplaySettings.SensDepChatLog == "SensDepNames") || (Player.GameplaySettings.SensDepChatLog == "SensDepTotal") || (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme"))
+		&& (Player.GetDeafLevel() >= 3)
+		&& (Player.GetBlindLevel() >= 3 || ChatRoomSenseDepBypass)
+	);
 }
 
 /**
@@ -2246,6 +2679,16 @@ function PreferenceSubscreenControllerExit() {
 	PreferenceSubscreen = "";
 	PreferenceCalibrationStage = 0;
 	Calibrating = false;
+}
+
+/**
+ * Exits the preference screen
+ * @returns {void} - Nothing
+ */
+function PreferenceSubscreenCensoredWordsExit() {
+	ElementRemove("InputWord");
+	Player.ChatSettings.CensoredWordsList = PreferenceCensoredWordsList.join("|");
+	PreferenceSubscreen = "";
 }
 
 /**

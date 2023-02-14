@@ -8,7 +8,7 @@ function C999_Common_ChastityBelt_Load() {
 	// Load the scene parameters
 	LeaveIcon = "Leave";
 	LoadInteractions();
-	
+
 	// Set the correct stage
 	C999_Common_ChastityBelt_ConfirmLock = false;
 	C999_Common_ChastityBelt_CurrentStage = 0;
@@ -16,7 +16,7 @@ function C999_Common_ChastityBelt_Load() {
 
 	// If the player has a loose belt
 	C999_Common_ChastityBelt_HasLooseBelt = PlayerHasInventory("ChastityBelt");
-	
+
 }
 
 // Chapter Common - Chastity Belt Run, we draw the regular player image if the item is on

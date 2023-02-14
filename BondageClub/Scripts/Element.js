@@ -9,7 +9,7 @@
 function ElementValue(ID, Value) {
 	const e = /** @type {HTMLInputElement} */(document.getElementById(ID));
 	if (!e) {
-		console.error("ElementValue called on a missing element");
+		console.error("ElementValue called on a missing element: " + ID.toString());
 		return "";
 	}
 
@@ -29,7 +29,7 @@ function ElementValue(ID, Value) {
 function ElementContent(ID, Content) {
 	const e = document.getElementById(ID);
 	if (!e) {
-		console.error("ElementContent called on a missing element");
+		console.error("ElementContent called on a missing element: " + ID.toString());
 		return "";
 	}
 
@@ -62,7 +62,7 @@ function ElementCreateTextArea(ID) {
  * @param {string} ID - The id of the input tag to create.
  * @param {string} Type - Type of the input tag to create.
  * @param {string} Value - Value of the input tag to create.
- * @param {string} [MaxLength] - Maximum input tag of the input to create.
+ * @param {string | number} [MaxLength] - Maximum input tag of the input to create.
  * @returns {HTMLInputElement} - The created HTML input element
  */
 function ElementCreateInput(ID, Type, Value, MaxLength) {
@@ -395,7 +395,7 @@ function ElementGetScrollPercentage(ID) {
  */
 function ElementIsScrolledToEnd(ID) {
 	var element = document.getElementById(ID);
-	return element != null && element.scrollHeight - element.scrollTop - element.clientHeight < 1;
+	return element != null && element.scrollHeight - element.scrollTop - element.clientHeight <= 1;
 }
 
 /**

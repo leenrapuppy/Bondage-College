@@ -17,7 +17,7 @@ var C012_AfterClass_Isolation_DontLikeRemarkDone = false;
 
 // Chapter 12 After Class - Isolation Load
 function C012_AfterClass_Isolation_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LoadInteractions();
 	ActorLoad("Sarah", "");
@@ -42,7 +42,7 @@ function C012_AfterClass_Isolation_Run() {
 }
 
 // Chapter 12 After Class - Isolation Click
-function C012_AfterClass_Isolation_Click() {	
+function C012_AfterClass_Isolation_Click() {
 
 	// Regular interactions
 	OverridenIntroImage = "";
@@ -59,7 +59,7 @@ function C012_AfterClass_Isolation_Click() {
 	var ClickInv = GetClickedInventory();
 	if (ClickInv == "Player") {
 		C012_AfterClass_Isolation_IntroText = OverridenIntroText;
-		C012_AfterClass_Isolation_CurrentActor = CurrentActor; 
+		C012_AfterClass_Isolation_CurrentActor = CurrentActor;
 		InventoryClick(ClickInv, CurrentChapter, CurrentScreen);
 	}
 
@@ -113,7 +113,7 @@ function C012_AfterClass_Isolation_DontLikeRemark() {
 	if (!C012_AfterClass_Isolation_DontLikeRemarkDone) {
 		C012_AfterClass_Isolation_DontLikeRemarkDone = true;
 		ActorChangeAttitude(-1, 0);
-	}	
+	}
 }
 
 // Chapter 12 After Class - The player can spank Sarah on the Pillory

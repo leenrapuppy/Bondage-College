@@ -146,7 +146,8 @@ function InventoryItemMiscCombinationPadlockUnlock(C, Item) {
 			C.Appearance[A] = Item;
 	}
 	InventoryUnlock(C, C.FocusGroup.Name);
-	ChatRoomPublishAction(C, Item, null, true, "ActionUnlock");
+	ChatRoomPublishAction(C, "ActionUnlock", Item, null);
+	DialogLeave();
 }
 
 // Catches the item extension clicks
@@ -225,5 +226,5 @@ function InventoryItemMiscCombinationPadlockExit() {
 	ElementRemove("NewCombinationNumber");
 	PreferenceMessage = "";
 	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild((Player.FocusGroup != null) ? Player : CurrentCharacter);
+	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

@@ -1,13 +1,17 @@
 "use strict";
 var ManagementBackground = "Management";
+/** @type {null | NPCCharacter} */
 var ManagementMistress = null;
+/** @type {null | NPCCharacter} */
 var ManagementSub = null;
 var ManagementMistressAngryCount = 0;
 var ManagementMistressReleaseTimer = 0;
+/** @type {null | Item[]} */
 var ManagementPlayerAppearance = null;
 var ManagementMistressAllowPlay = false;
 var ManagementCanReleaseChastity = true;
 var ManagementEmpty = false;
+/** @type {null | NPCCharacter} */
 var ManagementRandomGirl = null;
 var ManagementRandomGirlArchetype = "";
 var ManagementRandomActivityCount = 0;

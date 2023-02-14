@@ -1,4 +1,5 @@
 "use strict";
+/** @type {null | string[][]} */
 var ActivityDictionary = null;
 var ActivityOrgasmGameButtonX = 0;
 var ActivityOrgasmGameButtonY = 0;
@@ -7,7 +8,6 @@ var ActivityOrgasmGameDifficulty = 0;
 var ActivityOrgasmGameResistCount = 0;
 var ActivityOrgasmGameTimer = 0;
 var ActivityOrgasmResistLabel = "";
-
 var ActivityOrgasmRuined = false; // If set to true, the orgasm will be ruined right before it happens
 
 /**
@@ -16,7 +16,7 @@ var ActivityOrgasmRuined = false; // If set to true, the orgasm will be ruined r
  */
 function ActivityAllowed() {
 	return (CurrentScreen == "ChatRoom" && !(ChatRoomData && ChatRoomData.BlockCategory && ChatRoomData.BlockCategory.includes("Arousal")))
-		|| ((CurrentScreen == "Private") && LogQuery("RentRoom", "PrivateRoom")); }
+		|| (((CurrentScreen == "Private") || (CurrentScreen == "PrivateBed")) && LogQuery("RentRoom", "PrivateRoom")); }
 
 /**
  * Loads the activity dictionary that will be used throughout the game to output messages. Loads from cache first if possible.
@@ -48,8 +48,6 @@ function ActivityDictionaryLoad() {
 				ActivityTranslate(TranslationPath);
 			}
 		});
-
-	ActivityTranslate(TranslationPath);
 }
 
 /**
@@ -174,17 +172,17 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "TargetMouthBlocked":
 			return acted.IsMouthBlocked();
 		case "IsGagged":
-			return !acting.CanTalk();
+			return acting.IsGagged();
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
-			return acting.CanInteract();
+			return acting.CanInteract() && !acting.Effect.includes("MergedFingers");
 		case "UseArms":
 			return acting.CanInteract() || (!InventoryGet(acting, "ItemArms") && !InventoryGroupIsBlocked(acting, "ItemArms"));
 		case "UseFeet":
 			return acting.CanWalk();
 		case "CantUseArms":
-			return !acting.CanInteract() && (!!InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms"));
+			return !acting.CanInteract() && (!!InventoryGet(acting, "ItemArms") || InventoryGroupIsBlocked(acting, "ItemArms"));
 		case "CantUseFeet":
 			return !acting.CanWalk();
 		case "TargetCanUseTongue":
@@ -195,30 +193,65 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		case "VulvaEmpty":
 			if (group.Name === "ItemVulva")
-				return !acted.IsVulvaFull();
+				return acted.HasVagina() && !acted.IsVulvaFull();
 			break;
+		case "AssEmpty":
+			if (group.Name === "ItemButt")
+				return !acted.IsPlugged();
+			break;
+		case "UseVulva":
+			return acting.HasVagina() && !acting.IsVulvaFull();
+		case "UseAss":
+			return !acted.IsAssFull();
 		case "MoveHead":
 			if (group.Name === "ItemHead")
 				return !acted.IsFixedHead();
 			break;
 		case "ZoneAccessible":
-			return ActivityGetAllMirrorGroups(acted.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(acted, g.Name, true));
+		case "TargetZoneAccessible": {
+			// FIXME: The original ZoneAccessible should have been prefixed with Target, which is why those are reversed
+			// TargetZoneAccessible is only used for ReverseSuckItem, which is marked as reverse, adding in to the confusion
+			const actor = prereq.startsWith("Target") ? acting : acted;
+			return ActivityGetAllMirrorGroups(actor.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(actor, g.Name, true));
+		}
 		case "ZoneNaked":
+		case "TargetZoneNaked": {
+			// FIXME: Ditto
+			const actor = prereq.startsWith("Target") ? acting : acted;
 			if (group.Name === "ItemButt")
-				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged();
+				return InventoryPrerequisiteMessage(actor, "AccessButt") === "" && !(actor.IsPlugged() || actor.IsButtChaste());
 			else if (group.Name === "ItemVulva")
-				return (InventoryPrerequisiteMessage(acted, "AccessVulva") === "") && !acted.IsVulvaChaste();
+				return (InventoryPrerequisiteMessage(actor, "AccessVulva") === "") && !actor.IsVulvaChaste();
 			else if (group.Name === "ItemBreast" || group.Name === "ItemNipples")
-				return (InventoryPrerequisiteMessage(acted, "AccessBreast") === "") && !acted.IsBreastChaste();
+				return (InventoryPrerequisiteMessage(actor, "AccessBreast") === "") && !actor.IsBreastChaste();
 			else if (group.Name === "ItemBoots")
-				return InventoryPrerequisiteMessage(acted, "NakedFeet") === "";
+				return InventoryPrerequisiteMessage(actor, "NakedFeet") === "";
 			else if (group.Name === "ItemHands")
-				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
+				return InventoryPrerequisiteMessage(actor, "NakedHands") === "";
 			break;
+		}
+		case "TargetHasPenis":
+			return acted.HasPenis();
+		case "HasPenis":
+			return acting.HasPenis();
+		case "CanUsePenis":
+			if (acting.HasPenis())
+				return InventoryPrerequisiteMessage(acting, "AccessVulva") === "";
+			break;
+		case "TargetHasVagina":
+			return acted.HasVagina();
+		case "HasVagina":
+			return acting.HasVagina();
+		case "TargetHasBreasts":
+			return !acted.IsFlatChested();
+		case "HasBreasts":
+			return !acting.IsFlatChested();
+		case "TargetHasFlatChest":
+			return acted.IsFlatChested();
+		case "HasFlatChest":
+			return acting.IsFlatChested();
+
 		default:
-			if (prereq.startsWith("Needs-")) {
-				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemWithAttribute(acting, prereq.substring(6));
-			}
 			break;
 	}
 	return true;
@@ -236,46 +269,123 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
 	if (!activity.Prerequisite)
 		return true;
 
-	return activity.Prerequisite.every((pre) => ActivityCheckPrerequisite(pre, acting, acted, group));
+	const reverse = activity.Reverse;
+	return activity.Prerequisite.every((pre) => ActivityCheckPrerequisite(pre, (!reverse ? acting : acted), (!reverse ? acted : acting), group));
+}
+
+/**
+ *
+ * @param {ItemActivity[]} allowed
+ * @param {Character} acting
+ * @param {Character} acted
+ * @param {string} needsItem
+ * @param {Activity} activity
+ */
+function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsItem, activity) {
+	if (acting.IsEnclose() || acted.IsEnclose()) return false;
+
+	const reverse = activity.Reverse;
+	const items = CharacterItemsForActivity(!reverse ? acting : acted, needsItem);
+	if (items.length === 0) return true;
+
+	let handled = false;
+	for (const item of items) {
+		/** @type {null[] | string[]} */
+		let types;
+		if (!item.Property) {
+			types = [null];
+		} else if (item.Asset.Archetype === "Modular") {
+			types = ModularItemDeconstructType(item.Property.Type) || [null];
+		} else {
+			types = [item.Property.Type];
+		}
+
+		/** @type {ItemActivityRestriction} */
+		let blocked = null;
+		if (types.some((type) => InventoryIsAllowedLimited(acted, item, type))) {
+			blocked = "limited";
+		} else if (types.some((type) => InventoryBlockedOrLimited(acted, item, type))) {
+			blocked = "blocked";
+		} else if (InventoryGroupIsBlocked(acting, item.Asset.Group.Name)) {
+			blocked = "unavail";
+		}
+
+		// FIXME: workaround for reverse activities because those are in a non-activity group
+		const isStrapon = item.Asset.Group.Name === "ItemDevices" && ["StrapOnSmooth", "StrapOnStuds"].includes(item.Asset.Name);
+		const isPenis = item.Asset.Group.Name === "Pussy" && item.Asset.Name === "Penis";
+
+		if (InventoryItemHasEffect(item, "UseRemote")) {
+			// That item actually needs a remote, so handle it separately
+		} else if (reverse && acted.FocusGroup.Name !== item.Asset.Group.Name && !(isStrapon || isPenis)) {
+			// This is a reverse activity, but we're targetting the wrong slot, just skip
+			handled = true;
+		} else {
+			allowed.push({ Activity: activity, Item: item, Blocked: blocked });
+			handled = true;
+		}
+	}
+	return handled;
 }
 
 /**
  * Builds the allowed activities on a group given the character's settings.
  * @param {Character} character - The character for which to build the activity dialog options
  * @param {string} groupname - The group to check
- * @param {boolean} [allowItem] - Should item-related activities be checked
- * @return {Array} - The list of allowed activities
+ * @return {ItemActivity[]} - The list of allowed activities
  */
-function ActivityAllowedForGroup(character, groupname, allowItem = false) {
+function ActivityAllowedForGroup(character, groupname) {
 	// Get the group and all possible activities
 	let activities = AssetAllActivities(character.AssetFamily);
 	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
 	if (!activities || !group) return [];
 
-	let allowed = activities.filter(activity => {
-		// Item-related activity, skip
-		if (!allowItem && activity.Name.indexOf("Item") >= 0)
-			return false;
+	// Make sure the target player zone is allowed for an activity
+	if (!ActivityPossibleOnGroup(character, groupname))
+		return [];
 
+	const targetedItem = InventoryGet(character, groupname);
+
+	/** @type {ItemActivity[]} */
+	let allowed = [];
+
+	activities.forEach(activity => {
 		// Validate that this activity can be done
 		if (!ActivityHasValidTarget(character, activity, group))
-			return false;
+			return;
 
 		// Make sure all the prerequisites are met
 		if (!ActivityCheckPrerequisites(activity, Player, character, group))
-			return false;
+			return;
 
 		// Ensure this activity is permitted for both actors
 		if (!ActivityCheckPermissions(activity, Player, true)
 			|| !ActivityCheckPermissions(activity, character, false))
-			return false;
+			return;
 
 		// All checks complete, this activity is allowed
-		return true;
+
+		let handled = false;
+		let needsItem = activity.Prerequisite.find(p => p.startsWith("Needs-"));
+
+		if (needsItem) {
+			handled = ActivityGenerateItemActivitiesFromNeed(allowed, Player, character, needsItem.substring(6), activity);
+		}
+
+		if (activity.Name === "ShockItem" && InventoryItemHasEffect(targetedItem, "ReceiveShock")) {
+			let remote = Player.Appearance.find(a => InventoryItemHasEffect(a, "TriggerShock"));
+			if (remote) {
+				allowed.push({ Activity: activity, Item: remote });
+				handled = true;
+			}
+		}
+
+		if (!handled) {
+			allowed.push({ Activity: activity });
+		}
 	});
 
 	// Sort allowed activities by their group declaration order
-	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Name) - ActivityFemale3DCGOrdering.indexOf(b.Name)));
+	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Activity.Name) - ActivityFemale3DCGOrdering.indexOf(b.Activity.Name)));
 }
 
 /**
@@ -288,7 +398,7 @@ function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 function ActivityCanBeDone(C, Activity, Group) {
 	let ActList = ActivityAllowedForGroup(C, Group);
 	for (let A = 0; A < ActList.length; A++)
-		if (ActList[A].Name == Activity)
+		if (ActList[A].Activity.Name == Activity)
 			return true;
 	return false;
 }
@@ -301,9 +411,10 @@ function ActivityCanBeDone(C, Activity, Group) {
  * @param {string} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivityEffect(S, C, A, Z, Count) {
+function ActivityEffect(S, C, A, Z, Count, Asset) {
 
 	// Converts from activity name to the activity object
 	if (typeof A === "string") A = AssetGetActivity(C.AssetFamily, A);
@@ -317,6 +428,12 @@ function ActivityEffect(S, C, A, Z, Count) {
 	if ((C.ID != S.ID) && (((C.ID != 0) && C.IsLoverOfPlayer()) || ((C.ID == 0) && S.IsLoverOfPlayer()))) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
 	Factor = Factor + ActivityFetishFactor(C) * 2; // Adds a fetish factor based on the character preferences
 	Factor = Factor + Math.round(Factor * (Count - 1) / 3); // if the action is done repeatedly, we apply a multiplication factor based on the count
+
+	// Grab the relevant expression from either the asset or the activity
+	const expression = Asset && Asset.ActivityExpression && Asset.ActivityExpression[A.Name] ? Asset.ActivityExpression[A.Name] : A.ActivityExpression;
+	if (Array.isArray(expression))
+		InventoryExpressionTriggerApply(C, expression);
+
 	ActivitySetArousalTimer(C, A, Z, Factor);
 
 }
@@ -329,9 +446,10 @@ function ActivityEffect(S, C, A, Z, Count) {
  * @param {string} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivityEffectFlat(S, C, Amount, Z, Count) {
+function ActivityEffectFlat(S, C, Amount, Z, Count, Asset) {
 
 	// Converts from activity name to the activity object
 	if ((Amount == null) || (typeof Amount != "number")) return;
@@ -342,8 +460,8 @@ function ActivityEffectFlat(S, C, Amount, Z, Count) {
 	Factor = Factor + (PreferenceGetZoneFactor(C, Z) * 5) - 10; // The zone used also adds from -10 to +10
 	Factor = Factor + ActivityFetishFactor(C) * 2; // Adds a fetish factor based on the character preferences
 	Factor = Factor + Math.round(Factor * (Count - 1) / 3); // if the action is done repeatedly, we apply a multiplication factor based on the count
-	ActivitySetArousalTimer(C, null, Z, Factor);
 
+	ActivitySetArousalTimer(C, null, Z, Factor, Asset);
 }
 
 /**
@@ -380,9 +498,10 @@ function ActivitySetArousal(C, Progress) {
  * @param {object} Activity - The activity for which the timer is for
  * @param {string} Zone - The target zone of the activity
  * @param {number} Progress - Progress to set
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
+function ActivitySetArousalTimer(C, Activity, Zone, Progress, Asset) {
 
 	// If there's already a progress timer running, we add it's value but divide it by 2 to lessen the impact, the progress must be between -25 and 25
 	if ((C.ArousalSettings.ProgressTimer == null) || (typeof C.ArousalSettings.ProgressTimer !== "number") || isNaN(C.ArousalSettings.ProgressTimer)) C.ArousalSettings.ProgressTimer = 0;
@@ -390,11 +509,21 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
 	if (Progress < -25) Progress = -25;
 	if (Progress > 25) Progress = 25;
 
-	// Make sure we do not allow orgasms if the activity (MaxProgress) or the zone (AllowOrgasm) doesn't allow it
-	var Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
-	if ((Max > 95) && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
-	if ((Max > 67) && (Zone == "ActivityOnOther")) Max = 67;
-	if ((Progress > 0) && (C.ArousalSettings.Progress + Progress > Max)) Progress = (Max - C.ArousalSettings.Progress >= 0) ? Max - C.ArousalSettings.Progress : 0;
+	// Make sure we do not allow orgasms if the activity (MaxProgress or MaxProgressSelf) or the zone (AllowOrgasm) doesn't allow it
+	let Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
+	if (Max > 95 && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
+	// For activities on other, it cannot go over 2/3
+	if (Max > 67 && Zone == "ActivityOnOther") {
+		if (["PenetrateSlow", "PenetrateFast"].includes(Activity.Name) && Asset && Asset.Group.Name === "Pussy" && Asset.Name === "Penis") {
+			// If it's a penis penetration, don't cap it. This makes the cap either 100 or 95, depending on the character orgasm setting
+			Max = PreferenceGetZoneOrgasm(Player, "ItemVulva") ? 100 : 95;
+		} else {
+			Max = Activity.MaxProgressSelf != null ? Activity.MaxProgressSelf : 67;
+		}
+	}
+
+	if (Progress > 0 && (C.ArousalSettings.Progress + Progress) > Max)
+		Progress = (Max - C.ArousalSettings.Progress >= 0) ? Max - C.ArousalSettings.Progress : 0;
 
 	// If we must apply a progress timer change, we publish it
 	if (C.ArousalSettings.ProgressTimer !== Progress) {
@@ -478,6 +607,7 @@ function ActivityOrgasmStart(C) {
 	if ((C.ID == 0) || C.IsNpc()) {
 		if (C.ID == 0 && !ActivityOrgasmRuined) ActivityOrgasmGameResistCount = 0;
 		AsylumGGTSTOrgasm(C);
+		PrivateBedOrgasm(C);
 		ActivityOrgasmWillpowerProgress(C);
 		if (!ActivityOrgasmRuined) {
 			C.ArousalSettings.OrgasmTimer = CurrentTime + (Math.random() * 10000) + 5000;
@@ -587,6 +717,7 @@ function ActivityOrgasmPrepare(C, Bypass) {
 		// Starts the timer and exits from dialog if necessary
 		C.ArousalSettings.OrgasmTimer = (C.ID == 0) ? CurrentTime + 5000 : CurrentTime + (Math.random() * 10000) + 5000;
 		C.ArousalSettings.OrgasmStage = (C.ID == 0) ? 0 : 2;
+		if (C.IsNpc()) PrivateBedOrgasm(C);
 		if (C.ID == 0) ActivityOrgasmGameTimer = C.ArousalSettings.OrgasmTimer - CurrentTime;
 		if ((CurrentCharacter != null) && ((C.ID == 0) || (CurrentCharacter.ID == C.ID))) DialogLeave();
 		ActivityChatRoomArousalSync(C);
@@ -704,15 +835,17 @@ function ActivityVibratorLevel(C, Level) {
  * Calculates the progress one character does on another right away
  * @param {Character} Source - The character who performed the activity
  * @param {Character} Target - The character on which the activity was performed
- * @param {object} Activity - The activity performed
+ * @param {Activity} Activity - The activity performed
+ * @param {AssetGroup} Group - The group on which the activity is performed
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @returns {void} - Nothing
  */
-function ActivityRunSelf(Source, Target, Activity) {
+function ActivityRunSelf(Source, Target, Activity, Group, Asset) {
 	if (((Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic")) && (Source.ID == 0) && (Target.ID != 0)) {
 		var Factor = (PreferenceGetActivityFactor(Player, Activity.Name, false) * 5) - 10; // Check how much the player likes the activity, from -10 to +10
 		Factor = Factor + Math.floor((Math.random() * 8)); // Random 0 to 7 bonus
 		if (Target.IsLoverOfPlayer()) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
-		ActivitySetArousalTimer(Player, Activity, "ActivityOnOther", Factor); // For activities on other, it cannot go over 2/3
+		ActivitySetArousalTimer(Player, Activity, "ActivityOnOther", Factor, Asset);
 	}
 }
 
@@ -723,47 +856,59 @@ function ActivityRunSelf(Source, Target, Activity) {
  * @param {Activity} activity
  */
 function ActivityBuildChatTag(character, group, activity, is_label = false) {
-	return `${is_label ? "Label-" : ""}${(character.IsPlayer() ? "ChatSelf" : "ChatOther")}-${group.Name}-${activity.Name}`;
+	const groupMap = {"ItemVulva":"ItemPenis", "ItemVulvaPiercings": "ItemGlans"};
+	const realGroup = character.HasPenis() && groupMap[group.Name] ? groupMap[group.Name] : group.Name;
+
+	return `${is_label ? "Label-" : ""}${(character.IsPlayer() ? "ChatSelf" : "ChatOther")}-${realGroup}-${activity.Name}`;
 }
 
 /**
  * Launches a sexual activity for a character and sends the chatroom message if applicable.
  * @param {Character} C - Character on which the activity was triggered
- * @param {object} Activity - Activity performed
+ * @param {ItemActivity} ItemActivity - Activity performed
  * @returns {void} - Nothing
  */
-function ActivityRun(C, Activity) {
+function ActivityRun(C, ItemActivity) {
+	const Activity = ItemActivity.Activity;
+	const UsedAsset = ItemActivity && ItemActivity.Item ? ItemActivity.Item.Asset : null;
 
 	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
 	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
 		if ((C.ID == 0) || C.IsNpc())
-			ActivityEffect(Player, C, Activity, group.Name);
+			ActivityEffect(Player, C, Activity, group.Name, 0, UsedAsset);
 
 	if (C.ID == 0) {
 		if (Activity.MakeSound) {
-			AutoPunishGagActionFlag = true;
-			AutoShockGagActionFlag = true;
+			PropertyAutoPunishHandled = new Set();
 		}
 	}
 
 	// If the player does the activity on someone else, we calculate the progress for the player right away
-	ActivityRunSelf(Player, C, Activity);
+	ActivityRunSelf(Player, C, Activity, group, UsedAsset);
 
 	// The text result can be outputted in the chatroom or in the NPC dialog
 	if (CurrentScreen == "ChatRoom") {
 
 		// Publishes the activity to the chatroom
-		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
-		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
+		/** @type {ChatMessageDictionary} */
+		const Dictionary = [
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+			{ FocusGroupName: group.Name },
+			{ ActivityName: Activity.Name },
+		];
+		if (ItemActivity.Item) {
+			const A = ItemActivity.Item.Asset;
+			Dictionary.push({ Tag: "ActivityAsset", AssetName: A.Name, GroupName: A.Group.Name });
+			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(Player).toLowerCase() });
+		}
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
 
-		if (C.ID == 0 && Activity.Name.indexOf("Struggle") >= 0)
-
-			ChatRoomStimulationMessage("StruggleAction");
+		// If the activity is a stimulation trigger, run it if the target is the player
+		if (C.IsPlayer() && Activity.StimulationAction) {
+			ChatRoomStimulationMessage(Activity.StimulationAction);
+		}
 
 		// Exits from dialog to see the result
 		DialogLeave();
@@ -783,7 +928,7 @@ function ActivityArousalItem(Source, Target, Asset) {
 	var AssetActivity = Asset.DynamicActivity(Source);
 	if (AssetActivity != null) {
 		var Activity = AssetGetActivity(Target.AssetFamily, AssetActivity);
-		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity);
+		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity, Asset.Group);
 		if (PreferenceArousalAtLeast(Target, "Hybrid") && ((Target.ID == 0) || (Target.IsNpc())))
 			ActivityEffect(Source, Target, AssetActivity, Asset.Group.Name);
 	}

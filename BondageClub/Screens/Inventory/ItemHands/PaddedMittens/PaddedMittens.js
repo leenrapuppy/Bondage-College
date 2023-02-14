@@ -10,7 +10,7 @@ function InventoryItemHandsPaddedMittensLoad() {
 // Draw the item extension screen
 function InventoryItemHandsPaddedMittensDraw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	// Draw the possible options
 	DrawText(DialogFindPlayer("SelectFeature"), 1500, 500, "white", "gray");
@@ -29,7 +29,7 @@ function InventoryItemHandsPaddedMittensClick() {
 
 // Chain/Unchain function
 function InventoryItemHandsPaddedMittensChain() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryGet(C, "ItemArms") != null) {
 		InventoryItemHandsPaddedMittensMsg = "FreeArms";
 		return;

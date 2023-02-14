@@ -33,7 +33,7 @@ Feet Massage
 Polish
 Полировать
 Grope
-Нащупывать
+Ощупывать
 Pinch
 Ущипнуть
 Spank
@@ -41,7 +41,7 @@ Spank
 Slap
 Пощечина
 Take Care
-Заботиться
+Ухаживать за частью тела
 Pull
 Потянуть
 Choke
@@ -49,139 +49,151 @@ Choke
 Tongue Masturbation
 Мастурбация языком
 Hand Masturbation
-Ручная мастурбация
+Маструбация рукой
 Fist Masturbation
 Мастурбация кулаком
 Foot Masturbation
 Мастурбация ступнями
+Masturbate
+Мастурбировать
 Item Masturbation
-Мастурбация Item
+Мастурбация предметом
 Slow Penetration
 Медленное проникновение
 Fast Penetration
 Быстрое проникновение
+Reverse Pussy
+обратная киска
+Reverse Ass
+обратная задница
+Reverse Suck
+обратный сосать
 Hand Gag
 Кляп рукой
 Rest Head
-Отдых Голова
+Положить голову кому-то на колени/грудь
 Item Spank
-Отшлепать Item
+Отшлепать предметом
 Item Tickle
-Щекотать Item 
-Item Rub
-Натирать Item
-Item Roll
-Item Roll
-Item Pour
-Налить Item
-Item Shock
-Шокировать Item 
-Item Inject
-Иньекция Item
+Щекотать предметом
+Rub
+Тереть предметом
+Roll
+Колесо Вартенберга
+Pour
+Капать воском
+Shock
+Шокировать предметом 
+Inject
+Иньекция предметом
 Moan into Gag
-Стонать в кляп (удовольствие)
+Стонать сквозь кляп (удовольствие)
 Whimper into Gag
-Скулить в кляп
+Скулить сквозь кляп (мольба)
 Shout into Gag
-Кричать в кляп
+Кричать сквозь кляп (злость)
 Groan into Gag
-Стонать в кляп (боль)
+Стонать сквозь кляп (боль)
 Talk into Gag
-Поговорить в кляп
+Говорить сквозь кляп
 Giggle into gag
-Хихикать в кляп
+Хихикать сквозь кляп
 Kiss on Gag
-Поцелуй на кляп
+Поцелуй в кляп
 Wiggle
-Покачивать
+Покачивать частью тела
 Nod
 Кивок
 Sit
-Сидеть
+Сесть кому-то на колени
 Struggle
-Борьба
+Бороться
 Step
-Шаг
-SourceCharacter is tormented by the vibrations, struggling to keep her cool.
-SourceCharacter мучается от вибраций, изо всех сил пытаясь сохранять спокойствие.
-SourceCharacter struggles against the intense vibrations, hardly able to control herself.
+Наступить ногой
+Kick
+Пинок
+SourceCharacter is tormented by the vibrations, struggling to keep PronounPossessive cool.
+SourceCharacter мучается от вибраций, пытаясь сохранить себя хладнокровной/ым.
+SourceCharacter struggles against the intense vibrations, hardly able to control PronounPossessiveself.
 SourceCharacter борется с сильными вибрациями, с трудом контролируя себя.
 SourceCharacter resists the stimulation until it finally cuts off abruptly.
-SourceCharacter сопротивляется стимуляции, пока она, наконец, резко не обрывается.
-SourceCharacter vibrators stop abruptly, leaving her trembling yet still just as aroused as before.
-Вибраторы SourceCharacter резко останавливаются, оставляя ее дрожать, но все еще такой же возбужденной, как и раньше.
+SourceCharacter сопротивляется стимуляции, пока она, наконец, резко не прерывается.
+SourceCharacter vibrators stop abruptly, leaving PronounPossessive trembling yet still just as aroused as before.
+SourceCharacter вибраторы резко останавливаются, оставляя PronounPossessive дрожащей/им, но все еще такой/им же возбужденной/ым, как и раньше.
 SourceCharacter moans and trembles, holding back only because the vibrators abruptly stopped.
-SourceCharacter стонет и дрожит, сдерживаясь только потому, что вибраторы резко прекратились.
-SourceCharacter twists and turns trying to hold back, vindicated by an abrupt end to her torment.
-SourceCharacter извивается и поворачивается, пытаясь сдержаться, что подтверждается внезапным прекращением ее мучений.
-SourceCharacter closes her eyes and tries to let herself go, clinging to the edge until it abruptly stops and leaves her feeling empty.
-SourceCharacter закрывает глаза и пытается отпустить себя, цепляясь за край, пока он резко не останавливается и не оставляет у нее ощущение пустоты.
-SourceCharacter moans and silently screams as the vibrators almost bring her to the edge before stopping.
-SourceCharacter стонет и тихо кричит, когда вибраторы почти доводят ее до предела, прежде чем остановиться.
+SourceCharacter стонет и содрогается, сдерживаясь только потому, что вибраторы резко остановились.
+SourceCharacter twists and turns trying to hold back, vindicated by an abrupt end to PronounPossessive torment.
+SourceCharacter трясется и изворачивается, пытаясь сдержаться, из-за резкого прекращения своих мучений.
+SourceCharacter closes PronounPossessive eyes and tries to let PronounSelf go, clinging to the edge until it abruptly stops and leaves PronounPossessive feeling empty.
+SourceCharacter закрывает свои глаза  и пытается отпустить PronounSelf, цепляясь за край, пока он резко не остановится и не оставит у PronounPossessive ощущение пустоты.
+SourceCharacter moans and silently screams as the vibrators almost bring PronounPossessive to the edge before stopping.
+SourceCharacter стонет и тихо вскрикивает, когда вибраторы почти доводят PronounPossessive до края, прежде чем остановиться.
 SourceCharacter trembles with pleasure until the teasing comes to an abrupt end, feeling just as aroused as before.
-SourceCharacter дрожит от удовольствия, пока поддразнивание не заканчивается, чувствуя себя таким же возбужденным, как и раньше.
+SourceCharacter дрожит от удовольствия, пока стимуляция не заканчивается, чувствуя себя такой/им же возбужденной/ым, как и раньше.
 SourceCharacter trembles and moans loudly, getting a powerful orgasm.
-SourceCharacter дрожит и громко стонет, получая мощный оргазм.
+SourceCharacter содрогается и громко стонет, получая мощный оргазм.
 SourceCharacter thrashes and loses all control, getting an intense orgasm.
 SourceCharacter бьется и теряет контроль, получая интенсивный оргазм.
-SourceCharacter screams silently and rocks her hips, getting a wonderful orgasm.
-SourceCharacter тихо кричит и качает бедрами, получая чудесный оргазм.
+SourceCharacter screams silently and rocks PronounPossessive hips, getting a wonderful orgasm.
+SourceCharacter беззвучно кричит и качает  своими бедрами, получая прекрасный оргазм.
 With intense pleasure, SourceCharacter gets a shattering orgasm.
-С интенсивным удовольствием SourceCharacter получает сокрушительный оргазм.
-SourceCharacter closes her eyes and lets herself go, getting a lovely orgasm.
-SourceCharacter закрывает глаза и позволяет себе уйти, получая прекрасный оргазм.
+С сильным удовольствием SourceCharacter получает сокрушительный оргазм.
+SourceCharacter closes PronounPossessive eyes and lets PronounSelf go, getting a lovely orgasm.
+SourceCharacter закрывает свои глаза  и отпускает PronounSelf, получая прекрасный оргазм.
 SourceCharacter cannot resist the pleasure and succumbs to a great orgasm.
-SourceCharacter не может сопротивляться удовольствию и поддается сильному оргазму.
+SourceCharacter не может сопротивляться удовольствию и поддается сильнейшему оргазму.
 Trembling and moaning rapidly, SourceCharacter gets a fierce orgasm.
-Дрожа и быстро стоная, SourceCharacter испытывает яростный оргазм.
-SourceCharacter squirts lots of liquid from her vagina, getting a wet orgasm.
-SourceCharacter выбрасывает много жидкости из своего влагалища, получая влажный оргазм.
+Дрожа и издавая стоны, SourceCharacter получает неистовый оргазм.
+SourceCharacter explodes in pleasure, getting a massive orgasm.
+SourceCharacter взрывается от удовольствия, получая мощный оргазм.
 SourceCharacter's body cringes and becomes rigid, getting a long and solid orgasm.
-Тело SourceCharacter сжимается и становится жестким, получая длительный и твердый оргазм.
-SourceCharacter goes berserk with pleasure, giving her two back-to-back orgasms.
-SourceCharacter приходит в ярость от удовольствия, доставляя ей два оргазма подряд.
-Using all of her strengths, SourceCharacter is able to resist her building orgasm.
-Используя все свои силы, SourceCharacter может сопротивляться нарастающему оргазму.
-SourceCharacter fights really hard against her orgasm and is able to resist it.
-SourceCharacter очень сильно борется со своим оргазмом и способна ему противостоять.
-While panting and moaning, SourceCharacter is able to resist her orgasm.
-Задыхаясь и стоная, SourceCharacter способна сопротивляться своему оргу.
-SourceCharacter fights off her coming orgasm, her willpower is greater than her urges.
-SourceCharacter борется с приближающимся оргазмом, ее сила воли превосходит ее побуждения.
-SourceCharacter concentrates hard and is able to calm down her upcoming orgasm.
+Тело SourceCharacter корчится и становится натянутым как струна, получая долгий и мощный оргазм.
+SourceCharacter goes berserk with pleasure, giving PronounObject two back-to-back orgasms.
+SourceCharacter сходит с ума от удовольствия, доводя PronounObject до двух оргазмов подряд.
+Using all of PronounPossessive strengths, SourceCharacter is able to resist PronounPossessive building orgasm.
+Используя все свои сильные стороны, SourceCharacter способна/ен противостоять достижению  PronounPossessive оргазма.
+SourceCharacter fights really hard against PronounPossessive orgasm and is able to resist it.
+SourceCharacter очень сильно борется с своим оргазмом и способна/ен противостоять ему.
+While panting and moaning, SourceCharacter is able to resist PronounPossessive orgasm.
+Задыхаясь и издавая стоны, SourceCharacter способен/на противостоять своему оргазму.
+SourceCharacter fights off PronounPossessive coming orgasm, PronounPossessive willpower is greater than PronounPossessive urges.
+SourceCharacter отбивается от наступающего оргазма,  PronounPossessive сила воли превышает PronounPossessive влечение.
+SourceCharacter concentrates hard and is able to calm down PronounPossessive upcoming orgasm.
 SourceCharacter сильно концентрируется и может успокоить свой предстоящий оргазм.
-SourceCharacter screams silently and fights hard to finally control her orgasm.
-SourceCharacter тихо кричит и отчаянно борется, чтобы наконец контролировать свой оргазм.
-Even while trembling without much control, SourceCharacter can resist her orgasm.
-Даже дрожа без особого контроля, SourceCharacter может сопротивляться своему оргазму.
-SourceCharacter's body jerks in all directions, but she manages to fight off her orgasm.
-Тело SourceCharacter дергается во все стороны, но ей удается подавить оргазм.
-SourceCharacter meditates and takes deep breathes, resisting her building orgasm.
-Исходный персонаж медитирует и делает глубокие вдохи, сопротивляясь нарастающему оргазму.
-By pure luck or some miracle, SourceCharacter is able to combat her orgasm.
-По чистой случайности или какому-то чуду SourceCharacter может бороться со своим оргазмом.
+SourceCharacter screams silently and fights hard to finally control PronounPossessive orgasm.
+SourceCharacter беззвучно кричит и изо всех сил борется, чтобы наконец-то сдержать свой оргазм.
+Even while trembling without much control, SourceCharacter can resist PronounPossessive orgasm.
+Даже дрожа от нехватки контроля, SourceCharacter может сопротивляться своему оргазму.
+SourceCharacter's body jerks in all directions, but she manages to fight off PronounPossessive orgasm.
+Тело SourceCharacter дергается во всех направлениях, но PronounPossessive удается отбиться от PronounPossessive оргазма.
+SourceCharacter meditates and takes deep breathes, resisting PronounPossessive building orgasm.
+SourceCharacter медитирует и делает глубокие вдохи, сопротивляясь своему оргазму.
+By pure luck or some miracle, SourceCharacter is able to combat PronounPossessive orgasm.
+По чистой удаче или каким-то чудом, SourceCharacter способна/ен бороться с своим оргазмом.
+Kick Foot
+Пнуть ступню
 Kiss Foot
-Поцелуй ноги
+Поцелуй ступни
 Polite Kiss on Foot
-Вежливый поцелуй ноги
+Вежливый поцелуй ступни
 Lick Feet
-Лизать ноги
+Лизнуть ступню
 Suck Big Toe
-Сосать большой палец ноги
+Сосать пальцы на ноге
 Nibble Feet
-Покусывать ноги
+Покусывать ступню
 Tickle Feet
-Щекотать ноги
+Щекотать ногу
 Spank Feet
-Отшлепать ноги
+Выпороть ступню
 Massage Feet
-Массаж ног
+Массаж ступни
 Polish Toenails
 Полировать ногти ног
 Bite Foot
-Укусить ногу
+Укусить ступню
 Wiggle Feet
-Шевелить ногами
+Шевелить ступнями
 Touch Foot with Gag
 Прикоснись к ступне кляпом
 Tickle Sole
@@ -189,37 +201,61 @@ Tickle Sole
 Spank Sole
 Отшлепать подошву
 Play with Feet
-Играть с ногами
+Играть с ступнями
+Pour on Feet
+Капать на ступню
+Roll over Feet
+Катать по ступне
+Rub on Feet
+Потереть о ступню
+Shock Feet
+Шокировать ступню
 Spank Leg
-Отшлепать ногу
+Отшлепать лодыжку
 Caress Legs
-Ласкать ноги
+Ласкать лодыжки
 Massage Legs
-Массаж ног
-Bite Leg
-Укусить ногу
-Wiggle Legs
-Шевелить ногами
-Inject Legs
-Инъекция ног
-Kiss Leg
-Поцелуй ноги
-Touch Leg with Gag
-Коснуться ноги кляпом
-Lick Leg
-Лизать ногу
-Nibble Leg
-Покусывать ногу
-Tickle Leg
-Щекотать ногу
-Caress Leg
-Ласкать ногу
-Massage Leg
-Массаж ноги
+Массаж лодыжек
 Grope Leg
-Ощупать ногу
+Ощупать лодыжку
+Inject Legs
+Инъекция в лодыжку
+Bite Leg
+Укусить лодыжку
+Wiggle Legs
+Шевелить лодыжками
+Kick Legs
+Пнуть лодыжку
+Kiss Leg
+Поцелуй лодыжки
+Touch Leg with Gag
+Коснуться лодыжки кляпом
+Lick Leg
+Лизнуть лодыжку
+Nibble Leg
+Покусывать лодыжку
+Tickle Leg
+Щекотать лодыжку
+Caress Leg
+Ласкать лодыжку
+Massage Leg
+Массаж лодыжки
+Masturbate Leg
+Маструбировать лодыжку
+Pour on Leg
+Капать на лодыжку
+Roll over Leg
+Катать по лодыжке
+Rub on Leg
+Потереть о лодыжку
+Shock Leg
+Шокировать лодыжку
+Spank Legs
+Выпороть лодыжку
 Tickle Thighs
 Щекотать бедра
+Tickle Thigh
+Щекотать бедро
 Spank Thigh
 Отшлепать бедра
 Caress Thighs
@@ -229,13 +265,15 @@ Massage Thighs
 Bite Thigh
 Укус бедра
 Rub Thighs Together
-Потрите бедра вместе
+Потри бедра друг о друга
 Thrash in Bondage
-Трэш в бондаже
+Метаться в бондаже
+Kick Thigh
+Пнуть бедро
 Kiss Thigh
 Поцелуй бедра
 Rub Gag on Thighs
-натирать кляп на бедрах
+Потереть кляп о бедро
 Lick Thigh
 Лизнуть бедро
 Nibble Thighs
@@ -243,19 +281,33 @@ Nibble Thighs
 Spank Thighs
 Отшлепать бедра
 Grope Thigh
-Нащупать бедро
+Ощупать бедро
 Sit in Lap
 Сесть на колени
 Rest Head in Lap
-Положите голову на колени
+Положить голову на колени
+Roll over Thigh
+Катать по бедру
+Rub on Thigh
+Потереть о бедро
+Pour on Thigh
+Капать на бедро
+Shock Thigh
+Шокировать бедро
+Masturbate Thigh
+Маструбировать бедро
+Spank Legs
+Выпороть бедро
 Masturbate Pussy
 Мастурбировать киску
+Masturbate Vulva
+Маструбировать вульву
 Fist Pussy
 Кулак в киску
 Caress Pussy
 Ласкать киску
 Slap Pussy
-Шлепать киску
+Отшлепать киску
 Finger Pussy
 Палец в киску
 Foot Masturbate Pussy
@@ -263,17 +315,27 @@ Foot Masturbate Pussy
 Tongue Masturbate Pussy
 Мастурбировать киску языком
 Slap Pussy Lips
-Шлепать половые губы
+Отшлепать половые губы
+Kick Pussy
+Пнуть киску
 Kiss Pussy Lips
 Поцеловать половые губы
 Push Gag in Pussy
-Толкнуть кляп в киску
+Толкнуть кляпом в киску
 Lick Pussy Lips
 Лизать половые губы
 Nibble Pussy Lips
 Покусывать половые губы
+Shock Vulva
+Шокировать вульву
+Spank Pussy
+Выпороть киску
+Rub on Vulva
+Потереть о вульву
+Tickle Vulva
+Щекотать вульву
 Device on Pussy
-Устройство на киске
+Применить девайс на киску
 Masturbate Clitoris
 Мастурбировать клитор
 Caress Clitoris
@@ -283,11 +345,13 @@ Slap Clitoris
 Inject Clitoris
 Инъекция в клитор
 Finger Clitoris
-Палец Клитор
+Потереть клитор пальцем
 Foot Masturbate Clitoris
 Мастурбация клитора ступнями
 Tongue Masturbate Clitoris
 Мастурбация клитора языком
+Kick Clitoris
+Пнуть клитор
 Kiss Clitoris
 Поцеловать клитор
 Gag Kiss Clitoris
@@ -297,7 +361,15 @@ Lick Clitoris
 Nibble Clitoris
 Покусывать клитор
 Device on Clitoris
-Устройство на клиторе
+Применить девайс на клитор
+Rub on Clitoris
+Потереть о клитор
+Tickle Clitoris
+Щекотать клитор
+Spank Clitoris
+Выпороть клитор
+Shock Clitoris
+Шокировать клитор
 Finger Ass
 Палец в задницу
 Fist Ass
@@ -307,25 +379,39 @@ Spank Butt
 Caress Butt
 Ласкать задницу
 Grope Butt
-Нащупывать задницу
+Ощупывать задницу
 Wiggle Butt
 Покачивание задницой
 Inject Butt
 Инъекция в задницу
 Bite Butt
 Укусить задницу
+Kick Butt
+Пнуть задницу
 Kiss Butt
 Поцеловать задницу
 Rub Gag on Butt
-Натирать заднику кляпом
+Потереть задницу кляпом
 Tongue Masturbate Ass
 Мастурбировать задницу языком
 Press Foot in Ass
-Прижми ногу к заднице
+Наступить ногой на задницу
+Masturbate Butt
+Маструбировать задницу
+Pour on Butt
+Капать на задницу
+Roll over Butt
+Катать по заднице
+Rub on Butt
+Потереть о задницу
+Shock Butt
+Шокировать задницу
+Tickle Butt
+Щекотать задницу
 Tickle Tummy
 Щекотать животик
 Spank Tummy
-Отшлепать живот
+Отшлепать животик
 Caress Tummy
 Ласкать животик
 Pinch Tummy
@@ -334,6 +420,76 @@ Massage Tummy
 Массаж животика
 Wiggle Hips
 Покачивание бедрами
+Caress Penis
+Ласкать пенис
+Take in Penis
+Схватить пенис
+Push Gag in Penis
+Ткнуться кляпом в пенис
+Kick Penis
+Пнуть пенис
+Kiss Penis
+Поцеловать пенис
+Lick Penis
+Лизать пенис
+Foot Masturbate Penis
+Маструбировать ногами пенис
+Masturbate Penis
+Маструбировать пенис
+Device on Penis
+Девайс на пенис
+Tongue Masturbate Penis
+Маструбировать языком пенис
+Nibble Penis
+Покусывать пенис
+Fast Penetration
+Быстрое проникновение
+Slow Penetration
+Медленное проникновение
+Rub on Penis
+Потереть о пенис
+Shock Penis
+Шокировать пенис
+Slap Penis
+Пощечину пенису
+Spank Penis
+Выпороть пенис
+Suck On
+Сосать
+Tickle Penis
+Щекотать пенис
+Caress Glans
+Ласкать головку
+Gag Kiss Glans
+Поцеловать головку кляпом
+Inject Glans
+Инъекция в головку
+Kick Glans
+Пнуть головку
+Kiss Glans
+Поцеловать головку
+Lick Glans
+Лизать головку
+Foot Masturbate Glans
+Маструбировать головку ступнями
+Masturbate Glans
+Маструбировать головку
+Device on Glans
+Девайс на головку
+Tongue Masturbate Glans
+Маструбировать головку языком
+Nibble Glans
+Покусывать головку
+Rub on Glans
+Потереть о головку
+Shock Glans
+Шокировать головку
+Slap Glans
+Пощечина головке
+Spank Glans
+Выпороть головку
+Tickle Glans
+Щекотать головку
 Kiss Tummy
 Поцелуй в животик
 Gag Kiss Tummy
@@ -343,7 +499,17 @@ Lick Tummy
 Nibble Tummy
 Покусывать животик
 Grope Tummy
-Нащупывать животик
+Ощупывать животик
+Shock Tummy
+Шокировать животик
+Pour on Tummy
+Капать на животик
+Rub on Tummy
+Потереть о животик
+Masturbate Tummy
+Маструбировать животик
+Roll over Tummy
+Катать по животику
 Tickle Ribs
 Щекотать ребра
 Spank Ribs
@@ -353,7 +519,7 @@ Caress Ribs
 Massage Back
 Массаж спины
 Wiggle Body
-Покачивание тела
+Покачивать телом
 Bite Back
 Укусить спину
 Kiss Back
@@ -366,12 +532,22 @@ Nibble Ribs
 Покусывать спину
 Spank Back
 Отшлепать спину
+Shock Back
+Шокировать спину
+Rub on Back
+Потереть о спину
+Roll over Back
+Катать по спине
+Pour on Back
+Капать на спину
+Tickle Back
+Щекотать спину
 Caress Back
 Ласкать спину
 Foot Massage Back
 Массаж спины ногами
 Rub Bodies
-Натирание тела
+Потереть тело
 Kiss Nipple
 Поцеловать сосок
 Lick Nipple
@@ -382,16 +558,30 @@ Nibble Nipple
 Покусывать сосок
 Pinch Nipple
 Ущипнуть сосок
+Tickle Nipple
+Щекотать сосок
+Pour on Nipple
+Капать на сосок
+Roll over Nipple
+Катать по соску
+Rub on Nipple
+Потереть о сосок
+Shock Nipple
+Шокировть сосок
+Spank Nipples
+Выпороть сосок
+Masturbate Nipple
+Масрубировать сосок
 Caress Nipple
 Ласкать сосок
 Pull Nipples
-Тянуть соски
+Потянуть за сосок
 Bite Nipple
 Укусить сосок
 Press Gag on Nipple
-Нажать кляпом на сосок
+Надавить кляпом на сосок
 Caress Nipples
-Ласкать соски
+Ласкать сосок
 Kiss Breast
 Поцеловать грудь
 Lick Breast
@@ -400,84 +590,104 @@ Tickle Breast
 Щекотать грудь
 Slap Breast
 Отшлёпать грудь
+Spank Breasts
+Выпороть грудь
 Caress Breast
 Ласкать грудь
 Masturbate Breast
 Мастурбировать грудь
 Grope Breast
-Нащупать грудь
+Ощупать грудь
 Shake Breasts
-Трясти грудью
+Качать грудью
 Inject Breasts
 Иньекция в грудь
 Bite Breast
 Укусить грудь
 Press Gag on Breast
-Нажать кляпом на грудь
+Надавить кляпом на грудь
 Step on Breast
 Наступить на грудь
 Rest Head on Breast
 Положить голову на грудь
+Roll over Breast
+Катать по груди
+Rub on Breast
+Потереть о грудь
+Shock Breast
+Шокировать грудь
+Pour on Breast
+Капать на грудь
+Spank Breast
+Выпороть грудь
 Kiss Arm
-Поцелуй руки
+Поцелуй предплечья
 Lick Arm
-Лизнуть руку
+Лизнуть предплечье
 Nibble Arm
-Покусывать руку
+Покусывать предплечье
 Tickle Arm
-Щекотать руку
+Щекотать предплечье
 Spank Arm
-Отшлёпать руку
+Отшлёпать предплечье
 Pinch Upper Arm
 Ущипнуть предплечье
 Caress Arms
-Ласкать руки
+Ласкать предплечья
 Massage Arms
-Массаж рук
+Массаж предплечей
 Bite Arm
-Укус руку
+Укусить предплечье
 Wiggle Shoulders
 Пошевелить плечами
 Struggle against Binds
-Борьба с биндами
+Борьба с путами
 Inject Arms
-Инъекция в руки
+Инъекция в предплечья
 Rub Gag on Arm
-Натирание рук кляпом
+Потереть предплечье кляпом
 Tickle Arms
-Щекотать руки
+Щекотать предплечья
 Grab Arm
-Захватить руку
+Схватить за предплечье
+Pour on Arm
+Капать на предплечье
+Roll over Arm
+Катать по предплечью
+Rub on Arm
+Потереть о предплечье
+Shock Arm
+Шокировать предплечье
 Kiss Hand
-Поцеловать руку
+Поцеловать кисть
 Small Kiss on Hand
-Короткий поцелуй руки
+Короткий поцелуй кисти
 Lick Back of Hand
-Лизать тыльную сторону руки
+Лизать тыльную сторону кисти
 Suck Fingers
 Сосать пальцы
 Nibble Hand
-Покусывать руку
+Покусывать кисть
 Spank Hand with the Other
-Отшлепать руку другим Other
+Отшлепать кисть другой кистью
 Rub Hands Together
-Потрите руки вместе
+Потри кисти друг о друга
 Polish Nails
 Полировать ногти
 Bite Hand
-Укусить руку
+Укусить кисть
 Wiggle Fingers
 Шевелить пальцами
 Touch Hand with Gag
-Коснуться руки кляпом
+Коснуться кисти кляпом
 Polite Kiss on Hand
-Вежливый поцелуй руки
+Вежливый поцелуй кисти
 Lick Hand
-Лизать руку
+Лизнуть кисть
 Spank Hand
-Отшлёпать руку
+Отшлёпать кисть
 Caress Hand
-Ласкать руку
+Ласкать кисть
 Caress Neck
 Ласкать шею
 Massage Neck
@@ -498,6 +708,12 @@ Lick Neck
 Лизать шею
 Nibble Neck
 Покусывать шею
+Roll over Neck
+Катать по шее
+Rub on Neck
+Потереть о шею
+Shock Neck
+Шокировать в шею
 Choke Neck
 Душить
 Gently Foot on Neck
@@ -505,13 +721,19 @@ Gently Foot on Neck
 Lick Lips
 Облизывать губы
 Nibble Lips
-Покусывать губы
+Прикусить губу
 Clean Mouth
 Очистить рот
 Bite Lips
-Укусить кубы
+Укусить губы
 Clamp Hand over Mouth
-Зажать руку над ртом
+Зажать рот рукой
+Roll over Mouth
+Покатать по рту
+Rub on Mouth
+Потереть о рот
+Tickle Mouth
+Щекотать рот
 Moan
 Стонать (удовольствие)
 Whimper Pleadingly
@@ -519,13 +741,13 @@ Whimper Pleadingly
 Scream Furiously
 Яростно кричать
 Groan Desperately
-Отчаянно стонать
+Стонать от боли
 Giggle
 Хихикать
 Mumble Incoherently
 Бессвязно бормотать
 Kiss Lips
-Поцеловать губы
+Поцеловать в губы
 Kiss on Cheek
 Поцелуй в щеку
 Gag Kiss on Cheek
@@ -541,47 +763,51 @@ Pull Hair
 Pet Head
 Гладить голову
 Shake Head
-Трясти головой
+Помотать головой
 Kiss Forehead
 Поцелуй в лоб
 Gag Kiss Forehead
-Поцеловать в лоб кляпом
+Поцеловать лоб кляпом
 Rub Breast on Face
 Потри грудь о лицо
 Bite Hair
 Кусать волосы
 Rub Foot on Face
-Потрите ногой лицо
+Потри ногой лицо
 Nose-nuzzle
-Нос-мордочка
+Тыкнуться носом в нос
 Boop Nose
-Вздернутый Нос
-Kiss Nose
-Поцеловать нос
+Нажать на нос
 Bump Gag on Nose
-Ударить кляпом нос
+Толкнуться кляпом в нос
 Pinch Nose
-Зажать нос
+Ущипнуть за нос
 Caress Nose
 Ласкать нос
 Pull Nose
-Потяните нос
+Потянуть за нос
 Rub Nose
 Потереть нос
+Rub on Nose
+Потереть об нос
 Nibble Nose
-Грызть нос
+Покусывать нос
 Pinch Nostrils Shut
 Зажать ноздри
 Lick Nose
 Лизать нос
+Kiss Nose
+Поцеловать нос
 Bite Nose
-Укусить нос
+Укусить за нос
 Force to Smell Feet
 Заставить нюхать ноги
 Wiggle Nose
 Шевелить носом
+Tickle Nose
+Щекотать Нос
 Pinch Ear
-Зажать ухо
+Ущипнуть за ухо
 Caress Ear
 Ласкать ухо
 Wiggle Ears
@@ -597,109 +823,187 @@ Lick Ear
 Nibble Ear
 Покусывать ухо
 Whisper in Ear
-Шепот на ухо
+Шептать на ухо
+Rub on Ear
+Потереть об ухо
+Roll over Ear
+Катать по уху
+Tickle Ear
+Щекотать Ухо
 Press Foot on Chest
-Нажмите ногой на грудь
+Надави ногой на грудную клетку
 Rest Feet on Back
-Упирайтесь ногами в спину
-SourceCharacter kisses her foot.
-SourceCharacter целует ногу.
-SourceCharacter gives a small kiss on her foot.
-SourceCharacter слегка целует ногу.
-SourceCharacter licks her own feet.
-SourceCharacter облизывает ноги.
-SourceCharacter sucks on her big toe.
-SourceCharacter сосет большой палец ноги.
-SourceCharacter nibbles her own foot.
-SourceCharacter кусает себя за ногу.
-SourceCharacter tickles her own feet.
-SourceCharacter щекочет собственные ноги.
-SourceCharacter spanks her own feet.
-SourceCharacter шлепает себя по ногам.
-SourceCharacter massages her feet.
-SourceCharacter массирует ноги.
-SourceCharacter cleans and polishes her toenails.
-SourceCharacter чистит и полирует ногти на ногах.
-SourceCharacter bites her foot.
-SourceCharacter кусает ногу.
-SourceCharacter wiggles her feet.
-SourceCharacter шевелит ногами.
+Поставить ноги на спину
+SourceCharacter kisses PronounPossessive foot.
+SourceCharacter целует свою ступню.
+SourceCharacter gives a small kiss on PronounPossessive foot.
+SourceCharacter слегка целует свою ступню.
+SourceCharacter licks PronounPossessive own feet.
+SourceCharacter лижет свою ступню.
+SourceCharacter sucks on PronounPossessive big toe.
+SourceCharacter сосет пальцы на своих ногах.
+SourceCharacter nibbles PronounPossessive own foot.
+SourceCharacter покусывает себя за ступню.
+SourceCharacter tickles PronounPossessive own feet.
+SourceCharacter щекочет собственные ступни.
+SourceCharacter spanks PronounPossessive own feet.
+SourceCharacter шлепает себя по ступне.
+SourceCharacter massages PronounPossessive feet.
+SourceCharacter массирует свои ступни.
+SourceCharacter cleans and polishes PronounPossessive toenails.
+SourceCharacter чистит и полирует ногти на своих ступнях.
+SourceCharacter bites PronounPossessive foot.
+SourceCharacter кусает себя за ступню.
+SourceCharacter wiggles PronounPossessive feet.
+SourceCharacter шевелит своими ступнями.
+SourceCharacter rubs PronounPossessive own feet with PronounPossessive UsedAsset.
+SourceCharacter трет свою ступню с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own feet with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою ступню с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own feet.
+SourceCharacter катает UsedAsset по своей ступне.
+SourceCharacter pours UsedAsset onto PronounPossessive own feet.
+SourceCharacter капает UsedAsset на свою ступню.
+SourceCharacter hits PronounPossessive feet with PronounPossessive UsedAsset.
+SourceCharacter попадает по своей ступне UsedAsset.
+SourceCharacter shocks PronounPossessive own feet with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою ступню с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's foot.
-SourceCharacter кусает TargetCharacter's за ногу.
+SourceCharacter кусает TargetCharacter's за ступню.
 SourceCharacter kisses TargetCharacter's foot.
-SourceCharacter целует ногу TargetCharacter's .
+SourceCharacter целует ступню TargetCharacter's .
 SourceCharacter gives a small and polite kiss on TargetCharacter's foot.
-SourceCharacter слегка и вежливо целует ногу TargetCharacter's .
-SourceCharacter touches TargetCharacter's feet with her gag.
-SourceCharacter касается ног TargetCharacter's своим кляпом.
+SourceCharacter слегка и вежливо целует ступню TargetCharacter's .
+SourceCharacter touches TargetCharacter's feet with PronounPossessive gag.
+SourceCharacter касается ступни TargetCharacter's своим кляпом.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive foot.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive ступне.
 SourceCharacter licks TargetCharacter's foot.
-SourceCharacter лижет ногу TargetCharacter's .
+SourceCharacter лижет ступню TargetCharacter's .
 SourceCharacter sucks on TargetCharacter's big toe.
-SourceCharacter сосет большой палец TargetCharacter's .
+SourceCharacter сосет пальцы на ногах TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's foot.
-SourceCharacter кусает TargetCharacter's за ногу.
+SourceCharacter покусывает TargetCharacter's за ступню.
 SourceCharacter tickles TargetCharacter's foot sole.
 SourceCharacter щекочет ступню TargetCharacter's .
 SourceCharacter spanks TargetCharacter's foot sole.
 SourceCharacter шлепает TargetCharacter's по ступне.
 SourceCharacter massages TargetCharacter's foot.
-SourceCharacter массирует ногу TargetCharacter's .
-SourceCharacter plays with TargetCharacter's feet using her own feet.
-SourceCharacter играет ногами TargetCharacter's , используя свои собственные ноги.
+SourceCharacter массирует ступню TargetCharacter's .
+SourceCharacter plays with TargetCharacter's feet using PronounPossessive own feet.
+SourceCharacter играет своими ступнями с ступнями TargetCharacter's .
 SourceCharacter cleans and polishes TargetCharacter's toenails.
-SourceCharacter чистит и полирует ногти TargetCharacter's .
-SourceCharacter tickles her legs.
-SourceCharacter щекочет ноги.
-SourceCharacter spanks her own leg.
-SourceCharacter шлепает себя по ноге.
-SourceCharacter caresses her legs.
-SourceCharacter ласкает ноги.
-SourceCharacter massages her legs.
-SourceCharacter массирует ноги.
-SourceCharacter bites her leg.
-SourceCharacter кусает ногу.
-SourceCharacter wiggles her legs.
-SourceCharacter шевелит ногами.
-SourceCharacter injects her leg.
-SourceCharacter вводит в ногу инъекцию.
+SourceCharacter чистит и полирует ногти TargetCharacter's на ступнях.
+SourceCharacter tickles TargetCharacter's feet with PronounPossessive UsedAsset.
+SourceCharacter щекочет ступню TargetCharacter's с помощью UsedAsset.
+SourceCharacter rubs TargetCharacter's feet with PronounPossessive UsedAsset.
+SourceCharacter трет ступню TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's feet.
+SourceCharacter катает UsedAsset по ступне TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's feet.
+SourceCharacter капает UsedAsset на ступню TargetCharacter's .
+SourceCharacter hits TargetCharacter's feet with PronounPossessive UsedAsset.
+SourceCharacter попадает по ступне TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's feet with PronounPossessive UsedAsset.
+SourceCharacter шокирует ступню TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive legs.
+SourceCharacter щекочет свои лодыжки.
+SourceCharacter spanks PronounPossessive own leg.
+SourceCharacter шлепает себя по лодыжке.
+SourceCharacter caresses PronounPossessive legs.
+SourceCharacter ласкает свои лодыжки.
+SourceCharacter massages PronounPossessive legs.
+SourceCharacter массирует свои лодыжки.
+SourceCharacter bites PronounPossessive leg.
+SourceCharacter кусает свою лодыжку.
+SourceCharacter wiggles PronounPossessive legs.
+SourceCharacter шевелит своими лодыжками.
+SourceCharacter injects PronounPossessive leg.
+SourceCharacter вводит в свою лодыжку инъекцию.
+SourceCharacter rubs PronounPossessive own leg with PronounPossessive UsedAsset.
+SourceCharacter трет свою лодыжку с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own leg with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свою лодыжку с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own leg with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою лодыжку с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own leg.
+SourceCharacter катает UsedAsset по своей лодыжке.
+SourceCharacter pours UsedAsset onto PronounPossessive own leg.
+SourceCharacter капает UsedAsset на свою лодыжку.
+SourceCharacter hits PronounPossessive leg with PronounPossessive UsedAsset.
+SourceCharacter попадает по своей лодыжке UsedAsset.
+SourceCharacter shocks PronounPossessive own leg with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою лодыжку с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's leg.
-SourceCharacter кусает TargetCharacter's  за ногу.
+SourceCharacter кусает TargetCharacter's  за лодыжку.
 SourceCharacter kisses TargetCharacter's leg.
-SourceCharacter целует ногу TargetCharacter's .
+SourceCharacter целует лодыжку TargetCharacter's .
 SourceCharacter touches her gag to TargetCharacter's leg.
-SourceCharacter прикасается своим кляпом к ноге TargetCharacter's .
+SourceCharacter прикасается своим кляпом к лодыжке TargetCharacter's .
 SourceCharacter licks TargetCharacter's leg.
-SourceCharacter лижет ногу TargetCharacter's .
+SourceCharacter лижет лодыжку TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's leg.
-SourceCharacter откусывает ногу TargetCharacter's .
+SourceCharacter покусывает лодыжку TargetCharacter's .
 SourceCharacter tickles TargetCharacter's leg.
-SourceCharacter щекочет ногу TargetCharacter's .
+SourceCharacter щекочет лодыжку TargetCharacter's .
 SourceCharacter spanks TargetCharacter's leg.
-SourceCharacter шлепает TargetCharacter's по ноге.
+SourceCharacter шлепает TargetCharacter's по лодыжке.
 SourceCharacter caresses TargetCharacter's leg.
-SourceCharacter ласкает ногу TargetCharacter's .
+SourceCharacter ласкает лодыжку TargetCharacter's .
 SourceCharacter massages TargetCharacter's leg.
-SourceCharacter массирует ногу TargetCharacter's .
+SourceCharacter массирует лодыжку TargetCharacter's .
 SourceCharacter gropes TargetCharacter's leg.
-SourceCharacter ощупывает ногу TargetCharacter's .
+SourceCharacter ощупывает лодыжку TargetCharacter's .
 SourceCharacter injects TargetCharacter's leg.
-SourceCharacter вводит в ногу TargetCharacter's инъекцию.
-SourceCharacter tickles her thighs.
+SourceCharacter вводит в лодыжку TargetCharacter's инъекцию.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive leg.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive лодыжке.
+SourceCharacter touches PronounPossessive gag to TargetCharacter's leg.
+SourceCharacter касается своим кляпом лодыжки TargetCharacter's .
+SourceCharacter rubs TargetCharacter's leg with PronounPossessive UsedAsset.
+SourceCharacter трет лодыжку TargetCharacter's с помощью UsedAsset.
+SourceCharacter masturbates TargetCharacter's leg with PronounPossessive UsedAsset.
+SourceCharacter маструбирует лодыжку TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's leg with PronounPossessive UsedAsset.
+SourceCharacter щекочет лодыжку TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's leg.
+SourceCharacter катает UsedAsset по лодыжке TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's leg.
+SourceCharacter капает UsedAsset на лодыжку TargetCharacter's .
+SourceCharacter hits TargetCharacter's feet with PronounPossessive UsedAsset.
+SourceCharacter попадает по лодыжке TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's leg with PronounPossessive UsedAsset.
+SourceCharacter шокирует лодыжку TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive thighs.
 SourceCharacter щекочет свои бедра.
-SourceCharacter spanks her own thigh.
+SourceCharacter spanks PronounPossessive own thigh.
 SourceCharacter шлепает себя по бедру.
-SourceCharacter caresses her thighs.
+SourceCharacter caresses PronounPossessive thighs.
 SourceCharacter ласкает свои бедра.
-SourceCharacter massages her thighs.
+SourceCharacter massages PronounPossessive thighs.
 SourceCharacter массирует свои бедра.
-SourceCharacter bites her thigh.
+SourceCharacter bites PronounPossessive thigh.
 SourceCharacter кусает себя за бедро.
-SourceCharacter rubs her thighs together.
+SourceCharacter rubs PronounPossessive thighs together.
 SourceCharacter потирает бедра друг о друга.
-SourceCharacter thrashes around in her bindings.
-SourceCharacter мечется в своих креплениях.
-SourceCharacter injects her thigh.
+SourceCharacter thrashes around in PronounPossessive bindings.
+SourceCharacter мечется в своих путах.
+SourceCharacter injects PronounPossessive thigh.
 SourceCharacter вводит себе в бедро инъекцию.
+SourceCharacter rubs PronounPossessive own thigh with PronounPossessive UsedAsset.
+SourceCharacter трет свои бедра с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own thigh with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свои бедра с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own thigh with PronounPossessive UsedAsset.
+SourceCharacter щекочет свои бедра с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own thigh.
+SourceCharacter катает UsedAsset по своему бедру.
+SourceCharacter pours UsedAsset onto PronounPossessive own thigh.
+SourceCharacter капает UsedAsset на свое бедро.
+SourceCharacter hits PronounPossessive thigh with PronounPossessive UsedAsset.
+SourceCharacter попадает по своему бедру UsedAsset.
+SourceCharacter shocks PronounPossessive own thigh with PronounPossessive UsedAsset.
+SourceCharacter шокирует свое бедро с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's thigh.
 SourceCharacter кусает TargetCharacter's за бедро.
 SourceCharacter kisses TargetCharacter's thigh.
@@ -709,7 +1013,7 @@ SourceCharacter трет кляпом о бедро TargetCharacter's .
 SourceCharacter licks TargetCharacter's thigh.
 SourceCharacter лижет бедро TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's thigh.
-SourceCharacter кусает TargetCharacter's за бедро.
+SourceCharacter покусывает TargetCharacter's за бедро.
 SourceCharacter tickles TargetCharacter's thigh.
 SourceCharacter щекочет бедро TargetCharacter's .
 SourceCharacter spanks TargetCharacter's thigh.
@@ -721,61 +1025,121 @@ SourceCharacter массирует бедро TargetCharacter's .
 SourceCharacter gropes TargetCharacter's thigh.
 SourceCharacter ощупывает бедро TargetCharacter's .
 SourceCharacter sits in TargetCharacter's lap.
-SourceCharacter сидит на коленях у TargetCharacter's .
-SourceCharacter rests her head in TargetCharacter's lap.
-SourceCharacter кладет голову на колени TargetCharacter's .
+SourceCharacter садится на колени TargetCharacter's .
+SourceCharacter rests PronounPossessive head in TargetCharacter's lap.
+SourceCharacter кладет свою голову на колени TargetCharacter's .
 SourceCharacter injects TargetCharacter's thigh.
 SourceCharacter вводит инъекцию в бедро TargetCharacter's .
-SourceCharacter fists and masturbates her pussy.
-SourceCharacter фистит и мастурбирует свою киску.
-SourceCharacter masturbates her pussy.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive thigh.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive бедру.
+SourceCharacter rubs PronounPossessive gag on TargetCharacter's thigh.
+SourceCharacter трется своим кляпом о бедро TargetCharacter's .
+SourceCharacter rubs TargetCharacter's thigh with PronounPossessive UsedAsset.
+SourceCharacter трет бедро TargetCharacter's с помощью UsedAsset.
+SourceCharacter masturbates TargetCharacter's thigh with PronounPossessive UsedAsset.
+SourceCharacter маструбирует бедро TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's thigh with PronounPossessive UsedAsset.
+SourceCharacter щекочет бедро TargetCharacter's  UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's thigh.
+SourceCharacter катает UsedAsset по бедру TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's thigh.
+SourceCharacter капает UsedAsset на бедро TargetCharacter's .
+SourceCharacter hits TargetCharacter's thigh with PronounPossessive UsedAsset.
+SourceCharacter попадает по бедру TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's thigh with PronounPossessive UsedAsset.
+SourceCharacter шокирует бедро TargetCharacter's с помощью UsedAsset.
+SourceCharacter fists and masturbates PronounPossessive pussy.
+SourceCharacter мастурбирует свою киску кулаком.
+SourceCharacter masturbates PronounPossessive pussy.
 SourceCharacter мастурбирует свою киску.
-SourceCharacter caresses her pussy.
+SourceCharacter caresses PronounPossessive pussy.
 SourceCharacter ласкает свою киску.
-SourceCharacter slaps her pussy.
-SourceCharacter шлепает свою киску.
-SourceCharacter masturbates TargetCharacter's pussy with her fingers.
-SourceCharacter мастурбирует пальцами киску TargetCharacter's .
-SourceCharacter masturbates TargetCharacter's vagina with her full fist.
-SourceCharacter мастурбирует влагалище TargetCharacter's полным кулаком.
-SourceCharacter masturbates TargetCharacter's pussy with her foot.
-SourceCharacter мастурбирует киску TargetCharacter's ногой.
-SourceCharacter masturbates TargetCharacter's pussy with her tongue.
-SourceCharacter мастурбирует языком киску TargetCharacter's .
-SourceCharacter caresses TargetCharacter's pussy with her fingers.
-SourceCharacter ласкает киску TargetCharacter's пальцами.
+SourceCharacter slaps PronounPossessive pussy.
+SourceCharacter шлепает по своей киске.
+SourceCharacter rubs PronounPossessive own vulva with PronounPossessive UsedAsset.
+SourceCharacter трет свою вульву с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own vulva with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свою киску с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own vulva with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою вульву с помощью UsedAsset.
+SourceCharacter hits PronounPossessive pussy with PronounPossessive UsedAsset.
+SourceCharacter попадает по своей киске UsedAsset.
+SourceCharacter shocks PronounPossessive own vulva with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою вульву с помощью UsedAsset.
+SourceCharacter masturbates TargetCharacter's pussy with PronounPossessive fingers.
+SourceCharacter мастурбирует своими пальцами киску TargetCharacter's .
+SourceCharacter masturbates TargetCharacter's vagina with PronounPossessive full fist.
+SourceCharacter мастурбирует влагалище TargetCharacter's своим сжатым кулаком.
+SourceCharacter masturbates TargetCharacter's pussy with PronounPossessive foot.
+SourceCharacter мастурбирует киску TargetCharacter's своей ступней.
+SourceCharacter masturbates TargetCharacter's pussy with PronounPossessive tongue.
+SourceCharacter мастурбирует своим языком киску TargetCharacter's .
+SourceCharacter caresses TargetCharacter's pussy with PronounPossessive fingers.
+SourceCharacter ласкает киску TargetCharacter's своими пальцами.
 SourceCharacter slaps TargetCharacter's pussy lips.
 SourceCharacter шлепает TargetCharacter's по половым губам.
 SourceCharacter kisses TargetCharacter's pussy lips.
 SourceCharacter целует губы киски TargetCharacter's .
-SourceCharacter pushes her gag into TargetCharacter's vagina.
-SourceCharacter засовывает свой кляп во влагалище TargetCharacter's .
+SourceCharacter pushes PronounPossessive gag into TargetCharacter's vagina.
+SourceCharacter нажимает своим кляпом на влагалище TargetCharacter's .
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive pussy.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive киски.
 SourceCharacter licks TargetCharacter's pussy lips.
 SourceCharacter облизывает половые губы TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's pussy lips.
-SourceCharacter кусает губы киски TargetCharacter's .
-SourceCharacter uses the device to masturbate TargetCharacter's pussy lips.
-SourceCharacter использует устройство для мастурбации половых губ TargetCharacter's .
-SourceCharacter penetrates TargetCharacter's vagina at a slow pace.
-SourceCharacter медленно проникает во влагалище TargetCharacter's .
+SourceCharacter покусывает губы киски TargetCharacter's .
+SourceCharacter rubs TargetCharacter's vulva with PronounPossessive UsedAsset.
+SourceCharacter трет вульву TargetCharacter's с помощью UsedAsset.
+SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's pussy lips.
+SourceCharacter использует UsedAsset для мастурбации на половых губах TargetCharacter's .
+SourceCharacter slowly penetrates TargetCharacter's vagina with PronounPossessive UsedAsset.
+SourceCharacter медленно проникает во влагалище TargetCharacter's с помощью UsedAsset.
 SourceCharacter penetrates TargetCharacter's vagina at a fast pace.
 SourceCharacter быстро проникает во влагалище TargetCharacter's .
-SourceCharacter masturbates her clitoris.
+SourceCharacter roughly penetrates TargetCharacter's vagina with PronounPossessive UsedAsset.
+SourceCharacter грубо проникает во влагалище TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's vulva with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою вульву TargetCharacter's с помощью UsedAsset.
+SourceCharacter hits TargetCharacter's pussy with PronounPossessive UsedAsset.
+SourceCharacter попадает по киске TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's vulva with PronounPossessive UsedAsset.
+SourceCharacter шокирует вульву TargetCharacter's с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive clitoris.
 SourceCharacter мастурбирует свой клитор.
-SourceCharacter caresses her clitoris.
-SourceCharacter ласкает ее клитор.
-SourceCharacter slaps her clitoris.
-SourceCharacter шлепает ее клитор.
-SourceCharacter injects her clitoris.
-SourceCharacter вводит ей в клитор инъекцию.
-SourceCharacter masturbates TargetCharacter's clitoris with her fingers.
-SourceCharacter мастурбирует пальцами клитор TargetCharacter's .
-SourceCharacter masturbates TargetCharacter's clitoris with her foot.
-SourceCharacter мастурбирует ногой клитор TargetCharacter's .
-SourceCharacter masturbates TargetCharacter's clitoris with her tongue.
-SourceCharacter мастурбирует языком клитор TargetCharacter's .
-SourceCharacter caresses TargetCharacter's clitoris with her fingers.
-SourceCharacter ласкает пальцами клитор TargetCharacter's .
+SourceCharacter caresses PronounPossessive clitoris.
+SourceCharacter ласкает свой клитор.
+SourceCharacter slaps PronounPossessive clitoris.
+SourceCharacter шлепает свой клитор.
+SourceCharacter rubs PronounPossessive own clitoris with PronounPossessive UsedAsset.
+SourceCharacter трет свой клитор с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own clitoris with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свой клитор с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own clitoris with PronounPossessive UsedAsset.
+SourceCharacter щекочет свой клитор с помощью UsedAsset.
+SourceCharacter hits PronounPossessive clitoris with PronounPossessive UsedAsset.
+SourceCharacter попадает по своему клитору UsedAsset.
+SourceCharacter shocks PronounPossessive own clitoris with PronounPossessive UsedAsset.
+SourceCharacter шокирует свой клитор с помощью UsedAsset.
+SourceCharacter injects PronounPossessive clitoris.
+SourceCharacter вводит в свой клитор инъекцию.
+SourceCharacter masturbates TargetCharacter's clitoris with PronounPossessive fingers.
+SourceCharacter мастурбирует клитор TargetCharacter's своими пальцами.
+SourceCharacter masturbates TargetCharacter's clitoris with PronounPossessive foot.
+SourceCharacter мастурбирует клитор TargetCharacter's своей ногой.
+SourceCharacter masturbates TargetCharacter's clitoris with PronounPossessive tongue.
+SourceCharacter мастурбирует клитор TargetCharacter's своим языком.
+SourceCharacter caresses TargetCharacter's clitoris with PronounPossessive fingers.
+SourceCharacter ласкает клитор TargetCharacter's своими пальцами.
+SourceCharacter rubs TargetCharacter's clitoris with PronounPossessive UsedAsset.
+SourceCharacter трет клитор TargetCharacter's с помощью UsedAsset.
+SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's clitoris.
+SourceCharacter использует UsedAsset чтобы маструбировать клитор TargetCharacter's .
+SourceCharacter tickles TargetCharacter's clitoris with PronounPossessive UsedAsset.
+SourceCharacter щекочет клитор TargetCharacter's с помощью UsedAsset.
+SourceCharacter hits TargetCharacter's clitoris with PronounPossessive UsedAsset.
+SourceCharacter попадает по клитору TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's clitoris with PronounPossessive UsedAsset.
+SourceCharacter шокирует клитор TargetCharacter's с помощью UsedAsset.
 SourceCharacter slaps TargetCharacter's clitoris.
 SourceCharacter шлепает TargetCharacter's по клитору.
 SourceCharacter kisses TargetCharacter's clitoris.
@@ -783,38 +1147,50 @@ SourceCharacter целует клитор TargetCharacter's.
 SourceCharacter gags kiss TargetCharacter's clitoris.
 SourceCharacter целуют клитор TargetCharacter's кляпом.
 SourceCharacter licks TargetCharacter's clitoris.
-SourceCharacter облизывает клитор TargetCharacter's .
+SourceCharacter лижет клитор TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's clitoris.
 SourceCharacter покусывает клитор TargetCharacter's .
 SourceCharacter uses the device to masturbate TargetCharacter's clitoris.
-SourceCharacter использует устройство для мастурбации клитора TargetCharacter's .
+SourceCharacter использует девайс для мастурбации на клиторе TargetCharacter's .
 SourceCharacter injects TargetCharacter's clitoris.
 SourceCharacter вводит в клитор TargetCharacter инъекцию.
-SourceCharacter fists and masturbates her ass.
-SourceCharacter фистит и мастурбирует свою задницу.
-SourceCharacter fingers and masturbates her ass.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive clitoris.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive клитору.
+SourceCharacter fists and masturbates PronounPossessive ass.
+SourceCharacter кулаком мастурбирует свою задницу.
+SourceCharacter fingers and masturbates PronounPossessive ass.
 SourceCharacter пальцами мастурбирует свою задницу.
 SourceCharacter spanks herself on the butt.
 SourceCharacter шлепает себя по заднице.
-SourceCharacter caresses her butt.
+SourceCharacter caresses PronounPossessive butt.
 SourceCharacter ласкает свою задницу.
-SourceCharacter gropes her butt.
+SourceCharacter gropes PronounPossessive butt.
 SourceCharacter ощупывает свою задницу.
-SourceCharacter wiggles her butt.
-SourceCharacter виляет задницей.
-SourceCharacter injects her butt.
+SourceCharacter wiggles PronounPossessive butt.
+SourceCharacter покачивает своей задницей.
+SourceCharacter rubs PronounPossessive own butt with PronounPossessive UsedAsset.
+SourceCharacter трет свою задницу с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own butt with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свою задницу с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own butt with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою задницу с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own butt.
+SourceCharacter катает UsedAsset по своей заднице.
+SourceCharacter pours UsedAsset onto PronounPossessive own butt.
+SourceCharacter капает UsedAsset на свою задницу.
+SourceCharacter injects PronounPossessive butt.
 SourceCharacter вводит себе в задницу инъекцию.
 SourceCharacter bites TargetCharacter's butt.
-SourceCharacter кусает TargetCharacter's за зад.
+SourceCharacter кусает TargetCharacter's за задницу.
 SourceCharacter kisses TargetCharacter's butt.
-SourceCharacter целует TargetCharacter's в зад.
-SourceCharacter rubs her gag on TargetCharacter's butt.
-SourceCharacter трется кляпом о задницу TargetCharacter's .
-SourceCharacter uses her fingers to masturbate TargetCharacter's ass.
+SourceCharacter целует TargetCharacter's в задницу.
+SourceCharacter rubs PronounPossessive gag on TargetCharacter's butt.
+SourceCharacter трется своим кляпом о задницу TargetCharacter's .
+SourceCharacter uses PronounPossessive fingers to masturbate TargetCharacter's ass.
 SourceCharacter использует свои пальцы, чтобы мастурбировать задницу TargetCharacter's .
-SourceCharacter uses her fist to masturbate TargetCharacter's ass.
+SourceCharacter uses PronounPossessive fist to masturbate TargetCharacter's ass.
 SourceCharacter использует свой кулак, чтобы мастурбировать задницу TargetCharacter's .
-SourceCharacter uses her tongue to masturbate TargetCharacter's ass.
+SourceCharacter uses PronounPossessive tongue to masturbate TargetCharacter's ass.
 SourceCharacter использует свой язык, чтобы мастурбировать задницу TargetCharacter's .
 SourceCharacter spanks TargetCharacter's butt.
 SourceCharacter шлепает по заднице TargetCharacter's .
@@ -826,30 +1202,68 @@ SourceCharacter penetrates TargetCharacter's butt at a slow pace.
 SourceCharacter медленно проникает в зад TargetCharacter's .
 SourceCharacter penetrates TargetCharacter's butt at a fast pace.
 SourceCharacter проникает в задницу TargetCharacter's в быстром темпе.
-SourceCharacter presses her foot into TargetCharacter's ass.
-SourceCharacter упирается ногой в задницу TargetCharacter's .
+SourceCharacter slowly penetrates TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter медленно проникает в задницу TargetCharacter's с помощью UsedAsset.
+SourceCharacter roughly penetrates TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter грубо проникает в задницу TargetCharacter's с помощью UsedAsset.
+SourceCharacter presses PronounPossessive foot into TargetCharacter's ass.
+SourceCharacter надавливает своей ногой на задницу TargetCharacter's .
+SourceCharacter rubs TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter трет задницу TargetCharacter's с помощью UsedAsset.
+SourceCharacter masturbates TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter маструбирует задницу TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter щекочет задницу TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's butt.
+SourceCharacter катает UsedAsset по заднице TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's butt.
+SourceCharacter капает UsedAsset на задницу TargetCharacter's .
+SourceCharacter hits TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter попадает по заднице TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's butt with PronounPossessive UsedAsset.
+SourceCharacter шокирует задницу TargetCharacter's с помощью UsedAsset.
+SourceCharacter hits PronounPossessive butt with PronounPossessive UsedAsset.
+SourceCharacter попадает по своей заднице UsedAsset.
+SourceCharacter shocks PronounPossessive own butt with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою задницу с помощью UsedAsset.
 SourceCharacter injects TargetCharacter's butt.
 SourceCharacter вводит в задницу TargetCharacter's инъекцию.
-SourceCharacter tickles her own tummy.
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive butt.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive заднице.
+SourceCharacter tickles PronounPossessive own tummy.
 SourceCharacter щекочет собственный животик.
-SourceCharacter spanks her own tummy.
+SourceCharacter spanks PronounPossessive own tummy.
 SourceCharacter шлепает себя по животу.
-SourceCharacter caresses her tummy.
-SourceCharacter ласкает свой живот.
-SourceCharacter pinches her own tummy.
-SourceCharacter щиплет себя за живот.
-SourceCharacter massages her tummy.
-SourceCharacter массирует живот.
-SourceCharacter wiggles her hips.
-SourceCharacter покачивает бедрами.
+SourceCharacter caresses PronounPossessive tummy.
+SourceCharacter ласкает свой животик.
+SourceCharacter pinches PronounPossessive own tummy.
+SourceCharacter щипает себя за животик.
+SourceCharacter massages PronounPossessive tummy.
+SourceCharacter массирует свой животик.
+SourceCharacter wiggles PronounPossessive hips.
+SourceCharacter покачивает своими бедрами.
+SourceCharacter rubs PronounPossessive own tummy with PronounPossessive UsedAsset.
+SourceCharacter трет свой живот с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own tummy with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свой живот с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own tummy with PronounPossessive UsedAsset.
+SourceCharacter щекочет свой живот с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own tummy.
+SourceCharacter катает UsedAsset по своему животику.
+SourceCharacter pours UsedAsset onto PronounPossessive own tummy.
+SourceCharacter капает UsedAsset на свой животик.
+SourceCharacter hits PronounPossessive tummy with PronounPossessive UsedAsset.
+SourceCharacter попадает по своему животику UsedAsset.
+SourceCharacter shocks PronounPossessive own tummy with PronounPossessive UsedAsset.
+SourceCharacter шокирует свой животик с помощьюe UsedAsset.
 SourceCharacter kisses TargetCharacter's tummy.
 SourceCharacter целует животик TargetCharacter's .
 SourceCharacter gives a gagged kiss on TargetCharacter's tummy.
-SourceCharacter целует TargetCharacter's в живот с кляпом во рту.
+SourceCharacter целует кляпом живот TargetCharacter's .
 SourceCharacter licks TargetCharacter's tummy.
 SourceCharacter лижет животик TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's tummy.
-SourceCharacter кусает животик TargetCharacter's .
+SourceCharacter покусывает животик TargetCharacter's .
 SourceCharacter tickles TargetCharacter's tummy.
 SourceCharacter щекочет животик TargetCharacter's .
 SourceCharacter spanks TargetCharacter's tummy.
@@ -857,105 +1271,191 @@ SourceCharacter шлепает TargetCharacter's по животу.
 SourceCharacter caresses TargetCharacter's tummy.
 SourceCharacter гладит животик TargetCharacter's .
 SourceCharacter pinches TargetCharacter's tummy.
-SourceCharacter щиплет TargetCharacter's за живот.
+SourceCharacter щипает TargetCharacter's за живот.
 SourceCharacter massages TargetCharacter's tummy.
 SourceCharacter массирует животик TargetCharacter's .
 SourceCharacter gropes TargetCharacter's tummy.
 SourceCharacter ощупывает животик TargetCharacter's .
-SourceCharacter tickles her own ribs.
-SourceCharacter щекочет себе ребра.
-SourceCharacter spanks her own ribs.
+SourceCharacter presses PronounPossessive foot into TargetCharacter's chest.
+SourceCharacter наступает своей ногой на груждную клетку TargetCharacter's .
+SourceCharacter masturbates TargetCharacter's tummy with PronounPossessive UsedAsset.
+SourceCharacter маструбирует животик TargetCharacter's с помощью UsedAsset.
+SourceCharacter rubs TargetCharacter's tummy with PronounPossessive UsedAsset.
+SourceCharacter трет животик TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's tummy with PronounPossessive UsedAsset.
+SourceCharacter щекочет животик TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's tummy.
+SourceCharacter катает UsedAsset по животику TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's tummy.
+SourceCharacter капает UsedAsset на животик TargetCharacter's .
+SourceCharacter hits TargetCharacter's tummy with PronounPossessive UsedAsset.
+SourceCharacter попадает по животику TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's tummy with PronounPossessive UsedAsset.
+SourceCharacter шокирует животик TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own ribs.
+SourceCharacter щекочет свои ребра.
+SourceCharacter spanks PronounPossessive own ribs.
 SourceCharacter шлепает себя по ребрам.
-SourceCharacter caresses her ribs.
+SourceCharacter caresses PronounPossessive ribs.
 SourceCharacter ласкает свои ребра.
-SourceCharacter massages her back.
+SourceCharacter massages PronounPossessive back.
 SourceCharacter массирует свою спину.
-SourceCharacter wiggles her body.
+SourceCharacter wiggles PronounPossessive body.
 SourceCharacter покачивает своим телом.
+SourceCharacter rubs PronounPossessive own back with PronounPossessive UsedAsset.
+SourceCharacter трет свою спину с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own back with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою спину с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own back.
+SourceCharacter катает UsedAsset по своей спине.
+SourceCharacter pours UsedAsset onto PronounPossessive own back.
+SourceCharacter капает UsedAsset на свою спину.
+SourceCharacter hits PronounPossessive ribs with PronounPossessive UsedAsset.
+SourceCharacter попадает по своим ребрам UsedAsset.
+SourceCharacter shocks PronounPossessive own back with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою спину с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's back.
 SourceCharacter кусает TargetCharacter's за спину.
 SourceCharacter kisses TargetCharacter's back.
 SourceCharacter целует спину TargetCharacter's .
 SourceCharacter gives a gagged kiss on TargetCharacter's back.
-SourceCharacter целует TargetCharacter's в спину с кляпом во рту.
+SourceCharacter целует кляпом спину TargetCharacter's .
 SourceCharacter licks TargetCharacter's back.
 SourceCharacter лижет спину TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's ribs.
-SourceCharacter грызет ребра TargetCharacter's .
+SourceCharacter покусывает ребра TargetCharacter's .
 SourceCharacter tickles TargetCharacter's ribs.
 SourceCharacter щекочет ребра TargetCharacter's .
 SourceCharacter spanks TargetCharacter's back.
 SourceCharacter шлепает TargetCharacter's по спине.
 SourceCharacter caresses TargetCharacter's back.
 SourceCharacter гладит спину TargetCharacter's .
-SourceCharacter massages TargetCharacter's back with her hands.
-SourceCharacter массирует спину TargetCharacter's руками.
-SourceCharacter massages TargetCharacter's back with her feet.
-SourceCharacter массирует спину TargetCharacter's ногами.
-SourceCharacter rubs her body against TargetCharacter's body.
+SourceCharacter massages TargetCharacter's back with PronounPossessive hands.
+SourceCharacter массирует спину TargetCharacter's своими руками.
+SourceCharacter massages TargetCharacter's back with PronounPossessive feet.
+SourceCharacter массирует спину TargetCharacter's  своими ногами.
+SourceCharacter rubs PronounPossessive body against TargetCharacter's body.
 SourceCharacter трется своим телом о тело TargetCharacter's.
-SourceCharacter kisses her own nipple.
+SourceCharacter rests PronounPossessive feet on TargetCharacter's back.
+SourceCharacter кладет свои ноги на спину TargetCharacter's .
+SourceCharacter rubs TargetCharacter's back with PronounPossessive UsedAsset.
+SourceCharacter трет спину TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's back with PronounPossessive UsedAsset.
+SourceCharacter щекочет спину TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's back.
+SourceCharacter катает UsedAsset по спине TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's back.
+SourceCharacter капает UsedAsset на спину TargetCharacter's .
+SourceCharacter hits TargetCharacter's back with PronounPossessive UsedAsset.
+SourceCharacter попадает по спине TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's back with PronounPossessive UsedAsset.
+SourceCharacter шокирует спину TargetCharacter's с помощью UsedAsset.
+SourceCharacter kisses PronounPossessive own nipple.
 SourceCharacter целует свой сосок.
-SourceCharacter licks her own nipple.
+SourceCharacter licks PronounPossessive own nipple.
 SourceCharacter облизывает свой сосок.
-SourceCharacter sucks on her own nipple.
+SourceCharacter sucks on PronounPossessive own nipple.
 SourceCharacter сосет свой сосок.
-SourceCharacter nibbles her own nipple.
-SourceCharacter кусает свой сосок.
-SourceCharacter pinches her own nipple.
-SourceCharacter ущипнула себя за сосок.
-SourceCharacter caresses her nipples.
-SourceCharacter ласкает ее соски.
-SourceCharacter pulls her nipples.
-SourceCharacter теребит свои соски.
+SourceCharacter nibbles PronounPossessive own nipple.
+SourceCharacter покусывает свой сосок.
+SourceCharacter pinches PronounPossessive own nipple.
+SourceCharacter щипает себя за сосок.
+SourceCharacter caresses PronounPossessive nipples.
+SourceCharacter ласкает свои соски.
+SourceCharacter pulls PronounPossessive nipples.
+SourceCharacter оттягивает свой сосок.
+SourceCharacter rubs PronounPossessive own nipple with PronounPossessive UsedAsset.
+SourceCharacter трет свой сосок с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own nipple with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свой сосок с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own nipple with PronounPossessive UsedAsset.
+SourceCharacter щекочет свой сосок с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own nipple.
+SourceCharacter катает UsedAsset по своему соску.
+SourceCharacter pours UsedAsset onto PronounPossessive own nipple.
+SourceCharacter капает UsedAsset на свой сосок.
+SourceCharacter hits PronounPossessive own nipple with PronounPossessive UsedAsset.
+SourceCharacter попадает по своему соску UsedAsset.
+SourceCharacter shocks PronounPossessive own nipple with PronounPossessive UsedAsset.
+SourceCharacter шокирует свой сосок с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's nipple.
 SourceCharacter кусает TargetCharacter's за сосок.
 SourceCharacter pulls TargetCharacter's nipples.
 SourceCharacter тянет соски TargetCharacter's .
 SourceCharacter kisses TargetCharacter's nipple.
 SourceCharacter целует сосок TargetCharacter's .
-SourceCharacter presses her gag to TargetCharacter's nipple.
-SourceCharacter прижимает кляп к соску TargetCharacter's .
+SourceCharacter presses PronounPossessive gag to TargetCharacter's nipple.
+SourceCharacter прижимает свой кляп к соску TargetCharacter's .
 SourceCharacter licks TargetCharacter's nipple.
 SourceCharacter лижет сосок TargetCharacter's .
 SourceCharacter sucks on TargetCharacter's nipple.
 SourceCharacter сосет сосок TargetCharacter's .
 SourceCharacter nibbles on TargetCharacter's nipple.
-SourceCharacter кусает сосок TargetCharacter's .
+SourceCharacter покусывает сосок TargetCharacter's .
 SourceCharacter pinches TargetCharacter's nipple.
 SourceCharacter сжимает сосок TargetCharacter's.
 SourceCharacter caresses TargetCharacter's nipples.
 SourceCharacter ласкает соски TargetCharacter's .
-SourceCharacter kisses her own breast.
+SourceCharacter rubs TargetCharacter's nipple with PronounPossessive UsedAsset.
+SourceCharacter трет сосок TargetCharacter's с помощью UsedAsset.
+SourceCharacter masturbates TargetCharacter's nipple with PronounPossessive UsedAsset.
+SourceCharacter маструбирует сосок TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's nipple with PronounPossessive UsedAsset.
+SourceCharacter щекочет сосок TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's nipple.
+SourceCharacter катает UsedAsset по соску TargetCharacter's 
+SourceCharacter pours UsedAsset onto TargetCharacter's nipple.
+SourceCharacter капает UsedAsset на сосок TargetCharacter's .
+SourceCharacter hits TargetCharacter's nipple with PronounPossessive UsedAsset.
+SourceCharacter попадает по соску TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's nipple with PronounPossessive UsedAsset.
+SourceCharacter шокирует сосок TargetCharacter's с помощью UsedAsset.
+SourceCharacter kisses PronounPossessive own breast.
 SourceCharacter целует свою грудь.
-SourceCharacter licks her own breast.
+SourceCharacter licks PronounPossessive own breast.
 SourceCharacter лижет свою грудь.
-SourceCharacter tickles her own breast.
-SourceCharacter щекочет собственную грудь.
-SourceCharacter slaps her own breast.
-SourceCharacter хлопает себя по груди.
-SourceCharacter caresses her own breast.
+SourceCharacter tickles PronounPossessive own breast.
+SourceCharacter щекочет свою грудь.
+SourceCharacter slaps PronounPossessive own breast.
+SourceCharacter шлепает себя по груди.
+SourceCharacter caresses PronounPossessive own breast.
 SourceCharacter ласкает свою грудь.
-SourceCharacter masturbates her own breast.
-SourceCharacter мастурбирует собственную грудь.
-SourceCharacter gropes her own breast.
+SourceCharacter masturbates PronounPossessive own breast.
+SourceCharacter мастурбирует свою грудь.
+SourceCharacter gropes PronounPossessive own breast.
 SourceCharacter ощупывает свою грудь.
-SourceCharacter shakes her breasts around.
-SourceCharacter встряхивает грудью.
-SourceCharacter injects her breast.
+SourceCharacter shakes PronounPossessive breasts around.
+SourceCharacter покачивает своей грудью.
+SourceCharacter rubs PronounPossessive own breast with PronounPossessive UsedAsset.
+SourceCharacter трет свою грудь с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive own breast with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свою грудь с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own breast with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою грудь с помощью UsedAsset.
+SourceCharacter rubs PronounPossessive own breast with PronounPossessive UsedAsset.
+SourceCharacter трет свою грудь с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own breast.
+SourceCharacter катает UsedAsset по своей груди.
+SourceCharacter pours UsedAsset onto PronounPossessive own breast.
+SourceCharacter капает UsedAsset себе на грудь.
+SourceCharacter hits PronounPossessive breast with PronounPossessive UsedAsset.
+SourceCharacter попадает себе по груди UsedAsset.
+SourceCharacter shocks PronounPossessive own breast with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою грудь с помощью UsedAsset.
+SourceCharacter injects PronounPossessive breast.
 SourceCharacter вводит себе в грудь инъекцию.
 SourceCharacter bites TargetCharacter's breast.
 SourceCharacter кусает TargetCharacter's за грудь.
 SourceCharacter kisses TargetCharacter's breast.
 SourceCharacter целует грудь TargetCharacter's .
-SourceCharacter presses her gag to TargetCharacter's breast.
-SourceCharacter прижимает кляп к груди TargetCharacter's .
+SourceCharacter presses PronounPossessive gag to TargetCharacter's breast.
+SourceCharacter прижимает свой кляп к груди TargetCharacter's .
 SourceCharacter licks TargetCharacter's breast.
 SourceCharacter лижет грудь TargetCharacter's .
 SourceCharacter tickles TargetCharacter's breast.
 SourceCharacter щекочет грудь TargetCharacter's .
 SourceCharacter slaps TargetCharacter's breast.
-SourceCharacter хлопает TargetCharacter's по груди.
+SourceCharacter шлепает TargetCharacter's по груди.
 SourceCharacter caresses TargetCharacter's breast.
 SourceCharacter ласкает грудь TargetCharacter's .
 SourceCharacter masturbates TargetCharacter's breast.
@@ -964,198 +1464,269 @@ SourceCharacter gropes TargetCharacter's breast.
 SourceCharacter ощупывает грудь TargetCharacter's .
 SourceCharacter steps on TargetCharacter's breast.
 SourceCharacter наступает на грудь TargetCharacter's .
-SourceCharacter rests her head on TargetCharacter's breasts.
-SourceCharacter кладет голову на грудь TargetCharacter's .
+SourceCharacter rests PronounPossessive head on TargetCharacter's breasts.
+SourceCharacter кладет свою голову на грудь TargetCharacter's .
+SourceCharacter rubs TargetCharacter's breast with PronounPossessive UsedAsset.
+SourceCharacter трет грудь TargetCharacter's с помощью UsedAsset.
+SourceCharacter masturbates TargetCharacter's breast with PronounPossessive UsedAsset.
+SourceCharacter маструбирует грудь TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's breast with PronounPossessive UsedAsset.
+SourceCharacter щекочет грудь TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's breast.
+SourceCharacter катает UsedAsset по груди TargetCharacter's .
+SourceCharacter pours UsedAsset onto TargetCharacter's breast.
+SourceCharacter капает UsedAsset на грудь TargetCharacter's .
+SourceCharacter hits TargetCharacter's breast with PronounPossessive UsedAsset.
+SourceCharacter попадает по груди TargetCharacter's  UsedAsset.
+SourceCharacter shocks TargetCharacter's breast with PronounPossessive UsedAsset.
+SourceCharacter шокирует грудь TargetCharacter's с помощью UsedAsset.
 SourceCharacter injects TargetCharacter's breast.
 SourceCharacter вводит в грудь TargetCharacter's инъекцию.
-SourceCharacter kisses her own arm.
-SourceCharacter целует собственную руку.
-SourceCharacter licks her own arm.
-SourceCharacter облизывает собственную руку.
-SourceCharacter nibbles her own arm.
-SourceCharacter кусает себя за руку.
-SourceCharacter tickles her arms.
-SourceCharacter щекочет свои руки.
-SourceCharacter spanks her own arm.
-SourceCharacter шлепает себя по руке.
-SourceCharacter pinches her upper arm.
-SourceCharacter щиплет себя за плечо.
-SourceCharacter caresses her arms.
-SourceCharacter ласкает свои руки.
-SourceCharacter massages her arms.
-SourceCharacter массирует руки.
-SourceCharacter bites her arm.
-SourceCharacter кусает себя за руку.
-SourceCharacter wiggles her shoulders.
-SourceCharacter качает плечами.
-SourceCharacter struggles against her bindings.
-SourceCharacter борется со своими ограничениями.
-SourceCharacter injects her arm.
-SourceCharacter вводит себе в руку инъекцию.
+SourceCharacter kisses PronounPossessive own arm.
+SourceCharacter целует собственное преплечье.
+SourceCharacter licks PronounPossessive own arm.
+SourceCharacter облизывает собственное преплечье.
+SourceCharacter nibbles PronounPossessive own arm.
+SourceCharacter покусывает себя за предплечье.
+SourceCharacter tickles PronounPossessive arms.
+SourceCharacter щекочет собственное преплечье.
+SourceCharacter spanks PronounPossessive own arm.
+SourceCharacter шлепает себя по предплечью.
+SourceCharacter pinches PronounPossessive upper arm.
+SourceCharacter щипает себя за преплечье.
+SourceCharacter caresses PronounPossessive arms.
+SourceCharacter ласкает свои предплечья.
+SourceCharacter massages PronounPossessive arms.
+SourceCharacter массирует свои предплечья.
+SourceCharacter bites PronounPossessive arm.
+SourceCharacter кусает себя за предплечья.
+SourceCharacter wiggles PronounPossessive shoulders.
+SourceCharacter покачивает плечами.
+SourceCharacter struggles against PronounPossessive bindings.
+SourceCharacter борется со своими путами.
+SourceCharacter rubs PronounPossessive own arm with PronounPossessive UsedAsset.
+SourceCharacter трет свое предплечье с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own arm with PronounPossessive UsedAsset.
+SourceCharacter щекочет свое предплечье с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own arm.
+SourceCharacter катает UsedAsset по своему предплечью.
+SourceCharacter pours UsedAsset onto PronounPossessive own arm.
+SourceCharacter капает UsedAsset на свое предплечье.
+SourceCharacter shocks PronounPossessive own arm with PronounPossessive UsedAsset.
+SourceCharacter шокирует свое предплечье UsedAsset.
+SourceCharacter hits PronounPossessive arm with PronounPossessive UsedAsset.
+SourceCharacter попадает по своему предплечью UsedAsset.
+SourceCharacter injects PronounPossessive arm.
+SourceCharacter вводит себе в предплечье инъекцию.
 SourceCharacter bites TargetCharacter's arm.
-SourceCharacter кусает TargetCharacter's за руку.
+SourceCharacter кусает TargetCharacter's за предплечье.
 SourceCharacter kisses TargetCharacter's arm.
-SourceCharacter целует руку TargetCharacter's .
-SourceCharacter rubs her gag on TargetCharacter's arm.
-SourceCharacter трет кляпом руку TargetCharacter's .
+SourceCharacter целует предплечье TargetCharacter's .
+SourceCharacter rubs PronounPossessive gag on TargetCharacter's arm.
+SourceCharacter касается кляпом предплечья TargetCharacter's .
 SourceCharacter licks TargetCharacter's arm.
-SourceCharacter лижет руку TargetCharacter's .
+SourceCharacter лижет предплечье TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's arm.
-SourceCharacter кусает TargetCharacter's за руку.
+SourceCharacter покусывает TargetCharacter's за предплечье.
 SourceCharacter tickles TargetCharacter's arms.
-SourceCharacter щекочет руки TargetCharacter's .
+SourceCharacter щекочет предплечье TargetCharacter's .
 SourceCharacter spanks TargetCharacter's arm.
-SourceCharacter шлепает TargetCharacter's по руке.
+SourceCharacter шлепает TargetCharacter's по предплечью.
 SourceCharacter pinches TargetCharacter's upper arm.
-SourceCharacter сжимает плечо TargetCharacter's .
+SourceCharacter щипает предплечье TargetCharacter's .
 SourceCharacter caresses TargetCharacter's arms.
-SourceCharacter ласкает руки TargetCharacter's .
+SourceCharacter ласкает предплечье TargetCharacter's .
 SourceCharacter massages TargetCharacter's arms.
-SourceCharacter массирует руки TargetCharacter's .
+SourceCharacter массирует предплечье TargetCharacter's .
 SourceCharacter grabs TargetCharacter's arm firmly.
-SourceCharacter крепко хватает TargetCharacter's за руку.
+SourceCharacter крепко хватает TargetCharacter's за предплечье.
 SourceCharacter cuddles with TargetCharacter.
 SourceCharacter обнимается с TargetCharacter.
 SourceCharacter injects TargetCharacter's arm.
-SourceCharacter вводит в руку TargetCharacter's инъекцию.
-SourceCharacter kisses her own hand.
-SourceCharacter целует собственную руку.
-SourceCharacter gives a small kiss on her hand.
-SourceCharacter слегка целует свою руку.
-SourceCharacter licks the back of her hand.
-SourceCharacter облизывает тыльную сторону ладони.
-SourceCharacter sucks on her fingers.
-SourceCharacter сосет пальцы.
-SourceCharacter nibbles her own hand.
-SourceCharacter кусает свою руку.
-SourceCharacter spanks her first hand with the second one.
-SourceCharacter шлепает свою первую руку второй.
-SourceCharacter rubs her hands together.
-SourceCharacter потирает руки.
-SourceCharacter cleans and polishes her nails.
-SourceCharacter чистит и полирует ногти.
+SourceCharacter вводит в предплечье TargetCharacter's инъекцию.
+SourceCharacter pours UsedAsset onto TargetCharacter's arm.
+SourceCharacter капает UsedAsset на предплечье TargetCharacter's .
+SourceCharacter rolls a UsedAsset over TargetCharacter's arm.
+SourceCharacter катает UsedAsset по предплечью TargetCharacter's .
+SourceCharacter rubs TargetCharacter's arm with PronounPossessive UsedAsset.
+SourceCharacter трет предплечье TargetCharacter's с помощью UsedAsset.
+SourceCharacter shocks TargetCharacter's arm with PronounPossessive UsedAsset.
+SourceCharacter шокирует предплечье TargetCharacter's с помощью UsedAsset.
+SourceCharacter hits TargetCharacter's arm with PronounPossessive UsedAsset.
+SourceCharacter попадает по предплечью TargetCharacter's  UsedAsset.
+SourceCharacter tickles TargetCharacter's arm with PronounPossessive UsedAsset.
+SourceCharacter щекочет предплечье TargetCharacter's с помощью UsedAsset.
+SourceCharacter kisses PronounPossessive own hand.
+SourceCharacter целует собственную кисть.
+SourceCharacter nibbles PronounPossessive own hand.
+SourceCharacter покусывает свою кисть.
+SourceCharacter licks the back of PronounPossessive hand.
+SourceCharacter лижет тыльную сторону своей кисти.
+SourceCharacter sucks on PronounPossessive fingers.
+SourceCharacter сосет свои пальцы.
+SourceCharacter bites PronounPossessive hand.
+SourceCharacter кусает свою кисть
+SourceCharacter gives a small kiss on PronounPossessive hand.
+SourceCharacter легонько целует свою кисть.
+SourceCharacter spanks PronounPossessive first hand with the second one.
+SourceCharacter шлепает свою кисть другой ладонью.
+SourceCharacter rubs PronounPossessive hands together.
+SourceCharacter потирает свои руки.
+SourceCharacter cleans and polishes PronounPossessive nails.
+SourceCharacter чистит и полирует свои ногти на руках.
 SourceCharacter bites her hand.
-SourceCharacter кусает ее за руку.
-SourceCharacter wiggles her fingers
-SourceCharacter шевелит пальцами
+SourceCharacter кусает себя за кисть.
+SourceCharacter wiggles PronounPossessive fingers
+SourceCharacter шевелит своими пальцами
 SourceCharacter bites TargetCharacter's hand.
-SourceCharacter кусает TargetCharacter's за руку.
+SourceCharacter кусает TargetCharacter's за кисть.
 SourceCharacter kisses TargetCharacter's hand.
-SourceCharacter целует руку TargetCharacter's.
-SourceCharacter touches her gag to TargetCharacter's hand.
-SourceCharacter прикасается своим кляпом к руке TargetCharacter's .
+SourceCharacter целует кисть TargetCharacter's.
+SourceCharacter touches PronounPossessive gag to TargetCharacter's hand.
+SourceCharacter прикасается своим кляпом к кисти TargetCharacter's .
 SourceCharacter politely kisses TargetCharacter's hand.
-SourceCharacter вежливо целует руку TargetCharacter's .
+SourceCharacter вежливо целует кисть TargetCharacter's .
 SourceCharacter licks TargetCharacter's hand.
-SourceCharacter лижет руку TargetCharacter's .
+SourceCharacter лижет кисть TargetCharacter's .
 SourceCharacter sucks on TargetCharacter's fingers.
 SourceCharacter сосет пальцы TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's hand.
-SourceCharacter покусывает руку TargetCharacter's .
+SourceCharacter покусывает кисть TargetCharacter's .
 SourceCharacter spanks TargetCharacter's hand.
-SourceCharacter шлепает TargetCharacter's по руке.
+SourceCharacter шлепает TargetCharacter's по кисти.
 SourceCharacter caresses TargetCharacter's hand.
-SourceCharacter гладит руку TargetCharacter's .
+SourceCharacter гладит кисть TargetCharacter's .
 SourceCharacter cleans and polishes TargetCharacter's nails.
-SourceCharacter чистит и полирует ногти TargetCharacter's .
-SourceCharacter caresses her neck.
+SourceCharacter чистит и полирует ногти TargetCharacter's на руках.
+SourceCharacter caresses PronounPossessive neck.
 SourceCharacter ласкает свою шею.
-SourceCharacter massages her neck.
+SourceCharacter massages PronounPossessive neck.
 SourceCharacter массирует свою шею.
 SourceCharacter chokes herself.
 SourceCharacter душит себя.
-SourceCharacter tickles her neck.
+SourceCharacter tickles PronounPossessive neck.
 SourceCharacter щекочет себе шею.
-SourceCharacter injects her neck.
+SourceCharacter rubs PronounPossessive own neck with PronounPossessive UsedAsset.
+SourceCharacter трет свою шею с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own neck with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою шею с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own neck.
+SourceCharacter катает UsedAsset по своей шее.
+SourceCharacter injects PronounPossessive neck.
 SourceCharacter делает инъекцию себе в шею.
+SourceCharacter shocks PronounPossessive own neck with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою шею с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's neck.
 SourceCharacter кусает TargetCharacter's за шею.
 SourceCharacter kisses TargetCharacter's neck.
 SourceCharacter целует TargetCharacter's в шею.
-SourceCharacter touches her gag to TargetCharacter's neck.
+SourceCharacter touches PronounPossessive gag to TargetCharacter's neck.
 SourceCharacter прикасается своим кляпом к шее TargetCharacter's .
 SourceCharacter licks TargetCharacter's neck.
 SourceCharacter лижет шею TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's neck.
-SourceCharacter кусает TargetCharacter's за шею.
+SourceCharacter покусывает TargetCharacter's за шею.
 SourceCharacter caresses TargetCharacter's neck.
 SourceCharacter ласкает шею TargetCharacter's .
 SourceCharacter massages TargetCharacter's neck.
 SourceCharacter массирует шею TargetCharacter's .
 SourceCharacter chokes TargetCharacter's neck.
 SourceCharacter душит TargetCharacter's за шею.
-SourceCharacter gently places her foot over TargetCharacter's neck.
-SourceCharacter осторожно кладет ногу на шею TargetCharacter's .
+SourceCharacter rubs TargetCharacter's neck with PronounPossessive UsedAsset.
+SourceCharacter трет шею TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's neck with PronounPossessive UsedAsset.
+SourceCharacter щекочет шею TargetCharacter's с помощью UsedAsset.
+SourceCharacter shocks TargetCharacter's neck with PronounPossessive UsedAsset.
+SourceCharacter шокирует шею TargetCharacter's с помощью UsedAsset.
+SourceCharacter катает UsedAsset по шее TargetCharacter's .
+SourceCharacter rolls a UsedAsset over TargetCharacter's neck.
+SourceCharacter катает UsedAsset по шее TargetCharacter's .
+SourceCharacter gently places PronounPossessive foot over TargetCharacter's neck.
+SourceCharacter нежно ставит свою ногу на шею TargetCharacter's .
 SourceCharacter tickles TargetCharacter's neck.
 SourceCharacter щекочет шею TargetCharacter's .
 SourceCharacter injects TargetCharacter's neck.
 SourceCharacter вводит в шею TargetCharacter's инъекцию.
-SourceCharacter licks her lips.
-SourceCharacter облизывает губы.
-SourceCharacter nibbles her lips.
-SourceCharacter кусает губы.
-SourceCharacter caresses and wipes her mouth clean.
-SourceCharacter ласкает и вытирает рот.
-SourceCharacter bites her lips.
-SourceCharacter кусает губы.
-SourceCharacter clamps her hand over her mouth.
-SourceCharacter зажимает рот рукой.
-SourceCharacter moans into her gag.
-SourceCharacter стонет в кляп (удовольствие).
-SourceCharacter whimpers pleadingly into her gag.
-SourceCharacter умоляюще скулит в кляп.
-SourceCharacter screams furiously into her gag.
-SourceCharacter яростно кричит в кляп.
-SourceCharacter groans desperately into her gag.
-SourceCharacter отчаянно стонет в кляп (боль).
-SourceCharacter giggles into her gag.
-SourceCharacter хихикает в свой кляп.
-SourceCharacter mumbles incoherently into her gag.
-SourceCharacter бессвязно бормочет в кляп.
+SourceCharacter licks PronounPossessive lips.
+SourceCharacter облизывает свои губы.
+SourceCharacter nibbles PronounPossessive lips.
+SourceCharacter прикусывает свои губы.
+SourceCharacter caresses and wipes PronounPossessive mouth clean.
+SourceCharacter гладит и вытирает свой рот.
+SourceCharacter bites PronounPossessive lips.
+SourceCharacter кусает свои губы.
+SourceCharacter clamps PronounPossessive hand over PronounPossessive mouth.
+SourceCharacter зажимает свой рот рукой.
+SourceCharacter moans into PronounPossessive gag.
+SourceCharacter стонет сквозь кляп от удовольствия.
+SourceCharacter whimpers pleadingly into PronounPossessive gag.
+SourceCharacter умоляюще скулит сквозь кляп.
+SourceCharacter screams furiously into PronounPossessive gag.
+SourceCharacter в ярости кричит сквозь кляп.
+SourceCharacter groans desperately into PronounPossessive gag.
+SourceCharacter отчаянно стонет сквозь кляп от боли.
+SourceCharacter giggles into PronounPossessive gag.
+SourceCharacter смеётся сквозь кляп.
+SourceCharacter mumbles incoherently into PronounPossessive gag.
+SourceCharacter бессвязно бормочет сквозь кляп.
+SourceCharacter rubs PronounPossessive own mouth with PronounPossessive UsedAsset.
+SourceCharacter трет свой рот с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own mouth with PronounPossessive UsedAsset.
+SourceCharacter щекочет свой  рот с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own mouth.
+SourceCharacter катает UsedAsset по PronounPossessive губам.
 SourceCharacter gives TargetCharacter a kiss on her gag.
 SourceCharacter целует TargetCharacter в кляп.
 SourceCharacter bites TargetCharacter's lips.
 SourceCharacter кусает губы TargetCharacter's .
 SourceCharacter kisses TargetCharacter's lips.
-SourceCharacter целует губы TargetCharacter's .
+SourceCharacter целует в губы TargetCharacter's .
 SourceCharacter shares a long French kiss with TargetCharacter.
 SourceCharacter делится долгим французским поцелуем с TargetCharacter.
 SourceCharacter gives a friendly kiss on TargetCharacter's cheek.
 SourceCharacter дружески целует TargetCharacter's в щеку.
 SourceCharacter gives a gagged kiss on TargetCharacter's cheek.
-SourceCharacter целует TargetCharacter's в щеку с кляпом во рту.
+SourceCharacter целует кляпом TargetCharacter's в щеку.
 SourceCharacter licks TargetCharacter's lips.
 SourceCharacter облизывает губы TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's lips.
-SourceCharacter кусает губы TargetCharacter's .
+SourceCharacter покусывает губы TargetCharacter's .
 SourceCharacter caresses and cleans TargetCharacter's mouth.
 SourceCharacter ласкает и очищает рот TargetCharacter's .
-SourceCharacter clamps her hand over TargetCharacter's mouth.
+SourceCharacter clamps PronounPossessive hand over TargetCharacter's mouth.
 SourceCharacter зажимает рукой рот TargetCharacter's .
-SourceCharacter penetrates TargetCharacter's mouth at a slow pace.
-SourceCharacter медленно проникает в рот TargetCharacter's .
-SourceCharacter penetrates TargetCharacter's mouth at a fast pace.
-SourceCharacter быстро проникает в рот TargetCharacter's .
+SourceCharacter rubs TargetCharacter's mouth with PronounPossessive UsedAsset.
+SourceCharacter трет рот TargetCharacter's  с помощью UsedAsset.
+SourceCharacter slowly penetrates TargetCharacter's mouth with PronounPossessive UsedAsset.
+SourceCharacter медленно проникает в рот TargetCharacter's с помощью UsedAsset.
+SourceCharacter roughly penetrates TargetCharacter's mouth with PronounPossessive UsedAsset.
+SourceCharacter грубо проникает в рот TargetCharacter's помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's mouth with PronounPossessive UsedAsset.
+SourceCharacter щекочет губы TargetCharacter's с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over TargetCharacter's mouth.
+SourceCharacter катает UsedAsset по губам TargetCharacter's .
+SourceCharacter gives TargetCharacter a kiss on TargetPronounPossessive gag.
+SourceCharacter целует TargetCharacter в TargetPronounPossessive кляп.
 SourceCharacter slaps herself on the face.
-SourceCharacter бьет себя по лицу.
-SourceCharacter caresses her face.
-SourceCharacter ласкает своё лицо.
-SourceCharacter brushes her hair.
-SourceCharacter расчесывает волосы.
-SourceCharacter pulls on her own hair.
+SourceCharacter отвешивает себе пощечину.
+SourceCharacter caresses PronounPossessive face.
+SourceCharacter ласкает свое лицо.
+SourceCharacter brushes PronounPossessive hair.
+SourceCharacter расчесывает свои волосы.
+SourceCharacter pulls on PronounPossessive own hair.
 SourceCharacter тянет себя за волосы.
 SourceCharacter pets herself on the head.
 SourceCharacter гладит себя по голове.
-SourceCharacter shakes her head.
-SourceCharacter качает головой.
+SourceCharacter shakes PronounPossessive head.
+SourceCharacter отрицательно мотает своей головой.
 SourceCharacter nods.
-SourceCharacter кивает.
+SourceCharacter согласно кивает.
 SourceCharacter kisses TargetCharacter on the forehead.
 SourceCharacter целует TargetCharacter в лоб.
 SourceCharacter gives a gagged kiss on TargetCharacter's forehead.
-SourceCharacter целует TargetCharacter's в лоб с кляпом во рту.
+SourceCharacter целует кляпом TargetCharacter's в лоб.
 SourceCharacter slaps TargetCharacter's face.
-SourceCharacter бьет TargetCharacter's по лицу.
+SourceCharacter отвешивает пощечину TargetCharacter's по лицу.
 SourceCharacter caresses TargetCharacter's face.
 SourceCharacter ласкает лицо TargetCharacter's .
 SourceCharacter brushes TargetCharacter's hair.
@@ -1164,75 +1735,195 @@ SourceCharacter pulls on TargetCharacter's hair.
 SourceCharacter дергает TargetCharacter's за волосы.
 SourceCharacter gently pets TargetCharacter's head.
 SourceCharacter нежно гладит голову TargetCharacter's .
-SourceCharacter rubs her breast against TargetCharacter's face.
+SourceCharacter rubs PronounPossessive breast against TargetCharacter's face.
 SourceCharacter трется грудью о лицо TargetCharacter's .
 SourceCharacter bites TargetCharacter's hair.
 SourceCharacter кусает волосы TargetCharacter's .
-SourceCharacter rubs her foot on TargetCharacter's face.
-SourceCharacter трется ногой о лицо TargetCharacter's .
+SourceCharacter rubs PronounPossessive foot on TargetCharacter's face.
+SourceCharacter трет ногой о лицо TargetCharacter's .
 SourceCharacter nose-nuzzles with TargetCharacter.
-SourceCharacter сталкивается носом с TargetCharacter.
+SourceCharacter тыкается носом в нос TargetCharacter.
 SourceCharacter boops TargetCharacter's nose.
-SourceCharacter бьет нос TargetCharacter's .
+SourceCharacter нажимает на нос TargetCharacter's .
 SourceCharacter kisses TargetCharacter's nose.
 SourceCharacter целует нос TargetCharacter's .
-SourceCharacter bumps her gag on TargetCharacter's nose.
-SourceCharacter ударяет кляпом нос TargetCharacter's .
+SourceCharacter bumps PronounPossessive gag on TargetCharacter's nose.
+SourceCharacter тыкается кляпом в нос TargetCharacter's .
 SourceCharacter pinches TargetCharacter's nose.
-SourceCharacter зажимает нос TargetCharacter's .
+SourceCharacter щипает за нос TargetCharacter's .
 SourceCharacter caresses TargetCharacter's nose.
-SourceCharacter гладит нос TargetCharacter's .
+SourceCharacter ласкает нос TargetCharacter's .
 SourceCharacter pulls TargetCharacter's nose.
 SourceCharacter тянет TargetCharacter's за нос.
 SourceCharacter rubs TargetCharacter's nose.
 SourceCharacter трет нос TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's nose.
-SourceCharacter кусает нос TargetCharacter's .
+SourceCharacter покусывает нос TargetCharacter's .
 SourceCharacter pinches TargetCharacter's nostrils closed.
 SourceCharacter зажимает ноздри TargetCharacter's .
 SourceCharacter licks TargetCharacter's nose.
 SourceCharacter лижет нос TargetCharacter's .
 SourceCharacter bites TargetCharacter's nose.
 SourceCharacter кусает TargetCharacter's за нос.
-SourceCharacter makes TargetCharacter smell her feet.
-SourceCharacter заставляет TargetCharacter чувствовать запах ее ног.
-SourceCharacter pinches her nose.
-SourceCharacter зажимает нос.
-SourceCharacter caresses her nose.
-SourceCharacter гладит свой нос.
-SourceCharacter boops her nose.
-SourceCharacter щелкает носом.
-SourceCharacter pulls her nose.
-SourceCharacter дергает за нос.
-SourceCharacter rubs her nose.
-SourceCharacter трет нос.
-SourceCharacter pinches her nostrils closed.
-SourceCharacter зажимает ноздри.
-SourceCharacter wiggles her nose.
+SourceCharacter makes TargetCharacter smell PronounPossessive feet.
+SourceCharacter заставляет TargetCharacter нюхать свои ноги.
+SourceCharacter tickles TargetCharacter's nose with PronounPossessive UsedAsset.
+SourceCharacter щекочет нос TargetCharacter's с помощью UsedAsset.
+SourceCharacter rubs TargetCharacter's nose with PronounPossessive UsedAsset.
+SourceCharacter трет нос TargetCharacter's с помощью UsedAsset.
+SourceCharacter pinches PronounPossessive nose.
+SourceCharacter щипает себя за нос.
+SourceCharacter caresses PronounPossessive nose.
+SourceCharacter ласкает свой нос.
+SourceCharacter boops PronounPossessive nose.
+SourceCharacter нажимает на свой нос.
+SourceCharacter pulls PronounPossessive nose.
+SourceCharacter дергает себя за нос.
+SourceCharacter rubs PronounPossessive nose.
+SourceCharacter трет свой нос.
+SourceCharacter pinches PronounPossessive nostrils closed.
+SourceCharacter зажимает себе ноздри.
+SourceCharacter wiggles PronounPossessive nose.
 SourceCharacter шевелит носом.
-SourceCharacter pinches her ear.
-SourceCharacter щиплет себя за ухо.
-SourceCharacter caresses her ear.
-SourceCharacter ласкает своё ухо.
-SourceCharacter wiggles her ears.
-SourceCharacter шевелит ушами.
+SourceCharacter rubs PronounPossessive own nose with PronounPossessive UsedAsset.
+SourceCharacter трет свой нос с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own nose with PronounPossessive UsedAsset.
+SourceCharacter щекочет свой нос с помощью UsedAsset.
+SourceCharacter pinches PronounPossessive ear.
+SourceCharacter щипает себя за ухо.
+SourceCharacter caresses PronounPossessive ear.
+SourceCharacter ласкает свое ухо.
+SourceCharacter wiggles PronounPossessive ears.
+SourceCharacter шевелит своими ушами.
+SourceCharacter rubs PronounPossessive own ear with PronounPossessive UsedAsset.
+SourceCharacter трет свое ухо с помощью UsedAsset.
+SourceCharacter rolls a UsedAsset over PronounPossessive own ear.
+SourceCharacter катает UsedAsset по своему уху.
+SourceCharacter tickles PronounPossessive own ear with PronounPossessive UsedAsset.
+SourceCharacter щекочет свое ухо с помощью UsedAsset.
+SourceCharacter rubs TargetCharacter's ear with PronounPossessive UsedAsset.
+SourceCharacter трет ухо TargetCharacter's  с помощью UsedAsset
 SourceCharacter bites TargetCharacter's ear.
 SourceCharacter кусает TargetCharacter's за ухо.
 SourceCharacter kisses TargetCharacter's ear.
 SourceCharacter целует TargetCharacter's в ухо.
 SourceCharacter gives a gagged kiss on TargetCharacter's ear.
-SourceCharacter целует TargetCharacter's в ухо с кляпом во рту.
+SourceCharacter целует кляпом ухо TargetCharacter's .
 SourceCharacter licks TargetCharacter's ear.
 SourceCharacter лижет ухо TargetCharacter's .
 SourceCharacter nibbles TargetCharacter's ear.
-SourceCharacter кусает TargetCharacter's за ухо.
+SourceCharacter покусывает TargetCharacter's за ухо.
 SourceCharacter pinches TargetCharacter's ear.
-SourceCharacter щиплет TargetCharacter's за ухо.
+SourceCharacter щипает TargetCharacter's за ухо.
 SourceCharacter caresses TargetCharacter's ear.
-SourceCharacter гладит ухо TargetCharacter's .
+SourceCharacter ласкает ухо TargetCharacter's .
 SourceCharacter whispers slowly in TargetCharacter's ear.
 SourceCharacter медленно шепчет на ухо TargetCharacter's .
+SourceCharacter rolls a UsedAsset over TargetCharacter's ear.
+SourceCharacter катает UsedAsset по уху TargetCharacter's .
+SourceCharacter tickles TargetCharacter's ear with PronounPossessive UsedAsset.
+SourceCharacter щекочет ухо TargetCharacter's с помощью UsedAsset.
 SourceCharacter presses her foot into TargetCharacter's chest.
-SourceCharacter упирается ногой в грудь TargetCharacter's .
+SourceCharacter нажимает ногой на грудь TargetCharacter's .
 SourceCharacter rests her feet on TargetCharacter's back.
-SourceCharacter упирается ногами в спину TargetCharacter's .
+SourceCharacter кладет ноги на спину TargetCharacter's .
+SourceCharacter caresses PronounPossessive penis.
+SourceCharacter ласкает свой пенис.
+SourceCharacter slaps PronounPossessive penis.
+SourceCharacter шлепает по своему пенису.
+SourceCharacter masturbates PronounPossessive penis.
+SourceCharacter маструбирует свой пенис.
+SourceCharacter rubs PronounPossessive penis with PronounPossessive UsedAsset.
+SourceCharacter трет свой пенис с помощью UsedAsset.
+SourceCharacter masturbates PronounPossessive penis with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свой пенис с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive penis with PronounPossessive UsedAsset.
+SourceCharacter щекочет свой пенис с помощью UsedAsset.
+SourceCharacter hits PronounPossessive penis with PronounPossessive UsedAsset.
+SourceCharacter попадает по своему пенису UsedAsset.
+SourceCharacter shocks PronounPossessive penis with PronounPossessive UsedAsset.
+SourceCharacter шокирует свой пенис с помощью UsedAsset.
+SourceCharacter nibbles TargetCharacter's penis.
+SourceCharacter покусывает пенис TargetCharacter's .
+SourceCharacter licks TargetCharacter's penis base.
+SourceCharacter лижет пенис TargetCharacter's .
+SourceCharacter kisses TargetCharacter's penis base.
+SourceCharacter целует пенис TargetCharacter's .
+SourceCharacter masturbates TargetCharacter's penis with PronounPossessive tongue.
+SourceCharacter маструбирует своим язычком пенис TargetCharacter's .
+SourceCharacter caresses TargetCharacter's penis base with PronounPossessive fingers.
+SourceCharacter ласкает своими пальцами пенис TargetCharacter's .
+SourceCharacter slaps TargetCharacter's penis.
+SourceCharacter шлепает пенис TargetCharacter's .
+SourceCharacter masturbates TargetCharacter's penis with PronounPossessive fingers.
+SourceCharacter маструбирует своими пальцами пенис TargetCharacter's 
+SourceCharacter masturbates TargetCharacter's penis with PronounPossessive foot.
+SourceCharacter маструбирует своей ступней пенис TargetCharacter's .
+SourceCharacter presses PronounPossessive gag into TargetCharacter's penis base.
+SourceCharacter касается своим кляпом пениса TargetCharacter's .
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive penis.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive пенису.
+SourceCharacter rubs TargetCharacter's penis with PronounPossessive UsedAsset.
+SourceCharacter трет пенис TargetCharacter's с помощью UsedAsset.
+SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's penis.
+SourceCharacter использует UsedAsset чтобы маструбировать пенис TargetCharacter's .
+SourceCharacter shocks TargetCharacter's penis with PronounPossessive UsedAsset.
+SourceCharacter шокировать TargetCharacter's пенис с помощью UsedAsset.
+SourceCharacter hits TargetCharacter's penis with PronounPossessive UsedAsset.
+SourceCharacter попадает по пенису TargetCharacter's .
+SourceCharacter tickles TargetCharacter's penis with PronounPossessive UsedAsset.
+SourceCharacter щекочет пенис TargetCharacter's с помощью UsedAsset.
+SourceCharacter rubs TargetCharacter's penis with PronounPossessive UsedAsset.
+SourceCharacter трет пенис TargetCharacter's с помощью UsedAsset.
+SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's penis.
+SourceCharacter использует UsedAsset чтобы маструбировать пенис TargetCharacter's 
+SourceCharacter caresses PronounPossessive glans.
+SourceCharacter ласкает свою головку.
+SourceCharacter slaps PronounPossessive glans.
+SourceCharacter шлепает себя по головке.
+SourceCharacter masturbates PronounPossessive glans.
+SourceCharacter маструбирует свою головку.
+SourceCharacter rubs PronounPossessive own glans with PronounPossessive UsedAsset.
+SourceCharacter трет свою головку с поомщью UsedAsset.
+SourceCharacter masturbates PronounPossessive own glans with PronounPossessive UsedAsset.
+SourceCharacter маструбирует свою головку с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own glans with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою головку с помощью UsedAsset.
+SourceCharacter hits PronounPossessive glans with PronounPossessive UsedAsset.
+SourceCharacter попадает по своей головке UsedAsset.
+SourceCharacter injects PronounPossessive glans.
+SourceCharacter делает инъекцию в свою головку.
+SourceCharacter shocks PronounPossessive own glans with PronounPossessive UsedAsset.
+SourceCharacter шокирует свою головку с помощью UsedAsset.
+SourceCharacter nibbles TargetCharacter's glans.
+SourceCharacter покусывает TargetCharacter's за головку.
+SourceCharacter licks TargetCharacter's glans.
+SourceCharacter лижет головку TargetCharacter's .
+SourceCharacter kisses TargetCharacter's glans.
+SourceCharacter целует головку TargetCharacter's .
+SourceCharacter masturbates TargetCharacter's glans with PronounPossessive tongue.
+SourceCharacter маструбирует головку TargetCharacter's своим язычком.
+SourceCharacter caresses TargetCharacter's glans with PronounPossessive fingers.
+SourceCharacter ласкает своими пальцами головку TargetCharacter's .
+SourceCharacter slaps TargetCharacter's glans.
+SourceCharacter шлепает TargetCharacter's по головке.
+SourceCharacter masturbates TargetCharacter's glans with PronounPossessive fingers.
+SourceCharacter маструбирует головку TargetCharacter's своими пальцами.
+SourceCharacter masturbates TargetCharacter's glans with PronounPossessive foot.
+SourceCharacter маструбирует головку TargetCharacter's своими ступнями.
+SourceCharacter gags kiss TargetCharacter's glans.
+SourceCharacter целует кляпом головку TargetCharacter's .
+SourceCharacter rubs TargetCharacter's glans with PronounPossessive UsedAsset.
+SourceCharacter трет головку TargetCharacter's с помощью UsedAsset.
+SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's glans.
+SourceCharacter использует UsedAsset чтобы маструбировать головку TargetCharacter's .
+SourceCharacter tickles TargetCharacter's glans with PronounPossessive UsedAsset.
+SourceCharacter щекочет головку TargetCharacter's с помощью UsedAsset.
+SourceCharacter injects TargetCharacter's glans.
+SourceCharacter делает инъекцию в головку TargetCharacter's .
+SourceCharacter kicks TargetCharacter on TargetPronounPossessive glans.
+SourceCharacter пинает TargetCharacter по TargetPronounPossessive головке.
+SourceCharacter hits TargetCharacter's glans with PronounPossessive UsedAsset.
+SourceCharacter попадает по головке TargetCharacter's UsedAsset.
+SourceCharacter shocks TargetCharacter's glans with PronounPossessive UsedAsset.
+SourceCharacter шокирует головку TargetCharacter's с помощью UsedAsset.

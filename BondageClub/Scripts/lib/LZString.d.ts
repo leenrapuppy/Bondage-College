@@ -88,6 +88,6 @@ declare namespace LZString {
          *
          * @param compressed A string obtained from a call to compressToUint8Array().
          */
-        decompressFromUint8Array(compressed: Uint8Array): null | string;
+		decompressFromUint8Array(compressed: Uint8Array): null | string;
     }
 }

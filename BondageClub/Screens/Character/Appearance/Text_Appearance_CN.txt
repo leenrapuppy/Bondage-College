@@ -1,7 +1,7 @@
 Select your appearance
 选择你的外貌
-Select TargetCharacterName's appearance
-选择目标角色外貌
+ Select TargetCharacterName's appearance
+选择TargetCharacterName的外貌
 You must pick an item of type:
 你必须选择该类别的物品：
 Set wardrobe character name:
@@ -44,3 +44,5 @@ Select colors
 选择颜色
 Unable to change color due to player permissions
 因权限设定无法修改颜色
+blocked by owner
+被主人屏蔽

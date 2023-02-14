@@ -51,7 +51,7 @@ function C008_DramaClass_AmandaIntro_Load() {
 	ActorLoad("Amanda", "DressingRoom");
 	LoadInteractions();
 	C008_DramaClass_AmandaIntro_CalcParams();
-	
+
 	// Check if Sarah is missing for this scene and if Amanda is the Heroine
 	C008_DramaClass_AmandaIntro_SarahMissing = GameLogQuery("C007_LunchBreak", "Sarah", "Stranded");
 	C008_DramaClass_AmandaIntro_IsHeroine = (C008_DramaClass_JuliaIntro_AmandaRole == "Heroine");
@@ -67,12 +67,12 @@ function C008_DramaClass_AmandaIntro_Run() {
 }
 
 // Chapter 8 - Amanda Intro Click
-function C008_DramaClass_AmandaIntro_Click() {	
+function C008_DramaClass_AmandaIntro_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C008_DramaClass_AmandaIntro_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Amanda can take the keys if the player is too submissive
 	if (ClickInv == "CuffsKey")
 		C008_DramaClass_AmandaIntro_TakeKey();
@@ -84,10 +84,10 @@ function C008_DramaClass_AmandaIntro_Click() {
 	// Amanda will not accept any item when she's costumed
 	if (((ClickInv == "Rope") || (ClickInv == "Armbinder") || (ClickInv == "Cuffs") || (ClickInv == "TapeGag") || (ClickInv == "BallGag") || (ClickInv == "ClothGag") || (ClickInv == "ChastityBelt") || (ClickInv == "VibratingEgg")) && (C008_DramaClass_AmandaIntro_CurrentStage == 50))
 		OverridenIntroText = GetText("CostumeBlocksFun");
-	
+
 	// Amanda can be restrained on stage 40
 	if ((C008_DramaClass_AmandaIntro_CurrentStage == 40) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
-	
+
 		// Amande doesn't like the crop but becomes more submissive
 		if ((ClickInv == "Crop") && (!C008_DramaClass_AmandaIntro_CropDone)) {
 			C008_DramaClass_AmandaIntro_CropDone = true;
@@ -98,7 +98,7 @@ function C008_DramaClass_AmandaIntro_Click() {
 		// Amande cannot be tied up if she's not at least a little submissive
 		if ((ActorGetValue(ActorSubmission) < 2) && (ClickInv != "CuffsKey")) {
 			OverridenIntroText = GetText("RefuseBondage");
-			return;			
+			return;
 		}
 
 		// Amanda can refuse the belt if she's not submissive enough or not tied up
@@ -106,7 +106,7 @@ function C008_DramaClass_AmandaIntro_Click() {
 			OverridenIntroText = GetText("RefuseBelt");
 			return;
 		}
-	
+
 		// Apply the clicked restrain
 		ActorApplyRestrain(ClickInv);
 		C008_DramaClass_AmandaIntro_CalcParams();
@@ -233,7 +233,7 @@ function C008_DramaClass_AmandaIntro_Ungag() {
 function C008_DramaClass_AmandaIntro_Masturbate() {
 	if (C008_DramaClass_AmandaIntro_IsRestrained) {
 		if (!ActorIsChaste()) {
-			
+
 			// She can get an orgasm if she's bound and gagged, and was complimented, tickled or hugged
 			C008_DramaClass_AmandaIntro_MasturbateCount++;
 			if (C008_DramaClass_AmandaIntro_HugDone || C008_DramaClass_AmandaIntro_PrettyCommentDone || C008_DramaClass_AmandaIntro_TickleDone) {
@@ -245,7 +245,7 @@ function C008_DramaClass_AmandaIntro_Masturbate() {
 					C008_DramaClass_AmandaIntro_CurrentStage = 100;
 				} else OverridenIntroText = GetText("MasturbateGood");
 			} else OverridenIntroText = GetText("Masturbate");
-			
+
 		} else OverridenIntroText = GetText("MasturbateBelt");
 	}
 }
@@ -262,7 +262,7 @@ function C008_DramaClass_AmandaIntro_RandomBondage() {
 				if (!C008_DramaClass_AmandaIntro_PlayerBondageDone) {
 					C008_DramaClass_AmandaIntro_PlayerBondageDone = true;
 					ActorChangeAttitude(0, -2);
-				}				
+				}
 			} else OverridenIntroText = GetText("NoBondageItem");
 		} else OverridenIntroText = GetText("UndressBeforeBondage");
 	}

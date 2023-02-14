@@ -5,7 +5,7 @@ var C006_Isolation_Outro_StuckCross = false;
 
 // Chapter 6 - Outro Load
 function C006_Isolation_Outro_Load() {
-	
+
 	// If there was an early escape
 	if ((CurrentTime < 11.5 * 60 * 60 * 1000) && !C006_Isolation_Outro_EarlyRelease) {
 		C006_Isolation_Outro_EarlyEscape = true;
@@ -21,7 +21,7 @@ function C006_Isolation_Outro_Load() {
 	if ((CurrentTime < 11.5 * 60 * 60 * 1000) && C006_Isolation_Outro_EarlyRelease) GameLogSpecificAdd(CurrentChapter, "", "Release");
 	if (C006_Isolation_Outro_StuckPillory) GameLogSpecificAdd(CurrentChapter, "", "Pillory");
 	if (C006_Isolation_Outro_StuckCross) GameLogSpecificAdd(CurrentChapter, "", "Cross");
-	
+
 	// Time is always 11:30:00 in the outro, unlock if needed
 	StopTimer(11.5 * 60 * 60 * 1000);
 	PlayerUnlockAllInventory();
@@ -33,7 +33,7 @@ function C006_Isolation_Outro_Load() {
 // Chapter 6 - Outro Run
 function C006_Isolation_Outro_Run() {
 
-	// Paints the background	
+	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
 	if (C006_Isolation_Outro_EarlyEscape) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 800, 0);
 	if (!C006_Isolation_Outro_EarlyEscape) DrawImage(CurrentChapter + "/" + CurrentScreen + "/" + C006_Isolation_Intro_Teacher + ".jpg", 800, 0);

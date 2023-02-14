@@ -76,12 +76,15 @@ function CommandParse(msg) {
 	const WhisperTarget = ChatRoomCharacter.find(C => C.MemberNumber == ChatRoomTargetMemberNumber);
 	if (!ChatRoomShouldBlockGaggedOOCMessage(msg, WhisperTarget)) {
 		if (ChatRoomTargetMemberNumber == null) {
-			// Regular chat can be prevented with an owner presence rule
-			if (!ChatRoomOwnerPresenceRule("BlockTalk", null)) {
+
+			// Regular chat can be prevented with an owner presence rule, also validates for forbidden words
+			if (!ChatRoomOwnerPresenceRule("BlockTalk", null) && ChatRoomOwnerForbiddenWordCheck(msg)) {
 				ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
-				ChatRoomStimulationMessage("Gag");
+				ChatRoomStimulationMessage("Talk");
 			}
+
 		} else {
+
 			// The whispers get sent to the server and shown on the client directly
 			ServerSend("ChatRoomChat", { Content: msg, Type: "Whisper", Target: ChatRoomTargetMemberNumber });
 			const TargetName = WhisperTarget ? WhisperTarget.Name : "";
@@ -537,4 +540,56 @@ const CommonCommands = [
 					ServerSend("ChatRoomChat", { Content: "ChatRoomBot " + msg.substring(4), Type: "Hidden", Target: MemberNumber });
 		}
 	},
+	{
+		Tag: "craft",
+		Action: () => {
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			CraftingShowScreen(true);
+		},
+	},
+	{
+		Tag: "forbiddenwords",
+		Action: () => {
+
+			// No forbidden words if not owned
+			if (CurrentScreen != "ChatRoom") return;
+			if (!Player.IsOwned()) return;
+		
+			// Gets the forbidden words list from the log
+			let ForbiddenList = [];
+			for (let L of Log)
+				if ((L.Group == "OwnerRule") && L.Name.startsWith("ForbiddenWords"))
+					ForbiddenList = L.Name.substring("ForbiddenWords".length, 10000).split("|");
+			if (ForbiddenList.length <= 1) return true;
+			ForbiddenList.splice(0, 1);
+
+			// Shows the list in the chat window
+			ChatRoomMessage({Type: "LocalMessage",  Content: ForbiddenList.join(", "), Sender: Player.MemberNumber});
+
+		},
+	},
+	{
+		Tag: "wheel",
+		Action: () => {
+			if (!InventoryAvailable(Player, "WheelFortune", "ItemDevices")) return;
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			WheelFortuneEntryModule = CurrentModule;
+			WheelFortuneEntryScreen = CurrentScreen;
+			WheelFortuneBackground = ChatRoomData.Background;
+			WheelFortuneCharacter = Player;
+			CommonSetScreen("MiniGame", "WheelFortune");
+		},
+	},
+	{
+		Tag: "release",
+		Action: args => {
+			let MemberNumber = parseInt(args);
+			if ((typeof MemberNumber == "number") && !isNaN(MemberNumber) && (MemberNumber >= 0))
+				ServerSend("AccountOwnership", { MemberNumber: MemberNumber, Action: "Release" });
+		},
+	}
 ];

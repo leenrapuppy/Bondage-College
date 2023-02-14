@@ -1,0 +1,124 @@
+No chat room found.  You can create a new one.
+沒有找到聊天室，你可以新建一個
+Search for a room by name:
+按照以下名稱搜索:
+Search for a room
+搜索房間
+Create your room
+創建房間
+Friends in room:
+在房內的好友:
+This room is already full
+房間已滿
+This room is locked
+房間上鎖
+You're banned from this room
+你被該房間封禁
+You've been kicked out
+你被踢出了房間
+Room doesn't exist anymore
+房間已消失
+Account Error
+帳號錯誤
+Invalid Room Data
+無效的房間數據
+Entering the room...
+正在進入房間...
+Duplicate join request
+重複的加入請求
+Remove unwanted rooms
+移除不需要的房間
+Temp Hide on click
+臨時隱藏點擊的房間
+Ghost player on click
+幽靈玩家為點擊的房間
+Show hidden rooms
+顯示隱藏的房間
+Return to room view
+返回房間界面
+Return to previous view
+返回上一視圖
+Filtered because:
+過濾原因：
+Contains filtered word
+包含過濾單字
+Temp Hidden
+臨時隱藏
+Creator on ghostlist
+幽靈名單上的創造者
+Filter out terms (comma-separated):
+過濾條件(以逗號分隔):
+Help
+幫助
+Close help
+關閉幫助
+In filter mode you can remove rooms you do not wish to see.
+在過濾模式下，您可以移除不希望看到的房間。
+A room will be hidden if it meets one or more of the following criteria: it is not in your selected language, it contains a filtered out word, it has been Temp Hidden (see below), or its creator is ghostlisted.
+如果房間符合以下一個或多個條件，則該房間將被隱藏：它不是您選擇的語言，它包含一個過濾掉的單字，它已被臨時隱藏（請參見下文），或者它的創建者在幽靈列表中。
+The Language filter allows to view only rooms in a particular language. Other filters can be used to remove objectionable content from your view.
+語言過濾器僅允許以特定語言查看房間。其他過濾器可用於從視圖中刪除不良內容。
+Use "Filter out terms" to hide all rooms containing those words. Note this only checks the room name, not the description.
+使用“過濾條件”隱藏包含詞語的所有房間。注意：這隻檢查房間名稱，不檢查描述。
+Click on a room in this view to instantly Temp Hide that one room (until next login) and/or ghostlist the player who made the room (saved permanently until you remove them from ghostlist). Use the buttons at bottom right to select which action to take.
+單擊此視圖中的某個房間可立即臨時隱藏該房間（直到下次登錄）和/或 將創建該房間的玩家列入幽靈列表（永久保存，直到您將其從幽靈列表中刪除）。使用右下角的按鈕選擇要採取的操作。
+Use "Show hidden rooms" to show all the normally hidden rooms in case you want to unhide a particular room. Note that rooms hidden because of the language setting will not show here, but all other hidden rooms will.
+如果要取消隱藏特定房間，請使用“顯示隱藏房間”顯示所有通常隱藏的房間。請注意，此處不會顯示由於語言設定而隱藏的房間，但所有其他隱藏房間都會顯示。
+Clicking a hidden room will unhide it. If the room is just Temp Hidden it will be unhidden instantly. Otherwise you will be asked to confirm if you want to unghostlist the creator and/or remove some filter words to allow the room to be shown.
+單擊隱藏的房間將取消隱藏。如果房間只是臨時隱藏，它將立即被取消隱藏。否則，將要求您確認是否要取消列出幽靈列表的創建者和/或刪除一些過濾詞以顯示房間。
+In order to unhide "{RoomLabel}" you are also about to:
+為了取消隱藏"{RoomLabel}"，您還需要：
+Remove "{MemberLabel}" from your ghostlist
+從您的幽靈列表中移除 "{MemberLabel}"
+Remove "{WordsLabel}" from your filtered words
+從您的過濾詞中移除 "{WordsLabel}"
+Are you sure you want to do this?
+你確定要這樣做嗎？
+Cancel
+取消
+Do it
+是的
+Refresh rooms
+刷新房間
+Leave room search
+離開房間搜索
+Friends
+好友
+Next page
+下一頁
+Block:
+屏蔽:
+ABDL
+尿布癖 (ABDL)
+Player Leashing
+牽走玩家
+Sci-Fi
+科幻
+Photographs
+拍照
+Arousal Activities
+性活動
+Fantasy
+奇幻風
+Game:
+遊戲:
+LARP
+體感對戰
+Magic Battle
+魔法對戰
+GGTS
+GGTS
+All languages
+所有語言
+English
+英語
+French
+法語
+Spanish
+西班牙語
+German
+德語
+Chinese
+中文
+Russian
+俄語

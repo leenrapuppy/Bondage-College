@@ -1,0 +1,194 @@
+Check all
+选择全部
+Check none
+全不选择
+Apply the advanced rule
+应用高级规则
+Check the Bondage Club areas that your submissive won't be able to enter.
+选择你的顺从者无法进入的束缚俱乐部区域。
+Check the appearance zones that your submissive won't be able to change by herself.
+选择你的顺从这不能自己改变的外观区域。
+Check the item zones that your submissive won't be able to access on herself.
+选择你的顺从者不能触碰的自己身上的区域。
+Club Shop
+俱乐部商店
+Private Room
+私人房间
+Introduction Class
+新手课堂
+Maid Quarters
+女仆宿舍
+Kidnappers League
+绑匪联盟
+Shibari Dojo
+紧缚道场
+Explore the Club
+探索俱乐部
+Look for Trouble
+找点事情
+Slave Market
+奴隶市场
+Timer Cell
+定时监牢
+LARP Battles
+体感对战 (LARP)
+Visit the College
+学院
+Asylum
+收容所
+Bondage Poker
+紧缚扑克
+Infiltration
+间谍潜入
+Movie Studio
+电影工作室
+Magic School
+魔法学校
+Bondage Brawl
+束缚格斗
+Item Crafting
+物品制作
+Gambling
+赌场
+Prison
+监狱
+Photographic
+照相馆
+Stable
+马驹训练场
+Houdini's Theater
+逃脱剧场
+The Nursery
+育婴室
+Cafe
+咖啡店
+Arcade
+街机店
+Cloth
+衣服
+Cloth Accessory
+服装配饰
+Necklace
+项链
+Upper Suit
+上身套装
+Bottom
+下装
+Lower Suit
+下身套装
+Bra
+胸罩
+Corset
+束腰
+Panties
+内裤
+Socks
+袜子
+Right Anklet
+右踝绳
+Left Anklet
+左踝绳
+Garters
+袜带
+Shoes
+鞋子
+Hat
+帽子
+Hair Accessory
+发饰
+Hair Accessory (All)
+发饰 (全)
+Ears
+耳朵
+Gloves
+手套
+Left Hand Rings
+左手戒指
+Right Hand Rings
+右手戒指
+Bracelet
+手镯
+Glasses
+眼镜
+Mask
+面具
+Tail Strap
+尾巴
+Wings
+翅膀
+Height
+身高
+Upper Body
+上身
+Lower Body
+下身
+Front Hair
+前发
+Facial Hair
+面部毛发
+Back Hair
+后发
+Eyebrow
+眉毛
+Left Eye
+左眼
+Right Eye
+右眼
+Mouth
+嘴
+Nipples
+乳头
+Pussy/Penis
+外阴/阴茎
+Pronoun
+称谓
+Feet & Toes
+脚和脚趾
+Lower Legs
+小腿
+Upper Legs
+大腿
+Pussy & Vagina
+阴部与阴道
+Clitoris
+阴蒂
+Butt / Anal
+臀部/后庭
+Pelvis & Belly
+小腹与肚子
+Torso (Left)
+躯干（左）
+Torso (Right)
+躯干（右）
+Nipples Piercings
+乳头穿刺
+Breast
+胸部
+Hands
+手
+Arms & Shoulders
+手臂与肩膀
+Neck
+颈部
+Neck Accessories
+颈部配件
+Neck Restraints
+颈部束缚
+Mouth (Left)
+嘴巴（左）
+Mouth (Center)
+嘴巴（中）
+Mouth (Right)
+嘴巴（右）
+Nose
+鼻子
+Head
+头部
+Hood
+头套
+Misc (Top Left)
+杂项（左上角）
+Device (Bottom Left & Right)
+装置（左下角和右下角）
+Addon (Top Right)
+附件（右上角）

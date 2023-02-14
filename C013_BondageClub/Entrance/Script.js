@@ -18,8 +18,8 @@ function C013_BondageClub_Entrance_LoadParams() {
 
 // Chapter 13 Bondage Club - Entrance Load
 function C013_BondageClub_Entrance_Load() {
-	
-	// Loads the entrance interactions 
+
+	// Loads the entrance interactions
 	LoadInteractions();
 	Common_BondageAllowed = false;
 	Common_SelfBondageAllowed = false;
@@ -65,7 +65,7 @@ function C013_BondageClub_Entrance_EnterClub() {
 	if (Common_PlayerLover == "Sarah") Sarah = "SarahLover";
 	if ((ActorGetValue(ActorOwner) == "Player") && !GameLogQuery("", "Sarah", "CurfewStay")) Sarah = "SarahCollared";
 	if ((ActorGetValue(ActorOwner) == "Player") && GameLogQuery("", "Sarah", "CurfewStay")) Sarah = "SarahCollaredWithCurfew";
-	
+
 	// Save Sarah intro status
 	var SarahIntro = "";
 	if (C013_BondageClub_Entrance_WithSarah && GameLogQuery(CurrentChapter, "", "SarahWillBePunished")) SarahIntro = "SarahWillBePunished";

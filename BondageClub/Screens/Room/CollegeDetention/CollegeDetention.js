@@ -1,5 +1,6 @@
 "use strict";
 var CollegeDetentionBackground = "CollegeDetention";
+/** @type {null | NPCCharacter} */
 var CollegeDetentionYuki = null;
 var CollegeDetentionYukiLove = 0;
 var CollegeDetentionYukiWillReleaseAt = 0;
@@ -38,28 +39,29 @@ function CollegeDetentionYukiWillRelease() { return (CollegeDetentionYukiWillRel
 
 /**
  * Creates a fully dressed Yuki
+ * @param {Character} C - The character object to dress up
  * @returns {void} - Nothing
  */
-function CollegeDetentionYukiClothes() {
-	CharacterNaked(CollegeDetentionYuki);
-	InventoryWear(CollegeDetentionYuki, "TeacherOutfit1", "Cloth", "Default");
-	InventoryWear(CollegeDetentionYuki, "PussyDark3", "Pussy", "#333333");
-	InventoryWear(CollegeDetentionYuki, "Eyes1", "Eyes", "#a57b78");
-	InventoryWear(CollegeDetentionYuki, "Eyes1", "Eyes2", "#a57b78");
-	InventoryWear(CollegeDetentionYuki, "Glasses1", "Glasses", "#333333");
-	InventoryWear(CollegeDetentionYuki, "Mouth", "Mouth", "Default");
-	InventoryWear(CollegeDetentionYuki, "H0920", "Height", "Default");
-	InventoryWear(CollegeDetentionYuki, "Small", "BodyUpper", "Asian");
-	InventoryWear(CollegeDetentionYuki, "Small", "BodyLower", "Asian");
-	InventoryWear(CollegeDetentionYuki, "Default", "Hands", "Default");
-	InventoryWear(CollegeDetentionYuki, "Default", "Head", "Default");
-	InventoryWear(CollegeDetentionYuki, "HairBack6", "HairBack", "#603022");
-	InventoryWear(CollegeDetentionYuki, "HairFront4", "HairFront", "#603022");
-	InventoryWear(CollegeDetentionYuki, "Ribbons2", "HairAccessory1", "#111111");
-	InventoryWear(CollegeDetentionYuki, "Bra1", "Bra", "#2222AA");
-	InventoryWear(CollegeDetentionYuki, "Panties11", "Panties", "#2222AA");
-	InventoryWear(CollegeDetentionYuki, "Socks5", "Socks", "#444458");
-	InventoryWear(CollegeDetentionYuki, "Shoes2", "Shoes", "#111111");
+function CollegeDetentionYukiClothes(C) {
+	CharacterNaked(C);
+	InventoryWear(C, "TeacherOutfit1", "Cloth", "Default");
+	InventoryWear(C, "PussyDark3", "Pussy", "#333333");
+	InventoryWear(C, "Eyes1", "Eyes", "#a57b78");
+	InventoryWear(C, "Eyes1", "Eyes2", "#a57b78");
+	InventoryWear(C, "Glasses1", "Glasses", "#333333");
+	InventoryWear(C, "Mouth", "Mouth", "Default");
+	InventoryWear(C, "H0920", "Height", "Default");
+	InventoryWear(C, "Small", "BodyUpper", "Asian");
+	InventoryWear(C, "Small", "BodyLower", "Asian");
+	InventoryWear(C, "Default", "Hands", "Default");
+	InventoryWear(C, "Default", "Head", "Default");
+	InventoryWear(C, "HairBack6", "HairBack", "#603022");
+	InventoryWear(C, "HairFront4", "HairFront", "#603022");
+	InventoryWear(C, "Ribbons2", "HairAccessory1", "#111111");
+	InventoryWear(C, "Bra1", "Bra", "#2222AA");
+	InventoryWear(C, "Panties11", "Panties", "#2222AA");
+	InventoryWear(C, "Socks5", "Socks", "#444458");
+	InventoryWear(C, "Shoes2", "Shoes", "#111111");
 }
 
 /**
@@ -82,7 +84,7 @@ function CollegeDetentionLoad() {
 		CollegeDetentionYuki.AllowItem = false;
 		CollegeDetentionYuki.Name = "Yuki";
 		CollegeDetentionYuki.GoneAway = false;
-		CollegeDetentionYukiClothes();
+		CollegeDetentionYukiClothes(CollegeDetentionYuki);
 		CharacterRefresh(CollegeDetentionYuki);
 
 	}
@@ -145,7 +147,7 @@ function CollegeDetentionDressBack() {
 	CharacterRelease(Player);
 	CharacterRelease(CollegeDetentionYuki);
 	CollegeEntranceWearStudentClothes(Player);
-	CollegeDetentionYukiClothes();
+	CollegeDetentionYukiClothes(CollegeDetentionYuki);
 }
 
 /**

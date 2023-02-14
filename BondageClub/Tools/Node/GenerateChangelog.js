@@ -79,6 +79,18 @@ const CONTRIBUTOR_NAMES = {
 	"Ayesha": "Ayesha",
 	"luna-gleam": "Luna",
 	"Gatey": "gatetrek",
+	"Moonlight": "Luna",
+	"elliesec": "Ellie",
+	"Demopans": "Demopans",
+	"sqrt10pi": "sqrt10pi",
+	"DESKTOP-HWR\\HWR": "DESKTOP-HWR\\HWR",
+	"meshwork": "meshwork",
+	"NepTimeline": "NepTimeline",
+	"Timeline": "Timeline",
+	"meshwork100": "meshwork100",
+	"Tama-chan": "Tama-chan",
+	"tamachan": "Tama-chan",
+	"zR1OQicz": "zR1OQicz",
 };
 
 async function generateChangelogHtml() {

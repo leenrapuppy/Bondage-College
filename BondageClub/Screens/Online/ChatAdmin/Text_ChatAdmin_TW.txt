@@ -1,0 +1,66 @@
+Room Name
+房間名
+Language
+語言
+Description
+描述
+Ban List
+封禁列表
+Administrator List
+房管列表
+Private
+私有
+Locked
+鎖定
+Size (2-10)
+大小 (2-10)
+Use member numbers, separated by commas (ex: 3571,541,7001)
+使用逗號分隔的用戶號 (如: 3571,541,7001)
+Ban blacklist
+封禁黑名單成員
+Ban ghostlist
+封禁忽視列表成員
+Add Owner
+添加主人
+Add Lovers
+添加戀人
+Room settings can only be updated by administrators
+房間選項僅能被房管修改
+Background
+背景
+Save
+保存
+Exit
+退出
+Cancel
+取消
+Updating the chat room...
+更新聊天室...
+This room name is already taken
+該房間名已被占用
+Account error, please try to relog
+帳號錯誤,請重新登入
+Invalid chat room data detected
+無效的聊天室數據
+Block Categories
+屏蔽性癖
+No Game
+無遊戲
+LARP
+體感對戰
+Magic Battle
+魔法對戰
+GGTS
+GGTS
+English
+英語
+French
+法語
+Spanish
+西班牙語
+German
+德語
+Chinese
+中文
+Russian
+俄語

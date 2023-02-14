@@ -1,0 +1,120 @@
+Select your displayed name and title
+選擇你的顯示名稱與稱號
+Current title: TITLE
+當前稱號：TITLE
+Nickname (letters and spaces)
+暱稱（字母與空格）
+Nickname locked by your owner
+暱稱被你的主人鎖定
+Nickname is too long (max. 20 characters)
+暱稱過長（最大20字元）
+Nickname contains invalid characters
+暱稱中包含不可用字元
+None
+無
+Mistress
+女主人
+Club Slave
+俱樂部奴隸
+Head Maid
+女僕長
+Maid
+女僕
+Bondage Maid
+束縛女僕
+Master Kidnapper
+綁架大師
+Kidnapper
+綁匪
+Patient
+患者
+Permanent Patient
+永久患者
+Escaped Patient
+出逃患者
+Nurse
+護士
+Doctor
+醫生
+Lady Luck
+幸運女士
+Patron
+贊助者
+College Student
+學生
+Nawashi
+繩師
+Houdini
+逃脫大師
+Foal
+母馬
+Farm Horse
+農場馬
+Cold Blood Horse
+冷血馬
+Warm Blood Horse
+溫血馬
+Hot Blood Horse
+熱血馬
+Wild Mustang
+野馬
+Shining Unicorn
+閃耀獨角獸
+Flying Pegasus
+翱翔天馬
+Majestic Alicorn
+威嚴神駒
+Mole
+間諜
+Infiltrator
+滲透者
+Agent
+探員
+Operative
+密探
+Superspy
+超級間諜
+Wizard
+法師
+Magus
+魔戰士
+Magician
+魔術師
+Sorcerer
+術士
+Sage
+賢者
+Oracle
+先知
+Witch
+女巫
+Warlock
+邪術師
+Little One
+小不點
+Baby
+小寶貝
+Diaper Lover
+紙尿褲愛好者
+Bondage Baby
+被縛寶貝
+Duchess
+女公爵
+Switch
+轉換者(Switch)
+Kitten
+貓咪
+Puppy
+狗狗
+Foxy
+狐狸
+Bunny
+兔兔
+Doll
+玩偶
+Demon
+惡魔
+Angel
+天使
+Succubus
+魅魔

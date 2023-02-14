@@ -38,7 +38,7 @@ function C012_AfterClass_Dorm_LeavingGuest() {
 
 	// Sidney will leave at 20:00, it ends any grounding event
 	if ((C012_AfterClass_Dorm_Guest.indexOf("Sidney") >= 0) && (CurrentTime >= C012_AfterClass_Dorm_SidneyExitTime) && (CurrentTime <= C012_AfterClass_Dorm_SidneyReturnTime) && !GameLogQuery(CurrentChapter, "Sidney", "BackFromRockShow") && !ActorSpecificIsRestrained("Sidney") && !GameLogQuery(CurrentChapter, "Sidney", "KickedOutFromDorm")) {
-		C012_AfterClass_Dorm_Guest.splice("Sidney");		
+		C012_AfterClass_Dorm_Guest.splice("Sidney");
 		if ((CurrentScreen == "Dorm") && (!C012_AfterClass_Dorm_PlayerGrounded || (Common_PlayerOwner == "Sidney"))) {
 			C012_AfterClass_Sidney_CurrentStage = 400;
 			if (C012_AfterClass_Dorm_PlayerGrounded && (Common_PlayerOwner == "Sidney")) GameLogSpecificAddTimer(CurrentChapter, "Sidney", "EventGrounded", 1);
@@ -49,7 +49,7 @@ function C012_AfterClass_Dorm_LeavingGuest() {
 	}
 
 	// Sarah will leave at 21:00, it cancels the bed with Amanda event
-	if ((C012_AfterClass_Dorm_Guest.indexOf("Sarah") >= 0) && (CurrentTime >= C012_AfterClass_Dorm_SarahExitTime) && !GameLogQuery(CurrentChapter, "Sarah", "BackFromBondageClub") && !ActorSpecificIsRestrained("Sarah") && !GameLogQuery(CurrentChapter, "Sarah", "KickedOutFromDorm")) {		
+	if ((C012_AfterClass_Dorm_Guest.indexOf("Sarah") >= 0) && (CurrentTime >= C012_AfterClass_Dorm_SarahExitTime) && !GameLogQuery(CurrentChapter, "Sarah", "BackFromBondageClub") && !ActorSpecificIsRestrained("Sarah") && !GameLogQuery(CurrentChapter, "Sarah", "KickedOutFromDorm")) {
 		GameLogSpecificAddTimer(CurrentChapter, "Player", "AmandaAndSarahInBed", 1);
 		C012_AfterClass_Dorm_Guest.splice("Sarah");
 		if ((CurrentScreen == "Dorm") && !C012_AfterClass_Dorm_PlayerGrounded) {
@@ -58,7 +58,7 @@ function C012_AfterClass_Dorm_LeavingGuest() {
 			ActorSetCloth("BrownDress");
 		} else C012_AfterClass_Dorm_CalGuest();
 	}
-	
+
 }
 
 // Set the guest list in the dorm
@@ -67,15 +67,15 @@ function C012_AfterClass_Dorm_CalGuest() {
 	// Build an array of everyone that's in the player dorm room
 	C012_AfterClass_Dorm_LeavingGuest();
 	C012_AfterClass_Dorm_Guest = [];
-	if (GameLogQuery(CurrentChapter, "Sidney", "EnterDormFromPub") && !GameLogQuery(CurrentChapter, "Sidney", "KickedOutFromDorm") && ((CurrentTime <= C012_AfterClass_Dorm_SidneyExitTime) || (CurrentTime >= C012_AfterClass_Dorm_SidneyReturnTime) || GameLogQuery(CurrentChapter, "Sidney", "BackFromRockShow") || ActorSpecificIsRestrained("Sidney"))) 
+	if (GameLogQuery(CurrentChapter, "Sidney", "EnterDormFromPub") && !GameLogQuery(CurrentChapter, "Sidney", "KickedOutFromDorm") && ((CurrentTime <= C012_AfterClass_Dorm_SidneyExitTime) || (CurrentTime >= C012_AfterClass_Dorm_SidneyReturnTime) || GameLogQuery(CurrentChapter, "Sidney", "BackFromRockShow") || ActorSpecificIsRestrained("Sidney")))
 		if (!GameLogQuery(CurrentChapter, "Sidney", "LoverBreakUp") || (ActorSpecificGetValue("Sidney", ActorOwner) == "Player"))
 			C012_AfterClass_Dorm_Guest.push("Sidney");
-	if ((GameLogQuery(CurrentChapter, "Jennifer", "EnterDormFromPool") || GameLogQuery(CurrentChapter, "Jennifer", "EnterDormFromRoommates")) && !GameLogQuery(CurrentChapter, "Jennifer", "KickedOutFromDorm")) 
+	if ((GameLogQuery(CurrentChapter, "Jennifer", "EnterDormFromPool") || GameLogQuery(CurrentChapter, "Jennifer", "EnterDormFromRoommates")) && !GameLogQuery(CurrentChapter, "Jennifer", "KickedOutFromDorm"))
 		C012_AfterClass_Dorm_Guest.push("Jennifer");
 	if ((GameLogQuery(CurrentChapter, "Amanda", "EnterDormFromLibrary") || GameLogQuery(CurrentChapter, "Amanda", "EnterDormFromRoommates")) && !GameLogQuery(CurrentChapter, "Amanda", "KickedOutFromDorm") && !GameLogQuery(CurrentChapter, "Amanda", "LeaveDormEarly"))
 		if (!GameLogQuery(CurrentChapter, "Amanda", "LoverBreakUp") || (ActorSpecificGetValue("Amanda", ActorOwner) == "Player"))
 			C012_AfterClass_Dorm_Guest.push("Amanda");
-	if (GameLogQuery(CurrentChapter, "Sarah", "EnterDormFromRoommates") && !GameLogQuery(CurrentChapter, "Sarah", "KickedOutFromDorm") && ((CurrentTime <= C012_AfterClass_Dorm_SarahExitTime) || GameLogQuery(CurrentChapter, "Sarah", "BackFromBondageClub") || ActorSpecificIsRestrained("Sarah"))) 
+	if (GameLogQuery(CurrentChapter, "Sarah", "EnterDormFromRoommates") && !GameLogQuery(CurrentChapter, "Sarah", "KickedOutFromDorm") && ((CurrentTime <= C012_AfterClass_Dorm_SarahExitTime) || GameLogQuery(CurrentChapter, "Sarah", "BackFromBondageClub") || ActorSpecificIsRestrained("Sarah")))
 		C012_AfterClass_Dorm_Guest.push("Sarah");
 
 	// Build an array of everyone that's visible (standing up)
@@ -89,7 +89,7 @@ function C012_AfterClass_Dorm_CalGuest() {
 
 // Chapter 12 - After Class Dorm Load
 function C012_AfterClass_Dorm_Load() {
-	
+
 	// Set the timer limits
 	StartTimer(24 * 60 * 60 * 1000, "C012_AfterClass", "Outro");
 	ActorSpecificSetPose("Amanda", "");
@@ -143,7 +143,7 @@ function C012_AfterClass_Dorm_Load() {
 
 // Chapter 12 - After Class Dorm Run
 function C012_AfterClass_Dorm_Run() {
-	
+
 	// Check if we must stop the scene for leaving guests
 	C012_AfterClass_Dorm_LeavingGuest();
 
@@ -152,7 +152,7 @@ function C012_AfterClass_Dorm_Run() {
 		C012_AfterClass_Dorm_CalGuest();
 		C012_AfterClass_Dorm_AmandaAndSarahInBed = false;
 	}
-	
+
 	// If grounding is over, we go to the owner
 	if (C012_AfterClass_Dorm_PlayerGrounded && !GameLogQuery(CurrentChapter, "", "EventGrounded") && (C012_AfterClass_Sidney_CurrentStage != 400)) {
 		if (Common_PlayerOwner == "Sidney") C012_AfterClass_Sidney_CurrentStage = 3915;
@@ -181,10 +181,10 @@ function C012_AfterClass_Dorm_Run() {
 		SetScene(CurrentChapter, "Sarah");
 		LeaveIcon = "";
 	}
-		
+
 	// Make sure we are still in the dorm after the previous events
 	if (CurrentScreen == "Dorm") {
-		
+
 		// The "spanked" pose will fade out after time
 		if (Common_PlayerPose == "Spanked" && !GameLogQuery(CurrentChapter, "", "EventSpanked")) Common_PlayerPose = "";
 
@@ -194,7 +194,7 @@ function C012_AfterClass_Dorm_Run() {
 		DrawTransparentPlayerImage(C012_AfterClass_Dorm_PlayerPos - 210, 0, 0.6667);
 		for (var A = 0; A < C012_AfterClass_Dorm_GuestVisible.length; A++)
 			DrawActor(C012_AfterClass_Dorm_GuestVisible[A], C012_AfterClass_Dorm_PlayerPos - 10 + A * 200, 0, 0.6667);
-		
+
 		// Draw the room icons
 		if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 0) && (MouseY < 150)) DrawImage(CurrentChapter + "/" + CurrentScreen + "/Wardrobe_Active.png", 1075, 25);
 		else DrawImage(CurrentChapter + "/" + CurrentScreen + "/Wardrobe_Inactive.png", 1075, 25);
@@ -206,7 +206,7 @@ function C012_AfterClass_Dorm_Run() {
 		else DrawImage(CurrentChapter + "/" + CurrentScreen + "/Exit_Inactive.png", 1075, 475);
 
 	}
-	
+
 }
 
 // Chapter 12 - After Class Dorm Click
@@ -217,14 +217,14 @@ function C012_AfterClass_Dorm_Click() {
 
 		// Checks if the user clicks on any regular item
 		InventoryClick(GetClickedInventory(), CurrentChapter, CurrentScreen);
-		
+
 		// Opens the other screens of the dorm
 		if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 0) && (MouseY < 150)) SetScene(CurrentChapter, "Wardrobe");
 		if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 150) && (MouseY < 300)) SetScene(CurrentChapter, "Bed");
 		if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 300) && (MouseY < 450)) SaveMenu(CurrentChapter, "Dorm");
 		if ((MouseX >= 1050) && (MouseX < 1200) && (MouseY >= 450) && (MouseY < 600)) SetScene(CurrentChapter, "DormExit");
 		if ((MouseX >= C012_AfterClass_Dorm_PlayerPos - 100) && (MouseX < C012_AfterClass_Dorm_PlayerPos + 100) && (MouseY >= 0) && (MouseY <= 600)) InventoryClick("Player", CurrentChapter, CurrentScreen);
-	
+
 	}
 
 	// When the player clicks on another actor

@@ -1,6 +1,8 @@
 "use strict";
 var MagicSchoolLaboratoryBackground = "MagicSchoolLaboratory";
+/** @type {null | NPCCharacter} */
 var MagicSchoolLaboratoryTeacher = null;
+/** @type {null | NPCCharacter} */
 var MagicSchoolLaboratoryStudent = null;
 var MagicSchoolLaboratoryBattleWage = "";
 var MagicSchoolLaboratoryLastSpell = "";
@@ -31,13 +33,16 @@ function MagicSchoolLaboratoryPrepareNPC(C, House) {
 	InventoryRemove(C, "Necklace");
 	InventoryRemove(C, "Gloves");
 	InventoryRemove(C, "Socks");
-	if ((InventoryGet(C, "ItemHands") == null) || (InventoryGet(C, "ItemHands").Property == null) || (InventoryGet(C, "ItemHands").Property.Type != "RainbowWand")) {
-		InventoryWear(C, "SpankingToys", "ItemHands");
-		if (House == "Maiestas") InventoryGet(C, "ItemHands").Property = { Type: "Whip" };
-		else if (House == "Vincula") InventoryGet(C, "ItemHands").Property = { Type: "Belt" };
-		else if (House == "Amplector") InventoryGet(C, "ItemHands").Property = { Type: "Feather" };
-		else if (House == "Corporis") InventoryGet(C, "ItemHands").Property = { Type: "CandleWax" };
-		else InventoryGet(C, "ItemHands").Property = { Type: "Broom" };
+	let hands = InventoryGet(C, "ItemHandheld");
+	if (hands && hands.Asset.Name !== "RainbowWand") {
+		const itemMap = {
+			"Maiestas": "Whip",
+			"Vincula": "Belt",
+			"Amplector": "Feather",
+			"Corporis": "CandleWax",
+		};
+		const item = itemMap[House] || "Broom";
+		InventoryWear(C, item, "ItemHandheld");
 	}
 	InventoryWear(C, "Bra1", "Bra", LightColor);
 	InventoryWear(C, "Panties1", "Panties", LightColor);
@@ -269,28 +274,28 @@ function MagicSchoolLaboratoryFindStudent() {
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Maiestas");
+		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "RainbowWand", "ItemHandheld")) Houses.push("Maiestas");
 	}
 	if (ReputationGet("HouseVincula") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Maiestas");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseVincula") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Vincula");
+		if ((ReputationGet("HouseVincula") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "RainbowWand", "ItemHandheld")) Houses.push("Vincula");
 	}
 	if (ReputationGet("HouseAmplector") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Vincula");
 		Houses.push("Corporis");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseAmplector") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Amplector");
+		if ((ReputationGet("HouseAmplector") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "RainbowWand", "ItemHandheld")) Houses.push("Amplector");
 	}
 	if (ReputationGet("HouseCorporis") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Amplector");
-		if ((ReputationGet("HouseCorporis") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Corporis");
+		if ((ReputationGet("HouseCorporis") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "RainbowWand", "ItemHandheld")) Houses.push("Corporis");
 	}
 
 	// Creates the student NPC and gives her a house
@@ -306,9 +311,8 @@ function MagicSchoolLaboratoryFindStudent() {
 	MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryStudent, NPCHouse);
 
 	// At 50 reputation or more, can randomly span the rainbow wand (15% odds)
-	if ((Math.random() > 0.85) && !InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands") && ((ReputationGet("HouseMaiestas") >= 50) || (ReputationGet("HouseVincula") >= 50) || (ReputationGet("HouseAmplector") >= 50) || (ReputationGet("HouseCorporis") >= 50))) {
-		InventoryWear(MagicSchoolLaboratoryStudent, "SpankingToys", "ItemHands");
-		InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands").Property = { Type: "RainbowWand" };
+	if ((Math.random() > 0.85) && !InventoryAvailable(Player, "RainbowWand", "ItemHandheld") && ((ReputationGet("HouseMaiestas") >= 50) || (ReputationGet("HouseVincula") >= 50) || (ReputationGet("HouseAmplector") >= 50) || (ReputationGet("HouseCorporis") >= 50))) {
+		InventoryWear(MagicSchoolLaboratoryStudent, "RainbowWand", "ItemHandheld");
 		CharacterRefresh(MagicSchoolLaboratoryStudent);
 	}
 	setTimeout(() => CharacterSetCurrent(MagicSchoolLaboratoryStudent), 500);
@@ -343,9 +347,8 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 		CharacterRefresh(Player);
 		if (MagicSchoolLaboratoryBattleWage == "Wage25") CharacterChangeMoney(Player, 50);
 		if (MagicSchoolLaboratoryBattleWage == "RainbowWand") {
-			InventoryAdd(Player, "SpankingToysRainbowWand", "ItemHands");
-			InventoryWear(Player, "SpankingToys", "ItemHands");
-			InventoryGet(Player, "ItemHands").Property = { Type: "RainbowWand" };
+			InventoryAdd(Player, "RainbowWand", "ItemHandheld");
+			InventoryWear(Player, "RainbowWand", "ItemHandheld");
 			CharacterRefresh(Player);
 		}
 		let RepGain = (MagicSchoolLaboratoryBattleWage == "Honor") ? 6 : 3;
@@ -559,5 +562,5 @@ function MagicSchoolLaboratoryLearnMastery() {
  * @returns {boolean} - TRUE if it can be waged
  */
 function MagicSchoolLaboratoryCanWageWand() {
-	return ((InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands") != null) && (InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands").Property.Type == "RainbowWand"));
+	return InventoryIsWorn(MagicSchoolLaboratoryStudent, "RainbowWand", "ItemHandheld");
 }

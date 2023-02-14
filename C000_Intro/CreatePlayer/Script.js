@@ -39,9 +39,9 @@ function C000_Intro_CreatePlayer_Run() {
 			SelectSkill.appendChild(new Option(GetText("Skill" + S.toString()), S.toString()));
 		document.body.appendChild(SelectSkill);
 		C000_Intro_CreatePlayer_ControlLoaded = true;
-	
+
 	}
-	
+
 	// Draw the player image and the text input for the name
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/Player.jpg", 900, 0);
 	DrawRect(0, 0, 900, 600, "white");
@@ -51,7 +51,7 @@ function C000_Intro_CreatePlayer_Run() {
 	// Creates the "validate" button
 	DrawRect(300, 450, 300, 70, "#8c304e");
 	DrawText(GetText("Validate"), 450, 485, "white");
-	
+
 }
 
 // Validate the name and starts the game
@@ -79,6 +79,6 @@ function C000_Intro_CreatePlayer_KeyDown() {
 }
 
 // Create Player Click
-function C000_Intro_CreatePlayer_Click() {	
+function C000_Intro_CreatePlayer_Click() {
 	if ((MouseX >= 300) && (MouseX <= 600) && (MouseY >= 450) && (MouseY <= 520)) C000_Intro_CreatePlayer_Validate();
 }

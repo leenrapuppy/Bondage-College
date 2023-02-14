@@ -1,8 +1,12 @@
 "use strict";
 var SlaveAuctionBackground = "SlaveMarket";
+/** @type {null | NPCCharacter} */
 var SlaveAuctionVendor = null;
+/** @type {null | NPCCharacter} */
 var SlaveAuctionSlave = null;
+/** @type {null | NPCCharacter} */
 var SlaveAuctionCustomerLeft = null;
+/** @type {null | NPCCharacter} */
 var SlaveAuctionCustomerRight = null;
 var SlaveAuctionBidCurrent = "";
 var SlaveAuctionBidTime = 0;
@@ -122,4 +126,15 @@ function SlaveAuctionClick() {
 	}
 	if (((SlaveAuctionBidCurrent != "Player") || SlaveAuctionEnd) && (MouseX >= 1025) && (MouseX < 1200) && (MouseY >= 235) && (MouseY < 300))
 		CommonDynamicFunction(MiniGameReturnFunction + "()");
+}
+
+/**
+ * Handles the key press in the slave auction mini game, the C cheat key removes $50 from the current bid in progress
+ * @returns {void} - Nothing
+ */
+ function SlaveAuctionKeyDown() {
+	if ((SlaveAuctionBidAmount > 10) && MiniGameCheatKeyDown()) {
+		SlaveAuctionBidAmount = SlaveAuctionBidAmount - 50;
+		if (SlaveAuctionBidAmount < 10) SlaveAuctionBidAmount = 10;
+	}
 }

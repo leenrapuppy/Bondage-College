@@ -9,7 +9,7 @@ Full play by stages:
 160 - Damsel: I profess love unto thy white hero. (200) / I profess love unto thy black champion. (210)  * Now the Damsel can go either side, Sarah will choose the player if +10 love
 200 - Villain: Hero!  Thou hast her heart, flesh is mine.
 210 - Villain: Hero!  Concede thine defeat, she's mine.
-220 - Heroine: So fate chooseth steel, en garde! * From here, the villain or hero can try to restrain each other 
+220 - Heroine: So fate chooseth steel, en garde! * From here, the villain or hero can try to restrain each other
 230 - Villain: Indeed, en garde! * Here there's a sword fight (240 if the Heroine wins, 270 if the Villain wins)
 235 - The sword fight, acted from the villain
 240 - Heroine: The law shalt judgeth. * Villain gets tied up
@@ -35,7 +35,7 @@ function C008_DramaClass_Theater_SetPose() {
 	var CurActor = CurrentActor;
 
 	// If the villain must be tied up
-	if ((C008_DramaClass_Theater_GlobalStage == 250) && !ActorSpecificInBondage(C008_DramaClass_Theater_Villain)) {		
+	if ((C008_DramaClass_Theater_GlobalStage == 250) && !ActorSpecificInBondage(C008_DramaClass_Theater_Villain)) {
 		if (C008_DramaClass_Theater_Villain == "Player") {
 			PlayerClothes("Underwear");
 			PlayerLockInventory("Rope");
@@ -52,7 +52,7 @@ function C008_DramaClass_Theater_SetPose() {
 	}
 
 	// If the heroine must be tied up
-	if ((C008_DramaClass_Theater_GlobalStage == 280) && !ActorSpecificInBondage(C008_DramaClass_Theater_Heroine)) {		
+	if ((C008_DramaClass_Theater_GlobalStage == 280) && !ActorSpecificInBondage(C008_DramaClass_Theater_Heroine)) {
 		if (C008_DramaClass_Theater_Heroine == "Player") {
 			PlayerClothes("Underwear");
 			PlayerLockInventory("Rope");
@@ -67,7 +67,7 @@ function C008_DramaClass_Theater_SetPose() {
 		C008_DramaClass_Villain_CurrentStage = 251;
 		C008_DramaClass_Damsel_CurrentStage = 251;
 	}
-	
+
 	// Assign the heroine pose depending on the stage
 	var HeroinePose = "";
 	if (((C008_DramaClass_Theater_GlobalStage >= 110) && (C008_DramaClass_Theater_GlobalStage <= 220)) || (C008_DramaClass_Theater_GlobalStage == 270)) HeroinePose = "Acting";
@@ -90,12 +90,12 @@ function C008_DramaClass_Theater_SetPose() {
 
 	// Sets the current actor back
 	CurrentActor = CurActor;
-	
+
 }
 
 // Chapter 8 - Theater Load, sets the role each images
 function C008_DramaClass_Theater_Load() {
-	
+
 	// Set the theater parameters
 	LeaveIcon = "Wait";
 	if (C008_DramaClass_JuliaIntro_PlayerRole == "Damsel") C008_DramaClass_Theater_Damsel = "Player";
@@ -107,7 +107,7 @@ function C008_DramaClass_Theater_Load() {
 	if (C008_DramaClass_JuliaIntro_AmandaRole == "Heroine") C008_DramaClass_Theater_Heroine = "Amanda";
 	Common_SelfBondageAllowed = (C008_DramaClass_Theater_GlobalStage >= 400);
 	C008_DramaClass_Theater_SetPose();
-	
+
 }
 
 // Chapter 8 - Theater Run

@@ -12,7 +12,7 @@ Silence is the highest form of truth!
 (She submits as you restrain her legs.)  How am I supposed to work now?
 （她顺从地让你束缚她的腿。）我现在应该怎么工作呢？
 (You release her legs while she shakes her butt.)  Thanks Miss.
-（你松开她的腿，她摇晃她的屁股时。）谢谢，女士。
+（你松开她的腿，她摇晃她的屁股。）谢谢，女士。
 (You restrain her feet securely.)  I can not get on like this.
 （你牢固地束缚住她的脚。）这样我就不能走路了。
 (You release her feet.)  Much better.
@@ -54,7 +54,7 @@ What kind of test is it?
 这是什么样的测试？
 ###_NPC
 (She shoves you into a cell and closes the door.)
-（她把你推进一个牢房并关上；额门。）
+（她把你推进一个牢房并关上了门。）
 ###_PLAYER
 I heard something about a gang of bad girls?
 我听说了一些关于坏女孩帮的事情？

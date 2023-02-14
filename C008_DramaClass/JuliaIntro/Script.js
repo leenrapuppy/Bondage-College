@@ -15,7 +15,7 @@ function C008_DramaClass_JuliaIntro_Load() {
 	LoadInteractions();
 	LeaveIcon = "";
 	C008_DramaClass_JuliaIntro_Painted = GameLogQuery("C004_ArtClass", "Julia", "Paint");
-	
+
 	// If Julia doesn't like the player, we skip the "hug" intro
 	if (ActorGetValue(ActorLove) < 1) C008_DramaClass_JuliaIntro_CurrentStage = 20;
 
@@ -27,13 +27,13 @@ function C008_DramaClass_JuliaIntro_Run() {
 }
 
 // Chapter 8 - Julia Intro Click
-function C008_DramaClass_JuliaIntro_Click() {	
+function C008_DramaClass_JuliaIntro_Click() {
 	ClickInteraction(C008_DramaClass_JuliaIntro_CurrentStage);
 }
 
 // Chapter 8 - Julia Intro - Check if the player should be forced to play a role
 function C008_DramaClass_JuliaIntro_CheckRole() {
-	
+
 	// If the player is submissive, she will be forced to play the damsel in Distress
 	if (ActorGetValue(ActorSubmission) <= -3) {
 		C008_DramaClass_JuliaIntro_SetRole("Damsel");
@@ -51,9 +51,9 @@ function C008_DramaClass_JuliaIntro_CheckRole() {
 			C008_DramaClass_JuliaIntro_SetRole("Villain");
 			OverridenIntroText = GetText("ForceVillain");
 		}
-		
+
 	}
-}	
+}
 
 // Chapter 8 - Julia Intro - Set all the roles for the play
 function C008_DramaClass_JuliaIntro_SetRole(NewRole) {

@@ -1,0 +1,78 @@
+Enter your room information
+請輸入房間訊息
+Room Name
+房間名
+(Letters & numbers only)
+(僅可用字母和數字)
+Description
+描述
+Language
+語言
+Description of the room (Letters & numbers only)
+房間描述 (僅可使用字母和數字)
+Ban List
+封禁列表
+Administrator List
+管理員列表
+Private (Need exact name to find it)
+私有 (需要名稱完全正確才能搜索到)
+Locked (Only admins can leave or enter)
+鎖定 (只有管理員能夠進入或離開)
+Select the background
+選擇背景
+Size (2-10)
+大小 (2-10)
+Create
+創建
+ Exit
+退出
+Selection
+選擇
+Creating your room...
+創建房間中...
+This room name is already taken
+該房間名已被占用
+Account error, try to relog
+帳號錯誤,請重新登入
+Invalid room data
+無效的房間數據
+Room created, joining it...
+房間已創建，正在加入...
+Use member numbers separated by commas (ex: 2313, 12401, ...)
+使用逗號分隔的用戶號 (如: 2313, 12401, ...)
+Use member numbers separated by commas (ex: 16780, ...)
+使用逗號分隔的用戶號 (如: 16780, ...)
+Ban blacklist
+封禁黑名單成員
+Ban ghostlist
+封禁忽視列表成員
+Add Owner
+添加主人
+Add Lovers
+添加戀人
+Background
+背景
+Block Categories
+禁用分類
+No Game
+無遊戲
+LARP
+體感對戰
+Magic Battle
+魔法對戰
+GGTS
+GGTS
+(Click anywhere to return)
+(點擊任意位置返回)
+English
+英語
+French
+法語
+Spanish
+西班牙語
+German
+德語
+Chinese
+中文
+Russian
+俄語

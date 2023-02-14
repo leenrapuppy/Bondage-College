@@ -1,5 +1,6 @@
 "use strict";
 var TitleBackground = "Sheet";
+/** @type {{ Name: string; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
 var TitleList = [
 	{ Name: "None", Requirement: function () { return true; } },
 	{ Name: "Mistress", Requirement: function () { return LogQuery("ClubMistress", "Management"); }, Earned: true },
@@ -60,8 +61,13 @@ var TitleList = [
 	{ Name: "GoodSlave", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true },
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
+/** @type {null | string} */
+var TitleSelectedTitle = null;
 var TitleCanEditNickname = true;
+/** @type {null | string} */
+var TitleNicknameStatus = null;
 let TitleOffset = 0;
+/** @type {{ Name: string; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
 let TitleListFiltered = [];
 const TitlePerPage = 28;
 
@@ -137,6 +143,7 @@ function TitleIsEarned(Title) {
  * @returns {void} - Nothing
  */
 function TitleLoad() {
+	TitleSelectedTitle = TitleGet(Player);
 	TitleListFiltered = TitleList.filter(T => T.Requirement());
 	TitleCanEditNickname = (!LogQuery("BlockNickname", "OwnerRule") || (Player.Ownership == null) || (Player.Ownership.Stage !== 1));
 	let E = ElementCreateInput("InputNickname", "text", Player.Nickname, "20");
@@ -145,6 +152,7 @@ function TitleLoad() {
 		E.removeAttribute("onfocus");
 		E.setAttribute("readonly", "readonly");
 	}
+	TitleNicknameStatus = null;
 }
 
 /**
@@ -154,15 +162,24 @@ function TitleLoad() {
  */
 function TitleRun() {
 
-	// List all the available titles
 	DrawText(TextGet("SelectTitle"), 1000, 100, "Black", "Gray");
-	DrawText(TextGet("CurrentTitle").replace("TITLE", TextGet("Title" + (Player.Title || "None"))), 300, 100, "Black", "Gray");
+
+	// Draw nickname field
 	DrawText(TextGet(TitleCanEditNickname ? "Nickname" : "NicknameLocked"), 750, 180, "Black", "Gray");
 	ElementPosition("InputNickname", 1300, 175, 500, 60);
+	if (TitleNicknameStatus)
+		DrawText(TextGet(TitleNicknameStatus), 1000, 250, "red");
+
+	MainCanvas.textAlign = "left";
+	DrawText(TextGet("CurrentTitle").replace("TITLE", TextGet("Title" + (Player.Title || "None"))), 130, 285, "Black", "Gray");
+	MainCanvas.textAlign = "center";
+
+	// List all the available titles
 	let X = 130;
-	let Y = 250;
+	let Y = 325;
 	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
-		DrawButton(X, Y, 400, 65, TextGet("Title" + TitleListFiltered[T].Name), 'White', undefined, undefined, Player.Title == TitleListFiltered[T].Name);
+		const isCurrentTitle = TitleSelectedTitle == TitleListFiltered[T].Name;
+		DrawButton(X, Y, 400, 65, TextGet("Title" + TitleListFiltered[T].Name), isCurrentTitle ? "yellow" : 'White', undefined, undefined, isCurrentTitle);
 		X = X + 450;
 		if (X > 1500) {
 			X = 130;
@@ -191,11 +208,10 @@ function TitleClick() {
 
 	// When the user selects a title
 	let X = 130;
-	let Y = 250;
+	let Y = 325;
 	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
 		if (MouseIn(X, Y, 400, 65)) {
-			TitleSet(TitleListFiltered[T].Name);
-			TitleExit();
+			TitleSelectedTitle = TitleListFiltered[T].Name;
 		}
 		X = X + 450;
 		if (X > 1500) {
@@ -211,14 +227,17 @@ function TitleClick() {
  * @returns {void} - Nothing
  */
 function TitleExit() {
-	let Regex = /^[a-zA-Z\s]*$/;
 	let Nick = ElementValue("InputNickname");
 	if (Nick == null) Nick = "";
-	Nick = Nick.trim().substring(0, 20);
-	if (Regex.test(Nick)) {
-		Player.Nickname = Nick;
-		ServerAccountUpdate.QueueData({ Nickname: Nick });
-		ElementRemove("InputNickname");
-		CommonSetScreen("Character", "InformationSheet");
+	const status = CharacterSetNickname(Player, Nick);
+	if (status) {
+		TitleNicknameStatus = status;
+		return;
 	}
+
+	TitleSet(TitleSelectedTitle);
+
+	// Nickname was fine, return to the Info sheet
+	ElementRemove("InputNickname");
+	CommonSetScreen("Character", "InformationSheet");
 }

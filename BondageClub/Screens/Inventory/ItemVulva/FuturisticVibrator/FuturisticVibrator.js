@@ -1,8 +1,10 @@
 "use strict";
 
 var ItemVulvaFuturisticVibratorTriggers = ["Increase", "Decrease", "Disable", "Edge", "Random", "Deny", "Tease", "Shock"];
+/** @type {string[]} */
 var ItemVulvaFuturisticVibratorTriggerValues = [];
 
+/** @type {{EVERYONE: "", PROHIBIT_SELF: "ProhibitSelf", LOCK_MEMBER_ONLY: "LockMember"}} */
 const ItemVulvaFuturisticVibratorAccessMode = {
 	EVERYONE: "",
 	PROHIBIT_SELF: "ProhibitSelf",
@@ -11,11 +13,11 @@ const ItemVulvaFuturisticVibratorAccessMode = {
 const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturisticVibratorAccessMode);
 
 function InventoryItemVulvaFuturisticVibratorLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
-		VibratorModeLoad([VibratorModeSet.ADVANCED, VibratorModeSet.STANDARD]);
+		VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 		if ((DialogFocusItem != null) && (DialogFocusItem.Property != null) && (DialogFocusItem.Property.TriggerValues == null)) DialogFocusItem.Property.TriggerValues = CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers);
 
 		ItemVulvaFuturisticVibratorTriggerValues = DialogFocusItem.Property.TriggerValues.split(',');
@@ -93,10 +95,12 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 		if (temp != "" && typeof temp === "string") {
 			DialogFocusItem.Property.TriggerValues = temp;
 			if (CurrentScreen == "ChatRoom") {
-				var Dictionary = [];
-				Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-				Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber});
-				Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name});
+				/** @type {ChatMessageDictionary} */
+				var Dictionary = [
+					{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
+					{Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber},
+					{Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name},
+				];
 				ChatRoomPublishCustomAction("FuturisticVibratorSaveVoiceCommandsAction", true, Dictionary);
 			}
 			InventoryItemVulvaFuturisticVibratorExit();
@@ -110,6 +114,11 @@ function InventoryItemVulvaFuturisticVibratorExit() {
 		ElementRemove("FuturisticVibe" + ItemVulvaFuturisticVibratorTriggers[I]);
 }
 
+/**
+ * @param {string} msg
+ * @param {string[]} TriggerValues
+ * @returns {string[]}
+ */
 function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 	var commandsReceived = [];
 
@@ -128,10 +137,10 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		let triggerRegex;
 
 		// In general, in most of the Asian language, the full sentence will be considered as one whole word
-		// Because how regex consider word boundaries to be position between \w -> [A-Za-z0-9_] and \W. 
+		// Because how regex consider word boundaries to be position between \w -> [A-Za-z0-9_] and \W.
 
 		// So if commands are set to those languages, the command will never be triggered.
-		// Or if the command is not a word 
+		// Or if the command is not a word
 		// This enhancement should allow Asian language commands, and also emoji/special characters
 		// (e.g. A symbol such as ↑ or ↓, Languages in CJK group such as Chinese, Japanese, and Korean.)
 		// This should be a fun addition to boost the user's experience.
@@ -147,6 +156,11 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 	return commandsReceived;
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {ItemVulvaFuturisticVibratorAccessMode} Option
+ */
 function InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, Option) {
 	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
 	Item.Property.AccessMode = Option;
@@ -154,6 +168,11 @@ function InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, Option) {
 	ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 }
 
+/**
+ * @param {Item} Item
+ * @param {boolean} Increase
+ * @returns {VibratorMode}
+ */
 function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
 	if (Item.Property.Mode == VibratorMode.MAXIMUM) return (Increase ? VibratorMode.MAXIMUM : VibratorMode.HIGH);
 	if (Item.Property.Mode == VibratorMode.HIGH) return (Increase ? VibratorMode.MAXIMUM : VibratorMode.MEDIUM);
@@ -163,7 +182,22 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
 	return (Increase ? ((Item.Property.Mode == VibratorMode.OFF) ? VibratorMode.LOW : VibratorMode.MAXIMUM ): VibratorMode.LOW);
 }
 
-function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame) {
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {ExtendedItemOption} Option
+ * @param {boolean} IgnoreSame
+ */
+function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame=false) {
+	const Mode = Option.Property?.Mode;
+	if (
+		C.ArousalSettings?.DisableAdvancedVibes
+		&& VibratorModeOptions.Advanced.some(i => i.Name === Mode)
+	) {
+		// Abort, the character has advanced vibrator modes disabled
+		return;
+	}
+
 	var OldIntensity = Item.Property.Intensity;
 	VibratorModeSetProperty(Item, Option.Property);
 	CharacterRefresh(C);
@@ -174,7 +208,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 		/** @type {ChatMessageDictionary} */
 		var Dictionary = [
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "AssetName", AssetName: Item.Asset.Name },
+			{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
 		];
 
 		if (Item.Property.Intensity !== OldIntensity) {
@@ -198,23 +232,11 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 	}
 }
 
-// Trigger a shock automatically
-function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
-
-	if (CurrentScreen == "ChatRoom") {
-		/** @type {ChatMessageDictionary} */
-		var Dictionary = [];
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
-		Dictionary.push({ ShockIntensity : 2});
-
-		ServerSend("ChatRoomChat", { Content: "FuturisticVibratorShockTrigger", Type: "Action", Dictionary });
-	}
-
-	InventoryShockExpression(C);
-}
-
-
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {number} LastTime
+ */
 function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	if (!Item) return;
 	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
@@ -244,11 +266,12 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 			else if (msg.includes("Decrease")) InventoryItemVulvaFuturisticVibratorSetMode(C, Item, VibratorModeGetOption(InventoryItemVulvaFuturisticVibratorGetMode(Item, false)), true);
 
 			//triggered actions
-			if (msg.includes("Shock")) InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item);
+			if (msg.includes("Shock")) PropertyShockPublishAction(C, Item, true);
 		}
 	}
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemVulvaFuturisticVibratorScriptDraw(data) {
 	var PersistentData = data.PersistentData();
 	var C = data.C;

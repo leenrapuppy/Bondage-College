@@ -1,0 +1,688 @@
+- Preferences -
+- 設置 -
+- General Preferences -
+- 通用設置 -
+- Multi Player Difficulty Preferences -
+- 多人難度設置 -
+- Restriction Preferences -
+- 束縛設置 -
+- Chat Preferences -
+- 聊天設置 -
+- Audio Preferences -
+- 音訊設置 -
+- Arousal Meter & Sexual Activities Preferences -
+- 性奮量表與交互動作設置 -
+- Security Preferences -
+- 安全設定 -
+- Item Preferences -
+- 物品設置 -
+- Graphical Preferences -
+- 顯示設置 -
+- Online Preferences -
+- 在線設置 -
+- Immersion Preferences -
+- 沉浸設置 -
+- Controller Preferences -
+- 手把設置 -
+- Notification Preferences -
+- 通知設定 -
+- Gender Preferences -
+- 性別設置 -
+- Script Permission Preferences -
+- 腳本權限設定 -
+General
+通用
+Difficulty
+難度
+Restriction
+束縛
+Chat
+聊天
+Censored Words
+屏蔽詞
+Audio
+音訊
+Arousal
+性奮
+Security
+安全
+Item Visibility
+物品可見性
+Online
+在線上
+Immersion
+沉浸
+Graphics
+顯示
+Controller
+手把
+Notifications
+通知
+Gender
+性別
+Scripts
+腳本
+The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
+難度模式僅在多人遊戲中使BDSM限制強制生效。點擊以了解更多
+Roleplay
+角色扮演
+Roleplay - This mode is fully open to customise your experience.
+角色扮演 - 本模式下可以完全自訂你的體驗
+It allows you to choose which restrictions or mechanisms to ignore.
+你可以選擇不想要使用的束縛器具和機制
+You can select this mode any time, but you won't be able
+你可以隨時切換到本模式，但是7天內
+to select the Hardcore or Extreme mode for seven days.
+你將無法切換到硬核或極限難度
+Regular
+通常
+Regular - This default mode enforces the basic rules and restrictions.
+通常 - 本模式下需要遵守基礎的規則和限制.
+It's made to restrict you and keep you safe at the same time.
+這是為了同時對你進行限制並保證你的安全
+Lots of options can be configured under this mode.
+本模式下可以修改大多數選項
+Hardcore
+硬核
+Hardcore - This mode is geared for players wanting to be helpless.
+硬核 - 本模式面向想要體驗無助感的玩家
+No rescue maid will come, and no NPC will help you out.
+沒有救援女僕，沒有NPC會幫助你脫身
+No safeword can be used, you must find help from players.
+沒有安全詞可用，你必須從其他玩家處獲得幫助
+You must be a member for at least seven days to select this mode.
+你至少需要註冊7天才能選擇本難度
+You cannot select this if you've changed mode in the last seven days.
+如果你更改了難度模式，7天內你將無法選擇本模式
+Extreme
+極限
+Extreme - This mode is built for players wanting to be full slaves.
+極限 - 本模式面向希望成為完全的奴隸的玩家
+No safeword can be used and you cannot leave your owner.
+沒有安全詞可用，並且你無法擺脫主人
+All immersion settings are maxed, and you cannot block any item.
+所有的沉浸設置都被強制固定為最大，同時你不可以屏蔽任何物品
+Easy mode - Restrictions and game mechanisms
+簡單模式 - 束縛和遊戲機制
+can be ignored with toggles.  For pure roleplayers.
+可以被無視，專為RP玩家設計
+Normal mode - Basic restrictions are enforced, 
+普通模式 - 需要遵守基礎的規則和限制，
+many options to protect you.  For most players.
+有自我保護選項。 適合大多數玩家
+Hard mode - No rescue maids, no safeword and no 
+硬核模式 - 沒有救援女僕，沒有NPC幫助，
+help from any NPC.  For players that want trouble.
+也沒有安全詞。專為想要找事的玩家設計。
+Slavery mode - No maids, no safeword, no NPC help, 
+奴隸模式 - 沒有救援女僕，沒有NPC幫助，沒有安全詞，
+no blocked items, cannot leave owner.  Fully helpless.
+不能屏蔽物品，不能從主人處逃跑。完全的無助。
+You're already playing on that difficulty mode.
+你已經在遊玩該難度模式了
+You need to wait NumberOfHours hours before you can activate this mode.
+你還需要等待NumberOfHours小時才能啟動該模式
+I accept the consequences and want to use this mode.
+我了解這樣做的後果,確認要啟動該模式
+Go
+Go~
+You can configure game restrictions to bypass in the multi-player environment.
+你可以設置多人遊玩時無視的限制內容
+Players using the Roleplay difficulty can configure multi-player restrictions to bypass.
+使用角色扮演難度的玩家可以設置多人遊玩時無視的限制內容
+Bypass the struggling mini-game.
+無視掙扎小遊戲
+Cannot be slowed down from leaving a room.
+離開房間時不會被減速
+Skip punishment when calling maids from chat room
+在聊天室中呼叫女僕時無視懲罰
+Character label color:
+角色標籤顏色:
+Item permission:
+物品權限:
+Everyone, no exceptions
+所有人
+Everyone, except blacklist
+所有人，除了黑名單成員
+Owner, Lover, whitelist & Dominants
+主人、戀人、白名單&支配者
+Owner, Lover and whitelist only
+僅主人、戀人和白名單
+Owner and Lover only
+僅主人和戀人
+Owner only
+僅主人
+Put a valid hex #red-green-blue color
+請輸入有效的十六位#RGB顏色
+Color theme:
+顏色主題:
+Light
+明亮
+Dark
+黑暗
+ Light 2
+明亮2
+Dark 2
+黑暗2
+Enter/Leave message style:
+進入/離開消息風格:
+Normal
+普通
+Smaller
+小號
+Hidden
+隱藏
+Display member numbers:
+顯示成員編號:
+Always
+總是
+Never
+永不
+On Mouseover
+懸浮時
+Font size
+字體大小
+Small
+小號
+Medium
+中號
+Large
+大號
+Display timestamps
+顯示時間戳
+Color names
+姓名染色
+Color actions
+動作染色
+Color emotes
+表情染色
+Color Activities
+行動染色
+Shrink all messages except dialogue
+縮小除對話外所有訊息
+Show sexual activities & orgasms
+顯示交互動作&高潮
+Use : as alias for /me and *
+使用 : 作為 /me 和 * 的同義詞
+Ban blacklist when creating a room
+創建房間時禁止黑名單成員進入
+Ban ghostlist when creating a room
+創建房間時禁止無視名單成員進入
+Display full chatrooms
+顯示所有聊天室
+Order rooms by number of friends
+以好友數量排序聊天室
+Disable scripted assets on others
+禁用其他角色的腳本內容
+Show all automatic messages
+顯示所有自動消息
+Preserve whitespace in messages
+在消息中保持空白
+Show help on first enter
+第一次進入時顯示幫助
+Show beep notifications in chat
+在聊天中顯示好友私聊提示
+Audio volume
+音量
+Audio alarm for beeps
+播放好友私聊提示音
+Play item sounds in chatrooms
+播放聊天室內的物品聲音
+Only play item sounds if you're involved
+僅播放與你有關的物品聲音
+Allow audio alerts for notifications
+允許好友私聊同時發送通知
+Lock this menu while bound
+被束縛時鎖定本菜單
+Return to chatrooms on relog
+重新登入時回到聊天室
+Auto-remake rooms
+自動重建房間
+Hide others' messages
+隱藏他人消息
+All immersion settings are maxed out under the Extreme difficulty mode
+所有的限制設置在極限難度下被固定為最強
+Prevent OOC & whispers while gagged
+被堵嘴時禁用OOC和悄悄話
+Hide non-adjacent players while partially blind
+部分失明時隱藏不臨近的角色
+Events while plugged or vibed
+被插入或被振動時的事件
+Garble chat room names and descriptions while blind
+失明時隱藏聊天室名和描述
+Sensory deprivation setting
+感覺剝奪設置
+Hide names
+隱藏角色名
+Heavy
+重度
+Total
+完全
+Flash after blindness
+失明後閃光
+Zoom chatrooms smoothly
+平滑縮放聊天室
+Center players in chatrooms
+居中聊天室內角色
+Players can drag you to rooms when leashed
+被牽引時可以被帶入房間
+Maids come automatically when restrained
+被束縛時女僕會自動前來救援
+Locks on you can't be picked
+你身上的鎖無法被偷偷打開
+Disable examining when blind
+失明時無法檢查
+Keep all restraints when relogging
+重新登入時保持所有束縛
+Cannot enter single-player rooms when restrained
+被束縛時無法進入私人房間
+Block advanced vibrator modes (edge, random, etc)
+禁止高級振動模式(寸止、隨機等)
+Safewords and help from NPCs are disabled on Hardcore or Extreme
+安全詞和NPC幫助在硬核和極限難度不可用
+Items can affect your facial expression
+物品可以影響你的臉部表情
+Max
+最高
+High
+高
+Low
+低
+Lower
+更低
+Lowest
+最低
+Animation quality (reduce if inputs such as sliders are slow to respond)
+動畫效果(如果輸入和滾動條延遲時請調低)
+Display all characters at maximum height
+以最大身高顯示所有角色
+Show AFK bubble if idle for 5 minutes
+閒置5分鐘後顯示AFK氣泡
+Allow Safeword use (Cannot enable while bound)
+允許使用安全詞(被束縛時不能更改)
+(Click to confirm) Allow Safeword use (Cannot enable while bound)
+(點擊以確定)允許使用安全詞(被束縛時不能更改)
+Allow others to alter your whole appearance
+允許其他玩家修改你所有外觀
+Prevent others from changing cosplay items
+禁止其他玩家更改Cosplay物品
+Show status bubble
+顯示狀態泡泡
+Send your status
+發送你的狀態
+Linking an email will allow password recovery
+連結信箱地址可以找回密碼
+Update Email
+更新信箱
+Current email:
+現在的信箱:
+New email:
+新信箱:
+No email saved, write here to add one
+沒有儲存信箱地址,輸入以添加
+An email is linked, write it here to update it
+已儲存信箱地址,輸入以更新
+Your email has been updated.
+你的信箱地址已更新
+Current email does not match
+現在的信箱地址錯誤
+Invalid characters
+無效字元
+Show other characters meter
+顯示其他角色量表
+Affect your facial expressions
+影響你的臉部表情
+Activation:
+啟用:
+Disable sexual activities
+禁用交互動作
+Allow without a meter
+啟用量表
+Allow with a manual meter
+啟用手動量表
+Allow with a hybrid meter
+啟用混合量表
+Allow with a locked meter
+啟用鎖定量表
+Arousal meter visuals
+性奮量表外觀
+Bare Meter
+純量表
+Solid Glow
+持續發光
+Temporary Animation
+短暫動畫
+Constant Animation
+持續動畫
+Vibrator Screen Filters
+振動螢幕過濾
+None
+無
+Flickering Glow
+閃爍發光
+Arousal Screen Filter
+性奮螢幕過濾
+Strong Gradient
+強梯度
+Solid Color Filter
+固定顏色濾鏡
+Solid Filter at High Arousal
+高性奮時出現固定顏色濾鏡
+Meter visibility:
+量表可見性:
+Show arousal to everyone
+每個人都可見
+Show if they have access
+有權限者可見
+Show to yourself only
+僅對自己顯示
+Fetish preferences:
+愛好設置:
+Being restrained
+被束縛
+Being gagged
+被堵嘴
+Being blind
+被遮眼(失明)
+Being deaf
+被塞耳(失聰)
+Being chaste
+貞操帶
+Being naked
+裸露
+Masochism
+受虐
+Sadism
+施虐
+Rope
+繩索
+Latex
+乳膠
+Leather
+皮革
+Metal
+金屬
+Tape
+膠帶
+Nylon
+尼龍
+Lingerie
+亞麻
+Pony
+馬駒遊戲
+ABDL
+戀尿布
+Pet play
+寵物遊戲
+Forniphilia (human furniture)
+物品化（人形家具）
+Hate it
+討厭
+Doesn't like it
+不喜歡
+Neutral on it
+無所謂
+Like it
+喜歡
+Adore it
+特別喜愛
+Activity preferences:
+行動設置:
+Done on yourself:
+自己被做:
+Doing it to others:
+對別人做:
+Forbid/Block it
+禁止
+Click on yourself to set your erogenous zones
+點擊你自己來設置你的敏感帶
+Configure this zone to be erogenous or not
+設置該區域的敏感度
+Block all activities on this zone
+禁止對該區域的一切行動
+Dislike this zone, it's a turn-off
+不喜歡,禁止
+This zone isn't special for you
+沒什麼特別的
+Like this zone, it turns you on
+喜歡,使你興奮
+Love this zone, it's a big turn-on
+喜愛,特別有效
+This zone can give you an orgasm
+該區域可以使你高潮
+Feet & Toes
+腳與足趾
+Lower Legs
+小腿
+Upper Legs
+大腿
+Pussy & Vagina
+外陰與陰道
+Clitoris
+陰蒂
+Butt / Anal
+臀部/後庭
+Pelvis & Belly
+腹部與小腹
+Torso & Ribs
+軀幹&肋部
+Nipples
+乳頭
+Breast
+乳房
+Arms & Shoulders
+手臂與肩膀
+Hands
+手
+Neck
+頸部
+Mouth & Lips
+嘴巴與嘴唇
+Head & Hair
+頭與頭髮
+Nose
+鼻子
+Ears
+耳朵
+Head
+頭
+Speech stuttering:
+語言混淆:
+Never stutter
+從不混淆
+When you're aroused
+性奮時
+When you're vibrated
+被振動時
+Aroused & vibrated
+性奮或振動時
+Group:
+分類:
+Asset:
+子類別:
+Hide
+隱藏
+Block
+屏蔽
+This icon will appear beside a character that's wearing a hidden item
+該圖示會出現在穿戴隱藏物品的角色身旁
+Reset All
+重設全部
+This will reset all items to be visible. Click again to confirm and exit.
+這將重設所有物品為可見.再次點擊以確認並退出.
+All items are forced visible under the Extreme difficulty mode
+所有物品在極難難度下都強制可見
+Accept changes
+接受改動
+Cancel changes
+取消改動
+Game Font
+遊戲字體
+Fallback fonts will be used if your chosen font is unsupported on your device.
+如果設備不支持,會回退到默認字體.
+Arial
+Arial
+Times New Roman
+Times New Roman
+Papyrus
+Papyrus
+Comic Sans
+Comic Sans
+Impact
+Impact
+Verdana
+Verdana
+Helvetica Neue
+Helvetica Neue
+Century Gothic
+Century Gothic
+Georgia
+Georgia
+Courier New
+Courier New
+Copperplate
+Copperplate
+Flip the room vertically when upside-down
+當被倒吊起來時垂直翻轉房間
+Flash the screen for certain effects
+受到特定效果時閃爍螢幕
+Enable antialiasing (For this browser, if supported)
+啟用反鋸齒(如果瀏覽器支持)
+Not running on WebGL, cannot edit rendering configurations.
+未在WebGL運行,無法修改渲染設置.
+Preferred power consumption mode (For this browser, if supported)
+效能模式(如果瀏覽器支持)
+Low consumption, slower rendering
+低消耗,渲染較慢
+Default
+普通
+High consumption, faster rendering
+高消耗,渲染較快
+Sensitivity
+靈敏度
+Controller Active
+啟用手把
+Map Buttons
+設置按鈕
+Map Sticks
+設置搖杆
+move left stick up
+上移左搖杆
+move left stick right
+右移左搖杆
+Press A
+按下A
+Press B
+按下B
+Press X
+按下X
+Press Y
+按下Y
+Press Up on Dpad
+按下上方向鍵
+Press Down on Dpad
+按下下方向鍵
+Press Left on Dpad
+按下左方向鍵
+Press Right on Dpad
+按下右方向鍵
+Dead Zone
+死區
+Off
+關閉
+(1) in title
+(1) 在標題中
+Popup
+彈出
+(1) in icon
+(1) 在圖示中
+Raise notifications for missed events:
+為漏掉的事件發送通知:
+: Play a sound for only
+: 僅在第一次
+the first occurrence of an event
+發生事件時播放聲音
+Only:
+僅:
+Beeps
+好友私聊
+Messages in chat rooms
+聊天室消息
+Normal Messages
+普通消息
+Whispers
+悄悄話
+Items/Activities
+物品/行動
+Name Mentioned
+提到名字
+Players entering chat rooms
+玩家進入聊天室
+Owner
+主人
+Lovers
+戀人
+Friends
+好友
+Owned Subs
+你的服從者們
+Disconnect from the game
+失去連接
+Your turn in a LARP game
+你的體感對戰回合
+Raise a test notification
+發送測試通知
+Clear raised notifications
+清除目前的通知
+Hello there!
+啦哩吼!
+Page
+頁
+Allow item tint effects
+啟用物品染色效果
+Allow item blur effects (turn off if experiencing frame rate drops)
+啟用物品模糊效果（如果遇到幀率降低，請關閉）
+Females
+女性
+Males
+男性
+Automatically enter the chatroom area for: 
+自動加入此類型聊天室區域：
+Hide shop items exclusively for: 
+隱藏商店的此類專門物品：
+Apply the censoring
+應用屏蔽
+Select the censorship to apply and the words to censor in both the chat and room labels.
+選擇在聊天和房間標籤中應用的屏蔽詞。
+Censorship:
+屏蔽方式：
+Replace the word by ***
+將這詞替換為***
+Replace the phrase by ***
+將這句話替換為***
+Hide the phrase or room
+隱藏這句話或者房間
+Censored words:
+屏蔽詞：
+Add
+添加
+WARNING!
+警告！
+Changing the settings on this page can allow people to modify your items and appearance using scripts in ways that are not possible in the core game. If you don't want this, or if you don't know what you're doing, don't touch these settings!
+更改此頁面上的設置可以讓人們使用腳本以核心遊戲中無法做到的方式修改你的物品和外觀。如果您不想要這個，或者如果您不知道自己在做什麼，請不要修改這些設置！
+I Accept
+我同意
+Specify who can modify your worn items using scripts, and what they're allowed to do.
+指定誰可以使用腳本修改你穿戴的物品，以及允許他們做什麼。
+To reduce issues and maintain a baseline level of visual coherence, the Bondage Club contains a series of measures which prevents people from modifying your items in ways that might cause clipping or graphical issues. On this screen you can choose to allow certain people to bypass those restrictions via custom scripts or addons. This can allow for a higher degree of visual customisation for items, but be aware that it can also open the door to severe visual glitches, including invisible items or characters, so use these options at your own risk. To find out more about the properties that you can assign permissions for and what each might do and the associated risks, click the '?' icon next to each one. Be aware that setting permissions to public means that anyone will be able to modify that feature, even trolls, so please use this with caution. Remember that you can remove unwanted script effects at any time by removing all permissions for that effect (including 'Self').
+為了減少問題並保持視覺效果統一的基準水平，束縛俱樂部包含一系列措施，可防止人們以可能導致錯誤或顯示問題的方式修改你的物品。在此螢幕上，你可以選擇允許某些人通過自訂腳本或插件繞過這些限制。這可以允許對項目進行更高程度的圖形訂製，但請注意，它也可能導致嚴重的顯示錯誤，包括導致物品或角色不可見，因此使用這些選項需要你自擔風險。要了解有關你可以為其分配權限的屬性以及每個屬性可能執行的操作以及相關風險的更多訊息，請單擊每個“？”旁邊的圖示。 請注意，將權限設定為公開意味著任何人都可以修改該功能，甚至是故意破壞者，因此請謹慎使用。請記住，你可以隨時透過刪除該效果的所有權限（包括“自身”）來刪除不需要的腳本效果。
+Permits scripts to override the default item-hiding behaviour of Bondage Club. This can enhance your game by allowing item combinations that wouldn't normally be possible, or by allowing items to be hidden to achieve a particular look that doesn't necessarily reflect exactly what you're wearing. However, it can also be used to create severe visual glitches, including making items or even your whole character invisible. Use with caution!
+允許腳本覆蓋束縛俱樂部的默認項目隱藏行為。這可以讓你用通常無法實現的物品組合來增強你的遊戲體驗，或者透過隱藏物品來使得你的外觀不反映你身上的物品穿戴。但是，這也可以用來製造嚴重的顯示問題，包括讓物品甚至你的整個角色不可見。謹慎使用！
+Permits scripts to override the default item-blocking behaviour of Bondage Club. This is the functionality that prevents you from equipping items on others, or can prevent sexual activities on blocked zones. Allowing scripts to add custom blocking behaviour can allow for additional restriction, preventing players from removing worn items or adding new ones in a given slot, but can also result in items that you can't remove yourself without the help of a script (or by removing this permission).
+允許腳本覆蓋束縛俱樂部的默認物品阻擋。此功能可以防止你在他人身上裝備物品，也可以防止在阻擋的區域進行互動。允許腳本添加自訂阻擋，可以帶來額外的限制，防止玩家移除舊物品或在給定物品欄中添加新物品，但也可能導致你無法自行移除物品，除非獲得腳本的幫助（或刪除此權限）。
+Self
+自身
+Whitelist
+白名單
+Public
+公開

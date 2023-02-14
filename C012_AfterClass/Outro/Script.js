@@ -2,7 +2,7 @@ var C012_AfterClass_Outro_Type = "";
 
 // Chapter 12 - After Class Outro Load
 function C012_AfterClass_Outro_Load() {
-	
+
 	// Time is always 16:30:00 in the outro, reset the poses if needed
 	if (Common_PlayerRestrained && (C012_AfterClass_Dorm_Guest.length == 0)) C012_AfterClass_Outro_Type = "Bondage";
 	if (GameLogQuery(CurrentChapter, "", "EventSleepBoundAndGagged")) C012_AfterClass_Outro_Type = "SleepBoundAndGagged";
@@ -28,7 +28,7 @@ function C012_AfterClass_Outro_Run() {
 		// Shows the text in the bottom
 		DrawText(GetText("SleepBoundAndGagged" + TextPhase.toString()), 599, 549, "White");
 		DrawText(GetText("SleepBoundAndGagged" + TextPhase.toString()), 600, 550, "Black");
-		
+
 	} else {
 
 		// Paints the background

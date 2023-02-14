@@ -51,7 +51,7 @@ Cold Blood Horse
 Warm Blood Horse
 Обычная Лошадь
 Hot Blood Horse
-Теплокровная Лошадь
+Горячая Лошадь
 Wild Mustang
 Дикий Мустанг
 Shining Unicorn
@@ -73,7 +73,7 @@ Superspy
 Wizard
 Волшебник
 Magus
-Магус
+Маг
 Magician
 Фокусник
 Sorcerer
@@ -103,7 +103,7 @@ Kitten
 Puppy
 Щенок
 Foxy
-Лисий
+Лис
 Bunny
 Кролик
 Doll
@@ -117,15 +117,15 @@ Succubus
 Good Girl
 Хорошая Девочка
 Good Slave Girl
-Хорошая Рабыня
+Хорошая Девочка-Рабыня
 Good Slave
 Хороший раб
 Drone
 Дрон
+Pronouns:
+Местоимения:
 Member Number:
 Номер Участника:
--
--
 - Relationships -
 - Отношения -
 Lover:
@@ -138,6 +138,8 @@ Money:
 Деньги:
 Member for
 Член в течении:
+Bondage Club Birthday!
+День рождения Бондаж-Клуба!
 Friends for
 Друзья в течении:
 On trial for
@@ -149,21 +151,21 @@ Lover for
 Dating for
 Встречаетесь в течении:
 Engaged for
-Помолвлена в течении:
+Помолвлен/а в течении:
 Married for
-Жената в течении:
+Женат/а в течении:
 day(s)
-дн.
+дней
 Unknown
-Неизвестная
+Неизвестно
 - Reputation -
 - Репутация -
 Dungeoneer:
 Подземелье:
 Dominant:
-Доминирующая:
+Доминантность:
 Submissive:
-Покорная:
+Покорность:
 Maid Sorority:
 Горничная:
 Kidnappers League:
@@ -171,7 +173,7 @@ Kidnappers League:
 Asylum Nurse:
 Медсестра Психушки:
 Asylum Patient:
-Пациентка Психушки:
+Пациент Психушки:
 LARP Battles:
 LARP Битвы:
 Gambling Hall:
@@ -221,7 +223,7 @@ Time left:
 Spend more time with her to know her traits
 Проводите с ней больше времени, чтобы узнать ее черты
 Violent:
-Жестокая:
+Вспыльчивая:
 Peaceful:
 Тихая:
 Horny:

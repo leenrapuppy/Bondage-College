@@ -1,12 +1,18 @@
 "use strict";
 
 var GamblingBackground = "Gambling";
+/** @type {null | NPCCharacter} */
 var GamblingFirstSub = null;
+/** @type {null | NPCCharacter} */
 var GamblingSecondSub = null;
+/** @type {null | number} */
 var GamblingPlayerDice = null;
 var GamblingPolice = null;
+/** @type {null | string} */
 var GamblingNpcDice = null;
+/** @type {string[]} */
 var GamblingPlayerDiceStack = [];
+/** @type {string[]} */
 var GamblingNpcDiceStack = [];
 var GamblingPlayerSubState = 0;
 /** Game-State of NPC */
@@ -19,8 +25,11 @@ var GamblingMoneyBet = 0;
 var GamblingShowDiceSum = true;
 /** Show Money in DiceStack */
 var GamblingShowMoney = false;
+/** @type {null | Item[]} */
 var GamblingAppearanceFirst = null;
+/** @type {null | Item[]} */
 var GamblingAppearanceSecond = null;
+/** @type {null | Item[]} */
 var GamblingAppearancePlayer = null;
 /** Sub Player lost Cloth although forbidden by Mistress */
 var GamblingIllegalChange = false;

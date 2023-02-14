@@ -42,9 +42,33 @@ Pleasure Module
 刺激模块
 Harness
 绳束
+Gag
+口塞
 Belts
 皮带
 Metal
 金属
 Wood
 木质
+Addons
+配件
+Stand
+支架
+Misc
+杂项
+Wheel Sections
+转盘分区
+Linings
+线条
+Panels
+面板
+Cover Hood Parts
+兜帽组件
+Fixing
+固定
+Tubes
+管子
+Glow
+发光
+Eyes
+眼睛

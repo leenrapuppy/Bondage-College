@@ -29,7 +29,7 @@ function C999_Common_Player_GetTitle() {
 	if (Domme >= 30) return GetText("Domme3");
 	if (Love <= -30) return GetText("Hate3");
 	if (Domme <= -30) return GetText("Sub3");
-	
+
 	// Return a fitting title (level 2)
 	if ((Love >= 12) && (Domme >= 12)) return GetText("LoveDomme2");
 	if ((Love >= 12) && (Domme <= -12)) return GetText("LoveSub2");
@@ -135,15 +135,15 @@ function C999_Common_Player_Run() {
 		}
 		CurrentActor = "";
 	}
-	
+
 }
 
 // Chapter Common - Player Click
 function C999_Common_Player_Click() {
-	
+
 	// Can allow to click on inventory from the player screen
 	InventoryClick(GetClickedInventory(), LeaveChapter, LeaveScreen);
-	
+
 	// Tab navigation
 	if ((MouseX >= 1) && (MouseX <= 199) && (MouseY >= 1) && (MouseY <= 49)) C999_Common_Player_ActiveTab = "Profile";
 	if ((MouseX >= 201) && (MouseX <= 399) && (MouseY >= 1) && (MouseY <= 49)) C999_Common_Player_ActiveTab = "Relationships";

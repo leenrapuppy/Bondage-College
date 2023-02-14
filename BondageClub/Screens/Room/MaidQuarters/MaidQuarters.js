@@ -1,7 +1,10 @@
 "use strict";
 var MaidQuartersBackground = "MaidQuarters";
+/** @type {null | NPCCharacter} */
 var MaidQuartersMaid = null;
+/** @type {null | NPCCharacter} */
 var MaidQuartersMaidInitiation = null;
+/** @type {{ Cloth?: Item, Hat?: Item, ItemArms?: Item, ItemLegs?: Item, ItemFeet?: Item }} */
 var MaidQuartersItemClothPrev = { Cloth: null, Hat: null, ItemArms: null, ItemLegs: null, ItemFeet: null };
 var MaidQuartersMaidReleasedPlayer = false;
 var MaidQuartersCanBecomeMaid = false;
@@ -21,6 +24,7 @@ var MaidQuartersCurrentRescueCompleted = false;
 var MaidQuartersOnlineDrinkStarted = false;
 var MaidQuartersOnlineDrinkCount = 0;
 var MaidQuartersOnlineDrinkValue = 0;
+/** @type {number[]} */
 var MaidQuartersOnlineDrinkCustomer = [];
 var MaidQuartersOnlineDrinkFromOwner = false;
 
@@ -123,11 +127,11 @@ function MaidQuartersPlayerCanChangeForRescue() {
  */
 function MaidQuartersAdviceMaidUniform() {
 	if (!(CharacterAppearanceGetCurrentValue(Player, "Hat", "Name") == "MaidHairband1")) {
-		MaidQuartersMaid.CurrentDialog = "You must at least wear your maid hairband.";
+		MaidQuartersMaid.CurrentDialog = DialogFind(MaidQuartersMaid, "NoHairband");
 	} else if (CharacterAppearanceGetCurrentValue(Player, "Bra", "Name") == "MaidBra1" && CharacterAppearanceGetCurrentValue(Player, "Panties", "Name") == "MaidPanties2") {
-		MaidQuartersMaid.CurrentDialog = "You are either not wearing the dress, or covering too much.";
+		MaidQuartersMaid.CurrentDialog = DialogFind(MaidQuartersMaid, "NoDress");
 	} else {
-		MaidQuartersMaid.CurrentDialog = "Does your outfit look like mine?";
+		MaidQuartersMaid.CurrentDialog = DialogFind(MaidQuartersMaid, "WrongOutfit");
 	}
 }
 

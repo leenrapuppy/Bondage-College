@@ -20,7 +20,7 @@ let KinkyDungeonCheckpointLore = {
 	/*1*/ "cat": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 9,],
 	/*2*/ "jng": [201, 202, 203, 204, 205],
 
-	/*11*/ "tmb": [9, 1100, 1101, 1102, 1103, 1104],
+	/*11*/ "tmb": [9, 1100, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112],
 
 };
 let KinkyDungeonLoreScale = 1.5;
@@ -110,11 +110,15 @@ function KinkyDungeonDrawLore() {
 	MainCanvas.textAlign = "left";
 
 	let wrapAmount = TranslationLanguage == 'CN' ? 19 : 45;
-	let lore = KinkyDungeonWordWrap(TextGet("KinkyDungeonLore" + KinkyDungeonCurrentLore), wrapAmount).split('\n');
+	let loreOrig = TextGet("KinkyDungeonLore" + KinkyDungeonCurrentLore).split('|');
+	let lore = [];
+	for (let str of loreOrig) {
+		lore.push(...(KinkyDungeonWordWrap(str, wrapAmount, 45).split('\n')));
+	}
 	let i = 0;
 	for (let N = 0; N < lore.length; N++) {
-		DrawTextFit(lore[N],
-			canvasOffsetX_ui + 640*KinkyDungeonLoreScale/8, canvasOffsetY_ui - 100 + 483*KinkyDungeonLoreScale/6 + i * 40, 0.75 * 640*KinkyDungeonLoreScale, "black", "silver"); i++;}
+		DrawTextFitKD(lore[N],
+			canvasOffsetX_ui + 640*KinkyDungeonLoreScale/8, canvasOffsetY_ui - 100 + 483*KinkyDungeonLoreScale/6 + i * 40, 0.75 * 640*KinkyDungeonLoreScale, "#000000", KDTextTan); i++;}
 
 	if (KinkyDungeonNewLoreList.includes(KinkyDungeonCurrentLore)) {
 		KinkyDungeonNewLoreList.splice(KinkyDungeonNewLoreList.indexOf(KinkyDungeonCurrentLore), 1);
@@ -137,9 +141,9 @@ function KinkyDungeonDrawLore() {
 				}
 			}
 			if (i == -1)
-				DrawButton(1800, 142 + i * 42, 190, 40, TextGet("KinkyDungeonCheckpointLore-1"), tabNames[i + KinkyDungeonCurrentLoreTabOffset] == KinkyDungeonCurrentLoreTab ? "white" : (newLore ? "#cdcdcd" :"#888888"));
+				DrawButtonVis(1800, 142 + i * 42, 190, 40, TextGet("KinkyDungeonCheckpointLore-1"), tabNames[i + KinkyDungeonCurrentLoreTabOffset] == KinkyDungeonCurrentLoreTab ? "white" : (newLore ? "#cdcdcd" :"#888888"));
 			else
-				DrawButton(1800, 142 + i * 42, 190, 40, KinkyDungeonCurrentLoreTabs.includes(tabNames[i + KinkyDungeonCurrentLoreTabOffset]) ?
+				DrawButtonVis(1800, 142 + i * 42, 190, 40, KinkyDungeonCurrentLoreTabs.includes(tabNames[i + KinkyDungeonCurrentLoreTabOffset]) ?
 					TextGet("KinkyDungeonCheckpointLore" + tabNames[i + KinkyDungeonCurrentLoreTabOffset]) :
 					TextGet("KinkyDungeonCheckpointLoreUnknown"),
 					tabNames[i + KinkyDungeonCurrentLoreTabOffset] == KinkyDungeonCurrentLoreTab ? "white" : (newLore ? "#cdcdcd" :"#888888"));
@@ -150,19 +154,19 @@ function KinkyDungeonDrawLore() {
 		}
 
 
-		DrawButton(1850, 30, 90, 40, "", KinkyDungeonCurrentLoreTabOffset > 0 ? "white" : "#888888", KinkyDungeonRootDirectory + "Up.png");
-		DrawButton(1850, 930, 90, 40, "", numTabs + KinkyDungeonCurrentLoreTabOffset < KinkyDungeonCurrentLoreTabs.length ? "white" : "#888888", KinkyDungeonRootDirectory + "Down.png");
+		DrawButtonVis(1850, 30, 90, 40, "", KinkyDungeonCurrentLoreTabOffset > 0 ? "white" : "#888888", KinkyDungeonRootDirectory + "Up.png");
+		DrawButtonVis(1850, 930, 90, 40, "", numTabs + KinkyDungeonCurrentLoreTabOffset < KinkyDungeonCurrentLoreTabs.length ? "white" : "#888888", KinkyDungeonRootDirectory + "Down.png");
 	}
 
 	let numNotes = 57;
-	DrawButton(1550, 80, 90, 40, "", KinkyDungeonCurrentLoreItemOffset > 0 ? "white" : "#888888", KinkyDungeonRootDirectory + "Up.png");
-	DrawButton(1550, 860, 90, 40, "", numNotes + KinkyDungeonCurrentLoreItemOffset < KinkyDungeonCurrentLoreItems.length ? "white" : "#888888", KinkyDungeonRootDirectory + "Down.png");
+	DrawButtonVis(1550, 80, 90, 40, "", KinkyDungeonCurrentLoreItemOffset > 0 ? "white" : "#888888", KinkyDungeonRootDirectory + "Up.png");
+	DrawButtonVis(1550, 860, 90, 40, "", numNotes + KinkyDungeonCurrentLoreItemOffset < KinkyDungeonCurrentLoreItems.length ? "white" : "#888888", KinkyDungeonRootDirectory + "Down.png");
 	for (i = 0; i < numNotes; i++) {
 		let ii = Math.floor(i / 3);
 		let xx = i % 3;
 		if (i + KinkyDungeonCurrentLoreItemOffset < KinkyDungeonCurrentLoreItems.length) {
 			let loreNum = KinkyDungeonCurrentLoreItems[i + KinkyDungeonCurrentLoreItemOffset];
-			DrawButton(1450 + 100 * xx, 142 + (ii) * 42, 90, 40, "#" + loreNum, loreNum == KinkyDungeonCurrentLore ? "white" : (KinkyDungeonNewLoreList.includes(loreNum) ? "#cdcdcd": "#888888"));
+			DrawButtonVis(1450 + 100 * xx, 142 + (ii) * 42, 90, 40, "#" + loreNum, loreNum == KinkyDungeonCurrentLore ? "white" : (KinkyDungeonNewLoreList.includes(loreNum) ? "#cdcdcd": "#888888"));
 		} else {
 			if (i + KinkyDungeonCurrentLoreItemOffset > KinkyDungeonCurrentLoreItems.length + 3)
 				KinkyDungeonCurrentLoreItemOffset = 0;

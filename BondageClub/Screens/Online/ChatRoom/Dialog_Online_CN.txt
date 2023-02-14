@@ -9,7 +9,7 @@
 (Change her clothes.)
 (更改她的服装)
 (Manage your relationship.)
-(管理你和她的关系)
+(管理你们的关系)
 ###_NPC
 (You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)
 (你可以将她添加到你的黑名单或白名单来让他获得更少或更多你的物品权限)
@@ -318,6 +318,14 @@
 (You give her the keys to your private padlocks)
 (你给了她你私人小锁的钥匙)
 ###_PLAYER
+(Spin the Wheel of Fortune.)
+(转动命运之轮。)
+(Force her to spin your Wheel of Fortune.)
+(强迫她转动你的命运之轮。)
+###_NPC
+(She will be required to spin your Wheel of Fortune.)
+(她会被要求转动你的命运之轮。)
+###_PLAYER
 (Generate a new GGTS task.)
 (生成一个新的GGTS任务）
 (Give her a five minutes pause.)
@@ -356,13 +364,19 @@
 (定时监牢、GGTS和强制劳动)
 ###_NPC
 (You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)
-(你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的佣金。)
+(你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的工资)
 ###_PLAYER
 (Collar and nickname options.)
-(项圈与昵称选项。)
+(项圈与昵称选项)
 ###_NPC
 (Select the option.)
 (选择本选项)
+###_PLAYER
+(Advanced rules.)
+(高级规则。)
+###_NPC
+(Select the advanced rule to configure.)
+(选择要配置的高级规则。)
 ###_PLAYER
 (Allow her wardrobe access.)
 (允许她使用衣柜)
@@ -546,7 +560,7 @@
 (She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
 (她将被送到女仆宿舍准备饮品，你会获得她的工资)
 (She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
-(她必须是女仆协会的医院来进行交谈和行动来为你工作)
+（她必须是女仆协会的一员，能交够说话和移动，才能为你做这个工作。）
 ###_PLAYER
 (Lock her for 5 minutes.)
 (把她锁上5分钟)
@@ -643,6 +657,30 @@
 ###_NPC
 (She will be able to change her nickname.)
 (即刻起她将可以更改她的昵称)
+###_PLAYER
+(Restrict Bondage Club areas.)
+(限制束缚俱乐部区域。)
+###_NPC
+(The areas you've selected will be blocked for your submissive.)
+(你的顺从者将无法进入你选择的区域。)
+###_PLAYER
+(Lock specific appearance zones.)
+(锁定特定外观区域。)
+###_NPC
+(The appearance zones you've selected will be locked for your submissive.)
+(你的顺从者的你所选的外观区域会被锁定。)
+###_PLAYER
+(Lock specific item zones.)
+(锁定特定物品区域。)
+###_NPC
+(The item zones you've selected will be locked for your submissive.)
+(你的顺从者的你所选的物品区域会被锁定。)
+###_PLAYER
+(Forbidden words list.)
+(禁止词列表。)
+###_NPC
+(The forbidden words list for your submissive has been updated.)
+(你的顺从者的禁止词列表已经更新。)
 ###_PLAYER
 (Allow her to use lovers locks on herself.)
 (允许她对自己使用恋人锁)

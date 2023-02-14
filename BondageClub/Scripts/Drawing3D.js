@@ -1,4 +1,5 @@
 // @ts-nocheck
+/* eslint-disable */
 /* This file is old and currently unused */
 "use strict";
 var renderer;
@@ -32,7 +33,7 @@ function Draw3DKeyDown() {
 }
 
 // TODO: create more fbx assets <.<
-// TODO: seperate all fbx files
+// TODO: separate all fbx files
 // TODO: call each 3d asset and transform x,y towards the next bone node(point)
 function init(){
 

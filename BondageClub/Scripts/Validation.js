@@ -16,6 +16,14 @@ const ValidationAllLockProperties = ValidationNonModifiableLockProperties
 	.concat(ValidationTimerLockProperties)
 	.concat(["MemberNumberListKeys"]);
 const ValidationModifiableProperties = ValidationAllLockProperties.concat(["Effect", "Expression"]);
+const ValidationScriptableProperties = ["Hide", "HideItem", "UnHide", "Block"];
+/** @type {Partial<Record<keyof ItemProperties, ScriptPermissionProperty>>} */
+const ValidationPropertyPermissions = {
+	Hide: "Hide",
+	HideItem: "Hide",
+	UnHide: "Hide",
+	Block: "Block",
+};
 
 /**
  * Creates the appearance update parameters used to validate an appearance diff, based on the provided target character
@@ -38,23 +46,41 @@ function ValidationCreateDiffParams(C, sourceMemberNumber) {
 		}
 		fromLover = ownerCanUseLoverLocks;
 	}
-	return { C, fromSelf, fromOwner, fromLover, sourceMemberNumber };
+	// We can't know the details about other peoples' friendlist/whitelist, so assume an update is safe - their
+	// validation will correct it if not.
+	const fromFriend = C.IsPlayer() ? C.FriendList.includes(sourceMemberNumber) : true;
+	const fromWhitelist = C.IsPlayer() ? C.WhiteList.includes(sourceMemberNumber) : true;
+
+	/** @type {ScriptPermissionLevel[]} */
+	const permissions = [
+		fromSelf && ScriptPermissionLevel.SELF,
+		fromOwner && !fromSelf && ScriptPermissionLevel.OWNER,
+		fromLover && !fromOwner && !fromSelf && ScriptPermissionLevel.LOVERS,
+		fromFriend && ScriptPermissionLevel.FRIENDS,
+		fromWhitelist && ScriptPermissionLevel.WHITELIST,
+		ScriptPermissionLevel.PUBLIC,
+	].filter(Boolean);
+
+	return { C, fromSelf, fromOwner, fromLover, permissions, sourceMemberNumber };
 }
 
 /**
  * Resolves an appearance diff based on the previous item, new item, and the appearance update parameters provided.
  * Returns an {@link ItemDiffResolution} object containing the final appearance item and a valid flag indicating
  * whether or not the new item had to be modified/rolled back.
+ * @param {string} groupName - The name of the group for the appearance diff
  * @param {Item|null} previousItem - The previous item that the target character had equipped (or null if none)
  * @param {Item|null} newItem - The new item to equip (may be identical to the previous item, or null if removing)
  * @param {AppearanceUpdateParameters} params - The appearance update parameters that apply to the diff
  * @returns {ItemDiffResolution} - The diff resolution - a wrapper object containing the final item and a flag
  * indicating whether or not the change was valid.
  */
-function ValidationResolveAppearanceDiff(previousItem, newItem, params) {
+function ValidationResolveAppearanceDiff(groupName, previousItem, newItem, params) {
 	let result;
 	if (!previousItem && !newItem) {
 		result = { item: previousItem, valid: true };
+	} else if (groupName === "ItemScript") {
+		result = ValidationResolveScriptDiff(previousItem, newItem, params);
 	} else if (!previousItem) {
 		result = ValidationResolveAddDiff(newItem, params);
 	} else if (!newItem) {
@@ -66,7 +92,112 @@ function ValidationResolveAppearanceDiff(previousItem, newItem, params) {
 	}
 	let { item, valid } = result;
 	// If the diff has resolved to an item, sanitize its properties
-	if (item) valid = !ValidationSanitizeProperties(params.C, item) && valid;
+	if (item && groupName !== "ItemScript") valid = !ValidationSanitizeProperties(params.C, item) && valid;
+	return { item, valid };
+}
+
+function ValidationHasArrayPropertyBeenModified(oldArray, newArray) {
+	if (!oldArray && !newArray) {
+		return false;
+	} else if (Array.isArray(oldArray) && Array.isArray(newArray) && CommonArraysEqual(oldArray, newArray, true)) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Resolves an appearance diff for the ItemScript group. This group has special rules and permissions which don't
+ * necessarily apply to or behave like other groups.
+ * @param {Item|null} previousItem - The previous item in the group
+ * @param {Item|null} newItem - The new item in the group
+ * @param {AppearanceUpdateParameters} params - The appearance update parameters that apply to the diff
+ * @return {ItemDiffResolution} - The diff resolution
+ */
+function ValidationResolveScriptDiff(previousItem, newItem, {C, permissions, sourceMemberNumber}) {
+	let valid = true;
+
+	/** @type {Record<ScriptPermissionProperty, boolean>} */
+	const propertyPermissions = {
+		Block: ValidationHasSomeScriptPermission(C, "Block", permissions),
+		Hide: ValidationHasSomeScriptPermission(C, "Hide", permissions),
+	};
+
+	const previousProperty = (previousItem && previousItem.Property) || {};
+	const newProperty = (newItem && newItem.Property) || {};
+	const sanitizedProperty = {};
+
+	/** @type {(keyof ItemProperties)[]} */
+	const unpermittedPropertyModifications = [];
+
+	// Check for property modifications that are not permitted
+	if (!propertyPermissions.Hide && ValidationHasArrayPropertyBeenModified(previousProperty.Hide, newProperty.Hide)) {
+		unpermittedPropertyModifications.push("Hide");
+	}
+	if (!propertyPermissions.Hide && ValidationHasArrayPropertyBeenModified(previousProperty.UnHide, newProperty.UnHide)) {
+		unpermittedPropertyModifications.push("UnHide");
+	}
+	if (!propertyPermissions.Hide && ValidationHasArrayPropertyBeenModified(previousProperty.HideItem, newProperty.HideItem)) {
+		unpermittedPropertyModifications.push("HideItem");
+	}
+	if (!propertyPermissions.Block && ValidationHasArrayPropertyBeenModified(previousProperty.Block, newProperty.Block)) {
+		unpermittedPropertyModifications.push("Block");
+	}
+
+	let item = newItem;
+	Object.assign(sanitizedProperty, newProperty);
+	const propertyNames = Object.keys(sanitizedProperty);
+
+	// Strip out any invalid properties
+	for (const propertyName of propertyNames) {
+		if (!ValidationScriptableProperties.includes(propertyName)) {
+			console.warn(`Stripping invalid scripted property: ${propertyName}`);
+			valid = false;
+			delete sanitizedProperty[propertyName];
+		}
+	}
+
+	if (unpermittedPropertyModifications.length > 0) {
+		// If there were unpermitted property modifications...
+		valid = false;
+		console.warn(`Reverting invalid changes to scripted properties: ${JSON.stringify(unpermittedPropertyModifications)}`);
+
+		if (Object.keys(sanitizedProperty).length === unpermittedPropertyModifications.length) {
+			// If all remaining property changes are not permitted, we can revert the whole change
+			item = previousItem;
+		} else {
+			// Otherwise if there were unpermitted property modifications, revert them
+			for (const propertyName of unpermittedPropertyModifications) {
+				sanitizedProperty[propertyName] = previousProperty[propertyName];
+			}
+			item = Object.assign(InventoryItemCreate(C, "ItemScript", "Script"), {Property: sanitizedProperty});
+		}
+	}
+
+	// Special case: if the player does not have permission to modify a property, then delete that property
+	if (permissions.includes(ScriptPermissionLevel.SELF)) {
+		for (const propertyName of ValidationScriptableProperties) {
+			const propertyPermission = ValidationPropertyPermissions[propertyName];
+			if (sanitizedProperty[propertyName] != null && propertyPermission && !ValidationHasScriptPermission(C, propertyPermission, ScriptPermissionLevel.SELF)) {
+				delete sanitizedProperty[propertyName];
+				valid = false;
+			}
+		}
+	}
+
+	// If the change is invalid and we haven't had to revert or recreate the item completely, assign the sanitized
+	// properties to the item.
+	if (item && item === newItem && !valid) {
+		item.Property = sanitizedProperty;
+	}
+
+	if (item && item.Property) {
+		// Finally, sanitize item properties
+		valid = !ValidationSanitizeStringArray(item.Property, "Hide") && valid;
+		valid = !ValidationSanitizeStringArray(item.Property, "UnHide") && valid;
+		valid = !ValidationSanitizeStringArray(item.Property, "HideItem") && valid;
+		valid = !ValidationSanitizeStringArray(item.Property, "Block") && valid;
+	}
+
 	return { item, valid };
 }
 
@@ -157,8 +288,13 @@ function ValidationResolveModifyDiff(previousItem, newItem, params) {
 	const previousProperty = previousItem.Property || {};
 	/** @type {ItemProperties} */
 	const newProperty = newItem.Property = newItem.Property || {};
-	const itemBlocked = ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name) ||
-						ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name, newProperty.Type);
+	let itemBlocked = ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name)
+	if (asset.Archetype === ExtendedArchetype.MODULAR) {
+		const TypeList = ModularItemDeconstructType(newProperty.Type) || [];
+		itemBlocked = itemBlocked || TypeList.some((t) => ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name, t));
+	} else {
+		itemBlocked = itemBlocked || ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name, newProperty.Type);
+	}
 
 	// If the type has changed and the new type is blocked/limited for the target character, prevent modifications
 	if (newProperty.Type !== previousProperty.Type && itemBlocked) {
@@ -512,7 +648,9 @@ function ValidationSanitizeProperties(C, item) {
 
 	// Sanitize various properties
 	let changed = ValidationSanitizeEffects(C, item);
-	changed = ValidationSanitizeBlocks(C, item) || changed;
+	changed = ValidationSanitizeAllowedPropertyArray(C, item, "Block", "AllowBlock") || changed;
+	changed = ValidationSanitizeAllowedPropertyArray(C, item, "Hide", "AllowHide") || changed;
+	changed = ValidationSanitizeAllowedPropertyArray(C, item, "HideItem", "AllowHideItem") || changed;
 	changed = ValidationSanitizeSetPose(C, item) || changed;
 	changed = ValidationSanitizeStringArray(property, "Hide") || changed;
 
@@ -565,7 +703,7 @@ function ValidationSanitizeProperties(C, item) {
 	// Block advanced vibrator modes if disabled
 	if (typeof property.Mode === "string" && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes && !VibratorModeOptions[VibratorModeSet.STANDARD].includes(VibratorModeGetOption(property.Mode))) {
 		console.warn(`Removing invalid mode "${property.Mode}" from ${asset.Name}`);
-		property.Mode = VibratorModeOptions[VibratorModeSet.STANDARD][0].Name;
+		property.Mode = VibratorModeOff.Name;
 		changed = true;
 	}
 
@@ -638,14 +776,15 @@ function ValidationSanitizeLock(C, item) {
 	const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
 	const lockedByOwner = (typeof ownerNumber === 'number' && lockNumber === ownerNumber);
 
-	// Ensure the lock & its member number is valid on owner-only locks
+	// Ensure the lock & its member number is valid on owner-only locks, also validtes for NPC owners
 	if (lock.Asset.OwnerOnly) {
 		const selfCanUseOwnerLocks = !C.IsPlayer() || !LogQuery("BlockOwnerLockSelf", "OwnerRule");
 		const lockNumberValid = (lockedBySelf && selfCanUseOwnerLocks) || lockedByOwner;
-		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid) {
-			console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
-			return ValidationDeleteLock(property);
-		}
+		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid)
+			if (!(C.IsOwned() && !C.IsOwnedByPlayer() && !lockNumberValid)) {
+				console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
+				return ValidationDeleteLock(property);
+			}
 	}
 
 	// Ensure the lock & its member number is valid on lover-only locks
@@ -732,26 +871,30 @@ function ValidationSanitizeLock(C, item) {
 }
 
 /**
- * Sanitizes the `Block` array on an item's Property object, if present. This ensures that it is a valid array of
- * strings, and that each item in the array is present in the either the asset's `Block` or `AllowBlock` array.
+ * Sanitizes an array on an item's Property object, if present. This ensures that it is a valid array of
+ * strings, and that each item in the array is present in the either the asset's corresponding property array or the
+ * "allow" array for that item.
  * @param {Character} C - The character on whom the item is equipped
- * @param {Item} item - The item whose `Block` property should be sanitized
- * @returns {boolean} - TRUE if the item's `Block` property was modified as part of the sanitization process
+ * @param {Item} item - The item whose property should be sanitized
+ * @param {keyof ItemProperties & keyof Asset} propertyName - The name of the property
+ * @param {keyof Asset} allowPropertyName - The name of the property corresponding to the list of allowed property
+ * values on the asset
+ * @returns {boolean} - TRUE if the item's property was modified as part of the sanitization process
  * (indicating it was not a valid string array, or that invalid entries were present), FALSE otherwise
  */
-function ValidationSanitizeBlocks(C, item) {
+function ValidationSanitizeAllowedPropertyArray(C, item, propertyName, allowPropertyName) {
 	const property = item.Property;
-	let changed = ValidationSanitizeStringArray(property, "Block");
+	let changed = ValidationSanitizeStringArray(property, propertyName);
 
-	// If there is no Block array, no further sanitization is needed
-	if (!Array.isArray(property.Block)) return changed;
+	// If there is no property array, no further sanitization is needed
+	if (!Array.isArray(property[propertyName])) return changed;
 
-	const assetBlock = item.Asset.Block || [];
-	const allowBlock = item.Asset.AllowBlock || [];
-	// Any Block entry must be included in the AllowBlock list to be permitted
-	property.Block = property.Block.filter((block) => {
-		if (!assetBlock.includes(block) && !allowBlock.includes(block)) {
-			console.warn(`Filtering out invalid Block entry on ${item.Asset.Name}:`, block);
+	const assetProperty = item.Asset[property] || [];
+	const allowProperty = item.Asset[allowPropertyName] || [];
+	// Any entry must be included in the allow list to be permitted
+	property[propertyName] = property[propertyName].filter((propertyValue) => {
+		if (!assetProperty.includes(propertyValue) && !allowProperty.includes(propertyValue)) {
+			console.warn(`Filtering out invalid ${propertyName} entry on ${item.Asset.Name}:`, propertyValue);
 			changed = true;
 			return false;
 		} else return true;
@@ -1014,7 +1157,7 @@ function ValidationGetBlockedGroups(item, groupNames) {
  * item due to prerequisites
  */
 function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
-	if (!item.Asset.Prerequisite) return [];
+	if (!item.Asset.Prerequisite.length) return [];
 
 	appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== item.Asset);
 	const char = CharacterLoadSimple(`PrerequisiteCheck${item.Asset.Group.Name}`);
@@ -1038,4 +1181,34 @@ function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
 	}
 
 	return blockingGroups;
+}
+
+/**
+ * Checks whether a character permits the given permission level to modify the given item property. For example,
+ * passing `Player` in as the character, `"Block"` in as the property and `ScriptPermissionLevel.FRIENDS` in as the
+ * permission level will check whether the player's friends are permitted to freely modify `"Block"` properties on the
+ * player's worn items without strict validation.
+ * @param {Character} character - The character to check
+ * @param {ScriptPermissionProperty} property - The name of the property to check
+ * @param {ScriptPermissionLevel} permissionLevel - The permission level to check
+ * @returns {boolean} TRUE if the character permits modifications to the provided property
+ */
+function ValidationHasScriptPermission(character, property, permissionLevel) {
+	const permissionBit = ScriptPermissionBits[permissionLevel];
+	const propertyPermissions = character && character.OnlineSharedSettings && character.OnlineSharedSettings.ScriptPermissions && character.OnlineSharedSettings.ScriptPermissions[property];
+	if (!permissionBit || !propertyPermissions || !propertyPermissions.permission) {
+		return false;
+	}
+	return !!(propertyPermissions.permission & permissionBit);
+}
+
+/**
+ * Checks whether a character permits any of the given permission levels to modify the given item property.
+ * @param {Character} character - The character to check
+ * @param {ScriptPermissionProperty} property - The name of the property to check
+ * @param {ScriptPermissionLevel[]} permissionLevels - The permission levels to check
+ * @returns {boolean} TRUE if the character permits modifications to the provided property
+ */
+function ValidationHasSomeScriptPermission(character, property, permissionLevels) {
+	return permissionLevels.some((permissionLevel) => ValidationHasScriptPermission(character, property, permissionLevel));
 }

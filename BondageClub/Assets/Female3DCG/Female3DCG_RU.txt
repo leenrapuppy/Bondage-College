@@ -1,4 +1,4 @@
-﻿Cloth
+Cloth
 Верх
 College
 колледж
@@ -11,7 +11,7 @@ Student Black
 Student Bow
 Юнга
 Student Top
-студенческий верх
+Студенческа верх
 Babydoll Dress
 кукольное платье
 Teacher
@@ -19,7 +19,7 @@ Teacher
 Chinese Dress
 китайское платье
 Chinese Long
-китайское Длинное
+китайское длинное
 T-Shirt
 футболка
 Classic T-Shirt
@@ -37,7 +37,7 @@ Bows Dress
 Summer flower dress
 Летнее цветочное платье
 Shiny dress
-Блестящее платье
+Яркое платье
 Nurse Uniform
 униформа медсестры
 Bunny Girl Accessories
@@ -81,23 +81,23 @@ Shoulderless Wedding Dress
 Bridesmaid Dress
 Платье подружки невесты
 Puffball Gown
-Платье-пуховик
+Платье с пуффами
 Hobble Gown
-Хоббл платье
+Стреноживающие платье
 Shiny Gown
-Блестящее Платье
+Солнечное Платье
 Maid Apron
 Фартук горничной
 Exposed Maid Apron
 Открытый фартук горничной
 Admiral Top
-Адмирал Топ
+Адмиральский верх
 Virgin Killer
-Убийца девственниц
+Убийца девственница
 Reverse Bunny Suit Top
 Обратный костюм кролика топ
- Leather Crop Top
- Кожаный укороченный топ
+Leather Crop Top
+Кожаный укороченный топ
 Corset Shirt
 Корсетная рубашка
 Bondage Bustier 1
@@ -121,15 +121,23 @@ Latex Laced Suit
 Fur Coat
 шуба
 Fuzzy Dress
-Пушистое платье
+Платье с опушкой
 Crop Top
 Укороченный Топ
 Laurel Top
-Лорел Топ
+Торжественный Топ
 See-through Top
 Прозрачный верх
+Jacket
+Кофта
+Male Cloth Tank-Top 
+Мужская тканевая майка
+Button Shirt
+Рубашка на пуговицах
+Slave Rags
+Тряпки раба
 Cloth Accessory
-Тканевый аксессуар
+Аксессуар для верха
 Student Scarf
 Студенческий Шарф
 Student Bow 1
@@ -143,7 +151,7 @@ Bouquet of flowers
 Frilly Apron
 Фартук с оборками
 Bunny Girl Accessories
-Девочка-зайчик аксессуары 
+Аксессуары Девочки-зайчика 
 Camera
 Камера
 Cape
@@ -152,22 +160,24 @@ Leather Straps
 Кожаные ремни
 Fur Bolero
 Меховое болеро
- Face Paint
- Краска для лица
+Face Paint
+Краска для лица
 Bib
 Слюнявчик
 Scarf
 Шарф
 Glitter
 Веснушки
+Head Harness
+Сбруя для головы
 Catsuit Collar
-Ошейник костюма кошки
+Ошейник от Кэтсьюта
 Poncho
 Пончо
 Necklace
-Ожерелье
+Для шеи
 Fancy Necklace
-Необычное Ожерелье
+Изысканное Ожерелье
 Beaded Necklace
 Ожерелье из бисера
 Long Beaded Necklace
@@ -177,7 +187,7 @@ Pearl Necklace
 Lock Necklace
 Ожерелье с замком
 Key Necklace
-Ожерелье с ключами
+Ожерелье с ключем
 ID Card
 Удостоверение личности
 Black Heart
@@ -190,6 +200,8 @@ Bandana
 Бандана
 Fur Scarf
 Меховой Шарф
+Latex Respirator
+Латексный респиратор
 Flower Garland
 Цветочная гирлянда
 Rope Necklace
@@ -197,15 +209,15 @@ Rope Necklace
 Tattoo Choker
 Тату Колье
 Body Chain Necklace
-Ожерелье с цепочкой для тела
+Ожерелье с цепочками
 Upper Suit
 Верхний костюм
 Catsuit
-Костюм кошки
- Seamless Catsuit
- Бесшовный костюм кошки
- Sleeveless Catsuit
- Костюм кошки без рукавов
+Кэтсьют 
+Seamless Catsuit
+Бесшовный Кэтсьют 
+Sleeveless Catsuit
+Кэтсьют  без рукавов
 Pilot Suit
 Костюм пилота
 See-through Suit
@@ -216,6 +228,8 @@ Reverse Bunny Suit
 Обратный костюм кролика
 Slim Latex Leotard (Sleeveless)
 Тонкий латексный купальник (без рукавов)
+Male Seamless Catsuit
+Мужской бесшовный кэтсьют
 Bottom
 Низ
 Skirt
@@ -235,9 +249,9 @@ Mistress Bottom
 Bondage Waspie
 бондаж пояс 
 Royal Waspie
-королевский пояс
+роскошный пояс
 Straps Waspie
-ременной пояс
+юбка из планок
 Latex Pants
 латексные брюки
 Latex Skirt
@@ -247,7 +261,7 @@ Long Latex Skirt
 Tutu
 Пачка
 Hula Skirt
-Юбка Хула
+Гавайская юбка
 Patterned Skirt
 юбка с рисунком
 Ripped Jeans
@@ -255,9 +269,9 @@ Ripped Jeans
 Chinese Skirt
 Китайская юбка
 Hobble Gown Skirt
-Юбка в стиле хобл
+Стреноживающая ябка
 Admiral Skirt
-Адмирал Юбка
+Адмиральская Юбка
 Jean Skirt
 Джинсовая юбка
 Pencil Skirt
@@ -292,16 +306,20 @@ Elegant Skirt
 Элегантная юбка
 Ruffled Skirt
 Юбка с оборками
+Cross Skirt
+Поперечная юбка
 Suit Lower
 Нижний костюм
- Catsuit Panties
- Кошачий костюм Трусики
+Catsuit Panties
+трусики от кэтсьюта 
 Pilot Suit Panties
-Трусики пилотного костюма
+Трусики костюма пилота
 Pantyhose
 Колготки
 Crotchless Pantyhose
 Колготки с вырезом
+Gradient Pantyhose
+Колготки с градиентом
 Stockings Dark
 Чулки Темные
 Stockings Light
@@ -309,7 +327,9 @@ Stockings Light
 Silky Stockings
 Шелковые чулки
 Fishnet Stockings
-Ажурные чулки
+Чулки в сеточку
+Male Catsuit Panties
+Мужские трусы от кэтсьюта
 Bra
 Бюстгальтер
 Style 1
@@ -325,9 +345,9 @@ Strapless
 Bandeau
 Повязка
 Satin Bustier
-Атласное Без бретелек
+Атласное боди
 Frilled Bikini
-Бикини С Оборками
+Бикини с Оборками
 Maid Bra
 Бюстгальтер горничной
 Demonique Bikini
@@ -350,6 +370,12 @@ Frame Bra Style 2
 каркас Бюстгальтер Стиль 2
 Bondage Bra
 Бондаж Бюстгальтер
+Smooth Lacing Leather Armbinder
+Гладкий кожаный армбидер
+Canvas Straitjacket 1
+Холщовая смирительная рубашка 1
+SleepSac
+Спальный мешок
 Latex Bra
 Латексный Бюстгальтер
 Bondage Harness
@@ -367,7 +393,7 @@ Sarashi
 Kitty Bra
 Бюстгальтер Кошечки
 Fishnet Bikini
-Ажурные Бикини
+Бикини в сеточку
 Panties
 Трусики
 Sexy Beach Bra
@@ -375,17 +401,17 @@ Sexy Beach Bra
 Micro Bikini Top
 Верх микро бикини
 Star Harness
-Звездная упряжь
+Звездная сбруя
 Heart Top
-Сердечный топ
+Топ с сердцем
 Chinese Bra
 Китайский бюстгальтер
 Leather Strap Bra
 Кожаный бюстгальтер на бретелях
 Swimsuit style 3
-Стиль купальника 3
+Купальник стиль 3
 Clamshell Bra
-Бюстгальтер-раскладушка
+Бюстгальтер-ракушка
 Cow Printed Bra
 Бюстгальтер с принтом коровы
 Studded Harness
@@ -399,11 +425,11 @@ Leather Breast Binder
 Silk Straps
 Шелковые ремни
 Full Latex Bra
-Полный латексный бюстгальтер
+Латексный бюстгальтер
 Full Latex Bra (Bright)
-Полный Латексный Бюстгальтер (Яркий)
+Латексный Бюстгальтер (Блестящий)
 Harem Bra
-Гарем Бюстгальтер
+Гаремный Бюстгальтер
 Flower Bra
 Цветочный бюстгальтер
 Style 4
@@ -417,7 +443,7 @@ Corset + Garters
 Half Cup Corset
 Корсет с половинной чашкой
 Under Bust Corset
-Корсет под грудью
+Корсет под грудь
 Floral Corset
 Цветочный корсет
 Latex Corset
@@ -453,7 +479,7 @@ Latex Panties
 Crotchless Latex Panties
 Латексные трусики с вырезом
 Wrap Panties
-Обворачивающие Трусики
+Обертывающие Трусики
 Crotchless Briefs
 Трусы Без Промежности
 Crotchless Latex Panties 2
@@ -487,7 +513,7 @@ Latex Panties
 Pilot Panties
 Пилот трусики
 Catsuit Panties
-Кошачий костюм Трусики
+Трусики от Кэтсьюта 
 Flower Panties
 Цветочные трусики
 Floral Panties 2
@@ -499,9 +525,11 @@ Poofy Diaper
 Thong 2
 Стринги 2
 String Thong
-Стрнги нить
+Стринги нить
 Micro Thong
 Микро стринги
+Boxer Shorts
+Боксерские трусы
 Socks
 Носки
 Ankle
@@ -517,23 +545,23 @@ High Leg
 Full Leg
 до бедер
 Frill Socks
-Носки С Оборками
+Чулки с оборками
 Socks with Fur
-Носки с мехом
+Чулки на меху
 Striped Socks
-Полосатые носки
+Полосатые чулки
 Latex Socks
-Латексные носки
+Латексные чулки
 Footless Socks
-Носки без ступней
+Чулки без ступней
 Reverse Bunny Suit Stockings
-Обратные чулки костюма кролика
+Чулки костюма кролика
 Short Leather Socks
 Короткие кожаные носки
 Cow Printed Socks
-Носки с коровьим принтом
+Чулки с коровьим принтом
 Harem Stockings
-Гарем Чулки
+Гаремные Чулки
 Anklet (Right)
 Ножной браслет (справа)
 Band Anklet
@@ -552,6 +580,8 @@ Leather Garter Belt
 Кожаный пояс с подвязками
 Tentacles
 Тентакли
+Drop Bag
+Сумка на бедро
 Shoes
 Обувь
 Sneakers Light
@@ -582,8 +612,8 @@ Multi-Strap Heels
 Каблуки с несколькими ремешками
 Barefoot Sandals
 Босоножки
- Latex Ankle Shoes
- Латексные туфли на щиколотке
+Latex Ankle Shoes
+Латексные ботильоны
 Flippers
 Ласты
 Deluxe Mistress Boots
@@ -593,13 +623,13 @@ Ankle Strap Shoes
 Futuristic Heels
 Футуристические каблуки
 Fuzzy Boots
-Пушистые сапоги
+Сапоги с опушкой
 Hat
 Головной убор
 Hair Band
 Лента Для Волос
 Jeweled Band
-Драгоценное кольцо
+Лента с драгоценностями
 Beret
 Берет
 Maid Hairband
@@ -612,8 +642,8 @@ Captain's Hat
 Капитанская фуражка
 Bunny Succubus
 Кролик Суккуб
- Witch Hat
- Шляпа Ведьмы
+Witch Hat
+Шляпа Ведьмы
 Pirate Bandana
 Пиратская Бандана
 Police Woman Hat
@@ -623,19 +653,19 @@ Dunce Hat
 Tiara
 Тиара
 Bonnet Style 1
-Стиль капота 1
+Чепчик стиль 1
 Bonnet Style 2
-Стиль капота 2
+Чепчик стиль  2
 Crown Style 1
-Стиль короны 1
+Корона стиль 1
 Crown Style 2
-Стиль короны 2
+Корона стиль 2
 Crown Style 3
-Стиль короны 3
+Корона стиль 3
 Crown Style 4
-Стиль короны 4
+Корона стиль 4
 Crown Style 5
-Стиль короны 5
+Корона стиль 5
 Stylish Small Hat
 Стильная маленькая шляпа
 Veil Half Face
@@ -645,17 +675,21 @@ Veil Full Face
 Baker Boy Hat
 Кепи
 Reindeer Hairband
-Лента для волос Оленя
+Лента для волос Олень
 Fur Headband
 Меховая повязка на голову
 Rose Crown
-Корона роз
+Венок из роз
 Flower Crown
 Венок
 Poppy Crown
-Маковая корона
+Венок из маков
 Latex Habit
 Латексный верх рясы
+Baseball Cap Back
+Бейсболка козырьком назад
+Baseball Cap Front
+Бейсболка козырьком вперед
 Hair Accessory
 Аксессуар для волос
 Hair Ribbon 1
@@ -666,10 +700,10 @@ Hair Ribbon 3
 Лента для волос 3
 Hair Ribbon 4
 Лента для волос 4
- Giant Bow 1
- Гигантский бант 1
- Flower
- Цветок
+Giant Bow 1
+Гигантский бант 1
+Flower
+Цветок
 Wedding Veil
 Свадебная фата
 Feathers
@@ -683,13 +717,13 @@ Ears Small
 Ears Large
 Уши Большие
 Pony Ears
-Уши Пони
+Уши пони
 Bunny Ears
-Кроличьи Ушки
+Ушки кролика
 Floppy Bunny Ears
-Гибкие Кроличьи Ушки
+Гибкие уши кролика
 Puppy Ears
-Уши Щенка
+Уши щенка
 Succubus Horns
 Рога Суккуба
 Horns
@@ -699,24 +733,24 @@ Horns 2
 Horns 3
 Рога 3
 Fox Ears Small
-Лисьи Уши Маленькие
+Уши лисьи маленькие
 Small Bat Wings
 Маленькие Крылья Летучей Мыши
 Small Bat Wings
 Black Kitty Ears
-Черные кошачьи уши
+Уши черные кошачьи
 Light Kitty Ears
-Светлые кошачьи уши
+Уши светлые кошачьи
 Wolf Ears One Piece
-Волчьи уши, цельный кусок
+Уши волчьи, цельные
 Wolf Ears Big
-Волчьи уши большие
+Уши волчьи большие
 Fox Ears Large
 Уши лисы большие
 Fox Ears Bell
-Колокол лисьих ушей
+Колокольчики на лисьих ушах
 Floppy Puppy Ears
-Гибкие щенячьи уши
+Уши гибкие щенячьи
 Raccoon Ears
 Уши енота
 Mouse Ears 1
@@ -732,7 +766,7 @@ Antennae
 Unicorn Horn
 Рог единорога
 Dildocorn Horn
-Рог дилдокорна
+Рог дилдорога
 Ears
 Уши
 UnicornHorn
@@ -752,29 +786,37 @@ Fingerless Gloves
 Gloves with Fur
 Перчатки с мехом
 Catsuit Gloves
-Кошачий костюм Перчатки
+Перчатки от Кэтсьюта
 See-through Gloves
 Прозрачные перчатки
 Cow Printed Gloves
 Перчатки с коровьим принтом
 Latex Elbow Gloves
-Латексные перчатки на локоть
- Fishnet Gloves
- Ажурные перчатки
+Латексные перчатки
+Fishnet Gloves
+Перчатки в сеточку
 Harem Gloves
 Гаремные перчатки
+Biker Gloves
+Байкерские перчатки
+Left Hand
+Левая рука
+Right Hand
+Правая рука
+Rings
+Кольца
 Bracelet
-Браслет
+Браслет на руку
 Bow Band
 Бант-лента
- Kinky Band
- Извращенная браслет
+Kinky Band
+Извращенный браслет
 5 Color Band
 5-цветная полоса
 Spiked Wristbands
 Браслеты с шипами
 Band 1
-браслет 1
+Браслет 1
 Lace Armbands
 Кружевные повязки
 Glasses
@@ -795,6 +837,8 @@ Cat-Eye Glasses
 Очки «кошачий глаз»
 V Glasses
 V Очки
+Gradient Sunglasses
+Солнцезащитные очки с градиентом
 Mask
 Маска
 Venetian Mask
@@ -814,11 +858,11 @@ Bunny Mask Leather
 Bunny Mask Leather Nose
 Маска Кролика Кожаный Нос
 Kitty Mask Filigrane
-Китти Маска Филигрань
+Маска Котенка Филигрань
 Kitty Mask Whiskers
-Усы Китти в маске
+Маска котенка с усами
 Full Kitty Mask
-Полная маска Китти
+Полная маска Котенка
 Bat Mask
 Маска летучей мыши
 Venice Festival Mask
@@ -838,7 +882,7 @@ Kitty Tail Strap
 Horse Tail Strap
 Хвост лошади
 Horse TailStrap
-Хвост лошади
+Хвост лошади 2
 Fox Tails Strap
 Хвост лисы
 Puppy Tail Strap
@@ -848,17 +892,17 @@ Succubus Tail Strap
 Succubus2 Tail Strap
 Хвост суккубы 2
 Succubus Heart Tail Strap
-суккуба хвост с сердцем
+Хвост суккубы с сердцем
 Raccoon Tail Strap
 Хвост енота
 Raccoon2 Tail Strap
 Хвост енота 2
 Puppy Fluffy Tail Strap
-Ремешок с пушистым хвостом для щенков
+Ремешок с пушистым хвостом щенка
 Light Kitten Tail Strap
-Ремешок для Легкого хвоста котенка
+Ремешок с гладким хвостом котенка
 Small Fluffy Kitten Tail Strap
-Ремешок для Маленького пушистого хвоста котенка
+Ремешок с пушистым хвостом котенка
 Fox Small Tail Strap
 Ремешок с маленьким хвостом лисы
 Fox Large Tail Strap
@@ -876,19 +920,19 @@ Mouse Tail Strap 1
 Mouse Tail Strap 2
 Ремешок с хвостом мыши 2
 Cow Tail Strap
-Ремешок из коровьего хвоста
+Ремешок с хвостом коровы
 Bunny Tail Strap
-Ремешок с кроличьим хвостом
+Ремешок с хвостом кролика
 Dragon Tail Strap
 Ремешок с хвостом дракона
 Wings
 Крылья
 Succubus Feather 
-Перо Суккуба 
+Оперение Суккуба 
 Succubus Wings
 Крылья Суккуба
 Angel Feather
-Перо Ангела
+Оперение Ангела
 Devil Wings
 Крылья Дьявола
 Fallen Angel Wings
@@ -906,7 +950,7 @@ Bee Wings
 Cyber Wings
 Кибер Крылья
 Pixie Wings
-Пикси Крылья
+Крылья Пикси
 Height
 Рост
 165 cm
@@ -941,6 +985,10 @@ Large
 Большая
 Xlarge
 Очень большая
+Bulky Flat Chest
+Объемная плоская грудь
+Flat Chest
+Плоская грудь
 Lower Body
 нижняя часть тела
 Hands
@@ -950,7 +998,7 @@ Default
 Back Hair
 Волосы сзади
 None
-нет
+Нет
 Front Hair
 передние волосы
 Style 1b
@@ -999,6 +1047,84 @@ Style 14b
 Стиль 14b
 Style 15
 Стиль 15
+Style 16
+Стиль 16
+Style 17
+Стиль 17
+Style 17b
+Стиль 17b
+Style 18
+Стиль 18
+Style 19
+Стиль 19
+Style 20
+Стиль 20
+Style 21
+Стиль 21
+Style 22
+Стиль 22
+Style 22b
+Стиль 22b
+Style 23
+Стиль 23
+Style 23b
+Стиль 23b
+Style 24
+Стиль 24
+Style 25
+Стиль 25
+Style 26
+Стиль 26
+Style 27
+Стиль 27
+Style 28
+Стиль 28
+Style 29
+Стиль 29
+Style 30
+Стиль 30
+Style 31
+Стиль 31
+Style 32
+Стиль 32
+Long Messy Hair 1
+длинные растрепанные волосы 1
+Spikey 1
+Спайки 1
+Boxcut 1
+Полубокс 1
+Swept-Back 1
+Задняя стрелка 1
+Mohawk 1
+ирокез 1
+Side Fringe Short
+Короткая боковая челка
+Side Fringe Long
+Длинная боковая челка
+Side Swept 1
+Боковая стрелка 1
+Dreadlocks 1 Short
+Дреды короткие 1
+Dreadlocks 1 Long
+Дреды длинные 1
+Dreadlocks 2 Short
+Дреды короткие 2
+Dreadlocks 2 Long
+Дреды длинные 2
+Facial Hair
+Волосы на лице
+Goatee
+Эспаньолка
+Big Beard
+большая борода
+Medium Beard
+Средняя борода
+Moustache
+Усы
+Moustache Beard
+Усы и бородка
+Chinstrap Beard
+Подбородочная борода
 Eyes
 Глаза
 Style 16
@@ -1077,6 +1203,14 @@ Style 47
 Стиль 47
 Style 48
 Стиль 48
+Style 49
+Стиль 49
+Style 50
+Стиль 50
+Style 51
+Стиль 51
+Dreadlocks 1
+Дреды 1
 Left eye
 Левый глаз
 Right eye
@@ -1085,10 +1219,14 @@ Mouth
 Рот
 Discreet
 Сдержанный
+Full Lips
+Пухлые губы
 Nipples Style
 Тип сосков
 Light
 Светлые
+Genitalia
+Гениталии
 Pussy
 Киска
 Light 1
@@ -1103,8 +1241,32 @@ Dark 2
 Темная 2
 Dark 3
 Темная 3
+Penis
+Пенис
+Pronouns
+Местоимения
+She/Her
+Она/Ее
+He/Him
+Он/Его
 Eyebrows
 Брови
+Eyebrows 1
+Брови 1
+Eyebrows 2
+Брови 2
+Eyebrows 3
+Брови 3
+Eyebrows 4
+Брови 4
+Eyebrows 5
+Брови 5
+Eyebrows 6
+Брови 6
+Eyebrows 7
+Брови 7
+Eyebrows 8
+Брови 8
 Blush
 Румянец
 Fluids
@@ -1136,29 +1298,29 @@ Suspension Hemp Rope
 Duct Tape
 клейкая лента
 Leather Ankle Cuffs
-Кожаные Манжеты для Щиколоток
+Кожаные Манжеты для щиколоток
 Floor Shackles
 Напольные кандалы
 Steel Ankle Cuffs
-Стальные манжеты на щиколотке
+Стальные манжеты на щиколотки
 Futuristic Ankle Cuffs
-Футуристические манжеты на лодыжках
+Футуристические манжеты на щиколотки
 Ornate Ankle Cuffs
-Богато украшенные манжеты на щиколотках
- Metal Leg Spreader
+Богато украшенные манжеты на щиколотки
+Metal Leg Spreader
 Металическая распорка
 Ball And Chain
 Ядро на цепи
- Ankle Shackles
-Кандалы На Лодыжки
+Ankle Shackles
+Кандалы на щиколотки
 Zip Ties
 Стяжки
 Chains
 Цепи
 Spreader Dildo Bar
-Распорка с фаллоимитатором стержнем
+Распорка с дилдо на стержне
 Vibrating Spreader Dildo Bar
-Распорка с вибрирующим фаллоимитатором стержнем
+Распорка с вибрирующим дилдо на стержне
 Plastic Wrap
 Пластиковая упаковка
 Wooden Cuffs
@@ -1168,7 +1330,7 @@ Medical Bed Restraints
 Suspension Cuffs
 Подвесные манжеты
 Slime
-Слайм
+Слизь
 Legs
 Ноги
 Leather Leg Cuffs
@@ -1178,21 +1340,21 @@ Futuristic Leg Cuffs
 Ornate Leg Cuffs
 Изысканные манжеты на ноги
 Leg Binder
-Стяжка для ног
+Корсет для ног
 Hobble Skirt
 узкая юбка
 Wooden Horse
 Деревянная лошадь
 Seamless Leg Binder
-Бесшовное перевязочное устройство для ног
+Бесшовная перевязка ног
 Seamless Hobble Skirt
 Бесшовная узкая юбка
 Zip Ties
 Стяжки
 Frog-tie Straps
 Ремни-лягушки
- Mermaid Tail
- Хвост русалки
+Mermaid Tail
+Хвост русалки
 Vulva
 Вульва
 Vibrating Egg
@@ -1228,7 +1390,7 @@ Futuristic Vibrator
 Wand
 Палочка
 Clitoris & Dildo Vibrating belt
-Клитор и вибрирующий фаллоимитатор пояс
+вибрирующий клитор пояс с дилдо
 Hemp Rope Wand Belt
 Пояс для жезлов из пеньковой веревки
 Wired Vibrating Egg
@@ -1239,34 +1401,44 @@ Lovers Remote
 Любовный пульт
 Double Ended Dildo
 Двусторонний дилдо
+Stitches
+Нитки для швов
+Basic Cock Ring
+Кольцо для основания члена
+Plastic Chastity Cage 1
+Пластиковая клетка верности 1
+Plastic Chastity Cage 2
+Пластиковая клетка верности 2
+Techno Chastity Cage 1
+Техно клетка верности 1
 Clitoris
 Клитор
 Straight Clitoris Piercing
-Прямой Клитор Пирсинг
+Пирсинг клитора Прямой
 Round Clitoris Piercing
-Круглый пирсинг клитора
+Присинг клитора Шар
 Weighted Clitoris Piercing
 Пирсинг клитора с утяжелением
 Barbell Clitoris Piercing
-Пирсинг клитора штангой
+Пирсинг клитора Гантель
 Chastity Vulva Piercings
-Целомудрие Пирсинг вульвы
+Пирсинг вульвы Целомудрие
 Chastity Vulva Shield
-Целомудрие вульва щит
+Щит вульвы целомудрие
 High Security Vulva Shield
-Щит вульвы повышенной безопасности
+Щит вульвы повышенной надежности
 Jewel Clitoris Piercing
-Пирсинг клитора с драгоценными камнями
+Пирсинг клитора с драгоценным камнем
 Adorned Clitoris Piercing
 Украшенный пирсинг клитора
 Vibrating Heart Clitoris Piercing
-Вибрирующее сердце, пирсинг клитора
+Пирсинг клитора Вибрирующие Сердце
 Bell Clitoris Piercing
-Колокольчик Пирсинг Клитора
+Пирсинг клитора Колокольчик
 Taped Vibrating Egg
 Приклеенное вибрирующее яйцо
 Clitoris Ring
-Клитор Кольцо
+Кольцо для клитора
 Butt
 Попа
 Black Butt Plug
@@ -1278,11 +1450,11 @@ Kitty Butt Plug
 Horse Butt Plug
 Анальная Пробка с хвостом лошади
 Horse ButtPlug
-Анальная Пробка с хвостом лошади
+Анальная Пробка с хвостом лошади 2
 Puppy Butt Plug
 Анальная Пробка с хвостом щенка
 Puppy Fluffy Butt Plug
-Пушистая анальная пробка для щенков
+Анальная пробка Пушистый Хвост Щенка
 Succubus Butt Plug
 Анальная Пробка с хвостом суккубы
 Succubus Tail
@@ -1330,17 +1502,17 @@ Mouse Tail 1
 Mouse Tail 2
 Мышиный хвост 2
 White Bunny Tail Plug
-Пробка белого хвоста кролика
+Пробка белый хвост кролика
 Brown Bunny Tail Plug
-Пробка коричневого хвоста кролика
+Пробка коричневый хвост кролика
 Bunny Tail Vibe Plug
-Вибропробка хвоста кролика
+Вибропробка хвост кролика
 Egg Vibe Plug XXL
 Виброяйцо пробка XXL
 Shock Plug
 Шоковая пробка
 Cow Tail
-Коровий хвост
+Хвост коровы
 Hollow Butt Plug
 Полая анальная пробка
 Locking Vibrating Butt Plug
@@ -1376,7 +1548,7 @@ Spanking Toys
 Rope Harness
 Веревочная Упряжь
 Diaper Harness
-Подгузник Упряжь
+Подгузник сбруя
 Pelvis Chain Leash
 Цепной поводок для таза
 Bulky Chastity Diaper
@@ -1385,6 +1557,8 @@ Poofy Chastity Diaper
 Пушистый подгузник целомудрия
 Hybrid Chastity Belt
 Гибридный пояс целомудрия
+Obedience Belt
+Пояс послушания
 Torso
 Туловище
 Leather Harness
@@ -1396,13 +1570,19 @@ Adult Baby Harness
 Futuristic Harness
 Футуристическая сбруя
 High Security Harness
-Ремни повышенной безопасности
- Crotch Chain
- промежностная цепь
+Ремни повышенной надежности
+Crotch Chain
+промежностная цепь
 Heavy Latex Corset
 Тяжелый латексный корсет
 Thin Leather Straps
 Тонкие кожаные ремешки
+Locking Swimsuit
+Запирающийся купальник
+Locking Swimsuit 2
+Запирающийся купальник 2
+Leather Chest Harness 1
+Кожаный нагрудный ремень 1
 Nipples
 Соски
 Nipple Clamps
@@ -1411,7 +1591,7 @@ Vibrating Nipple Clamps
 ВиброЗажимы Для Сосков
 Vibrating Clamps Remote
 ВиброЗажимы Дистанционные
-Chain Clamp
+Chain Clamps
 Зажимы с цепочкой
 Screw Clamps
 винтовой зажим
@@ -1426,7 +1606,7 @@ Nipple Suction Cups
 Pair Of Nipple Tapes
 Пара Лент для сосков
 Chopstick Nipple Clamps
-зажимы для сосков из палочек для еды
+зажимы из палочек для еды
 Kitty Pasties
 накладки с кошечками
 Clothespins
@@ -1439,10 +1619,12 @@ Lactation Pump
 Насос для лактации
 Shock Clamps
 Шоковые зажимы
- Plate Clamps
- Пластинчатые зажимы
+Plate Clamps
+Пластинчатые зажимы
 Nipple Stretchers
 Растяжки для сосков
+Nipple Clamps 2
+Зажимы для сосков 2
 Straight Piercings
 Прямой Пирсинг
 Round Piercings
@@ -1466,7 +1648,7 @@ Chastity Guard Shield
 Chastity Cross Shield
 Щит Целомудрия Крест
 Vibrating Heart Piercings
-Вибрирующий пирсинг сердца
+Вибрирующий пирсинг сердце
 Nipple Bell Piercings
 пирсинг сосков колокольчик
 Crossed Straight Piercings
@@ -1556,7 +1738,7 @@ Pet Crawler
 Mermaid Suit
 Костюм Русалки
 Web
-Сеть
+Паутина
 Latex Armbinder
 Латексный Армбиндер
 Futuristic Armbinder
@@ -1582,7 +1764,7 @@ Leather Arm Splints
 Tightjacket Leotard
 Купальник в обтяжку
 High Security Straitjacket
-Смирительная рубашка повышенной безопасности
+Смирительная рубашка повышенной надежности
 Pantyhose fullBody
 Колготки на все тело
 Crotchless Pantyhose fullBody
@@ -1608,7 +1790,7 @@ Padded Leather Mittens
 Polished Steel Mittens
 Рукавицы Из Полированной Стали
 Handheld Items
-Ручные предметы
+Предметы в руках
 Crop
 Стек
 Flogger
@@ -1697,8 +1879,10 @@ Mobile Phone
 Мобильный телефон
 Mobile Phone 2
 Мобильный телефон 2
- Hoof Mittens
- Рукавицы-копыта
+Hoof Mittens
+Рукавицы-копыта
+Short Smooth Leather Mittens
+Короткие кожаные рукавицы
 Scissors
 Ножницы
 Plastic Wrap Roll
@@ -1748,11 +1932,11 @@ Leather Choker
 Pet Collar
 ошейник для питомца
 Maid Collar
-Ошейник горничьной
+Ошейник горничной
 Bordelle Collar
 ошейник для борделя
 Lover Leather Collar
-Кожаный Ошейник любимой
+Кожаный Ошейник возлюбленой
 Noble Corset Collar
 Благородный корсетный воротник
 Strict Posture Collar
@@ -1760,19 +1944,19 @@ Strict Posture Collar
 Heart Collar
 Ошейник-сердечко
 Leather Corset Collar Gag
-Кожаный корсет ошейник кляп
+Кожаный корсет-ошейник-кляп
 Latex Posture Collar Gag
-Латексный позиционирующий ошейник с кляпом
+Латексный позиционирующий ошейник-кляп
 High Security Collar
-Ошейник повышенной безопасности
+Ошейник повышенной надежности
 Ornate Collar
 Богато украшенный ошейник
 Slender Steel Collar
 Тонкий стальной ошейник
 Shiny Steel Collar
 Блестящий стальной ошейник
- Heart-Link Choker
- Колье с сердечным звеном
+Heart-Link Choker
+Чокер с сердечным звеном
 Neck Rope
 Веревка на шее
 Nylon Collar
@@ -1835,6 +2019,8 @@ Short Chain
 короткая цепочка
 Hitching Post
 Коновязный столб
+Pet Sign
+Знак питомца
 Leash
 поводок
 Pulled Leash
@@ -1880,7 +2066,7 @@ Kitty Mask
 Kitty Harness Gag
 Кляп кошечка со сбруей
 Kitty Muzzle Gag
-Кляп Кошачья Морда
+Кляп Кошачья Мордочка
 Rubber Carrot Gag
 Кляп резиновая морковь
 Muzzle Gag
@@ -1928,13 +2114,13 @@ Lewd Gag
 Deepthroat Penis Gag
 глубокий заглот пенис кляп
 Silicon Bit Gag
-Силиконовый бит кляп
+Силиконовый мундштук кляп
 XL Bone Gag
 XL Костяной кляп
 Exposed Dog Muzzle
-Открытая морда собаки
+Кляп мордочка собаки
 Foxy Harness Gag
-Кляп в виде Лисьей Упряжи
+Кляп Лисья мордочка
 Tongue Strap Gag
 Кляп с Ремешком Для языка
 Ball Gag Mask
@@ -1942,21 +2128,23 @@ Ball Gag Mask
 Hook Gag Mask
 Маска с кляпом на крючке
 Dildo Plug Gag
-Кляп с вилкой для фаллоимитатора
+Кляп с дилдо
 Steel Muzzle Gag
 Стальной Кляп Намордник
 Stitched Muzzle Gag
 Сшитый Кляп Намордник
 Latex Ball Muzzle Gag
-Кляп намордник с Латексным Шариком
+Кляп-намордник с латексным шаром
 Sock Stuffing
-Набивка из носков
+Начинка из носков
 Respirator Mask
 Респираторная маска
 Web Gag
 Паутинный Кляп
 Rope Gag
 Веревочный Кляп
+Rope Ball Gag
+Веревочный кляп с узлом
 Milk Bottle
 Бутылка для молока
 Medical Mask
@@ -1984,19 +2172,19 @@ Pacifier Gag
 Tentacle
 Тентакль
 Harness OTN Plug Gag
-Упряж OTN вилка кляп
+Кляп-сбруя с пробкой
 Bridle Gag
 Уздечка кляп
- Latex Sheath Gag
- Кляп в латексной оболочке
- Mouthfeature Gag
- Кляп для придания формы рту
+Latex Sheath Gag
+Кляп в латексной оболочке
+Mouthfeature Gag
+Кляп на ротовую полость
 Eyes
 Глаза
 Cloth Blindfold
 Тканевая повязка
 Scarf Blindfold
-Позяка на глаза из Шарфа
+Повязка на глаза из платка
 Leather Blindfold
 Кожаная повязка
 Leather Hood
@@ -2016,7 +2204,7 @@ Slim Leather Mask
 Open Mouth Slim Mask
 Тонкая маска с открытым ртом
 Open Eyes Mouth Slim Mask
-Тонкая маска для рта с открытыми глазами
+Тонкая маска с открытыми глазами
 Studded Blindfold
 Шипованная повязка
 Kitty Blindfold
@@ -2026,15 +2214,15 @@ Small Blindfold
 Full Blindfold
 Цельная повязка
 Lewd Blindfold
-Непристойная Повязка На Глазах
+Непристойная Повязка 
 Latex Blindfold
-Латексная Повязка На Глаза
+Латексная Повязка
 Frilled Sleep Mask
 Маска для сна с оборками
 Blackout Lenses
 Затемняющие линзы
 Rope Blindfold
-Веревочная Повязка На Глаза
+Веревочная Повязка
 Smooth Sleep Mask
 Гладкая Маска для Сна
 Prison Lockdown Blindfold
@@ -2047,6 +2235,10 @@ Medical Patches
 Медицинские Пластыри
 Smooth Latex Mask
 Гладкая Латексная Маска
+Custom Latex Hood
+Настраиваемый латесаный капюшон
+Cat Mask Harness
+Кошачья ременная маска
 Nose
 Нос
 Nose Hook
@@ -2058,11 +2250,11 @@ Nose Ring
 Nose Plugs
 Затычки для носа
 Barbel Piercing
-Пирсинг штанги
+Пирсинг штанга
 Pig Nose Hook
 Крючок Для Свиного Носа
 Blanket Hood
-Одеяло с капюшоном
+Одеяло-капюшон
 Sealed Leather Hood
 Герметичный Кожаный капюшон
 Polished Steel Hood
@@ -2076,23 +2268,23 @@ Kigurumi Mask
 Pumpkin Head
 Тыквенная Голова
 Sack Hood
-Мешок Капюшон
+Мешок
 Sensory Deprivation Hood
 Капюшон Сенсорной депривации
 Open Hair Latex Hood
-Латексный Капюшон с Открытыми Волосами
+Латексный капюшон с волосами наружу
 Leather Hood
 Кожаный Капюшон
 Leather Hood Eyes
 Глаза в кожаном Капюшоне
 Dog Hood
-Собачий Капюшон
+Капюшон собаки
 Foxy Mask
-Лисья маска
+Маска лисы
 Pony Hood
 Капюшон для пони
 Leather Hood Mouth
-Рот Кожаного Капюшона
+Кожаный капюшон с открытым ртом
 Canvas Hood
 Брезентовый Капюшон
 GP-9 Gas Mask
@@ -2106,21 +2298,23 @@ GGTS Шлем
 Lampshade Hood
 Абажур Капот
 Accent Hood
-Капюшон с акцентом
+Акцентный капюшон
 Collar Hood
 Ошейник-капюшон
 Zipper Hood
-Капюшон на молнии
+Капюшон на молниях
 Latex Habit Hood
-Латексный Habit Капюшон
+Латексный верх рясы
 Cow Hood
 Капюшон коровы
 One-Way Glass Head Box
-Односторонняя Стеклянная Головная коробка
+Одностороннея стеклянная коробка
 Kitty Hood
-Кошачий Капюшон
+Капюшон кошки
 Latex Dog Hood
 Латексный Капюшон Собаки
+Latex Open Mouth Plug Hood
+Латексный капюшон с открым ртом
 Light Duty Ear Plugs
 Легкие Беруши
 Heavy Duty Ear Plugs
@@ -2140,7 +2334,7 @@ Metal Padlock
 Intricate Padlock
 Замысловатый Висячий Замок
 High-Security Padlock
-Навесной замок повышенной безопасности
+Навесной замок повышенной надежности
 Five Minutes Padlock
 Пятиминутный Висячий Замок
 Combination Padlock
@@ -2196,7 +2390,7 @@ Wooden Sign
 Serving Tray
 Сервировочный поднос
 Teddy Bear Set
-Набор Плюшевых Мишек
+Набор плюшевых игрушек
 Wooden Box
 деревянный ящик
 Small Wooden Box
@@ -2216,7 +2410,7 @@ Burlap Sack
 Inflatable Body Bag
 Надувной мешок для тела
 Fur Blanket Wrap
-Обертывание Меховым одеялом
+Меховое одеяло
 Bondage Bench
 Скамья для Бондажа
 Grill
@@ -2232,7 +2426,7 @@ Cryogenic Capsule
 One Bar Prison
 Одиночная стойка
 Display Frame
-Рамка дисплея
+Рамка показа
 Sybian
 Сибиан
 Smooth Strap On
@@ -2248,9 +2442,9 @@ Futuristic Crate
 Doll Box
 Коробка для кукол
 Exposed Head Wooden Box
-Деревянная коробка с Открытой Головкой
+Деревянный ящик с открытой головой
 Exposed Head Small Wooden Box
-Открытая Головка Маленькая Деревянная Коробка
+Маленький деревянный ящик с открытой головой
 Wooden Stocks
 Деревянные Колодки
 Vacbed
@@ -2300,7 +2494,11 @@ Medical Bed
 Wooden Rack
 Деревянная Стойка
 Wooden Horse
-Деревянная лошадка
+Деревянная лошадь
+Lucky Wheel
+Колесо удачи
+Wheel of Fortune
+Колесо Фортуны
 Blanket
 Одеяло
 Bed Ropes
@@ -2332,7 +2530,7 @@ Multi-Strap Locking Heels
 Locking Strap Shoes
 Обувь с запирающимся Ремешком
 Locking Full Shoes
-Запирание Полных Ботинок
+Запирающиеся обувь
 Futuristic Shoes
 Футуристическая обувь
 Locking Boots
@@ -2342,6 +2540,6 @@ Short Leather Foot Mittens
 Toe Tape
 Лента для пальцев ног
 High Thigh Boots
-Высокие плотные Сапоги До бедра
+Высокие сапоги до бедра
 Monoheel
-Моноколесо
+Монокаблук

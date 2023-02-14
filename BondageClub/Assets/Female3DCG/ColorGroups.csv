@@ -24,6 +24,9 @@ ItemDevicesFuturisticCrateHarness,Harness
 ItemMouthPonyGagStraps,Straps
 ItemMouth2PonyGagStraps,Straps
 ItemMouth3PonyGagStraps,Straps
+ItemMouthPonyGagGag,Gag
+ItemMouth2PonyGagGag,Gag
+ItemMouth3PonyGagGag,Gag
 ItemArmsSturdyLeatherBeltsBelts,Belts
 ItemArmsSturdyLeatherBeltsMetal,Metal
 ItemLegsSturdyLeatherBeltsBelts,Belts
@@ -32,3 +35,15 @@ ItemFeetSturdyLeatherBeltsBelts,Belts
 ItemFeetSturdyLeatherBeltsMetal,Metal
 ItemDevicesWoodenRackWood,Wood
 ItemPelvisObedienceBeltMetal,Metal
+ItemVulvaPiercingsRoundClitPiercingAddons,Addons
+ItemDevicesLuckyWheelStand,Stand
+ItemDevicesLuckyWheelMisc,Misc
+ItemDevicesLuckyWheelSection,Wheel Sections
+ItemHoodCustomLatexHoodLinings,Linings
+ItemHoodCustomLatexHoodPanels,Panels
+ItemHoodCustomLatexHoodHoodCoverParts,Cover Hood Parts
+ItemMouth3LatexRespiratorFilterFixing,Fixing
+ItemMouth3LatexRespiratorFilter,Tubes
+ItemMouth3LatexRespiratorFilterGlow,Glow
+ItemHoodFestivalFoxMaskEyes,Eyes
+MaskFestivalFoxMaskEyes,Eyes

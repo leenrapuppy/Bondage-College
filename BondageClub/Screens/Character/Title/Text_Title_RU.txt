@@ -1,11 +1,15 @@
-﻿Select your displayed name and title
+Select your displayed name and title
 Выберите отображаемое имя и титул
 Current title: TITLE
-Текущий титул: TITLE
+Текущий титул: ТИТУЛ
 Nickname (letters and spaces)
-Никнейм (буквы и пробелы)
+Псевдоним (буквы и пробелы)
 Nickname locked by your owner
-Никнейм заблокирован вашей Хозяйкой
+Псевдоним заблокирован вашей Хозяйкой
+Nickname is too long (max. 20 characters)
+Псевдоним слишком длинный (не более 20 символов)
+Nickname contains invalid characters
+Псевдоним содержит недопустимые символы
 None
 Нет
 Mistress
@@ -19,9 +23,9 @@ Maid
 Bondage Maid
 Бондаж Горничная
 Master Kidnapper
-Мастер-похитительница
+Мастер-похититель
 Kidnapper
-Похитительница
+Похититель
 Patient
 Пациент
 Permanent Patient
@@ -51,7 +55,7 @@ Cold Blood Horse
 Warm Blood Horse
 Обычная Лошадь
 Hot Blood Horse
-Теплокровная Лошадь
+Горячая Лошадь
 Wild Mustang
 Дикий Мустанг
 Shining Unicorn
@@ -73,7 +77,7 @@ Superspy
 Wizard
 Волшебник
 Magus
-Магус
+Маг
 Magician
 Фокусник
 Sorcerer
@@ -103,7 +107,7 @@ Kitten
 Puppy
 Щенок
 Foxy
-Лисий
+Лис
 Bunny
 Кролик
 Doll
@@ -117,8 +121,8 @@ Succubus
 Good Girl
 Хорошая Девочка
 Good Slave Girl
-Хорошая Рабыня
+Хорошая Девочка-Рабыня
 Good Slave
-Хороший раб
+Хороший Раб
 Drone
 Дрон

@@ -56,6 +56,10 @@ Top
 上部
 Design
 样式
+Upper Gradient
+上部渐变
+Lower Gradient
+下部渐变
 Holder
 包装
 Flowers
@@ -68,6 +72,14 @@ Bib
 围嘴
 Text
 文字
+Base
+打底
+Stains
+污渍
+Rope
+绳子
+Chains
+锁链
 Chain
 锁链
 Lock
@@ -90,12 +102,12 @@ Ball
 球
 Strap
 束带
-Chains
-锁链
 Choker
 颈环
 Zip
 拉链
+Catsuit
+紧身衣
 Fabric
 布料
 Straps
@@ -106,6 +118,10 @@ Bra
 胸罩
 Shine
 高光
+Leather
+皮革
+Buckles
+搭扣
 Skirt
 裙子
 Cloth
@@ -138,6 +154,10 @@ Pollen
 花蕊
 Frill
 褶边
+Lock Icon
+锁标志
+Catsuit Panties
+紧身衣内裤
 Diaper
 尿裤
 Plastic Cover
@@ -150,8 +170,6 @@ Waist Band
 腰带
 Panties
 内裤
-Base
-打底
 Sock
 袜子
 Light Stripes
@@ -160,6 +178,10 @@ Dark Stripes
 暗条纹
 Bands
 束带
+Upper
+上半
+Lower
+下半
 Hat
 帽子
 Bonnet
@@ -180,8 +202,6 @@ Badge
 徽记
 Insignia
 徽章
-Rope
-绳子
 Brim
 帽檐
 Roses
@@ -246,6 +266,22 @@ Right
 右侧
 Glove
 手套
+Thumb Ring
+大拇指戒指
+Index Ring
+食指戒指
+Middle Finger Ring
+中指戒指
+Ring Finger Ring
+无名指戒指
+Wedding Ring
+结婚戒指
+Pinkie Ring
+小拇指戒指
+Honor Ring
+荣誉戒指
+Honor Ring Jewels
+荣誉戒指珠宝
 String
 系绳
 Tail
@@ -306,6 +342,12 @@ Egg
 跳蛋
 Leash
 牵绳
+Weight
+配重
+Harem Chain
+后宫链
+Harem Veil
+后宫纱
 Studs
 嵌钉
 Locks
@@ -319,9 +361,9 @@ Engraving
 Crotch Shield
 胯部护盾
 Positive Wire
-亮线条
+阳极线
 Negative Wire
-暗线条
+阴极线
 Metal
 金属
 Clamps
@@ -358,12 +400,12 @@ Bars
 杆子
 Wood
 木质
-Buckles
-搭扣
 Ropes
 绳子
 Suspension Rope
 悬挂绳
+Inv. Suspension Rope
+反向悬挂绳
 Suspension Chain
 悬挂锁链
 Mesh
@@ -380,10 +422,16 @@ Below Breast Belt
 胸下皮带
 Shorts
 短裤
+Zippers
+拉链
 Slime Girl
 史莱姆女孩
-Leather
-皮革
+Seams
+接缝
+Binder Straps
+束手束带
+Shoulder Straps
+肩部束带
 Middle Ring
 中间环
 Left Ring
@@ -420,10 +468,14 @@ PlaqueBorder
 标牌边框
 Postit
 便条纸
-Paw
-爪子
+Sticker
+贴纸
 PlaqueBolts
 标牌螺栓
+Clip
+扣环
+Handle
+抓手
 Harness
 束带
 Stripes
@@ -486,10 +538,6 @@ Sheet Front
 前部覆盖物
 Sheet
 覆盖物
-Upper
-上半
-Lower
-下半
 Caps
 盖子
 Plastic
@@ -498,6 +546,34 @@ Net
 网子
 Arms
 手臂
+Wooden Stand
+木质支架
+MetalStand
+金属支架
+Metal Stand Frame
+金属支架边框
+Metal Stand Text
+金属支架文本
+Wheel Border
+轮盘边界
+Toys
+玩具
+Flogger
+鞭打
+Gag
+口塞
+Arrow
+箭头
+Rope Sections
+绳子分区
+Chain Sections
+锁链分区
+Gag Sections
+口塞分区
+Shadow
+影子
+Paper
+纸
 Hook
 钩子
 Nose
@@ -558,8 +634,6 @@ Openings
 开口
 Blindfold
 眼罩
-Gag
-口塞
 Drawings
 图画
 Lenses
@@ -628,6 +702,10 @@ Cage
 笼子
 Lines
 线条
+Rubber Bit
+橡胶嚼子
+Ballgag
+口球
 Plume
 羽饰
 ManeBase
@@ -648,6 +726,10 @@ Mouth Shine
 嘴部高光
 Panel Shine
 嵌板高光
+Fixing
+固定圈
+Tubes
+管子
 Cheeks
 面颊
 Nose Gloss
@@ -678,8 +760,8 @@ Pussy Toy
 阴部玩具
 Clitoris Toy
 阴蒂玩具
-Lock Icon
-锁标志
+Attachment
+附件
 Lid
 盖子
 Restraint Frame
@@ -702,8 +784,6 @@ Glass
 玻璃
 Wooden Frame
 木质框架
-Stains
-污渍
  Ropes
 绳子
 Arm Stocks
@@ -724,6 +804,10 @@ Right Lens
 右镜片
 HUD
 显示器
+Thread Right
+右侧线条
+Thread Left
+左侧线条
 Ears
 耳朵
 Right Eye
@@ -750,3 +834,55 @@ Veins
 脉络
 Shade
 阴影
+Bar
+穿刺棒
+Cock Ring
+阴茎环
+Penis
+阴茎
+Rubber Tips
+皮革顶端
+Vibe Egg
+跳蛋
+Crotch Straps
+胯部束带
+Arm Strap
+手臂束带
+Fade
+变暗
+Eyebrow
+眉毛
+Head
+头部
+Face Lining
+面部线条
+Eye Lining
+眼睛线条
+Mouth Lining
+嘴部线条
+Eye Panel
+眼睛遮罩
+Eye Fill Panels
+眼睛填充遮罩
+Mouth Panel
+嘴部遮罩
+Mouth Fill Panel
+嘴部填充遮罩
+Hair Inside Hood
+头发在头套内
+Cover Hood
+覆盖头套
+Zipper
+拉链
+Crosses
+十字架
+Hood Inner
+兜帽内侧
+Hood Outer
+兜帽外侧
+Hood Trim
+兜帽边缘
+Waist and Wrists
+腰和手腕
+Markings
+标记

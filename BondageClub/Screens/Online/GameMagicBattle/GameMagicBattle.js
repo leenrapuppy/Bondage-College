@@ -1,11 +1,15 @@
 "use strict";
 var GameMagicBattleBackground = "Sheet";
 var GameMagicBattleTimerDelay = 30;
+/** @type {Character[]} */
 var GameMagicBattlePlayer = [];
 var GameMagicBattleAction = "";
+/** @type {null | number} */
 var GameMagicBattleTurnAdmin = null;
 var GameMagicBattleTurnDone = false;
+/** @type {null | number} */
 var GameMagicBattleTurnTimer = null;
+/** @type {null | Character} */
 var GameMagicBattleFocusCharacter = null;
 var GameMagicBattleLog = [];
 var GameMagicBattleButton = [];
@@ -68,8 +72,8 @@ function GameMagicBattleLoad() {
 	let game = Player.Game.MagicBattle;
 	Player.Game.MagicBattle = {
 		Status: "",
-		House: (game && typeof game.House !== undefined ? game.House : "NotPlaying"),
-		TeamType: (game && typeof game.TeamType !== undefined ? game.TeamType : "House"),
+		House: (game && typeof game.House === "string" ? game.House : "NotPlaying"),
+		TeamType: (game && ["FreeForAll", "House"].includes(game.TeamType) ? game.TeamType : "House"),
 	};
 }
 

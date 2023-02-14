@@ -26,7 +26,7 @@ function C101_KinbakuClub_Door_Run() {
 }
 
 // Chapter 101 - Door Click
-function C101_KinbakuClub_Door_Click() {	
+function C101_KinbakuClub_Door_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C101_KinbakuClub_Door_CurrentStage);

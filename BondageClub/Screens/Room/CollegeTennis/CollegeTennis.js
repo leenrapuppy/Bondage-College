@@ -1,5 +1,6 @@
 "use strict";
 var CollegeTennisBackground = "CollegeTennis";
+/** @type {null | NPCCharacter} */
 var CollegeTennisJennifer = null;
 var CollegeTennisJenniferStatus = "";
 var CollegeTennisJenniferWillJoinRoom = false;
@@ -66,8 +67,7 @@ function CollegeTennisLoad() {
 		InventoryWear(CollegeTennisJennifer, "TennisSkirt1", "ClothLower", "Default");
 		InventoryWear(CollegeTennisJennifer, "Socks1", "Socks", "#CCCCCC");
 		InventoryWear(CollegeTennisJennifer, "Sneakers1", "Shoes", "Default");
-		InventoryWear(CollegeTennisJennifer, "SpankingToys", "ItemHands");
-		InventoryGet(CollegeTennisJennifer, "ItemHands").Property = { Type: "TennisRacket" };
+		InventoryWear(CollegeTennisJennifer, "TennisRacket", "ItemHandheld");
 		CharacterRefresh(CollegeTennisJennifer);
 
 	}
@@ -104,8 +104,7 @@ function CollegeTennisClick() {
 function CollegeTennisGameStart(Difficulty) {
 
 	// Gives a racket to the player
-	InventoryWear(Player, "SpankingToys", "ItemHands");
-	InventoryGet(Player, "ItemHands").Property = { Type: "TennisRacket" };
+	InventoryWear(Player, "TennisRacket", "ItemHandheld");
 	CharacterRefresh(Player);
 
 	// Starts the match (can bet money on the game if it's not against Jennifer)
@@ -135,8 +134,8 @@ function CollegeTennisGameEnd() {
  * @returns {void} - Nothing
  */
 function CollegeTennisInviteToPrivateRoom() {
-	InventoryAdd(Player, "SpankingToysTennisRacket", "ItemHands");
-	InventoryRemove(CollegeTennisJennifer, "ItemHands");
+	InventoryAdd(Player, "TennisRacket", "ItemHandheld");
+	InventoryRemove(CollegeTennisJennifer, "ItemHandheld");
 	CommonSetScreen("Room", "Private");
 	PrivateAddCharacter(CollegeTennisJennifer, null, true);
 	var C = PrivateCharacter[PrivateCharacter.length - 1];

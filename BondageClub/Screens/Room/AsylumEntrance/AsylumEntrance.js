@@ -1,7 +1,10 @@
 "use strict";
 var AsylumEntranceBackground = "AsylumEntrance";
+/** @type {null | NPCCharacter} */
 var AsylumEntranceNurse = null;
+/** @type {null | NPCCharacter} */
 var AsylumEntranceKidnapNurse = null;
+/** @type {null | NPCCharacter} */
 var AsylumEntranceEscapedPatient = null;
 var AsylumEntranceEscapedPatientWillBribe = false;
 var AsylumEntranceEscapedPatientWillJoin = false;
@@ -105,7 +108,7 @@ function AsylumEntranceClick() {
  * @returns {void} - Nothing
  */
 function AsylumEntranceStartChat() {
-	ChatRoomStart("Asylum", "", "AsylumEntrance", "AsylumEntrance", [BackgroundsTagAsylum]);
+	ChatRoomStart("Asylum", "", "AsylumEntrance", "Room", "AsylumEntrance", [BackgroundsTagAsylum]);
 }
 
 // Wears the nurse clothes on a character (same as nursery)

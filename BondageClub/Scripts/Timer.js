@@ -66,7 +66,7 @@ function TimerInventoryRemove() {
 							var Dictionary = [
 								{Tag: "DestinationCharacterName", Text: CharacterNickname(Character[C]), MemberNumber: Character[C].MemberNumber},
 								{Tag: "FocusAssetGroup", AssetGroupName: Character[C].Appearance[A].Asset.Group.Name},
-								{Tag: "LockName", AssetName: LockName}
+								{Tag: "LockName", AssetName: LockName, GroupName: "ItemMisc"}
 							];
 							ServerSend("ChatRoomChat", {Content: "TimerRelease", Type: "Action", Dictionary});
 						}
@@ -111,7 +111,7 @@ function TimerInventoryRemoveSet(C, AssetGroup, Timer) {
  * @returns {void} - Nothing
  */
 function TimerPrivateOwnerBeep() {
-	if ((Player.Owner != "") && (Player.Ownership == null) && (CurrentScreen != "Private") && (CurrentScreen != "ChatRoom") && (CurrentScreen != "InformationSheet") && (CurrentScreen != "FriendList") && (CurrentScreen != "Cell") && PrivateOwnerInRoom())
+	if ((Player.Owner != "") && (Player.Ownership == null) && (CurrentScreen != "Private") && (CurrentScreen != "PrivateBed") && (CurrentScreen != "ChatRoom") && (CurrentScreen != "InformationSheet") && (CurrentScreen != "FriendList") && (CurrentScreen != "Cell") && PrivateOwnerInRoom())
 		if ((Math.floor(Math.random() * 500) == 1) && !LogQuery("OwnerBeepActive", "PrivateRoom") && !LogQuery("OwnerBeepTimer", "PrivateRoom") && !LogQuery("LockOutOfPrivateRoom", "Rule") && !LogQuery("Committed", "Asylum")) {
 			ServerBeep = {
 				Timer: CommonTime() + 15000,
@@ -242,13 +242,6 @@ function TimerProcess(Timestamp) {
 			ControllerCurrentButton = 0;
 		}
 		DrawRect(MouseX - 5, MouseY - 5, 10, 10, "Cyan");
-	}
-
-	if (BlindFlash == true && CurrentTime < DrawingBlindFlashTimer) {
-		if (Player.GetBlindLevel() == 0) {
-			let FlashTime = DrawingBlindFlashTimer - CurrentTime;
-			DrawRect(0, 0, 2000, 1000, "#ffffff" + DrawGetScreenFlash(FlashTime/Math.max(1, 4 - DrawLastDarkFactor)));
-		}
 	}
 
 	// Launches the main again for the next frame

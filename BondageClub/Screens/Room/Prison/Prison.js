@@ -1,24 +1,38 @@
 "use strict";
 var PrisonBackground = "Prison";
+/** @type {null | number} */
 var PrisonNextEventTimer = null;
 var PrisonNextEvent = false;
+/** @type {null | boolean} */
 var PrisonerMetalCuffsKey = null;
+/** @type {null | boolean} */
 var PrisonerMetalPadlockKey = null;
+/** @type {null | boolean} */
 var PrisonerIntricatePadlockKey = null;
+/** @type {null | boolean} */
 var PrisonerSleepingPills = null;
+/** @type {null | boolean} */
 var PrisonerSpankingToys = null;
+/** @type {null | boolean} */
+var PrisonerConfiscatedHandhelds = null;
 
 var PrisonBehavior = 0;
 
+/** @type {null | NPCCharacter} */
 var PrisonMaid = null;
+/** @type {null | Item[]} */
 var PrisonMaidAppearance = null;
 var PrisonMaidIsPresent = true;
 var PrisonMaidIsAngry =false;
+/** @type {null | string} */
 var PrisonMaidCharacter = null;
 var PrisonMaidCharacterList = ["Friendly", "Neutral", "Evil", "Chaotic"];
+/** @type {null | number} */
 var PrisonMaidChaotic = null;
 
+/** @type {null | NPCCharacter} */
 var PrisonSub = null;
+/** @type {null | Item[]} */
 var PrisonSubAppearance = null;
 var PrisonSubBehindBars = false;
 var PrisonSubSelfCuffed = false;
@@ -27,10 +41,12 @@ var PrisonSubAskedCuff = false;
 var PrisonSubIsLeaveOut = true;
 var PrisonSubIsStripSearch = false;
 
+/** @type {null | NPCCharacter} */
 var PrisonPolice = null;
 var PrisonPoliceIsPresent = false;
 var PrisonPlayerCatchedBadGirl = false;
 
+/** @type {null | Item[]} */
 var PrisonPlayerAppearance = null;
 var PrisonPlayerBehindBars = false;
 var PrisonPlayerForIllegalChange = false;
@@ -45,7 +61,7 @@ function PrisonPlayerIsStriped()    {return !(PrisonCharacterAppearanceGroupAvai
 function PrisonPlayerIsBadGirl()    {return LogQuery("Joined", "BadGirl");}
 function PrisonPlayerIsBadGirlThief() {return (LogQuery("Joined", "BadGirl") && (LogQuery("Stolen", "BadGirl") || LogQuery("Hide", "BadGirl") || LogQuery("Caught", "BadGirl")));}
 function PrisonPlayerHasSleepingPills() {return (InventoryAvailable(Player, "RegularSleepingPill", "ItemMouth"));}
-function PrisonPlayerHasSpankingToys() {return (InventoryAvailable(Player, "SpankingToys", "ItemHands"));}
+function PrisonPlayerHasSpankingToys() {return (InventoryAvailable(Player, "*", "ItemHandheld"));}
 function PrisonPlayerHasKeys() {return (InventoryAvailable(Player, "MetalPadlockKey", "ItemMisc") || InventoryAvailable(Player, "IntricatePadlockKey", "ItemMisc") ||  InventoryAvailable(Player, "MetalCuffsKey", "ItemMisc"));}
 function PrisonSubIsHandcuffedOut() {return (PrisonSubSelfCuffed && !PrisonSubBehindBars);}
 function PrisonSubIsBehindBars()    {return PrisonSubBehindBars;}
@@ -244,9 +260,9 @@ function PrisonCellPlayerOut() {
 		InventoryAdd(Player, "RegularSleepingPill", "ItemMouth");
 		PrisonerSleepingPills = null;
 	}
-	if (PrisonerSpankingToys != null) {
-		InventoryAdd(Player, "SpankingToys", "ItemHands");
-		PrisonerSpankingToys = null;
+	if (Array.isArray(PrisonerConfiscatedHandhelds)) {
+		InventoryAddMany(Player, PrisonerConfiscatedHandhelds);
+		PrisonerConfiscatedHandhelds = null;
 	}
 }
 
@@ -572,7 +588,7 @@ function PrisonWearPoliceEquipment(C) {
 	InventoryWear(C, "Boots1", "Shoes", "#202020");
 	InventoryWear(C, "TShirt1", "Cloth", "#3333cc");
 	InventoryWear(C, "PoliceWomanHat", "Hat");
-	InventoryWear(C, "SpankingToys", "ItemHands");
+	InventoryWear(C, "Crop", "ItemHandheld");
 }
 
 /*
@@ -729,8 +745,8 @@ function PrisonArrestHandoverSleepingPills() {
 }
 
 function PrisonArrestHandoverSpankingToys() {
-	PrisonerSleepingPills = true;
-	InventoryDelete(Player, "SpankingToys", "ItemHands");
+	PrisonerSpankingToys = true;
+	PrisonerConfiscatedHandhelds = InventoryDeleteGroup(Player, "ItemHandheld");
 	PrisonSetBehavior(1);
 }
 
@@ -804,8 +820,7 @@ function PrisonArrestConfiscatSleepingPills() {
 }
 
 function PrisonArrestConfiscatSpankingToys() {
-	PrisonerSpankingToys = true;
-	InventoryDelete(Player, "SpankingToys", "ItemHands");
+	PrisonerConfiscatedHandhelds = InventoryDeleteGroup(Player, "ItemHandheld");
 	PrisonSetBehavior(-1);
 	PrisonArrestEquipmentSearch();
 }

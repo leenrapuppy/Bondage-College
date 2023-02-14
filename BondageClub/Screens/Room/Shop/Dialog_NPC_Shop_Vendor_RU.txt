@@ -117,7 +117,7 @@ Sure!  Do you have more questions for me?
 What's the job?
 А что это за работа?
 ###_NPC
-Selling gears.  Customers wants to know if the items are secure and good looking.  You could demonstrate for them.
+Modelling gear so our customers can see that the items are secure and good looking.  You'd demonstrate and convince them.
 Продажа снаряжения.  Клиенты хотят знать, безопасны ли эти предметы и хорошо ли они выглядят.  Ты можешь продемонстрировать это для них.
 ###_PLAYER
 How much does it pay?

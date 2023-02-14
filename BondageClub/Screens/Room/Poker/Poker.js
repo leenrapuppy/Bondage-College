@@ -1,16 +1,18 @@
 "use strict";
-/* eslint-disable */
 var PokerBackground = "White";
-/** @type PokerPlayer[] */
+/** @type {PokerPlayer[]} */
 var PokerPlayer = [
 	{ Type: "Character", Family: "Player", Name: "Player", Chip: 100 },
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 },
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 },
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 }
 ];
+/** @type {PokerMode} */
 var PokerMode = "";
-var PokerGame = "TexasHoldem"
+/** @type {PokerGameType} */
+var PokerGame = "TexasHoldem";
 var PokerShowPlayer = true;
+/** @type {PokerAsset[]} */
 var PokerAsset = [
 	{
 		Family: "None",
@@ -29,6 +31,7 @@ var PokerAsset = [
 	}
 ];
 var PokerPlayerCount = 4;
+/** @type {number[]} */
 var PokerTableCards = [];
 var PokerMessage = "";
 var PokerResultMessage = "";
@@ -51,15 +54,18 @@ function PokerLoad() {
 
 /**
  * Draws a poker player behind the table
+ * @param {PokerPlayer} P
+ * @param {number} X
+ * @param {number} Y
  * @returns {void} - Nothing
  */
 function PokerDrawPlayer(P, X, Y) {
-	
+
 	// For set images from the classic Bondage Poker game
 	let Large = false;
 	if ((P == null) || (P.Type == null) || (P.Type == "None") || (P.Name == "None") || (P.Name == null)) return;
 	if (P.Type == "Set") {
-		
+
 		// If data isn't loaded yet, we fetch the CSV file
 		if (P.Data == null) {
 			let FullPath = "Screens/Room/Poker/" + P.Name + "/Data.csv";
@@ -70,7 +76,7 @@ function PokerDrawPlayer(P, X, Y) {
 			} else P.Data = TextScreenCache;
 		}
 		else {
-			
+
 			// If there's no image loaded, we fetch a possible one based on the chip progress
 			if (P.Image == null) PokerGetImage(P);
 
@@ -118,12 +124,12 @@ function PokerDrawPlayer(P, X, Y) {
 
 	// For regular bondage club characters
 	if (P.Type == "Character") DrawCharacter(P.Character, X, Y - 60, 1, false);
-	
+
 	// Draw the top text
 	if ((PokerMode != "") && (P.Text != "")) {
-		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache["TextColor"] != null))
-			P.TextColor = P.Data.cache["TextColor"];
-		if (Large) X = (PokerShowPlayer ? 0 : -250) + 1000
+		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache.TextColor != null))
+			P.TextColor = P.Data.cache.TextColor;
+		if (Large) X = (PokerShowPlayer ? 0 : -250) + 1000;
 		DrawTextWrap(P.Text, X + 10, Y - 82, 480, 60, (P.TextColor == null) ? "black" : "#" + P.TextColor, null, 2);
 	}
 
@@ -135,6 +141,7 @@ function PokerDrawPlayer(P, X, Y) {
 
 /**
  * Gets the chip progress of the current player P
+ * @param {PokerPlayer} P
  * @returns {number} - The progress as a %
  */
 function PokerGetProgress(P) {
@@ -153,20 +160,24 @@ function PokerGetProgress(P) {
 
 /**
  * Gets a possible text for a poker player P
+ * @param {PokerPlayer} P
+ * @param {string} [Tag]
  * @returns {void} - Nothing
  */
 function PokerGetText(P, Tag) {
-	
+
 	// Exits right away if data is missing
-	if ((P.Type == "None") || (P.Name == "None") || (P.Family == "Player")) return P.Text = "";
-	let T;
-	T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
-	if (T == null) return P.Text = "";
+	if ((P.Type == "None") || (P.Name == "None") || (P.Family == "Player")) {
+		P.Text = "";
+		return;
+	}
+	let T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
+	if (!T) return;
 
 	// If there's an alternative text, we search for it first
-	let Texts = [];	
-	if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
-		P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
+	let Texts = [];
+	if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache.Alternate != null))
+		P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache.Alternate)) + 1;
 	if (P.Alternate != null) {
 		let X = 0;
 		if (Tag != null) {
@@ -190,19 +201,19 @@ function PokerGetText(P, Tag) {
 				X++;
 			}
 
-		}		
+		}
 	}
-		
+
 	// If there's a tag, we search for it specifically
-	let X = 0;
 	if (Tag != null) {
+		let X = 0;
 		while (T.cache[X] != null) {
 			if (T.cache[X].substr(0, Tag.length + 1) == Tag + "=")
 				Texts.push(T.cache[X].substr(Tag.length + 1, 500));
 			X++;
 		}
 	} else {
-
+		let X = 0;
 		// Without a tag, we find all values within the player progress
 		let Progress = PokerGetProgress(P);
 		while (T.cache[X] != null) {
@@ -225,10 +236,11 @@ function PokerGetText(P, Tag) {
 
 /**
  * Gets a possible image for a poker player P
+ * @param {PokerPlayer} P
  * @returns {void} - Nothing
  */
 function PokerGetImage(P) {
-	
+
 	// Skip if there's no player
 	if ((P.Type == "None") || (P.Name == "None")) return;
 	let Progress = PokerGetProgress(P);
@@ -256,11 +268,11 @@ function PokerGetImage(P) {
 
 	// For set images, a single opponent can have a large image, else we find a valid image from the game progress
 	if ((P.Type == "Set") && (P.Data != null)) {
-		
+
 		// First try to get an alternate version of the image
 		let Images = [];
-		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
-			P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
+		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache.Alternate != null))
+			P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache.Alternate)) + 1;
 		if (P.Alternate != null) {
 			if ((PokerPlayerCount == 2) && (PokerMode != "")) {
 				let X = 0;
@@ -331,7 +343,7 @@ function PokerGetImage(P) {
  * @returns {void} - Nothing
  */
 function PokerRun() {
-	
+
 	// Shows the players and table
 	for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
 		PokerDrawPlayer(PokerPlayer[P], (PokerShowPlayer ? 0 : -250) + P * 500, 100);
@@ -352,7 +364,7 @@ function PokerRun() {
 		for (let P = 1; P < PokerPlayer.length; P++)
 			if (PokerPlayer[P].Type != "None") {
 				DrawBackNextButton(50 + P * 500, 840, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
-				if ((PokerPlayer[P].WebLink == null) && (PokerPlayer[P].Data != null)) PokerPlayer[P].WebLink = PokerPlayer[P].Data.cache["WebLink"];
+				if ((PokerPlayer[P].WebLink == null) && (PokerPlayer[P].Data != null)) PokerPlayer[P].WebLink = PokerPlayer[P].Data.cache.WebLink;
 				if ((PokerPlayer[P].WebLink != null) && (PokerPlayer[P].WebLink != "")) DrawButton(50 + P * 500, 920, 400, 60, TextGet("VisitArtist"), "White");
 			}
 	}
@@ -380,7 +392,7 @@ function PokerRun() {
 			}
 		}
 	}
-	
+
 	// Draws the table cards
 	if ((PokerTableCards.length > 0) && ((PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER") || (PokerMode == "RESULT"))) {
 		for (let C = 0; C < PokerTableCards.length; C++)
@@ -408,11 +420,11 @@ function PokerRun() {
 		DrawText(PokerMessage, 1600, 960, "white", "gray");
 		DrawButton(1800, 875, 175, 60, TextGet("Deal"), "White");
 	}
-	
+
 	// In End mode, we present the winner and allow to restart
 	if (PokerMode == "END") {
 		DrawText(PokerMessage, 1000, 800, "white", "gray");
-		DrawButton(800, 875, 400, 60, TextGet("EndGame"), "White");		
+		DrawButton(800, 875, 400, 60, TextGet("EndGame"), "White");
 	}
 
 }
@@ -435,6 +447,7 @@ function PokerClearData(P) {
 
 /**
  * Returns TRUE if the opponent has been unlocked and can be faced
+ * @param {string} Opponent
  * @returns {boolean}
  */
 function PokerChallengeUnlocked(Opponent) {
@@ -482,6 +495,8 @@ function PokerChangeOpponentFamily(P, Next) {
 
 /**
  * Picks the next/previous opponent for a player P
+ * @param {PokerPlayer} P
+ * @param {boolean} Next - true for next, false for previous
  * @returns {void} - Nothing
  */
 function PokerChangeOpponent(P, Next) {
@@ -490,7 +505,7 @@ function PokerChangeOpponent(P, Next) {
 	if (Pos < 0) Pos = PokerOpponentList.length - 1;
 	if (Pos > PokerOpponentList.length - 1) Pos = 0;
 	P.Name = PokerOpponentList[Pos];
-	return PokerClearData(P);
+	PokerClearData(P);
 }
 
 /**
@@ -560,11 +575,22 @@ function PokerClick() {
 	}
 
 	// If we can process to the next step
-	if (MouseIn(1400, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Bet");
-	if (MouseIn(1600, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Raise");
-	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Fold");
-	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length <= 0)) return PokerProcess("Watch");
-	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT")) return PokerDealHands();
+	let modeCheck = ["DEAL", "FLOP", "TURN", "RIVER"].includes(PokerMode);
+	if (MouseIn(1400, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length > 0))
+		PokerProcess("Bet");
+
+	if (MouseIn(1600, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length > 0))
+		PokerProcess("Raise");
+
+	if (MouseIn(1800, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length > 0))
+		PokerProcess("Fold");
+
+	if (MouseIn(1800, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length <= 0))
+		PokerProcess("Watch");
+
+	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT"))
+		PokerDealHands();
+
 	if (MouseIn(800, 875, 400, 60) && (PokerMode == "END")) {
 		if ((PokerPlayerCount == 2) && (PokerPlayer[2].Type != "None") && (PokerPlayer[2].Name != "None"))
 			PokerPlayer[2] = { Type: "None", Family: "None", Name: "None", Chip: 100 };
@@ -574,7 +600,6 @@ function PokerClick() {
 			PokerGetImage(PokerPlayer[P]);
 		}
 	}
-
 }
 
 /**
@@ -582,11 +607,23 @@ function PokerClick() {
  * @returns {void} - Nothing
  */
 function PokerKeyDown() {
-	if (((KeyPress == 66) || (KeyPress == 98)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Bet"); // B to bet
-	if (((KeyPress == 82) || (KeyPress == 114)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Raise"); // R to raise
-	if (((KeyPress == 70) || (KeyPress == 102)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Fold"); // F to fold
-	if (((KeyPress == 87) || (KeyPress == 119)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length <= 0)) return PokerProcess("Watch"); // W to watch
-	if (((KeyPress == 68) || (KeyPress == 100)) && (PokerMode == "RESULT")) return PokerDealHands(); // D to deal
+	let modeCheck = ["DEAL", "FLOP", "TURN", "RIVER"].includes(PokerMode);
+	let handSize = PokerPlayer[0].Hand.length;
+
+	if ((KeyPress == 66 || KeyPress == 98) && modeCheck && handSize > 0)
+		PokerProcess("Bet"); // B to bet
+
+	if ((KeyPress == 82 || KeyPress == 114) && modeCheck && handSize > 0)
+		PokerProcess("Raise"); // R to raise
+
+	if ((KeyPress == 70 || KeyPress == 102) && modeCheck && handSize > 0)
+		PokerProcess("Fold"); // F to fold
+
+	if ((KeyPress == 87 || KeyPress == 119) && modeCheck && handSize <= 0)
+		PokerProcess("Watch"); // W to watch
+
+	if ((KeyPress == 68 || KeyPress == 100) && PokerMode === "RESULT")
+		PokerDealHands(); // D to deal
 }
 
 /**
@@ -599,13 +636,14 @@ function PokerExit() {
 
 /**
  * Draws a card for a poker player PP
+ * @param {PokerPlayer} PP
  * @returns {void} - Nothing
  */
 function PokerDrawCard(PP) {
 
 	// Tries to assign the difficulty
-	if ((PP.Difficulty == null) && (PP.Data != null) && (PP.Data.cache != null) && (PP.Data.cache["Difficulty"] != null))
-		PP.Difficulty = parseInt(PP.Data.cache["Difficulty"]);
+	if ((PP.Difficulty == null) && (PP.Data != null) && (PP.Data.cache != null) && (PP.Data.cache.Difficulty != null))
+		PP.Difficulty = parseInt(PP.Data.cache.Difficulty);
 
 	// Draw until we find a valid card
 	let Draw = true;
@@ -633,7 +671,8 @@ function PokerDrawCard(PP) {
 
 /**
  * Returns the file name associated with the card
- * @returns {String} - The file name of the card image
+ * @param {number} Card
+ * @returns {string} - The file name of the card image
  */
 function PokerCardFileName(Card) {
 	if (Card <= 13) return "Screens/Room/Poker/Cards/" + (Card + 1) + "C.png";
@@ -700,11 +739,12 @@ function PokerChallengeDone() {
 }
 
 /**
- * When we must process an action to advance the poker game, the action can be Bet, Raise, Fold or Watch
- * @returns {String} - The file name of the card image
+ * Process an action to advance the poker game
+ * @param {string} Action - Bet, Raise, Fold or Watch
+ * @returns {string} - The file name of the card image
  */
 function PokerProcess(Action) {
-	
+
 	// In Texas, watching the game resolves it fully
 	if ((PokerGame == "TexasHoldem") && ((Action == "Watch") || (Action == "Fold"))) {
 		PokerMode = "RIVER";

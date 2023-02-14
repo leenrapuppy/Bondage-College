@@ -71,7 +71,7 @@ function C101_KinbakuClub_Erica_Load() {
 		C101_KinbakuClub_Erica_CurrentStage = 100;
 		LeaveIcon = "";
 	} else LeaveIcon = "Leave";
-	
+
 	// If non bondage Player talks to Erica again
 	if ((!PlayerHasLockedInventory("Rope") || !PlayerHasLockedInventory("Cuffs") || !PlayerHasLockedInventory("BallGag") || !PlayerHasLockedInventory("TapeGag") || !PlayerHasLockedInventory("ClothGag")) && (C101_KinbakuClub_Erica_CurrentStage == 90)) {
 		C101_KinbakuClub_Erica_PlayerIsFree = true;
@@ -80,7 +80,7 @@ function C101_KinbakuClub_Erica_Load() {
 			C101_KinbakuClub_Erica_CurrentStage = 100;
 		}
 	} else C101_KinbakuClub_Erica_PlayerIsFree = false;
-	
+
 	// After loose fight and kidnapped during blind mans buff
 	if (C101_KinbakuClub_Erica_CurrentStage >= 110 && C101_KinbakuClub_Erica_CurrentStage <= 270) LeaveIcon = "";
 
@@ -117,16 +117,16 @@ function C101_KinbakuClub_Erica_Run() {
 }
 
 // Chapter 101 - Erica Click
-function C101_KinbakuClub_Erica_Click() {	
+function C101_KinbakuClub_Erica_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C101_KinbakuClub_Erica_CurrentStage);
 	var ClickInv = GetClickedInventory();
-	
+
 	// Erica can be tied up at stage 310
 	if ((C101_KinbakuClub_Erica_CurrentStage == 310) && (ClickInv != "") && (ClickInv != "Player") && !Common_PlayerRestrained) {
 
-		
+
 		// When the player wants to cuff erica
 		if ((ClickInv == "Cuffs") && !ActorHasInventory("Rope")) {
 			ActorApplyRestrain("Cuffs");
@@ -159,7 +159,7 @@ function C101_KinbakuClub_Erica_Click() {
 		// Apply the clicked restrain only after Erica is tied
 		if (ActorHasInventory("Rope")) ActorApplyRestrain(ClickInv);
 		if (ActorHasInventory("Rope")) ActorSetCloth("Underwear");
-		
+
 		// When the user wants to use the crop on Erica
 		if ((ClickInv == "Crop") && ActorHasInventory("Rope")) {
 			if (!C101_KinbakuClub_Erica_CropDone) {
@@ -171,7 +171,7 @@ function C101_KinbakuClub_Erica_Click() {
 				OverridenIntroText = GetText("HumiliationCrop");
 			}
 		}
-		
+
 		C101_KinbakuClub_Erica_Break();
 
 		// Humiliated responses to items.
@@ -220,7 +220,7 @@ function C101_KinbakuClub_Erica_TryKidnapping() {
 }
 
 // Chapter 101 - Erica - Kidnap Fight
-function C101_KinbakuClub_Erica_Fight() {	
+function C101_KinbakuClub_Erica_Fight() {
 	SetScene(CurrentChapter, "Fight");
 	C101_KinbakuClub_Erica_Kidnapper = true;
 }
@@ -338,14 +338,14 @@ function C101_KinbakuClub_Erica_PlayerUngag() {
 
 // Chapter 101 - Erica - When Player is slave and pleasures her
 function C101_KinbakuClub_Erica_Pleasure(PleasureType) {
-	
+
 	// The player must pleasure her in 3 different ways and at least 5 times to make her climax)
 	if (PleasureType == 1) C101_KinbakuClub_Erica_Pleasure1++;
 	if (PleasureType == 2) C101_KinbakuClub_Erica_Pleasure2++;
 	if (PleasureType == 3) C101_KinbakuClub_Erica_Pleasure3++;
 	if (PleasureType == 4) C101_KinbakuClub_Erica_Pleasure4++;
 	if ((C101_KinbakuClub_Erica_Pleasure2 > 1) && (C101_KinbakuClub_Erica_Pleasure3 > 0) && (C101_KinbakuClub_Erica_Pleasure1 + C101_KinbakuClub_Erica_Pleasure2 + C101_KinbakuClub_Erica_Pleasure3 >= 4)) {
-		
+
 		// Erica gets an orgasm
 		OverridenIntroText = GetText("EricaPleasureOrgasm");
 		C101_KinbakuClub_Erica_CurrentStage = 250;
@@ -408,7 +408,7 @@ function C101_KinbakuClub_Erica_PlayerPleasure() {
 		C101_KinbakuClub_Erica_GoodEgg = true;
 	}
 	CurrentTime = CurrentTime + 80000;
-	PlayerLockInventory("BallGag");	
+	PlayerLockInventory("BallGag");
 	C101_KinbakuClub_Erica_CalcParams();
 }
 

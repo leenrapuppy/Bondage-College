@@ -149,21 +149,21 @@ ItemMetalChastityBra,,,"(She nods as you lock the chastity bra on her.)  Support
 RemoveMetalChastityBra,,,(She wiggles her breast slowly as you unlock the chastity bra.)  Thanks!  That was kind of cruel.,,,RemoveMetalChastityBra,
 RemoveMetalChastityBra,,,(She stays silent as you use unlock the chastity bra.)  Be thoughtful and don't unlock anything until I'm disciplined.,,,RemoveMetalChastityBra,Violent|Serious
 RemoveMetalChastityBra,,,"(She wiggles her breast happily as you unlock the chastity bra.)  Oh, hell yeah!  The metal was fucking hurting.",,,RemoveMetalChastityBra,Peaceful|Rude
-ItemBreastSpankingToysWhip,,,(She jumps and does small whimpers each time you hit her.)  It stings!,,,ItemBreastSpankingToysWhip,
-ItemBreastSpankingToysWhip,,,(She moans of pleasure with each lash on her breast and torso.)  Oh yeah!  Hit me harder!,,,ItemBreastSpankingToysWhip,Violent
-ItemBreastSpankingToysWhip,,,(She whimpers and cries as you whip her breast and torso.)  Ow!  Please stop!  It hurts really bad.,,,ItemBreastSpankingToysWhip,Peaceful
-ItemBreastSpankingToysCrop,,,(She jumps a little as you swing the crop on her breast and tummy.)  It gets painful after a while.,,,ItemBreastSpankingToysCrop,
-ItemBreastSpankingToysCrop,,,(She wiggles her breast as you swing the crop on them.)  They are red hot!  This is so kinky.,,,ItemBreastSpankingToysCrop,Violent
-ItemBreastSpankingToysCrop,,,"(She whimpers and begs you to stop.)  Please, please, please, it's really painful.",,,ItemBreastSpankingToysCrop,Peaceful
-ItemPelvisSpankingToysWhip,,,(You whip her butt as she grumbles.)  What did I do to deserve that?,,,ItemPelvisSpankingToysWhip,
-ItemPelvisSpankingToysWhip,,,(She moans from the pain and pleasure as you whip her butt.)  Don't stop!  I crave the pain.,,,ItemPelvisSpankingToysWhip,Violent
-ItemPelvisSpankingToysWhip,,,(She cries from the pain as you whip her butt.)  Aaagn!  Stop!  It will leave permanent marks.,,,ItemPelvisSpankingToysWhip,Peaceful
-ItemPelvisSpankingToysCrop,,,"(You lash the leather crop pretty hard on her butt.)  Ow!  You're the sadist type, aren't you?",,,ItemPelvisSpankingToysCrop,
-ItemPelvisSpankingToysCrop,,,(You swing the leather crop on her butt as she moans.)  Harder!  The pain feels so good.,,,ItemPelvisSpankingToysCrop,Violent
-ItemPelvisSpankingToysCrop,,,(She trembles and whimpers from the pain.)  I'll be good Miss.  Please stop hurting me.,,,ItemPelvisSpankingToysCrop,Peaceful
-ItemVulvaSpankingToysVibratingWand,,,"(She moans softly as you massage her pussy with the wand.)  Mmmmh, this is lovely.",,,ItemVulvaSpankingToysVibratingWand,
-ItemVulvaSpankingToysVibratingWand,,,"(She moans loudly as you massage her pussy with the wand.)  Oh, fuck yeah!  Babe, this is hot!",,,ItemVulvaSpankingToysVibratingWand,Horny|Rude
-ItemVulvaSpankingToysVibratingWand,,,"(You massage her pussy with the wand, but she stays cold.)  I'm very sorry Miss.  I'm not in the mood.",,,ItemVulvaSpankingToysVibratingWand,Frigid|Submissive
+ItemBreastWhip,,,(She jumps and does small whimpers each time you hit her.)  It stings!,,,ItemBreastWhip,
+ItemBreastWhip,,,(She moans of pleasure with each lash on her breast and torso.)  Oh yeah!  Hit me harder!,,,ItemBreastWhip,Violent
+ItemBreastWhip,,,(She whimpers and cries as you whip her breast and torso.)  Ow!  Please stop!  It hurts really bad.,,,ItemBreastWhip,Peaceful
+ItemBreastCrop,,,(She jumps a little as you swing the crop on her breast and tummy.)  It gets painful after a while.,,,ItemBreastCrop,
+ItemBreastCrop,,,(She wiggles her breast as you swing the crop on them.)  They are red hot!  This is so kinky.,,,ItemBreastCrop,Violent
+ItemBreastCrop,,,"(She whimpers and begs you to stop.)  Please, please, please, it's really painful.",,,ItemBreastCrop,Peaceful
+ItemPelvisWhip,,,(You whip her butt as she grumbles.)  What did I do to deserve that?,,,ItemPelvisWhip,
+ItemPelvisWhip,,,(She moans from the pain and pleasure as you whip her butt.)  Don't stop!  I crave the pain.,,,ItemPelvisWhip,Violent
+ItemPelvisWhip,,,(She cries from the pain as you whip her butt.)  Aaagn!  Stop!  It will leave permanent marks.,,,ItemPelvisWhip,Peaceful
+ItemPelvisCrop,,,"(You lash the leather crop pretty hard on her butt.)  Ow!  You're the sadist type, aren't you?",,,ItemPelvisCrop,
+ItemPelvisCrop,,,(You swing the leather crop on her butt as she moans.)  Harder!  The pain feels so good.,,,ItemPelvisCrop,Violent
+ItemPelvisCrop,,,(She trembles and whimpers from the pain.)  I'll be good Miss.  Please stop hurting me.,,,ItemPelvisCrop,Peaceful
+ItemVulvaVibratingWand,,,"(She moans softly as you massage her pussy with the wand.)  Mmmmh, this is lovely.",,,ItemVulvaVibratingWand,
+ItemVulvaVibratingWand,,,"(She moans loudly as you massage her pussy with the wand.)  Oh, fuck yeah!  Babe, this is hot!",,,ItemVulvaVibratingWand,Horny|Rude
+ItemVulvaVibratingWand,,,"(You massage her pussy with the wand, but she stays cold.)  I'm very sorry Miss.  I'm not in the mood.",,,ItemVulvaVibratingWand,Frigid|Submissive
 VibratingEgg,,,(She wiggles her butt as you slide the egg inside.)  Now this is kinky!,,,VibratingEgg,
 VibratingEgg,,,"(She moans loudly as you slide the egg inside.)  This egg is perfect.  It's soft, sexy, discrete and so pleasurable.",,,VibratingEgg,Horny|Peaceful
 VibratingEgg,,,"(You slide the egg inside, but she barely reacts to it.)  I don't want to top from the bottom, but this egg would work better on someone else.",,,VibratingEgg,Frigid|Wise
@@ -246,6 +246,20 @@ LoverActivityEggSpeedDown,,,"Do you need a quick break my love?  (She smiles, pi
 LoverActivityEggSpeedDown,,,"Teasing you is so much fun.  (She giggles, picks a remote control, and speeds down your vibrating egg.)",,,LoverActivityEggSpeedDown,Horny|Playful
 LoverActivityEggSpeedDown,,,"(She smiles and stays silent, picks a remote control, and speeds down your vibrating egg.)",,,LoverActivityEggSpeedDown,Frigid|Serious
 LoverActivityEggSpeedDown,,,"Isn't being teased by your loved one the most wonderful feeling?  (She smiles, picks a remote control, and speeds down your vibrating egg.)",,,LoverActivityEggSpeedDown,Polite|Wise
+LoverActivityBed,,,(She winks at you.)  Join me in bed my love.  (She goes to your bed.),,,LoverActivityBed,
+LoverActivityBed,,,(She smirks.)  Fuck me like an animal!  (She goes to your bed.),,,LoverActivityBed,Submissive|Rude
+LoverActivityBed,,,(She giggles and grabs your hand.)  Come to the bed with me honey.  (She goes to your bed.),,,LoverActivityBed,Dominant|Playful
+LoverActivityBed,,,(She kisses your cheek.)  We should do some quick cuddles sweetheart.  (She goes to your bed.),,,LoverActivityBed,Serious|Frigid
+LoverActivityLoverLock,,,"I love you and your restraints, but they should be more secure.  (She picks a few lover padlocks and use them on your restraints.)",,,LoverActivityLoverLock,
+LoverActivityLoverLock,,,"Oh!  You have unlocked restraints?  Bad sweetheart!  (She spanks your butt, picks a few lover padlocks, and use them on your restraints.)",,,LoverActivityLoverLock,Playful|Violent
+LoverActivityLoverLock,,,"Hun, ya so hot and sexy with locks on ya bondage.  (She picks a few lover padlocks and use them on your restraints.)",,,LoverActivityLoverLock,Horny|Rude
+LoverActivityLoverLock,,,"My love, it's very unsafe to wear unlocked restraints, let me help you.  (She picks a few lover padlocks and use them on your restraints.)",,,LoverActivityLoverLock,Peaceful|Wise
+LoverActivityLoverLock,,,"My fortune teller said to protect my love, that's one way to do it.  (She picks a few lover padlocks and use them on your restraints.)",,,LoverActivityLoverLock,Dumb|Frigid
+LoverActivityLoverUnlock,,,You're so sweet.  I guess we can unlock your restraints.  For now.  (She winks at you and removes the lover padlocks.),,,LoverActivityLoverUnlock,
+LoverActivityLoverUnlock,,,Cutie!  It's time to unlock you so we can try new items.  (She pinches your cheek and removes the lover padlocks.),,,LoverActivityLoverUnlock,Playful|Violent
+LoverActivityLoverUnlock,,,"I love you, but I've had enough of these damn locks.  I want some flesh hun. (She grins and removes the lover padlocks.)",,,LoverActivityLoverUnlock,Horny|Rude
+LoverActivityLoverUnlock,,,You're so adorable.  Love must be set free to flourish.  (She smiles at you and removes the lover padlocks.),,,LoverActivityLoverUnlock,Peaceful|Wise
+LoverActivityLoverUnlock,,,"I'll unlock you for now, but don't get wild ideas.  (She smirks and removes the lover padlocks.)",,,LoverActivityLoverUnlock,Dumb|Frigid
 MistressVow,,,I vow to be a good Mistress for you my girl.  To be fair and honest.,,,MistressVow,
 MistressVow,,,I vow to be a good Mistress for you my slave.  To be strict but fair.,,,MistressVow,Serious|Dominant
 MistressVow,,,I vow to be a good Mistress for you my subbie.  I hope we will have fun together and meets lots of friends.,,,MistressVow,Playful|Frigid
@@ -268,6 +282,13 @@ OwnerBeepFail,,,"(She looks angry.)  Little submissive, when I call you, you nee
 OwnerBeepFail,,,"(She slaps your face.)  Slave!  When I beep you, you need to come here quicker.",,,OwnerBeepFail,Serious|Violent
 OwnerBeepFail,,,"Slut!  When I'm wet and I fucking beep your cunt, you better come faster.",,,OwnerBeepFail,Rude|Horny
 OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very disappointing when I summon you and you don't come in a timely manner.",,,OwnerBeepFail,Wise|Peaceful
+0,,,Happy Bondage Club birthday!,,IsPlayerBirthday(),IntroBirthday,
+0,,,Have a great Bondage Club birthday girl.  Get spanked.,,IsPlayerBirthday(),IntroBirthday,Dominant|Violent
+0,,,"Miss, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),IntroBirthday,Submissive|Serious
+0,,,Happy BC birthday!  (She sings cheerfully.)  Ya got paddled yet?,,IsPlayerBirthday(),IntroBirthday,Playful|Rude
+0,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday.,,IsPlayerBirthday(),IntroBirthday,Frigid|Peaceful
+0,,,Best wishes for your Bondage Club birthday.  May you stay with us for years upon years.,,IsPlayerBirthday(),IntroBirthday,Polite|Wise
+0,,,Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),IntroBirthday,Horny|Dumb
 0,,,(She pets your head and smiles.)  You're a cute pet.,,CanPet(),IntroPet,
 0,,,"(She looks at your suit in envy.)  Yo!  Your bitch suit looks great, can I have one?",,CanPet(),IntroPet,Submissive|Rude
 0,,,(She slowly and carefully pets you.)  A good pet needs lots of care.,,CanPet(),IntroPet,Serious|Peaceful
@@ -286,6 +307,20 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,"You look adorable on your knees.  If we kneel next to each other, it might lead to a kinky situation.",,DialogIsKneeling(Player),IntroPlayerKneeling,Submissive|Horny
 0,,,(She gives you a stern look.)  Obedience starts by kneeling and showing proper respect.  This submissive stance exposes your docility.,,DialogIsKneeling(Player),IntroPlayerKneeling,Dominant|Polite
 0,,,"Kneeling is great to stay in the submissive-space.  It's humbling, unprovocative and relaxing.  It can also be used to meditate.",,DialogIsKneeling(Player),IntroPlayerKneeling,Frigid|Wise
+0,,,What's on your mind my spouse?,,IsWife(),IntroWife,
+0,,,What's going my wife?,,IsWife(),IntroWife,Dominant|Violent
+0,,,Please tell me of your feeling's my better half.,,IsWife(),IntroWife,Submissive|Peaceful
+0,,,"My sexy wife, how can we have fun?",,IsWife(),IntroWife,Horny|Playful
+0,,,What troubles you my spouse?,,IsWife(),IntroWife,Frigid|Serious
+0,,,Let's discuss on how to improve our matrimonial union my love.,,IsWife(),IntroWife,Polite|Wise
+0,,,What's up wife?,,IsWife(),IntroWife,Dumb|Rude
+0,,,What's on your mind my fiancée?,,IsFiancee(),IntroFiancee,
+0,,,What's going on bride-to-be?,,IsFiancee(),IntroFiancee,Dominant|Violent
+0,,,Please tell me of your feeling's my fiancée.,,IsFiancee(),IntroFiancee,Submissive|Peaceful
+0,,,"My sexy fiancée, how can we have fun?",,IsFiancee(),IntroFiancee,Horny|Playful
+0,,,What troubles you my fiancée?,,IsFiancee(),IntroFiancee,Frigid|Serious
+0,,,Let's have a tete-a-tete my betrothed.,,IsFiancee(),IntroFiancee,Polite|Wise
+0,,,What's up future wife?,,IsFiancee(),IntroFiancee,Dumb|Rude
 0,,,What's on your mind my love?,,IsLover(),IntroGirlfriend,
 0,,,What's going on hun?,,IsLover(),IntroGirlfriend,Dominant|Violent
 0,,,Please tell me of your feeling's sweetie.,,IsLover(),IntroGirlfriend,Submissive|Peaceful
@@ -397,6 +432,26 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,(Play with her.),(She pushes you back.)  Hold on girl.  I'm not in the mood for that.,,!AllowRestain(),WontPlay,Dominant|Frigid
 0,,(Play with her.),"(She swiftly pushes you back, almost making you fall.)  Sorry to be so harsh, but I must clearly decline your offer.",,!AllowRestain(),WontPlay,Polite|Violent
 0,,(Play with her.),(She blocks you right away.)  Shit!  Don't be foolish.  I'm the freaking boss in here and I decide.,,!AllowRestain(),WontPlay,Rude|Serious
+0,70,Can I invite you to my bed?,(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,
+0,70,Can I invite you to my bed?,(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Horny
+0,70,Can I invite you to my bed?,"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),AskBedYes,Frigid
+0,70,Can I invite you to my bed?,(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Serious
+0,70,Can I invite you to my bed?,(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Playful
+0,,Can I invite you to my bed?,"Sorry, but I'm not in the mood.",,WillNotJoinBed(),AskBedNo,
+0,,Can I invite you to my bed?,(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBed(),AskBedNo,Horny
+0,,Can I invite you to my bed?,(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBed(),AskBedNo,Frigid
+0,,Can I invite you to my bed?,No.  Can we do something more productive?,,WillNotJoinBed(),AskBedNo,Serious
+0,,Can I invite you to my bed?,(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBed(),AskBedNo,Playful
+0,70,(Invite her to your bed.),(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,
+0,70,(Invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Horny
+0,70,(Invite her to your bed.),"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),AskBedYesGag,Frigid
+0,70,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Serious
+0,70,(Invite her to your bed.),(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Playful
+0,,(Invite her to your bed.),"Sorry, but I'm not in the mood.",,WillNotJoinBedGag(),AskBedNoGag,
+0,,(Invite her to your bed.),(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBedGag(),AskBedNoGag,Horny
+0,,(Invite her to your bed.),(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBedGag(),AskBedNoGag,Frigid
+0,,(Invite her to your bed.),No.  Can we do something more productive?,,WillNotJoinBedGag(),AskBedNoGag,Serious
+0,,(Invite her to your bed.),(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBedGag(),AskBedNoGag,Playful
 0,90,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 0,,(Leave her.),,DialogLeave(),,,
 10,,,What's on your mind?,,,,
@@ -454,11 +509,11 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 10,,Let's chat.  (Spend time to chat with her.),(You spend some time chit-chatting together.  It's fun but she politely lets you know that you could be more productive.),,,TimeChitChat,Serious|Polite
 10,,Let's chat.  (Spend time to chat with her.),"(You two talk about politic, science and human nature.  It's different from the club kinks but still very interesting.)",NPCInteraction(1),,TimeChitChat,Frigid|Wise
 10,,Let's chat.  (Spend time to chat with her.),"(You try to have a meaningful conversation, but it doesn't go anywhere.  All she seems to focus on is sex.)",NPCInteraction(-1),,TimeChitChat,Horny|Dumb
-10,0,Enough chit-chat.,(She nods.)  What would you like to do now?,,,EndTalk,
-10,0,Enough chit-chat.,"I agree, let's stop the trivial conversations that leads nowhere.",,,EndTalk,Serious
-10,0,Enough chit-chat.,Yep!  Time for some action and some fun!,,,EndTalk,Playful
-10,0,Enough chit-chat.,"We can speak again, whenever you want.  We can also play some chess later, if you like the game of course.",,,EndTalk,Wise
-10,0,Enough chit-chat.,Yeah!  Let's go find some beer or something else to drink.,,,EndTalk,Dumb
+10,0,That's all I wanted to talk about.,(She nods.)  What would you like to do now?,,,EndTalk,
+10,0,That's all I wanted to talk about.,"I agree, let's stop the trivial conversations that leads nowhere.",,,EndTalk,Serious
+10,0,That's all I wanted to talk about.,Yay!  Time for some action and some fun!,,,EndTalk,Playful
+10,0,That's all I wanted to talk about.,"We can speak again, whenever you want.  We can also play some chess later, if you like the game of course.",,,EndTalk,Wise
+10,0,That's all I wanted to talk about.,Okay!  Let's go find some beer or something else to drink.,,,EndTalk,Dumb
 10,,(Leave her.),,DialogLeave(),,,
 11,0,Wear your House Maiestas outfit.,(She nods and wears her magic school outfit.)  We will rule the school one day.,"Change(""Maiestas"")","TitleIs(""Maiestas"")",,
 11,0,Wear your House Vincula outfit.,(She giggles and wears her magic school outfit.)  Let's do a magic battle soon.,"Change(""Vincula"")","TitleIs(""Vincula"")",,
@@ -527,6 +582,26 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 20,,Do you have a girlfriend?,"I don't, you were lucky to find someone.  It's not that important to me though.",,WontTakePlayerAsLoverPlayerDating(),WontTakePlayerAsLoverPlayerDating,Frigid
 20,,Do you have a girlfriend?,I'm too bossy to get a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),WontTakePlayerAsLoverPlayerDating,Dominant
 20,,Do you have a girlfriend?,I might be too shy to find a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),WontTakePlayerAsLoverPlayerDating,Submissive
+20,50,"My love, will you be my fiancée?","(She gives you a bright smile.)  Yes my love, I would delighted.",,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,
+20,50,"My love, will you be my fiancée?","Yes, yes, yes and YES!!!  (She jumps of joy.)",,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Playful
+20,50,"My love, will you be my fiancée?","(She ponders for a few seconds.)  I knew this question was coming sweetheart, and the answer is yes.",,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Serious
+20,50,"My love, will you be my fiancée?",Yes hun.  If I can still restrain you of course.  (She winks and smiles.),,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Dominant
+20,50,"My love, will you be my fiancée?",Oh yes my love.  Restrain me with your love forever.,,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Submissive
+20,,"My love, will you be my fiancée?",(She sighs and shakes her head no.)  Now is not the best time for that.  Maybe if we know and trust each other better.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,
+20,,"My love, will you be my fiancée?",(She pulls her tongue at you.)  Not now.  Maybe if we know and enjoy each other better.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Playful
+20,,"My love, will you be my fiancée?",(She shakes her head from left to right.)  This is not the right time and the right mood to ask this question.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Serious
+20,,"My love, will you be my fiancée?",No girl.  This is not the right time and mood for that.  Hold your horses.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Dominant
+20,,"My love, will you be my fiancée?","I'm so sorry sweetie, it's too early in our relationship for that.  We need more durable love.",,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Submissive
+20,55,"My love, will you marry me?","(She smiles at you.)  Yes my love, this is a dream come true.",,WillTakePlayerAsWife(),WillTakePlayerAsWife,
+20,55,"My love, will you marry me?",YES!!!  Let's get married right now my love.  (She jumps of joy.),,WillTakePlayerAsWife(),WillTakePlayerAsWife,Playful
+20,55,"My love, will you marry me?","(She nods slowly.)  Yes sweetheart, it's time to declare our eternal love.",,WillTakePlayerAsWife(),WillTakePlayerAsWife,Serious
+20,55,"My love, will you marry me?",Oh yeah!  Our love will be known throughout the club. (She smiles at you.),,WillTakePlayerAsWife(),WillTakePlayerAsWife,Dominant
+20,55,"My love, will you marry me?",(She sheds a few tears.)  Yes my love.  I will be your faithful and devoted wife.,,WillTakePlayerAsWife(),WillTakePlayerAsWife,Submissive
+20,,"My love, will you marry me?",(She shakes her head no.)  Let's not rush our wedding.  We need to make sure we are the perfect pair.,,WontTakePlayerAsWife(),WontTakePlayerAsWife,
+20,,"My love, will you marry me?",(She pulls her tongue at you.)  Don't be so quick!  We need to enjoy our time as lovers first.,,WontTakePlayerAsWife(),WontTakePlayerAsWife,Playful
+20,,"My love, will you marry me?","(She shakes her head from left to right.)  You're too hasty sweetheart, give me more time to know you.",,WontTakePlayerAsWife(),WontTakePlayerAsWife,Serious
+20,,"My love, will you marry me?",Hold your horses girl.  You should know me better and know that I won't rush that.,,WontTakePlayerAsWife(),WontTakePlayerAsWife,Dominant
+20,,"My love, will you marry me?","I'm so sorry sweetie, we need to spend more time together first.  I hope you're not mad at me.",,WontTakePlayerAsWife(),WontTakePlayerAsWife,Submissive
 20,10,Let's talk about something else.,(She nods.)  Sure.,,,,
 21,22,Would you consider someone like me?,I might.  Are you sure you're ready to be owned?,,,ConsiderSub,
 21,22,Would you consider someone like me?,That's quite a commitment.  Are you sure you're ready to be owned?,,,ConsiderSub,Serious
@@ -563,7 +638,7 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 30,31,I could take you as my sub.,It would be awesome Miss.  Do you really want to start a D/s trial period with me?,,DialogIsKneeling(CurrentCharacter),KneelingToSubmitToPlayer,
 30,31,I could take you as my sub.,I'm all fucking wet now.  You want to start a D/s trial period with me?,,DialogIsKneeling(CurrentCharacter),KneelingToSubmitToPlayer,Horny|Rude
 30,31,I could take you as my sub.,"My soul is shivering, it's like a dream that comes to fruition.  Do you really want to begin a D/s trial period with me?",,DialogIsKneeling(CurrentCharacter),KneelingToSubmitToPlayer,Frigid|Polite
-30,,Give me some time to think about it.,Of course Miss.,,,,
+30,0,Give me some time to think about it.,Of course Miss.  We can talk about something else.,,,,
 31,32,"Yes, we'll do a trial period.",Yes Miss.  And for how long should it last?,,,TrialPeriodPlayerAsDom,
 31,32,"Yes, we'll do a trial period.","Absolutely, trial periods are very important Miss.",,,TrialPeriodPlayerAsDom,Serious
 31,32,"Yes, we'll do a trial period.","Trial periods are boring, but I guess we can do a short one Miss.",,,TrialPeriodPlayerAsDom,Playful
@@ -588,6 +663,19 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 42,0,Making love will only be better.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
 42,0,I hope we'll never argue.,(She raises an eyebrow.)  Don't talk about that.  What would you like to do now?,NPCInteraction(-3),,,
 42,0,I hope we'll be together forever.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
+50,51,I love you DialogCharacterName.  (Exchange rings.),"(You exchange engagement rings.)  I love you DialogPlayerName.  I want to be with you for a long, long time.",StartFiancee(),,,
+50,51,This is wonderful.  (Exchange rings.),(You exchange engagement rings.)  I love you DialogPlayerName.  The sun always shines when you're around.,StartFiancee(),,,
+50,51,(Kiss her and exchange rings.),(You exchange engagement rings and a long kiss.)  I love you DialogPlayerName.,StartFiancee(),,,
+50,10,Wait!  I wasn't serious.,(She grumbles and pouts.)  Don't tease me like that.,NPCInteraction(-10),,,
+51,0,These rings will prove our love.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
+51,0,These rings are so silly.,(She sighs.)  It's a tradition.  You can always remove it if you're not happy.  What would you like to do now?,NPCInteraction(-3),,,
+51,0,I'll never remove that ring.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
+55,0,I love you so much DialogCharacterName.  (Get wed.),,StartWife(),,,
+55,0,This is the best day of my life.  (Get wed.),,StartWife(),,,
+55,0,(Give her a French kiss and go get wed.),,StartWife(),,,
+55,10,Wait!  I've changed my mind.,(She grumbles and pouts.)  This is not funny.,NPCInteraction(-10),,,
+70,0,(Join her in bed.),What would you like to do now?,JoinInBed(),,,
+70,0,(Check your room first.),What would you like to do now?,DialogLeave(),,,
 90,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 90,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 90,0,(Leave her.),(She seems curious.)  What would you like to do?,DialogLeave(),,,
@@ -618,14 +706,31 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 100,,(Masturbate her.),"(You masturbate her with passion as she moans and blushes.)  Miss, it would be an honor to become your love slave one day.",,CanMasturbate(),PlayMasturbate,Submissive|Polite
 100,0,(Stop playing.),(You take a step back.),,,,
 100,,(Leave her.),,DialogLeave(),,,
+1000,,,Happy Bondage Club birthday my girl!,,IsPlayerBirthday(),DomIntroBirthday,
+1000,,,Have a great Bondage Club birthday my slave.  You will get spanked a lot.,,IsPlayerBirthday(),DomIntroBirthday,Dominant|Violent
+1000,,,"You're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),DomIntroBirthday,Submissive|Serious
+1000,,,Happy BC birthday my girl!  (She sings cheerfully.)  Where's the freaking paddle?,,IsPlayerBirthday(),DomIntroBirthday,Playful|Rude
+1000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday my submissive.,,IsPlayerBirthday(),DomIntroBirthday,Frigid|Peaceful
+1000,,,Best wishes for your Bondage Club birthday.  May you stay well constrained for years upon years.,,IsPlayerBirthday(),DomIntroBirthday,Polite|Wise
+1000,,,Hey slave!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),DomIntroBirthday,Horny|Dumb
 1000,,,(She pets your head and smiles.)  You're a cute pet my girl.,,CanPet(),DomIntroPet,
 1000,,,(She pets your head playfully.)  You're the cutest little bitch that I've ever had.  Bark puppy!,,CanPet(),DomIntroPet,Playful|Dumb
 1000,,,(She slowly and carefully pets you.)  A good pet needs lots of care.  I love you my submissive.,,CanPet(),DomIntroPet,Serious|Peaceful
 1000,,,(She grabs you by the back of the neck.)  Does this slave puppy need a spanking?,,CanPet(),DomIntroPet,Dominant|Violent
-1000,,,(She smiles seeing you on your knees.)  What's on your mind my subbie?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,
-1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
-1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
-1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,,DomIntroPlayerKneeling,Peaceful|Horny
+1000,,,What's on your mind my submissive spouse?,,IsWife(),DomIntroWife,
+1000,,,What's going my slave-wife?,,IsWife(),DomIntroWife,Dominant|Violent
+1000,,,Please tell me of your feeling's my little better half.,,IsWife(),DomIntroWife,Submissive|Peaceful
+1000,,,"My sexy subbie-wife, how can we have fun?",,IsWife(),DomIntroWife,Horny|Playful
+1000,,,What troubles you my pet spouse?,,IsWife(),DomIntroWife,Frigid|Serious
+1000,,,Let's discuss on how to improve our matrimonial union my submissive.,,IsWife(),DomIntroWife,Polite|Wise
+1000,,,What's up slave-wife?,,IsWife(),DomIntroWife,Dumb|Rude
+1000,,,What's on your mind my submissive fiancée?,,IsFiancee(),DomIntroFiancee,
+1000,,,What's going on little bride-to-be?,,IsFiancee(),DomIntroFiancee,Dominant|Violent
+1000,,,Please tell me of your feeling's my sweet fiancée-pet.,,IsFiancee(),DomIntroFiancee,Submissive|Peaceful
+1000,,,"My sexy sub and fiancée, how can we have fun?",,IsFiancee(),DomIntroFiancee,Horny|Playful
+1000,,,What troubles you my little fiancée?,,IsFiancee(),DomIntroFiancee,Frigid|Serious
+1000,,,Let's have a tete-a-tete my submissive betrothed.,,IsFiancee(),DomIntroFiancee,Polite|Wise
+1000,,,What's up future wife slave?,,IsFiancee(),DomIntroFiancee,Dumb|Rude
 1000,,,What's on your mind my submissive love?,,IsLover(),DomIntroGirlfriend,
 1000,,,What's going on little hun?,,IsLover(),DomIntroGirlfriend,Dominant|Violent
 1000,,,Please tell me of your feelings my sweet pet.,,IsLover(),DomIntroGirlfriend,Submissive|Peaceful
@@ -633,6 +738,10 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,What troubles you my little loved one?,,IsLover(),DomIntroGirlfriend,Frigid|Serious
 1000,,,Let's have a tete-a-tete my submissive love.,,IsLover(),DomIntroGirlfriend,Polite|Wise
 1000,,,What's up slave luv?,,IsLover(),DomIntroGirlfriend,Dumb|Rude
+1000,,,(She smiles seeing you on your knees.)  What's on your mind my subbie?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,
+1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
+1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
+1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,DialogIsKneeling(Player),DomIntroPlayerKneeling,Peaceful|Horny
 1000,,,What's on your mind my subbie?,,,DomIntro,
 1000,,,Hey there my cute sub.  What's on your mind?,,,DomIntro,Horny
 1000,,,Yo bitch.  What's up?,,,DomIntro,Rude
@@ -713,6 +822,18 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,"Mistress, can I wear something else now?",Stop thinking about your body and your clothes and focus on serving me.  Wait until the time is up.,,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Frigid
 1000,,"Mistress, can I wear something else now?","Girl, if you complain too much, I'll have to extend the time.  You need to wait.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Serious
 1000,,"Mistress, can I wear something else now?","Not yet my subbie, you need to wait a little more.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Playful
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,
+1000,1070,Would you like to use the bed Mistress?,(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Horny
+1000,1070,Would you like to use the bed Mistress?,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),DomAskBedYes,Frigid
+1000,1070,Would you like to use the bed Mistress?,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Serious
+1000,1070,Would you like to use the bed Mistress?,(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Playful
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in the mood.",,WillNotJoinBed(),,
+1000,1070,(Invite her to your bed.),(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,
+1000,1070,(Invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Horny
+1000,1070,(Invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Frigid
+1000,1070,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Serious
+1000,1070,(Invite her to your bed.),(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Playful
+1000,,(Invite her to your bed.),"No girl, I'm not in the mood.",,WillNotJoinBedGag(),,
 1000,1090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 1000,,(Leave her.),,DialogLeave(),,,
 1001,,,(She looks angry.)  What do you want now?,,,DomAngry,
@@ -795,6 +916,26 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1010,,"Mistress, do you have a lover?","I don't, you were lucky to find someone.  It's not that important to me though.",,WontTakePlayerAsLoverPlayerDating(),DomWontTakePlayerAsLoverPlayerDating,Frigid
 1010,,"Mistress, do you have a lover?",I'm too bossy to get a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),DomWontTakePlayerAsLoverPlayerDating,Dominant
 1010,,"Mistress, do you have a lover?",I might be too shy to find a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),DomWontTakePlayerAsLoverPlayerDating,Submissive
+1010,1044,"Mistress, will you be my fiancée?","(She gives you a bright smile.)  Yes my girl, I would delighted.",,WillTakePlayerAsFiancee(),DomWillTakePlayerAsFiancee,
+1010,1044,"Mistress, will you be my fiancée?","Yes, yes, yes and YES!!!  You will soon be my subbie wife.  (She jumps of joy.)",,WillTakePlayerAsFiancee(),DomWillTakePlayerAsFiancee,Playful
+1010,1044,"Mistress, will you be my fiancée?","(She ponders for a few seconds.)  I knew this question was coming my slave, and the answer is yes.",,WillTakePlayerAsFiancee(),DomWillTakePlayerAsFiancee,Serious
+1010,1044,"Mistress, will you be my fiancée?",Yes slave.  But don't think I will go easy on you if we get married.  (She smirks.),,WillTakePlayerAsFiancee(),DomWillTakePlayerAsFiancee,Violent
+1010,1044,"Mistress, will you be my fiancée?",Oh yes my lovely submissive.  (She gives you a huge smile.),,WillTakePlayerAsFiancee(),DomWillTakePlayerAsFiancee,Peaceful
+1010,,"Mistress, will you be my fiancée?",(She sighs and shakes her head no.)  Now is not the best time for that girl.  Maybe if we know and trust each other better.,,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,
+1010,,"Mistress, will you be my fiancée?",(She pulls her tongue at you.)  Not now subbie.  Maybe if we know and enjoy each other better.,,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Playful
+1010,,"Mistress, will you be my fiancée?",(She shakes her head from left to right.)  This is not the right time and the right mood to ask this question my slave.,,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Serious
+1010,,"Mistress, will you be my fiancée?","No!   Slave girl, this is not the right time and mood for that.  Hold your horses.",,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Violent
+1010,,"Mistress, will you be my fiancée?","I'm sorry sweet submissive, but it's too early in our relationship for that.  We need more durable love.",,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Peaceful
+1010,1047,"Mistress, will you marry me?","(She smiles at you.)  Yes my girl, this is a dream come true.",,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,
+1010,1047,"Mistress, will you marry me?",YES!!!  Let's get married right now my subbie.  (She jumps of joy.),,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Playful
+1010,1047,"Mistress, will you marry me?","(She nods slowly.)  Yes my little sweetheart, it's time to declare our eternal love.",,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Serious
+1010,1047,"Mistress, will you marry me?",Oh yeah!  (She spanks your butt.)  Our love will be known throughout the club.,,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Violent
+1010,1047,"Mistress, will you marry me?",(She sheds a few tears.)  Yes my submissive.  I want to spend my life with you.,,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Peaceful
+1010,,"Mistress, will you marry me?",(She shakes her head no.)  Let's not rush our wedding girl.  We need to make sure we are the perfect pair.,,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,
+1010,,"Mistress, will you marry me?",(She pulls her tongue at you.)  Don't be so quick little subbie!  We need to enjoy our time as lovers first.,,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Playful
+1010,,"Mistress, will you marry me?","(She shakes her head from left to right.)  You're too hasty my slave, give me more time to know you.",,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Serious
+1010,,"Mistress, will you marry me?",Hold your horses slave girl.  (She pinches your cheek.)  You should know that I won't rush it.,,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Violent
+1010,,"Mistress, will you marry me?","I'm sorry my submissive, we need to spend more time together first.  Do not be bitter about this.",,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Peaceful
 1010,1019,Our trial isn't working for me.  Can we stop it?,"I'm sorry to hear that, of course we can stop the trial.  Are you sure you don't want me as your Mistress?",,TrialCanCancel(),DomTrialStopAsk,
 1010,1019,Our trial isn't working for me.  Can we stop it?,It chagrins me to hear that.  We can absolutely stop the trial if you don't want me as your Mistress.,,TrialCanCancel(),DomTrialStopAsk,Polite
 1010,1019,Our trial isn't working for me.  Can we stop it?,"Shit, are you for real?  Bitch, we can scrap the trial if you don't want me as your Mistress.",,TrialCanCancel(),DomTrialStopAsk,Rude
@@ -805,9 +946,9 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1010,,Being your sub isn't for me.  I need freedom.,We've only been together for a short while.  Give it some time girl.,NPCInteraction(-2),CannotAskUncollar(),,
 1010,1000,That's all I wanted to talk about.,(She nods.)  Anything else is on your mind my sub?,,,DomEndTalk,
 1010,1000,That's all I wanted to talk about.,"I agree, let's stop the trivial conversations that leads nowhere.",,,DomEndTalk,Serious
-1010,1000,That's all I wanted to talk about.,Yep!  Time for some action and some fun!,,,DomEndTalk,Playful
+1010,1000,That's all I wanted to talk about.,Yay!  Time for some action and some fun!,,,DomEndTalk,Playful
 1010,1000,That's all I wanted to talk about.,"Good, cause I was about to gag your ass to stop you from yacking.",,,DomEndTalk,Rude
-1010,1000,That's all I wanted to talk about.,Yeah!  Let's go find some beer or something else to drink my girl.,,,DomEndTalk,Dumb
+1010,1000,That's all I wanted to talk about.,Okay!  Let's go find some beer or something else to drink my girl.,,,DomEndTalk,Dumb
 1010,,(Leave her.),,DialogLeave(),,,
 1011,1012,Yes Mistress.  I'm ready for the collar.,"This is great!  Come with me girl, I will arrange the collaring ceremony with the club management.",,,DomReadyForCollar,
 1011,1012,Yes Mistress.  I'm ready for the collar.,"Hell yeah!  Get moving bitch, I will setup the collar party with the club management.",,,DomReadyForCollar,Rude
@@ -860,6 +1001,17 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1042,1000,Making love will only be better.,"(She nods slowly.)  It will, sweetie.  Let's do something fun to celebrate!",,,,
 1042,1000,I hope we'll never argue.,(She raises an eyebrow.)  Don't talk about that.  Let's do something fun to celebrate!,NPCInteraction(-3),,,
 1042,1000,I hope we'll be together forever.,(She smiles at you.)  Let's make it work my love.  Let's do something fun to celebrate!,NPCInteraction(3),,,
+1044,1045,I love you Mistress.  (Exchange rings.),"(You exchange engagement rings.)  I love you my girl.  I want to be with you for a long, long time.",StartFiancee(),,,
+1044,1045,This is wonderful.  (Exchange rings.),(You exchange engagement rings.)  I love you my girl.  The sun always shines when you're around.,StartFiancee(),,,
+1044,1045,(Kiss her and exchange rings.),(You exchange engagement rings and a long kiss.)  I love you my girl.,StartFiancee(),,,
+1044,1010,Please wait!  I wasn't serious.,(She grumbles.)  Don't tease me like that or you'll get punished.,NPCInteraction(-10),,,
+1045,1000,These rings will prove our love.,"(She nods slowly.)  It will, sweetie.  But remember that you're also my submissive.",,,,
+1045,1000,These rings are so silly.,(She sighs.)  It's a tradition my submissive.  You can always remove it if you're not happy.,NPCInteraction(-3),,,
+1045,1000,I'll never remove that ring.,Just like I will never remove your collar.  (She giggles and smiles at you.),NPCInteraction(3),,,
+1047,1000,I love you so much Mistress.  (Get wed.),,StartWife(),,,
+1047,1000,This is the best day of my life.  (Get wed.),,StartWife(),,,
+1047,1000,(Give her a French kiss and go get wed.),,StartWife(),,,
+1047,1010,Please wait!  I've changed my mind.,(She grumbles and pouts.)  This is not funny my girl.,NPCInteraction(-10),,,
 1050,1051,You don't deserve to call me slave.,So you're a Dominant now?  You want to break our bond?,NPCInteraction(-2),,,
 1050,1051,I've grown stronger than you.,So you're a Dominant now?  You want to break our bond?,,,,
 1050,1051,You've been a good owner.,So you're a Dominant now?  You want to break our bond?,NPCInteraction(2),,,
@@ -884,6 +1036,25 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1058,0,I hope we can still be friends.,"Yes, lets hope it won't ruin our friendship.  What would you like to do now?",NPCInteraction(5),,,
 1058,0,Let's talk about something else.,Yes.  What would you like to do now?,,,,
 1058,0,I'm glad this collar is gone.,You could have told me sooner you know?  What would you like to do now?,NPCInteraction(-5),,,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've been looking for you.",,,DomCatchPlayerOnEntry,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I was wet thinking of you, my girl.",,,DomCatchPlayerOnEntry,Horny
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've wanted to spend time with you.",,,DomCatchPlayerOnEntry,Frigid
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  It's a delight to see you my submissive.",,,DomCatchPlayerOnEntry,Polite
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yo my bitch!",,,DomCatchPlayerOnEntry,Rude
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees without saying a word.)",,,DomCatchPlayerOnEntry,Serious
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yes!  You're back!",,,DomCatchPlayerOnEntry,Playful
+1061,1062,"Yes, Mistress?","I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,What's going on Mistress?,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,That was quick!,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,(Mumble in your gag.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Stay silent.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Get comfy on your knees.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1062,,I love to spend time with you.,,StartActivity(),Player.CanTalk(),,
+1062,,What would you like to do?,,StartActivity(),Player.CanTalk(),,
+1062,,(Nod happily.),,StartActivity(),!Player.CanTalk(),,
+1062,,(Listen to her.),,StartActivity(),!Player.CanTalk(),,
+1070,1000,(Join her in bed.),(She seems curious.)  What would you like to do my girl?,JoinInBed(),,,
+1070,1000,(Check your room first.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
 1090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 1090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 1090,1000,(Leave her.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
@@ -964,6 +1135,15 @@ ActivityRelease,1000,Thanks Mistress.,(She releases you and laughs.)  Don't get 
 ActivityRelease,1000,You're the best!,(She releases you and gives you a hug.)  And you're the best submissive.,ActivityRun(1),Player.CanTalk(),,
 ActivityRelease,1000,(Nod happily.),(She releases you and smiles back at you.),ActivityRun(1),,,
 ActivityRelease,1000,(Struggle one last time.),"(She releases you and laughs.)  Too bad, I love to see you struggle.",ActivityRun(0),,,
+ActivityUnchasteIntro,,,"My girl, you deserve a break from chastity.  I will help you.",,,DomActivityUnchasteIntro,
+ActivityUnchasteIntro,,,"Even if your chastity is important to me, let me help you out for a while.",,,DomActivityUnchasteIntro,Frigid
+ActivityUnchasteIntro,,,"This chastity is cruel, I want to see your sexy body, let me help you out.",,,DomActivityUnchasteIntro,Horny
+ActivityUnchasteIntro,,,"Slave!  Let's get rid of that chastity, then we can fuck when we want.",,,DomActivityUnchasteIntro,Rude
+ActivityUnchasteIntro,,,"My beloved submissive, your chastity time is over.  I'll help you to let loose your wildest desires.",,,DomActivityUnchasteIntro,Polite
+ActivityUnchaste,1000,This is wonderful Mistress.,(She releases your private parts and smiles.)  And you're a wonderful submissive.,ActivityRun(1),Player.CanTalk(),,
+ActivityUnchaste,1000,Thanks a lot.,(She releases your private parts and nods.)  Don't forget that I can lock you back.,ActivityRun(0),Player.CanTalk(),,
+ActivityUnchaste,1000,(Nod slowly.),(She releases your private parts and nods.)  Don't forget that I can lock you back.,ActivityRun(0),,,
+ActivityUnchaste,1000,(Struggle one last time.),(She releases your private parts and smirks.)  I love to see you struggle.,ActivityRun(1),,,
 ActivityTickleIntro,,,(She starts to tickle you lightly.)  Are you ticklish my girl?,,,DomActivityTickleIntro,
 ActivityTickleIntro,,,"(She starts to tickle you lightly.)  Tell me slut, are you ticklish?",,,DomActivityTickleIntro,Rude
 ActivityTickleIntro,,,"(She starts to tickle you lightly.)  Be honest little one, do you appreciate the fine art of tickling?",,,DomActivityTickleIntro,Polite
@@ -1085,6 +1265,17 @@ ActivityCollegeClothes,ActivityNoChange,(Bow your head and change quickly.),"(Yo
 ActivityCollegeClothes,ActivityNoChange,(Change slowly.),"(You change for her as she smiles.)  You will be my schoolgirl for 5 minutes, you cannot change.",ActivityRun(0),,,
 ActivityCollegeClothes,ActivityNoChange,(Roll your eyes up and change.),"(You change for her as she nods.)  Stay like that schoolgirl, you cannot change for 5 minutes.",ActivityRun(-1),,,
 ActivityCollegeClothes,ActivityNoChange,(Shake your head no.),(She grumbles and forces you to change.)  There!  And you cannot change for 5 minutes schoolgirl.,ActivityRun(-7),,,
+ActivityBedIntro,,,"My girl, it's time to get to bed.  Come with me.",,,DomActivityBedIntro,
+ActivityBedIntro,,,We need to spend more intimate time together my submissive.  Come to bed with me.,,,DomActivityBedIntro,Serious
+ActivityBedIntro,,,It's time to get on your sexy bed my subbie.  Yay!  Come with me.,,,DomActivityBedIntro,Playful
+ActivityBedIntro,,,"My slave, I know you know I have...  (She thinks for a while.)  Forget it, let's have sex in your bed.",,,DomActivityBedIntro,Dumb
+ActivityBedIntro,,,Romance and BDSM can consolidate very well.  Let's experiment it in bed shall we?,,,DomActivityBedIntro,Wise
+ActivityBed,1000,Very well.  (Get in bed.),,ActivityRun(0),Player.CanTalk(),,
+ActivityBed,1000,"Sorry, I don't want to get in bed.",,ActivityRun(-7),Player.CanTalk(),,
+ActivityBed,1000,Oh yes Mistress!  (Get in bed.),,ActivityRun(1),Player.CanTalk(),,
+ActivityBed,1000,(Nod slowly.),,ActivityRun(0),,,
+ActivityBed,1000,(Nod happily.),,ActivityRun(1),,,
+ActivityBed,1000,(Shake your head no.),,ActivityRun(-7),,,
 ActivityNoChange,1000,Easy enough.,"Since it's so easy, let's make it 10 minutes.  I'll make sure you won't change.",BlockChange(10),,DomActivityNoChange1,
 ActivityNoChange,1000,Easy enough.,Too easy?  Let's make it 15 minutes then.  I'll make sure the rule will be enforced.  (She grins.),BlockChange(15),,DomActivityNoChange1,Serious
 ActivityNoChange,1000,Easy enough.,Sure!  It won't take that long.,BlockChange(5),,DomActivityNoChange1,Playful
@@ -1142,6 +1333,31 @@ ActivityLocks,1000,Very well Mistress.,(She locks your restraints.)  You won't b
 ActivityLocks,1000,(Stay silent.),(She locks your restraints.)  You won't be struggling out easily.,ActivityRun(0),,,
 ActivityLocks,1000,(Present your restraints promptly.),(She smirks and locks your restraints.)  Now you're safe and secure my girl.,ActivityRun(1),,,
 ActivityLocks,1000,(Grumble and try to stop her.),(She shakes her head no and locks your restraints.)  Do not contest my decisions.,ActivityRun(-7),,,
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My girl, I want you to know that I love you.",,,DomActivityAftercareIntro,
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  Slave, ya know I love ya to death.",,,DomActivityAftercareIntro,Rude
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My beautiful submissive, I want you to remember that I cherish you.",,,DomActivityAftercareIntro,Polite
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My girl, remember that I'm here for you.",,,DomActivityAftercareIntro,Serious
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My subbie, I hope you know that I love you.",,,DomActivityAftercareIntro,Playful
+ActivityAftercare,,(Stay silent and nod.),(You both stay silent and continue to exchange a loving hug.),ActivityRun(0),,,
+ActivityAftercare,,(Moan with bliss.),"(You both moan with bliss, sharing some sweet BDSM love.)",ActivityRun(1),,,
+ActivityAftercare,,(Cuddle with her.),(You cuddle together silently in a loving embrace.),ActivityRun(0),,,
+ActivityAftercare,,(Roll your eyes up.),(She sees your reaction and frowns but continues to cuddle anyway.),ActivityRun(-1),,,
+ActivityAftercare,,(Act like you're bored.),(She doesn't seem to like the way you act but continues to hug you.),ActivityRun(-1),,,
+ActivityAftercare,,(Rub your body submissively against her.),(Time seems to stand still as you rub your bodies together.  Sharing a wonderful moment.),ActivityRun(1),,,
+ActivityAftercareOutro,,,(She releases you from her embrace.)  That's enough for now my girl.,,,DomActivityAftercareOutro,
+ActivityAftercareOutro,,,"(She releases you from her embrace and smiles.)  That's enough my submissive, but we need to do this again.",,,DomActivityAftercareOutro,Peaceful
+ActivityAftercareOutro,,,(She releases you from her embrace and spanks your butt.)  That's enough slave.,,,DomActivityAftercareOutro,Violent
+ActivityCollarTypeIntro,,,(She inspects your slave collar.)  It's time to change your collar my submissive.,,,DomActivityCollarTypeIntro,
+ActivityCollarTypeIntro,,,"(She grabs your slave collar.)  Do not protest, it's time to change your slave collar.",,,DomActivityCollarTypeIntro,Serious
+ActivityCollarTypeIntro,,,(She looks at your slave collar.)  Time to change your collar my subbie.,,,DomActivityCollarTypeIntro,Playful
+ActivityCollarTypeIntro,,,(She inspects your slave collar.)  This collar needs to be refreshed my submissive.  I will fetch you another model.,,,DomActivityCollarTypeIntro,Polite
+ActivityCollarTypeIntro,,,"(She looks at your slave collar.)  I'm tired of that ol collar slave, I'm gettin ya a new one.",,,DomActivityCollarTypeIntro,Rude
+ActivityCollarType,1000,No.  I like my current collar.,"(She seems annoyed.)  Fine, keep your current collar.",ActivityRun(-7),Player.CanTalk(),,
+ActivityCollarType,1000,As you wish.,(She unlocks your collar and picks a new model to lock around your neck.)  There you go.,ActivityRun(1),Player.CanTalk(),,
+ActivityCollarType,1000,Good idea Mistress.,(She unlocks your collar and picks a new model to lock around your neck.)  Good girl.,ActivityRun(0),Player.CanTalk(),,
+ActivityCollarType,1000,(Stay silent.),(She unlocks your collar and picks a new model to lock around your neck.)  There you go.,ActivityRun(0),,,
+ActivityCollarType,1000,(Bow your head slowly.),(She unlocks your collar and picks a new model to lock around your neck.)  Good girl.,ActivityRun(1),,,
+ActivityCollarType,1000,(Grumble and try to stop her.),"(She seems annoyed.)  Fine, keep your current collar.",ActivityRun(-7),,,
 PunishIntro,,,(She seems furious.)  That's enough!  You must be punished.,,,DomPunishIntro,
 PunishIntro,,,(She slaps your face.)  Slave!  You must be punished.,,,DomPunishIntro,Violent
 PunishIntro,,,"(She speaks with a calm and menacing voice.)  I'm sorry my precious submissive, but you must be punished.",,,DomPunishIntro,Peaceful
@@ -1218,14 +1434,44 @@ PunishCellIntro,,,Some time alone in a cell will help you to think about what yo
 PunishCell,1000,Very well.  (Go to the cell.),,RunPunishment(0),,,
 PunishCell,1000,This is bullshit!  (Go to the cell.),,RunPunishment(-2),,,
 PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
+PunishOwnerLocksIntro,,,"My girl, you're going to stay restrained until I say otherwise.  To prove it, I will fully lock you with owner locks.",,,,
+PunishOwnerLocks,1001,Is that necessary?,(She nods and smirks.)  It is.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,That is bullshit!,(She slaps your face.)  Shut up!  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(-2),,,
+PunishOwnerLocks,1001,It will be hard to find help.,You won't get any help.  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(1),,,
+PunishAsylumIntro,,,Some time in the asylum might fix your attitude.  I'll commit you for fifteen minutes.,,,,
+PunishAsylum,1000,Alright then.  (Go to the asylum.),,RunPunishment(0),,,
+PunishAsylum,1000,This is insane!  (Go to the asylum.),,RunPunishment(-2),,,
+PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),,,
+2000,,,Happy Bondage Club birthday Mistress!,,IsPlayerBirthday(),SubIntroBirthday,
+2000,,,Have a great Bondage Club birthday Mistress.  Spank all the subs you want.,,IsPlayerBirthday(),SubIntroBirthday,Dominant|Violent
+2000,,,"Mistress, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),SubIntroBirthday,Submissive|Serious
+2000,,,Happy BC birthday Mam!  (She sings cheerfully.)  You can paddle me.  (She giggles.),,IsPlayerBirthday(),SubIntroBirthday,Playful|Rude
+2000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday Mistress.,,IsPlayerBirthday(),SubIntroBirthday,Frigid|Peaceful
+2000,,,Best wishes for your Bondage Club birthday.  May you stay in control for years upon years.,,IsPlayerBirthday(),SubIntroBirthday,Polite|Wise
+2000,,,Hey Mistress!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),SubIntroBirthday,Horny|Dumb
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise
+2000,,,How can I serve you my spouse?,,IsWife(),SubIntroWife,
+2000,,,Will you punish your wife today?,,IsWife(),SubIntroWife,Dominant|Violent
+2000,,,"This spouse body is yours to possess, love and care for Mistress.",,IsWife(),SubIntroWife,Submissive|Peaceful
+2000,,,This cunt is ready for her loving Mistress-wife.,,IsWife(),SubIntroWife,Horny|Playful
+2000,,,(Your wife bows her head and stays silent.),,IsWife(),SubIntroWife,Frigid|Serious
+2000,,,"Mistress, what do you desire from your submissive partner?",,IsWife(),SubIntroWife,Polite|Wise
+2000,,,Yes wife?  Errr... Mistress?,,IsWife(),SubIntroWife,Dumb|Rude
+2000,,,How can I serve you my fiancée?,,IsFiancee(),SubIntroFiancee,
+2000,,,Will you punish your fiancée today?,,IsFiancee(),SubIntroFiancee,Dominant|Violent
+2000,,,"This wife-to-be body is yours to possess, love and care for Mistress.",,IsFiancee(),SubIntroFiancee,Submissive|Peaceful
+2000,,,This cunt is ready for her loving Mistress-fiancée.,,IsFiancee(),SubIntroFiancee,Horny|Playful
+2000,,,(Your fiancée bows her head and stays silent.),,IsFiancee(),SubIntroFiancee,Frigid|Serious
+2000,,,"Mistress, what do you desire from your betrothed submissive?",,IsFiancee(),SubIntroFiancee,Polite|Wise
+2000,,,Yes my future wife?  Errr... Mistress?,,IsFiancee(),SubIntroFiancee,Dumb|Rude
 2000,,,How can I serve you my love?,,IsLover(),SubIntroGirlfriend,
-2000,,,Will you punish me my love?,,IsLover(),SubIntroGirlfriend,Dominant|Violent
+2000,,,Will you punish your girlfriend today?,,IsLover(),SubIntroGirlfriend,Dominant|Violent
 2000,,,"My body is yours to possess, love and care for Mistress.",,IsLover(),SubIntroGirlfriend,Submissive|Peaceful
 2000,,,This cunt is ready for her loving Mistress.,,IsLover(),SubIntroGirlfriend,Horny|Playful
-2000,,,(She bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
+2000,,,(Your girlfriend bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
 2000,,,"Mistress, what do you desire from your loved submissive?",,IsLover(),SubIntroGirlfriend,Polite|Wise
 2000,,,Yes my luv?  Errr... Mistress?,,IsLover(),SubIntroGirlfriend,Dumb|Rude
 2000,,,What would you like to do Mistress?,,,SubIntro,
@@ -1323,6 +1569,18 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2000,,Stand up.,"Tremendous!  (She stands up slowly.)  I must confess, my legs were starting to hurt.","DialogSetPose(CurrentCharacter, """")",CanStandUp(),SubStandUp,Peaceful|Polite
 2000,,(Point at the floor then upward.),(She nods and stands up.),"DialogSetPose(CurrentCharacter, """")",CanStandUpGagged(),,
 2000,,Stand up.,(She wiggles her restrained legs and shrugs.),,CannotStandUp(),,
+2000,2095,It's time to get to bed my girl.,(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,
+2000,2095,It's time to get to bed my girl.,(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Horny
+2000,2095,It's time to get to bed my girl.,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),SubAskBedYes,Frigid
+2000,2095,It's time to get to bed my girl.,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Serious
+2000,2095,It's time to get to bed my girl.,(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Playful
+2000,,It's time to get to bed my girl.,"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBed(),,
+2000,2095,(Invite her to your bed.),(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,
+2000,2095,(Invite her to your bed.),(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Horny
+2000,2095,(Invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Frigid
+2000,2095,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Serious
+2000,2095,(Invite her to your bed.),(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Playful
+2000,,(Invite her to your bed.),"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBedGag(),,
 2000,2100,(Play with her.),"(You move closer, ready to play with her.)",,AllowRestain(),,
 2000,2090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 2000,,(Leave her.),,DialogLeave(),,,
@@ -1387,6 +1645,26 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2010,,Are you dating someone my pet?,"I don't, you were lucky to find someone.  It's not that important to me though.",,WontTakePlayerAsLoverPlayerDating(),SubWontTakePlayerAsLoverPlayerDating,Frigid
 2010,,Are you dating someone my pet?,I'm too bossy to get a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),SubWontTakePlayerAsLoverPlayerDating,Dominant
 2010,,Are you dating someone my pet?,I might be too shy to find a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),SubWontTakePlayerAsLoverPlayerDating,Submissive
+2010,2074,"My girl, will you be my fiancée?","(She gives you a bright smile.)  Yes Mistress, I would be delighted.",,WillTakePlayerAsFiancee(),SubWillTakePlayerAsFiancee,
+2010,2074,"My girl, will you be my fiancée?","Yes, yes, yes and YES!!!  I love you Mistress!  (She jumps of joy.)",,WillTakePlayerAsFiancee(),SubWillTakePlayerAsFiancee,Playful
+2010,2074,"My girl, will you be my fiancée?","(She ponders for a few seconds.)  I knew this question was coming Mistress, and the answer is yes.",,WillTakePlayerAsFiancee(),SubWillTakePlayerAsFiancee,Serious
+2010,2074,"My girl, will you be my fiancée?",Yes Mistress.  But please don't go easy on me.  (She winks and smiles.),,WillTakePlayerAsFiancee(),SubWillTakePlayerAsFiancee,Violent
+2010,2074,"My girl, will you be my fiancée?",Oh yes Mistress.  Our love and your control will stand the test of time.,,WillTakePlayerAsFiancee(),SubWillTakePlayerAsFiancee,Peaceful
+2010,,"My girl, will you be my fiancée?",(She sighs and shakes her head no.)  Now is not the best time for that Mistress.  Maybe if we know and trust each other better.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,
+2010,,"My girl, will you be my fiancée?",(She pulls her tongue at you.)  Not now Mistress.  Maybe if we know and enjoy each other better.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Playful
+2010,,"My girl, will you be my fiancée?",(She shakes her head from left to right.)  Sorry but I must refuse Mistress.  This is not the right time and mood for this question.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Serious
+2010,,"My girl, will you be my fiancée?",No Mistress.  This is not the right time and mood for that.  Let's hold our horses.  You can punish me instead.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Violent
+2010,,"My girl, will you be my fiancée?","I'm so sorry Mistress, it's too early in our relationship for that.  We need more durable love.  Please don't punish me.",,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Peaceful
+2010,2077,"My girl, will you marry me?","(She smiles at you.)  Yes Mistress, this is a dream come true.",,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,
+2010,2077,"My girl, will you marry me?",YES!!!  Let's get married right now Mistress.  (She jumps of joy.),,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Playful
+2010,2077,"My girl, will you marry me?","(She nods slowly.)  Yes, my Mistress.  It's the perfect timing to declare our eternal love.",,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Serious
+2010,2077,"My girl, will you marry me?",(She nods rapidly.)  Can someone pinch me please?  Yes!  I love you Mistress!,,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Violent
+2010,2077,"My girl, will you marry me?",(She cries of joy.)  Yes Mistress.  I want to be your devoted wife and submissive.,,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Peaceful
+2010,,"My girl, will you marry me?",(She shakes her head no.)  Let's not rush our wedding Mistress.  We need to make sure we are the perfect pair.,,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,
+2010,,"My girl, will you marry me?",(She pulls her tongue at you.)  Don't be so quick Mistress!  We need to enjoy our time as lovers first.,,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Playful
+2010,,"My girl, will you marry me?","(She shakes her head from left to right.)  Let's not be hasty Mistress, I need a little more time.",,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Serious
+2010,,"My girl, will you marry me?",No Mistress.  This is going too fast for me.  You can punish me instead.  (She winks at you.),,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Violent
+2010,,"My girl, will you marry me?","I'm sorry Mistress, but let's not jump too quickly.  We need more durable love.  Please don't punish me.",,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Peaceful
 2010,,Let's chat.  (Spend time to chat with her.),(You spend some quality time chatting together and she seems to appreciate.),NPCInteraction(1),,SubTimeChitChat,
 2010,,Let's chat.  (Spend time to chat with her.),(You spend some time chit-chatting together.  It's fun but she politely lets you know that you could be more productive.),,,SubTimeChitChat,Serious|Polite
 2010,,Let's chat.  (Spend time to chat with her.),"(You two talk about politic, science and human nature.  It's different from the club kinks but still very interesting.)",NPCInteraction(1),,SubTimeChitChat,Frigid|Wise
@@ -1406,7 +1684,7 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2010,2000,That's all I wanted to talk about.,"I agree, let's stop the trivial conversations and do more training.",,,SubEndTalk,Serious
 2010,2000,That's all I wanted to talk about.,Yes Mistress!  Time for some action and some fun!,,,SubEndTalk,Playful
 2010,2000,That's all I wanted to talk about.,Hell yeah!  What could we do?,,,SubEndTalk,Rude
-2010,2000,That's all I wanted to talk about.,Yeah!  Let's go find some beer or something else to drink Mistress.,,,SubEndTalk,Dumb
+2010,2000,That's all I wanted to talk about.,Okay!  Let's go find some beer or something else to drink Mistress.,,,SubEndTalk,Dumb
 2010,,(Leave her.),,DialogLeave(),,,
 2020,2021,"Yes slave, I'm ready to collar you.","Mistress, I would be thrilled to become your permanent submissive.  I will accept your collar.",,,SubReadyForCollar,
 2020,2021,"Yes slave, I'm ready to collar you.","Dear Mistress, being owned by your caring hands would be a dream.  I will accept your loving collar.",,,SubReadyForCollar,Peaceful
@@ -1506,10 +1784,21 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2071,2072,I love you my girl.,I love you Mistress.  I hope we can share this love for a long time.,StartGirlfriend(),,,
 2071,2072,This is wonderful.,I love you Mistress.  This is indeed a wonderful day.,StartGirlfriend(),,,
 2071,2072,(Grab and kiss her.),(You grab her and share a long and loving kiss.)  I love you Mistress.,StartGirlfriend(),,,
-2071,2010,Wait!  Let me think about it some more.,(She sighs.)  Please don't torture me like that.,NPCInteraction(-5),,,
+2071,2010,Wait girl!  Let me think about it some more.,(She sighs.)  Please don't torture me like that.,NPCInteraction(-5),,,
 2072,2000,Making love will only be better.,"(She nods slowly.)  It will.  I'm yours, body and soul.",,,,
 2072,2000,I hope we'll never argue.,"(She raises an eyebrow.)  Let's not talk about that.  I'm yours, body and soul.",NPCInteraction(-3),,,
 2072,2000,I hope we'll be together forever.,"(She smiles at you.)  Let's make it work.  I'm yours, body and soul.",NPCInteraction(3),,,
+2074,2075,I love you my submissive.  (Exchange rings.),"(You exchange engagement rings.)  I love you Mistress.  I want to be with you for a long, long time.",StartFiancee(),,,
+2074,2075,This is wonderful.  (Exchange rings.),(You exchange engagement rings.)  I love you Mistress.  The sun always shines when you're around.,StartFiancee(),,,
+2074,2075,(Kiss her and exchange rings.),(You exchange engagement rings and a long kiss.)  I love you Mistress.,StartFiancee(),,,
+2074,2010,Wait girl!  I wasn't serious.,(She grumbles and sighs.)  Teasing me like that is so unfair.,NPCInteraction(-10),,,
+2075,2000,These rings will prove our love.,"(She nods slowly.)  It will shine with our love, my wonderful Mistress.",,,,
+2075,2000,These rings are so silly.,(She sighs.)  It's an old tradition I guess.  You can always remove it if you're not happy with it.,NPCInteraction(-3),,,
+2075,2000,I'll never remove that ring.,And I hope you will also never remove my collar.  (She giggles and smiles at you.),NPCInteraction(3),,,
+2077,2000,I love you so much my girl.  (Get wed.),,StartWife(),,,
+2077,2000,This is the best day of my life.  (Get wed.),,StartWife(),,,
+2077,2000,(Give her a French kiss and go get wed.),,StartWife(),,,
+2077,2010,Wait girl!  I've changed my mind.,(She grumbles and pouts.)  This is not funny Mistress.,NPCInteraction(-10),,,
 2080,2081,Turn the tables?  What do you mean?,"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2081,(Stay silent and listen to her.),"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2000,We will not turn any tables girl.,(She seems disappointed.)  Alright Mistress.  What's on your mind then?,,,,
@@ -1533,6 +1822,8 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 2090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 2090,2000,(Leave her.),(She seems curious.)  What would you like to do Mistress?,DialogLeave(),,,
+2095,2000,(Join her in bed.),(She seems curious.)  What would you like to do Mistress?,JoinInBed(),,,
+2095,2000,(Check your room first.),(She seems curious.)  What would you like to do Mistress?,DialogLeave(),,,
 2100,,,What would you like to do Mistress?,,,,
 2100,,(Tickle her.),"(You tickle her on the ribs and tummy.  She seems to enjoy it and cannot resist laughing.)  Hehehe, it tickles!",,Player.CanInteract(),SubPlayTickle,
 2100,,(Tickle her.),(You tickle her on the ribs and tummy.  She laughs out loud and almost cries.)  Eeeeeaaahahaha!  You're so funnyyyyahaha!,NPCInteraction(1),Player.CanInteract(),SubPlayTickle,Playful|Peaceful

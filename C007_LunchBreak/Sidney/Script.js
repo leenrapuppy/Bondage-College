@@ -20,7 +20,7 @@ function C007_LunchBreak_Sidney_CalcParams() {
 
 	// No special images by default
 	OverridenIntroImage = "";
-	
+
 	// Between 200 and 299, the image evolves with the number of matches
 	if ((C007_LunchBreak_Sidney_CurrentStage >= 200) && (C007_LunchBreak_Sidney_CurrentStage <= 299)) {
 		var Img = "0";
@@ -39,11 +39,11 @@ function C007_LunchBreak_Sidney_CalcParams() {
 		if (ActorHasInventory("TapeGag")) Img = Img + "TapeGag";
 		OverridenIntroImage = "SidneySit" + Img + ".jpg";
 	}
-	
+
 	// Keep the status of Sidney
 	C007_LunchBreak_Sidney_IsBoundAndGagged = ((ActorHasInventory("Rope") || ActorHasInventory("Cuffs")) && (ActorHasInventory("BallGag") || ActorHasInventory("TapeGag")));
 	C007_LunchBreak_Sidney_HasEgg = ActorHasInventory("VibratingEgg");
-	
+
 }
 
 // Chapter 7 - Sidney Load
@@ -54,9 +54,9 @@ function C007_LunchBreak_Sidney_Load() {
 	LoadInteractions();
 	C007_LunchBreak_Sidney_HelpedEscape = GameLogQuery("C003_MorningDetention", "Sidney", "Unlock");
 	C007_LunchBreak_Sidney_CalcParams();
-	
+
 	// If the player is submissive toward Sidney, she will get bullied
-	if ((ActorGetValue(ActorLove) <= 4) && (ActorGetValue(ActorSubmission) <= -2) && C007_LunchBreak_Sidney_CurrentStage == 0) 
+	if ((ActorGetValue(ActorLove) <= 4) && (ActorGetValue(ActorSubmission) <= -2) && C007_LunchBreak_Sidney_CurrentStage == 0)
 		C007_LunchBreak_Sidney_CurrentStage = 100;
 
 	// If we must put the previous text back
@@ -72,12 +72,12 @@ function C007_LunchBreak_Sidney_Load() {
 }
 
 // Chapter 7 - Sidney Run
-function C007_LunchBreak_Sidney_Run() {	
+function C007_LunchBreak_Sidney_Run() {
 	BuildInteraction(C007_LunchBreak_Sidney_CurrentStage);
 }
 
 // Chapter 7 - Sidney Click
-function C007_LunchBreak_Sidney_Click() {	
+function C007_LunchBreak_Sidney_Click() {
 
 	// Regular and inventory interactions
 	ClickInteraction(C007_LunchBreak_Sidney_CurrentStage);
@@ -95,7 +95,7 @@ function C007_LunchBreak_Sidney_Click() {
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Sidney_TwoRopes = true;
 	}
-	
+
 	// When the user wants to use the rope
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "Rope") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		OverridenIntroText = GetText("FirstRope");
@@ -104,7 +104,7 @@ function C007_LunchBreak_Sidney_Click() {
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Sidney_IsRoped = true;
 	}
-	
+
 	// When the user wants to use the cuffs
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "Cuffs") && !ActorHasInventory("Rope") && !ActorHasInventory("Cuffs")) {
 		OverridenIntroText = GetText("Cuffs");
@@ -112,7 +112,7 @@ function C007_LunchBreak_Sidney_Click() {
 		PlayerRemoveInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the BallGag
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "BallGag") && !ActorHasInventory("BallGag")) {
 		OverridenIntroText = GetText("BallGag");
@@ -122,17 +122,17 @@ function C007_LunchBreak_Sidney_Click() {
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Sidney_IsGagged = true;
 	}
-	
+
 	// When the user wants to use the tape gag
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "TapeGag") && !ActorHasInventory("TapeGag")) {
-		OverridenIntroText = GetText("TapeGag");		
+		OverridenIntroText = GetText("TapeGag");
 		C007_LunchBreak_Sidney_Ungag();
 		ActorAddInventory("TapeGag");
 		PlayerRemoveInventory("TapeGag", 1);
 		CurrentTime = CurrentTime + 60000;
 		C007_LunchBreak_Sidney_IsGagged = true;
 	}
-	
+
 	// When the user wants to use the cuffs keys
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "CuffsKey") && ActorHasInventory("Cuffs")) {
 		OverridenIntroText = GetText("Uncuff");
@@ -140,25 +140,25 @@ function C007_LunchBreak_Sidney_Click() {
 		PlayerAddInventory("Cuffs", 1);
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the crop
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "Crop")) {
 		OverridenIntroText = GetText("Crop");
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// When the user wants to use the egg
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "VibratingEgg") && !ActorHasInventory("VibratingEgg")) {
 		OverridenIntroText = GetText("VibratingEgg");
 		ActorAddInventory("VibratingEgg");
 		PlayerRemoveInventory("VibratingEgg", 1);
 		CurrentTime = CurrentTime + 60000;
-	}	
+	}
 
 	// When the user wants to use the collar (+20 submission and a ceremony is required)
 	if ((C007_LunchBreak_Sidney_CurrentStage == 340) && (ClickInv == "Collar") && !ActorHasInventory("Collar"))
 		OverridenIntroText = GetText("Collar");
-		
+
 	// Recalculates the scene parameters
 	C007_LunchBreak_Sidney_CalcParams();
 
@@ -190,7 +190,7 @@ function C007_LunchBreak_Sidney_PilloryWait() {
 	if (CurrentTime >= 12.66667 * 60 * 60 * 1000) {
 		OverridenIntroText = GetText("Extortion");
 		C007_LunchBreak_Sidney_CurrentStage = 170;
-	}	
+	}
 }
 
 // Chapter 7 - Sidney - The player is free from the pillory
@@ -199,7 +199,7 @@ function C007_LunchBreak_Sidney_PilloryFree() {
 }
 
 // Chapter 7 - Sidney Start Lunch
-function C007_LunchBreak_Sidney_StartLunch() {	
+function C007_LunchBreak_Sidney_StartLunch() {
 	GameLogAdd("Lunch");
 	CurrentTime = CurrentTime + 480000;
 	LeaveIcon = "";
@@ -260,7 +260,7 @@ function C007_LunchBreak_Sidney_CuteRemark() {
 function C007_LunchBreak_Sidney_Untie() {
 	if (ActorHasInventory("Rope")) {
 		ActorRemoveInventory("Rope");
-		PlayerAddInventory("Rope", 1);		
+		PlayerAddInventory("Rope", 1);
 		if (C007_LunchBreak_Sidney_TwoRopes) {
 			PlayerAddInventory("Rope", 1);
 			C007_LunchBreak_Sidney_TwoRopes = false;
@@ -282,7 +282,7 @@ function C007_LunchBreak_Sidney_Ungag() {
 // Chapter 7 - Sidney Release
 function C007_LunchBreak_Sidney_Release() {
 	C007_LunchBreak_Sidney_Untie();
-	C007_LunchBreak_Sidney_Ungag();	
+	C007_LunchBreak_Sidney_Ungag();
 	if (ActorHasInventory("Cuffs")) {
 		ActorRemoveInventory("Cuffs");
 		PlayerAddInventory("Cuffs", 1);
@@ -294,7 +294,7 @@ function C007_LunchBreak_Sidney_Masturbate() {
 	C007_LunchBreak_Sidney_MasturbateCount++;
 	if (C007_LunchBreak_Sidney_MasturbateCount == 3) {
 		C007_LunchBreak_Sidney_CurrentStage = "350";
-		OverridenIntroText = GetText("ReadyForOrgasm");		
+		OverridenIntroText = GetText("ReadyForOrgasm");
 	} else {
 		if (ActorGetValue(ActorLove) >= ActorGetValue(ActorSubmission)) OverridenIntroText = GetText("MasturbateLove");
 		else OverridenIntroText = GetText("MasturbateSub");

@@ -4,6 +4,7 @@
 var Player;
 /** @type {number|string} */
 var KeyPress = "";
+/** @type {string} */
 var CurrentModule;
 /** @type {string} */
 var CurrentScreen;
@@ -22,6 +23,7 @@ var CommonPhotoMode = false;
 var GameVersion = "R0";
 const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
 var CommonVersionUpdated = false;
+/** @type {null | { pageX: number, pageY: number }} */
 var CommonTouchList = null;
 
 /**
@@ -488,6 +490,22 @@ function CommonColorIsValid(Color) {
 }
 
 /**
+ * Check that the passed string looks like an acceptable email address.
+ *
+ * @param {string} Email
+ * @returns {boolean}
+ */
+function CommonEmailIsValid(Email) {
+	if (Email.length < 5 || Email.length > 100) return false;
+
+	const parts = Email.split("@");
+	if (parts.length !== 2) return false;
+	if (parts[1].indexOf(".") === -1) return false;
+
+	return ServerAccountEmailRegex.test(Email);
+}
+
+/**
  * Get a random item from a list while making sure not to pick the previous one.
  * @template T
  * @param {T} ItemPrevious - Previously selected item from the given list
@@ -515,6 +533,22 @@ function CommonConvertStringToArray(s) {
 		}, []);
 	}
 	return arr;
+}
+
+/**
+ * Shuffles all characters in a string
+ * @param {string} string - The string to shuffle
+ * @returns {string} - The shuffled string
+ */
+function CommonStringShuffle(string) {
+	var parts = string.split('');
+	for (var i = parts.length; i > 0;) {
+		var random = parseInt(Math.random() * i);
+		var temp = parts[--i];
+		parts[i] = parts[random];
+		parts[random] = temp;
+	}
+	return parts.join('');
 }
 
 /**
@@ -549,10 +583,11 @@ function CommonColorsEqual(C1, C2) {
  * order, as determined by === comparison
  * @param {*[]} a1 - The first array to compare
  * @param {*[]} a2 - The second array to compare
+ * @param {boolean} [ignoreOrder] - Whether to ignore item order when considering equality
  * @returns {boolean} - TRUE if both arrays have the same length and contain the same items in the same order, FALSE otherwise
  */
-function CommonArraysEqual(a1, a2) {
-	return a1.length === a2.length && a1.every((item, i) => item === a2[i]);
+function CommonArraysEqual(a1, a2, ignoreOrder = false) {
+	return a1.length === a2.length && a1.every((item, i) => ignoreOrder ? a2.includes(item) : item === a2[i]);
 }
 
 /**
@@ -621,16 +656,17 @@ function CommonThrottle(func) {
 /**
  * Creates a wrapper for a function to limit how often it can be called. The player-defined wait interval setting determines the
  * allowed frequency. Below 100 ms the function will be throttled and above will be debounced.
- * @param {function} func - The function to limit calls of
+ * @template {() => void} FunctionType
+ * @param {FunctionType} func - The function to limit calls of
  * @param {number} [minWait=0] - A lower bound for how long the wait interval can be, 0 by default
  * @param {number} [maxWait=1000] - An upper bound for how long the wait interval can be, 1 second by default
- * @returns {function} - A debounced or throttled version of the function
+ * @returns {FunctionType} - A debounced or throttled version of the function
  */
 function CommonLimitFunction(func, minWait = 0, maxWait = 1000) {
 	const funcDebounced = CommonDebounce(func);
 	const funcThrottled = CommonThrottle(func);
 
-	return function () {
+	return /** @type {FunctionType} */(function () {
 		const wait = Math.min(
 			Math.max(
 				Player.GraphicsSettings ? Player.GraphicsSettings.AnimationQuality : 100, minWait
@@ -639,7 +675,7 @@ function CommonLimitFunction(func, minWait = 0, maxWait = 1000) {
 		);
 		const args = [wait].concat(Array.from(arguments));
 		return wait < 100 ? funcThrottled.apply(this, args) : funcDebounced.apply(this, args);
-	};
+	});
 }
 
 /**
@@ -884,7 +920,8 @@ function CommonPadlockUnlock(C, Item) {
 		}
 	}
 	InventoryUnlock(C, C.FocusGroup.Name);
-	ChatRoomPublishAction(C, Item, null, true, "ActionUnlock");
+	ChatRoomPublishAction(C, "ActionUnlock", Item, null);
+	DialogLeave();
 }
 
 /**
@@ -900,7 +937,75 @@ function CommonNoop() {
  * @returns {String} - Returns the proper server to use in production or test
  */
 function CommonGetServer() {
-	if ((location.href.indexOf("bondageprojects") < 0) && (location.href.indexOf("bondage-europe") < 0)) return "https://bc-server-test.herokuapp.com/";
+	if ((location.href.indexOf("bondageprojects") < 0) && (location.href.indexOf("bondage-europe") < 0)) return "https://bondage-club-server-test.herokuapp.com/";
 	if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 	return "https://bondage-club-server.herokuapp.com/";
+}
+
+/**
+ * Performs the required substitutions on the given message
+ *
+ * @param {string} msg - The string to perform the substitutions on.
+ * @param {string[][]} substitutions - An array of {string, replacement} subtitutions.
+ */
+function CommonStringSubstitute(msg, substitutions) {
+	if (typeof msg !== "string")
+		return "";
+
+	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
+	for (const [tag, subst] of substitutions) {
+		msg = msg.split(tag).join(subst);
+	}
+	return msg;
+}
+
+/**
+ * Censors a string or words in that string based on the player preferences
+ * @param {string} S - The string to censor
+ * @returns {String} - The censored string
+ */
+function CommonCensor(S) {
+
+	// Validates that we must apply censoring
+	if ((Player.ChatSettings == null) || (Player.ChatSettings.CensoredWordsLevel == null) || (Player.ChatSettings.CensoredWordsList == null)) return S;
+	let WordList = PreferenceCensoredWordsList = Player.ChatSettings.CensoredWordsList.split("|");
+	if (WordList.length <= 0) return S;
+
+	// At level zero, we replace the word with ***
+	if (Player.ChatSettings.CensoredWordsLevel == 0)
+		for (let W of WordList)
+			if ((W != "") && (W != " ") && !W.includes("*") && S.toUpperCase().includes(W.toUpperCase())) {
+				let searchMask = W;
+				let regEx = new RegExp(searchMask, "ig");
+				let replaceMask = "***";
+				S = S.replace(regEx, replaceMask);
+			}
+
+	// At level one, we replace the full phrase with ***, at level two we return a ¶¶¶ string indicating to filter out
+	if (Player.ChatSettings.CensoredWordsLevel >= 1)
+		for (let W of WordList)
+			if ((W != "") && (W != " ") && !W.includes("*") && S.toUpperCase().includes(W.toUpperCase()))
+				return (Player.ChatSettings.CensoredWordsLevel >= 2) ? "¶¶¶" : "***";
+
+	// Returns the mashed string
+	return S;
+
+}
+
+/**
+ * Type guard which checks that a value is a simple object (i.e. a non-null object which is not an array)
+ * @param {unknown} value - The value to test
+ * @returns {value is Record<string, unknown>}
+ */
+function CommonIsObject(value) {
+	return !!value && typeof value === "object" && !Array.isArray(value);
+}
+
+/**
+ * Type guard which checks that a value is a non-negative (i.e. positive or zero) integer
+ * @param {unknown} value - The value to test
+ * @returns {value is number}
+ */
+function CommonIsNonNegativeInteger(value) {
+	return typeof value === "number" && Number.isInteger(value) && value >= 0;
 }

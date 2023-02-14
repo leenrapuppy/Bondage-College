@@ -1229,7 +1229,7 @@ Let's chat.  (Spend time to chat with her.)
 (You try to have a meaningful conversation, but it doesn't go anywhere.  All she seems to focus on is sex.)
 (Вы пытаетесь вести содержательный разговор, но он никуда не идет. Кажется, что все, что она хочет - сосредоточиться на сексе.)
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 Хватит болтовни.
 ###_NPC
 (She nods.)  What would you like to do now?
@@ -1238,13 +1238,13 @@ Enough chit-chat.
 I agree, let's stop the trivial conversations that leads nowhere.
 Я согласна, давай прекратим тривиальные разговоры, которые никуда не ведут.
 ###_NPC [Playful]
-Yep!  Time for some action and some fun!
+Yay!  Time for some action and some fun!
 Ага!  Время для некоторых действий и небольшого веселья!
 ###_NPC [Wise]
 We can speak again, whenever you want.  We can also play some chess later, if you like the game of course.
 Мы можем поговорить снова, когда ты захочешь.  Мы также можем поиграть в шахматы позже, если тебе, конечно, нравится эта игра.
 ###_NPC [Dumb]
-Yeah!  Let's go find some beer or something else to drink.
+Okay!  Let's go find some beer or something else to drink.
 Да!  Давай найдем какое-нибудь пиво или еще что-нибудь выпить.
 ###_PLAYER
 Wear your House Maiestas outfit.
@@ -2292,7 +2292,7 @@ That's all I wanted to talk about.
 Good, cause I was about to gag your ass to stop you from yacking.
 Хорошо, потому что я уже собиралася заткнуть тебе рот кляпом, чтобы ты перестала тявкать.
 ###_NPC [Dumb]
-Yeah!  Let's go find some beer or something else to drink my girl.
+Okay!  Let's go find some beer or something else to drink my girl.
 Да!  Пойдем поищем пива или чего-нибудь еще, чтобы напоить мою девочку.
 ###_PLAYER
 Yes Mistress.  I'm ready for the collar.
@@ -4151,7 +4151,7 @@ Yes Mistress!  Time for some action and some fun!
 Hell yeah!  What could we do?
 Да, черт возьми!  Что же нам нужно сделать?
 ###_NPC [Dumb]
-Yeah!  Let's go find some beer or something else to drink Mistress.
+Okay!  Let's go find some beer or something else to drink Mistress.
 Да!  Давайте найдем какое-нибудь пиво или еще что-нибудь выпить, Госпожа.
 ###_PLAYER
 Yes slave, I'm ready to collar you.

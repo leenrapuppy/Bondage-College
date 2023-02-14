@@ -1,24 +1,29 @@
 "use strict";
 
 var BackgroundSelectionBackground = "Introduction";
+/** @type {string[]} */
 var BackgroundSelectionList = [];
+/** @type {string[]} */
 var BackgroundSelectionTagList = [];
 var BackgroundSelectionIndex = 0;
 var BackgroundSelectionSelect = "";
 var BackgroundSelectionSelectName = "";
 var BackgroundSelectionSize = 12;
 var BackgroundSelectionOffset = 0;
+/** @type {null | ((selection: string) => void)} */
 var BackgroundSelectionCallback = null;
 var BackgroundSelectionPreviousModule = "";
 var BackgroundSelectionPreviousScreen = "";
+/** @type {{ Name: string, Description: string, Low: string }[]} */
 var BackgroundSelectionAll = [];
+/** @type {{ Name: string, Description: string, Low: string }[]} */
 var BackgroundSelectionView = [];
 
 /**
  * Change the current screen to the background selection screen
  * @param {string[]} List - The list of possible Background names
  * @param {number} Idx - The index of the current background
- * @param {function} Callback - The function to call when a new background has been selected
+ * @param {(selection: string) => void} Callback - The function to call when a new background has been selected
  * @returns {void} - Nothing
  */
 function BackgroundSelectionMake(List, Idx, Callback) {

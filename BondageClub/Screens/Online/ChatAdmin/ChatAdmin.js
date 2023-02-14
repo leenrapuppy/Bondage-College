@@ -7,8 +7,11 @@ var ChatAdminPrivate = false;
 var ChatAdminLocked = false;
 var ChatAdminGame = "";
 var ChatAdminGameList = ["", "LARP", "MagicBattle", "GGTS"];
+/** @type {null | string} */
 var ChatAdminBackgroundSelected = null;
+/** @type {null | { Name: string, Language: string, Description: string, Limit: string, AdminList: string, BanList: string, Private: boolean, Locked: boolean }} */
 var ChatAdminTemporaryData = null;
+/** @type {string[]} */
 var ChatAdminBlockCategory = [];
 var ChatAdminInitialLoad = false;
 var ChatAdminLanguage = "EN";
@@ -173,7 +176,7 @@ function ChatAdminClick() {
 		}
 
 		// Flips from one language to another
-		if (MouseIn(405, 172, 300, 60)) {		
+		if (MouseIn(405, 172, 300, 60)) {
 			let Pos = ChatCreateLanguageList.indexOf(ChatAdminLanguage) + 1;
 			if (Pos >= ChatCreateLanguageList.length) Pos = 0;
 			ChatAdminLanguage = ChatCreateLanguageList[Pos];
@@ -196,6 +199,7 @@ function ChatAdminClick() {
  * @returns {void} - Nothing
  */
 function ChatAdminExit() {
+	AsylumGGTSReset();
 	ChatAdminBackgroundSelected = null;
 	ChatAdminTemporaryData = null;
 	ElementRemove("InputName");

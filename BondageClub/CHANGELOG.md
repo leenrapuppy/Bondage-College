@@ -11,9 +11,436 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-07-10
-* Last recorded PR: [#3540](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3540)
-* Last recorded commit hash: `e8f2c636c5555ec346dafca55c16d64bf4572fa6`
+* Changelog last updated: 2023-02-09
+* Last recorded PR: [#3904](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3904)
+* Last recorded commit hash: `80875fe38d8b14e1e5e9a8b0f42008358435e2a5`
+
+## [R89]
+
+### [Added]
+* KyraObscura - Added a new Cropped Hoodie ([#3851](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3851)), options for smaller ears ([#3866](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3866)), and a lockable Navel Bar ([#3871](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3871))
+* Estsanatlehi - Added back the removed "pulled leashes" graphics and made them automatic ([#3873](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3873))
+* Ellie - Added Titania's new Dominatrix Leotard asset in the Bra group ([#3888](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3888))
+* Estsanatlehi - Added an "Open Changelog" option to the Main Hall, and made the tips cycle every few seconds. Also added a few new tips from Natsuki ([#3861](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3861))
+* KyraObscura - Added new groups for Left Sock, Right Sock, Jewelry, and Piercings. This also added the ability for a module/option to require another asset to be enabled, thanks to Estsanatlehi ([#3890](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3890), [#3886](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3886), [#3897](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3897))
+* Estsanatlehi - Added status effect icons on items and options for blindness, deafness and gag-level ([#3838](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3838))
+* Ayesha - Added a Vibrating Egg for males' glans ([#3870](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3870))
+* bananarama92 - Allowed other people read-only access to one's wheel of fortune customization menu ([#3901](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3901))
+* Nina - Added a new Festival Fox Mask from Fillia/Nina ([#3884](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3884))
+* Nikky - Added a new Folding Screen item in the Device group ([#3904](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3904))
+* Ben987 - Added Tighten/Loosen options for many rope items
+
+
+### [Removed]
+
+### [Changed]
+* Fareeha - Improved the Traditional Chinese translation ([#3864](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3864))
+* Ayesha - Changed the HeavyLatexCorset so it can be used by males ([#3868](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3868))
+* KyraObscura - Added layers to more hair for better depth ([#3872](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3872))
+* KyraObscura - Consolidated options on the Custom Latex Hood ([#3869](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3869))
+* Estsanatlehi - Changed the handheld rope items' default color ([#3883](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3883))
+* Gnarp - Added ItemBoots as target for the Caress activity ([#3895](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3895))
+* KyraObscura - Consolidated eyebrows 2-6 into a modular item ([#3899](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3899))
+* KyraObscura - Updated the School Hospital background ([#3903](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3903))
+* MAKeevchanin - Updated the Russian translation
+* Ben987 - Stopped the Wheel of Fortune from using blocked items
+* Ben987 - Added Pet Bondage & Web Bondage to the Wheel of Fortune
+* Ben987 - Bondage Brawl - Add a hint if the key isn't found
+* Ben987 - Fixed invalid Log entries in the College Cafeteria - Thanks lojan!
+* Ben987 - Disable the Wheel of Fortune's Roleplay mode on Hardcore/Extreme
+* Ben987 - Added a "Force Spin" dialog option for owners having a Wheel of Fortune
+
+
+### [Fixed]
+* bananarama92 - Fixed the `DynamicGroupName` of the latex respirator ([#3859](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3859))
+* Estsanatlehi - Fixed the Lucky Wheel so it draws correctly when inverted ([#3863](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3863))
+* Estsanatlehi - Added back a few checks to stop the obedience belt from crashing ([#3865](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3865))
+* Estsanatlehi - Fixed a crash when using a non-item-based activity on an NPC ([#3867](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3867))
+* Estsanatlehi - Fixed a bug where locked modules could still be changed ([#3874](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3874))
+* Estsanatlehi - Fixed ChatRoomData default value by initializing it to null ([#3878](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3878))
+* Estsanatlehi - Fixed a crash in the Cafe when the maid tried to increase the inflatable dildo's vibe ([#3881](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3881))
+* Gnarp - Fixed a layer name of the hogtie stocks ([#3885](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3885))
+* Ellie - Fixed a bug with name substitution when swapping characters around ([#3887](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3887))
+* bananarama92 - Changed the love chastity belt's text so it can only be modified by the owner ([#3889](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3889))
+
+### [Technical]
+* Estsanatlehi - Cleaned up the Poker minigame ([#3877](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3877))
+* Ellie - Changed asset groups with AllowNone: false to use preview images ([#3891](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3891))
+* Ellie - Tightened a couple things in asset properties ([#3892](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3892))
+* bananarama92 - Improved type-checking on `Log`-related functions ([#3893](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3893))
+* bananarama92 - Changed `Typed` item option names to always be equivalent to their `Property.Type` values ([#3894](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3894))
+* Estsanatlehi - Remove unused function and add missing parameters to calls ([#3876](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3876))
+* Estsanatlehi - Added socket.io to our deps, and declare io so it gets typechecked ([#3880](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3880))
+* Estsanatlehi - Added a couple helpers for Ellie's ItemScript for easier manipulation ([#3857](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3857))
+* klorpa - Provided a bunch of spelling and spacing fixes ([#3882](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3882))
+* Estsanatlehi - Merged ParentColor with InheritColor ([#3875](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3875))
+* Estsanatlehi - Centralized account-checking regexes and simplified the code. That fixes an issue with password resets. ([#3855](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3855))
+* Estsanatlehi - Overhauled the struggle minigames' handling ([#3845](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3845))
+* bananarama92 - Added annotations for many global variables and constants ([#3898](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3898))
+
+## [R88]
+
+### [Added]
+* Da'Inihlus - Added a new Gradient Pantyhose ([#3799](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3799))
+* Da'Inihlus - Added a kick activity on most body groups ([#3800](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3800))
+* Luna, Ace & Estsanatlehi - Added a roleplay-based lucky wheel. ([#3813](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3813), [#3827](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3827), [#3831](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3831))
+* Ben987 - Added an automated Wheel of fortune. See the new `/wheel` chat command for setup.
+* KyraObscura - Added a new Custom Latex Hood ([#3817](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3817))
+* KyraObscura - Added a new Cat Mask Harness ([#3818](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3818))
+* KyraObscura - Added a new Cross Skirt, made by Leah ([#3826](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3826))
+
+### [Removed]
+* Estsanatlehi - Removed leftovers from the held/taken leash ([#3825](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3825))
+
+### [Changed]
+* KyraObscura - Refitted hair accessories and hats to handle both short and long hair ([#3798](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3798), [#3812](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3812))
+* KyraObscura - Added a layer to HairFront37, giving it a bit of volume, and cleaned up a couple other hair ([#3821](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3821))
+* KyraObscura - Added another layer to the Custom Latex Hood ([#3829](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3829))
+* Livie53 - Changed the Combo Harness to allow head activities and make some gags layerable over it ([#3805](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3805))
+* bananarama92 - Allow crafting of non-lock items from the `ItemMisc` group (a.k.a signs and plushies) ([#3823](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3823))
+
+### [Fixed]
+
+* Sepia Oulomenohn - Fixed an issue where 'All Gags Visible' would't work on hood variants ([#3802](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3802))
+* Ellie - Fixed a rate-limiting trigger caused by picking multiple Kinky Dungeon starting scenarios ([#3797](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3797))
+* Gnarp - Fixed the layer coloring of the hogtie stocks ([#3811](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3811))
+* Ellie - Fix an issue with the new ItemScript causing the nakedness check to fail ([#3814](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3814))
+* bananarama92 - Fixed `CommonStringSubstitute` getting stuck in an infinite loop ([#3815](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3815))
+* bananarama92 - Fixed an incorrect chat prefix for the Transport Wooden Box ([#3816](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3816))
+* bananarama92 - Fixed the various show-options of the futuristic straitjacket ([#3830](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3830))
+
+### [Technical]
+* bananarama92 - Overhauled the extended item's validation, fixing some issues ([#3796](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3796))
+* bananarama92 - Added more validation for the futuristic gag around the `OriginalSetting` property ([#3808](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3808))
+* Ellie - Added a cleaner way to build chat dictionaries ([#3806](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3806))
+* bananarama92 - Converted the lovers chastity belt into a modular item ([#3822](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3822))
+* bananarama92 - Fixed various CI failures ([#3824](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3824))
+* bananarama92 - Converted the lovers vibrator into a vibrating item ([#3828](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3828))
+
+### [Beta Fixes]
+* Ben987 - Fixed a couple issues on the Wheel of Fortune
+* bananarama92 - Consolidated the extended item handling of text input fields ([#3834](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3834))
+* bananarama92 - Disabled blindness-related effects while in the crafting screen ([#3835](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3835))
+* Ada - Updated to Kinky Dungeon 3.9 ([#3836](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3836))
+* Da'Inihlus - Provided updates for the Chineses translation ([#3837](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3837))
+* KyraObscura - Fixed the Bandana's short hair asset ([#3839](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3839))
+* KyraObscura - Added a 'hide hair accessories' option to Custom Latex Hood ([#3840](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3840))
+* KyraObscura - Decreased Opacity of the Custom Latex Hood's Transparent Panels ([#3841](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3841))
+* KyraObscura - Fixed the layer order for the Custom Latex Hood ([#3842](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3842))
+* KyraObscura - Decreased the priority of the Harness Cat Mask ([#3843](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3843))
+* Estsanatlehi - Fixed a bug impacting an activity's arousal and sound effects ([#3844](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3844))
+* KyraObscura - Fixed the Cat Mask Harness being to quick to add/remove ([#3847](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3847))
+* KyraObscura - Fixed an alpha mask issue with the Cross Skirt ([#3849](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3849))
+* Estsanatlehi - Fixed a bug that caused Kinky Dungeon's click sound to trigger on some keypresses, and an broken UI when running with a non-English language ([#3852](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3852))
+* Estsanatlehi - Removed the WebGag from the random set of restraints ([#3853](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3853))
+* Fareeha - Added a Traditional Chinese translation ([#3850](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3850))
+* KyraObscura - Fixed some issues with the Custom Latex Hood's color groups and layers ([#3848](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3848))
+* Estsanatlehi - Removed dialogs specific to the SilkStraps ([#3854](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3854))
+* Ellie - Fixed an infinite loop when sanitizing invalid ItemScript changes ([#3856](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3856))
+* Estsanatlehi - Added a missing label for the inverted suspension rope ([#3858](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3858))
+
+
+## [R87]
+
+### [Added]
+* Ben987 - Lucky Wheel - Missing Preview Image (PR not found)
+* Sepia Oulomenohn - Added a new latex respirator to the 3rd mouth group ([#3754](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3754))
+* Bluesilv - Added a buttoned shirt item for males ([#3773](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3773))
+* Ben987 - Added support for a player-provided list of words to censor
+* Ben987 - Lots of updates to the NPC Private Room: no more spurious Pandora kidnappings, collars can be changed, Asylum punishment, get engaged with owner, subs, or regular NPCs, NPC marriage & wedding
+* Bluesilv - Added Sleepsack, fixed a ButtonShirt capitalization issue ([#3784](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3784))
+* Luna - Added Slave Rags clothing ([#3776](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3776))
+
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+* Estsanatlehi - Changed the bed to allow more poses ([#3728](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3728))
+* Estsanatlehi - Added a tickling activity to the duster gag ([#3730](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3730))
+* Estsanatlehi - Enabled spanking with the cushion when held ([#3746](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3746))
+* Ellie - Fixes item-hiding, visual issues and 404s errors with the Pet Suit ([#3748](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3748), [#3749](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3749))
+* KyraObscura - Fixed problems with the back hair now that the head is smaller ([#3755](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3755), [#3762](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3762))
+* KyraObscura - Tweak the orientation on the new eyebrows ([#3756](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3756))
+* Estsanatlehi - Splitted the Pet Suit into layers ([#3757](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3757))
+* Estsanatlehi - Added Kneeling Spread variant for the Wired Egg ([#3758](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3758))
+* Da'Inihlus - Updated chinese translation ([#3760](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3760))
+* KyraObscura - Cleaned up the newly added hairstyles ([#3764](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3764))
+* Bluesilv - Made more assets available for males with the creator's permission. ([#3768](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3768))
+* KyraObscura - Updated most of the gags' strap to the new head shape ([#3771](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3771))
+* MAKeevchanin - Updated Russian Translations
+* Da'Inihlus - Chinese translation ([#3788](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3788))
+
+### [Fixed]
+* Ben987 - Fixed a crash with the HighSecurityPadlock
+* bananarama92 - Fixed the colors of crafted items resetting if they're extended items without an archetype ([#3721](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3721))
+* Estsanatlehi - Fixed the missing sound effects on the Kennel ([#3738](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3738))
+* bananarama92 - Reverted the Emoticon group being marked as an extended item ([#3740](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3740))
+* Estsanatlehi - Fixed crafted medical injectors turning into lotions on login ([#3741](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3741))
+* Estsanatlehi - Fixed a bunch of forgotten checks for handhelds in singleplayer ([#3742](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3742))
+* Estsanatlehi - Fixed naming of the gendered groups in the UI ([#3743](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3743))
+* Ellie - Fixed a couple of chat message substitution issues, notably item swaps, locking items, and timed locks changes ([#3750](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3750))
+* Ellie - Silence a few AssetCheck warnings ([#3751](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3751))
+* bananarama92 - Fixed a slew of issues with crafted items when they're extended assets ([#3774](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3774))
+
+### [Technical]
+* bananarama92 - Converted lots of the old-style assets to the new architecture ([small locker - #3665](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3665), [inflatable dildo/buttplug - #3739](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3739), [assets with opacity - #3744](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3744), [sci-fi pleasure panties - #3747](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3747), [manual shock items - #3752](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3752), [transport jacket, futuristic bra, halo, clit and dildo belt - #3753](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3753), [futuristic gags - #3761](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3761), [auto-shock collar - #3766](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3766))
+* bananarama92 - Changed the crafting validation of `Type` and `Color` properties to be less strict ([#3735](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3735))
+* bananarama92 - Refactored the modular item button draw-functions to use `ExtendedItemDrawButton` and added extended item permission support ([#3677](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3677))
+* bananarama92 - Added `AssetDefinitionProperties` and improved `Item.Property` documentation & annotations ([#3736](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3736))
+* Ellie - Implemented stricter validation and scripted item permissions ([#3745](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3745))
+* Ellie - Improved dictionary typing & timer lock cleanup ([#3767](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3767))
+* Ellie - Added the ability to hide and show layers based on equipped asset attributes ([#3772](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3772))
+
+
+### [Beta Fixes]
+
+* Estsanatlehi - Fix a crashing bug with the vibes ([#3777](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3777))
+* Estsanatlehi - Fix a pronoun misuse on gag kisses ([#3778](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3778))
+* Estsanatlehi - Remove the penis layer from the cock ring ([#3779](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3779))
+* Sepia Oulomenohn - Fixed typo and added requested module for respirator ([#3780](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3780))
+* bananarama92 - Fixed the extended item menu not opening after equipping typed items ([#3781](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3781))
+* bananarama92 - Changed `CraftingBackground` back to a `var` ([#3782](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3782))
+* bananarama92 - Ensure that out-of-bounds indices do not raise when setting the type of Modular crafted items ([#3783](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3783))
+* bananarama92 - BUG: Check whether `DialogFocusItem` is actually set in `ModularItemParseCurrent` ([#3785](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3785))
+* bananarama92 - BUG: Always check whether extended item table lookups are successful ([#3786](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3786))
+* bananarama92 - BUG: Add missing `DEST_CHAR_NAME` chat tags ([#3787](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3787))
+* bananarama92 - BUG: Mark the `Shoes`-based variant of the futuristic heels as non-lockable ([#3789](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3789))
+* Luna - Properly disable Slave Rags on males ([#3790](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3790))
+* Sepia Oulomenohn - A couple minor bug fixes to the Latex Respirator ([#3791](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3791))
+* KyraObscura - Re-Add Layer Name for HairFront45 ([#3792](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3792))
+* Luna - Fixed problems with XLarge poses and Slave Rags. Also added Suspension pose ([#3793](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3793))
+* Bluesilv - Fixed Sleepsack not slowing on leaving room. ([#3794](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3794))
+* bananarama92 - Fixed incorrect dialog + image paths for the full latex suit wand ([#3795](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3795))
+
+### [Hotfixes]
+* Estsanatlehi - Fixed the clit ring causing a crash ([#3804](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3804))
+* bananarama92 - Fixed an incorrect futuristic gag usage of `DialogFocusItem` ([#3803](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3803))
+* bananarama92 - Fixed the denial mode of the scifi pleasure panties failing to prevent orgasms ([#3807](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3807))
+* bananarama92 - Fixed a crash when opening shock-related screens ([#3809](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3809))
+* bananarama92 - Fixed speech-detection failing to punish gag actions ([#3810](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3810))
+* Ben987 - Fixed a dead-end in the Private Room NPC's dialog
+
+
+## [R86]
+
+### [Added]
+* Ayesha - Males Release 1 ([#3678](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3678))
+* Luna - Added the PetSign to the Misc slot ([#3666](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3666))
+* Ada - Kinky Dungeon 3.81 ([#3676](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3676))
+* Ben - Added a Private Bed & "/release" command
+* Ayesha & Kyra - Added a bunch of new assets! (hairs, eyebrows and lips) ([#3706](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3706))
+
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+* bananarama92 - Added proper support for auto typing crafted extended items that lack an archetype ([#3656](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3656))
+* bananarama92 - Added crafting auto-typing support for extended items of the `Vibrating` archetype ([#3658](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3658))
+* Estsanatlehi - Made handheld items real assets ([#3663](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3663))
+* MAKeevchanin - Updated russian translation ([#3672](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3672))
+* bananarama92 - Added the ability for crafted items to specify their `OverridePriority` ([#3674](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3674))
+* Da'Inihlus - Updated the chinese translation ([#3673](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3673), [#3700](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3700))
+
+
+### [Fixed]
+* bananarama92 - Re-enabled crafting auto types for most futuristic items ([#3648](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3648))
+* bananarama92 - Fixed a bug of being unable to color crafted items equiped on other people ([#3653](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3653))
+* Estsanatlehi - Reenable crafting addons (ropes and blankets) ([#3655](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3655))
+* bananarama92 - Fixed a broken `Asset.Prerequisite` check ([#3660](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3660))
+* bananarama92 - Added validation for `Item.Craft` ([#3662](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3662))
+
+### [Technical]
+* Estsanatlehi - Added a few documentation comments ([#3650](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3650))
+* bananarama92 - Improved crafting-related type annotations ([#3659](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3659))
+* bananarama92 - Converted the futuristic harness into a typed item ([#3661](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3661))
+* bananarama92 - Converted more vibrators to the `Vibrating` archetype ([#3667](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3667))
+* Estsanatlehi - Added eslint-plugin-compat ([#3668](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3668))
+* bananarama92 - Added an archetype to three more extended items ([#3669](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3669))
+* bananarama92 - Converted the collar name tags into Typed items ([#3670](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3670))
+* bananarama92 - Added archetypes to three more extended items ([#3675](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3675))
+
+### [Beta Fixes]
+
+* Estsanatlehi - Fixed inventory bleeding through on blocked groups ([#3680](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3680))
+* bananarama92 - Disallowed `Type = ""` for crafted extended items ([#3682](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3682))
+* Estsanatlehi - Fixed the petsuit Hide and Blocks ([#3679](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3679))
+* bananarama92 - Fixed the crafting auto-type pagination button being broken ([#3683](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3683))
+* Nina - Removed gendered assets from the not-bought shop list ([#3684](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3684))
+* bananarama92 - Filtered `ItemMisc` assets when constructing `CraftingItemSelected` objects ([#3685](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3685))
+* Nina - Fixed how pronouns are substituted in messages ([#3686](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3686))
+* Nina - Added support for expression prerequisities for the penis expression ([#3687](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3687))
+* Nina - Fixed a few issues with pronouns in the Private Bed room ([#3688](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3688))
+* Nina - Fixed an issue with Auto-Join and the split chatroom spaces ([#3690](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3690))
+* bananarama92 - Fix an issue with crafted items `OverridePriority` ([#3691](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3691))
+* bananarama92 - Added missing extended item asset options for the male body ([#3692](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3692))
+* Estsanatlehi - Fixed missing handheld graphics by checking and merging layers ([#3693](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3693))
+* Ben987 - Fixes for the new Private Bed area
+* Ayesha - Updated difficulties for the Chastity Cage ([#3695](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3695))
+* Estsanatlehi - Fixed a bug where arousal wouldn't be taken into account ([#3696](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3696))
+* MAKeevchanin - Updated the russian translation ([#3697](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3697))
+* Ayesha - Changed the penis asset plus a couple fixes ([#3701](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3701))
+* bananarama92 - Fixed some issues with crafted typed assets ([#3703](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3703))
+* Estsanatlehi - Fixed an issue with chat tag replacements ([#3704](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3704))
+* Estsanatlehi - Changed how the male activities are handled ([#3702](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3702))
+* dynilath - Fixed dialog pronouns substitutions ([#3705](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3705))
+* Ada - Fixed a few missing assets for the full latex bra in the yoked pose ([#3708](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3708))
+* Estsanatlehi - Fixed male orgasms on activities ([#3709](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3709))
+* Estsanatlehi - Removed many of the Hide properties on the petsuit ([#3710](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3710))
+* Estsanatlehi - Fixed a crash if the character disappears from the room ([#3711](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3711))
+* Ayesha - Fixed a 404 on the new mouth assets ([#3712](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3712))
+* Estsanatlehi - Fixed the missing audio effect on spanks ([#3714](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3714))
+* Estsanatlehi - Silenced a warning by removing a duplicate line ([#3715](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3715))
+* Estsanatlehi - Marked the FacialHair group as a non-default group ([#3717](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3717))
+Bondage-College/-/merge_requests/3716))
+* Estsanatlehi - Added fixups to preserve the owned handhelds information ([#3718](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3718))
+* Ayesha - Fixes for the new eyebrows and mouth ([#3719](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3719), [#3722](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3722))
+* Estsanatlehi - Fixed prounouns on the lock details screen ([#3723](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3723))
+* Ayesha - Fixes the kitty gags in the other 2 slots ([#3724](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3724))
+* Estsanatlehi - Fixed copy-paste error on the penis slot's label ([#3725](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3725))
+* Estsanatlehi - Removed the reverse activities for now ([#3726](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3726))
+* Estsanatlehi - Hid hand-related groups for the Petsuit ([#3727](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3727))
+* Estsanatlehi - Fixed a crash with the shock messages ([#3729](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3729))
+* Estsanatlehi - Hotfixed missing penetrate activities ([#3732](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3732))
+* Ayesha - Hotfixed some of the male items not hiding genitalia correctly ([#3733](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3733))
+* Nina - Hotfixed recreated rooms so they appear in the F-only space ([#3734](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3734))
+
+## [R85]
+
+### [Added]
+
+* Ben987 - Added more owner rules to block items, prevent accessing specific rooms and forbid chosen words
+* Luna - Added a Ballgag option to the Bridle Gag ([#3616](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3616), [#3633](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3633))
+* Evilwumpus - Added a GGTS task for inflatable ball/panel gags ([#3624](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3624))
+* bananarama92 - Added support for bodies with arbitrary colors ([#3625](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3625))
+* bananarama92 - Changed blindness effect to be cumulative ([#3629](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3629))
+* Luna - Added new Rings items ([#3634](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3634), [#3642](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3642), [#3647](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3647), [#3651](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3651))
+* Ada - Updated Kinky Dungeon to 3.71 ([#3623](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3623), [#3632](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3632))
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* Ben987 - Limited the Shibari Dojo training to one per hour
+* Estsanatlehi - Cleaned up rope sound effects ([#3627](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3627))
+* MAKeevchanin - Updated Russian translations ([#3636](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3636), [#3652](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3652))
+* Da'Inihlus - Updated Chinese translations ([#3646](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3646))
+
+### [Fixed]
+
+* Estsanatlehi - Removed allowed-check when updating the crafting dummy ([#3612](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3612))
+* Nina - Fixed missing effects on the Bamboo and Muzzle Gag ([#3613](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3613))
+* Estsanatlehi - Added a description to the new /craft command ([#3614](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3614))
+* bananarama92 - Fixed three bugs related to the hood-based Smooth Latex Mask ([#3615](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3615))
+* bananarama92 - Fixed a visual oddity with VR goggles when combined with the `thin` property ([#3617](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3617))
+* bananarama92 - Fixed crafting failures related to dynamic group names ([#3618](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3618))
+* Estsanatlehi - Fixed visual bug with the suspended pet crawler ([#3621](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3621))
+* Estsanatlehi - Fixed the visual issues with the pet suit ([#3622](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3622))
+* bananarama92 - Fixed chat join audio notifications not getting suppressed when in full sensory deprivation ([#3619](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3619))
+* bananarama92 - Changed `Character.CanTalk` to account for crafted properties ([#3626](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3626))
+* Estsanatlehi - Fixed a bug with the pose menu not reflecting the available poses ([#3628](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3628))
+* Estsanatlehi - Fixed a bug with the gavel detection in the movie studio ([#3635](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3635))
+* bananarama92 - Used the incorrect syntax instead of `Map.get` ([#3638](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3638))
+* bananarama92 - Fixed `InventoryWearCraft` failing to parse the type strings of modular items ([#3640](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3640))
+* Luna - Fixed a few problems with the Ponygag ([#3641](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3641), [#3649](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3649))
+* bananarama92 - Reenabled gagged actions while wearing `small` gags ([#3644](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3644))
+
+
+### [Technical]
+
+* Estsanatlehi - Refactored ChatRoomMessage ([#3592](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3592), [#3643](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3643), [#3645](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3645))
+* Estsanatlehi - Added typedefs for the dynamic drawing callbacks ([#3620](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3620))
+* bananarama92 - Added support for custom `UpperBody` overlays ([#3630](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3630))
+* Estsanatlehi - Fixed CI breakage ([#3631](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3631))
+* Estsanatlehi - Added the two new hand groups to the known groups ([#3639](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3639))
+
+## [R84]
+
+### [Added]
+* Gnarp - Added a new Rope ball-gag ([#3597](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3597))
+* bananarama92 - Added a hood-based variant of the Smooth Latex Mask ([#3604](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3604))
+* Estsanatlehi - Added a few missing sound effects ([#3601](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3601))
+* Estsanatlehi - Added Kneeling Spread & AllFours support for the Strict Pet Crawler ([#3606](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3606))
+
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+* Estsanatlehi - Ported over the crafting enhancements from BCE back into the game ([#3593](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3593))
+* Estsanatlehi - Merged some of the clit piercings into one ([#3600](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3600))
+
+### [Fixed]
+* Estsanatlehi - Corrected a syntax error in the maid intro dialog that led to server disconnects ([#3594](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3594))
+* Nina - Restored Magic Trail's minimum fade modifier ([#3595](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3595))
+* Estsanatlehi - Fixed incorrect variable being set when handing over your spanking toys ([#3596](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3596))
+* Estsanatlehi - Changed the Latex Dog Hood to hide the Mask group ([#3598](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3598))
+* Estsanatlehi - Fixed the obedience belt trying to load the default lock layer ([#3602](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3602))
+* Estsanatlehi - Fixed the Vacbeds triggering stimulation events ([#3605](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3605))
+* Luna - FIX: PetPost. Added draw locks, locks now usable when chain leash is applied. ([#3607](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3607))
+* Estsanatlehi - Fixed crash with the padded mittens ([#3609](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3609))
+* Estsanatlehi - Split Egged from the remote-needed function ([#3599](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3599))
+
+### [Technical]
+
+* Da'Inihlus - Updated the chinese translation ([#3603](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3603))
+* Estsanatlehi - Updated russian activity translations ([#3608](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3608))
+
+### [Beta Fixes]
+* Estsanatlehi - Reverted !3599, which prevented many vibrating items to be controlled ([#3610](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3610))
+
+
+## [R83]
+
+### [Added]
+
+* Luna - Added several new Stitches items and variations ([#3543](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3543))
+* Kehhaja/Nina - Added a new Biker Gloves asset ([#3551](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3551))
+* Luna - Added several new sticker options to the Pet Sign ([#3556](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3556))
+* Timeline - Added several Chinese translations ([#3566](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3566), [#3585](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3585))
+* Da'Inihlus - Added/fixed several Chinese translations ([#3574](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3574), [#3590](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3590))
+* Karamel - Added several new variations for the Nylon Rope items ([#3576](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3576))
+* Estsanatlehi - Added stimulation messages to the clit leash ([#3589](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3589))
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* sqrt10pi - Reworked some of the UI interactions around the sexual activities menu ([#3562](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3562))
+* Tama-chan - Made several enhancements to the chatroom filtering functionality ([#3577](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3577), [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580))
+* Estsanatlehi - Changed the behaviour of the nickname screen to permit an empty nickname (exiting the screen with the nickname input empty will reset you nickname to your character name) ([#3587](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3587))
+
+### [Fixed]
+
+* Ellie - Fixed the wiki link in the browser console safety message ([#3554](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3554))
+* Estsanatlehi - Fixed several bugs with the obedience belt ([#3557](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3557), [#3565](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3565))
+* Estsanatlehi - Fixed some missing assets for the Ornate Cuffs in the hogtied pose ([#3552](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3552))
+* meshwork100 - Fixed several typos & mistakes in the Chinese translations ([#3563](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3563), [#3571](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3571))
+* Tama-chan - Several typo/grammatical fixes and phrasing reworks to English text ([#3575](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3575))
+* Ellie - Fixed a loophole that allowed players to crash other players' games via console ([#3578](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3578))
+* zR1OQicz - Fixed an issue with color handling in the magic puzzle minigame ([#3579](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3579))
+
+### [Technical]
+
+* Demopans - Converted the old Git contribution guide into markdown and added it to the game repository ([#3555](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3555))
+* Technical changes, fixes and improvements:
+  * Estsanatlehi - [#3559](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3559), [#3560](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3560), [#3561](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3561), [#3568](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3568), [#3569](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3569), [#3570](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3570), [#3573](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3573), [#3584](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3584)
+  * Da'Inihlus - [#3567](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3567)
+
+### [Beta Fixes]
+
+* Estsanatlehi - Fixed the missing name for the stitches in the butt slot ([#3583](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3583))
+* Karamel - Changed the assets for the nylon rope arms item to render under breasts on the XLarge body ([#3586](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3586))
+* sqrt10pi - Reverted the change to the sexual activities/restraints UI following community feedback ([#3588](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3588))
+
 
 ## [R82]
 
@@ -30,7 +457,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Karamel - Added a new "Knotted" variation to the Cloth Gag ([#3526](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3526))
 * Emily R/Ayesha - Added 3 new chatroom backgrounds ([#3527](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3527))
 * RedStacey/Ayesha - Added Fur Scarf Gag & Blindfold items ([#3528](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3528))
-* Da'Inihlus - Added several Chinese translations ([#3529](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3529), [#3538](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3538))
+* Da'Inihlus - Added several Chinese translations ([#3529](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3529), [#3538](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3538), [#3549](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3549))
 * Karamel - Added new audio variations for tape and metal cuff items ([#3530](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3530))
 * Luna - Added a new Pet Sign item ([#3533](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3533))
 * Shion/Ayesha - Added a new Latex Open Mouth Plug Hood item ([#3534](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3534))
@@ -47,19 +474,24 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Da'Inihlus - Changed several items which trigger on speech to work with non-English languages ([#3531](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3531))
 * gatetrek - Updated the Chain Clamps item with new graphics, variants and multi-color support ([#3535](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3535))
 * Estsanatlehi - Updated the Metal & Leather Chastity Belt preview images to reflect the new assets ([#3540](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3540))
+* Nina - Changed notifications so that chatroom join notifications are no longer received when in full sensory deprivation ([#3550](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3550))
 
 ### [Fixed]
 
 * Estsanatlehi - Fixed a crash that could occur on login for some players ([#3532](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3532))
+* Estsanatlehi - Fixed an issue where item duplicates could appear in the inventory screen ([#3548](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3548))
 
 ### [Technical]
 
 * Technical changes, fixes and improvements:
-  * Estsanatlehi - [#3525](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3525), [#3536](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3536), [#3537](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3537)
+  * Estsanatlehi - [#3525](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3525), [#3536](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3536), [#3537](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3537), [#3542](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3542)
 
 ### [Beta Fixes]
 
-* Nothing... yet
+* Luna - Fixed an issue with the layer names for some of the new hairs ([#3544](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3544))
+* Estsanatlehi - Fixed several bugs with the Obedience Belt ([#3545](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3545))
+* Luna - Fixed several issues with the Pet Post ([#3546](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3546))
+* Estsanatlehi - Fixed an issue where mittens that can be chained to a harness wouldn't recognise the harness in the new torso slot ([#3547](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3547))
 
 
 ## [R81]
@@ -352,7 +784,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 * Technical changes, fixes and improvements:
   * Ellie - [#3247](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3247)
-  * Estsanatlehi [#3253](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3253), [#3256](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3256), [#3252](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3252) 
+  * Estsanatlehi [#3253](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3253), [#3256](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3256), [#3252](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3252)
   * Sidious [#3258](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3258)
 
 ### [Beta Fixes]
@@ -390,7 +822,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 ### [Fixed]
 
 * Nina - Fixed an issue where the Pet Bowl would change position according to the character's pose rather than staying on the floor ([#3188](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3188))
-* Sidious - Fixed a bug where some chatroom visual settings would not get restored after entering and leaving sensory deprivation (colors, member numbers & enter/leave messages) ([#3192](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3192)) 
+* Sidious - Fixed a bug where some chatroom visual settings would not get restored after entering and leaving sensory deprivation (colors, member numbers & enter/leave messages) ([#3192](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3192))
 * Sidious - Fixed a bug where the Dental Gag in open mode had no gag effect when locked ([#3194](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3194))
 * Estsanatlehi - Fixed an issue where the Bondage Harness & Full Bondage Harness items in the Panties slot would disappear in the legs closed pose ([#3203](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3203))
 * Nina - Fixed an issue with some bras and corsets clipping through the Blouse item ([#3202](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3202))
@@ -589,7 +1021,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ellie - Fixed an issue where chastity piercings were impossible to remove ([#3055](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3055))
 * Ada - Fixed a bug where Futuristic items could be modified by a non-Futuristic collar under certain circumstances ([#3059](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3059))
 * Ada - Fixed missing chat messages for the Futuristic Ball Gag ([#3071](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3071))
-* Ellie - Fixed several 404 errors that could occur when mounted on the Wooden Horse ([#3062](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3062)) 
+* Ellie - Fixed several 404 errors that could occur when mounted on the Wooden Horse ([#3062](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3062))
 * Ellie - Fixed some minor graphical artefacts on the Display Frame ([#3063](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3063))
 * Ellie - Fixed a bug where the Techno Collar could emit `(MISSING PLAYER DIALOG: TriggerShock-1)` messages ([#3086](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3086))
 
@@ -1392,7 +1824,7 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ellie - Added a new framework for typed extended items - currently being piloted on the Latex Boxtie/Butterfly/Seamless leotards ([#2263](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2263))
 * Sekkmer/Jomshir - Changed the way darkened background images are handled in several places in the game to remove the need for separate assets ([#2184](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2184))
 * TessaTech - Split several server calls out into finer grained messages to reduce traffic ([#2272](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2272), [#2274](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2274), [#2275](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2275) [#2292](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2292), [Server #79](https://github.com/Ben987/Bondage-Club-Server/pull/79), [Server #81](https://github.com/Ben987/Bondage-Club-Server/pull/81), [Server #82](https://github.com/Ben987/Bondage-Club-Server/pull/82))
-* Jomshir - Added login queueing functionality in order to improve server reliability after a server crash/restart ([Server #78](https://github.com/Ben987/Bondage-Club-Server/pull/78)) 
+* Jomshir - Added login queueing functionality in order to improve server reliability after a server crash/restart ([Server #78](https://github.com/Ben987/Bondage-Club-Server/pull/78))
 * Jomshir - Added support for socket.io rooms, which should improve the multiplayer reliability and performance ([Server #75](https://github.com/Ben987/Bondage-Club-Server/pull/75))
 * Technical changes, fixes and improvements:
     * Ellie - [#2216](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2216), [#2212](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2212), [#2227](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2227), [#2251](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2251), [#2252](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2252), [#2266](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2266), [#2267](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2267)
@@ -1559,9 +1991,9 @@ containing safety & security tips for players. We'd encourage all players to giv
 * wildsj - Added multicolor support to the Latex Strait Leotard, allowing it to be colored in the style of a bunny suit ([#1922](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1922))
 * Nina - Added chatroom and beep notifications, displayed in the browser tab title (configurable from player preferences) ([#1904](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1904), [#2049](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2049))
 * Ada - Added lockpicking functionality to some locks ([#1675](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1675), [#1965](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1965), [#1972](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1972), [#1964](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1964), [#1980](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1980), [#1986](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1986), [#1988](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1988), [#2001](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2001), [#2016](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/2016))
-    * Lockpicking requires a lockpick, which you can obtain from the shop 
+    * Lockpicking requires a lockpick, which you can obtain from the shop
     * You have to set the pins of the lock in the right order by clicking them
-    * You have a limited number of chances before you have to start over, but the pin order stays the same regardless of how many times you reset 
+    * You have a limited number of chances before you have to start over, but the pin order stays the same regardless of how many times you reset
     * Pins are likely to false set, but they have a chance to reset as you try to pick other pins, thus obfuscating the correct order
 * Jomshir/Claudia - Added a Floor Shackles item & added suspension support to the Ceiling Shackles ([#1968](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1968), [#1976](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1976))
 * Ayesha - Added 10 new handheld toys ([#1960](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1960))
@@ -1681,7 +2113,7 @@ containing safety & security tips for players. We'd encourage all players to giv
     * Futuristic Chastity Panties
     * Futuristic Breast Harness
     * Futuristic Harness
-* Emily R - Added 3 new items ([#1817](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1817), [#1843](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1843), [#1857](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1857), [#1891](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1891)) 
+* Emily R - Added 3 new items ([#1817](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1817), [#1843](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1843), [#1857](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1857), [#1891](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1891))
     * Funnel Gag
     * Headphones
     * Flippers
@@ -1776,7 +2208,7 @@ containing safety & security tips for players. We'd encourage all players to giv
 * wildsj - Added multi-color support to the Puffy Dress ([#1678](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1678))
 * Jomshir - Reworked the facial expression menu to make selecting facial expressions easier ([#1683](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1683))
 * Sandrine - Added multi-color support to the Bit Gag ([#1697](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1697))
-* Ada - Several improvements to the Futuristic Panel Gag ([#1687](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1687), [#1689](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1689)): 
+* Ada - Several improvements to the Futuristic Panel Gag ([#1687](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1687), [#1689](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1689)):
     * It now deflates one level at a time instead of all at once
     * Players can now change the deflation timer on the gag
     * Players can now manually pump the gag up by one inflation level
@@ -1926,7 +2358,7 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ada - Moved some player preferences into a new Immersion preferences screen ([#1627](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1627)))
 
 ### [Fixed]
-* Ada - Fixed an issue where the Interactive Visor prevented players from changing clothes whilst untinted ([#1583](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1583)) 
+* Ada - Fixed an issue where the Interactive Visor prevented players from changing clothes whilst untinted ([#1583](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1583))
 * Ellie - Fixed a bug where players were unable to change their skin color ([#1584](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1584))
 * Ace - Fixed an issue that prevented players from kneeling when wearing the Concealing Cloak ([#1587](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1587))
 * Ellie - Fixed some issues with gag effects on the Futuristic Panel Gags ([#1585](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1585))
@@ -2032,7 +2464,7 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ellie - Added this changelog ([#1473](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1473))!
 * Ace, Gnarp - Added a new wooden sign item with customisable text ([#1477](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1477))
 * Nina - Added a ruler to the handheld toys ([#1497](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1497))
-    
+
 ### [Removed]
 * Rui - Removed the deafness effect from the Pony Hood ([#1377](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1377))
 
@@ -2048,7 +2480,7 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ace - Fix for the red currently worn indicator in the wardrobe not updating ([#1291](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1291))
 * Ace - Fix for incorrect hitboxes in the Asylum therapy game ([#1363](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1363))
 * Ace - Fix to lock validation on NPCs ([#1380](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1380))
-* Rui - Fix for incorrect fetish on the pencil skirt ([#1377](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1377)) 
+* Rui - Fix for incorrect fetish on the pencil skirt ([#1377](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1377))
 * Ace - Fix for an incorrect chatroom message on the Old Gas Mask ([#1381](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1381))
 * Ace - Fix for rooms with a member count over their size limit not showing up as greyed out ([#1428](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1428))
 * Ace - Fixed an issue where character refreshes would boot the player out of the lock inventory screen ([#1411](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/1411))
