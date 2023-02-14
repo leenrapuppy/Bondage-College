@@ -7787,9 +7787,7 @@ var AssetFemale3DCGExtended = {
 						Options: [{ HasSubscreen: true }],
 					},
 				],
-				Dialog: {
-					ChatPrefix: "ItemNeckRestraintsPetPost",
-				}
+				BaselineProperty: { Text: "Pet", Text2: "Leashing", Text3: "Post" },
 			},
 		},//PetPost
 	}, // ItemMisc

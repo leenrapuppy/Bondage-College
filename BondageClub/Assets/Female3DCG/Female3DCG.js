@@ -7855,8 +7855,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false,
 				DefaultColor: ["Default", "#237D22", "#F3F3F3", "#F3F3F3", "#FFF483", "#FFBCD6", "Default"],
-				BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["Collared", "NotSuspended", "NotMounted"],
-				AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
+				BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["NotSuspended", "NotMounted"],
+				AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
 				DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310,
 				FixedPosition: true, TextMaxLength: { Text: 14, Text2: 14, Text3: 14 },
 				Layer: [
