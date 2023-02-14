@@ -7001,7 +7001,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 10, BuyGroup: "Suture", Random: false,
 				Value: 20, Difficulty: 8, Time: 5, RemoveTime: 5, Left: 235, Top: 180, DefaultColor: ["Default", "#3f3c3a"],
-				Hide: ["Mouth"], Prerequisite: ["GagUnique"], Effect: ["GagHeavy"], Extended: true, AlwaysExtend: true,
+				Hide: ["Mouth"], HideItem: ["ItemMouthClothStuffing" ,"ItemMouthPantyStuffing" ,"ItemMouthSockStuffing"],Prerequisite: ["GagUnique"], Effect: ["GagHeavy"], Extended: true, AlwaysExtend: true,
 				AllowExpression: ["Frown", "Sad", "Pained", "Angry", "HalfOpen", "Open", "Ahegao", "Moan", "TonguePinch", "LipBite", "Happy", "Devious", "Laughing", "Grin", "Smirk", "Pout"],
 				DynamicGroupName: "ItemMouth3",
 				Layer: [
