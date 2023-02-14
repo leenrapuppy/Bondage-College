@@ -215,30 +215,19 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 				// If we found no asset, just move to next group
 				if (!SelectedAsset)
 					continue;
-
-				// Pick a random color from the allowed color list
-				/** @type {ItemColor} */
-				let SelectedColor = CommonRandomItemFromList("", SelectedAsset.Group.ColorSchema);
-				// 50% chance of using the default color
-				if ((SelectedAsset.Group.ColorSchema[0] == "Default") && (Math.random() < 0.5))
-					SelectedColor = "Default";
-
-				// The asset or its group gets its color from another group.
-				// Use Default to not get CommonDrawAppearanceBuild confused
-				if (SelectedAsset.Group.InheritColor || SelectedAsset.InheritColor)
-					SelectedColor = "Default";
-
+				/** @type {string|string[]} */
+				var SelectedColor = SelectedAsset.Group.ColorSchema[Math.floor(Math.random() * SelectedAsset.Group.ColorSchema.length)];
+				if ((SelectedAsset.Group.ColorSchema[0] == "Default") && (Math.random() < 0.5)) SelectedColor = "Default";
+				if (SelectedAsset.Group.InheritColor != null) SelectedColor = "Default";
+				else if (SelectedAsset.Group.ParentColor != "")
+					if (CharacterAppearanceGetCurrentValue(C, SelectedAsset.Group.ParentColor, "Color") != "None")
+						SelectedColor = CharacterAppearanceGetCurrentValue(C, SelectedAsset.Group.ParentColor, "Color");
 				// Rare chance of keeping eyes of a different color
-				if (SelectedAsset.Group.Name == "Eyes2" && Math.random() < 0.995) {
-					const otherEye = C.Appearance.find(a => a.Asset.Group.Name == "Eyes");
-					if (otherEye)
-						SelectedColor = otherEye.Color;
-				}
-
-				// The asset has a default color list, set it
-				if (SelectedColor == "Default" && SelectedAsset.DefaultColor != null)
-					SelectedColor = SelectedAsset.DefaultColor;
-
+				if (SelectedAsset.Group.Name == "Eyes2" && Math.random() < 0.995)
+					for (let A = 0; A < C.Appearance.length; A++)
+						if (C.Appearance[A].Asset.Group.Name == "Eyes")
+							SelectedColor = C.Appearance[A].Color;
+				if (SelectedColor == "Default" && SelectedAsset.DefaultColor != null) SelectedColor = SelectedAsset.DefaultColor;
 				/** @type {Item} */
 				var NA = {
 					Asset: SelectedAsset,

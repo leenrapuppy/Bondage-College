@@ -14,7 +14,7 @@
 
 // *** Sort order of asset & asset group properties ***
 // Name, Priority, Value, Difficulty, SelfBondage, Time, RemoveTime, Enable, Visible, Random, Wear, IsRestraint, AllowLock, OwnerOnly, LoverOnly, Left, Top, DefaultColor, BuyGroup, Prerequisite, Hide, HideItem, everything else
-// Group, ParentGroup, ParentSize, InheritColor, Category, Priority, Default, Clothing, Underwear, Random, IsRestraint, Blink, Left, Top, Color, FullAlpha, AllowNone, AllowColorize, AllowCustomize, AllowPose, SetPose, Effect, Zone, Activity
+// Group, ParentGroup, ParentSize, ParentColor, Category, Priority, Default, Clothing, Underwear, Random, IsRestraint, Blink, Left, Top, Color, FullAlpha, AllowNone, AllowColorize, AllowCustomize, AllowPose, SetPose, Effect, Zone, Activity
 
 // *** Item addition & modification guidelines ***
 // Don't include images, sounds or names that are obviously copyrighted
@@ -591,7 +591,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "ClothLower",
 		ParentGroup: "BodyLower",
-		InheritColor: "Cloth",
+		ParentColor: "Cloth",
 		Priority: 26,
 		Default: false,
 		Clothing: true,
@@ -1058,7 +1058,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "Panties",
 		ParentGroup: "BodyLower",
-		InheritColor: "Bra",
+		ParentColor: "Bra",
 		Priority: 19,
 		Clothing: true,
 		Underwear: true,
@@ -1198,7 +1198,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "Socks",
 		ParentGroup: "BodyLower",
-		InheritColor: "Bra",
+		ParentColor: "Bra",
 		Priority: 20,
 		Clothing: true,
 		Underwear: true,
@@ -1263,7 +1263,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "SocksRight",
 		ParentGroup: "BodyLower",
-		InheritColor: "Bra",
+		ParentColor: "Bra",
 		Priority: 20,
 		Clothing: true,
 		Underwear: true,
@@ -1319,7 +1319,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "SocksLeft",
 		ParentGroup: "BodyLower",
-		InheritColor: "Bra",
+		ParentColor: "Bra",
 		Priority: 20,
 		Clothing: true,
 		Underwear: true,
@@ -2214,7 +2214,7 @@ var AssetFemale3DCG = [
 	{
 		Group: "Gloves",
 		ParentGroup: "BodyUpper",
-		InheritColor: "Bra",
+		ParentColor: "Bra",
 		Priority: 28,
 		Default: false,
 		Clothing: true,
@@ -2960,7 +2960,7 @@ var AssetFemale3DCG = [
 		Group: "FacialHair",
 		Priority: 9,
 		Default: false,
-		InheritColor: "HairFront",
+		ParentColor: "HairFront",
 		Left: 150,
 		Top: 35,
 		Asset: [
@@ -2976,6 +2976,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "HairBack",
+		ParentColor: "HairFront",
 		InheritColor: "HairFront",
 		Priority: 5,
 		Left: 50,
@@ -3222,6 +3223,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Head",
+		ParentColor: "BodyUpper",
 		Priority: 7,
 		AllowNone: false,
 		Asset: [
@@ -3282,6 +3284,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Hands",
+		ParentColor: "BodyUpper",
 		InheritColor: "BodyUpper",
 		Priority: 27,
 		AllowNone: false,
