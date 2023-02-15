@@ -419,10 +419,11 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * Validates a selected option. A typed item may provide a custom validation function. Returning a non-empty string from
  * the validation function indicates that the new option is not compatible with the character's current state (generally
  * due to prerequisites or other requirements).
+ * @template {ExtendedItemOption | VibratingItemOption | ModularItemOption} T
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose options are being validated
- * @param {ExtendedItemOption|ModularItemOption} option - The new option
- * @param {ExtendedItemOption|ModularItemOption} previousOption - The previously applied option
+ * @param {T} option - The new option
+ * @param {T} previousOption - The previously applied option
  * @returns {string|undefined} - undefined or an empty string if the validation passes. Otherwise, returns a string
  * message informing the player of the requirements that are not met.
  */
@@ -432,9 +433,13 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 		case "ModularItemOption":
 			PermissionFailure = !option.Name.includes("0") && InventoryBlockedOrLimited(C, item, option.Name);
 			break;
-		default:
-			PermissionFailure = option.Property && option.Property.Type && InventoryBlockedOrLimited(C, item, option.Property.Type);
+		case "VibratingItemOption":
+		case "ExtendedItemOption":
+		default: {
+			const typeField = (option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
+			PermissionFailure = option.Property && option.Property[typeField] && InventoryBlockedOrLimited(C, item, option.Property[typeField]);
 			break;
+		}
 	}
 	if (PermissionFailure) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
@@ -488,10 +493,11 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 
 /**
  * Sets a typed item's type and properties to the option provided.
+ * @template {ExtendedItemOption | VibratingItemOption} T
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose type to set
- * @param {readonly ExtendedItemOption[]} options - The typed item options for the item
- * @param {ExtendedItemOption} option - The option to set
+ * @param {readonly T[]} options - The typed item options for the item
+ * @param {T} option - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
@@ -500,28 +506,32 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 function TypedItemSetOption(C, item, options, option, push = false) {
 	if (!item || !options || !option) return;
 
+	/** @type {ItemProperties} */
 	const newProperty = JSON.parse(JSON.stringify(option.Property));
-	const previousOption = TypedItemFindPreviousOption(item, options);
+	const typeField = (option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
+	const previousOption = TypedItemFindPreviousOption(item, options, typeField);
 
 	const requirementMessage = TypedItemValidateOption(C, item, option, previousOption);
 	if (requirementMessage) {
 		return requirementMessage;
 	}
 
-	ExtendedItemSetOption(C, item, previousOption.Property, newProperty, push);
+	ExtendedItemSetOption(C, item, previousOption.Property, newProperty, push, option.DynamicProperty);
 }
 
 /**
  * Finds the currently set option on the given typed item
+ * @template {ExtendedItemOption | VibratingItemOption} T
  * @param {Item} item - The equipped item
- * @param {readonly ExtendedItemOption[]} options - The list of available options for the item
- * @returns {ExtendedItemOption} - The option which is currently applied to the item, or the first item in the options
+ * @param {readonly T[]} options - The list of available options for the item
+ * @param {"Type" | "Mode"} typeField - The name of the item property field containing the item's type (or equivalent thereof)
+ * @returns {T} - The option which is currently applied to the item, or the first item in the options
  * array if no type is set.
  */
-function TypedItemFindPreviousOption(item, options) {
+function TypedItemFindPreviousOption(item, options, typeField="Type") {
 	const previousProperty = item.Property || options[0].Property;
-	const previousType = previousProperty.Type;
-	return options.find(o => o.Property.Type === previousType) || options[0];
+	const previousType = previousProperty[typeField];
+	return options.find(o => o.Property[typeField] === previousType) || options[0];
 }
 
 /**

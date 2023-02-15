@@ -488,13 +488,25 @@ interface ExtendedItemOption {
 	 * more extended items have been assigned an arhcetype
 	 */
 	OptionType?: "ExtendedItemOption";
+	/**
+	 * A callback for dynamically assigning item properties.
+	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
+	 */
+	DynamicProperty?: DynamicPropertyCallback;
 }
 
 /** Extended item option subtype for vibrating items */
-interface VibratingItemOption extends ExtendedItemOption {
+interface VibratingItemOption extends Omit<ExtendedItemOption, "OptionType"> {
+	OptionType: "VibratingItemOption";
 	Name: VibratorMode;
 	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity" | "Effect">;
 }
+
+/**
+ * An extended item option callback for dynamically assigning item properties.
+ * @param property - The properties in question; must be modified inplace
+ */
+type DynamicPropertyCallback = (property: ItemProperties) => void;
 
 /**
  * An object containing data about the type change that triggered the chat message
@@ -848,6 +860,11 @@ interface ModularItemOptionBase {
 	OptionType?: "ModularItemOption";
 	/** Trigger this expression when changing to this option */
 	Expression?: ExpressionTrigger[];
+	/**
+	 * A callback for dynamically assigning item properties.
+	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
+	 */
+	DynamicProperty?: DynamicPropertyCallback;
 }
 
 /** An object describing a single option within a module for a modular item. */
@@ -879,6 +896,7 @@ interface VibratingItemConfig {
 		Click?: (next: () => void) => void;
 		Draw?: (next: () => void) => void;
 		Exit?: () => void;
+		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>;
 	};
 }
 

@@ -40,22 +40,9 @@ var VibratorModeSet = {
 
 /**
  * A record of the various available vibrator sets of vibrator modes
- *
- * Note: Those really are ExtendedItemOption, but the ability for the advanced
- *       modes to automatically chose an intensity require a type override.
- *       VibratorModeSetDynamicProperties that those dynamic properties will
- *       get turned into the appropriate type.
- *
  * @type {{
  *     Standard: VibratingItemOption[],
- *     Advanced: (VibratingItemOption | {
- *         Name: string,
- *         Property: {
- *             Mode: VibratorMode,
- *             Intensity: number | (() => number),
- *             Effect: EffectName[] | ((Intensity: number) => EffectName[]),
- *         },
- *     })[]
+ *     Advanced: VibratingItemOption[],
  * }}
  * @constant
  */
@@ -63,6 +50,7 @@ var VibratorModeOptions = {
 	[VibratorModeSet.STANDARD]: [
 		{
 			Name: "Off",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.OFF,
 				Intensity: -1,
@@ -71,6 +59,7 @@ var VibratorModeOptions = {
 		},
 		{
 			Name: "Low",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.LOW,
 				Intensity: 0,
@@ -79,6 +68,7 @@ var VibratorModeOptions = {
 		},
 		{
 			Name: "Medium",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.MEDIUM,
 				Intensity: 1,
@@ -87,6 +77,7 @@ var VibratorModeOptions = {
 		},
 		{
 			Name: "High",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.HIGH,
 				Intensity: 2,
@@ -95,6 +86,7 @@ var VibratorModeOptions = {
 		},
 		{
 			Name: "Maximum",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.MAXIMUM,
 				Intensity: 3,
@@ -105,14 +97,23 @@ var VibratorModeOptions = {
 	[VibratorModeSet.ADVANCED]: [
 		{
 			Name: "Random",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.RANDOM,
-				Intensity: () => CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]),
-				Effect: (Intensity) => Intensity >= 0 ? ["Egged", "Vibrating"] : ["Egged"],
+				Intensity: -1,
+				Effect: ["Egged"],
+			},
+			DynamicProperty: (property) => {
+				property.Intensity = CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]);
+				property.Effect = CommonArrayConcatDedupe(
+					property.Effect,
+					property.Intensity >= 0 ? ["Egged", "Vibrating"] : ["Egged"],
+				);
 			},
 		},
 		{
 			Name: "Escalate",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.ESCALATE,
 				Intensity: 0,
@@ -121,26 +122,38 @@ var VibratorModeOptions = {
 		},
 		{
 			Name: "Tease",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.TEASE,
-				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3]),
+				Intensity: 0,
 				Effect: ["Egged", "Vibrating"],
+			},
+			DynamicProperty: (property) => {
+				property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
 			},
 		},
 		{
 			Name: "Deny",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.DENY,
-				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3]),
+				Intensity: 0,
 				Effect: ["Egged", "Vibrating", "Edged"],
+			},
+			DynamicProperty: (property) => {
+				property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
 			},
 		},
 		{
 			Name: "Edge",
+			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.EDGE,
-				Intensity: CommonRandomItemFromList(null, [0, 1]),
+				Intensity: 0,
 				Effect: ["Egged", "Vibrating", "Edged"],
+			},
+			DynamicProperty: (property) => {
+				property.Intensity = CommonRandomItemFromList(null, [0, 1]);
 			},
 		},
 	],
@@ -150,6 +163,9 @@ var VibratorModeOptions = {
  * An alias for the vibrators OFF mode. See {@link VibratorModeOptions}.
  */
 const VibratorModeOff = VibratorModeOptions[VibratorModeSet.STANDARD][0];
+
+/** A list with all advanced vibrator mode-names. */
+const VibratorModesAdvanced = VibratorModeOptions[VibratorModeSet.ADVANCED].map(o => o.Property.Mode);
 
 /**
  * A lookup for the vibrator configurations for each registered vibrator item
@@ -172,7 +188,9 @@ function VibratorModeRegister(asset, config={}) {
 		VibratorModeCreateDrawFunction(data);
 		VibratorModeCreateClickFunction(data);
 		VibratorModeCreateExitFunction(data);
+		VibratorModeCreateValidateFunction(data);
 		VibratorModeCreateScriptDrawFunction(data);
+		VibratorModeCreatePublishFunction(data);
 	}
 	VibratorModeSetAssetProperties(data);
 }
@@ -196,8 +214,22 @@ function VibratorModeCreateData(asset, { Options, ScriptHooks }) {
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 		},
 	};
+}
+
+/**
+ * Gather all extended item options for a given list of modes.
+ * @param {readonly VibratorModeSet[]} modes
+ * @returns {VibratingItemOption[]}
+ */
+function VibratorModeGetOptions(modes=Object.values(VibratorModeSet)) {
+	const options = [];
+	for (const mode of modes) {
+		options.push(...VibratorModeOptions[mode]);
+	}
+	return options;
 }
 
 /**
@@ -205,14 +237,15 @@ function VibratorModeCreateData(asset, { Options, ScriptHooks }) {
  * @param {VibratingItemData} data - The vibrating item data for the asset
  * @returns {void} - Nothing
  */
-function VibratorModeCreateLoadFunction({ options, functionPrefix, scriptHooks }) {
-	const loadFunctionName = `${functionPrefix}Load`;
+function VibratorModeCreateLoadFunction({ functionPrefix, scriptHooks }) {
+	const loadFunction = () => {
+		const intensity = DialogFocusItem.Property.Intensity;
+		ExtendedItemLoad(`Intensity${intensity}`);
+	};
 	if (typeof scriptHooks.load === "function") {
-		window[loadFunctionName] = function() {
-			scriptHooks.load(() => {});
-		};
+		window[`${functionPrefix}Load`] = () => scriptHooks.load(loadFunction);
 	} else {
-		window[loadFunctionName] = function() {};
+		window[`${functionPrefix}Load`] = loadFunction;
 	}
 }
 
@@ -222,15 +255,10 @@ function VibratorModeCreateLoadFunction({ options, functionPrefix, scriptHooks }
  * @returns {void} - Nothing
  */
 function VibratorModeCreateDrawFunction({ options, functionPrefix, scriptHooks }) {
-	const drawFunctionName = `${functionPrefix}Draw`;
 	if (typeof scriptHooks.draw === "function") {
-		window[drawFunctionName] = function() {
-			scriptHooks.draw(() => VibratorModeDraw(options));
-		};
+		window[`${functionPrefix}Draw`] = () => scriptHooks.draw(() => VibratorModeDraw(options));
 	} else {
-		window[drawFunctionName] = function() {
-			VibratorModeDraw(options);
-		};
+		window[`${functionPrefix}Draw`] = () => VibratorModeDraw(options);
 	}
 }
 
@@ -240,15 +268,10 @@ function VibratorModeCreateDrawFunction({ options, functionPrefix, scriptHooks }
  * @returns {void} - Nothing
  */
 function VibratorModeCreateClickFunction({ options, functionPrefix, scriptHooks }) {
-	const clickFunctionName = `${functionPrefix}Click`;
 	if (typeof scriptHooks.click === "function") {
-		window[clickFunctionName] = function() {
-			scriptHooks.click(() => VibratorModeDraw(options));
-		};
+		window[`${functionPrefix}Click`] = () => scriptHooks.click(() => VibratorModeClick(options));
 	} else {
-		window[clickFunctionName] = function() {
-			VibratorModeClick(options);
-		};
+		window[`${functionPrefix}Click`] = () => VibratorModeClick(options);
 	}
 }
 
@@ -258,10 +281,45 @@ function VibratorModeCreateClickFunction({ options, functionPrefix, scriptHooks 
  * @returns {void} - Nothing
  */
 function VibratorModeCreateExitFunction({ functionPrefix, scriptHooks }) {
-	const exitFunctionName = `${functionPrefix}Exit`;
 	if (typeof scriptHooks.exit === "function") {
-		window[exitFunctionName] = scriptHooks.exit;
+		window[`${functionPrefix}Exit`] = scriptHooks.exit;
 	}
+}
+
+/** @type {ExtendedItemValidateCallback<ExtendedItemOption | VibratingItemOption | ModularItemOption>} */
+function VibratorModeValidate(C, item, option, currentOption) {
+	if (
+		option.Property
+		&& VibratorModesAdvanced.includes(option.Property.Mode)
+		&& C.ArousalSettings
+		&& C.ArousalSettings.DisableAdvancedVibes
+	) {
+		return DialogFindPlayer("ExtendedItemNoItemPermission");
+	} else {
+		return "";
+	}
+}
+
+/**
+ * Creates an asset's extended item validation function
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeCreateValidateFunction({ functionPrefix, scriptHooks }) {
+	/** @type {ExtendedItemValidateScriptHookCallback<ExtendedItemOption>} */
+	let validateCallback;
+	if (typeof scriptHooks.validate === "function") {
+		validateCallback = (next, ...args) => {
+			/** @type {ExtendedItemValidateCallback<ExtendedItemOption>} */
+			const nextWrapper = (...args2) => next(...args2) || VibratorModeValidate(...args2);
+			return scriptHooks.validate(nextWrapper, ...args);
+		};
+	} else {
+		validateCallback = (next, ...args) => {
+			return next(...args) || VibratorModeValidate(...args);
+		};
+	}
+	return ExtendedItemCreateValidateFunction(functionPrefix, validateCallback);
 }
 
 /**
@@ -270,8 +328,54 @@ function VibratorModeCreateExitFunction({ functionPrefix, scriptHooks }) {
  * @returns {void} - Nothing
  */
 function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
-	const scriptDrawFunctionName = `${dynamicAssetsFunctionPrefix}ScriptDraw`;
-	window[scriptDrawFunctionName] = VibratorModeScriptDraw;
+	window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] = VibratorModeScriptDraw;
+}
+
+/**
+ * @param {VibratingItemData} data
+ * @returns {void}
+ */
+function VibratorModeCreatePublishFunction({ asset, functionPrefix }) {
+	/** @type {ExtendedItemPublishActionCallback<VibratingItemOption>} */
+	window[`${functionPrefix}PublishAction`] = (...args) => VibratorModePublishAction(...args, asset);
+}
+
+/**
+ * Publish a vibrator action and exit the dialog of applicable
+ * @param {Character} C - The character wearing the item
+ * @param {VibratingItemOption} newOption - The newly selected option
+ * @param {VibratingItemOption} previousOption - The currently selected option
+ * @param {Asset} asset - The asset in question
+ */
+function VibratorModePublishAction(C, newOption, previousOption, asset) {
+	const oldIntensity = previousOption.Property.Intensity;
+	const dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacterName(C)
+		.asset(asset)
+		.build();
+
+	/** @type {string} */
+	let message;
+	if (
+		newOption.Property.Intensity !== previousOption.Property.Intensity
+		&& !VibratorModesAdvanced.includes(newOption.Name)
+		&& (!VibratorModesAdvanced.includes(previousOption.Name) || newOption.Name === VibratorModeOff.Name)
+	) {
+		const direction = newOption.Property.Intensity > oldIntensity ? "Increase" : "Decrease";
+		message = `Vibe${direction}To${newOption.Property.Intensity}`;
+	} else if (VibratorModesAdvanced.includes(newOption.Name)) {
+		message = `VibeMode${newOption.Name}`;
+	} else {
+		message = "VibeModeChange";
+	}
+
+	const showText = (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.ShowText);
+	if (showText === true || showText === undefined) {
+		ChatRoomPublishCustomAction(message, false, dictionary);
+	} else {
+		ChatRoomMessage({ Content: message, Type: "Action", Sender: Player.MemberNumber, Dictionary: dictionary });
+	}
 }
 
 /**
@@ -315,40 +419,36 @@ function VibratorModeSetEffect({asset}) {
 }
 
 /**
+ * Generate coordinates for vibrator buttons
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets for the item
+ * @param {number} Y - The y-coordinate at which to start drawing the controls
+ * @returns {[X: number, Y: number][]} - The button coordinates
+ */
+function VibratorModeGenerateCoords(Options, Y=450) {
+	/** @type {[X: number, Y: number][]} */
+	const coords = [];
+	Options.forEach((OptionName) => {
+		const OptionGroup = VibratorModeOptions[OptionName];
+		OptionGroup.forEach((_, i) => {
+			const X = 1135 + (i % 3) * 250;
+			if (i % 3 === 0) Y += 80;
+			coords.push([X, Y]);
+		});
+		Y += 40;
+	});
+	return coords;
+}
+
+/**
  * Common draw function for vibrators
- * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets for the item
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
 function VibratorModeDraw(Options, Y=450) {
-	ExtendedItemDrawHeader(1387, 100);
-	VibratorModeDrawControls(Options, Y);
-}
-
-/**
- * Common draw function for drawing the control sets of the extended item menu screen for a vibrator
- * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
- * @param {number} [Y] - The y-coordinate at which to start drawing the controls
- * @returns {void} - Nothing
- */
-function VibratorModeDrawControls(Options, Y=450) {
-	let C = CharacterGetCurrent();
-	Options = Options || [VibratorModeSet.STANDARD];
-	var Property = DialogFocusItem.Property;
-	if (Property == null) return;
-	var ItemIntensity = DialogFindPlayer("Intensity" + Property.Intensity.toString()).replace("Item", DialogFocusItem.Asset.Description);
-	DrawText(ItemIntensity, 1500, Y, "white", "gray");
-
-	Options.forEach((OptionName) => {
-		var OptionGroup = VibratorModeOptions[OptionName];
-		OptionGroup.forEach((Option, I) => {
-			var X = 1175 + (I % 3) * 225;
-			if (I % 3 === 0) Y += 75;
-			var Color = Property.Mode === Option.Property.Mode ? "#888" : (!(OptionName == VibratorModeSet.ADVANCED && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes) ? "White" : "Pink");
-			DrawButton(X, Y, 200, 55, DialogFindPlayer(Option.Name), Color);
-		});
-		Y += 40;
-	});
+	const coords = VibratorModeGenerateCoords(Options, Y);
+	const actualOptions = VibratorModeGetOptions(Options);
+	ExtendedItemDraw(actualOptions, "", 10, false, coords);
 }
 
 /**
@@ -357,30 +457,10 @@ function VibratorModeDrawControls(Options, Y=450) {
  * @param {number} [Y] - The y-coordinate at which the extended item controls were drawn
  * @returns {void} - Nothing
  */
-function VibratorModeClick(Options, Y) {
-	Y = typeof Y === "number" ? Y : 450;
-	let C = CharacterGetCurrent();
-
-	// Exit Button
-	if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
-		return;
-	}
-
-	Options.some((OptionName) => {
-		var OptionGroup = VibratorModeOptions[OptionName];
-		var Handled = OptionGroup.some((Option, I) => {
-			var X = 1175 + (I % 3) * 225;
-			if (I % 3 === 0) Y += 75;
-			if (MouseIn(X, Y, 200, 55)) {
-				if ((Option.Property != null) && (DialogFocusItem.Property != null) && (Option.Property.Mode !== DialogFocusItem.Property.Mode) && !(OptionName == VibratorModeSet.ADVANCED && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes))
-					VibratorModeSetOption(/** @type {ExtendedItemOption} */ (Option));
-				return true;
-			}
-		});
-		Y += 40;
-		return Handled;
-	});
+function VibratorModeClick(Options, Y=450) {
+	const coords = VibratorModeGenerateCoords(Options, Y);
+	const actualOptions = VibratorModeGetOptions(Options);
+	ExtendedItemClick(actualOptions, 10, false, coords);
 }
 
 /**
@@ -389,81 +469,10 @@ function VibratorModeClick(Options, Y) {
  * @returns {VibratingItemOption} - The option gotten
  */
 function VibratorModeGetOption(ModeName) {
-	var result = null;
-
-	[VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED].some((OptionName) => {
-		var OptionGroup = VibratorModeOptions[OptionName];
-		var Handled = OptionGroup.some((Option, I) => {
-			if ((Option.Property != null) && (Option.Property.Mode == ModeName)) {
-				result = Option;
-				return true;
-			}
-			return false;
-		});
-		return Handled;
-	});
-
-	if (result) return result;
-	return VibratorModeOff;
-
+	const options = VibratorModeGetOptions();
+	return options.find(o => o.Name === ModeName) || VibratorModeOff;
 }
 
-/**
- * Manually set a vibrating item's mode
- * @param {Item} Item
- * @param {VibratorMode} Mode
- */
-function VibratorModeSetMode(Item, Mode) {
-	if (!Item || !Mode) return;
-
-	const option = VibratorModeGetOption(Mode);
-	VibratorModeSetProperty(Item, option.Property);
-}
-
-/**
- * Sets a vibrating item's option and publishes the corresponding chatroom message
- * @param {VibratingItemOption} Option - The extended item option defining the new mode to be set
- * @returns {void} - Nothing
- */
-function VibratorModeSetOption(Option) {
-	var C = CharacterGetCurrent();
-	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-	var OldIntensity = DialogFocusItem.Property.Intensity;
-	VibratorModeSetProperty(DialogFocusItem, Option.Property);
-	CharacterRefresh(C);
-	ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
-
-	const Dictionary = new DictionaryBuilder()
-		.sourceCharacter(Player)
-		.destinationCharacterName(C)
-		.asset(DialogFocusItem.Asset)
-		.build();
-
-	let Message;
-	if (DialogFocusItem.Property.Intensity !== OldIntensity) {
-		var Direction = DialogFocusItem.Property.Intensity > OldIntensity ? "Increase" : "Decrease";
-		Message = "Vibe" + Direction + "To" + DialogFocusItem.Property.Intensity;
-	} else {
-		Message = "VibeModeChange";
-	}
-
-	ChatRoomPublishCustomAction(Message, false, Dictionary);
-}
-
-
-
-/**
- * Helper function to set dynamic properties on an item
- * @param {object} Property - The Property object to initialise
- * @returns {void} - Nothing
- */
-function VibratorModeSetDynamicProperties(Property) {
-	const NewProperty = Object.assign({}, Property);
-	if (typeof NewProperty.Intensity === "function") NewProperty.Intensity = NewProperty.Intensity();
-	if (typeof NewProperty.Effect === "function") NewProperty.Effect = NewProperty.Effect(NewProperty.Intensity);
-	else NewProperty.Effect = JSON.parse(JSON.stringify(Property.Effect || []));
-	return NewProperty;
-}
 
 /**
  * Common dynamic script draw function for vibrators. This function is called every frame. TO make use of dynamic script draw on vibrators,
@@ -502,9 +511,11 @@ function VibratorModeScriptDraw(Data) {
 function VibratorModeUpdateRandom(Item, C, PersistentData) {
 	var OneMinute = 60000;
 	var OldIntensity = Item.Property.Intensity;
+	/** @type {VibratorIntensity} */
 	var Intensity = CommonRandomItemFromList(OldIntensity, [-1, 0, 1, 2, 3]);
+	/** @type {EffectName[]} */
 	var Effect = Intensity === -1 ? ["Egged"] : ["Egged", "Vibrating"];
-	VibratorModeSetProperty(Item, { Intensity, Effect });
+	ExtendedItemSetOption(C, Item, Item.Property || {}, { Intensity, Effect });
 	// Next update in 1-3 minutes
 	PersistentData.ChangeTime = Math.floor(CommonTime() + OneMinute + Math.random() * 2 * OneMinute);
 	VibratorModePublish(C, Item, OldIntensity, Intensity);
@@ -519,11 +530,11 @@ function VibratorModeUpdateRandom(Item, C, PersistentData) {
  */
 function VibratorModeUpdateEscalate(Item, C, PersistentData) {
 	var OldIntensity = Item.Property.Intensity;
-	var Intensity = (OldIntensity + 1) % 4;
+	var Intensity = /** @type {VibratorIntensity} */((OldIntensity + 1) % 4);
 	// As intensity increases, time between updates decreases
 	var TimeFactor = Math.pow((5 - Intensity), 1.8);
 	var TimeToNextUpdate = (8000 + Math.random() * 4000) * TimeFactor;
-	VibratorModeSetProperty(Item, { Intensity, Effect: ["Egged", "Vibrating"] });
+	ExtendedItemSetOption(C, Item, Item.Property || {}, { Intensity, Effect: ["Egged", "Vibrating"] });
 	PersistentData.ChangeTime = Math.floor(CommonTime() + TimeToNextUpdate);
 	VibratorModePublish(C, Item, OldIntensity, Intensity);
 }
@@ -562,8 +573,8 @@ function VibratorModeUpdateDeny(Item, C, PersistentData) {
 function VibratorModeUpdateEdge(Item, C, PersistentData) {
 	var OneMinute = 60000;
 	var OldIntensity = Item.Property.Intensity;
-	var Intensity = Math.min(Item.Property.Intensity + 1, 3);
-	VibratorModeSetProperty(Item, { Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
+	var Intensity = /** @type {VibratorIntensity} */(Math.min(Item.Property.Intensity + 1, 3));
+	ExtendedItemSetOption(C, Item, Item.Property || {}, { Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
 	if (Intensity === 3) {
 		// If we've hit max intensity, no more changes needed
 		PersistentData.ChangeTime = Infinity;
@@ -603,11 +614,11 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
 	if (!State) State = VibratorModeState.DEFAULT;
 	if (typeof Intensity !== "number" || Intensity < -1 || Intensity > 3) Intensity = OldIntensity;
 
+	/** @type {EffectName[]} */
 	var Effect = ["Egged"];
 	if (State === VibratorModeState.DENY || Item.Property.Mode === VibratorMode.DENY) Effect.push("Edged");
 	if (Intensity !== -1) Effect.push("Vibrating");
-
-	VibratorModeSetProperty(Item, { State, Intensity, Effect });
+	ExtendedItemSetOption(C, Item, Item.Property, { State, Intensity, Effect }, false);
 	Object.assign(PersistentData, {
 		ChangeTime: CommonTime() + 5000,
 		LastChange: Intensity !== OldIntensity ? CommonTime() : PersistentData.LastChange,
@@ -721,25 +732,6 @@ function VibratorModeStateUpdateRest(C, Arousal, TimeSinceLastChange, OldIntensi
 }
 
 /**
- * Correctly sets the Property on a vibrator according to the new property. This function preserves persistent effects on the item like lock
- * effects.
- * @param {Item} Item - The item on which to set the new properties
- * @param {object} Property - The new properties to set. The Property object may include dynamic setter functions
- * @returns {void} - Nothing
- */
-function VibratorModeSetProperty(Item, Property) {
-	Property = VibratorModeSetDynamicProperties(Property);
-	if (Item.Property && Array.isArray(Item.Property.Effect)) {
-		Item.Property.Effect.forEach(Effect => {
-			if (!["Egged", "Vibrating", "Edged"].includes(Effect)) {
-				Property.Effect.push(Effect);
-			}
-		});
-	}
-	Item.Property = Object.assign({}, Item.Property, Property);
-}
-
-/**
  * Publishes a chatroom message for an automatic change in vibrator intensity. Does nothing if the vibrator's intensity
  * did not change.
  * @param {Character} C - The character that the vibrator is equipped on
@@ -790,8 +782,9 @@ function VibratorModeInit(Item, C, Refresh=true, configSets=null) {
 		return;
 	}
 
-	const FirstOption = VibratorModeOptions[configSets[0]][0] || VibratorModeOff;
-	VibratorModeSetProperty(Item, FirstOption.Property);
+	const Options = VibratorModeGetOptions(configSets);
+	const FirstOption = Options[0] || VibratorModeOff;
+	TypedItemSetOption(C, Item, Options, FirstOption, false);
 
 	if (Refresh) {
 		CharacterRefresh(C);

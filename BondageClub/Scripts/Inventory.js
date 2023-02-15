@@ -607,18 +607,14 @@ function InventoryWearCraftTyped(Item, C, Type) {
 * @returns {void}
 */
 function InventoryWearCraftVibrating(Item, C, Type) {
-	let IsAdvanced = true;
-	let Option = VibratorModeOptions.Advanced.find((o) => o.Name == Type);
-	if (Option == undefined) {
-		IsAdvanced = false;
-		Option = VibratorModeOptions.Standard.find((o) => o.Name == Type);
+	const Data = VibratorModeDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
+	if (Data === undefined) {
+		return;
 	}
 
-	if ((Option == undefined) || (IsAdvanced && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes)) {
-		VibratorModeSetProperty(Item, VibratorModeOff);
-	} else {
-		VibratorModeSetProperty(Item, Option.Property);
-	}
+	const options = VibratorModeGetOptions(Data.options);
+	const option = options.find(o => o.Name === Type) || VibratorModeOff;
+	VibratorModeSetOption(C, Item, options, option);
 }
 
 /**

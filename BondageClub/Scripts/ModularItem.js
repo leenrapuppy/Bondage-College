@@ -694,7 +694,10 @@ function ModularItemSetType(module, index, data) {
 	if (changed) {
 		// Do not sync appearance while in the wardrobe
 		const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-		ModularItemSetOption(C, DialogFocusItem, currentModuleValues, newModuleValues, data, !IsCloth);
+		ModularItemSetOption(
+			C, DialogFocusItem, currentModuleValues, newModuleValues, data,
+			!IsCloth, option.DynamicProperty,
+		);
 
 		if (!IsCloth) {
 			const groupName = data.asset.Group.Name;
@@ -734,12 +737,14 @@ function ModularItemSetType(module, index, data) {
  * @param {ModularItemData} data - The modular item data
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
+ * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, push=false) {
+function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, push=false, dynamicProperty=null) {
 	const currentProperty = ModularItemMergeModuleValues(data, previousModuleValues);
 	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);
-	ExtendedItemSetOption(C, Item, currentProperty, newProperty, push);
+	ExtendedItemSetOption(C, Item, currentProperty, newProperty, push, dynamicProperty);
 }
 
 /**
