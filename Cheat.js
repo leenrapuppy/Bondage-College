@@ -1,11 +1,15 @@
 var CheatAllow = false;
+var TranslationCheatAllow = false;
+var TranslationCacheCounter = 0; // used to bypass browser cache for CSV
+var TranslationCurrentText = 0;
+var TranslationCurrentStageFileLine = 0;
+var TranslationSavedStage;
 
 // Receives cheat keys
 function CheatKey() {
 
 	// No cheats until the player has a name
 	if (Common_PlayerName != "") {
-
 		// In a fight or a race, the user can press * to win automatically
 		if (!FightEnded && (FightTimer > 0)) { if (KeyPress == 42) FightEnd(true); return; }
 		if (!DoubleFightEnded && (DoubleFightTimer > 0)) { if (KeyPress == 42) DoubleFightEnd(true); return; }
@@ -19,7 +23,7 @@ function CheatKey() {
 		// Specific cheats by functions
 		if (CurrentActor != "") CheatActor();
 		if ((CurrentChapter == "C012_AfterClass") && (CurrentScreen == "Dorm")) CheatDorm();
-		CheatSkill();
+		if(TranslationCheatAllow) CheatTranslation(); else CheatSkill(); // skill modifiyng keys 5 - 9 are reused for translation related functions
 		CheatInventory();
 
 	}
@@ -63,6 +67,64 @@ function CheatSkill() {
 	if (KeyPress == 55) PlayerAddSkill("RopeMastery", 1);
 	if (KeyPress == 56) PlayerAddSkill("Seduction", 1);
 	if (KeyPress == 57) PlayerAddSkill("Sports", 1);
+}
+
+// Cheats used for text editing a translation
+function CheatTranslation(){
+	// Slash key (/) forces reload of current texts from CSV
+	// Stage buttons will be redrawn immediately, however the scene texts from Intro and Text files not
+	if(KeyPress == 47) {
+		let language = GetWorkingLanguage();
+		let texts = ["Intro","Stage","Text"];
+		for(var c in texts){
+			var cachePath = CurrentChapter + "/" + CurrentScreen + "/" + texts[c] + (language ? ("_" + language) : "") + ".csv"
+			if(CSVCache[cachePath]) delete CSVCache[cachePath];
+		}
+		TranslationCacheCounter++;
+		if(CurrentIntro !== null && CurrentStage !== null){
+			LoadInteractions();
+		} else if(CurrentText !== null){
+			LoadText();
+		}
+	}
+	// number 6 key loads to OverridenIntroText previous text from Text_LANG file, number 9 loads next text
+	if(KeyPress === 54 || KeyPress === 57){
+		let texts = CurrentText;
+		if(texts && texts.length > 1){
+			if(KeyPress === 57) TranslationCurrentText--; else TranslationCurrentText++;
+			TranslationCurrentText = Math.min(texts.length - 1, Math.max(1, TranslationCurrentText));
+			let displayText = texts[TranslationCurrentText][TextContent].trim();
+			if(displayText !== "") OverridenIntroText = displayText; else OverridenIntroText = "** Text is empty";
+		}
+	}
+	// number 5 key loads to OverridenIntroText previous text from Stage_LANG file, number 8 loads next text
+	if(KeyPress === 53 || KeyPress === 56){
+		if (!TranslationSavedStage || TranslationSavedStage.screen !== CurrentChapter + "_" + CurrentScreen) {
+			TranslationSavedStage = {
+				stage: window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"],
+				screen: CurrentChapter + "_" + CurrentScreen
+			};
+			TranslationCurrentStageFileLine = 1;
+		}
+		let texts = CurrentStage;
+		if(texts && texts.length > 1){
+			if(KeyPress === 56) TranslationCurrentStageFileLine--; else TranslationCurrentStageFileLine++;
+			TranslationCurrentStageFileLine = Math.min(texts.length - 1, Math.max(1, TranslationCurrentStageFileLine));
+			let displayText = texts[TranslationCurrentStageFileLine][StageInteractionResult].trim();
+			if(displayText !== "") OverridenIntroText = displayText; else OverridenIntroText = "** Stage has empty interaction result";
+			let currentStage = texts[TranslationCurrentStageFileLine][StageNumber];
+			window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = currentStage;
+			console.log("Stage: " + currentStage + " Line: " + TranslationCurrentStageFileLine + 1);
+		}
+	}
+	// number 7 returns non overriden intro text (if present)
+	if(KeyPress === 55){
+		OverridenIntroText = "";
+		if(TranslationSavedStage) {
+			window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = TranslationSavedStage.stage
+			TranslationSavedStage = undefined;
+		}
+	}
 }
 
 // Cheats to add inventory (each letter represent an item)
