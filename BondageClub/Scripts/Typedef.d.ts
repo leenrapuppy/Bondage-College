@@ -3011,7 +3011,7 @@ type DrawImageCallback = (
 	alphasMasks: RectTuple[],
 	opacity?: number,
 	rotate?: boolean,
-	blendingMode?: string
+	blendingMode?: GlobalCompositeOperation
 ) => void;
 
 /**
