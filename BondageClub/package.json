@@ -5,7 +5,7 @@
 	"scripts": {
 		"changelog": "cd Tools/Node && node GenerateChangelog generate",
 		"changelogPrepare": "cd Tools/Node && node GenerateChangelog prepare",
-		"checks": "npm run scripts:lint && npm run assets:typecheck && npm run assets:check",
+		"checks": "npm run assets:typecheck && npm run assets:check && npm run scripts:lint",
 		"assets:clean": "gulp --gulpfile Tools/Node/gulpfile.js clean",
 		"assets:minify": "gulp --gulpfile Tools/Node/gulpfile.js assetMinify --max-old-space-size=8192",
 		"assets:lint": "eslint Assets/Female3DCG/Female3DCG.js Assets/Female3DCG/Female3DCGExtended.js",
