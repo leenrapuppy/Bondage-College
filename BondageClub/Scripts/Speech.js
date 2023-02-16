@@ -642,3 +642,40 @@ function SpeechBabyTalk(C, CD) {
 	// Not drunk the milk, we return the regular text
 	return CD;
 }
+
+/**
+ * Anonymize character names from a string, replacing them with "Someone".
+ *
+ * Used as part of sensory-deprivation processing.
+ *
+ * @param {string} msg
+ * @param {Character[]} characters
+ */
+function SpeechAnonymize(msg, characters) {
+	const names = [];
+	for (const C of characters) {
+		if (!ChatRoomIsCharacterImpactedBySensoryDeprivation(C)) continue;
+		names.push(C.Name);
+
+		const nick = CharacterNickname(C);
+		if (nick && nick !== C.Name) {
+			names.push(nick);
+		}
+	}
+
+	if (names.length === 0) return msg;
+
+	names.sort((a, b) => b.length - a.length);
+
+	// Hopefully there are no regex characters to escape from that pattern :-S
+	const reg = new RegExp(`\\b(?:${names.join("|")})\\b`, "g");
+
+	// Now replace with the placeholder, lowercasing if it's not the first thing in the string
+	const replacement = DialogFindPlayer("Someone");
+	function replacer(_match, offset, _string, _groups) {
+		return offset === 0 ? replacement : replacement.toLowerCase();
+	}
+	msg = msg.replace(reg, replacer);
+
+	return msg;
+}

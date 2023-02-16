@@ -2390,19 +2390,7 @@ var ChatRoomMessageHandlers = [
 				if (ChatRoomIsCharacterImpactedBySensoryDeprivation(sender)) {
 					metadata.senderName = DialogFindPlayer("Someone");
 
-					for (const C of ChatRoomCharacter) {
-						if (C && C.Name && C.ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(C))) {
-							const nick = CharacterNickname(C);
-							let s = C.Name;
-							if (nick) {
-								s += "|" + nick;
-							}
-
-							// Hopefully there are no regex characters to escape from that pattern :-S
-							const r = new RegExp(s, "ig");
-							msg = msg.replace(r, DialogFindPlayer("Someone"));
-						}
-					}
+					msg = SpeechAnonymize(msg, ChatRoomCharacter);
 				}
 			}
 
