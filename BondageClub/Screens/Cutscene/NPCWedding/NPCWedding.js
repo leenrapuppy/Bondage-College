@@ -13,7 +13,7 @@ var NPCWeddingGirlRight = null;
  * @param {string} Dress - The asset name of wedding dress to wear.
  * @returns {void} - Nothing.
  */
- function NPCWeddingDress(C, Dress) {
+function NPCWeddingDress(C, Dress) {
 	CharacterNaked(C);
 	InventoryWear(C, Dress, "Cloth");
 	InventoryWear(C, "WeddingVeil1", "HairAccessory1");
@@ -26,7 +26,7 @@ var NPCWeddingGirlRight = null;
  * @param {Character} C - The character that must wear the ring.
  * @returns {void} - Nothing.
  */
- function NPCWeddingBridesmaid(C) {
+function NPCWeddingBridesmaid(C) {
 	CharacterNaked(C);
 	InventoryWear(C, "BridesmaidDress1", "Cloth");
 	InventoryWear(C, "Bouquet", "ClothAccessory");
@@ -44,7 +44,7 @@ function NPCWeddingLoad() {
 	CharacterSetActivePose(Player, null);
 	CharacterSetActivePose(NPCWeddingWife, null);
 	CutsceneStage = 0;
-	NPCWeddingBackground = CommonRandomItemFromList("", ["WeddingRoom", "WeddingArch", "WeddingBeach"])
+	NPCWeddingBackground = CommonRandomItemFromList("", ["WeddingRoom", "WeddingArch", "WeddingBeach"]);
 	NPCWeddingGirlLeft = CharacterLoadNPC("NPC_NPCWedding_GirlLeft");
 	NPCWeddingBridesmaid(NPCWeddingGirlLeft);
 	NPCWeddingGirlRight = CharacterLoadNPC("NPC_NPCWedding_GirlRight");
@@ -84,7 +84,7 @@ function NPCWeddingClick() {
 		CharacterFullRandomRestrain(NPCWeddingGirlRight, "ALL", true);
 	}
 	if (CutsceneStage == 9) {
-		NPCWeddingBackground = CommonRandomItemFromList("", ["BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed"])
+		NPCWeddingBackground = CommonRandomItemFromList("", ["BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed"]);
 	}
 	if (CutsceneStage == 10) {
 		CharacterNaked(Player);

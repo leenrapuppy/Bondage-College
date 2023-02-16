@@ -52,7 +52,7 @@ function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "Tag";
 		text = text.substring(0, A.TextMaxLength.Text);
 
-        /** @type {DynamicDrawOptions} */
+		/** @type {DynamicDrawOptions} */
 		const drawOptions = {
 			fontSize: 13,
 			fontFamily: A.TextFont,

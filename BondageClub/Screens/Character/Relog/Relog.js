@@ -85,7 +85,7 @@ function RelogKeyDown() {
  * @returns {void} Nothing
  */
 function RelogSend() {
-    // Ensure the login request is not sent twice
+	// Ensure the login request is not sent twice
 	if (!LoginSubmitted && ServerIsConnected) {
 		var Name = Player.AccountName;
 		var Password = ElementValue("InputPassword");

@@ -1296,7 +1296,7 @@ function PreferenceSubscreenControllerRun() {
  * Sets the censored words for the player. Redirected to from the main Run function.
  * @returns {void} - Nothing
  */
- function PreferenceSubscreenCensoredWordsRun() {
+function PreferenceSubscreenCensoredWordsRun() {
 
 	// Draw the header
 	DrawText(TextGet("CensorTitle"), 930, 105, "Black", "Silver");
@@ -1318,7 +1318,7 @@ function PreferenceSubscreenControllerRun() {
 	}
 	MainCanvas.textAlign = "center";
 
- }
+}
 
 /**
  * Sets the chat preferences for the player. Redirected to from the main Run function if the player is in the chat
@@ -1676,7 +1676,7 @@ function PreferenceSubscreenScriptsRun() {
 		MainCanvas.textAlign = "center";
 		return;
 	} else if (PreferenceScriptHelp) {
-		const helpHeight = 90 * permissions.length
+		const helpHeight = 90 * permissions.length;
 		DrawRect(500, 370, 1300, helpHeight, helpColour);
 		MainCanvas.strokeStyle = "Black";
 		MainCanvas.strokeRect(500, 370, 1300, helpHeight);
@@ -1862,7 +1862,7 @@ function PreferenceSubscreenControllerClick() {
  * Handles click events for the censored words preference settings.  Redirected from the main Click function.
  * @returns {void} - Nothing
  */
- function PreferenceSubscreenCensoredWordsClick() {
+function PreferenceSubscreenCensoredWordsClick() {
 
 	// When the user clicks on the header buttons
 	if (MouseIn(1830, 60, 250, 65)) PreferenceSubscreenCensoredWordsExit();
@@ -1897,7 +1897,7 @@ function PreferenceSubscreenControllerClick() {
 		}
 	}
 
- }
+}
 
 /**
  * Handles the click events for the chat settings of a player.  Redirected from the main Click function.
@@ -2452,7 +2452,7 @@ function PreferenceSubscreenSecurityLoad() {
  * Loads the preference censored words screen.
  * @returns {void} - Nothing
  */
- function PreferenceSubscreenCensoredWordsLoad() {
+function PreferenceSubscreenCensoredWordsLoad() {
 	PreferenceCensoredWordsOffset = 0;
 	ElementCreateInput("InputWord", "text", "", "50");
 }

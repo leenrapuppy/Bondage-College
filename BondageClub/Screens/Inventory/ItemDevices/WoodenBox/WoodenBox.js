@@ -35,7 +35,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 	const Transparent = Property.Opacity < 0.15;
 	const ExtraEffects = ["BlindNormal", "GagLight"];
 	if (Transparent) {
-		Property.Effect = Property.Effect.filter((e) => !ExtraEffects.includes(e))
+		Property.Effect = Property.Effect.filter((e) => !ExtraEffects.includes(e));
 	} else {
 		Property.Effect = CommonArrayConcatDedupe(Property.Effect, ExtraEffects);
 	}

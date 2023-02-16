@@ -422,8 +422,8 @@ function GameLARPCanLaunchGame() {
 			if (Team == "")
 				Team = ChatRoomCharacter[C].Game.LARP.Team;
 			else
-				if (Team != ChatRoomCharacter[C].Game.LARP.Team)
-					return true;
+			if (Team != ChatRoomCharacter[C].Game.LARP.Team)
+				return true;
 		}
 	return false;
 }
@@ -940,8 +940,8 @@ function GameLARPContinue() {
 			if (Team == "")
 				Team = GameLARPPlayer[C].Game.LARP.Team;
 			else
-				if (Team != GameLARPPlayer[C].Game.LARP.Team)
-					return true;
+			if (Team != GameLARPPlayer[C].Game.LARP.Team)
+				return true;
 		}
 
 	// If there's a winning team, we announce it and stop the game

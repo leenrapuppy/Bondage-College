@@ -398,7 +398,7 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 	}
 
 	// If the assets allows tightening / loosening
-	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten) 
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten)
 		if (MouseIn(1080, 170, 240, 65) || MouseIn(1080, 260, 240, 65)) {
 			if (DialogFocusItem.Difficulty == null) DialogFocusItem.Difficulty = 0;
 			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 4;

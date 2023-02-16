@@ -60,7 +60,7 @@ function InventoryItemArmsFullLatexSuitSetWand(C) {
 	const Dictionary = [
 		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
-	]
+	];
 
-	ExtendedItemCustomExit(`${Prefix}Wand`, C, Dictionary)
+	ExtendedItemCustomExit(`${Prefix}Wand`, C, Dictionary);
 }

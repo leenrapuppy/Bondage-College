@@ -113,7 +113,7 @@ function ForbiddenWordsClick() {
  * @returns {void} - Nothing
  */
 function ForbiddenWordsExit() {
-	ElementRemove("InputWord")
+	ElementRemove("InputWord");
 	CommonSetScreen("Online", "ChatRoom");
 	let FW = ForbiddenWordsConsequence + "|" + ForbiddenWordsList.join("|");
 	ServerSend("ChatRoomChat", { Content: "OwnerRuleForbiddenWords" + FW, Type: "Hidden", Target: ForbiddenWordsTarget.MemberNumber });

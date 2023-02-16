@@ -806,5 +806,5 @@ function MainHallSetMaidsDisabled(minutes) {
 }
 
 function MainHallMoveToChatSelect() {
-	CommonSetScreen("Online", "ChatSelect")
+	CommonSetScreen("Online", "ChatSelect");
 }

@@ -288,7 +288,7 @@ function ValidationResolveModifyDiff(previousItem, newItem, params) {
 	const previousProperty = previousItem.Property || {};
 	/** @type {ItemProperties} */
 	const newProperty = newItem.Property = newItem.Property || {};
-	let itemBlocked = ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name)
+	let itemBlocked = ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name);
 	if (asset.Archetype === ExtendedArchetype.MODULAR) {
 		const TypeList = ModularItemDeconstructType(newProperty.Type) || [];
 		itemBlocked = itemBlocked || TypeList.some((t) => ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, group.Name, asset.Name, t));

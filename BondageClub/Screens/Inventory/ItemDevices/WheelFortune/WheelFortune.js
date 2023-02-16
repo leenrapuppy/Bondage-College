@@ -16,17 +16,17 @@ function InventoryItemDevicesWheelFortuneLoad() {
 /**
  * Wheel of Fortune Game draw engine
  */
- function InventoryItemDevicesWheelFortuneDraw() {
+function InventoryItemDevicesWheelFortuneDraw() {
 }
 
 /**
  * Wheel of Fortune Game clicks
  */
- function InventoryItemDevicesWheelFortuneClick() {
+function InventoryItemDevicesWheelFortuneClick() {
 }
 
 /**
  * Wheel of Fortune Game clicks
  */
- function InventoryItemDevicesWheelFortuneExit() {
+function InventoryItemDevicesWheelFortuneExit() {
 }

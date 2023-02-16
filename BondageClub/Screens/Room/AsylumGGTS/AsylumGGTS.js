@@ -284,7 +284,7 @@ function AsylumGGTSQueryDone(Level, M, TextEasy, TextHard) {
 		if ((ChatRoomChatLog[L].SenderMemberNumber == M) && (ChatRoomChatLog[L].Time >= AsylumGGTSTaskStart)) {
 			let Chat = ChatRoomChatLog[L].Original;
 			if (Level <= 3) {
-				Chat = Chat.trim().toLowerCase()
+				Chat = Chat.trim().toLowerCase();
 				Chat = Chat.replace(/\s/g, "");
 				Chat = Chat.replace(/\./g, "");
 				Chat = Chat.replace(/,/g, "");
@@ -401,7 +401,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ItemRemoveBody") && !AsylumGGTSCanRemove(C, "ItemPelvis") && !AsylumGGTSCanRemove(C, "ItemBreast") && !AsylumGGTSCanRemove(C, "ItemTorso") && !AsylumGGTSCanRemove(C, "ItemDevices")) return false;
 	if ((T == "ItemRemoveHead") && !AsylumGGTSCanRemove(C, "ItemNeck") && !AsylumGGTSCanRemove(C, "ItemHead") && !AsylumGGTSCanRemove(C, "ItemEars")) return false;
 	if ((T == "ItemUngag") && (
-	((InventoryGet(C, "ItemMouth") == null) || (InventoryGet(C, "ItemMouth").Asset.Name.substr(0, 10) != "Futuristic")) &&
+		((InventoryGet(C, "ItemMouth") == null) || (InventoryGet(C, "ItemMouth").Asset.Name.substr(0, 10) != "Futuristic")) &&
 	((InventoryGet(C, "ItemMouth2") == null) || (InventoryGet(C, "ItemMouth2").Asset.Name.substr(0, 10) != "Futuristic")) &&
 	((InventoryGet(C, "ItemMouth3") == null) || (InventoryGet(C, "ItemMouth3").Asset.Name.substr(0, 10) != "Futuristic")))) return false;
 	if ((T == "ItemChaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || C.IsVulvaChaste())) return false; // Must have unchaste futuristic belt to chaste it

@@ -21,7 +21,7 @@ const PropertyOriginalValue = new Map([]);
  * @returns {string} - The ID of the property
  */
 function PropertyGetID(Name, Item=DialogFocusItem) {
-	return `${Item.Asset.Group.Name}${Item.Asset.Name}${Name}`
+	return `${Item.Asset.Group.Name}${Item.Asset.Name}${Name}`;
 }
 
 /**
@@ -31,7 +31,7 @@ function PropertyGetID(Name, Item=DialogFocusItem) {
  * @param {number} Opacity - The new opacity to set on the item
  * @returns {void} - Nothing
  */
- const PropertyOpacityChange = CommonLimitFunction((C, Item, Opacity) => {
+const PropertyOpacityChange = CommonLimitFunction((C, Item, Opacity) => {
 	Item.Property.Opacity = Opacity;
 	CharacterLoadCanvas(C);
 });
@@ -86,14 +86,14 @@ function PropertyOpacityDraw(OriginalFunction=null, XOffset=0, YOffset=0, LabelK
 
 	MainCanvas.textAlign = "right";
 	DrawTextFit(
-        DialogFindPlayer(LabelKeyword), 1375 + XOffset, 450 + YOffset,
-        400, "#FFFFFF", "#000",
-    );
+		DialogFindPlayer(LabelKeyword), 1375 + XOffset, 450 + YOffset,
+		400, "#FFFFFF", "#000",
+	);
 	ElementPosition(ID, 1625 + XOffset, 450 + YOffset, 400);
 	DrawTextFit(
-        `${Math.round(DialogFocusItem.Property.Opacity * 100)}%`, 1925 + XOffset, 450 + YOffset,
-        400, "#FFFFFF", "#000",
-    );
+		`${Math.round(DialogFocusItem.Property.Opacity * 100)}%`, 1925 + XOffset, 450 + YOffset,
+		400, "#FFFFFF", "#000",
+	);
 	MainCanvas.textAlign = "center";
 }
 
@@ -153,7 +153,7 @@ function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOptio
  * @param {Item} Item - The shocking item; defaults to {@link DialogFocusItem}
  * @param {boolean} Automatic - Whether the shock was triggered automatically or otherwise manually
  */
- function PropertyShockPublishAction(C=null, Item=DialogFocusItem, Automatic=false) {
+function PropertyShockPublishAction(C=null, Item=DialogFocusItem, Automatic=false) {
 	if (C == null) {
 		C = CharacterGetCurrent();
 	}
@@ -204,7 +204,7 @@ function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOptio
 
 	// Exit the dialog menu when triggering a manual shock
 	if (!Automatic) {
-		ExtendedItemCustomExit(ActionTag, C, null)
+		ExtendedItemCustomExit(ActionTag, C, null);
 	}
 }
 
@@ -256,7 +256,7 @@ function PropertyAutoPunishParseMessage(Sensitivity, msg) {
 		msg.includes('!')
 		|| msg.includes('！')
 		|| (msg === msg.toUpperCase() && msg !== msg.toLowerCase())
-	)
+	);
 
 	// Check for sensitivity-specific conditions
 	let PunishableKeywords = false;

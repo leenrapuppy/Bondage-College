@@ -91,7 +91,7 @@ function FuturisticAccessDraw(OriginalFunction=null) {
  * Hook script for injecting futuristic features into an archetypical item
  * @returns {void} - Nothing
  */
- function FuturisticAccessExit() {
+function FuturisticAccessExit() {
 	InventoryItemFuturisticExitAccessDenied();
 }
 

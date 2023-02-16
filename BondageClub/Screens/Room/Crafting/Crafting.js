@@ -89,7 +89,7 @@ const CraftingStatusType = {
 	OK: 2,
 	ERROR: 1,
 	CRITICAL_ERROR: 0,
-}
+};
 
 /**
  * The Names of all locks that can be automatically applied to crafted items.
@@ -173,7 +173,7 @@ function CraftingUpdatePreview() {
  * Check whether the item can safely be used with the crafting auto-type system.
  * @returns {Boolean}
  */
- function CraftingItemSupportsAutoType() {
+function CraftingItemSupportsAutoType() {
 	const ItemAsset = CraftingSelectedItem.Asset;
 	if (ItemAsset == null) {
 		return false;
@@ -683,11 +683,11 @@ function CraftingClick() {
 			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
 				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
 			else
-				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
-					// @ts-ignore
-					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
-				else
-					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
+			if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
+			// @ts-ignore
+				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
+			else
+				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
 			ElementValue("InputType", CraftingSelectedItem.Type);
 			CraftingUpdatePreview();
 		}
@@ -759,7 +759,7 @@ function CraftingConvertItemToSelected(Craft) {
 		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item && !a.Asset.IsLock).Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
 		OverridePriority: Craft.OverridePriority,
-	}
+	};
 }
 
 /**
@@ -842,13 +842,13 @@ function CraftingItemListBuild() {
  * @see {@link CratingValidationStruct}
  * @todo Let the Validate/GetDefault functions take the respective attribute rather than the entire {@link CraftingItem}
  */
- const CraftingValidationRecord = {
+const CraftingValidationRecord = {
 	Color: {
 		Validate: function(c, a) {
 			if (typeof c.Color !== "string") {
 				return false;
 			} else if ((c.Color === "") || (a == null)) {
-				return true
+				return true;
 			} else {
 				const Colors = c.Color.replace(" ", "").split(",");
 				return Colors.every((c) => CommonIsColor(c) || (c === "Default"));
@@ -942,7 +942,7 @@ function CraftingItemListBuild() {
 		},
 		StatusCode: CraftingStatusType.ERROR,
 	},
-}
+};
 
 /**
  * Validate and sanitinize crafting properties of the passed item inplace.

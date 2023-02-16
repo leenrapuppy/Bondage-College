@@ -245,7 +245,7 @@ var PlatformTemplate = [
 			{ Name: "Idle", Cycle: [0], Speed: 1000 }
 		]
 	},
-/*	{
+	/*	{
 		Name: "Kara",
 		Status: "Nude",
 		Health: 10,
@@ -390,13 +390,13 @@ var PlatformTemplate = [
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 }
 		],
-		OnBind: function() { 
+		OnBind: function() {
 			if (PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey")) {
 				if (Math.random() >= 0.8) {
 					PlatformMessageSet("You found keys for shackles on the guard.");
 					PlatformEventSet("EdlaranKey");
 				} else PlatformMessageSet("The keys are not on this guard.");
-			} 
+			}
 		}
 	},
 	{
@@ -473,13 +473,13 @@ var PlatformTemplate = [
 		Attack: [
 			{ Name: "FireProjectile", Speed: 1000 }
 		],
-		OnBind: function() { 
+		OnBind: function() {
 			if (!PlatformEventDone("EdlaranJoin") && !PlatformEventDone("EdlaranForestKey") && PlatformEventDone("EdlaranForestIntro")) {
 				if (Math.random() >= 0.8) {
 					PlatformMessageSet("You found keys for chains on the bandit.");
 					PlatformEventSet("EdlaranForestKey");
 				} else PlatformMessageSet("The keys are not on this bandit.");
-			} 
+			}
 		}
 	},
 	{
@@ -1354,7 +1354,7 @@ var PlatformRoomList = [
 		]
 	},
 
-]
+];
 
 /**
  * Loads a room and it's parameters
@@ -1448,7 +1448,7 @@ function PlatformMessageSet(Text) {
  * @returns {void} - Nothing
  */
 function PlatformLoadRoom(RoomName) {
-	if (RoomName == null) RoomName = PlatformRoom.Name
+	if (RoomName == null) RoomName = PlatformRoom.Name;
 	PlatformRoom = null;
 	PlatformSaveMode = false;
 	for (let Room of PlatformRoomList)
@@ -1478,7 +1478,7 @@ function PlatformPartyAdd(C) {
 		Level: C.Level,
 		Experience: C.Experience,
 		Perk: C.Perk
-	}
+	};
 	if ((P.Character == null) || (P.Status == null)) return;
 	if ((P.Level == null) || (P.Level <= 0) || (P.Level > 10)) P.Level = 1;
 	if ((P.Experience == null) || (P.Experience < 0)) P.Experience = 0;
@@ -1504,7 +1504,7 @@ function PlatformPartySave() {
  * Loads the current character stats from the party object
  * @returns {void} - Nothing
  */
- function PlatformPartyLoad() {
+function PlatformPartyLoad() {
 	for (let P of PlatformParty)
 		if (P.Character == PlatformPlayer.Name) {
 			PlatformPlayer.Experience = P.Experience;
@@ -1610,7 +1610,7 @@ function PlatformGetAnim(C, Pose, Cycle = null) {
 				Width: (C.Animation[A].Width || C.Width),
 				Height: (C.Animation[A].Height || C.Height),
 				Mirror: ((C.FaceLeft === true) && (C.Animation[A].CycleLeft == null))
-			}
+			};
 		}
 	return null;
 }
@@ -1729,7 +1729,7 @@ function PlatformDrawCharacter(C, Time) {
  * @param {Object} C - The character to evaluate
  * @returns {void} - Nothing
  */
- function PlatformSetHealth(C) {
+function PlatformSetHealth(C) {
 	C.MaxHealth = C.BaseHealth;
 	C.MaxMagic = C.BaseMagic;
 	C.MaxProjectile = C.BaseProjectile;

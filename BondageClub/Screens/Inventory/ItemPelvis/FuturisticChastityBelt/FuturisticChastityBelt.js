@@ -78,7 +78,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 		Dictionary.push({ FocusGroupName: Item.Asset.Group.Name });
 		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name });
 		Dictionary.push({ AssetGroupName: Item.Asset.Group.Name });
-		let ShockPhrase = !NoShock ? "Shock" : "Punish"
+		let ShockPhrase = !NoShock ? "Shock" : "Punish";
 		if (!NoShock) Dictionary.push({ ShockIntensity : 2});
 		if (Item.Property && Item.Property.ShowText) {
 			Dictionary.push({ Automatic: true });

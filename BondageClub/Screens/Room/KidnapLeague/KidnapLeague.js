@@ -80,21 +80,21 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * Checks if the player has public permissions (up to Owners, Whitelist, and Dominants)
  * @returns {boolean} - Returns TRUE if the player can start the online bounty game
  */
- function KidnapLeagueHasBountyPermissions() {
+function KidnapLeagueHasBountyPermissions() {
 	return (Player.ItemPermission <= 2);
 }
 /**
  * Checks if the player has public permissions (up to Owners, Whitelist, and Dominants)
  * @returns {boolean} - Returns TRUE if the player cannot start the online bounty game
  */
- function KidnapLeagueDoesNotHaveBountyPermissions() {
+function KidnapLeagueDoesNotHaveBountyPermissions() {
 	return (Player.ItemPermission > 2);
 }
 /**
  * Checks if the player can take up the online bounty quest
  * @returns {boolean} - Returns TRUE if the player can start the online bounty game
  */
- function KidnapLeagueCanStartOnlineBounty() {
+function KidnapLeagueCanStartOnlineBounty() {
 	let misc = InventoryGet(Player, "ItemMisc");
 	return (ReputationGet("Kidnap") > 0 && Player.CanTalk() && CurrentCharacter.CanTalk() && CurrentCharacter.CanInteract() && !misc);
 }
@@ -102,7 +102,7 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * Checks if the player can end early the online bounty quest
  * @returns {boolean} - Returns TRUE if the player can end the online bounty game
  */
- function KidnapLeagueOnlineBountyOngoing() {
+function KidnapLeagueOnlineBountyOngoing() {
 	let misc = InventoryGet(Player, "ItemMisc");
 	return (CurrentCharacter.CanTalk() && CurrentCharacter.CanInteract() && misc && misc.Asset && misc.Asset.Name == "BountySuitcase");
 }
@@ -110,7 +110,7 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * Checks if the player can end the online bounty quest
  * @returns {boolean} - Returns TRUE if the player can end the online bounty game
  */
- function KidnapLeagueOnlineBountyEnded() {
+function KidnapLeagueOnlineBountyEnded() {
 	let misc = InventoryGet(Player, "ItemMisc");
 	return (CurrentCharacter.CanTalk() && CurrentCharacter.CanInteract() && misc && misc.Asset && misc.Asset.Name == "BountySuitcaseEmpty");
 }
@@ -119,7 +119,7 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * Starts the online bounty game
  * @returns {void} - Nothing
  */
- function KidnapLeagueOnlineBountyStart() {
+function KidnapLeagueOnlineBountyStart() {
 	InventoryWear(Player, "BountySuitcase", "ItemMisc");
 	KidnapLeagueSearchingPlayers = [];
 }
@@ -127,14 +127,14 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * Ends the online bounty game early
  * @returns {void} - Nothing
  */
- function KidnapLeagueOnlineBountyCancel() {
+function KidnapLeagueOnlineBountyCancel() {
 	InventoryRemove(Player, "ItemMisc");
 }
 /**
  * Ends the online bounty game and pays
  * @returns {void} - Nothing
  */
- function KidnapLeagueOnlineBountyFinish() {
+function KidnapLeagueOnlineBountyFinish() {
 	let money = 25;
 	let misc = InventoryGet(Player, "ItemMisc");
 	if (misc && misc.Property && misc.Property.Iterations && typeof misc.Property.Iterations === "number") {
@@ -151,7 +151,7 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * Ends the online bounty game for the kidnapper
  * @returns {void} - Nothing
  */
- function KidnapLeagueResetOnlineBountyProgress() {
+function KidnapLeagueResetOnlineBountyProgress() {
 	KidnapLeagueSearchingPlayers = [];
 	KidnapLeagueOnlineBountyTarget = 0;
 }

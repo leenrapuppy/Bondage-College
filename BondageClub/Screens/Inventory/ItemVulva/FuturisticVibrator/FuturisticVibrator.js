@@ -9,7 +9,7 @@ const ItemVulvaFuturisticVibratorAccessMode = {
 	EVERYONE: "",
 	PROHIBIT_SELF: "ProhibitSelf",
 	LOCK_MEMBER_ONLY: "LockMember",
-}
+};
 const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturisticVibratorAccessMode);
 
 function InventoryItemVulvaFuturisticVibratorLoad() {
@@ -130,8 +130,8 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		let regexString = TriggerValues[I].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 		// Allow `*` wildcard, and normalize case
-		regexString = regexString.replace(/\*/g, ".*")//regexString.replaceAll("\\*", ".*")
-		regexString = regexString.toUpperCase()
+		regexString = regexString.replace(/\*/g, ".*");//regexString.replaceAll("\\*", ".*")
+		regexString = regexString.toUpperCase();
 
 		const nonLatinCharRegex = new RegExp('^([^\\x20-\\x7F]|\\\\.\\*)+$');
 		let triggerRegex;
@@ -247,7 +247,7 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	for (let CH = ChatRoomChatLog.length - 1; CH >= 0; CH--) {
 
 		// Messages are in order, no need to keep looping
-		if (ChatRoomChatLog[CH].Time <= LastTime) break
+		if (ChatRoomChatLog[CH].Time <= LastTime) break;
 
 		// Skip messages from unauthorized users
 		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.PROHIBIT_SELF && ChatRoomChatLog[CH].SenderMemberNumber === Player.MemberNumber) continue;
@@ -283,7 +283,7 @@ function AssetsItemVulvaFuturisticVibratorScriptDraw(data) {
 	if (typeof PersistentData.CheckTime !== "number") PersistentData.CheckTime = 0;
 
 	// Trigger a check if a new message is detected
-	let lastMsgIndex = ChatRoomChatLog.length - 1
+	let lastMsgIndex = ChatRoomChatLog.length - 1;
 	if (lastMsgIndex >= 0 && ChatRoomChatLog[lastMsgIndex].Time > PersistentData.CheckTime) {
 		InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, PersistentData.CheckTime);
 		PersistentData.CheckTime = ChatRoomChatLog[lastMsgIndex].Time;

@@ -1771,10 +1771,10 @@ var PlatformDialogData = [
 			{
 				Text: "Where should we go?",
 				Answer: [
-					{ Text: "Let's go straight on the path.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchEast") } },
-					{ Text: "Let's turn left here.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchMaze") }  },
-					{ Text: "We should go right.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestOakHeavy") }  },
-					{ Text: "We should go back.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchCenter") }  },
+					{ Text: "Let's go straight on the path.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchEast"); } },
+					{ Text: "Let's turn left here.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchMaze"); }  },
+					{ Text: "We should go right.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestOakHeavy"); }  },
+					{ Text: "We should go back.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchCenter"); }  },
 				]
 			},
 		]
@@ -1808,10 +1808,10 @@ var PlatformDialogData = [
 			{
 				Text: "Let me guide the group.  I'll show you the way.",
 				Answer: [
-					{ Text: "Guide us Edlaran.", Script: function() { PlatformDialogStart("ForestTrap") } },
-					{ Text: "I fully trust you Edlaran.", Domination: -1, Love: 1, Script: function() { PlatformDialogStart("ForestTrap") } },
-					{ Text: "Fine.  Don't get us lost.", Domination: 1, Love: -1, Script: function() { PlatformDialogStart("ForestTrap") } },
-					{ Text: "No!  We're going this way.", Reply: "(She sighs as everyone follows you.)", Script: function() { PlatformLoadRoom("ForestBirchMaze") }  },
+					{ Text: "Guide us Edlaran.", Script: function() { PlatformDialogStart("ForestTrap"); } },
+					{ Text: "I fully trust you Edlaran.", Domination: -1, Love: 1, Script: function() { PlatformDialogStart("ForestTrap"); } },
+					{ Text: "Fine.  Don't get us lost.", Domination: 1, Love: -1, Script: function() { PlatformDialogStart("ForestTrap"); } },
+					{ Text: "No!  We're going this way.", Reply: "(She sighs as everyone follows you.)", Script: function() { PlatformLoadRoom("ForestBirchMaze"); }  },
 				]
 			},
 		]
@@ -1990,7 +1990,7 @@ var PlatformDialogData = [
 			{
 				Text: "(What will you do?)",
 				Answer: [
-					{ Text: "(Open the crate.)", Reply: "(You work hard to open the crate.)", Script: function() { PlatformEventSet("ForestCaptureRescueMelody") } },
+					{ Text: "(Open the crate.)", Reply: "(You work hard to open the crate.)", Script: function() { PlatformEventSet("ForestCaptureRescueMelody"); } },
 					{ Text: "(Leave it.)", Script: function() { PlatformDialogLeave(); } },
 				]
 			},
@@ -2149,7 +2149,7 @@ var PlatformDialogData = [
 			{ Text: "(Olivia jumps on the wooden raft which starts to drift on the lake.)" },
 			{ Text: "(Her pursuers jump in the water but quickly turn back, failing to swim.)" },
 			{ Text: "(The raft slowly gets further toward the middle of the lake.)" },
-			{ 
+			{
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGaggedKneeling", X: 500, Y: 300 },
 				]
@@ -2209,7 +2209,7 @@ var PlatformDialogData = [
 			{ Text: "(You swim for hours, feeling your soar muscle.)" },
 			{ Text: "(You cannot give up, too much is at stake.)" },
 			{ Text: "(You finally reach Olivia's raft.)" },
-			{ 
+			{
 				Background: "LakeRaft",
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGaggedKneeling", X: 250, Y: 300 },
@@ -2227,7 +2227,7 @@ var PlatformDialogData = [
 				]
 			},
 			{ Text: "(You release her from her bondage.)" },
-			{ 
+			{
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
@@ -2249,7 +2249,7 @@ var PlatformDialogData = [
 					PlatformDialogProcess();
 				}
 			},
-			{ 
+			{
 				Text: "It was very reckless to go on the lake alone, bound and gagged.",
 				Character: [
 					{ Name: "Melody", Status: "Underwear", Pose: "Cocky", X: 1000 },
@@ -2270,7 +2270,7 @@ var PlatformDialogData = [
 					{ Text: "What would your mother do?  (Spank her.)", Reply: "She... she would spank me Melody.", Perk: true, Domination: 2 },
 				]
 			},
-			{ 
+			{
 				Text: "Bend down young lady.  You will be spanked.",
 				Character: [
 					{ Name: "Melody", Status: "Underwear", Pose: "Cocky", X: 1000 },
@@ -2420,7 +2420,7 @@ var PlatformDialogData = [
 					{ Text: "(Compliment her.)", Reply: "(She smiles but quickly turns away.)", Perk: true, Goto: "Skip" }
 				]
 			},
-			{ 
+			{
 				Text: "Olivia, we've been best friends for most of our lives.",
 				Character: [
 					{ Name: "Melody", Status: "Maid", Pose: "IdleHappy" },
@@ -2449,7 +2449,7 @@ var PlatformDialogData = [
 				Text: "No!  YOU will be my girlfriend.  (She laughs and jumps on you for a passionate kiss.)",
 			},
 			{
-				Entry: function() { 
+				Entry: function() {
 					PlatformDialogGetCharacter("Olivia").Love = PlatformDialogGetCharacter("Olivia").Love + 3;
 					PlatformDialogGetCharacter("Olivia").LoverName = "Melody";
 					PlatformDialogGetCharacter("Melody").LoverName = "Olivia";
@@ -2471,7 +2471,7 @@ var PlatformDialogData = [
 			},
 			{},
 			{ Text: "(She looks down at her chastity belt and sighs loudly.)" },
-			{ 
+			{
 				Text: "This belt will be a problem sweetheart.",
 				Answer: [
 					{ Text: "I know!  We are so helpless my love.", Reply: "(She caresses your head slowly.)  We will find a solution someday honey.", Domination: -2 },
@@ -2618,14 +2618,14 @@ function PlatformDialogDraw() {
 			if (Character.Pose != null)
 				DrawImage("Screens/Room/PlatformDialog/Character/" + Character.Name + "/" + Character.Status + "/" + Character.Pose + ".png", (Character.X == null) ? X : Character.X, (Character.Y == null) ? Y : Character.Y);
 			else
-				if (Character.Animation != null)
-					for (let Char of PlatformTemplate)
-						if ((Char.Name == Character.Name) && (Char.Status == Character.Status))
-							for (let Anim of Char.Animation)
-								if (Anim.Name == Character.Animation) {
-									let AnimPos = Math.floor(CommonTime() / Anim.Speed) % Anim.Cycle.length;
-									DrawImage("Screens/Room/Platform/Character/" + Character.Name + "/" + Character.Status + "/" + Character.Animation + "/" + Anim.Cycle[AnimPos].toString() + ".png", (Character.X == null) ? X - 250 : Character.X, (Character.Y == null) ? Y : Character.Y);
-								}
+			if (Character.Animation != null)
+				for (let Char of PlatformTemplate)
+					if ((Char.Name == Character.Name) && (Char.Status == Character.Status))
+						for (let Anim of Char.Animation)
+							if (Anim.Name == Character.Animation) {
+								let AnimPos = Math.floor(CommonTime() / Anim.Speed) % Anim.Cycle.length;
+								DrawImage("Screens/Room/Platform/Character/" + Character.Name + "/" + Character.Status + "/" + Character.Animation + "/" + Anim.Cycle[AnimPos].toString() + ".png", (Character.X == null) ? X - 250 : Character.X, (Character.Y == null) ? Y : Character.Y);
+							}
 			X = X + 500;
 		}
 	}

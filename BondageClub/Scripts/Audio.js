@@ -584,7 +584,7 @@ function AudioVibratorSounds(data) {
  * @param {IChatRoomMessage} data - Represents the chat message received
  * @returns {[string, number]} - The name of the sound to play, followed by the noise modifier
  */
- function AudioShockSounds(data) {
+function AudioShockSounds(data) {
 	let Modifier = parseInt(data.Content.slice(-1));
 	if (isNaN(Modifier)) Modifier = 0;
 	return ["Shocks", Modifier * 3];

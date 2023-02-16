@@ -1141,7 +1141,7 @@ function DrawBackNextButton(Left, Top, Width, Height, Label, Color, Image, BackT
 	if (BackText == null) BackText = () => "MISSING VALUE FOR: BACK TEXT";
 	if (NextText == null) NextText = () => "MISSING VALUE FOR: NEXT TEXT";
 	if ((MouseX >= Left) && (MouseX <= Left + Width) && (MouseY >= Top) && (MouseY <= Top + Height) && !Disabled)
-		DrawHoverElements.push(() => { DrawButtonHover(Left, Top, Width, Height, MouseX < LeftSplit ? BackText() : MouseX >= RightSplit ? NextText() : "") });
+		DrawHoverElements.push(() => { DrawButtonHover(Left, Top, Width, Height, MouseX < LeftSplit ? BackText() : MouseX >= RightSplit ? NextText() : ""); });
 
 }
 
