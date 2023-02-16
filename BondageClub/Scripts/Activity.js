@@ -294,7 +294,7 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 		let types;
 		if (!item.Property) {
 			types = [null];
-		} else if (item.Asset.Archetype === "Modular") {
+		} else if (item.Asset.Archetype === ExtendedArchetype.MODULAR) {
 			types = ModularItemDeconstructType(item.Property.Type) || [null];
 		} else {
 			types = [item.Property.Type];
