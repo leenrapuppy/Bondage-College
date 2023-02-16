@@ -2577,6 +2577,8 @@ SourceCharacter polishes DestinationCharacter bra.
 SourceCharacter给DestinationCharacter胸罩添加高光。
 SourceCharacter removes the polish on DestinationCharacter bra.
 SourceCharacter移除了DestinationCharacter胸罩上的高光。
+Select display options
+选择展示选项
 Diagnostics for wearer
 穿戴者的诊断信息
 Current Body Temp:
@@ -5387,6 +5389,8 @@ Closed Transparent Hood Cover
 关闭透明头套覆盖
 SourceCharacter changes the hood cover on DestinationCharacter latex hood.
 SourceCharacter调整了DestinationCharacter乳胶头套上的头套覆盖。
+Select ears
+选择耳朵
 No Ears
 没有耳朵
 SourceCharacter attaches ears to DestinationCharacter cat mask harness.
@@ -6383,6 +6387,8 @@ Default
 默认
 Change Opacity
 改变遮光度
+Select transparancy
+选择透明度
 Shadow
 阴影
 SourceCharacter folds DestinationCharacter folding screen.
