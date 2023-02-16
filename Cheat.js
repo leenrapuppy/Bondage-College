@@ -102,10 +102,12 @@ function CheatTranslation(){
 		if (!TranslationSavedStage || TranslationSavedStage.screen !== CurrentChapter + "_" + CurrentScreen) {
 			TranslationSavedStage = {
 				stage: window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"],
-				screen: CurrentChapter + "_" + CurrentScreen
+				screen: CurrentChapter + "_" + CurrentScreen,
+				overridenText: OverridenIntroText
 			};
 			TranslationCurrentStageFileLine = 1;
 		}
+
 		let texts = CurrentStage;
 		if(texts && texts.length > 1){
 			if(KeyPress === 56) TranslationCurrentStageFileLine--; else TranslationCurrentStageFileLine++;
@@ -117,11 +119,15 @@ function CheatTranslation(){
 			console.log("Stage: " + currentStage + " Line: " + TranslationCurrentStageFileLine + 1);
 		}
 	}
-	// number 7 returns non overriden intro text (if present)
+	// number 7 returns non overriden intro text for given stage (if present)
 	if(KeyPress === 55){
 		OverridenIntroText = "";
+	}
+	// key "=" reverts to last saved state
+	if(KeyPress === 61){
 		if(TranslationSavedStage) {
 			window[CurrentChapter + "_" + CurrentScreen + "_CurrentStage"] = TranslationSavedStage.stage
+			OverridenIntroText = TranslationSavedStage.overridenText
 			TranslationSavedStage = undefined;
 		}
 	}
