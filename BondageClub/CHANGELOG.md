@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2023-02-09
-* Last recorded PR: [#3904](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3904)
-* Last recorded commit hash: `80875fe38d8b14e1e5e9a8b0f42008358435e2a5`
+* Changelog last updated: 2023-02-16
+* Last recorded PR: [#3930](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3930)
+* Last recorded commit hash: `f8ca6691011986a0c993b81b859cfb8cfabdf93c`
 
 ## [R89]
 
@@ -77,6 +77,28 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Centralized account-checking regexes and simplified the code. That fixes an issue with password resets. ([#3855](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3855))
 * Estsanatlehi - Overhauled the struggle minigames' handling ([#3845](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3845))
 * bananarama92 - Added annotations for many global variables and constants ([#3898](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3898))
+
+### [Beta Fixes]
+* bananarama92 - Fixed an issue with the futuristic vibrator not respecting the `DisableAdvancedVibes` setting ([#3906](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3906))
+* Estsanatlehi - Fixed a bug when choosing random options for randomly-generated restraints on NPCs ([#3907](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3907))
+* Estsanatlehi - Explicitly disabled Node types from being pulled ([#3908](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3908))
+* Ellie - Fixed a couple issues with the new Dominatrix Leotard ([#3909](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3909))
+* KyraObscura - Reduced Priority for the Cropped Hoodie's Front Layers ([#3910](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3910))
+* Estsanatlehi - Fixed a crash with `NotVisibleOnScreen` if the asset doesn't exist ([#3911](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3911))
+* Estsanatlehi - Added the missing tooltips for the status effect icons ([#3912](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3912))
+* Nikky - Fixed the priority of the new Folding screen ([#3914](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3914))
+* Estsanatlehi - Fixed another problem with locks and option switching ([#3915](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3915))
+* Estsanatlehi - Fixed a dialog typo ([#3916](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3916))
+* KyraObscura - Made item slots accessible while wearing Cropped Hoodie ([#3917](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3917))
+* Da'Inihlus - Provided an updated Traditional Chinese translation ([#3918](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3918), [#3926](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3926))
+* Estsanatlehi - Reverted "Merge ParentColor with InheritColor" as it caused incorrect coloring in some cases ([#3919](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3919))
+* bananarama92 - Fixed a couple group and dialog-related mismatches ([#3920](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3920))
+* bananarama92 - Added some validation to the Wheel of Fortune to ignore unknown options ([#3921](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3921))
+* Miisha - Fixed an error in email validation which could prevent creation of new accounts ([#3922](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3922))
+* Luna - Removed some extraneous properties from the 2nd Pet post ([#3923](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3923))
+* bananarama92 - Provided 3 fixes for some small issues ([#3927](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3927))
+* Estsanatlehi - Fix a couple issues where the leash could break ([#3928](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3928))
+* KyraObscura - Fixed the archetype on the 2nd Navel Bar ([#3930](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3930))
 
 ## [R88]
 
