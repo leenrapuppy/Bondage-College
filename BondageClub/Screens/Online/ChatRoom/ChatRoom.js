@@ -63,7 +63,7 @@ var ChatRoomNewRoomToUpdate = null;
 var ChatRoomNewRoomToUpdateTimer = 0;
 /** @type {number[]} */
 var ChatRoomLeashList = [];
-/** @type {null | Character} */
+/** @type {null | number} */
 var ChatRoomLeashPlayer = null;
 var ChatRoomTargetDirty = false;
 
@@ -3389,6 +3389,8 @@ function ChatRoomSyncRoomProperties(data) {
 	// The allowed menu actions may have changed
 	ChatRoomMenuBuild();
 
+	// Update our leash state
+	CharacterRefreshLeash(Player);
 }
 
 /**
@@ -3794,15 +3796,17 @@ function ChatRoomHoldLeash() {
  * @param {Character} SenderCharacter
  */
 function ChatRoomDoHoldLeash(SenderCharacter) {
-	if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
-		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
-	}
 	if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
+			// Someone that isn't our current leasher picked up our leash. Inform them that we dropped their leash
+			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
+		}
+		// Set the character as our new leasher
 		ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
-		CharacterRefreshLeash(Player);
 	} else {
 		ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
 	}
+	CharacterRefreshLeash(Player);
 }
 
 /**
