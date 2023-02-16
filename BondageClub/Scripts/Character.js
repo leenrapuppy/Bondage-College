@@ -1964,6 +1964,12 @@ function CharacterRefreshLeash(C) {
 		return;
 	}
 
+	// Make sure our current leasher can still leash us, since binding us to the room, or
+	// marking it as leash-blocking should break the leash.
+	if (ChatRoomLeashPlayer !== null && !ChatRoomCanBeLeashedBy(ChatRoomLeashPlayer, Player)) {
+		ChatRoomLeashPlayer = null;
+	}
+
 	// Check for a dynamic leash and update its state
 	const dynamicLeash = leashes.find(i => i.Asset.AllowEffect.includes("IsLeashed"));
 	if (dynamicLeash) {
