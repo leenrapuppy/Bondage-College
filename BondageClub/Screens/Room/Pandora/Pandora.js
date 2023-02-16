@@ -429,7 +429,7 @@ function PandoraDress(C, Type) {
 		if (Math.random() > 0.33) InventoryWearRandom(C, "Wings");
 		if (Math.random() > 0.33) InventoryWearRandom(C, "HairAccessory1");
 		if (Math.random() > 0.33) InventoryWearRandom(C, "TailStraps");
-		if (Math.random() > 0.5) InventoryWearRandom(C, "Ears");
+		if (Math.random() > 0.5) InventoryWearRandom(C, "HairAccessory2");
 		if (Math.random() > 0.5) InventoryWearRandom(C, "Corset");
 		if (Math.random() > 0.5) InventoryWearRandom(C, "Mask");
 		if (Math.random() > 0.666) InventoryWearRandom(C, "Garters");
