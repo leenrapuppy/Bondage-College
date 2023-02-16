@@ -3,7 +3,9 @@
 /** @type {[number, number, number, number]} */
 var [ColorPickerX, ColorPickerY, ColorPickerWidth, ColorPickerHeight] = [undefined, undefined, undefined, undefined];
 /** @type {[HSVColor, HSVColor, HSVColor, HSVColor]} */
-var [ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV, ColorPickerSourceElement] = [undefined, undefined, undefined, undefined];
+var [ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV] = [undefined, undefined, undefined, undefined];
+/** @type {HTMLInputElement} */
+var ColorPickerSourceElement;
 /** @type {ColorPickerCallbackType} */
 let ColorPickerCallback;
 /** @type {string} */

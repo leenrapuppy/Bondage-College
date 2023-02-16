@@ -120,7 +120,7 @@ function InventoryItemNeckSlaveCollarDraw() {
 
 			// In color picking mode, we allow the user to change the collar color
 			ElementPosition("InputColor", 1450, 65, 300);
-			ColorPickerDraw(1300, 145, 675, 830, document.getElementById("InputColor"), function (Color) { DialogChangeItemColor(C, Color); });
+			ColorPickerDraw(1300, 145, 675, 830, /** @type {HTMLInputElement} */(document.getElementById("InputColor")), function (Color) { DialogChangeItemColor(C, Color); });
 			DrawButton(1665, 25, 90, 90, "", "White", "Icons/ColorSelect.png");
 			DrawButton(1775, 25, 90, 90, "", "White", "Icons/ColorCancel.png");
 

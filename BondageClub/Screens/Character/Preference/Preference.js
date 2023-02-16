@@ -839,7 +839,7 @@ function PreferenceSubscreenGeneralRun() {
 	DrawCharacter(Player, 50, 50, 0.9);
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
 	if (PreferenceColorPick != "")
-		ColorPickerDraw(1250, 185, 675, 800, document.getElementById(PreferenceColorPick));
+		ColorPickerDraw(1250, 185, 675, 800, /** @type {HTMLInputElement} */(document.getElementById(PreferenceColorPick)));
 	else
 		ColorPickerHide();
 
