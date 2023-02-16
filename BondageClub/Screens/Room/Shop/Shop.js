@@ -13,6 +13,7 @@ var ShopRescueScenarioList = ["BoughtEverything", "CatBurglar", "BoredVendor", "
 var ShopItemOffset = 0;
 var ShopDemoItemPayment = 0;
 var ShopDemoItemGroup = "";
+/** @type {AssetGroupName[]} */
 var ShopDemoItemGroupList = ["ItemHead", "ItemMouth", "ItemArms", "ItemLegs", "ItemFeet"];
 var ShopSelectAsset = ShopAssetFocusGroup;
 /** @type {Asset[]} */
@@ -436,7 +437,7 @@ function ShopJobRestrain() {
 	if (availableGroups.length > 0) {
 		ShopDemoItemGroup = CommonRandomItemFromList("", availableGroups);
 	} else {
-		ShopVendor.Stage = 30;
+		ShopVendor.Stage = "30";
 		return;
 	}
 

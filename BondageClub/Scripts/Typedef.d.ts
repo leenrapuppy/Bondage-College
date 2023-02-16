@@ -1456,6 +1456,13 @@ interface NPCCharacter {
 	RunAway?: boolean;
 }
 
+/** Movie Studio */
+interface NPCCharacter {
+	TrialDone?: boolean;
+	CanGetLongDuster?: boolean;
+	OweFavor?: boolean;
+}
+
 /** Sarah */
 interface Character {
 	OrgasmMeter?: number;
@@ -1485,6 +1492,8 @@ interface Character {
 	KidnapStat?: [number, number, number, number];
 }
 
+type PandoraPrisonActivity = "Beat" | "Water" | "Transfer" | "Quickie" | "Strip" | "Chastity" | "Tickle" | "ChangeBondage";
+
 /** Pandora NPCs */
 interface Character {
 	Recruit?: number;
@@ -1496,6 +1505,8 @@ interface Character {
 	DrinkValue?: number;
 	TriggerIntro?: boolean;
 	FromPandora?: boolean;
+	// Pandora Prison
+	LastActivity?: PandoraPrisonActivity;
 }
 
 /** Magic School */
@@ -2943,11 +2954,11 @@ interface GamePokerParameters {
 type OnlineGameStatus = "" | "Running";
 
 interface GameLARPParameters {
-	Status: OnlineGameStatus;
-	Class: string;
-	Team: string;
-	TimerDelay: number;
-	Level: {
+	Status?: OnlineGameStatus;
+	Class?: string;
+	Team?: string;
+	TimerDelay?: number;
+	Level?: {
 		Name: string;
 		Level: number;
 		Progress: number;
@@ -3186,7 +3197,7 @@ interface PandoraBaseRoom {
 	Path: (PandoraBaseRoom | PandoraSpecialRoom)[];
 	PathMap: PandoraBaseRoom[];
 	Direction: string[];
-	DirectionMap: string[];
+	DirectionMap: PandoraFloorDirection[];
 
 	/* SearchRoom */
 	SearchSquare?: {
@@ -3404,7 +3415,7 @@ interface LogNameType {
 	"NPC-Jennifer": "JenniferLover" | "JenniferCollared" | "JenniferMistress",
 	"NPC-Sarah": "SarahLover" | "SarahCollared" | "SarahCollaredWithCurfew",
 	"NPC-SarahIntro": "SarahWillBePunished" | "SarahCameWithPlayer",
-	"NPC-Sidney": "JenniferLover" | "JenniferMistress" | "JenniferCollared",
+	"NPC-Sidney": "SidneyLover" | "SidneyMistress" | "SidneyCollared",
 	// NOTE: A number of owner rules can have arbitrary suffices, and can thus not be expressed as string literals
 	OwnerRule: (
 		"BlockChange"

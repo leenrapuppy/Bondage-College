@@ -813,11 +813,11 @@ function StablePonyTraining(probability) {
 	if (parseInt(probability) > Math.random() * 100) {
 		StablePony.CurrentDialog = DialogFind(StablePony, "StablePonyPassIntro");
 		SkillProgress("Dressage", (100 - probability));
-		StablePony.Stage = 23;
+		StablePony.Stage = "23";
 		StablePonyPass = true;
 	} else {
 		StablePony.CurrentDialog = DialogFind(StablePony, "StablePonyFailIntro");
-		StablePony.Stage = 24;
+		StablePony.Stage = "24";
 		StablePonyFail = true;
 	}
 	StableTrainerTrainingExercises -= 1;
@@ -834,11 +834,11 @@ function StablePonyTrainingHurdlesEnd() {
 	CharacterSetCurrent(StablePony);
 	if (MiniGameVictory) {
 		StablePony.CurrentDialog = DialogFind(StablePony, "StablePonyPassIntro");
-		StablePony.Stage = 23;
+		StablePony.Stage = "23";
 		StablePonyPass = true;
 	} else {
 		StablePony.CurrentDialog = DialogFind(StablePony, "StablePonyFailIntro");
-		StablePony.Stage = 24;
+		StablePony.Stage = "24";
 		StablePonyFail = true;
 	}
 }
@@ -854,11 +854,11 @@ function StableTrainerWhipEnd() {
 	CharacterSetCurrent(StablePony);
 	if (MiniGameVictory) {
 		StablePony.CurrentDialog = DialogFind(StablePony, "StablePonyPassIntro");
-		StablePony.Stage = 23;
+		StablePony.Stage = "23";
 		StablePonyPass = true;
 	} else {
 		StablePony.CurrentDialog = DialogFind(StablePony, "StablePonyFailIntro");
-		StablePony.Stage = 24;
+		StablePony.Stage = "24";
 		StablePonyFail = true;
 	}
 }

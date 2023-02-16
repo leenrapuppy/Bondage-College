@@ -87,7 +87,6 @@ function PandoraPrisonRun() {
  */
 function PandoraPrisonGuardNewActivity() {
 	let Activity = "";
-	if (PandoraPrisonGuard.LastActivity == null) PandoraPrisonGuard.LastActivity = "";
 	while (Activity == "") {
 		Activity = CommonRandomItemFromList(PandoraPrisonGuard.LastActivity, ["Beat", "Water", "Transfer", "Quickie", "Strip", "Chastity", "Tickle", "ChangeBondage"]);
 		if ((Activity == "Beat") && (PandoraWillpower * 2 < PandoraMaxWillpower)) Activity = ""; // Beat only happen at 50% health or more
@@ -99,7 +98,7 @@ function PandoraPrisonGuardNewActivity() {
 		if ((Activity == "Tickle") && Player.CanInteract()) Activity = ""; // Tickle cannot happen when the player isn't bound
 	}
 	PandoraPrisonGuard.Stage = Activity;
-	PandoraPrisonGuard.LastActivity = Activity;
+	PandoraPrisonGuard.LastActivity = /** @type {PandoraPrisonActivity} */(Activity);
 }
 
 /**

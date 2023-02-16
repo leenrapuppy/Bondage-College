@@ -578,9 +578,11 @@ function SarahSophiePreparePunishCharacter(C) {
  * @param {string|number} Intensity
  */
 function SarahSophieStartBuzz(C, Intensity) {
-	Intensity = parseInt(Intensity);
+	Intensity = parseInt(Intensity, 10);
+	if (Intensity <= -1 || Intensity >= 3) return;
 	var Egg = InventoryGet(C, "ItemVulva");
 	Egg.Property = {};
+	// @ts-ignore Range-checked above
 	Egg.Property.Intensity = Intensity;
 	if (Intensity >= 0) Egg.Property.Effect = ["Egged", "Vibrating"];
 	else Egg.Property.Effect = ["Egged"];

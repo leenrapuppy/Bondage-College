@@ -298,7 +298,7 @@ function PandoraClick() {
 					return CommonSetScreen("Room", "Infiltration");
 				if ((Floor == "Search") || (Floor == "Paint") || (Floor == "Rest"))
 					return PandoraSetMode(Floor);
-				return PandoraEnterRoom(PandoraCurrentRoom.Path[P]);
+				return PandoraEnterRoom(/** @type {PandoraBaseRoom} */(PandoraCurrentRoom.Path[P]));
 			}
 		if (MouseIn(1842, 620, 90, 90) && (PandoraDirectionAvailable("North"))) return PandoraEnterRoom(PandoraCurrentRoom.PathMap[PandoraCurrentRoom.DirectionMap.indexOf("North")], "North");
 		if (MouseIn(1785, 735, 90, 90) && (PandoraDirectionAvailable("West"))) return PandoraEnterRoom(PandoraCurrentRoom.PathMap[PandoraCurrentRoom.DirectionMap.indexOf("West")], "West");
