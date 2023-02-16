@@ -203,6 +203,11 @@ function InventoryItemNeckFuturisticCollarClick() {
 	}
 }
 
+/**
+ * @param {Character} C
+ * @param {AssetLockType} LockType
+ * @returns
+ */
 function InventoryItemNeckFuturisticCollarCanLock(C, LockType) {
 	//InventoryAvailable(Player, LockType, "ItemMisc");
 	var LockItem = null;
@@ -249,6 +254,11 @@ function InventoryItemNeckFuturisticCollarCanLock(C, LockType) {
 	return false;
 }
 
+/**
+ * @param {Character} C
+ * @param {boolean} [OnlyUnlockable]
+ * @returns
+ */
 function InventoryItemNeckFuturisticCollarGetItems(C, OnlyUnlockable) {
 	var ItemList = [];
 
@@ -262,10 +272,19 @@ function InventoryItemNeckFuturisticCollarGetItems(C, OnlyUnlockable) {
 	return ItemList;
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @returns {string}
+ */
 function InventoryItemNeckFuturisticCollarValidate(C, Item) {
 	return InventoryItemFuturisticValidate(C, Item);
 }
 
+/**
+ * @param {Character} C
+ * @param {AssetLockType} LockType
+ */
 function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
 	for (let E = C.Appearance.length - 1; E >= 0; E--)
 		if (((C.Appearance[E].Asset.Name.indexOf("Futuristic") >= 0 || C.Appearance[E].Asset.Name.indexOf("Interactive") >= 0 || C.Appearance[E].Asset.Name.indexOf("Electronic") >= 0) &&
@@ -314,6 +333,13 @@ function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
 	}
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {Item} LockItem
+ * @param {*} Attempt
+ * @returns {boolean}
+ */
 function InventoryItemNeckFuturisticCollarCanUnlock(C, Item, LockItem, Attempt) {
 	if (LockItem.Asset.Name == "CombinationPadlock")
 		return Attempt || (Item.Property && Item.Property.CombinationNumber == ElementValue("FutureCollarPasswordField"));
@@ -323,6 +349,9 @@ function InventoryItemNeckFuturisticCollarCanUnlock(C, Item, LockItem, Attempt) 
 	return DialogCanUnlock(C, Item);
 }
 
+/**
+ * @param {Character} C
+ */
 function InventoryItemNeckFuturisticCollarUnlock(C) {
 	for (let E = C.Appearance.length - 1; E >= 0; E--)
 		if (((C.Appearance[E].Asset.Name.indexOf("Futuristic") >= 0 || C.Appearance[E].Asset.Name.indexOf("Interactive") >= 0 || C.Appearance[E].Asset.Name.indexOf("Electronic") >= 0) && C.Appearance[E].Asset.Group.Name != "ItemNeck") &&
@@ -344,40 +373,45 @@ function InventoryItemNeckFuturisticCollarUnlock(C) {
 
 }
 
-function InventoryItemNeckFuturisticCollarColor(C, Item) {
-	for (let E = C.Appearance.length - 1; E >= 0; E--)
-		if (C.Appearance[E].Asset && C.Appearance[E].Asset.FuturisticRecolor && C.Appearance[E].Asset.Group.Name != "ItemNeck") {
+/**
+ * @param {Character} C
+ * @param {Item} FromItem
+ */
+function InventoryItemNeckFuturisticCollarColor(C, FromItem) {
+	for (const item of C.Appearance) {
+		if (item.Asset && item.Asset.FuturisticRecolor && item.Asset.Group.Name != "ItemNeck") {
 
-			if (C.Appearance[E].Asset.Layer.length > 1 && typeof C.Appearance[E].Color === "string") {
-				let color = C.Appearance[E].Color;
-				C.Appearance[E].Color = [];
-				for (let L = C.Appearance[E].Asset.Layer.length - 1; L >= 0; L--) {
-					C.Appearance[E].Color.push(color);
+			if (item.Asset.Layer.length > 1 && typeof item.Color === "string") {
+				let color = item.Color;
+				item.Color = [];
+				for (let L = item.Asset.Layer.length - 1; L >= 0; L--) {
+					item.Color.push(color);
 				}
 			}
 
-			for (let L = C.Appearance[E].Asset.Layer.length - 1; L >= 0; L--) {
+			for (let L = item.Asset.Layer.length - 1; L >= 0; L--) {
 
-				if (C.Appearance[E].Asset.Layer[L].Name != "Light" && C.Appearance[E].Asset.Layer[L].Name != "Shine") {
-					if (!C.Appearance[E].Asset.Layer[L].Name) {
-						if (Item.Color[3] != "Default")
-							C.Appearance[E].Color = (C.Appearance[E].Asset.FuturisticRecolorDisplay) ? Item.Color[0] : Item.Color[3];
-					} else if (C.Appearance[E].Asset.Layer[L].Name == "Lock") {
-						if (Item.Color[3] != "Default")
-							C.Appearance[E].Color[L] = Item.Color[3];
-					} else if (C.Appearance[E].Asset.Layer[L].Name == "Display" || C.Appearance[E].Asset.Layer[L].Name == "Screen" || C.Appearance[E].Asset.Layer[L].Name == "Ball") {
-						if (Item.Color[0] != "Default")
-							C.Appearance[E].Color[L] = Item.Color[0];
-					} else if (C.Appearance[E].Asset.Layer[L].Name != "Mesh" && C.Appearance[E].Asset.Layer[L].Name != "Text") {
-						if (Item.Color[1] != "Default")
-							C.Appearance[E].Color[L] = Item.Color[1];
-					} else if (C.Appearance[E].Asset.Layer[L].Name != "Text") {
-						if (Item.Color[2] != "Default")
-							C.Appearance[E].Color[L] = Item.Color[2];
+				if (item.Asset.Layer[L].Name != "Light" && item.Asset.Layer[L].Name != "Shine") {
+					if (!item.Asset.Layer[L].Name) {
+						if (FromItem.Color[3] != "Default")
+							item.Color = (item.Asset.FuturisticRecolorDisplay) ? FromItem.Color[0] : FromItem.Color[3];
+					} else if (item.Asset.Layer[L].Name == "Lock") {
+						if (FromItem.Color[3] != "Default")
+							item.Color[L] = FromItem.Color[3];
+					} else if (item.Asset.Layer[L].Name == "Display" || item.Asset.Layer[L].Name == "Screen" || item.Asset.Layer[L].Name == "Ball") {
+						if (FromItem.Color[0] != "Default")
+							item.Color[L] = FromItem.Color[0];
+					} else if (item.Asset.Layer[L].Name != "Mesh" && item.Asset.Layer[L].Name != "Text") {
+						if (FromItem.Color[1] != "Default")
+							item.Color[L] = FromItem.Color[1];
+					} else if (item.Asset.Layer[L].Name != "Text") {
+						if (FromItem.Color[2] != "Default")
+							item.Color[L] = FromItem.Color[2];
 					}
 				}
 			}
 		}
+	}
 
 	ChatRoomCharacterUpdate(C);
 	CharacterRefresh(C, true);
@@ -393,6 +427,11 @@ function InventoryItemNeckFuturisticCollarColor(C, Item) {
 
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {"Leg"|"Arm"|"Chastity"|"Collar"} Permission
+ */
 function InventoryItemNeckFuturisticCollarTogglePermission(C, Item, Permission) {
 	if (Item.Property && Item.Property.OpenPermission != null) {
 		let property = "OpenPermission";
@@ -421,6 +460,10 @@ function InventoryItemNeckFuturisticCollarTogglePermission(C, Item, Permission) 
 	}
 }
 
+/**
+ * @param {Character} C
+ * @param {Item} Item
+ */
 function InventoryItemNeckFuturisticCollarToggleRemotes(C, Item) {
 	if (Item.Property && Item.Property.BlockRemotes != null) {
 		Item.Property.BlockRemotes = !Item.Property.BlockRemotes;

@@ -1045,6 +1045,9 @@ interface Asset {
 	ExpressionPrerequisite?: string[];
 	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
 	TextFont: null | string;
+
+	FuturisticRecolor?: boolean;
+	FuturisticRecolorDisplay?: boolean;
 }
 
 //#endregion
