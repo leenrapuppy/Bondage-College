@@ -1869,9 +1869,6 @@ interface ItemPropertiesCustom {
 	/** The member number of the player adding the item */
 	ItemMemberNumber?: number;
 
-	/** The member number of the player adding the item */
-	MemberNumber?: number;
-
 	//#region Lock properties
 
 	/** Asset name of the lock */

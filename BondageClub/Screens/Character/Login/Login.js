@@ -435,23 +435,15 @@ function LoginMaidItems() {
  * @returns {void} Nothing
  */
 function LoginLoversItems() {
-	var LoversNumbers = Player.GetLoversNumbers();
+	const LoversNumbers = Player.GetLoversNumbers();
 
-	//check to remove love leather collar slave collar if no lover
+	// check to remove love leather collar slave collar if no lover
+	// Note that as the Slave collar isn't yet an archetypal asset, that's why it gets skipped by validation
 	if (LoversNumbers.length < 1) {
-		var Collar = InventoryGet(Player,"ItemNeck");
+		const Collar = InventoryGet(Player,"ItemNeck");
 		if (Collar && Collar.Property && (Collar.Asset.Name == "SlaveCollar") && (Collar.Property.Type == "LoveLeatherCollar")) {
 			Collar.Property = null;
 			Collar.Color = "Default";
-		}
-	}
-
-	// remove any item that was lover locked if the number on the lock does not match any lover
-	for (let A = 0; A < Player.Appearance.length; A++) {
-		if (Player.Appearance[A].Property && Player.Appearance[A].Property.LockedBy && Player.Appearance[A].Property.LockedBy.startsWith("Lovers")
-			&& Player.Appearance[A].Property.MemberNumber && (LoversNumbers.indexOf(Player.Appearance[A].Property.MemberNumber) < 0)) {
-			InventoryRemove(Player, Player.Appearance[A].Asset.Group.Name);
-			A--;
 		}
 	}
 }
