@@ -5821,7 +5821,7 @@ var AssetFemale3DCGExtended = {
 			}
 		}, // FuturisticHarness
 		NavelBar1: {
-			Archetype: ExtendedArchetype.TYPED,
+			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemTorso", AssetName: "NavelBar1" },
 		}, // NavelBar1
 	}, //ItemTorso2
