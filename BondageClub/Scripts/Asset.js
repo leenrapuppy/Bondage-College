@@ -246,11 +246,15 @@ function AssetBuildExtended(A, ExtendedConfig) {
 	}
 
 	if (AssetConfig.CopyConfig) {
-		const Overrides = AssetConfig.Config;
+		const { Config: Overrides, Archetype } = AssetConfig;
 		const { GroupName, AssetName } = AssetConfig.CopyConfig;
 		AssetConfig = AssetFindExtendedConfig(ExtendedConfig, GroupName || A.Group.Name, AssetName);
 		if (!AssetConfig) {
 			console.error(`CopyConfig ${GroupName || A.Group.Name}:${AssetName} not found for ${A.Group.Name}:${A.Name}`);
+			return;
+		}
+		if (AssetConfig.Archetype !== Archetype) {
+			console.error(`Archetype for ${GroupName || A.Group.Name}:${AssetName} (${AssetConfig.Archetype}) doesn't match archetype for ${A.Group.Name}:${A.Name} (${Archetype})`);
 			return;
 		}
 		if (Overrides) {
