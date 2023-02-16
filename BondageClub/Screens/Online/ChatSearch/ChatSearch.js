@@ -15,9 +15,9 @@ var ChatSearchLeaveRoom = "MainHall";
 var ChatSearchLeaveSpace = "Room";
 /** @type {null | Item[]} */
 var ChatSearchSafewordAppearance = null;
-/** @type {null | string | string[]} */
+/** @type {null | AssetPoseName[]} */
 var ChatSearchSafewordPose = null;
-/** @type {null | string | string[]} */
+/** @type {null | AssetPoseName[]} */
 var ChatSearchPreviousActivePose = null;
 var ChatSearchTempHiddenRooms = [];
 var ChatSearchMode = "";
