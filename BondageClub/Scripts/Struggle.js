@@ -343,8 +343,8 @@ function StruggleProgressCheckEnd(C) {
 			ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem);
 			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
 		} else {
-			ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem);
-			DialogLeave();
+			if (ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem))
+				DialogLeave();
 		}
 
 		// Reset the the character's position

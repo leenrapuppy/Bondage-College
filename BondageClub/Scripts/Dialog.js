@@ -1467,8 +1467,7 @@ function DialogMenuButtonClick() {
 			else if ((DialogMenuButton[I] == "Unlock") && (Item != null)) {
 				if (!InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && ((C.ID != 0) || C.CanInteract())) {
 					InventoryUnlock(C, C.FocusGroup.Name);
-					if (CurrentScreen == "ChatRoom") {
-						ChatRoomPublishAction(C, "ActionUnlock", Item, null);
+					if (ChatRoomPublishAction(C, "ActionUnlock", Item, null)) {
 						DialogLeave();
 					} else {
 						DialogInventoryBuild(C);
@@ -1612,8 +1611,8 @@ function DialogMenuButtonClick() {
 function DialogPublishAction(C, Action, ClickItem) {
 	// Publishes the item result
 	if ((CurrentScreen == "ChatRoom") && !InventoryItemHasEffect(ClickItem)) {
-		ChatRoomPublishAction(C, Action, null, ClickItem);
-		DialogLeave();
+		if (ChatRoomPublishAction(C, Action, null, ClickItem))
+			DialogLeave();
 	}
 	else if (C.IsNpc()) {
 		let Line = ClickItem.Asset.Group.Name + ClickItem.Asset.DynamicName(Player);
@@ -1670,8 +1669,8 @@ function DialogItemClick(ClickItem) {
 			IntroductionJobProgress("DomLock", ClickItem.Asset.Name, true);
 			DialogItemToLock = null;
 			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, "ActionAddLock", CurrentItem, ClickItem);
-			DialogLeave();
+			if (ChatRoomPublishAction(C, "ActionAddLock", CurrentItem, ClickItem))
+				DialogLeave();
 		}
 		return;
 	}

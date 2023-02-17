@@ -146,8 +146,8 @@ function InventoryItemMiscCombinationPadlockUnlock(C, Item) {
 			C.Appearance[A] = Item;
 	}
 	InventoryUnlock(C, C.FocusGroup.Name);
-	ChatRoomPublishAction(C, "ActionUnlock", Item, null);
-	DialogLeave();
+	if (ChatRoomPublishAction(C, "ActionUnlock", Item, null))
+		DialogLeave();
 }
 
 // Catches the item extension clicks
