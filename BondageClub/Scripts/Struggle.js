@@ -34,7 +34,7 @@ var StruggleProgressChallenge = 0;
 /**
  * The struggle minigame progress
  *
- * -1 means there's no game running. 0 and StruggleProgressCurrentMinigame
+ * -1 means there's no game running. 0 and StruggleProgressCurrentMinigame === ""
  * indicates the player hasn't selected a game yet.
  *
  * @type {number}
@@ -1126,9 +1126,11 @@ function StruggleLockPickDraw(C) {
 			action = "ActionInterruptedRemove";
 
 		ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		DialogLeave();
+		// FIXME: that's supposed to be StruggleMinigameStop()
+		StruggleProgress = -1;
+		StruggleProgressCurrentMinigame = "";
 		StruggleLockPickOrder = null;
-		DialogLockMenu = false;
+		DialogLeave();
 	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
 		StruggleLockPickSuccessTime = 0;
 		// Success!
@@ -1140,15 +1142,11 @@ function StruggleLockPickDraw(C) {
 			}
 		}
 		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
-		// The player can use another item right away, for another character we jump back to her reaction
-		if (C.ID == 0) {
-			DialogInventoryBuild(C);
-			StruggleLockPickOrder = null;
-			DialogLockMenu = false;
-			DialogMenuButtonBuild(C);
-		} else {
-			DialogLeaveItemMenu();
-		}
+		// FIXME: that's supposed to be StruggleMinigameStop()
+		StruggleProgress = -1;
+		StruggleProgressCurrentMinigame = "";
+		StruggleLockPickOrder = null;
+		DialogLeave();
 	} else {
 		if ( Player.ArousalSettings && (Player.ArousalSettings.Active != "Inactive" && Player.ArousalSettings.Active != "NoMeter") && Player.ArousalSettings.Progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
 			if (CurrentTime > StruggleLockPickArousalTick) {

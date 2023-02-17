@@ -2739,7 +2739,7 @@ function DialogActualNameForGroup(C, G) {
  * @returns {boolean}
  */
 function DialogIsStruggling() {
-	return (StruggleProgress >= 0 || !!StruggleLockPickOrder);
+	return (StruggleProgress >= 0 && StruggleProgressCurrentMinigame !== "");
 }
 
 /**
