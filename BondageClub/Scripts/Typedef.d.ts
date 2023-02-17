@@ -848,7 +848,7 @@ interface AssetLayer {
 	/** if not null, specifies that this layer should always copy the color of the named layer */
 	CopyLayerColor: string | null;
 	/** specifies the name of a color group that this layer belongs to. Any layers within the same color group can be colored together via the item color UI */
-	ColorGroup?: string;
+	ColorGroup: string | null;
 	/** whether or not this layer can be colored in the coloring UI */
 	HideColoring: boolean;
 	/** A list of allowed extended item types that this layer permits - the layer will only be drawn if
@@ -862,7 +862,7 @@ interface AssetLayer {
 	ParentGroupName?: AssetGroupName | "" | null;
 	/** An array of poses that this layer permits. If set, it will override the poses permitted
 	by the parent asset/group. */
-	AllowPose: AssetPoseName[];
+	AllowPose: AssetPoseName[] | null;
 	/** An array of poses that this layer should be hidden for. */
 	HideForPose: (AssetPoseName | "")[];
 	/** An array of objects mapping poses to other poses to determine their draw folder */
@@ -870,7 +870,7 @@ interface AssetLayer {
 	/** The drawing priority of this layer. Inherited from the parent asset/group if not specified in the layer
 	definition. */
 	Priority: number;
-	InheritColor?: AssetGroupName;
+	InheritColor: AssetGroupName | null;
 	Alpha: AlphaDefinition[];
 	/** The asset that this layer belongs to */
 	Asset: Asset;

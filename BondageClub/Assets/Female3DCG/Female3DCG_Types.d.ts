@@ -348,7 +348,7 @@ interface AssetLayerDefinition {
 	Visibility?: string;
 
 	/** The group the layer belongs to. Mainly useful to inherit the body's size. */
-	ParentGroup?: AssetGroupName | "",
+	ParentGroup?: AssetGroupName | null,
 
 	/** A list of poses that layer supports. */
 	AllowPose?: AssetPoseName[];

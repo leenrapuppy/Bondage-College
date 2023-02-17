@@ -4510,8 +4510,8 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone"],
 				Layer: [
 					{ Name: "" },
-					{ Name: "Suspension", Top: -687, HasType: false, Priority: 31, ParentGroup: "", AllowTypes: ["SuspensionHogtied", "SuspensionAllFours", "SuspensionKneelingHogtie"] },
-					{ Name: "InvertedSuspension", Top: 346, HasType: false, Priority: 6, ParentGroup: "", AllowTypes: ["InvertedSuspensionHogtied", "InvertedSuspensionAllFours"] },
+					{ Name: "Suspension", Top: -687, HasType: false, Priority: 31, ParentGroup: null, AllowTypes: ["SuspensionHogtied", "SuspensionAllFours", "SuspensionKneelingHogtie"] },
+					{ Name: "InvertedSuspension", Top: 346, HasType: false, Priority: 6, ParentGroup: null, AllowTypes: ["InvertedSuspensionHogtied", "InvertedSuspensionAllFours"] },
 				]
 			},
 			{
@@ -4779,7 +4779,7 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone"],
 				Layer: [
 					{ Name: "" },
-					{ Name: "Suspension", Top: -687, Left: 0, HasType: false, Priority: 31, ParentGroup: "", AllowTypes: ["SuspensionHogtied"], AllowPose: [] },
+					{ Name: "Suspension", Top: -687, Left: 0, HasType: false, Priority: 31, ParentGroup: null, AllowTypes: ["SuspensionHogtied"], AllowPose: [] },
 				]
 			},
 			{

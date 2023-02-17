@@ -56,11 +56,11 @@ function AssetGroupAdd(Family, GroupDef) {
 		DrawingTop: (GroupDef.Top == null) ? 0 : GroupDef.Top,
 		DrawingFullAlpha: (GroupDef.FullAlpha == null) ? true : GroupDef.FullAlpha,
 		DrawingBlink: (GroupDef.Blink == null) ? false : GroupDef.Blink,
-		InheritColor: (typeof GroupDef.InheritColor === "string" ? GroupDef.InheritColor : null),
+		InheritColor: (typeof GroupDef.InheritColor === "string" ? GroupDef.InheritColor : undefined),
 		FreezeActivePose: Array.isArray(GroupDef.FreezeActivePose) ? GroupDef.FreezeActivePose : [],
 		PreviewZone: GroupDef.PreviewZone,
 		DynamicGroupName: GroupDef.DynamicGroupName || GroupDef.Group,
-		MirrorActivitiesFrom: GroupDef.MirrorActivitiesFrom || null,
+		MirrorActivitiesFrom: GroupDef.MirrorActivitiesFrom || undefined,
 		ColorSuffix: GroupDef.ColorSuffix,
 		ExpressionPrerequisite: GroupDef.ExpressionPrerequisite || [],
 		HasPreviewImages: typeof GroupDef.HasPreviewImages === "boolean" ? GroupDef.HasPreviewImages : AllowNone,
@@ -320,7 +320,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		Name: Layer.Name || null,
 		AllowColorize: AssetLayerAllowColorize(Layer, AssetDefinition, A.Group),
 		CopyLayerColor: typeof Layer.CopyLayerColor === "string" ? Layer.CopyLayerColor : null,
-		ColorGroup: Layer.ColorGroup,
+		ColorGroup: typeof Layer.ColorGroup === "string" ? Layer.ColorGroup : null,
 		HideColoring: typeof Layer.HideColoring === "boolean" ? Layer.HideColoring : false,
 		AllowTypes: Array.isArray(Layer.AllowTypes) ? Layer.AllowTypes : null,
 		ModuleType: Array.isArray(Layer.ModuleType) ? Layer.ModuleType : null,
@@ -328,7 +328,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		HasType: typeof Layer.HasType === "boolean" ? Layer.HasType : A.HasType,
 		ParentGroupName: Layer.ParentGroup,
 		Priority: Layer.Priority || AssetDefinition.Priority || A.Group.DrawingPriority,
-		InheritColor: Layer.InheritColor,
+		InheritColor: typeof Layer.InheritColor === "string" ? Layer.InheritColor : null,
 		Alpha: AssetLayerAlpha(Layer, AssetDefinition, I),
 		Asset: A,
 		DrawingLeft: Layer.Left,
@@ -349,7 +349,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		ShowForAttribute: Array.isArray(Layer.ShowForAttribute) ? Layer.ShowForAttribute : null,
 	}, AssetParsePoseProperties(
 		Layer,
-		Array.isArray(A.AllowPose) ? A.AllowPose.slice() : null)
+		Array.isArray(A.AllowPose) ? A.AllowPose.slice() : [])
 	);
 	if (L.MinOpacity > L.Opacity) L.MinOpacity = L.Opacity;
 	if (L.MaxOpacity < L.Opacity) L.MaxOpacity = L.Opacity;
@@ -359,12 +359,12 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 /**
  * Resolves the AllowPose and HideForPose properties on a layer or an asset
  * @param {Asset | AssetLayerDefinition} obj - The asset or layer object
- * @param {AssetPoseName[] | null} defaultAllowPose - A fallback value for the AllowPose property if it's not defined on the
+ * @param {AssetPoseName[]} defaultAllowPose - A fallback value for the AllowPose property if it's not defined on the
  * object
- * @return {{AllowPose: AssetPoseName[] | null, HideForPose: (AssetPoseName | "")[]}} - A partial object containing AllowPose and HideForPose
+ * @return {{AllowPose: AssetPoseName[], HideForPose: (AssetPoseName | "")[]}} - A partial object containing AllowPose and HideForPose
  * properties
  */
-function AssetParsePoseProperties(obj, defaultAllowPose = null) {
+function AssetParsePoseProperties(obj, defaultAllowPose = []) {
 	const HideForPose = Array.isArray(obj.HideForPose) ? obj.HideForPose : [];
 	let AllowPose = Array.isArray(obj.AllowPose) ? obj.AllowPose : defaultAllowPose;
 	if (HideForPose.length > 0) {
