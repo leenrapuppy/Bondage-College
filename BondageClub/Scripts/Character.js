@@ -1971,7 +1971,7 @@ function CharacterRefreshLeash(C) {
 	}
 
 	// Check for a dynamic leash and update its state
-	const dynamicLeash = leashes.find(i => i.Asset.AllowEffect.includes("IsLeashed"));
+	const dynamicLeash = leashes.find(i => i.Asset.AllowEffect && i.Asset.AllowEffect.includes("IsLeashed"));
 	if (dynamicLeash) {
 		if (!dynamicLeash.Property) dynamicLeash.Property = {};
 		if (!Array.isArray(dynamicLeash.Property.Effect)) dynamicLeash.Property.Effect = [];
