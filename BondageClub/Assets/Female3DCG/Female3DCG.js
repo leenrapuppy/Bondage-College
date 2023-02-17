@@ -311,6 +311,17 @@ var AssetFemale3DCG = [
 					{Name: "Wrists", HasType: false, CopyLayerColor: "Waist"},
 				],
 			},
+			{
+				Name: "CheerleaderTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, Top: 200, Left: 160, DefaultColor: ["#c91616", "#e0b51d", "#c91616", "#242485", "#f5f5f5"], AllowPose: ["Hogtied", "AllFours"],
+				Extended: true, DynamicAfterDraw: true, TextMaxLength: { Text: 8 }, TextFont: "'Archivo Black', 'Impact', 'Arial Black', 'Franklin Gothic', 'Arial', sans-serif",
+				Layer: [
+					{ Name: "Base", PoseMapping: { Hogtied: "" } },
+					{ Name: "Straps" },
+					{ Name: "Innerstrips" },
+					{ Name: "TextFill", HasImage: false },
+					{ Name: "TextStroke", HasImage: false },
+				],
+			},
 			// Flat Chest Compatible Clothing
 			{
 				Name: "MaleTankTop1", Gender: "M", Prerequisite: ["HasFlatChest"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"]

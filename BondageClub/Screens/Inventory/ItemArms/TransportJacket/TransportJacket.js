@@ -37,18 +37,12 @@ function AssetsItemArmsTransportJacketAfterDraw({ C, A, X, Y, L, Property, drawC
 			width,
 		});
 
-		const interpolatedCanvas = AnimationGenerateTempCanvas(C, A, width, height);
-		const interpolatedCtx = interpolatedCanvas.getContext("2d");
-
-		const xTop = width * 0.15;
-		for (let i = 0; i < height; i++) {
-			const xStart = xTop - (xTop * i) / height;
-			interpolatedCtx.drawImage(flatCanvas, 0, i, width, 1, xStart, i, width - xStart * 2, 1);
-		}
+		const shearedCanvas = AnimationGenerateTempCanvas(C, A, width, height);
+		DrawImageTrapezify(flatCanvas, shearedCanvas, 0.7);
 
 		const drawX = X + (300 - width) / 2;
 		const drawY = Y + 75;
-		drawCanvas(interpolatedCanvas, drawX, drawY, AlphaMasks);
-		drawCanvasBlink(interpolatedCanvas, drawX, drawY, AlphaMasks);
+		drawCanvas(shearedCanvas, drawX, drawY, AlphaMasks);
+		drawCanvasBlink(shearedCanvas, drawX, drawY, AlphaMasks);
 	}
 }

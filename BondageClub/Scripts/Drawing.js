@@ -1568,3 +1568,37 @@ function DrawCanvasSegment(Canvas, Left, Top, Width, Height) {
 function DrawCharacterSegment(C, Left, Top, Width, Height) {
 	return DrawCanvasSegment(C.Canvas, Left, Top + CanvasUpperOverflow, Width, Height);
 }
+
+/**
+ * Draws a source canvas or image onto a canvas, with a shear transformation (such that the width of the top and
+ * bottom are different). If the `topToBottomRatio` is greater than 1, then the bottom edge of the image will be
+ * smaller in the original image. If it's less than 1, then the top edge will be smaller than in the original (like the
+ * Star Wars title text transform).
+ *
+ * @param {HTMLCanvasElement | HTMLImageElement} image - The source image
+ * @param {HTMLCanvasElement} targetCanvas - The target canvas to draw the transformed image onto
+ * @param {number} topToBottomRatio - The ratio between the desired length of the top edge and the bottom edge of the
+ * final image.
+ * @param {number} [x] - The x-position on the target canvas that the final image should be drawn at
+ * @param {number} [y] - The y-position on the target canvas that the final image should be drawn at
+ */
+function DrawImageTrapezify(image, targetCanvas, topToBottomRatio, x = 0, y = 0) {
+	const {width, height} = image;
+	let xStartTop = 0;
+	let xStartBottom = 0;
+
+	if (topToBottomRatio > 1) {
+		const bottomToTopRatio = 1 / topToBottomRatio;
+		xStartBottom = (width * (1 - bottomToTopRatio)) / 2;
+	} else {
+		xStartTop = (width * (1 - topToBottomRatio)) / 2;
+	}
+
+	const targetCtx = targetCanvas.getContext("2d");
+
+	for (let i = 0; i < height; i++) {
+		const s = i / height;
+		const xStart = (xStartTop * (1 - s) + xStartBottom * s);
+		targetCtx.drawImage(image, 0, i, width, 1, x + xStart, y + i, width - xStart * 2, 1);
+	}
+}
