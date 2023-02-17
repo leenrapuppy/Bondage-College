@@ -569,6 +569,7 @@ function DialogLeave() {
 	DialogItemPermissionMode = false;
 	DialogActivityMode = false;
 	DialogItemToLock = null;
+	DialogLockMenu = false;
 	Player.FocusGroup = null;
 	if (CurrentCharacter) {
 		if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
