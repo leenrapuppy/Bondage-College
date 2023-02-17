@@ -2154,12 +2154,12 @@ function ChatRoomSendEmote(msg) {
  * @param {string} Action - Action modifier
  * @param {Item} PrevItem - The item that has been removed.
  * @param {Item} NextItem - The item that has been added.
- * @returns {void} - Nothing.
+ * @returns {boolean} - whether we published anything to the chat.
  */
 function ChatRoomPublishAction(C, Action, PrevItem, NextItem) {
 	// Make sure we're in a chat room
 	if (CurrentScreen !== "ChatRoom")
-		return;
+		return false;
 
 	/** @type ChatMessageDictionary */
 	let Dictionary = [];
@@ -2180,6 +2180,8 @@ function ChatRoomPublishAction(C, Action, PrevItem, NextItem) {
 
 	// Sends the result to the server and leaves the dialog if we need to
 	ServerSend("ChatRoomChat", { Content: Action, Type: "Action", Dictionary: Dictionary });
+
+	return true;
 }
 
 /**

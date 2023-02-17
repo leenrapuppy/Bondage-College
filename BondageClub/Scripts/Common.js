@@ -920,8 +920,8 @@ function CommonPadlockUnlock(C, Item) {
 		}
 	}
 	InventoryUnlock(C, C.FocusGroup.Name);
-	ChatRoomPublishAction(C, "ActionUnlock", Item, null);
-	DialogLeave();
+	if (ChatRoomPublishAction(C, "ActionUnlock", Item, null))
+		DialogLeave();
 }
 
 /**
