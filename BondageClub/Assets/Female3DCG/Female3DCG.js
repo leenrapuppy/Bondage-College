@@ -996,7 +996,10 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "DominatrixLeotard", Gender: "F", Fetish: ["Lingerie", "Leather"], Prerequisite: ["HasBreasts"], Priority: 20, Value: 40, AllowPose: ["Hogtied"], Hide: ["ItemNipples"],
+				Name: "DominatrixLeotard", Gender: "F", Fetish: ["Lingerie", "Leather"], Prerequisite: ["HasBreasts"], Priority: 20, Value: 40, AllowPose: ["Hogtied"], Hide: ["ItemNipples", "ItemVulva"],
+				HideItem: ["ItemButtAnalBeads2"],
+				HideItemExclude: ["ItemVulvaWandBelt", "ItemVulvaFullLatexSuitWand"],
+				Alpha: [{Group: ["ItemVulvaPiercings"], Masks: [[235, 535, 30, 100]]}],
 				Layer: [
 					{ Name: "Net", CopyLayerColor: "Base" },
 					{ Name: "Base" },
