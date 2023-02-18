@@ -466,10 +466,12 @@ function CharacterBuildDialog(C, CSV) {
 		return (str !== "" ? str : null);
 	}
 
-	const subst = [
+	let subst = [
 		["DialogCharacterName", CharacterNickname(C)],
 		["DialogPlayerName", CharacterNickname(Player)],
 	];
+	subst = subst.concat(ChatRoomPronounSubstitutions(C, "DialogCharacter", false));
+	subst = subst.concat(ChatRoomPronounSubstitutions(Player, "DialogPlayer", false));
 
 	// For each lines in the file
 	for (const L of CSV) {

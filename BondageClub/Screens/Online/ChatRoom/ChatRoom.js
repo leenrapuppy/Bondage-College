@@ -4848,7 +4848,7 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 function ChatRoomPronounSubstitutions(C, key, hideIdentity) {
 	/** @type {[string, string][]} */
 	let repls = [];
-	for (const pronounType of ["Possessive", "Self", "Object"]) {
+	for (const pronounType of ["Possessive", "Self", "Subject", "Object"]) {
 		repls.push([key + pronounType, CharacterPronoun(C, pronounType, hideIdentity)]);
 	}
 	return repls;
