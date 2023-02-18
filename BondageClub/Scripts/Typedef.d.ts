@@ -1207,6 +1207,17 @@ type ScriptPermissionLevel = "Self" | "Owner" | "Lovers" | "Friends" | "Whitelis
 
 type ScriptPermissions = Record<ScriptPermissionProperty, ScriptPermission>;
 
+interface DialogLine {
+	Stage: string;
+	NextStage: string;
+	Option: string;
+	Result: string;
+	Function: string;
+	Prerequisite: string;
+	Group: string;
+	Trait: string;
+}
+
 interface Character {
 	ID: number;
 	/** Only on `Player` */
@@ -1223,7 +1234,7 @@ interface Character {
 	Appearance: Item[];
 	Stage: string;
 	CurrentDialog: string;
-	Dialog: any[];
+	Dialog: DialogLine[];
 	Reputation: Reputation[];
 	Skill: Skill[];
 	Pose: string[];

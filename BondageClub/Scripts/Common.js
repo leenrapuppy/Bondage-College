@@ -949,7 +949,7 @@ function CommonGetServer() {
  * @param {string[][]} substitutions - An array of {string, replacement} subtitutions.
  */
 function CommonStringSubstitute(msg, substitutions) {
-	if (typeof msg !== "string")
+	if (typeof msg !== "string" || msg.trim() === "")
 		return "";
 
 	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
