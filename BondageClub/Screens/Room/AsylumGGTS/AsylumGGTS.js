@@ -251,10 +251,15 @@ function AsylumGGTSCharacterName(C, Name) {
 function AsylumGGTSMessage(Msg, Target) {
 	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 5)) Msg = "TaskDoneSlaveGirl";
 	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 6)) Msg = "TaskDoneSlave";
-	let Dict = [{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }];
+
+	const Dict = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.if(Target != null)
+		.targetCharacter(Target)
+		.endif()
+		.build();
 	if (Target != null) {
 		Msg = Msg + "Target";
-		Dict.push({ Tag: "TargetCharacter", Text: CharacterNickname(Target), MemberNumber: Target.MemberNumber });
 	}
 	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: Dict });
 }

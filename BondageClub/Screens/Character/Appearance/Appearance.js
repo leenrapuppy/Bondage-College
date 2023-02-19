@@ -1400,9 +1400,10 @@ function CharacterAppearanceReady(C) {
 	if (C.AccountName != "") {
 		ServerPlayerAppearanceSync();
 		if ((CharacterAppearanceReturnRoom == "ChatRoom") && (C.ID != 0)) {
-			var Dictionary = [];
-			Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(Player)
+				.destinationCharacter(C)
+				.build();
 			ServerSend("ChatRoomChat", { Content: "ChangeClothes", Type: "Action", Dictionary: Dictionary });
 			ChatRoomCharacterUpdate(C);
 		}

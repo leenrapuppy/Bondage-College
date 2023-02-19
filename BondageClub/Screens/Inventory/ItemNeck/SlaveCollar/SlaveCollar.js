@@ -216,9 +216,10 @@ function InventoryItemNeckSlaveCollarSetType(NewType) {
 	var C = CharacterGetCurrent();
 	var Type = InventoryItemNeckSlaveCollarTypes.find(Collar => Collar.Name == NewType) || InventoryItemNeckSlaveCollarTypes[0];
 	DialogFocusItem.Property = Type.Property;
-	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C)
+		.build();
 	ChatRoomPublishCustomAction("SlaveCollarChangeType", true, Dictionary);
 	CharacterRefresh(C);
 }

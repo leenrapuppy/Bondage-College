@@ -198,11 +198,10 @@ function InventoryItemFuturisticValidate(C, Item = DialogFocusItem) {
 }
 
 function InventoryItemFuturisticPublishAccessDenied(C) {
-	var msg = "FuturisticItemLoginLoginAttempt";
-	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name}
-	];
-	ChatRoomPublishCustomAction(msg, true, Dictionary);
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C)
+		.focusGroup(C.FocusGroup.Name)
+		.build();
+	ChatRoomPublishCustomAction("FuturisticItemLoginLoginAttempt", true, Dictionary);
 }

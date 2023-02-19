@@ -192,8 +192,10 @@ function GameMagicBattleStartProcess() {
 	GameMagicBattleTurnTimer = TimerGetTime() + (GameMagicBattleTimerDelay * 1000);
 
 	// Notices everyone in the room that the game starts
-	var Dictionary = [];
-	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.build();
 	ServerSend("ChatRoomChat", { Content: "MagicBattleGameStart", Type: "Action" , Dictionary: Dictionary});
 
 	// Changes the game status and exits

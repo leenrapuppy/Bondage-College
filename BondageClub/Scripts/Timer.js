@@ -55,19 +55,20 @@ function TimerInventoryRemove() {
 			for (let A = 0; A < Character[C].Appearance.length; A++)
 				if ((Character[C].Appearance[A].Property != null) && (Character[C].Appearance[A].Property.RemoveTimer != null))
 					if ((typeof Character[C].Appearance[A].Property.RemoveTimer == "number") && (Character[C].Appearance[A].Property.RemoveTimer <= CurrentTime)) {
-						const LockName = Character[C].Appearance[A].Property.LockedBy;
+						const Lock = InventoryGetLock(Character[C].Appearance[A])
 						const ShouldRemoveItem = Character[C].Appearance[A].Property.RemoveItem;
 
 						// Remove any lock or timer
 						ValidationDeleteLock(Character[C].Appearance[A].Property, false);
 
 						// If we're removing a lock and we're in a chatroom, send a chatroom message
-						if (LockName && ServerPlayerIsInChatRoom()) {
-							var Dictionary = [
-								{Tag: "DestinationCharacterName", Text: CharacterNickname(Character[C]), MemberNumber: Character[C].MemberNumber},
-								{Tag: "FocusAssetGroup", AssetGroupName: Character[C].Appearance[A].Asset.Group.Name},
-								{Tag: "LockName", AssetName: LockName, GroupName: "ItemMisc"}
-							];
+						if (Lock && ServerPlayerIsInChatRoom()) {
+
+							const Dictionary = new DictionaryBuilder()
+								.destinationCharacterName(C)
+								.focusGroup(Character[C].Appearance[1].Asset.Group.Name)
+								.asset(Lock.Asset, "LockName")
+								.build();
 							ServerSend("ChatRoomChat", {Content: "TimerRelease", Type: "Action", Dictionary});
 						}
 

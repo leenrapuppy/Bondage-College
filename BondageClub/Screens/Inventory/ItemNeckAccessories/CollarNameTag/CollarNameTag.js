@@ -68,18 +68,15 @@ function InventoryItemNeckAccessoriesCollarNameTagPublishAction(C, Option, Previ
 		return;
 	}
 
-	/** @type {ChatMessageDictionary} */
-	const Dictionary = [
-		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
-		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
-
-	];
+	const builder = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C);
 
 	const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
 	if (Option.Name === "Blank") {
-		Dictionary.push({Tag: "NameTagType", Text: "blank"});
+		builder.text("NameTagType", "blank");
 	} else {
-		Dictionary.push({Tag: "NameTagType", TextToLookUp: `${Prefix}${Option.Name}`});
+		builder.textLookup("NameTagType", `${Prefix}${Option.Name}`);
 	}
-	ChatRoomPublishCustomAction(`${Prefix}Set`, true, Dictionary);
+	ChatRoomPublishCustomAction(`${Prefix}Set`, true, builder.build());
 }

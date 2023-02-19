@@ -161,11 +161,10 @@ function InventoryItemDevicesLuckyWheelTrigger() {
 	ChatRoomCharacterItemUpdate(CharacterGetCurrent());
 
 	const C = CharacterGetCurrent();
-	/** @type {ChatMessageDictionary} */
-	let Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-	];
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C)
+		.build();
 	ChatRoomPublishCustomAction("LuckyWheelStartTurning", true, Dictionary);
 }
 
@@ -182,11 +181,11 @@ function InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, Angle) {
 	const landedIn = (nbTexts - Math.floor((Angle - startingAngle) / sectorAngleSize)) % nbTexts;
 	const section = storedTexts[landedIn];
 
-	/** @type {ChatMessageDictionary} */
-	let Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "SectionName", Text: section },
-	];
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(C)
+		.text("SectionName", section)
+		.build();
+
 	ChatRoomPublishCustomAction("LuckyWheelStoppedTurning", true, Dictionary);
 }
 

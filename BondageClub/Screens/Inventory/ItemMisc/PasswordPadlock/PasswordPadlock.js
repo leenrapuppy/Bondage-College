@@ -140,12 +140,12 @@ function InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback) {
 
 	// Send fail message if online
 	else if (CurrentScreen == "ChatRoom") {
-		const Dictionary = [
-			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-			{ Tag: "Password", Text: ElementValue("Password") },
-		];
+		const Dictionary = new DictionaryBuilder()
+			.sourceCharacter(Player)
+			.destinationCharacter(C)
+			.focusGroup(C.FocusGroup.Name)
+			.text("Password", ElementValue("Password"))
+			.build();
 		ChatRoomPublishCustomAction("PasswordFail", true, Dictionary);
 		ExitCallback();
 	} else { PreferenceMessage = "PasswordPadlockError"; }
@@ -201,10 +201,10 @@ function InventoryItemMiscPasswordPadlockIsSet() {
 }
 
 function InventoryItemMiscPasswordPadlockPublishPasswordChange(C) {
-	const Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-	];
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C)
+		.focusGroup(C.FocusGroup.Name)
+		.build();
 	ChatRoomPublishCustomAction("PasswordChangeSuccess", true, Dictionary);
 }

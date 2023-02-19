@@ -107,6 +107,17 @@ class DictionaryBuilder {
 	}
 
 	/**
+	 * Adds a dictionary entry which identifies an asset - usually the asset being changed, but the tag can be customized.
+	 * @param {Asset} asset
+	 */
+	asset(asset, tag="AssetName") {
+		if (asset) {
+			this._addEntry({ Tag: tag, AssetName: asset.Name, GroupName: asset.Group.Name });
+		}
+		return this;
+	}
+
+	/**
 	 * Adds a text dictionary entry. This is a straightforward dictionary entry where the provided tag will be directly
 	 * replaced by the given text.
 	 * @param {string} tag - The tag to replace
@@ -131,6 +142,28 @@ class DictionaryBuilder {
 		if (tag && lookupText) {
 			this._addEntry({Tag: tag, TextToLookUp: lookupText});
 		}
+		return this;
+	}
+
+	/**
+	 * Adds a shock intensity entry.
+	 * @param {number} intensity - The intensity of the shock applied
+	 * @returns {this}
+	 */
+	shockIntensity(intensity) {
+		if (typeof intensity === "number" && !isNaN(intensity)) {
+			this._addEntry({ ShockIntensity: intensity });
+		}
+		return this;
+	}
+
+	/**
+	 * Marks the message as being automatically generated. Usually used by automated vibe changes.
+	 * Those will get filtered out depending on the reciever's chat settings.
+	 * @returns {this}
+	 */
+	markAutomatic() {
+		this._addEntry({ Automatic: true });
 		return this;
 	}
 

@@ -171,12 +171,12 @@ function InventoryItemMiscCombinationPadlockClick() {
 
 		// Send fail message if online
 		else if (CurrentScreen == "ChatRoom") {
-			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-				{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-				{ Tag: "CombinationNumber", Text: ElementValue("CombinationNumber") },
-			];
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(Player)
+				.destinationCharacter(C)
+				.focusGroup(C.FocusGroup.Name)
+				.text("CombinationNumber", ElementValue("CombinationNumber"))
+				.build();
 			ChatRoomPublishCustomAction("CombinationFail", true, Dictionary);
 			InventoryItemMiscCombinationPadlockExit();
 		} else { PreferenceMessage = "CombinationError"; }
@@ -194,11 +194,11 @@ function InventoryItemMiscCombinationPadlockClick() {
 						C.Appearance[A] = DialogFocusSourceItem;
 				}
 				if (CurrentScreen == "ChatRoom") {
-					const Dictionary = [
-						{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-						{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-						{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-					];
+					const Dictionary = new DictionaryBuilder()
+						.sourceCharacter(Player)
+						.destinationCharacter(C)
+						.focusGroup(C.FocusGroup.Name)
+						.build();
 					ChatRoomPublishCustomAction("CombinationChangeSuccess", true, Dictionary);
 					InventoryItemMiscCombinationPadlockExit();
 				} else {
@@ -209,11 +209,12 @@ function InventoryItemMiscCombinationPadlockClick() {
 		}
 		// Fails to change
 		else if (CurrentScreen == "ChatRoom") {
-			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-				{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-			];
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(Player)
+				.destinationCharacter(C)
+				.focusGroup(C.FocusGroup.Name)
+				.build();
+
 			ChatRoomPublishCustomAction("CombinationChangeFail", true, Dictionary);
 			InventoryItemMiscCombinationPadlockExit();
 		} else { PreferenceMessage = "CombinationError"; }

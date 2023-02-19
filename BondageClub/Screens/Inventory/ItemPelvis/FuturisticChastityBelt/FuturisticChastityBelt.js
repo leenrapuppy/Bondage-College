@@ -59,7 +59,14 @@ function AssetsItemPelvisFuturisticChastityBeltScriptUpdatePlayer(data) {
 	}
 }
 
-// Trigger a shock automatically
+/**
+ * Trigger a shock automatically
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {string} ShockType
+ * @param {string} [ReplacementWord]
+ * @param {boolean} [NoShock]
+ */
 function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType, ReplacementWord, NoShock) {
 
 	if (!(CurrentScreen == "ChatRoom")) {
