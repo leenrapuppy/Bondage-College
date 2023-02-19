@@ -1,53 +1,53 @@
 PlayerGagged,,,(You can use or remove items by selecting specific body regions.),,DialogDoAllowItem(CurrentCharacter)
-PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDoAllowItem(CurrentCharacter)
+PlayerGagged,,,(You don't have access to use or remove items on DialogCharacterPossessive.),,!DialogDoAllowItem(CurrentCharacter)
 0,,,(You can use or remove items by selecting specific body regions.),,DialogDoAllowItem(CurrentCharacter)
-0,,,(You don't have access to use or remove items on her.),,!DialogDoAllowItem(CurrentCharacter)
-0,,(View her profile.),,DialogViewProfile(),
-0,,(Change her clothes.),,DialogChangeClothes(),DialogCanChangeClothes()
-0,10,(Manage your relationship.),"(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)",,
-0,20,(Check her drink tray.),(There's a variety of drinks.  Some are offered by the club and some are more expensive.),,CanTakeDrink()
-0,0,(Try to take her suitcase.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure she is secure!),TryToTakeSuitcase(),CanTakeSuitcase()
-0,0,(Try to take her suitcase.),(You will need to tie her first so she can't escape or resist!),,CantTakeSuitcase()
-0,0,(Use the laptop to steal data.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure she is secure!),TryToTakeSuitcase(),CanTakeSuitcaseOpened()
-0,0,(Use the laptop to steal data.),(You will need to tie her first so she can't escape or resist!),,CantTakeSuitcaseOpened()
-0,30,(Room administrator action.),"(As a room administrator, you can take these actions with her.)",,PlayerIsAdmin()
+0,,,(You don't have access to use or remove items on DialogCharacterPossessive.),,!DialogDoAllowItem(CurrentCharacter)
+0,,(View DialogCharacterPossessive profile.),,DialogViewProfile(),
+0,,(Change DialogCharacterPossessive clothes.),,DialogChangeClothes(),DialogCanChangeClothes()
+0,10,(Manage your relationship.),"(You can give more access to your items by putting DialogCharacterObject on your whitelist, or less control by putting DialogCharacterObject on your blacklist.)",,
+0,20,(Check DialogCharacterObject drink tray.),(There's a variety of drinks.  Some are offered by the club and some are more expensive.),,CanTakeDrink()
+0,0,(Try to take DialogCharacterObject suitcase.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!),TryToTakeSuitcase(),CanTakeSuitcase()
+0,0,(Try to take DialogCharacterObject suitcase.),(You will need to tie DialogCharacterObject first so DialogCharacterSubject can't escape or resist!),,CantTakeSuitcase()
+0,0,(Use the laptop to steal data.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!),TryToTakeSuitcase(),CanTakeSuitcaseOpened()
+0,0,(Use the laptop to steal data.),(You will need to tie DialogCharacterObject first so DialogCharacterSubject can't escape or resist!),,CantTakeSuitcaseOpened()
+0,30,(Room administrator action.),"(As a room administrator, you can take these actions with DialogCharacterObject.)",,PlayerIsAdmin()
 0,40,(Character actions.),(Possible character actions.),,DialogCanPerformCharacterAction()
-0,,(Stop her from leaving.),,StopLeave(),CanStopSlowPlayer()
-0,50,(GGTS interactions.),"(As a nurse, you can program GGTS for her specific needs.)",,DialogCanStartGGTSInteractions()
+0,,(Stop DialogCharacterObject from leaving.),,StopLeave(),CanStopSlowPlayer()
+0,50,(GGTS interactions.),"(As a nurse, you can program GGTS for DialogCharacterPossessive specific needs.)",,DialogCanStartGGTSInteractions()
 0,,(Leave this menu.),,DialogLeave(),
-10,,(Add to item whitelist.),(This member is now on your item permission whitelist.  She will have higher access to restrain or free you.),"ListManage(""Add"", ""WhiteList"")",CanAddWhiteList()
+10,,(Add to item whitelist.),(This member is now on your item permission whitelist.  DialogCharacterSubject will have higher access to restrain or free you.),"ListManage(""Add"", ""WhiteList"")",CanAddWhiteList()
 10,,(Remove from item whitelist.),(This member is no longer on your item permission whitelist.),"ListManage(""Remove"", ""WhiteList"")",CanRemoveWhiteList()
-10,,(Add to item blacklist.),(This member is now on your item permission blacklist.  She will have less access to restrain or free you.),"ListManage(""Add"", ""BlackList"")",CanAddBlackList()
+10,,(Add to item blacklist.),(This member is now on your item permission blacklist.  DialogCharacterSubject will have less access to restrain or free you.),"ListManage(""Add"", ""BlackList"")",CanAddBlackList()
 10,,(Remove from item blacklist.),(This member is no longer on your item permission blacklist.),"ListManage(""Remove"", ""BlackList"")",CanRemoveBlackList()
-10,,(Add to friendlist.),(This member is considered to be a friend by you.  She must also add you on her friendlist to be able to find each other.),"ListManage(""Add"", ""FriendList"")",CanAddFriend()
+10,,(Add to friendlist.),(This member is considered to be a friend by you.  DialogCharacterSubject must also add you on DialogCharacterPossessive friendlist to be able to find each other.),"ListManage(""Add"", ""FriendList"")",CanAddFriend()
 10,,(Remove from friendlist.),(This member is not longer considered to be a friend by you.),"ListManage(""Remove"", ""FriendList"")",CanRemoveFriend()
-10,,(Ghost and ignore her.),(This member is now ghosted and ignored by you.  Nothing she says or does will appear in your chat log.),"ListManage(""Add"", ""GhostList"")",CanAddGhost()
-10,,(Stop ghosting her.),(This member is no longer ghosted by you.  You will see what she says or does in your chat log.),"ListManage(""Remove"", ""GhostList"")",CanRemoveGhost()
-10,RelationshipSubmenu,(Manage Ownership & Lovership),(You can ask her to become your lover or submissive or advance the relationship.),CheckRelationships(),
+10,,(Ghost and ignore DialogCharacterObject.),(This member is now ghosted and ignored by you.  Nothing DialogCharacterSubject says or does will appear in your chat log.),"ListManage(""Add"", ""GhostList"")",CanAddGhost()
+10,,(Stop ghosting DialogCharacterObject.),(This member is no longer ghosted by you.  You will see what DialogCharacterSubject says or does in your chat log.),"ListManage(""Remove"", ""GhostList"")",CanRemoveGhost()
+10,RelationshipSubmenu,(Manage Ownership & Lovership),(You can ask DialogCharacterObject to become your lover or submissive or advance the relationship.),CheckRelationships(),
 10,100,"(Owner rules, restrictions & punishments.)","(Select the owner rule, restriction or punishment that you want to enforce.)",,IsCollaredByPlayer()
 10,200,"(Lover rules, restrictions & punishments.)","(Select the lover rule, restriction or punishment that you want to enforce on your lover.)",,IsLoverOfPlayer()
-10,,(Give her the money envelope.),,GiveMoneyForOwner(),CanGiveMoneyForOwner()
-RelationshipSubmenu,0,(Offer her a trial period to become your submissive.),(The request was sent.  She must accept for the trial period to start.),"SendOwnershipRequest(""Propose"")","OwnershipOptionIs(""CanOfferStartTrial"")"
-RelationshipSubmenu,0,(Accept a trial period to become her submissive.),,"SendOwnershipRequest(""Accept"")","OwnershipOptionIs(""CanStartTrial"")"
-RelationshipSubmenu,11,(Offer her to end the trial and be fully collared.),(There's a $100 fee to prepare the ceremony and get her a slave collar.  Will you pay now?),,"OwnershipOptionIs(""CanOfferEndTrial"")"
-RelationshipSubmenu,0,(Accept her collar and begin the ceremony.),,"SendOwnershipRequest(""Accept"")","OwnershipOptionIs(""CanEndTrial"")"
-RelationshipSubmenu,ReleaseSubmissiveConfirm,(Release her from the slave bond.),(Are you sure you want to release her? THIS ACTION IS NOT REVERSIBLE!),,IsOwnedByPlayer()
-RelationshipSubmenu,0,(Ask her to be your girlfriend.),(The request has been sent.  She must accept it to start dating you.),"SendLovershipRequest(""Propose"")","LovershipOptionIs(""CanOfferBeginDating"")"
-RelationshipSubmenu,0,(Accept to be her girlfriend.),,"SendLovershipRequest(""Accept"")","LovershipOptionIs(""CanBeginDating"")"
-RelationshipSubmenu,0,(Offer her to become your fiancée.),(The request has been sent.  She must accept it to become your fiancée.),"SendLovershipRequest(""Propose"")","LovershipOptionIs(""CanOfferBeginEngagement"")"
-RelationshipSubmenu,0,(Accept her proposal of engagement.),,"SendLovershipRequest(""Accept"")","LovershipOptionIs(""CanBeginEngagement"")"
-RelationshipSubmenu,12,(Offer her to marry each other.),(There's a $100 fee asked of both sides for the wedding.  Will you pay now?),,"LovershipOptionIs(""CanOfferBeginWedding"")"
-RelationshipSubmenu,13,(Accept her proposal and become her wife.),(There's a $100 fee asked of both sides for the wedding.  Will you pay now?),,"LovershipOptionIs(""CanBeginWedding"")"
-RelationshipSubmenu,ReleaseLoverConfirm,(Tell her you want to break up).,(Are you sure you want to break up with her? THIS ACTION IS NOT REVERSIBLE!),,IsLoverOfPlayer()
-RelationshipSubmenu,10,(Back),"(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)",,
+10,,(Give DialogCharacterObject the money envelope.),,GiveMoneyForOwner(),CanGiveMoneyForOwner()
+RelationshipSubmenu,0,(Offer DialogCharacterObject a trial period to become your submissive.),(The request was sent.  DialogCharacterSubject must accept for the trial period to start.),"SendOwnershipRequest(""Propose"")","OwnershipOptionIs(""CanOfferStartTrial"")"
+RelationshipSubmenu,0,(Accept a trial period to become DialogCharacterPossessive submissive.),,"SendOwnershipRequest(""Accept"")","OwnershipOptionIs(""CanStartTrial"")"
+RelationshipSubmenu,11,(Offer DialogCharacterObject to end the trial and be fully collared.),(There's a $100 fee to prepare the ceremony and get DialogCharacterObject a slave collar.  Will you pay now?),,"OwnershipOptionIs(""CanOfferEndTrial"")"
+RelationshipSubmenu,0,(Accept DialogCharacterObject collar and begin the ceremony.),,"SendOwnershipRequest(""Accept"")","OwnershipOptionIs(""CanEndTrial"")"
+RelationshipSubmenu,0,(Ask DialogCharacterObject to be your girlfriend.),(The request has been sent.  DialogCharacterSubject must accept it to start dating you.),"SendLovershipRequest(""Propose"")","LovershipOptionIs(""CanOfferBeginDating"")"
+RelationshipSubmenu,0,(Accept to be DialogCharacterPossessive girlfriend.),,"SendLovershipRequest(""Accept"")","LovershipOptionIs(""CanBeginDating"")"
+RelationshipSubmenu,0,(Offer DialogCharacterObject to become your fiancée.),(The request has been sent.  DialogCharacterSubject must accept it to become your fiancée.),"SendLovershipRequest(""Propose"")","LovershipOptionIs(""CanOfferBeginEngagement"")"
+RelationshipSubmenu,0,(Accept DialogCharacterObject proposal of engagement.),,"SendLovershipRequest(""Accept"")","LovershipOptionIs(""CanBeginEngagement"")"
+RelationshipSubmenu,12,(Offer DialogCharacterObject to marry each other.),(There's a $100 fee asked of both sides for the wedding.  Will you pay now?),,"LovershipOptionIs(""CanOfferBeginWedding"")"
+RelationshipSubmenu,13,(Accept DialogCharacterObject proposal and become DialogCharacterPossessive wife.),(There's a $100 fee asked of both sides for the wedding.  Will you pay now?),,"LovershipOptionIs(""CanBeginWedding"")"
+RelationshipSubmenu,ReleaseSubmissiveConfirm,(Release DialogCharacterObject from the slave bond.),(Are you sure you want to release DialogCharacterObject? THIS ACTION IS NOT REVERSIBLE!),,IsOwnedByPlayer()
+RelationshipSubmenu,ReleaseLoverConfirm,(Tell DialogCharacterObject you want to break up).,(Are you sure you want to break up with DialogCharacterObject? THIS ACTION IS NOT REVERSIBLE!),,IsLoverOfPlayer()
+RelationshipSubmenu,10,(Back),"(You can give more access to your items by putting DialogCharacterObject on your whitelist, or less control by putting DialogCharacterObject on your blacklist.)",,
 ReleaseSubmissiveConfirm,0,"(Yes, I want to permanently break the ownership!)",(The ownership has been broken.),"SendOwnershipRequest(""Release"")",!IsWearingCollar()
 ReleaseSubmissiveConfirm,,"(Yes, I want to permanently break the ownership!)",(The submissive must not be wearing any collar to complete this action.),,IsWearingCollar()
 ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
-ReleaseLoverConfirm,0,"(Yes, I want to break up with her.)",(Your love relation is now over.),"SendLovershipRequest(""Break"")",
+ReleaseLoverConfirm,0,"(Yes, I want to break up with DialogCharacterObject.)",(Your love relation is now over.),"SendLovershipRequest(""Break"")",
 ReleaseLoverConfirm,,"(Cancel)",(Main menu),,
-11,0,(Pay $100 for the collaring ceremony.),"(You pay and prepare the ceremony.  A maid brings a slave collar, she must accept it to complete the collaring.)","SendOwnershipRequest(""Propose"")",DialogMoneyGreater(100)
+11,0,(Pay $100 for the collaring ceremony.),"(You pay and prepare the ceremony.  A maid brings a slave collar, DialogCharacterSubject must accept it to complete the collaring.)","SendOwnershipRequest(""Propose"")",DialogMoneyGreater(100)
 11,0,(Refuse to pay.),(Main menu),,
-12,0,(Pay $100 for the wedding.),(You pay and ask her to marry you. You wait for her answer.),"SendLovershipRequest(""Propose"")",DialogMoneyGreater(100)
+12,0,(Pay $100 for the wedding.),(You pay and ask DialogCharacterObject to marry you. You wait for DialogCharacterPossessive answer.),"SendLovershipRequest(""Propose"")",DialogMoneyGreater(100)
 12,0,(Refuse to pay.),(Main menu),,
 13,0,(Pay $100 for the wedding.),,"SendLovershipRequest(""Accept"")",DialogMoneyGreater(100)
 13,0,(Refuse to pay.),(Main menu),,
@@ -82,98 +82,98 @@ ReleaseLoverConfirm,,"(Cancel)",(Main menu),,
 24,0,(Get a $5 cappuccino.),,"DrinkPick(""Cappuccino"", 5)",DialogMoneyGreater(5)
 24,20,(Back to drink options.),(Drink options.),,
 24,0,(Back to main menu.),(Main menu.),,
-30,0,(Call the maids to escort her out of the room.),,"AdminAction(""Kick"")",
-30,0,(Ban her from the room.),,"AdminAction(""Ban"")",
+30,0,(Call the maids to escort DialogCharacterObject out of the room.),,"AdminAction(""Kick"")",
+30,0,(Ban DialogCharacterObject from the room.),,"AdminAction(""Ban"")",
 30,0,(Move Character.),(Move started.),"AdminAction(""Move"")",
-30,0,(Promote her as room administrator.),,"AdminAction(""Promote"")",!CurrentCharacterIsAdmin()
-30,0,(Demote her from room administration.),,"AdminAction(""Demote"")",CurrentCharacterIsAdmin()
+30,0,(Promote DialogCharacterObject as room administrator.),,"AdminAction(""Promote"")",!CurrentCharacterIsAdmin()
+30,0,(Demote DialogCharacterObject from room administration.),,"AdminAction(""Demote"")",CurrentCharacterIsAdmin()
 30,0,(Back to main menu.),(Main menu.),,
 40,,,(Possible character actions.),,
-40,,(Hold on to her leash.),,HoldLeash(),CanHoldLeash()
-40,,(Let go of her leash.),,StopHoldLeash(),CanStopHoldLeash()
-40,0,(Help her stand.),(You help her up on her feet.),KneelStandAssist(),CanAssistStand()
-40,0,(Help her kneel.),(You help her down on her knees.),KneelStandAssist(),CanAssistKneel()
-40,0,(Help her to struggle free.),,StruggleAssist(),CanAssistStruggle()
+40,,(Hold on to DialogCharacterObject leash.),,HoldLeash(),CanHoldLeash()
+40,,(Let go of DialogCharacterObject leash.),,StopHoldLeash(),CanStopHoldLeash()
+40,0,(Help DialogCharacterObject stand.),(You help DialogCharacterObject up on DialogCharacterPossessive feet.),KneelStandAssist(),CanAssistStand()
+40,0,(Help DialogCharacterObject kneel.),(You help DialogCharacterObject down on DialogCharacterPossessive knees.),KneelStandAssist(),CanAssistKneel()
+40,0,(Help DialogCharacterObject to struggle free.),,StruggleAssist(),CanAssistStruggle()
 40,,(Take a photo of both of you.),,DialogPhotoCurrentCharacters(),DialogCanTakePhotos()
-40,0,(Lend her some lockpicks.),(You give her some lockpicks to struggle out with until she leaves the room),GiveLockpicks(),CanGiveLockpicks()
-40,0,(Give her a spare key to your locks.),(You give her an extra key to your private padlocks),GiveHighSecurityKeys(),CanGiveHighSecurityKeys()
-40,0,(Hand over the keys to your locks.),(You give her the keys to your private padlocks),GiveHighSecurityKeysAll(),CanGiveHighSecurityKeysAll()
+40,0,(Lend DialogCharacterObject some lockpicks.),(You give DialogCharacterObject some lockpicks to struggle out with until DialogCharacterSubject leaves the room),GiveLockpicks(),CanGiveLockpicks()
+40,0,(Give DialogCharacterObject a spare key to your locks.),(You give DialogCharacterObject an extra key to your private padlocks),GiveHighSecurityKeys(),CanGiveHighSecurityKeys()
+40,0,(Hand over the keys to your locks.),(You give DialogCharacterObject the keys to your private padlocks),GiveHighSecurityKeysAll(),CanGiveHighSecurityKeysAll()
 40,0,(Spin the Wheel of Fortune.),,StartWheelFortune(),CanStartWheelFortune()
-40,0,(Force her to spin your Wheel of Fortune.),"(She will be required to spin your Wheel of Fortune.)",SendOwnerRule(""ForceWheelFortune""),CanForceWheelFortune()
+40,0,(Force DialogCharacterObject to spin your Wheel of Fortune.),"(DialogCharacterSubject will be required to spin your Wheel of Fortune.)",SendOwnerRule(""ForceWheelFortune""),CanForceWheelFortune()
 40,0,(Back to main menu.),(Main menu.),,
 50,0,(Generate a new GGTS task.),,"DialogGGTSInteraction(""NewTask"")",
-50,0,(Give her a five minutes pause.),,"DialogGGTSInteraction(""Pause5"")",
+50,0,(Give DialogCharacterObject a five minutes pause.),,"DialogGGTSInteraction(""Pause5"")",
 50,0,(Slow pace for GGTS demands.),,"DialogGGTSInteraction(""Speed20"")",
 50,0,(Normal pace for GGTS demands.),,"DialogGGTSInteraction(""Speed10"")",
 50,0,(Fast pace for GGTS demands.),,"DialogGGTSInteraction(""Speed5"")",
 50,0,(Back to main menu.),(Main menu.),,
-100,110,(Wardrobe access.),(Select her wardrobe access.),,
+100,110,(Wardrobe access.),(Select DialogCharacterPossessive wardrobe access.),,
 100,120,(Owner presence rules.),(Select the rules that will be enforced when you two are in the same room.),,
-100,130,(Key and locks restrictions.),(Select her restrictions for keys and locks.),,
-100,140,(Remote restrictions.),(Select her restrictions for remotes.),,
-100,150,"(Timed cell, GGTS and forced labor.)","(You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)",,
+100,130,(Key and locks restrictions.),(Select DialogCharacterPossessive restrictions for keys and locks.),,
+100,140,(Remote restrictions.),(Select DialogCharacterPossessive restrictions for remotes.),,
+100,150,"(Timed cell, GGTS and forced labor.)","(You can send DialogCharacterObject to a timed cell, the Good Girl Training System or force DialogCharacterObject to serve drinks and get DialogCharacterPossessive salary.)",,
 100,160,(Collar and nickname options.),(Select the option.),,
 100,170,(Advanced rules.),(Select the advanced rule to configure.),,
 100,0,(Back to main menu.),(Main menu.),,
-110,100,(Allow her wardrobe access.),(She can now access her wardrobe and change clothes.),"SendOwnerRule(""ChangeAllow"")",
-110,100,(Block her wardrobe for 1 hour.),(Her wardrobe access will be blocked for the next hour.),"SendOwnerRule(""ChangeBlock1Hour"")",
-110,100,(Block her wardrobe for 1 day.),(Her wardrobe access will be blocked for the next day.),"SendOwnerRule(""ChangeBlock1Day"")",
-110,100,(Block her wardrobe for 1 week.),(Her wardrobe access will be blocked for the next week.),"SendOwnerRule(""ChangeBlock1Week"")",
-110,100,(Block her wardrobe until you allow it.),(Her wardrobe access will be blocked until you allow it again.),"SendOwnerRule(""ChangeBlock"")",
+110,100,(Allow DialogCharacterObject wardrobe access.),(DialogCharacterSubject can now access DialogCharacterPossessive wardrobe and change clothes.),"SendOwnerRule(""ChangeAllow"")",
+110,100,(Block DialogCharacterObject wardrobe for 1 hour.),(DialogCharacterSubject wardrobe access will be blocked for the next hour.),"SendOwnerRule(""ChangeBlock1Hour"")",
+110,100,(Block DialogCharacterObject wardrobe for 1 day.),(DialogCharacterSubject wardrobe access will be blocked for the next day.),"SendOwnerRule(""ChangeBlock1Day"")",
+110,100,(Block DialogCharacterObject wardrobe for 1 week.),(DialogCharacterSubject wardrobe access will be blocked for the next week.),"SendOwnerRule(""ChangeBlock1Week"")",
+110,100,(Block DialogCharacterObject wardrobe until you allow it.),(DialogCharacterSubject wardrobe access will be blocked until you allow it again.),"SendOwnerRule(""ChangeBlock"")",
 110,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 110,0,(Back to main menu.),(Main menu.),,
-120,,(☑ Forbid her from talking.),(She will now be able to talk when she's in the same room as you.),"SendOwnerRule(""TalkAllow"")","GetOwnerRule(""BlockTalk"")"
-120,,(☐ Forbid her from talking.),(She won't be able to talk when she's in the same room as you.),"SendOwnerRule(""TalkBlock"")","!GetOwnerRule(""BlockTalk"")"
-120,,(☑ Forbid her from emoting.),(She will now be able to emote when she's in the same room as you.),"SendOwnerRule(""EmoteAllow"")","GetOwnerRule(""BlockEmote"")"
-120,,(☐ Forbid her from emoting.),(She won't be able to emote when she's in the same room as you.),"SendOwnerRule(""EmoteBlock"")","!GetOwnerRule(""BlockEmote"")"
-120,,(☑ Forbid her from whispering.),(She can now whisper to anyone when she's in the same room as you.),"SendOwnerRule(""WhisperAllow"")","GetOwnerRule(""BlockWhisper"")"
-120,,(☐ Forbid her from whispering.),(She won't be able to whisper to someone else when she's in the same room as you.),"SendOwnerRule(""WhisperBlock"")","!GetOwnerRule(""BlockWhisper"")"
-120,,(☑ Forbid her from changing pose.),(She will now be able to change her pose when she's in the same room as you.),"SendOwnerRule(""ChangePoseAllow"")","GetOwnerRule(""BlockChangePose"")"
-120,,(☐ Forbid her from changing pose.),(She won't be able to change her pose when she's in the same room as you.),"SendOwnerRule(""ChangePoseBlock"")","!GetOwnerRule(""BlockChangePose"")"
-120,,(☑ Forbid her from accessing herself.),(She will now be able to access herself when she's in the same room as you.),"SendOwnerRule(""AccessSelfAllow"")","GetOwnerRule(""BlockAccessSelf"")"
-120,,(☐ Forbid her from accessing herself.),(She won't be able to access herself when she's in the same room as you.),"SendOwnerRule(""AccessSelfBlock"")","!GetOwnerRule(""BlockAccessSelf"")"
-120,,(☑ Forbid her from accessing others.),(She will now be able to access other members when she's in the same room as you.),"SendOwnerRule(""AccessOtherAllow"")","GetOwnerRule(""BlockAccessOther"")"
-120,,(☐ Forbid her from accessing others.),(She won't be able to access other members when she's in the same room as you.),"SendOwnerRule(""AccessOtherBlock"")","!GetOwnerRule(""BlockAccessOther"")"
+120,,(☑ Forbid DialogCharacterObject from talking.),(DialogCharacterSubject will now be able to talk when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""TalkAllow"")","GetOwnerRule(""BlockTalk"")"
+120,,(☐ Forbid DialogCharacterObject from talking.),(DialogCharacterSubject won't be able to talk when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""TalkBlock"")","!GetOwnerRule(""BlockTalk"")"
+120,,(☑ Forbid DialogCharacterObject from emoting.),(DialogCharacterSubject will now be able to emote when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""EmoteAllow"")","GetOwnerRule(""BlockEmote"")"
+120,,(☐ Forbid DialogCharacterObject from emoting.),(DialogCharacterSubject won't be able to emote when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""EmoteBlock"")","!GetOwnerRule(""BlockEmote"")"
+120,,(☑ Forbid DialogCharacterObject from whispering.),(DialogCharacterSubject can now whisper to anyone when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""WhisperAllow"")","GetOwnerRule(""BlockWhisper"")"
+120,,(☐ Forbid DialogCharacterObject from whispering.),(DialogCharacterSubject won't be able to whisper to someone else when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""WhisperBlock"")","!GetOwnerRule(""BlockWhisper"")"
+120,,(☑ Forbid DialogCharacterObject from changing pose.),(DialogCharacterSubject will now be able to change DialogCharacterPossessive pose when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""ChangePoseAllow"")","GetOwnerRule(""BlockChangePose"")"
+120,,(☐ Forbid DialogCharacterObject from changing pose.),(DialogCharacterSubject won't be able to change DialogCharacterPossessive pose when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""ChangePoseBlock"")","!GetOwnerRule(""BlockChangePose"")"
+120,,(☑ Forbid DialogCharacterObject from accessing DialogCharacterSelf.),(DialogCharacterSubject will now be able to access DialogCharacterSelf when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""AccessSelfAllow"")","GetOwnerRule(""BlockAccessSelf"")"
+120,,(☐ Forbid DialogCharacterObject from accessing DialogCharacterSelf.),(DialogCharacterSubject won't be able to access DialogCharacterSelf when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""AccessSelfBlock"")","!GetOwnerRule(""BlockAccessSelf"")"
+120,,(☑ Forbid DialogCharacterObject from accessing others.),(DialogCharacterSubject will now be able to access other members when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""AccessOtherAllow"")","GetOwnerRule(""BlockAccessOther"")"
+120,,(☐ Forbid DialogCharacterObject from accessing others.),(DialogCharacterSubject won't be able to access other members when DialogCharacterSubject's in the same room as you.),"SendOwnerRule(""AccessOtherBlock"")","!GetOwnerRule(""BlockAccessOther"")"
 120,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 120,0,(Back to main menu.),(Main menu.),,
-130,100,(Allow her to buy keys.),(The store will sell keys to her.),"SendOwnerRule(""KeyAllow"")","GetOwnerRule(""BlockKey"")"
-130,100,(Confiscate her keys.),(She lost all of her keys.),"SendOwnerRule(""KeyConfiscate"")",
-130,100,(Block her from buying keys.),(The store will not sell keys to her anymore.),"SendOwnerRule(""KeyBlock"")","!GetOwnerRule(""BlockKey"")"
-130,100,(Allow her to use owner locks on herself.),(She will be able to use owner locks on herself.),"SendOwnerRule(""SelfOwnerLockAllow"")","GetOwnerRule(""BlockOwnerLockSelf"")"
-130,100,(Block her from using owner locks on herself.),(She will not be able to use owner locks on herself anymore.),"SendOwnerRule(""SelfOwnerLockBlock"")","!GetOwnerRule(""BlockOwnerLockSelf"")"
+130,100,(Allow DialogCharacterObject to buy keys.),(The store will sell keys to DialogCharacterObject.),"SendOwnerRule(""KeyAllow"")","GetOwnerRule(""BlockKey"")"
+130,100,(Confiscate DialogCharacterPossessive keys.),(DialogCharacterSubject lost all of DialogCharacterPossessive keys.),"SendOwnerRule(""KeyConfiscate"")",
+130,100,(Block DialogCharacterObject from buying keys.),(The store will not sell keys to DialogCharacterObject anymore.),"SendOwnerRule(""KeyBlock"")","!GetOwnerRule(""BlockKey"")"
+130,100,(Allow DialogCharacterObject to use owner locks on DialogCharacterSelf.),(DialogCharacterSubject will be able to use owner locks on DialogCharacterSelf.),"SendOwnerRule(""SelfOwnerLockAllow"")","GetOwnerRule(""BlockOwnerLockSelf"")"
+130,100,(Block DialogCharacterObject from using owner locks on DialogCharacterSelf.),(DialogCharacterSubject will not be able to use owner locks on DialogCharacterSelf anymore.),"SendOwnerRule(""SelfOwnerLockBlock"")","!GetOwnerRule(""BlockOwnerLockSelf"")"
 130,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 130,0,(Back to main menu.),(Main menu.),,
-140,100,(Allow her to buy remotes.),(The store will sell remotes to her.),"SendOwnerRule(""RemoteAllow"")","GetOwnerRule(""BlockRemote"")"
-140,100,(Allow her to use remotes on herself.),(Her remotes will work on her now.),"SendOwnerRule(""RemoteAllowSelf"")","GetOwnerRule(""BlockRemoteSelf"")"
-140,100,(Confiscate her remotes.),(She lost all of her remotes.),"SendOwnerRule(""RemoteConfiscate"")",
-140,100,(Block her from buying remotes.),(The store will not sell remotes to her anymore.),"SendOwnerRule(""RemoteBlock"")","!GetOwnerRule(""BlockRemote"")"
-140,100,(Block her from using remotes on herself),(Her remotes won't work on her anymore.),"SendOwnerRule(""RemoteBlockSelf"")","!GetOwnerRule(""BlockRemoteSelf"")"
+140,100,(Allow DialogCharacterObject to buy remotes.),(The store will sell remotes to DialogCharacterObject.),"SendOwnerRule(""RemoteAllow"")","GetOwnerRule(""BlockRemote"")"
+140,100,(Allow DialogCharacterObject to use remotes on DialogCharacterSelf.),(DialogCharacterPossessive remotes will work on DialogCharacterObject now.),"SendOwnerRule(""RemoteAllowSelf"")","GetOwnerRule(""BlockRemoteSelf"")"
+140,100,(Confiscate DialogCharacterPossessive remotes.),(DialogCharacterSubject lost all of DialogCharacterPossessive remotes.),"SendOwnerRule(""RemoteConfiscate"")",
+140,100,(Block DialogCharacterObject from buying remotes.),(The store will not sell remotes to DialogCharacterObject anymore.),"SendOwnerRule(""RemoteBlock"")","!GetOwnerRule(""BlockRemote"")"
+140,100,(Block DialogCharacterObject from using remotes on DialogCharacterSelf),(DialogCharacterPossessive remotes won't work on DialogCharacterObject anymore.),"SendOwnerRule(""RemoteBlockSelf"")","!GetOwnerRule(""BlockRemoteSelf"")"
 140,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 140,0,(Back to main menu.),(Main menu.),,
-150,151,(Timed cell.),"(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)",,
-150,152,(Good Girl Training System.),(How many minutes of Good Girl Training System will she be forced to do?),,
-150,100,(Force her to serve drinks as a maid.),(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.),"SendOwnerRule(""LaborMaidDrinks"", ""Quest"")",CanServeDrink()
-150,,(Force her to serve drinks as a maid.),"(She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)",,!CanServeDrink()
+150,151,(Timed cell.),"(For how long do you want to lock DialogCharacterObject up?  DialogCharacterSubject will be isolated, and you won't be able to unlock DialogCharacterObject.)",,
+150,152,(Good Girl Training System.),(How many minutes of Good Girl Training System will DialogCharacterSubject be forced to do?),,
+150,100,(Force DialogCharacterObject to serve drinks as a maid.),(DialogCharacterSubject will be sent to the maid quarters to prepare drinks.  You will earn DialogCharacterPossessive salary.),"SendOwnerRule(""LaborMaidDrinks"", ""Quest"")",CanServeDrink()
+150,,(Force DialogCharacterObject to serve drinks as a maid.),"(DialogCharacterSubject needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)",,!CanServeDrink()
 150,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 150,0,(Back to main menu.),(Main menu.),,
-151,100,(Lock her for 5 minutes.),(She will be isolated and locked up for 5 minutes.),"SendOwnerRule(""TimerCell5"", ""Leave"")",
-151,100,(Lock her for 15 minutes.),(She will be isolated and locked up for 15 minutes.),"SendOwnerRule(""TimerCell15"", ""Leave"")",
-151,100,(Lock her for 30 minutes.),(She will be isolated and locked up for 30 minutes.),"SendOwnerRule(""TimerCell30"", ""Leave"")",
-151,100,(Lock her for 60 minutes.),(She will be isolated and locked up for 60 minutes.),"SendOwnerRule(""TimerCell60"", ""Leave"")",
+151,100,(Lock DialogCharacterObject for 5 minutes.),(DialogCharacterSubject will be isolated and locked up for 5 minutes.),"SendOwnerRule(""TimerCell5"", ""Leave"")",
+151,100,(Lock DialogCharacterObject for 15 minutes.),(DialogCharacterSubject will be isolated and locked up for 15 minutes.),"SendOwnerRule(""TimerCell15"", ""Leave"")",
+151,100,(Lock DialogCharacterObject for 30 minutes.),(DialogCharacterSubject will be isolated and locked up for 30 minutes.),"SendOwnerRule(""TimerCell30"", ""Leave"")",
+151,100,(Lock DialogCharacterObject for 60 minutes.),(DialogCharacterSubject will be isolated and locked up for 60 minutes.),"SendOwnerRule(""TimerCell60"", ""Leave"")",
 151,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 151,0,(Back to main menu.),(Main menu.),,
-152,100,(Send her for 5 minutes.),(She will be locked up in the asylum until she completes 5 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS5"", ""Leave"")",
-152,100,(Send her for 15 minutes.),(She will be locked up in the asylum until she completes 15 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS15"", ""Leave"")",
-152,100,(Send her for 30 minutes.),(She will be locked up in the asylum until she completes 30 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS30"", ""Leave"")",
-152,100,(Send her for 60 minutes.),(She will be locked up in the asylum until she completes 60 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS60"", ""Leave"")",
-152,100,(Send her for 90 minutes.),(She will be locked up in the asylum until she completes 90 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS90"", ""Leave"")",
-152,100,(Send her for 120 minutes.),(She will be locked up in the asylum until she completes 120 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS120"", ""Leave"")",
-152,100,(Send her for 180 minutes.),(She will be locked up in the asylum until she completes 180 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS180"", ""Leave"")",
-152,100,(Don't send her.),"(Select the rule, restriction or punishment that you want to enforce.)",,
-160,100,(Release her from the slave collar.),(You remove her slave collar.),"SendOwnerRule(""CollarRelease"")","!GetOwnerRule(""ReleasedCollar"")"
-160,100,(Give her the slave collar.),(You lock the slave collar back on her.),"SendOwnerRule(""CollarWear"")","GetOwnerRule(""ReleasedCollar"")"
-160,100,(Prevent her from changing her nickname.),(She won't be able to change her nickname anymore.),"SendOwnerRule(""NicknameBlock"")","!GetOwnerRule(""BlockNickname"")"
-160,100,(Allow her to change her nickname.),(She will be able to change her nickname.),"SendOwnerRule(""NicknameAllow"")","GetOwnerRule(""BlockNickname"")"
+152,100,(Send DialogCharacterObject for 5 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 5 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS5"", ""Leave"")",
+152,100,(Send DialogCharacterObject for 15 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 15 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS15"", ""Leave"")",
+152,100,(Send DialogCharacterObject for 30 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 30 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS30"", ""Leave"")",
+152,100,(Send DialogCharacterObject for 60 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 60 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS60"", ""Leave"")",
+152,100,(Send DialogCharacterObject for 90 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 90 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS90"", ""Leave"")",
+152,100,(Send DialogCharacterObject for 120 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 120 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS120"", ""Leave"")",
+152,100,(Send DialogCharacterObject for 180 minutes.),(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 180 minutes of Good Girl Training System.),"SendOwnerRule(""GGTS180"", ""Leave"")",
+152,100,(Don't send DialogCharacterObject.),"(Select the rule, restriction or punishment that you want to enforce.)",,
+160,100,(Release DialogCharacterObject from the slave collar.),(You remove DialogCharacterPossessive slave collar.),"SendOwnerRule(""CollarRelease"")","!GetOwnerRule(""ReleasedCollar"")"
+160,100,(Give DialogCharacterObject the slave collar.),(You lock the slave collar back on DialogCharacterObject.),"SendOwnerRule(""CollarWear"")","GetOwnerRule(""ReleasedCollar"")"
+160,100,(Prevent DialogCharacterObject from changing DialogCharacterPossessive nickname.),(DialogCharacterSubject won't be able to change DialogCharacterPossessive nickname anymore.),"SendOwnerRule(""NicknameBlock"")","!GetOwnerRule(""BlockNickname"")"
+160,100,(Allow DialogCharacterObject to change DialogCharacterPossessive nickname.),(DialogCharacterSubject will be able to change DialogCharacterPossessive nickname.),"SendOwnerRule(""NicknameAllow"")","GetOwnerRule(""BlockNickname"")"
 160,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 160,0,(Back to main menu.),(Main menu.),,
 170,100,(Restrict Bondage Club areas.),(The areas you've selected will be blocked for your submissive.),"AdvancedRule(""BlockScreen"")",
@@ -182,8 +182,8 @@ ReleaseLoverConfirm,,"(Cancel)",(Main menu),,
 170,100,(Forbidden words list.),(The forbidden words list for your submissive has been updated.),ForbiddenWords(),
 170,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 170,0,(Back to main menu.),(Main menu.),,
-200,200,(Allow her to use lovers locks on herself.),(She will be able to use lovers locks on herself.),"SendLoverRule(""SelfLoverLockAllow"")","GetLoverRule(""BlockLoverLockSelf"")"
-200,200,(Block her from using lovers locks on herself.),(She will not be able to use lovers locks on herself anymore.),"SendLoverRule(""SelfLoverLockBlock"")","!GetLoverRule(""BlockLoverLockSelf"")"
-200,200,(Allow her owner to use lovers locks on her.),(Her owner will be able to use lovers locks on her.),"SendLoverRule(""OwnerLoverLockAllow"")","GetLoverRule(""BlockLoverLockOwner"")"
-200,200,(Block her owner from using lovers locks on her.),(Her owner will not be able to use lovers locks on her anymore.),"SendLoverRule(""OwnerLoverLockBlock"")","!GetLoverRule(""BlockLoverLockOwner"")"
+200,200,(Allow DialogCharacterObject to use lovers locks on DialogCharacterSelf.),(DialogCharacterSubject will be able to use lovers locks on DialogCharacterSelf.),"SendLoverRule(""SelfLoverLockAllow"")","GetLoverRule(""BlockLoverLockSelf"")"
+200,200,(Block DialogCharacterObject from using lovers locks on DialogCharacterSelf.),(DialogCharacterSubject will not be able to use lovers locks on DialogCharacterSelf anymore.),"SendLoverRule(""SelfLoverLockBlock"")","!GetLoverRule(""BlockLoverLockSelf"")"
+200,200,(Allow DialogCharacterObject owner to use lovers locks on DialogCharacterObject.),(DialogCharacterPossessive owner will be able to use lovers locks on DialogCharacterObject.),"SendLoverRule(""OwnerLoverLockAllow"")","GetLoverRule(""BlockLoverLockOwner"")"
+200,200,(Block DialogCharacterObject owner from using lovers locks on DialogCharacterObject.),(DialogCharacterPossessive owner will not be able to use lovers locks on DialogCharacterObject anymore.),"SendLoverRule(""OwnerLoverLockBlock"")","!GetLoverRule(""BlockLoverLockOwner"")"
 200,0,(Back to main menu.),(Main menu.),,
