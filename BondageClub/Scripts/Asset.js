@@ -667,7 +667,11 @@ function AssetLayerSort(layers) {
 		if (l1.Priority !== l2.Priority) return l1.Priority - l2.Priority;
 		// If the priorities are identical and the layers belong to the same Asset, ensure layer order is preserved
 		if (l1.Asset === l2.Asset) return l1.Asset.Layer.indexOf(l1) - l1.Asset.Layer.indexOf(l2);
-		// If priorities are identical, sort alphabetically to maintain consistency
-		return (l1.Asset.Group.Name + l1.Asset.Name).localeCompare(l2.Asset.Group.Name + l2.Asset.Name);
+		// If priorities are identical, first try to sort by group name
+		if (l1.Asset.Group !== l2.Asset.Group) return l1.Asset.Group.Name.localeCompare(l2.Asset.Group.Name);
+		// If the groups are identical, then sort by asset name - this shouldn't actually be possible unless you've
+		// somehow equipped two different assets from the same group, but use it as an if-the-unexpected-happens
+		// fallback.
+		return l1.Asset.Name.localeCompare(l2.Asset.Name);
 	});
 }
