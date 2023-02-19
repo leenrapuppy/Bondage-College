@@ -571,6 +571,8 @@ function DialogLeave() {
 	DialogItemToLock = null;
 	DialogLockMenu = false;
 	Player.FocusGroup = null;
+	StruggleProgress = -1;
+	StruggleProgressCurrentMinigame = "";
 	if (CurrentCharacter) {
 		if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
 			CharacterAppearanceForceUpCharacter = -1;
