@@ -571,6 +571,8 @@ function DialogLeave() {
 	DialogItemToLock = null;
 	DialogLockMenu = false;
 	Player.FocusGroup = null;
+	StruggleProgress = -1;
+	StruggleProgressCurrentMinigame = "";
 	if (CurrentCharacter) {
 		if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
 			CharacterAppearanceForceUpCharacter = -1;
@@ -2248,10 +2250,10 @@ function DialogDrawItemMenu(C) {
 		return;
 	} else ColorPickerHide();
 
-	// In item permission mode, the player can choose which item he allows other users to mess with.
-	// Allowed items have a green background.  Disallowed have a red background. Limited have an orange background
-	if ((DialogItemPermissionMode && (C.ID == 0) && !DialogIsStruggling() && !DialogIsSelectingStruggleGame())
-		|| (Player.CanInteract() && !DialogIsStruggling() && !InventoryGroupIsBlocked(C, null, true))) {
+	// We're not picking a struggle game, or struggling, and either in permission-edit mode or just the normal item list
+	if (!DialogIsStruggling() && !DialogIsSelectingStruggleGame()
+		&& ((DialogItemPermissionMode && C.IsPlayer())
+			|| (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true)))) {
 
 		if (DialogInventory == null) DialogInventoryBuild(C);
 
