@@ -1276,7 +1276,7 @@ SourceCharacter gets in the way of TargetCharacter
 SourceCharacter встаёт на пути TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter пытается помочь TargetCharacter освободится.
-SourceCharacter gives TargetCharacter some lockpicks to help TargetType2Pronouns with.
+SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounsSelf with.
 SourceCharacter даёт TargetCharacter несколько отмычек, чтобы помочь.
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter хватает поводок на TargetCharacter.
@@ -1456,8 +1456,8 @@ Select an item attachment
 Выберите вложение предмета
 Select the piercing attachment
 Выберите насадку для пирсинга
-A victim cannot unlock TargetType2Pronouns if TargetPronounPossessive elbows are bound
-Жертва не может разблокировать TargetType2Pronouns, если TargetPronounPossessive локти связаны
+A victim cannot unlock TargetPronounsSelf if TargetPronounPossessive elbows are bound
+Жертва не может разблокировать TargetPronounsSelf, если TargetPronounPossessive локти связаны
 DestinationCharacterName jammed a lock and broke TargetPronounPossessive lockpick!
 DestinationCharacterName заклинил замок и сломал TargetPronounPossessive отмычку!
 Remaining tries: 
