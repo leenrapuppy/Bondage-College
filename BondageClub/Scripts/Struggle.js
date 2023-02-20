@@ -333,6 +333,7 @@ function StruggleProgressCheckEnd(C) {
 			if (StruggleProgressNextItem != null) SkillProgress("Bondage", StruggleProgressSkill);
 			if (((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) && (CurrentScreen != "ChatRoom")) {
 				C.CurrentDialog = DialogFind(C, ((StruggleProgressNextItem == null) ? ("Remove" + StruggleProgressPrevItem.Asset.Name) : StruggleProgressNextItem.Asset.Name), ((StruggleProgressNextItem == null) ? "Remove" : "") + C.FocusGroup.Name);
+				StruggleProgress = -1;
 				DialogLeaveItemMenu();
 			}
 		}
