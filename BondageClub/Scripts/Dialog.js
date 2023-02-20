@@ -643,6 +643,7 @@ function DialogEndExpression() {
  */
 function DialogLeaveItemMenu(resetPermissionsMode = true) {
 	DialogItemToLock = null;
+	DialogInventory = null;
 	if (DialogIsStruggling()) {
 		DialogEndExpression();
 		StruggleProgressCurrentMinigame = "";
@@ -650,7 +651,6 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 		StruggleProgressCurrentMinigame = "";
 		StruggleProgress = -1;
 	} else {
-		DialogInventory = null;
 		Player.FocusGroup = null;
 		if (CurrentCharacter) {
 			CurrentCharacter.FocusGroup = null;
