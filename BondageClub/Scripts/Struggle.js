@@ -247,6 +247,11 @@ function StruggleMinigameCheckCancel(C) {
 		return true;
 
 	if (StruggleProgressCurrentMinigame === "LockPick") {
+		// Skip a false-positive if we succeeded but ended up
+		// drawing the UI before it fully updated
+		if (StruggleLockPickOrder === null)
+			return false;
+
 		// The character we're picking the lock on has left
 		if (CurrentScreen === "ChatRoom" && !ChatRoomCharacter.find(c => c.MemberNumber === C.MemberNumber))
 			return true;
@@ -1126,9 +1131,9 @@ function StruggleLockPickDraw(C) {
 			action = "ActionInterruptedRemove";
 
 		ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		DialogLeave();
 		StruggleLockPickOrder = null;
 		DialogLockMenu = false;
+		DialogLeave();
 	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
 		StruggleLockPickSuccessTime = 0;
 		// Success!
@@ -1142,10 +1147,11 @@ function StruggleLockPickDraw(C) {
 		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
 		// The player can use another item right away, for another character we jump back to her reaction
 		if (C.ID == 0) {
-			DialogInventoryBuild(C);
+			StruggleProgress = -1;
+			StruggleProgressCurrentMinigame = "";
 			StruggleLockPickOrder = null;
 			DialogLockMenu = false;
-			DialogMenuButtonBuild(C);
+			DialogInventoryBuild(C);
 		} else {
 			DialogLeaveItemMenu();
 		}
