@@ -1880,7 +1880,10 @@ interface ItemPropertiesBase {
  * per-item.
  */
 interface ItemPropertiesCustom {
-	/** The member number of the player adding the item */
+	/**
+	 * The member number of the player adding the item.
+	 * Only set if the asset is marked as {@link AssetDefinition.CharacterRestricted}.
+	 */
 	ItemMemberNumber?: number;
 
 	//#region Lock properties
