@@ -642,20 +642,15 @@ function DialogEndExpression() {
  * @returns {void} - Nothing
  */
 function DialogLeaveItemMenu(resetPermissionsMode = true) {
+	DialogEndExpression();
 	DialogItemToLock = null;
-	DialogInventory = null;
-	if (DialogIsStruggling()) {
-		DialogEndExpression();
-		StruggleProgressCurrentMinigame = "";
-	} else if (DialogIsSelectingStruggleGame()) {
-		StruggleProgressCurrentMinigame = "";
-		StruggleProgress = -1;
-	} else {
-		Player.FocusGroup = null;
-		if (CurrentCharacter) {
-			CurrentCharacter.FocusGroup = null;
-		}
+	Player.FocusGroup = null;
+	if (CurrentCharacter) {
+		CurrentCharacter.FocusGroup = null;
 	}
+	DialogInventory = null;
+	if (DialogIsStruggling())
+		StruggleMinigameStop();
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
 	DialogColor = null;
@@ -958,7 +953,7 @@ function DialogMenuButtonBuild(C) {
 		DialogMenuButton.push("LockCancel");
 
 	// Out of struggle mode, we calculate which buttons to show in the UI
-	if (!DialogIsStruggling() && !DialogIsSelectingStruggleGame()) {
+	if (!DialogIsStruggling() && !DialogActivityMode) {
 
 		// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
 		const IsItemLocked = InventoryItemHasEffect(Item, "Lock", true);
@@ -1862,7 +1857,7 @@ function DialogClick() {
 		} else {
 
 			// If the user wants to speed up the add / swap / remove progress
-			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (DialogIsSelectingStruggleGame() || DialogIsStruggling())) {
+			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (DialogIsStruggling())) {
 				if (!StruggleMinigameClick()) {
 					if (MouseIn(1387-300, 600, 225, 275)) {
 						StruggleMinigameStart(Player, "Strength", DialogStrugglePrevItem, DialogStruggleNextItem);
@@ -2226,8 +2221,7 @@ function DialogDrawItemMenu(C) {
 
 	// Draws the top menu text & icons
 	if (DialogMenuButton.length === 0) DialogMenuButtonBuild(CharacterGetCurrent());
-	if ((DialogColor == null) && Player.CanInteract() && !DialogIsStruggling() && !DialogIsSelectingStruggleGame() && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8)
-		DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
+	if ((DialogColor == null) && Player.CanInteract() && !DialogIsStruggling() && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
 	for (let I = DialogMenuButton.length - 1; I >= 0; I--) {
 		const ButtonColor = DialogGetMenuButtonColor(DialogMenuButton[I]);
 		const ButtonImage = DialogGetMenuButtonImage(DialogMenuButton[I], FocusItem);
@@ -2250,7 +2244,7 @@ function DialogDrawItemMenu(C) {
 
 	// In item permission mode, the player can choose which item he allows other users to mess with.
 	// Allowed items have a green background.  Disallowed have a red background. Limited have an orange background
-	if ((DialogItemPermissionMode && (C.ID == 0) && !DialogIsStruggling() && !DialogIsSelectingStruggleGame())
+	if ((DialogItemPermissionMode && (C.ID == 0) && !DialogIsStruggling())
 		|| (Player.CanInteract() && !DialogIsStruggling() && !InventoryGroupIsBlocked(C, null, true))) {
 
 		if (DialogInventory == null) DialogInventoryBuild(C);
@@ -2292,7 +2286,7 @@ function DialogDrawItemMenu(C) {
 	}
 
 	// If the player is struggling or lockpicking
-	if (DialogIsSelectingStruggleGame() || DialogIsStruggling()) {
+	if (DialogIsStruggling()) {
 		if (!StruggleMinigameDraw(C)) {
 			if ((DialogStrugglePrevItem != null) && (DialogStruggleNextItem != null)) {
 				DrawAssetPreview(1200, 150, DialogStrugglePrevItem.Asset);
@@ -2734,17 +2728,6 @@ function DialogActualNameForGroup(C, G) {
 		repl = G.Name === "ItemVulva" ? DialogFindPlayer("ItemPenis") : DialogFindPlayer("ItemGlans");
 	}
 	return repl;
-}
-
-/**
- * Check if there's a struggling minigame started.
- *
- * StruggleProgress == 0 also happens when the selection screen is up,
- * but StruggleProgressCurrentMinigame will be "" in that case.
- * @returns {boolean}
- */
-function DialogIsSelectingStruggleGame() {
-	return (StruggleProgress >= 0 && StruggleProgressCurrentMinigame === "");
 }
 
 /**
