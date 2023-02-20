@@ -34,7 +34,7 @@ var StruggleProgressChallenge = 0;
 /**
  * The struggle minigame progress
  *
- * -1 means there's no game running. 0 and StruggleProgressCurrentMinigame === ""
+ * -1 means there's no game running. 0 and StruggleProgressCurrentMinigame
  * indicates the player hasn't selected a game yet.
  *
  * @type {number}
@@ -247,6 +247,11 @@ function StruggleMinigameCheckCancel(C) {
 		return true;
 
 	if (StruggleProgressCurrentMinigame === "LockPick") {
+		// Skip a false-positive if we succeeded but ended up
+		// drawing the UI before it fully updated
+		if (StruggleLockPickOrder === null)
+			return false;
+
 		// The character we're picking the lock on has left
 		if (CurrentScreen === "ChatRoom" && !ChatRoomCharacter.find(c => c.MemberNumber === C.MemberNumber))
 			return true;
@@ -333,7 +338,6 @@ function StruggleProgressCheckEnd(C) {
 			if (StruggleProgressNextItem != null) SkillProgress("Bondage", StruggleProgressSkill);
 			if (((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) && (CurrentScreen != "ChatRoom")) {
 				C.CurrentDialog = DialogFind(C, ((StruggleProgressNextItem == null) ? ("Remove" + StruggleProgressPrevItem.Asset.Name) : StruggleProgressNextItem.Asset.Name), ((StruggleProgressNextItem == null) ? "Remove" : "") + C.FocusGroup.Name);
-				StruggleProgress = -1;
 				DialogLeaveItemMenu();
 			}
 		}
@@ -1127,10 +1131,8 @@ function StruggleLockPickDraw(C) {
 			action = "ActionInterruptedRemove";
 
 		ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		// FIXME: that's supposed to be StruggleMinigameStop()
-		StruggleProgress = -1;
-		StruggleProgressCurrentMinigame = "";
 		StruggleLockPickOrder = null;
+		DialogLockMenu = false;
 		DialogLeave();
 	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
 		StruggleLockPickSuccessTime = 0;
@@ -1143,11 +1145,16 @@ function StruggleLockPickDraw(C) {
 			}
 		}
 		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
-		// FIXME: that's supposed to be StruggleMinigameStop()
-		StruggleProgress = -1;
-		StruggleProgressCurrentMinigame = "";
-		StruggleLockPickOrder = null;
-		DialogLeave();
+		// The player can use another item right away, for another character we jump back to her reaction
+		if (C.ID == 0) {
+			StruggleProgress = -1;
+			StruggleProgressCurrentMinigame = "";
+			StruggleLockPickOrder = null;
+			DialogLockMenu = false;
+			DialogInventoryBuild(C);
+		} else {
+			DialogLeaveItemMenu();
+		}
 	} else {
 		if ( Player.ArousalSettings && (Player.ArousalSettings.Active != "Inactive" && Player.ArousalSettings.Active != "NoMeter") && Player.ArousalSettings.Progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
 			if (CurrentTime > StruggleLockPickArousalTick) {
