@@ -2209,12 +2209,12 @@ function PreferenceSubscreenScriptsExitClick() {
 	const scriptItem = InventoryGet(Player, "ItemScript");
 	if (scriptItem) {
 		const params = ValidationCreateDiffParams(Player, Player.MemberNumber);
-		const { result, valid } = ValidationResolveScriptDiff(null, scriptItem, params);
+		const { item, valid } = ValidationResolveScriptDiff(null, scriptItem, params);
 		if (!valid) {
 			console.info("Cleaning script item after permissions modification");
-			if (result) {
-				Player.Appearance = Player.Appearance.map((item) => {
-					return item.Asset.Group.Name === "ItemScript" ? result : item;
+			if (item) {
+				Player.Appearance = Player.Appearance.map((playerItem) => {
+					return playerItem.Asset.Group.Name === "ItemScript" ? item : playerItem;
 				});
 			} else {
 				InventoryRemove(Player, "ItemScript", false);

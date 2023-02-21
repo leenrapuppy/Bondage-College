@@ -58,11 +58,11 @@ function MagicBattleGetDifficulty(C) {
 	if (InventoryGet(C, "ItemFeet") != null) D = D + 1 * BF;
 	if (InventoryIsWorn(C, "HempRope", "ItemArms")) D = D + 1 * BF;
 	if (InventoryIsWorn(C, "Chains", "ItemArms")) D = D + 3 * BF;
-	if (InventoryIsWorn(C, "Chains", "LeatherArmbinder")) D = D + 4 * BF;
-	if (InventoryIsWorn(C, "Chains", "ArmbinderJacket")) D = D + 4 * BF;
-	if (InventoryIsWorn(C, "Chains", "BoxTieArmbinder")) D = D + 4 * BF;
-	if (InventoryIsWorn(C, "Chains", "LatexArmbinder")) D = D + 4 * BF;
-	if (InventoryIsWorn(C, "Chains", "SeamlessLatexArmbinder")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "LeatherArmbinder", "ItemArms")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "ArmbinderJacket", "ItemArms")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "BoxTieArmbinder", "ItemArms")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "LatexArmbinder", "ItemArms")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "SeamlessLatexArmbinder", "ItemArms")) D = D + 4 * BF;
 	if (InventoryIsWorn(C, "HempRopeHarness", "ItemTorso")) D = D + 2 * BF;
 	if (InventoryIsWorn(C, "CrotchChain", "ItemTorso")) D = D + 4 * BF;
 	return D;

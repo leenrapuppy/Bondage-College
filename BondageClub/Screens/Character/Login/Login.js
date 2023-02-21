@@ -348,7 +348,7 @@ function LoginValidCollar() {
 			if (CurrentScreen == "ChatRoom") ChatRoomCharacterItemUpdate(Player, "ItemNeck");
 		}
 	}
-	if (LogQuery("ClubSlave", "Management") && !InventoryIsWorn(Player, "ItemNeck", "ClubSlaveCollar"))
+	if (LogQuery("ClubSlave", "Management") && !InventoryIsWorn(Player, "ClubSlaveCollar", "ItemNeck"))
 		InventoryWear(Player, "ClubSlaveCollar", "ItemNeck");
 }
 
