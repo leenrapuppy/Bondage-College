@@ -19,6 +19,9 @@
  * @property {CanvasTextBaseline} [textBaseline] - The text baseline to use. Can be any valid
  * {@link https://developer.mozilla.org/en-us/docs/Web/CSS/vertical-align vertical alignment}. Defaults to "middle".
  * @property {string} [color] - The color that the text should be drawn in. Can be any valid CSS color string. Defaults to "#000".
+ * @property {string} [strokeColor] - The stroke color that should be used for the text. Can be any valid CSS color
+ * string. Defaults to the same value as the `color` property.
+ * @property {number} [strokeWidth] - The stroke width that should be used when stroking the text. Only used if a `strokeColor` is defined. Defaults to 1.
  * @property {DynamicDrawTextEffect} [effect] - A dynamic text effect to apply. No effects are applied by default.
  * @property {number} [width] - The maximum width of the drawn text. Not applicable to the {@link DynamicDrawTextFromTo} function, as
  * constraints are defined by the endpoints. When defined for the {@link DynamicDrawTextArc} function, it defines the maximum width of the
@@ -130,6 +133,7 @@ const DynamicDrawTextDefaultOptions = {
 	textAlign: "center",
 	textBaseline: "middle",
 	color: "#000",
+	strokeWidth: 1,
 	effect: undefined,
 	width: undefined,
 	contain: true,
@@ -364,6 +368,9 @@ function DynamicDrawTextAndEffects(text, ctx, x, y, options) {
 	const effect = DynamicDrawTextEffects[options.effect] || {};
 	if (typeof effect.before === "function") effect.before(text, ctx, x, y, options);
 	ctx.fillText(text, x, y, options.width);
+	if (options.strokeColor) {
+		ctx.strokeText(text, x, y, options.width);
+	}
 	if (typeof effect.after === "function") effect.after(text, ctx, x, y, options);
 }
 
@@ -374,8 +381,7 @@ function DynamicDrawTextAndEffects(text, ctx, x, y, options) {
  */
 function DynamicDrawParseOptions(options) {
 	options = options || {};
-	const parsedOptions = Object.assign({}, DynamicDrawTextDefaultOptions, options);
-	return parsedOptions;
+	return Object.assign({}, DynamicDrawTextDefaultOptions, options);
 }
 
 /**
@@ -385,9 +391,13 @@ function DynamicDrawParseOptions(options) {
  * @param {DynamicDrawOptions} options - The drawing options to apply
  * @returns {void} - Nothing
  */
-function DynamicDrawApplyOptions(ctx, { fontSize, fontFamily, textAlign, textBaseline, color }) {
+function DynamicDrawApplyOptions(ctx, { fontSize, fontFamily, textAlign, textBaseline, color, strokeColor, strokeWidth }) {
 	ctx.font = `${fontSize}px ${fontFamily}`;
 	ctx.textAlign = textAlign;
 	ctx.textBaseline = textBaseline;
 	ctx.fillStyle = color;
+	if (strokeColor) {
+		ctx.strokeStyle = strokeColor;
+		ctx.lineWidth = strokeWidth;
+	}
 }

@@ -62,6 +62,12 @@ ClothJacketBase,Jacket
 ClothButtonShirtTop,Upper Gradient
 ClothButtonShirtBottom,Lower Gradient
 ClothButtonShirtButtons,Buttons
+ClothCheerleaderTopBase,Top
+ClothCheerleaderTopStraps,Trim
+ClothCheerleaderTopInnerstrips,Inner Trim
+ClothCheerleaderTopText,Text
+ClothCheerleaderTopTextFill,Text Inner
+ClothCheerleaderTopTextStroke,Text Outer
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -152,6 +158,9 @@ ClothLowerElegantSkirtDesign,Design
 ClothLowerBondageSkirtSkirt,Skirt
 ClothLowerBondageSkirtFrill,Frill
 ClothLowerBondageSkirtStraps,Straps
+ClothLowerCheerleaderSkirtBase,Skirt
+ClothLowerCheerleaderSkirtStraps,Trim
+ClothLowerCheerleaderSkirtInnerstrips,Inner Trim
 SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit

@@ -449,3 +449,8 @@ input[type=range][data-thumb=rope]::-moz-range-thumb {
 	font-family: 'Nanum Pen Script';
 	src: url('../Fonts/Nanum\ Pen\ Script/NanumPenScript-Regular.ttf');
 }
+
+@font-face {
+	font-family: 'Archivo Black';
+	src: url('../Fonts/Archivo Black/ArchivoBlack-Regular.ttf');
+}

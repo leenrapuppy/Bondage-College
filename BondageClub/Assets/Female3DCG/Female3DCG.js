@@ -311,6 +311,17 @@ var AssetFemale3DCG = [
 					{Name: "Wrists", HasType: false, CopyLayerColor: "Waist"},
 				],
 			},
+			{
+				Name: "CheerleaderTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, Top: 200, Left: 160, DefaultColor: ["#c91616", "#e0b51d", "#c91616", "#242485", "#f5f5f5"], AllowPose: ["Hogtied", "AllFours"],
+				Extended: true, DynamicAfterDraw: true, TextMaxLength: { Text: 8 }, TextFont: "'Archivo Black', 'Impact', 'Arial Black', 'Franklin Gothic', 'Arial', sans-serif",
+				Layer: [
+					{ Name: "Base", PoseMapping: { Hogtied: "" } },
+					{ Name: "Straps" },
+					{ Name: "Innerstrips" },
+					{ Name: "TextFill", HasImage: false },
+					{ Name: "TextStroke", HasImage: false },
+				],
+			},
 			// Flat Chest Compatible Clothing
 			{
 				Name: "MaleTankTop1", Gender: "M", Prerequisite: ["HasFlatChest"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"]
@@ -793,6 +804,14 @@ var AssetFemale3DCG = [
 					{ Name: "Belt" },
 					{ Name: "Cross" },
 					{ Name: "Metal" },
+				],
+			},
+			{
+				Name: "CheerleaderSkirt", Value: 30, Left: 100, HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], ParentGroup: null, DefaultColor: ["#c91616", "#e0b51d", "#c91616"], AllowPose: ["KneelingSpread"],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Straps" },
+					{ Name: "Innerstrips" },
 				],
 			},
 			// Penis Compatible Clothing
@@ -2257,6 +2276,12 @@ var AssetFemale3DCG = [
 					{ Name: "Straps" },
 					{ Name: "Buckles", AllowColorize: false, HideForPose: ["AllFours", "BackCuffs", "OverTheHead", "Yoked"] },
 				]
+			},
+			{
+				Name: "CheerleaderPomPoms", Gender: "F", Priority: 35, Prerequisite: ["HasBreasts"], BuyGroup: "CheerleaderPomPoms", Value: -1, ParentGroup: null, DefaultColor: "#e0b51d", DynamicGroupName: "ItemHands",
+				AllowPose: ["OverTheHead", "BackCuffs", "Yoked", "AllFours"],
+				HideForPose: ["BackBoxTie", "BackElbowTouch"],
+				Hide: ["ItemHandheld", "ItemHands"],
 			},
 			// Flat Chest Compatible Clothing
 		],
@@ -5160,6 +5185,13 @@ var AssetFemale3DCG = [
 					{ Name: "Locks", LockLayer: true, HideForPose: ["OverTheHead", "Yoked", "BackCuffs", "AllFours"] }
 
 				],
+			},
+			{
+				Name: "CheerleaderPomPoms", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, BuyGroup: "CheerleaderPomPoms", Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, ParentGroup: null, DefaultColor: "#e0b51d",
+				AllowPose: ["OverTheHead", "BackCuffs", "Yoked", "AllFours"],
+				HideForPose: ["BackBoxTie", "BackElbowTouch"],
+				Effect: ["Block", "Prone", "MergedFingers"],
+				Hide: ["ItemHandheld"]
 			},
 		],
 	},

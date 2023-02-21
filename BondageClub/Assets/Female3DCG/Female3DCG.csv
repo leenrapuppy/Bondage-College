@@ -67,6 +67,7 @@ Cloth,MaleTankTop1,Male Cloth Tank-Top
 Cloth,ButtonShirt,Button Shirt
 Cloth,SlaveRags,Slave Rags
 Cloth,Hoodie,Cropped Hoodie
+Cloth,CheerleaderTop,Cheerleader Top
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -155,6 +156,7 @@ ClothLower,AsymmetricSkirt,Asymmetric Skirt
 ClothLower,ElegantSkirt,Elegant Skirt
 ClothLower,RuffledSkirt,Ruffled Skirt
 ClothLower,CrossSkirt,Cross Skirt
+ClothLower,CheerleaderSkirt,Cheerleader Skirt
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
@@ -502,6 +504,7 @@ Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
 Gloves,BikerGloves,Biker Gloves
+Gloves,CheerleaderPomPoms,Pom Poms
 LeftHand,,Left Hand
 LeftHand,Rings,Rings
 RightHand,,Right Hand
@@ -1140,6 +1143,7 @@ ItemHands,PolishedMittens,Polished Steel Mittens
 ItemHands,DuctTape,Duct Tape
 ItemHands,HoofMittens, Hoof Mittens
 ItemHands,SmoothLeatherMittens1,Short Smooth Leather Mittens
+ItemHands,CheerleaderPomPoms,Pom Pom Mitts
 ItemHandheld,,Hands
 ItemHandheld,Crop,Crop
 ItemHandheld,Flogger,Flogger
