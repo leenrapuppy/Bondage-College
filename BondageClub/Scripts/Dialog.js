@@ -11,7 +11,6 @@ var DialogExpressionColor = null;
  * @type {string}
  */
 var DialogColorSelect = null;
-var DialogPreviousCharacterData = {};
 /**
  * The list of available items for the selected group.
  * @type DialogInventoryItem[]
@@ -702,7 +701,6 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 	DialogActivityMode = false;
 	DialogTextDefault = "";
 	DialogTextDefaultTimer = 0;
-	DialogPreviousCharacterData = {};
 	ElementRemove("InputColor");
 	AudioDialogStop();
 	ColorPickerEndPick();
