@@ -94,9 +94,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		HasHiddenItems: false,
 		SavedColors: GetDefaultSavedColors(),
 		CanTalk: function () {
-			let GagEffect = SpeechGetGagLevel(this, ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemHood", "ItemNeck", "ItemDevices"]);
-			GagEffect += InventoryCraftCount(this, "Large") * 2;
-			GagEffect -= InventoryCraftCount(this, "Small") * 2;
+			const GagEffect = SpeechGetTotalGagLevel(this, true);
 			return (GagEffect <= 0);
 		},
 		CanWalk: function () {
