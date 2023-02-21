@@ -119,7 +119,7 @@ function CheatTranslation(){
 				displayedStageNumber = stageTexts[TranslationCurrentStageFileLine][StageNumber];
 				if(displayText !== "") OverridenIntroText = displayText; else OverridenIntroText = "** Stage has empty interaction result";
 				window[screenPath + "_CurrentStage"] = displayedStageNumber;
-				console.log("Stage: " + displayedStageNumber + " Line: " + TranslationCurrentStageFileLine + 1);
+				console.log("Stage: " + displayedStageNumber + " Line: " + (TranslationCurrentStageFileLine + 1));
 			}
 			break;
 		case 55: // number 7 returns non overriden intro text for given stage (if present)
