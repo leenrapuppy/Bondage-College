@@ -31,17 +31,20 @@ RelationshipSubmenu,0,(Offer her a trial period to become your submissive.),(The
 RelationshipSubmenu,0,(Accept a trial period to become her submissive.),,"SendOwnershipRequest(""Accept"")","OwnershipOptionIs(""CanStartTrial"")"
 RelationshipSubmenu,11,(Offer her to end the trial and be fully collared.),(There's a $100 fee to prepare the ceremony and get her a slave collar.  Will you pay now?),,"OwnershipOptionIs(""CanOfferEndTrial"")"
 RelationshipSubmenu,0,(Accept her collar and begin the ceremony.),,"SendOwnershipRequest(""Accept"")","OwnershipOptionIs(""CanEndTrial"")"
+RelationshipSubmenu,ReleaseSubmissiveConfirm,(Release her from the slave bond.),(Are you sure you want to release her? THIS ACTION IS NOT REVERSIBLE!),,IsOwnedByPlayer()
 RelationshipSubmenu,0,(Ask her to be your girlfriend.),(The request has been sent.  She must accept it to start dating you.),"SendLovershipRequest(""Propose"")","LovershipOptionIs(""CanOfferBeginDating"")"
 RelationshipSubmenu,0,(Accept to be her girlfriend.),,"SendLovershipRequest(""Accept"")","LovershipOptionIs(""CanBeginDating"")"
 RelationshipSubmenu,0,(Offer her to become your fiancée.),(The request has been sent.  She must accept it to become your fiancée.),"SendLovershipRequest(""Propose"")","LovershipOptionIs(""CanOfferBeginEngagement"")"
 RelationshipSubmenu,0,(Accept her proposal of engagement.),,"SendLovershipRequest(""Accept"")","LovershipOptionIs(""CanBeginEngagement"")"
 RelationshipSubmenu,12,(Offer her to marry each other.),(There's a $100 fee asked of both sides for the wedding.  Will you pay now?),,"LovershipOptionIs(""CanOfferBeginWedding"")"
 RelationshipSubmenu,13,(Accept her proposal and become her wife.),(There's a $100 fee asked of both sides for the wedding.  Will you pay now?),,"LovershipOptionIs(""CanBeginWedding"")"
+RelationshipSubmenu,ReleaseLoverConfirm,(Tell her you want to break up).,(Are you sure you want to break up with her? THIS ACTION IS NOT REVERSIBLE!),,IsLoverOfPlayer()
 RelationshipSubmenu,10,(Back),"(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)",,
-RelationshipSubmenu,ReleaseSubmissiveConfirm,(Release her from the slave bond.),(Are you sure you want to release her? THIS ACTION IS NOT REVERSIBLE!),,IsOwnedByPlayer()
 ReleaseSubmissiveConfirm,0,"(Yes, I want to permanently break the ownership!)",(The ownership has been broken.),"SendOwnershipRequest(""Release"")",!IsWearingCollar()
 ReleaseSubmissiveConfirm,,"(Yes, I want to permanently break the ownership!)",(The submissive must not be wearing any collar to complete this action.),,IsWearingCollar()
 ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
+ReleaseLoverConfirm,0,"(Yes, I want to break up with her.)",(Your love relation is now over.),"SendLovershipRequest(""Break"")",
+ReleaseLoverConfirm,,"(Cancel)",(Main menu),,
 11,0,(Pay $100 for the collaring ceremony.),"(You pay and prepare the ceremony.  A maid brings a slave collar, she must accept it to complete the collaring.)","SendOwnershipRequest(""Propose"")",DialogMoneyGreater(100)
 11,0,(Refuse to pay.),(Main menu),,
 12,0,(Pay $100 for the wedding.),(You pay and ask her to marry you. You wait for her answer.),"SendLovershipRequest(""Propose"")",DialogMoneyGreater(100)

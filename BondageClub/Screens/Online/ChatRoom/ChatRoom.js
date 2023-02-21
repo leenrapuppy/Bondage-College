@@ -4044,7 +4044,7 @@ function ChatRoomSendLovershipRequest(RequestType) {
 	if ((ChatRoomLovershipOption == "CanBeginWedding") && (RequestType == "Accept")) CharacterChangeMoney(Player, -100);
 	ChatRoomLovershipOption = "";
 	ServerSend("AccountLovership", { MemberNumber: CurrentCharacter.MemberNumber, Action: RequestType });
-	if (RequestType == "Accept") DialogLeave();
+	if (RequestType == "Accept" || RequestType === "Break") DialogLeave();
 }
 
 /**
