@@ -172,7 +172,7 @@ var DialogSelfMenuOptions = [
 	},
 	{
 		Name: "OwnerRules",
-		IsAvailable: () => DialogSelfMenuSelected && DialogSelfMenuSelected.Name == "OwnerRules",
+		IsAvailable: () => false,
 		Draw: DialogDrawOwnerRulesMenu,
 		Click: () => { },
 	},
@@ -2114,13 +2114,14 @@ function DialogFindNextSubMenu() {
 /**
  * Finds and set an available character sub menu.
  * @param {string} MenuName - The name of the sub menu, see DialogSelfMenuOptions.
+ * @param {boolean} force - Whether to check availability of the menu first.
  * @returns {boolean} - True, when the sub menu is found and available and was switched to. False otherwise and nothing happened.
  */
-function DialogFindSubMenu(MenuName) {
+function DialogFindSubMenu(MenuName, force=false) {
 	for (let MenuIndex = 0; MenuIndex < DialogSelfMenuOptions.length; MenuIndex++) {
 		let MenuOption = DialogSelfMenuOptions[MenuIndex];
 		if (MenuOption.Name == MenuName) {
-			if (MenuOption.IsAvailable()) {
+			if (force || MenuOption.IsAvailable()) {
 				if (MenuOption.Load)
 					MenuOption.Load();
 				DialogSelfMenuSelected = MenuOption;
@@ -2796,10 +2797,7 @@ function DialogClickPoseMenu() {
  * @returns {void} - Nothing
  */
 function DialogViewOwnerRules() {
-	let MenuOption = DialogSelfMenuOptions.find(M => M.Name == "OwnerRules");
-	if (MenuOption.Load)
-		MenuOption.Load();
-	DialogSelfMenuSelected = MenuOption;
+	DialogFindSubMenu("OwnerRules", true);
 }
 
 /**
