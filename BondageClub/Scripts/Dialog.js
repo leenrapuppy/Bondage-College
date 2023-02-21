@@ -1137,8 +1137,6 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.push("Prev");
 			}
 
-			if (C.FocusGroup.Name == "ItemMouth" || C.FocusGroup.Name == "ItemMouth2" || C.FocusGroup.Name == "ItemMouth3")
-				DialogMenuButton.push("ChangeLayersMouth");
 
 			if (!IsItemLocked && !IsGroupBlocked && (Item != null) && (Item.Asset != null) && Item.Asset.AllowTighten && Player.CanInteract() && InventoryAllow(C, Item.Asset))
 				DialogMenuButton.push("TightenLoosen");
@@ -1566,18 +1564,6 @@ function DialogMenuButtonClick() {
 				DialogExtendItem(Item);
 				return;
 			}
-
-			// Cycle through the layers of restraints for the mouth
-			else if (DialogMenuButton[I] == "ChangeLayersMouth") {
-				/** @type {AssetGroupName} */
-				let NewLayerName;
-				if (C.FocusGroup.Name == "ItemMouth") NewLayerName = "ItemMouth2";
-				if (C.FocusGroup.Name == "ItemMouth2") NewLayerName = "ItemMouth3";
-				if (C.FocusGroup.Name == "ItemMouth3") NewLayerName = "ItemMouth";
-
-				DialogChangeFocusToGroup(C, NewLayerName);
-			}
-
 
 			// Lock Icon - Rebuilds the inventory list with locking items
 			else if (DialogMenuButton[I] == "Lock") {
