@@ -1303,7 +1303,7 @@ SourceCharacter gets in the way of TargetCharacter
 SourceCharacter 阻挡了 TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter 试图帮助 TargetCharacter 摆脱束缚。
-SourceCharacter gives TargetCharacter some lockpicks to help TargetType2Pronouns with.
+SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounsSelf with.
 SourceCharacter 给 TargetCharacter 一些开锁工具以便TargetPronounObject自助。
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter抓住TargetCharacter的牵绳。
@@ -1481,7 +1481,7 @@ Select an item attachment
 选择一个配件物品
 Select the piercing attachment
 选择一个穿刺配件
-A victim cannot unlock TargetType2Pronouns if TargetPronounPossessive elbows are bound
+A victim cannot unlock TargetPronounsSelf if TargetPronounPossessive elbows are bound
 手肘被绑在一起的时候受害者无法为自己开锁
 DestinationCharacterName jammed a lock and broke TargetPronounPossessive lockpick!
 DestinationCharacterName把开锁器断在了锁芯里!
