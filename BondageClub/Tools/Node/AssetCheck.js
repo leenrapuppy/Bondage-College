@@ -176,12 +176,14 @@ function loadCSV(path, expectedWidth) {
 				let assetConfig = groupConfig[Asset.Name];
 				if (assetConfig) {
 					if (assetConfig && assetConfig.CopyConfig) {
-						const Overrides = assetConfig.Config;
+						const { Config: Overrides, Archetype } = assetConfig;
 						const { GroupName, AssetName } = assetConfig.CopyConfig;
 						assetConfig = (AssetFemale3DCGExtended[GroupName || Group.Group] || {} )[AssetName];
 						if (!assetConfig) {
 							error(`Asset ${Group.Group}:${Asset.Name}: CopyConfig target not found!`);
 							assetConfig = groupConfig[Asset.Name];
+						} else if (assetConfig.Archetype !== groupConfig[Asset.Name].Archetype) {
+							error(`Asset for ${Group.Group}:${Asset.Name}: Mismatch in archetypes after CopyConfig`);
 						} else if (Overrides) {
 							const MergedConfig = Object.assign({}, assetConfig.Config, Overrides);
 							assetConfig = Object.assign({}, assetConfig, {Config: MergedConfig});
