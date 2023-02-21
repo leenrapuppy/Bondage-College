@@ -714,6 +714,57 @@ function DialogEndExpression() {
 }
 
 /**
+ * Performs a "Back" action through the menu "stack".
+ */
+function DialogMenuBack() {
+	switch (DialogMenuMode) {
+		case "activities":
+		case "color":
+		case "crafted":
+		case "locked":
+		case "locking":
+			DialogChangeMode("items");
+			break;
+
+		case "dialog":
+			// That's handled in DialogClick via DialogLeave
+			break;
+
+		case "extended":
+		case "tighten":
+			DialogLeaveFocusItem();
+			break;
+
+		case "items":
+			DialogLeaveItemMenu();
+			break;
+
+		case "permissions":
+			DialogChangeMode("items");
+			break;
+
+		case "struggle":
+			if (StruggleMinigameIsRunning()) {
+				StruggleMinigameStop();
+				// Move back to the item list only if we automatically started to struggle
+				if (DialogStruggleSelectMinigame) {
+					DialogStruggleSelectMinigame = false;
+					DialogChangeMode("items");
+				}
+			} else {
+				DialogChangeMode("items");
+			}
+			break;
+
+		default:
+			console.trace(`Unknown menu mode "${DialogMenuMode}, resetting`);
+			DialogChangeMode("dialog");
+			CurrentCharacter = null;
+			break;
+	}
+}
+
+/**
  * Leaves the item menu for both characters.
  *
  * This exits the item-selecting UI and switches back to the current character's dialog options.
@@ -728,30 +779,6 @@ function DialogLeaveItemMenu() {
 	}
 	DialogInventory = null;
 	DialogMenuButton = [];
-	if (DialogMenuMode === "struggle") {
-		if (StruggleMinigameIsRunning()) {
-			StruggleMinigameStop();
-			// Move back to the item list only if we automatically started to struggle
-			if (DialogStruggleSelectMinigame) {
-				DialogStruggleSelectMinigame = false;
-				DialogChangeMode("items");
-			}
-		} else {
-			DialogChangeMode("items");
-		}
-	} else if (DialogMenuMode === "permissions") {
-		// Send out an update so that other players get our updated permissions
-		if (CurrentScreen == "ChatRoom")
-			ChatRoomCharacterUpdate(Player);
-		DialogChangeMode("items");
-	} else {
-		DialogChangeMode("dialog");
-	}
-	if (DialogMenuMode === "items") {
-		const C = CharacterGetCurrent();
-		DialogInventoryBuild(C);
-		DialogMenuButtonBuild(C);
-	}
 	DialogTextDefault = "";
 	DialogTextDefaultTimer = 0;
 	ElementRemove("InputColor");
@@ -759,6 +786,7 @@ function DialogLeaveItemMenu() {
 	ColorPickerEndPick();
 	ColorPickerRemoveEventListener();
 	ItemColorCancelAndExit();
+	DialogChangeMode("dialog");
 }
 
 /**
@@ -1524,9 +1552,9 @@ function DialogMenuButtonClick() {
 			/** The focused item */
 			const Item = InventoryGet(C, C.FocusGroup.Name);
 
-			// Exit Icon - Go back to the character dialog
+			// Exit Icon - Go back one level in the menu
 			if (DialogMenuButton[I] == "Exit") {
-				DialogLeaveItemMenu();
+				DialogMenuBack();
 				return;
 			}
 
