@@ -692,6 +692,14 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 
 	if (Char.ID == 0) LoginValidCollar();
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Inventory == null) || (Char.Inventory.length == 0))) InventoryLoad(Char, data.Inventory);
+
+	let tmp;
+	const oldPronouns = (tmp = currentAppearance.find(item => item.Asset.Group.Name === "Pronouns")) && tmp && tmp.Asset.Name;
+	const newPronouns = (tmp = Char.Appearance.find(item => item.Asset.Group.Name === "Pronouns")) && tmp && tmp.Asset.Name;
+	if (oldPronouns !== newPronouns) {
+		// Reload the dialog so the new gender takes effect
+		CharacterLoadCSVDialog(Char, "Screens/Online/ChatRoom/Dialog_Online");
+	}
 	CharacterLoadEffect(Char);
 	CharacterRefresh(Char);
 }
