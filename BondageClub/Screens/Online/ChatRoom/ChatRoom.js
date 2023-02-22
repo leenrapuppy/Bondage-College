@@ -2707,10 +2707,10 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  *
  * @param {IChatRoomMessage} data - The message to parse.
  * @param {Character} SenderCharacter - The resolved character that sent that message.
- * @returns {{ metadata: IChatRoomMessageMetadata, substitutions: [string, string][] }}
+ * @returns {{ metadata: IChatRoomMessageMetadata, substitutions: CommonSubtituteSubstitution[] }}
  */
 function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
-	/** @type {[string, string][]} */
+	/** @type {CommonSubtituteSubstitution[]} */
 	const substitutions = [];
 	/** @type {IChatRoomMessageMetadata} */
 	const meta = {};
@@ -2846,10 +2846,10 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
  * Gets a set of dictionary substitutions used when the given character is the source character of a chat message.
  * @param {IChatRoomMessage} data - The raw message data
  * @param {Character} character - The source character
- * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
+ * @returns {CommonSubtituteSubstitution[]} - A list of dictionary substitutions that should be applied
  */
 function ChatRoomGetSourceCharacterSubstitutions(data, character) {
-	/** @type {[string, string][]} */
+	/** @type {CommonSubtituteSubstitution[]} */
 	const substitutions = [];
 	const isServerEnterLeave = ["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content);
 	let name = CharacterNickname(character);
@@ -2879,10 +2879,10 @@ function ChatRoomGetSourceCharacterSubstitutions(data, character) {
  * doing something to themselves)
  * @param {number} [index] - If the character is an additional target, the index that the substitution tags should be
  * given
- * @returns {[string,string][]} - A list of dictionary substitutions that should be applied
+ * @returns {CommonSubtituteSubstitution[]} - A list of dictionary substitutions that should be applied
  */
 function ChatRoomGetTargetCharacterSubstitutions(character, isSelf, index) {
-	/** @type {[string, string][]} */
+	/** @type {CommonSubtituteSubstitution[]} */
 	const substitutions = [];
 	const hideIdentity = ChatRoomHideIdentity(character);
 	const pronounPossessive = CharacterPronoun(character, "Possessive", hideIdentity);
@@ -2943,7 +2943,7 @@ function ChatRoomGetFocusGroupSubstitutions(data, focusGroup, targetCharacter) {
  *
  * @param {IChatRoomMessage} data
  * @param {Character} sender
- * @returns {{ metadata?: IChatRoomMessageMetadata, substitutions?: string[][] }}
+ * @returns {{ metadata?: IChatRoomMessageMetadata, substitutions?: CommonSubtituteSubstitution[] }}
  */
 function ChatRoomMessageRunExtractors(data, sender) {
 	if (!data || !sender) return {};
@@ -4843,13 +4843,30 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
  * @param {Character} C - The character that the message key relates to
  * @param {string} key - Key for the dialog entry to use
  * @param {boolean} hideIdentity - Whether to hide details revealing the character's identity
- * @returns {[string, string][]} - The replacement pronoun text for keywords in the original message
+ * @returns {CommonSubtituteSubstitution[]} - The replacement pronoun text for keywords in the original message
  */
 function ChatRoomPronounSubstitutions(C, key, hideIdentity) {
-	/** @type {[string, string][]} */
+	/** @type {(match: string, offset: number, repl: string, string: string) => string} */
+	function replacer(match, offset, repl, string) {
+		// We matched at the start of the string, easy
+		if (offset === 0 || offset === 1 && string[0] === "(") return CommonStringTitlecase(repl);
+
+		// Harder, walk backward from the match, checking for a sentence separator
+		let pos;
+		for (pos = offset - 1; pos >= 0; pos--) {
+			if (string[pos] !== " ") break;
+		}
+		// We hit the beginning of the string, or we found a sentence separator
+		if (string[pos] === undefined || string[pos].match(/[.?()!…]/)) {
+			repl = CommonStringTitlecase(repl);
+		}
+		return repl;
+	}
+
+	/** @type {CommonSubtituteSubstitution[]} */
 	let repls = [];
 	for (const pronounType of ["Possessive", "Self", "Subject", "Object"]) {
-		repls.push([key + pronounType, CharacterPronoun(C, pronounType, hideIdentity)]);
+		repls.push([key + pronounType, CharacterPronoun(C, pronounType, hideIdentity), replacer]);
 	}
 	return repls;
 }

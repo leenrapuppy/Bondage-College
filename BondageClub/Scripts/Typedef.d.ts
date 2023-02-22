@@ -63,6 +63,9 @@ interface RGBAColor extends RGBColor {
 
 type RectTuple = [number, number, number, number];
 
+type CommonSubstituteReplacer = (match:string, offset: number, replacement: string, string: string) => string;
+type CommonSubtituteSubstitution = [string, string] | [string, string, CommonSubstituteReplacer];
+
 //#endregion
 
 //#region Enums
@@ -692,7 +695,7 @@ interface IChatRoomMessageMetadata {
  * @return null if the extraction has nothing to report.
  */
 type ChatRoomMessageExtractor =
-	(data: IChatRoomMessage, sender: Character) => { metadata: IChatRoomMessageMetadata, substitutions: string[][] } | null;
+	(data: IChatRoomMessage, sender: Character) => { metadata: IChatRoomMessageMetadata, substitutions: CommonSubtituteSubstitution[] } | null;
 
 /**
  * A chat message handler.

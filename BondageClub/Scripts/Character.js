@@ -466,6 +466,7 @@ function CharacterBuildDialog(C, CSV) {
 		return (str !== "" ? str : null);
 	}
 
+	/** @type {CommonSubtituteSubstitution[]} */
 	let subst = [
 		["DialogCharacterName", CharacterNickname(C)],
 		["DialogPlayerName", CharacterNickname(Player)],
