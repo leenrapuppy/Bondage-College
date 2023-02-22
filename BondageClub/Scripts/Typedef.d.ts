@@ -671,7 +671,7 @@ interface AssetGroupNameDictionaryEntry {
  */
 interface ActivityNameDictionaryEntry {
 	/** The name of the activity carried out */
-	ActivityName: string;
+	ActivityName: ActivityName;
 }
 
 type ChatMessageDictionaryEntry =
@@ -734,7 +734,7 @@ interface IChatRoomMessageMetadata {
 	ShockIntensity?: number;
 	ActivityCounter?: number;
 	/** The triggered activity */
-	ActivityName?: string;
+	ActivityName?: ActivityName;
 	/** The name of the asset used for the activity */
 	ActivityAsset?: Asset;
 	/** The name of the chatroom, appropriately garbled */
@@ -1044,10 +1044,10 @@ interface Asset {
 	Visible: boolean;
 	NotVisibleOnScreen?: readonly string[];
 	Wear: boolean;
-	Activity: string | null;
-	AllowActivity?: readonly string[];
+	Activity: ActivityName | null;
+	AllowActivity?: readonly ActivityName[];
 	ActivityAudio?: readonly string[];
-	ActivityExpression: Record<string, readonly ExpressionTrigger[]>;
+	ActivityExpression: Record<ActivityName, readonly ExpressionTrigger[]>;
 	AllowActivityOn?: AssetGroupItemName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: readonly string[];
@@ -1119,7 +1119,7 @@ interface Asset {
 	DynamicAllowInventoryAdd: (C: Character) => boolean;
 	DynamicName: (C: Character) => string;
 	DynamicGroupName: AssetGroupName;
-	DynamicActivity: (C: Character) => string | null | undefined;
+	DynamicActivity: (C: Character) => ActivityName | null | undefined;
 	DynamicAudio: ((C: Character) => string) | null;
 	CharacterRestricted: boolean;
 	AllowRemoveExclusive: boolean;
@@ -1182,8 +1182,20 @@ interface Pose {
 	MovePosition?: { Group: AssetGroupName; X: number; Y: number; }[];
 }
 
+type ActivityName = "Bite" | "Caress" | "Choke" | "Cuddle" | "FrenchKiss" |
+	"GagKiss" | "GaggedKiss" | "Grope" | "HandGag" | "Inject" | "Kick" |
+	"Kiss" | "Lick" | "MassageFeet" | "MassageHands" | "MasturbateFist" |
+	"MasturbateFoot" |"MasturbateHand" | "MasturbateItem" | "MasturbateTongue" |
+	"MoanGag" |"MoanGagAngry" | "MoanGagGiggle" | "MoanGagGroan" | "MoanGagTalk" |
+	"MoanGagWhimper" | "Nibble" | "Nod" | "PenetrateFast" | "PenetrateItem" |
+	"PenetrateSlow" | "Pet" | "Pinch" | "PoliteKiss" | "PourItem" | "Pull" |
+	"RestHead" | "RollItem" | "Rub" | "RubItem" | "ShockItem" | "Sit" | "Slap" |
+	"Spank" | "SpankItem" | "Step" | "StruggleArms" | "StruggleLegs" | "Suck" |
+	"TakeCare" | "Tickle" | "TickleItem" | "Whisper" | "Wiggle"
+;
+
 interface Activity {
-	Name: string;
+	Name: ActivityName;
 	MaxProgress: number;
 	MaxProgressSelf?: number;
 	Prerequisite: string[];
@@ -1475,9 +1487,9 @@ interface Character {
 		ProgressTimer: number;
 		VibratorLevel: number;
 		ChangeTime: number;
-		Activity: any[];
-		Zone: any[];
-		Fetish: any[];
+		Activity: { Name: ActivityName, Self: number, Other: number }[];
+		Zone: { Name: AssetGroupItemName, Factor: number, Orgasm: boolean }[];
+		Fetish: { Name: string, Factor: number }[];
 		OrgasmTimer?: number;
 		OrgasmStage?: number;
 		OrgasmCount?: number;

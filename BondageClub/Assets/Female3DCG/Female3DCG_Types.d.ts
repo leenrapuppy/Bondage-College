@@ -77,16 +77,16 @@ interface AssetDefinition {
 	Wear?: boolean;
 
 	/** Applying that asset triggers the following activity */
-	Activity?: string;
+	Activity?: ActivityName;
 
 	/** Activities that wearing this asset enables. */
-	AllowActivity?: string[];
+	AllowActivity?: ActivityName[];
 
 	/** Array of sound effects for each one of the item's allowed activities */
 	ActivityAudio?: string[];
 
 	/** The expression on the targeted character */
-	ActivityExpression?: Record<string, ExpressionTrigger[]>;
+	ActivityExpression?: Record<ActivityName, ExpressionTrigger[]>;
 
 	/** A list of groups that should still be allowed to be acted on even though they should be blocked by the asset. */
 	AllowActivityOn?: AssetGroupItemName[];
@@ -240,7 +240,7 @@ interface AssetDefinition {
 	/** The real group name used when building the file paths for the asset's layers */
 	DynamicGroupName?: AssetGroupName;
 
-	DynamicActivity?: (C: Character) => string | null | undefined;
+	DynamicActivity?: (C: Character) => ActivityName | null | undefined;
 	DynamicAudio?: (C: Character) => string;
 
 	/**
@@ -819,7 +819,7 @@ interface ModularItemOptionBase {
 	/** Whether the option forces a given pose */
 	SetPose?: AssetPoseName;
 	/** A list of activities enabled by that module */
-	AllowActivity?: string[];
+	AllowActivity?: ActivityName[];
 	/** A buy group to check for that module to be available */
 	PrerequisiteBuyGroup?: string;
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
