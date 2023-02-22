@@ -107,10 +107,13 @@ function ActorInteractionAvailable(LoveReq, SubReq, VarReq, InText, ForIntro) {
 	if ((parseInt(SubReq) < 0) && (parseInt(ActorGetValue(ActorSubmission)) > parseInt(SubReq))) return false;
 
 	// Checks if there's a custom script variable or a common variable to process
-	if ((VarReq != "") && (VarReq.substr(0, 7) == "Common_") && (window[VarReq] == false)) return false;
-	if ((VarReq != "") && (VarReq.substr(0, 8) == "!Common_") && (window[VarReq.substr(1)] == true)) return false;
-	if ((VarReq != "") && (VarReq.substr(0, 7) != "Common_") && (VarReq.substr(0, 1) != "!") && (window[CurrentChapter + "_" + CurrentScreen + "_" + VarReq] == false)) return false;
-	if ((VarReq != "") && (VarReq.substr(0, 7) != "Common_") && (VarReq.substr(0, 1) == "!") && (window[CurrentChapter + "_" + CurrentScreen + "_" + VarReq.substr(1)] == true)) return false;
+	if(VarReq != ""){
+		let negate = VarReq.substring(0,1) == "!";
+		if(negate) VarReq = VarReq.substring(1);
+		// whether to check global variable starting with Common_ or script variable starting with chapter and screen name
+		let variableToCheck = (VarReq.substring(0,7) == "Common_" ? VarReq : CurrentChapter + "_" + CurrentScreen + "_" + VarReq);
+		if(!!window[variableToCheck] === negate) return false;
+	}
 
 	// Check if the player is gagged, only interactions that starts with '(', '（' or '@' are allowed
 	var nonSpeechActionsStart = [
