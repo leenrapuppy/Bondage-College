@@ -63,8 +63,8 @@ interface RGBAColor extends RGBColor {
 
 type RectTuple = [number, number, number, number];
 
-type CommonSubstituteReplacer = (match:string, offset: number, replacement: string, string: string) => string;
-type CommonSubtituteSubstitution = [string, string] | [string, string, CommonSubstituteReplacer];
+type CommonSubstituteReplacer = (match: string, offset: number, replacement: string, string: string) => string;
+type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?: CommonSubstituteReplacer];
 
 //#endregion
 
