@@ -18,7 +18,12 @@ function InventoryItemHandsPaddedMittensDraw() {
 	DrawText(DialogFindPlayer("mittenstoharness"), 1375, 800, "white", "gray");
 
 	// Draw the message if present
-	if (InventoryItemHandsPaddedMittensMsg != null) DrawTextWrap(DialogFindPlayer(InventoryItemHandsPaddedMittensMsg), 1100, 850, 800, 160, "White");
+	if (InventoryItemHandsPaddedMittensMsg != null) {
+		let msg = DialogFindPlayer(InventoryItemHandsPaddedMittensMsg);
+		const subst = ChatRoomPronounSubstitutions(CurrentCharacter, "TargetPronoun", false);
+		msg = CommonStringSubstitute(msg, subst);
+		DrawTextWrap(msg, 1100, 850, 800, 160, "White");
+	}
 }
 
 // Catches the item extension clicks
