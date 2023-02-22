@@ -174,16 +174,16 @@ function PropertyShockPublishAction(C=null, Item=DialogFocusItem, Automatic=fals
 	}
 	InventoryShockExpression(C);
 
-	/** @type {ChatMessageDictionary} */
-	const Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
-		{ ShockIntensity : ShockLevel * 1.5 },
-		{ FocusGroupName: Item.Asset.Group.Name },
-	];
-	if (Automatic) {
-		Dictionary.push({ Automatic: true });
-	}
+	const Dictionary = new DictionaryBuilder()
+		.destinationCharacterName(C)
+		.asset(Item.Asset)
+		.shockIntensity(ShockLevel * 1.5)
+		.focusGroup(Item.Asset.Group.Name)
+		.if(Automatic)
+		.markAutomatic()
+		.endif()
+		.build();
+
 	const ActionTag = `TriggerShock${ShockLevel}`;
 
 	// Manually play audio and flash the screen when not in a chatroom
@@ -427,14 +427,13 @@ function PropertyTextExit(Refresh=true, TextChange="TextChange", TextRemove="Tex
 	const NewText = PropNames.map((p) => DialogFocusItem.Property[p]).filter(Boolean).join(" ");
 	if (OldText !== NewText) {
 		if (CurrentScreen === "ChatRoom") {
-			/** @type {ChatMessageDictionary} */
-			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-				{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-				{ Tag: "AssetName", GroupName: DialogFocusItem.Asset.Group.Name, AssetName: DialogFocusItem.Asset.Name },
-				{ Tag: "NewText", Text: NewText },
-			];
 			const ActionTag = (NewText === "") ? TextRemove : TextChange;
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(Player)
+				.destinationCharacter(C)
+				.asset(DialogFocusItem.Asset)
+				.text("NewText", NewText)
+				.build();
 
 			// Avoid `ChatRoomPublishCustomAction` for tighter control over character refreshing
 			ServerSend("ChatRoomChat", { Content: ActionTag, Type: "Action", Dictionary: Dictionary });

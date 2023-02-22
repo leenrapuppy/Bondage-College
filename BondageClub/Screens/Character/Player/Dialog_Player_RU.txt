@@ -211,7 +211,7 @@ The vibrators deny you a chance to finish, stopping abruptly.
 Вибраторы лишают вас шанса кончить, резко останавливаясь.
 SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
 SourceCharacter вышел из игры Kinky Dungeon на уровне KinkyDungeonLevel
-SourceCharacter met TargetPronounPossessive defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
+SourceCharacter met TargetPronounPossessive defeat in Kinky Dungeon! PronounSubject made it to level KinkyDungeonLevel before succumbing.
 SourceCharacter встретил TargetPronounPossessive поражение в Kinky Dungeon! Она добралась до уровня KinkyDungeonLevel прежде чем сдаться.
 Save
 Сохранить
@@ -1008,29 +1008,29 @@ Your owner has blocked your wardrobe access for a week.  You won't be able to ch
 Ваша хозяйка заблокировал доступ к вашему гардеробу на неделю. Ты не сможешь переодеться.
 Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
 Ваша хозяйка заблокировал доступ к вашему гардеробу. Вы не сможете переодеться, пока это правило не будет отменено.
-Your owner is now allowing you to talk publicly when she's there.
+Your owner is now allowing you to talk publicly when they're there.
 Ваша хозяйка теперь позволяет вам публично разговаривать, когда она там.
-Your owner is now preventing you from talking publicly when she's there.
+Your owner is now preventing you from talking publicly when they're there.
 Ваша хозяйка теперь запрещает вам публично разговаривать, когда она там.
-Your owner is now allowing you to emote when she's there.
+Your owner is now allowing you to emote when they're there.
 Ваша хозяйка теперь позволяет вам выражать эмоции, когда она там.
-Your owner is now preventing you from emoting when she's there.
+Your owner is now preventing you from emoting when they're there.
 Ваша хозяйка теперь мешает вам проявлять эмоции, когда она там.
-Your owner is now allowing you to whisper to other members when she's there.
+Your owner is now allowing you to whisper to other members when they're there.
 Ваша хозяйка теперь позволяет вам шептаться с другими участниками, когда она там.
-Your owner is now preventing you from whispering to other members when she's there.
+Your owner is now preventing you from whispering to other members when they're there.
 Ваша хозяйка теперь запрещает вам шептаться с другими участниками, когда она там.
-Your owner is now allowing you to change your pose when she's there.
+Your owner is now allowing you to change your pose when they're there.
 Ваша хозяйка теперь позволяет вам менять позу, когда она рядом.
-Your owner is now preventing you from changing your pose when she's there.
+Your owner is now preventing you from changing your pose when they're there.
 Ваша хозяйка теперь мешает вам менять позу, когда она рядом.
-Your owner is now allowing you to access yourself when she's there.
+Your owner is now allowing you to access yourself when they're there.
 Ваша хозяйка теперь позволяет вам получить доступ к себе, когда она там.
-Your owner is now preventing you from accessing yourself when she's there.
+Your owner is now preventing you from accessing yourself when they're there.
 Ваша хозяйка теперь мешает вам получить доступ к себе, когда она там.
-Your owner is now allowing you to access others when she's there.
+Your owner is now allowing you to access others when they're there.
 Ваша хозяйка теперь позволяет вам получать доступ к другим пользователям, когда она там.
-Your owner is now preventing you from accessing others when she's there.
+Your owner is now preventing you from accessing others when they're there.
 Ваша хозяйка теперь запрещает вам получать доступ к другим людям, когда она там.
 Your owner is now allowing you to have keys.  You can buy keys from the club shop.
 Ваша хозяйка теперь разрешает вам иметь ключи. Вы можете купить ключи в клубном магазине.
@@ -1276,7 +1276,7 @@ SourceCharacter gets in the way of TargetCharacter
 SourceCharacter встаёт на пути TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter пытается помочь TargetCharacter освободится.
-SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounsSelf with.
+SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounSelf with.
 SourceCharacter даёт TargetCharacter несколько отмычек, чтобы помочь.
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter хватает поводок на TargetCharacter.
@@ -1456,8 +1456,8 @@ Select an item attachment
 Выберите вложение предмета
 Select the piercing attachment
 Выберите насадку для пирсинга
-A victim cannot unlock TargetPronounsSelf if TargetPronounPossessive elbows are bound
-Жертва не может разблокировать TargetPronounsSelf, если TargetPronounPossessive локти связаны
+A victim cannot unlock TargetPronounSelf if TargetPronounPossessive elbows are bound
+Жертва не может разблокировать TargetPronounSelf, если TargetPronounPossessive локти связаны
 DestinationCharacterName jammed a lock and broke TargetPronounPossessive lockpick!
 DestinationCharacterName заклинил замок и сломал TargetPronounPossessive отмычку!
 Remaining tries: 

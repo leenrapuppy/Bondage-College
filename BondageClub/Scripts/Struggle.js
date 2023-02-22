@@ -1101,8 +1101,12 @@ function StruggleLockPickDraw(C) {
 			} else if (Math.random() < 0.25 && StruggleLockPickTotalTries > 5) { // StruggleLockPickTotalTries is meant to give players a bit of breathing room so they don't get tired right away
 				if (DialogLentLockpicks)  {
 					DialogLentLockpicks = false;
-					if (CurrentScreen == "ChatRoom")
-						ChatRoomPublishCustomAction("LockPickBreak", true, [{ Tag: "DestinationCharacterName", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }]);
+					if (CurrentScreen == "ChatRoom") {
+						const Dictionary = new DictionaryBuilder()
+							.destinationCharacterName(C)
+							.build();
+						ChatRoomPublishCustomAction("LockPickBreak", true, Dictionary);
+					}
 				} else {
 					LogAdd("FailedLockPick", "LockPick", CurrentTime + StruggleLockPickFailTimeout);
 					StruggleLockPickFailTime = CurrentTime + StruggleLockPickFailTimeout;

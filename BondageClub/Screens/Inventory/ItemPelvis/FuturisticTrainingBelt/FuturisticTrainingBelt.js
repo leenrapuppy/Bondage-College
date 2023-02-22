@@ -307,10 +307,10 @@ function InventoryItemPelvisFuturisticTrainingBeltPublishMode(C, Setting, Active
 }
 
 function InventoryItemPelvisFuturisticTrainingBeltPublishGeneric(C, msg) {
-	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-	];
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C)
+		.build();
 	ChatRoomPublishCustomAction(msg, false, Dictionary);
 }
 
@@ -362,16 +362,15 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 
 		if (CurrentScreen == "ChatRoom") {
 			var Message;
-			/** @type {ChatMessageDictionary} */
-			var Dictionary = [
-				{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-				{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
-			];
-
-			Dictionary.push({ Automatic: true });
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(C)
+				.destinationCharacterName(C)
+				.asset(Item.Asset)
+				.markAutomatic()
+				.build();
 
 			Message = "FuturisticTrainingBeltSetState" + FuturisticTrainingBeltStates[PersistentData.DeviceState] + VibeMode;
-			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: Player.MemberNumber });
+
 			// This is meant to cut down on spam for other players
 			if (FuturisticTrainingBeltStates[PersistentData.DeviceState].includes("Edge") && (OldIntensity >= 0 && OldIntensity < 3))
 				ChatRoomMessage({ Content: Message+"Self", Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary  });

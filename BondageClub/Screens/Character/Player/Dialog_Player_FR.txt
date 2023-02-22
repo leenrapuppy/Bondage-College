@@ -135,13 +135,13 @@ dans la chambre
 <i>Chambre privée</i>
 (As you enter the luxurious hallway, a maid comes to greet you.)  Welcome to the Bondage Club, is this your first visit?
 (Une servante vous approche alors que vous passez dans le hall luxurieux.)  Bienvenue au Club du Bondage, est-ce que c'est votre première visite?
-SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter is offering you to start a trial period as PronounPossessive submissive.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter offre de commencer une période d'essai en tant que sa soumise. Appuyer sur elle pour voir et accepter la demande, ou ne faites rien pour refuser.
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
 Le Club du Bondage se plait d'annoncer que SourceCharacter va commencer une période d'essai d'un minimum de 7 jours comme soumise.
-SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
+SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which PronounPossessive submissive must consent to wear.
 SourceCharacter a préparé la cérémonie du collier. Une servante apport le collier, que la soumise doit consentir à porter .
-The Bondage Club is proud to announce that SourceCharacter is now fully collared.  Her fate is in her Mistress hands.
+The Bondage Club is proud to announce that SourceCharacter is now fully collared.  TargetPronounSubject fate is in TargetPronounPossessive Mistress hands.
 Le Club du Bondage se plait d'annoncer que SourceCharacter à maintenant un collier permanent. Son avenir est dans les mains de sa patronne.
 Your owner is now allowing you to access your wardrobe and change clothes.
 Votre patronne vous permet d'accéder à votre garde-robe et vêtements.
@@ -153,9 +153,9 @@ Your owner has blocked your wardrobe access for a week.  You won't be able to ch
 Votre patronne a bloqué l'usage de votre garde-robe pour une semaine. Vous ne pourez changer de vêtements.
 Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
 Votre patronne a bloqué l'usage de votre garde-robe jusqu'à nouvel ordre.
-Your owner is now allowing you to whisper to other members when she's there.
+Your owner is now allowing you to whisper to other members when they're there.
 Votre patronne vous permet de chuchoter aux membres en sa présence.
-Your owner is now preventing you from whispering to other members when she's there.
+Your owner is now preventing you from whispering to other members when they're there.
 Votre patronne a bloqué le droit de chuchoter aux membres en sa présence.
 Your owner is now allowing you to have keys.  You can buy keys from the club shop.
 Votre patronne vous permet d'utiliser des clés. Vous pouvez les acheter au magasin.
@@ -179,11 +179,11 @@ SourceCharacter rolls a DiceType sided dice.  The result is: DiceResult.
 SourceCharacter roule un dé à DiceType côtés. Le résultat est: DiceResult.
 SourceCharacter flips a coin.  The result is: CoinResult.
 SourceCharacter lance une pièce. Le résultat est: CoinResult.
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following TargetPronounPossessive owner's commands.
 TargetCharacterName est attrapée par deux servantes et enfermée dans une cellule minutée, selon l'ordre de sa patronne.
-TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
+TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for TargetPronounPossessive owner.
 TargetCharacterName est attrapée par deux servantes et escortée aux quartiers des servantes pour servir des brevages.
-TargetCharacterName gives a sealed envelope to her owner.
+TargetCharacterName gives a sealed envelope to TargetPronounPossessive owner.
 TargetCharacterName donne une enveloppe scellée à sa patronne.
 SourceCharacter picks a beer from DestinationCharacter tray.
 SourceCharacter se prend un bière du plateau de DestinationCharacter.
@@ -217,7 +217,7 @@ Select the bondage position
 Sélectionner une position
 Select the tape wrapping
 Sélectionner l'emballage
-A victim cannot unlock herself if her elbows are bound
+A victim cannot unlock TargetPronounSelf if TargetPronounPossessive elbows are bound
 Une victime ne peut s'échapper si ses coudes sont attachés
 "From your friendly hardware store"
 "En provenance de la quincaillerie"
@@ -227,7 +227,7 @@ You can restart the timer but cannot unlock
 Vous pouvez réinitialiser le minuteur, mais non l'enlever
 "Never forget who you belong to"
 "N'oublies pas à qui tu appartiens"
-Can only be locked or unlocked by her owner
+Can only be locked or unlocked by TargetPronounPossessive owner
 Ne peut être touché par sa patronne
 Detached
 Détaché
@@ -257,11 +257,11 @@ Mummy
 Momie
 SourceCharacter wraps duct tape around DestinationCharacter hands.
 SourceCharacter enroule du ruban adhésif autour des mains de DestinationCharacter.
-SourceCharacter creates a duct tape skirt on TargetCharacter and traps her hands in it.
+SourceCharacter creates a duct tape skirt on TargetCharacter and traps TargetPronounPossessive hands in it.
 SourceCharacter crée une jupe avec le ruban adhésif et enroule les mains de TargetCharacter à l'intérieur.
-SourceCharacter creates a duct tape top on TargetCharacter and traps her arms in it.
+SourceCharacter creates a duct tape top on TargetCharacter and traps TargetPronounPossessive arms in it.
 SourceCharacter enroule les bras de TargetCharacter dans un chandail de ruban adhésif.
-SourceCharacter creates a duct tape mummy on TargetCharacter and traps her arms in it.
+SourceCharacter creates a duct tape mummy on TargetCharacter and traps TargetPronounPossessive arms in it.
 SourceCharacter transforme TargetCharacter en une momie de ruban adhésif.
 Select the type of gag
 Selectionner le type de bâillon
@@ -305,7 +305,7 @@ Open
 Libre
 SourceCharacter plugs up DestinationCharacter mouth.
 SourceCharacter bouche DestinationCharacter.
-SourceCharacter pulls out DestinationCharacter plug from her gag.
+SourceCharacter pulls out DestinationCharacter plug from TargetPronounPossessive gag.
 SourceCharacter débouche DestinationCharacter.
 Select the type of blindfold
 Selecttionner le type de bandeau
@@ -313,7 +313,7 @@ Double
 Double
 Wrap
 Enroulé
-SourceCharacter takes a piece of duct tape for TargetCharacter and place on her face.
+SourceCharacter takes a piece of duct tape for TargetCharacter and place on TargetPronounPossessive face.
 SourceCharacter prend un morceau de ruban et le place sur la face de TargetCharacter.
 SourceCharacter wraps some duct tape onto DestinationCharacter face.
 SourceCharacter enroule du ruban sur la face de DestinationCharacter.
@@ -341,7 +341,7 @@ SourceCharacter sets DestinationCharacter AssetName to moderate intensity.
 SourceCharacter règle le AssetName de DestinationCharacter à intensité moyenne.
 SourceCharacter sets DestinationCharacter AssetName to high intensity.
 SourceCharacter règle le AssetName de DestinationCharacter à intensité forte.
-DestinationCharacter AssetName gives her a light shock.
+DestinationCharacter AssetName gives TargetPronounObject a light shock.
 Le AssetName de DestinationCharacterName lui donne un choc léger.
 DestinationCharacter AssetName lets out a sharp jolt!
 Le AssetName de DestinationCharacterName lui donne une secousse aigüe.
@@ -355,7 +355,7 @@ DestinationCharacterName vibrating egg returns to a moderate pace.
 L'oeuf de DestinationCharacterName retourne à une vitesse modérée.
 DestinationCharacterName vibrating egg slows down a tiny bit.
 L'oeuf de DestinationCharacterName ralenti juste un peu.
-DestinationCharacterName vibrating egg starts teasing her lightly.
+DestinationCharacterName vibrating egg starts teasing TargetPronounObject lightly.
 L'oeuf de DestinationCharacterName la taquine en vibrant légèrement.
 DestinationCharacterName vibrating egg builds up to a moderate pace.
 L'oeuf de DestinationCharacterName augmente à une vitesse modérée.
@@ -371,7 +371,7 @@ DestinationCharacterName vibrating nipple clamps return to a moderate pace.
 Les pinces vibrantes de DestinationCharacterName retournent à une vitesse modérée.
 DestinationCharacterName vibrating nipple clamps slow down a tiny bit.
 Les pinces vibrantes de DestinationCharacterName ralentissent juste un peu.
-DestinationCharacterName vibrating nipple clamps start teasing her lightly.
+DestinationCharacterName vibrating nipple clamps start teasing TargetPronounObject lightly.
 Les pinces vibrantes de DestinationCharacterName la taquinent en vibrant légèrement.
 DestinationCharacterName vibrating nipple clamps build up to a moderate pace.
 Les pinces vibrantes de DestinationCharacterName augmentent à une vitesse modérée.
@@ -387,7 +387,7 @@ DestinationCharacterName vibrating latex panties returns to a moderate pace.
 Le slip vibrant en latex de DestinationCharacterName retourne à une vitesse modérée.
 DestinationCharacterName vibrating latex panties slows down a tiny bit.
 Le slip vibrant en latex de DestinationCharacterName ralentit juste un peu.
-DestinationCharacterName vibrating latex panties starts teasing her lightly.
+DestinationCharacterName vibrating latex panties starts teasing TargetPronounObject lightly.
 Le slip vibrant en latex de DestinationCharacterName la taquine en vibrant légèrement.
 DestinationCharacterName vibrating latex panties builds up to a moderate pace.
 Le slip vibrant en latex de DestinationCharacterName augmente à une vitesse modérée.
@@ -433,9 +433,9 @@ removes the chains
 enlève les chaînes
 mittens to the baby harness
 les mitaines au harnais de bébé
-She must be wearing a baby harness to chain the mittens.
+TargetPronounSubject must be wearing a baby harness to chain the mittens.
 Elle doit porter un harnais de bébé pour enchaîner les mitaines.
-You must free her arms before attaching mitten chains.
+You must free TargetPronounPossessive arms before attaching mitten chains.
 Vous devez libérer ses bras avant d'attacher les mitaines.
 Facial expression
 Expression faciale

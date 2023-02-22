@@ -95,12 +95,11 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 		if (temp != "" && typeof temp === "string") {
 			DialogFocusItem.Property.TriggerValues = temp;
 			if (CurrentScreen == "ChatRoom") {
-				/** @type {ChatMessageDictionary} */
-				var Dictionary = [
-					{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
-					{Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber},
-					{Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name},
-				];
+				const Dictionary = new DictionaryBuilder()
+					.sourceCharacter(Player)
+					.destinationCharacter(CurrentCharacter)
+					.focusGroup(CurrentCharacter.FocusGroup.Name)
+					.build();
 				ChatRoomPublishCustomAction("FuturisticVibratorSaveVoiceCommandsAction", true, Dictionary);
 			}
 			InventoryItemVulvaFuturisticVibratorExit();

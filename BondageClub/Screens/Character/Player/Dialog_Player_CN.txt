@@ -207,7 +207,7 @@ The vibrators deny you a chance to finish, stopping abruptly.
 振动棒突然停了下来，断绝了你高潮出来的机会。
 SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
 SourceCharacter 在KinkyDungeonLevel关退出了淫荡地城
-SourceCharacter met TargetPronounPossessive defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
+SourceCharacter met TargetPronounPossessive defeat in Kinky Dungeon! PronounSubject made it to level KinkyDungeonLevel before succumbing.
 SourceCharacter 在淫荡地城惨败! 止步于KinkyDungeonLevel而变成了魅魔。
 Save
 保存
@@ -1039,29 +1039,29 @@ Your owner has blocked your wardrobe access for a week.  You won't be able to ch
 你的主人禁用了你的衣柜，时长为1星期。你现在无法更换服装。
 Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
 你的主人禁用了你的衣柜。直到该限制被撤销，你无法更换服装。
-Your owner is now allowing you to talk publicly when she's there.
+Your owner is now allowing you to talk publicly when they're there.
 你的主人现在允许你于她在场时公开讲话。
-Your owner is now preventing you from talking publicly when she's there.
+Your owner is now preventing you from talking publicly when they're there.
 你的主人现在禁止你于她在场时公开讲话。
-Your owner is now allowing you to emote when she's there.
+Your owner is now allowing you to emote when they're there.
 你的主人现在允许你于她在场时说心里话。
-Your owner is now preventing you from emoting when she's there.
+Your owner is now preventing you from emoting when they're there.
 你的主人现在禁止你于她在场时说心里话。
-Your owner is now allowing you to whisper to other members when she's there.
+Your owner is now allowing you to whisper to other members when they're there.
 你的主人现在允许你于她在场时向其他人发送悄悄话。
-Your owner is now preventing you from whispering to other members when she's there.
+Your owner is now preventing you from whispering to other members when they're there.
 你的主人现在禁止你于她在场时向其他人发送悄悄话。
-Your owner is now allowing you to change your pose when she's there.
+Your owner is now allowing you to change your pose when they're there.
 你的主人现在允许你于她在场时改变姿势。
-Your owner is now preventing you from changing your pose when she's there.
+Your owner is now preventing you from changing your pose when they're there.
 你的主人现在禁止你于她在场时
-Your owner is now allowing you to access yourself when she's there.
+Your owner is now allowing you to access yourself when they're there.
 你的主人现在允许你于她在场时接触自己。
-Your owner is now preventing you from accessing yourself when she's there.
+Your owner is now preventing you from accessing yourself when they're there.
 你的主人现在禁止你于她在场时接触自己。
-Your owner is now allowing you to access others when she's there.
+Your owner is now allowing you to access others when they're there.
 你的主人现在允许你于她在场时接触其他人。
-Your owner is now preventing you from accessing others when she's there.
+Your owner is now preventing you from accessing others when they're there.
 你的主人现在禁止你于她在场时接触其他人。
 Your owner is now allowing you to have keys.  You can buy keys from the club shop.
 你的主人现在允许你持有钥匙。你可以在俱乐部商店购买钥匙。
@@ -1159,17 +1159,17 @@ TargetCharacterName was demoted from administration by SourceCharacter.
 TargetCharacterName被SourceCharacter取消了房间管理员权限.
 SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter更新了房间信息. 名称: ChatRoomName. 人数上限: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
-SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
+SourceCharacter starts unlocking DestinationCharacterName suitcase! PronounSubject will finish in 5 minutes.
 SourceCharacter开始打开DestinationCharacterName箱子! 他会在5分钟内成功.
-SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
+SourceCharacter starts stealing more data from DestinationCharacterName laptop! PronounSubject will finish in 5 minutes.
 SourceCharacter开始从DestinationCharacterName笔记本里偷取更多数据! 他会在5分钟内成功.
 SourceCharacter's suitcase is safe... for now.
 SourceCharacter的箱子安全了...暂时性的.
 SourceCharacter's data is safe... for now.
 SourceCharacter的数据安全了...暂时性的.
-SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
+SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure PronounSubject is secure until then!
 SourceCharacter的手提箱会在TIMEREMAINING分钟内打开。在此之前请确保她被绑住！
-SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
+SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure PronounSubject is secure until then!
 SourceCharacter的数据会在TIMEREMAINING分钟内被窃取。在此之前请确保她被绑住！
 You find confidential club secrets worth MONEYAMOUNT$ on the black market.
 你找到了俱乐部的机密，在黑市上价值 MONEYAMOUNT$ 。
@@ -1269,17 +1269,17 @@ SourceCharacter rolls DiceType. The result is: DiceResult.
 SourceCharacter丢了DiceType.结果是: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
 SourceCharacter丢了一枚硬币.结果是: CoinResult.
-SourceCharacter used her safeword. Please check for her well-being.
+SourceCharacter used PronounPossessive safeword. Please check for PronounPossessive well-being.
 SourceCharacter 使用了安全词。请检查她的身心健康状况。
-SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
+SourceCharacter used PronounPossessive safeword and wants to be released. PronounSubject is guided out of the room for PronounPossessive safety.
 SourceCharacter 使用了安全词，并希望被释放。为了她的安全，她已被送出房间。
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following TargetPronounPossessive owner's commands.
 TargetCharacterName被两个女仆拽走，按照她的主人的命令，把她关进了定时监牢里。
-TargetCharacterName gets grabbed by two nurses wearing futuristic gear and locked in the Asylum for GGTS, following her owner's commands.
+TargetCharacterName gets grabbed by two nurses wearing futuristic gear and locked in the Asylum for GGTS, following TargetPronounPossessive owner's commands.
 TargetCharacterName被两个穿着未来装备的护士拽走，按照她的主人的命令，被关在了收容所进行GGTS。
-TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
+TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for TargetPronounPossessive owner.
 TargetCharacterName被两个女仆拽走，按照她的主人的命令，押送她到女仆宿舍开始送饮料。
-TargetCharacterName gives a sealed envelope to her owner.
+TargetCharacterName gives a sealed envelope to TargetPronounPossessive owner.
 TargetCharacterName把一个封住的信封交给她的主人。
 SourceCharacter was interrupted while trying to use a NextAsset on TargetCharacter.
 SourceCharacter 试图在 TargetCharacter 身上使用 NextAsset，但是操作被中断了。
@@ -1287,7 +1287,7 @@ SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter
 SourceCharacter 试图操作 TargetCharacter 身上的 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while swapping a PrevAsset for a NextAsset on TargetCharacter.
 SourceCharacter 试图将 TargetCharacter 身上的 PrevAsset 换成 NextAsset，但是操作被中断了。
-SourceCharacter slips out of her PrevAsset.
+SourceCharacter slips out of TargetPronounPossessive PrevAsset.
 SourceCharacter从她的PrevAsset滑脱出来。
 SourceCharacter hops off the PrevAsset.
 SourceCharacter从她的PrevAsset跳下来。
@@ -1303,7 +1303,7 @@ SourceCharacter gets in the way of TargetCharacter
 SourceCharacter 阻挡了 TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter 试图帮助 TargetCharacter 摆脱束缚。
-SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounsSelf with.
+SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounSelf with.
 SourceCharacter 给 TargetCharacter 一些开锁工具以便TargetPronounObject自助。
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter抓住TargetCharacter的牵绳。
@@ -1481,7 +1481,7 @@ Select an item attachment
 选择一个配件物品
 Select the piercing attachment
 选择一个穿刺配件
-A victim cannot unlock TargetPronounsSelf if TargetPronounPossessive elbows are bound
+A victim cannot unlock TargetPronounSelf if TargetPronounPossessive elbows are bound
 手肘被绑在一起的时候受害者无法为自己开锁
 DestinationCharacterName jammed a lock and broke TargetPronounPossessive lockpick!
 DestinationCharacterName把开锁器断在了锁芯里!
@@ -1541,9 +1541,9 @@ In-front of body
 在身体前面
 Behind back
 在背后
-SourceCharacter cuffs DestinationCharacter hands in-front of their body.
+SourceCharacter cuffs DestinationCharacter hands in-front of TargetPronounPossessive body.
 SourceCharacter把DestinationCharacter双手铐在了他的身前。
-SourceCharacter cuffs DestinationCharacter hands behind their back.
+SourceCharacter cuffs DestinationCharacter hands behind TargetPronounPossessive back.
 SourceCharacter把DestinationCharacter双手铐在了他的身后。
 On head level
 与头平齐
@@ -1801,11 +1801,11 @@ SourceCharacter folds DestinationCharacter arms and wraps duct tape around them.
 SourceCharacter将DestinationCharacter手臂交叉在一起，并包裹上胶带。
 Above head
 高过头顶
-SourceCharacter shackles DestinationCharacter wrist in-front of their body.
+SourceCharacter shackles DestinationCharacter wrist in-front of TargetPronounPossessive body.
 SourceCharacter将DestinationCharacter手腕锁在身前。
-SourceCharacter shackles DestinationCharacter wrist behind their back.
+SourceCharacter shackles DestinationCharacter wrist behind TargetPronounPossessive back.
 SourceCharacter将DestinationCharacter手腕锁在身后。
-SourceCharacter shackles DestinationCharacter wrist above their head.
+SourceCharacter shackles DestinationCharacter wrist above TargetPronounPossessive head.
 SourceCharacter将DestinationCharacter手腕锁在头顶上方。
 Select strap type
 选择束带类型
@@ -2249,15 +2249,15 @@ Show chat message
 显示聊天消息
 Trigger Inflation
 触发膨胀
-SourceCharacter configures DestinationCharacter gag to not punish her for speaking.
+SourceCharacter configures DestinationCharacter gag to not punish TargetPronounObject for speaking.
 SourceCharacter将DestinationCharacter口塞配置为停止惩罚她的说话行为。
-SourceCharacter configures DestinationCharacter gag to punish her for shouting.
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for shouting.
 SourceCharacter将DestinationCharacter口塞配置为惩罚她的尖叫行为。
-SourceCharacter configures DestinationCharacter gag to punish her for saying long sentences.
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for saying long sentences.
 SourceCharacter将DestinationCharacter口塞配置为惩罚她的说复杂句子行为。
-SourceCharacter configures DestinationCharacter gag to punish her for speaking.
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for speaking.
 SourceCharacter将DestinationCharacter口塞配置为惩罚她的说话行为。
-DestinationCharacterName gag inflates into a large dildo that forces its way down her throat.
+DestinationCharacterName gag inflates into a large dildo that forces its way down TargetPronounPossessive throat.
 DestinationCharacterName口塞充气变为大号的假阳具，强行深入她的喉咙。
 SourceCharacter plugs up DestinationCharacter mouth with the dildo plug.
 SourceCharacter使用假阳具塞子塞住了DestinationCharacter嘴。
@@ -2887,7 +2887,7 @@ SourceCharacter uses the rope on TargetCharacter to do a diamond style tie.
 SourceCharacter用绳子在TargetCharacter身上绑了一个菱形形式的束缚带。
 SourceCharacter uses the rope on TargetCharacter to do a crossed style binding tie.
 SourceCharacter用绳子在TargetCharacter身上绑了一个十字缚形式的束缚带。
-SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
+SourceCharacter uses the rope on TargetCharacter to tie TargetPronounPossessive legs to the bedposts.
 SourceCharacter用绳子把TargetCharacter的腿绑在床柱上。
 SourceCharacter ties the rope above TargetCharacter's knees.
 SourceCharacter把绳子绑在TargetCharacter的膝盖上方。
@@ -2901,7 +2901,7 @@ SourceCharacter ties the rope below TargetCharacter's knees.
 SourceCharacter把绳子绑在TargetCharacter的膝盖下方。
 SourceCharacter ties the ropes around TargetCharacter's ankles and knees.
 SourceCharacter用绳子把TargetCharacter的脚踝和膝盖绑起来。
-SourceCharacter uses the ropes on TargetCharacter to tie her legs to the bedposts.
+SourceCharacter uses the ropes on TargetCharacter to tie TargetPronounPossessive legs to the bedposts.
 SourceCharacter用绳子把TargetCharacter的腿绑在床柱上。
 SourceCharacter uses rope on TargetCharacter to do a box tie.
 SourceCharacter用绳子在TargetCharacter身上绑了一个后手缚。
@@ -3015,11 +3015,11 @@ Punish orgasms
 惩罚高潮
 Punish standing up
 惩罚站立
-The obedience belt on SourceCharacter shocks her.
+The obedience belt on SourceCharacter shocks TargetPronounObject.
 SourceCharacter受到了身上的服从贞操带的电击。
-The obedience belt on SourceCharacter shocks her for having an orgasm.
+The obedience belt on SourceCharacter shocks TargetPronounObject for having an orgasm.
 SourceCharacter因为得到了一次高潮，而受到了身上的服从贞操带的电击。
-The obedience belt on SourceCharacter shocks her for standing up.
+The obedience belt on SourceCharacter shocks TargetPronounObject for standing up.
 SourceCharacter因为站起来，而受到了身上的服从贞操带的电击。
 Reset trigger count
 重置触发计数
@@ -3379,7 +3379,7 @@ SourceCharacter detaches DestinationCharacter anal hook.
 SourceCharacter解开了DestinationCharacter肛钩。
 SourceCharacter attaches a chain to DestinationCharacter anal hook.
 SourceCharacter将一根锁链连接到DestinationCharacter肛钩上。
-SourceCharacter attaches DestinationCharacter anal hook to her hair.
+SourceCharacter attaches DestinationCharacter anal hook to TargetPronounPossessive hair.
 SourceCharacter将DestinationCharacter肛钩连接到TargetPronounObject的头发上。
 SourceCharacter inserts a bead in DestinationCharacter butt
 SourceCharacter将一个珠子塞入DestinationCharacter肛门
@@ -3561,9 +3561,9 @@ SourceCharacter adds a small weight onto DestinationCharacter clit piercing.
 SourceCharacter在DestinationCharacter阴蒂穿环上添加了配重。
 SourceCharacter adds a small bell onto DestinationCharacter clit piercing.
 SourceCharacter在DestinationCharacter阴蒂穿环上添加了一个小铃铛。
-SourceCharacter links DestinationCharacter clit piercing to her nipple rings with a chain.
+SourceCharacter links DestinationCharacter clit piercing to TargetPronounPossessive nipple rings with a chain.
 SourceCharacter将DestinationCharacter的阴蒂穿环用一根锁链和TargetPronounObject的乳头穿环连接起来。
-SourceCharacter links DestinationCharacter clit piercing to her nipple rings with a small veiled chain.
+SourceCharacter links DestinationCharacter clit piercing to TargetPronounPossessive nipple rings with a small veiled chain.
 SourceCharacter将DestinationCharacter的阴蒂穿环用一根系着薄纱的锁链和TargetPronounObject的乳头穿环连接起来。
 Padlock mitten buckles
 带锁连指手套
@@ -3589,7 +3589,7 @@ removes the chains
 移除手链
 mittens to the baby harness
 连接无指手套和婴儿束带
-She must be wearing a baby harness to chain the mittens.
+TargetPronounSubject must be wearing a baby harness to chain the mittens.
 TargetPronounObject必须穿戴婴儿束带才能连接无指手套的链子。
 You must free TargetPronounPossessive arms before attaching mitten chains.
 连接无指手套的链子前，你必须解开TargetPronounObject的手臂。
@@ -3613,7 +3613,7 @@ Configure suit's zippers
 配置套装的拉链
 Exposed
 露出
-SourceCharacter unzips DestinationCharacter suit and fully exposes her breasts and pussy.
+SourceCharacter unzips DestinationCharacter suit and fully exposes TargetPronounPossessive breasts and pussy.
 SourceCharacter拉开了DestinationCharacter套装上的拉链，将TargetPronounObject的胸部和阴部完全展示出来。
 Select egg intensity
 选择跳蛋强度
@@ -4367,41 +4367,41 @@ Hidden
 隐藏
 Visible
 显示
-DestinationCharacterName clothes are now hidden when wearing their AssetName.
+DestinationCharacterName clothes are now hidden when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，衣服会被隐藏。
-DestinationCharacterName clothes are now visible when wearing their AssetName.
+DestinationCharacterName clothes are now visible when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，衣服会能看见。
-DestinationCharacterName torso items are now hidden when wearing their AssetName.
+DestinationCharacterName torso items are now hidden when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，躯干物品会被隐藏。
-DestinationCharacterName torso items are now visible when wearing their AssetName.
+DestinationCharacterName torso items are now visible when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，躯干物品会能看见。
-DestinationCharacterName breast items are now hidden when wearing their AssetName.
+DestinationCharacterName breast items are now hidden when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，胸部物品会被隐藏。
-DestinationCharacterName breast items are now visible when wearing their AssetName.
+DestinationCharacterName breast items are now visible when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，胸部物品会能看见。
-DestinationCharacterName pelvis and vulva items are now hidden when wearing their AssetName.
+DestinationCharacterName pelvis and vulva items are now hidden when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，小腹和前阴物品会被隐藏。
-DestinationCharacterName pelvis and vulva items are now visible when wearing their AssetName.
+DestinationCharacterName pelvis and vulva items are now visible when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，小腹和前阴物品会能看见。
 Choose where the arms are restrained.
 选择手臂被拘束时的位置.
 Arms front
 手臂在前
-DestinationCharacter clothes are now hidden when wearing their leotard.
+DestinationCharacter clothes are now hidden when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，衣服会被隐藏。
-DestinationCharacter clothes are now visible when wearing their leotard.
+DestinationCharacter clothes are now visible when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，衣服会能看见。
-DestinationCharacter torso items is now hidden when wearing their leotard.
+DestinationCharacter torso items is now hidden when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，躯干物品会被隐藏。
-DestinationCharacter torso items is now visible when wearing their leotard.
+DestinationCharacter torso items is now visible when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，躯干物品会能看见。
-DestinationCharacter breast items are now hidden when wearing their leotard.
+DestinationCharacter breast items are now hidden when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，胸部物品会被隐藏。
-DestinationCharacter breast items are now visible when wearing their leotard.
+DestinationCharacter breast items are now visible when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，胸部物品会能看见。
-DestinationCharacter pelvis and vulva items are now hidden when wearing their leotard.
+DestinationCharacter pelvis and vulva items are now hidden when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，小腹和前阴物品会被隐藏。
-DestinationCharacter pelvis and vulva items are now visible when wearing their leotard.
+DestinationCharacter pelvis and vulva items are now visible when wearing TargetPronounPossessive leotard.
 DestinationCharacter现在穿着拘束衣时，小腹和前阴物品会能看见。
 DestinationCharacter arms are now in front of them.
 DestinationCharacter现在手臂在身体前方。

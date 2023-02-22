@@ -63,6 +63,9 @@ interface RGBAColor extends RGBColor {
 
 type RectTuple = [number, number, number, number];
 
+type CommonSubstituteReplacer = (match:string, offset: number, replacement: string, string: string) => string;
+type CommonSubtituteSubstitution = [string, string] | [string, string, CommonSubstituteReplacer];
+
 //#endregion
 
 //#region Enums
@@ -703,7 +706,7 @@ interface IChatRoomMessageMetadata {
  * @return null if the extraction has nothing to report.
  */
 type ChatRoomMessageExtractor =
-	(data: IChatRoomMessage, sender: Character) => { metadata: IChatRoomMessageMetadata, substitutions: string[][] } | null;
+	(data: IChatRoomMessage, sender: Character) => { metadata: IChatRoomMessageMetadata, substitutions: CommonSubtituteSubstitution[] } | null;
 
 /**
  * A chat message handler.
@@ -1221,6 +1224,17 @@ type ScriptPermissionLevel = "Self" | "Owner" | "Lovers" | "Friends" | "Whitelis
 
 type ScriptPermissions = Record<ScriptPermissionProperty, ScriptPermission>;
 
+interface DialogLine {
+	Stage: string;
+	NextStage: string;
+	Option: string;
+	Result: string;
+	Function: string;
+	Prerequisite: string;
+	Group: string;
+	Trait: string;
+}
+
 interface Character {
 	ID: number;
 	/** Only on `Player` */
@@ -1237,7 +1251,7 @@ interface Character {
 	Appearance: Item[];
 	Stage: string;
 	CurrentDialog: string;
-	Dialog: any[];
+	Dialog: DialogLine[];
 	Reputation: Reputation[];
 	Skill: Skill[];
 	Pose: AssetPoseName[];

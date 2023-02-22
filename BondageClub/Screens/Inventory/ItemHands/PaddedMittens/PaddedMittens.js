@@ -18,7 +18,12 @@ function InventoryItemHandsPaddedMittensDraw() {
 	DrawText(DialogFindPlayer("mittenstoharness"), 1375, 800, "white", "gray");
 
 	// Draw the message if present
-	if (InventoryItemHandsPaddedMittensMsg != null) DrawTextWrap(DialogFindPlayer(InventoryItemHandsPaddedMittensMsg), 1100, 850, 800, 160, "White");
+	if (InventoryItemHandsPaddedMittensMsg != null) {
+		let msg = DialogFindPlayer(InventoryItemHandsPaddedMittensMsg);
+		const subst = ChatRoomPronounSubstitutions(CurrentCharacter, "TargetPronoun", false);
+		msg = CommonStringSubstitute(msg, subst);
+		DrawTextWrap(msg, 1100, 850, 800, 160, "White");
+	}
 }
 
 // Catches the item extension clicks
@@ -43,9 +48,10 @@ function InventoryItemHandsPaddedMittensChain() {
 	InventoryWear(C, "MittenChain1", "ItemArms");
 	if (C.ID == 0) ServerPlayerAppearanceSync();
 	if (CurrentScreen == "ChatRoom") {
-		var Dictionary = [];
-		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+		const Dictionary = new DictionaryBuilder()
+			.sourceCharacter(Player)
+			.destinationCharacter(C)
+			.build();
 		ChatRoomPublishCustomAction("MittenChain", true, Dictionary);
 		ChatRoomCharacterUpdate(C);
 	}

@@ -946,17 +946,34 @@ function CommonGetServer() {
  * Performs the required substitutions on the given message
  *
  * @param {string} msg - The string to perform the substitutions on.
- * @param {string[][]} substitutions - An array of {string, replacement} subtitutions.
+ * @param {CommonSubtituteSubstitution[]} substitutions - An array of [string, replacement, replacer?] subtitutions.
  */
 function CommonStringSubstitute(msg, substitutions) {
-	if (typeof msg !== "string")
+	if (typeof msg !== "string" || msg.trim() === "")
 		return "";
 
+	function makeReplacer(replacer, replacement) {
+		if (typeof replacer === "function")
+			return (match, offset, string) => replacer(match, offset, replacement, string);
+		return () => replacement;
+	}
+
 	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
-	for (const [tag, subst] of substitutions) {
-		msg = msg.split(tag).join(subst);
+	for (const [tag, subst, replacer] of substitutions) {
+		let repl = makeReplacer(replacer, subst);
+		while (msg !== subst && msg.includes(tag))
+			msg = msg.replace(tag, repl);
 	}
 	return msg;
+}
+
+/**
+ * Returns a titlecased version of the given string.
+ * @param {string} str
+ * @returns {string}
+ */
+function CommonStringTitlecase(str) {
+	return str[0].toUpperCase() + str.substring(1);
 }
 
 /**

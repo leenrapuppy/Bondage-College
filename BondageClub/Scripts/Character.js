@@ -457,25 +457,51 @@ function CharacterRandomName(C) {
  */
 function CharacterBuildDialog(C, CSV) {
 
-	const OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
 	C.Dialog = [];
+
+	function parseField(fieldContents) {
+		if (typeof fieldContents !== "string") return null;
+		const str = fieldContents.trim();
+		if (str === "") return null;
+		return (str !== "" ? str : null);
+	}
+
+	/** @type {CommonSubtituteSubstitution[]} */
+	let subst = [
+		["DialogCharacterName", CharacterNickname(C)],
+		["DialogPlayerName", CharacterNickname(Player)],
+	];
+	subst = subst.concat(ChatRoomPronounSubstitutions(C, "DialogCharacter", false));
+	subst = subst.concat(ChatRoomPronounSubstitutions(Player, "DialogPlayer", false));
+
 	// For each lines in the file
-	for (let L = 0; L < CSV.length; L++)
-		if ((CSV[L][0] != null) && (CSV[L][0] != "")) {
+	for (const L of CSV) {
+		if (typeof L[0] !== "string" || L[0] === "") continue;
 
-			// Creates a dialog object
-			const D = {};
-			D.Stage = CSV[L][0];
-			if ((CSV[L][1] != null) && (CSV[L][1].trim() != "")) D.NextStage = CSV[L][1];
-			if ((CSV[L][2] != null) && (CSV[L][2].trim() != "")) D.Option = CSV[L][2].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", CharacterNickname(Player));
-			if ((CSV[L][3] != null) && (CSV[L][3].trim() != "")) D.Result = CSV[L][3].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", CharacterNickname(Player));
-			if ((CSV[L][4] != null) && (CSV[L][4].trim() != "")) D.Function = ((CSV[L][4].trim().substring(0, 6) == "Dialog") ? "" : OnlinePlayer ? "ChatRoom" : CurrentScreen) + CSV[L][4];
-			if ((CSV[L][5] != null) && (CSV[L][5].trim() != "")) D.Prerequisite = CSV[L][5];
-			if ((CSV[L][6] != null) && (CSV[L][6].trim() != "")) D.Group = CSV[L][6];
-			if ((CSV[L][7] != null) && (CSV[L][7].trim() != "")) D.Trait = CSV[L][7];
-			C.Dialog.push(D);
+		// Creates a dialog object
+		/** @type {DialogLine} */
+		const D = {
+			Stage: parseField(L[0]),
+			NextStage: parseField(L[1]),
+			Option: parseField(L[2]),
+			Result: parseField(L[3]),
+			Function: parseField(L[4]),
+			Prerequisite: parseField(L[5]),
+			Group: parseField(L[6]),
+			Trait: parseField(L[7]),
+		};
 
-		}
+		if (D.Option !== null)
+			D.Option = CommonStringSubstitute(D.Option, subst);
+		if (D.Result !== null)
+			D.Result = CommonStringSubstitute(D.Result, subst);
+
+		// Prefix with the current screen unless this is a Dialog function or an online character
+		if (D.Function && D.Function !== "")
+			D.Function = (D.Function.startsWith("Dialog") ? "" : C.IsOnline() ? "ChatRoom" : CurrentScreen) + D.Function;
+
+		C.Dialog.push(D);
+	}
 
 	// Translate the dialog if needed
 	TranslationDialog(C);
@@ -667,6 +693,14 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 
 	if (Char.ID == 0) LoginValidCollar();
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Inventory == null) || (Char.Inventory.length == 0))) InventoryLoad(Char, data.Inventory);
+
+	let tmp;
+	const oldPronouns = (tmp = currentAppearance.find(item => item.Asset.Group.Name === "Pronouns")) && tmp && tmp.Asset.Name;
+	const newPronouns = (tmp = Char.Appearance.find(item => item.Asset.Group.Name === "Pronouns")) && tmp && tmp.Asset.Name;
+	if (oldPronouns !== newPronouns) {
+		// Reload the dialog so the new gender takes effect
+		CharacterLoadCSVDialog(Char, "Screens/Online/ChatRoom/Dialog_Online");
+	}
 	CharacterLoadEffect(Char);
 	CharacterRefresh(Char);
 }
@@ -1933,12 +1967,12 @@ function CharacterSetNickname(C, Nick) {
 
 		if (ServerPlayerIsInChatRoom()) {
 			// When in a chatroom, send a notification that the player updated their nick
-			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-				{ Tag: "OldNick", Text: oldNick },
-				{ Tag: "NewNick", Text: CharacterNickname(C) },
-			];
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(C)
+				.destinationCharacter(C)
+				.text("OldNick", oldNick)
+				.text("NewNick", CharacterNickname(C))
+				.build();
 
 			ServerSend("ChatRoomChat", { Content: "CharacterNicknameUpdated", Type: "Action", Dictionary: Dictionary });
 		}

@@ -15,24 +15,24 @@ buys a beer pitcher for everyone, from DialogCharacterName.
 achète une carafe de bière de DialogCharacterName.
 (You can use or remove items by selecting specific body regions.)
 (Vous pouvez utiliser ou enlever des objets en sélectionnant les parties du corps.)
-(You don't have access to use or remove items on her.)
+(You don't have access to use or remove items on DialogCharacterPossessive.)
 (Vous n'avez pas accès à utiliser ou enlever des objets sur elle.)
 ###_PLAYER
-(View her profile.)
+(View DialogCharacterPossessive profile.)
 (Voir son profil.)
-(Change her clothes.)
+(Change DialogCharacterPossessive clothes.)
 (Changer ses vêtements.)
 (Manage your relationship.)
 (Modifier votre relation.)
 ###_NPC
-(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)
+(You can give more access to your items by putting DialogCharacterObject on your whitelist, or less control by putting DialogCharacterObject on your blacklist.)
 (Vous pouvez lui donner plus ou moins d'accès en l'ajoutant sur votre liste blanche ou votre liste noire.)
 ###_PLAYER
 (Kick her out of the room.)
 (La jeter en dehors de la pièce.)
-(Ban her from the room.)
+(Ban DialogCharacterObject from the room.)
 (La bannir de la pièce.)
-(Check her drink tray.)
+(Check DialogCharacterObject drink tray.)
 (Voir les brevages offerts.)
 ###_NPC
 (There's a variety of drinks.  Some are offered by the club and some are more expensive.)
@@ -43,7 +43,7 @@ achète une carafe de bière de DialogCharacterName.
 (Add to item whitelist.)
 (Ajouter à la liste blanche d'objets.)
 ###_NPC
-(This member is now on your item permission whitelist.  She will have higher access to restrain or free you.)
+(This member is now on your item permission whitelist.  DialogCharacterSubject will have higher access to restrain or free you.)
 (Cette personne est maintenant sur votre liste blanche. Elle a un plus grand accès à vous libérer ou ligoter.)
 ###_PLAYER
 (Remove from item whitelist.)
@@ -55,7 +55,7 @@ achète une carafe de bière de DialogCharacterName.
 (Add to item blacklist.)
 (Ajouter à la liste noire d'objets.)
 ###_NPC
-(This member is now on your item permission blacklist.  She will have less access to restrain or free you.)
+(This member is now on your item permission blacklist.  DialogCharacterSubject will have less access to restrain or free you.)
 (Cette personne est maintenant sur votre liste noire. Elle a moins d'accès à vous libérer ou ligoter.)
 ###_PLAYER
 (Remove from item blacklist.)
@@ -67,7 +67,7 @@ achète une carafe de bière de DialogCharacterName.
 (Add to friendlist.)
 (Ajouter à la liste d'amies.)
 ###_NPC
-(This member is considered to be a friend by you.  She must also add you on her friendlist to be able to find each other.)
+(This member is considered to be a friend by you.  DialogCharacterSubject must also add you on DialogCharacterPossessive friendlist to be able to find each other.)
 (Cette personne est considérée une amie. Elle doit aussi vous voir en tant qu'amie pour que vous puissiez vous retrouver.)
 ###_PLAYER
 (Remove from friendlist.)
@@ -76,21 +76,21 @@ achète une carafe de bière de DialogCharacterName.
 (This member is not longer considered to be a friend by you.)
 (Cette personne n'est plus considérée une amie.)
 ###_PLAYER
-(Offer her a trial period to become your submissive.)
+(Offer DialogCharacterObject a trial period to become your submissive.)
 (Offrir une période d'essai en tant que votre soumise.)
 ###_NPC
-(The request was sent.  She must accept for the trial period to start.)
+(The request was sent.  DialogCharacterSubject must accept for the trial period to start.)
 (La demande a été faite. Elle doit accepter pour commencer la période d'essai.)
 ###_PLAYER
-(Accept a trial period to become her submissive.)
+(Accept a trial period to become DialogCharacterPossessive submissive.)
 (Accepter une période d'essai en tant que sa soumise.)
-(Offer her to end the trial and be fully collared.)
+(Offer DialogCharacterObject to end the trial and be fully collared.)
 (Offrir de terminer l'essai et d'obtenir un collier permanant.)
 ###_NPC
 (There's a 100$ fee to prepare the ceremony and get her a slave collar.  Will you pay now?)
 (Il y a un frais de $100 pour prépaper la cérémonie et lui donner un collier. Voulez-vous payer maintenant?)
 ###_PLAYER
-(Accept her collar and begin the ceremony.)
+(Accept DialogCharacterObject collar and begin the ceremony.)
 (Accepter son collier et commencer la cérémonie.)
 (Rules, restrictions & punishments.)
 (Règles, restrictions & punitions.)
@@ -98,12 +98,12 @@ achète une carafe de bière de DialogCharacterName.
 (Select the rule, restriction or punishment that you want to enforce.)
 (Selectionner la règle, restriction ou punition à enforcer.)
 ###_PLAYER
-(Give her the money envelope.)
+(Give DialogCharacterObject the money envelope.)
 (Donner une enveloppe de monnaie.)
 (Pay 100$ for the collaring ceremony.)
 (Payer $100 pour la cérémonie du collier.)
 ###_NPC
-(You pay and prepare the ceremony.  A maid brings a slave collar, she must accept it to complete the collaring.)
+(You pay and prepare the ceremony.  A maid brings a slave collar, DialogCharacterSubject must accept it to complete the collaring.)
 (Vous payer et preparez la cérémonie. Une servante apporte le collier, mais elle doit accepter pour recevoir le collier.)
 ###_PLAYER
 (Refuse to pay.)
@@ -131,7 +131,7 @@ achète une carafe de bière de DialogCharacterName.
 (Wardrobe access.)
 (Accès à la garde-robe.)
 ###_NPC
-(Select her wardrobe access.)
+(Select DialogCharacterPossessive wardrobe access.)
 (Choisir sont accès à la garde-robe.)
 ###_PLAYER
 (Whisper rules.)
@@ -149,7 +149,7 @@ achète une carafe de bière de DialogCharacterName.
 (Timer cell punishment.)
 (Punir avec la cellule minutée.)
 ###_NPC
-(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)
+(For how long do you want to lock DialogCharacterObject up?  DialogCharacterSubject will be isolated, and you won't be able to unlock DialogCharacterObject.)
 (L'enfermer pour combien de temps? Elle sera isolée et vous ne pourrez pas la libérer.)
 ###_PLAYER
 (Forced labor.)
@@ -158,34 +158,34 @@ achète une carafe de bière de DialogCharacterName.
 (What kind of labor will she be forced to do?  Her salary will be given to you.)
 (Quel type de travail voulez-vous enforcer? Son salaire sera à vous.)
 ###_PLAYER
-(Allow her wardrobe access.)
+(Allow DialogCharacterObject wardrobe access.)
 (Donner accès à sa garde-robe.)
 ###_NPC
-(She can now access her wardrobe and change clothes.)
+(DialogCharacterSubject can now access DialogCharacterPossessive wardrobe and change clothes.)
 (Elle peut maintenant accéder à sa garde-robe et changer de vêtements.)
 ###_PLAYER
-(Block her wardrobe for 1 hour.)
+(Block DialogCharacterObject wardrobe for 1 hour.)
 (Bloquer sa garde-robe pour 1 heure.)
 ###_NPC
-(Her wardrobe access will be blocked for the next hour.)
+(DialogCharacterSubject wardrobe access will be blocked for the next hour.)
 (Accès à sa garde-robe sera bloqué pour la prochaine heure.)
 ###_PLAYER
-(Block her wardrobe for 1 day.)
+(Block DialogCharacterObject wardrobe for 1 day.)
 (Bloquer sa garde-robe pour 1 jour.)
 ###_NPC
-(Her wardrobe access will be blocked for the next day.)
+(DialogCharacterSubject wardrobe access will be blocked for the next day.)
 (Accès à sa garde-robe sera bloqué pour le prochain jour.)
 ###_PLAYER
-(Block her wardrobe for 1 week.)
+(Block DialogCharacterObject wardrobe for 1 week.)
 (Bloquer sa garde-robe pour 1 semaine.)
 ###_NPC
-(Her wardrobe access will be blocked for the next week.)
+(DialogCharacterSubject wardrobe access will be blocked for the next week.)
 (Accès à sa garde-robe sera bloqué pour la prochaine semaine.)
 ###_PLAYER
-(Block her wardrobe until you allow it.)
+(Block DialogCharacterObject wardrobe until you allow it.)
 (Bloquer sa garde-robe jusqu'à nouvel ordre.)
 ###_NPC
-(Her wardrobe access will be blocked until you allow it again.)
+(DialogCharacterSubject wardrobe access will be blocked until you allow it again.)
 (Accès à sa garde-robe sera bloqué jusqu'à nouvel ordre.)
 ###_PLAYER
 (Allow her to whisper.)
@@ -200,56 +200,56 @@ achète une carafe de bière de DialogCharacterName.
 (She cannot whisper to someone else when she's in the same room as you.)
 (Elle ne peut plus chuchoter en votre présence.)
 ###_PLAYER
-(Allow her to buy keys.)
+(Allow DialogCharacterObject to buy keys.)
 (Donner le droit d'acheter des clés.)
 ###_NPC
-(The store will sell keys to her.)
+(The store will sell keys to DialogCharacterObject.)
 (La magasin va pouvoir lui vendre des clés.)
 ###_PLAYER
-(Confiscate her keys.)
+(Confiscate DialogCharacterPossessive keys.)
 (Confisquer ses clés.)
 ###_NPC
-(She lost all of her keys.)
+(DialogCharacterSubject lost all of DialogCharacterPossessive keys.)
 (Elle a perdu toutes ses clés.)
 ###_PLAYER
-(Block her from buying keys.)
+(Block DialogCharacterObject from buying keys.)
 (L'interdire d'acheter des clés.)
 ###_NPC
-(The store will not sell keys to her anymore.)
+(The store will not sell keys to DialogCharacterObject anymore.)
 (Le magasin ne lui vendre plus de clés.)
 ###_PLAYER
 (Don't lock her up.)
 (Ne pas l'enfermer.)
-(Lock her for 5 minutes.)
+(Lock DialogCharacterObject for 5 minutes.)
 (L'enfermer pour 5 minutes.)
 ###_NPC
-(She will be isolated and locked up for 5 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 5 minutes.)
 (Elle sera isolée et enfermée pour 5 minutes.)
 ###_PLAYER
-(Lock her for 15 minutes.)
+(Lock DialogCharacterObject for 15 minutes.)
 (L'enfermer pour 15 minutes.)
 ###_NPC
-(She will be isolated and locked up for 15 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 15 minutes.)
 (Elle sera isolée et enfermée pour 15 minutes.)
 ###_PLAYER
-(Lock her for 30 minutes.)
+(Lock DialogCharacterObject for 30 minutes.)
 (L'enfermer pour 30 minutes.)
 ###_NPC
-(She will be isolated and locked up for 30 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 30 minutes.)
 (Elle sera isolée et enfermée pour 30 minutes.)
 ###_PLAYER
-(Lock her for 60 minutes.)
+(Lock DialogCharacterObject for 60 minutes.)
 (L'enfermer pour 60 minutes.)
 ###_NPC
-(She will be isolated and locked up for 60 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 60 minutes.)
 (Elle sera isolée et enfermée pour 60 minutes.)
 ###_PLAYER
 (No forced labor.)
 (Pas de travail forcé.)
-(Force her to serve drinks as a maid.)
+(Force DialogCharacterObject to serve drinks as a maid.)
 (La forcer à servir des brevages en tant que servante.)
 ###_NPC
-(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
+(DialogCharacterSubject will be sent to the maid quarters to prepare drinks.  You will earn DialogCharacterPossessive salary.)
 (Elle sera envoyée aux quartiers des servantes pour préparer des brevages. Son salaire sera à vous.)
 (She needs to be a maid in the sorority and be able to walk to do that job for you.)
 (Elle doit être une servante dans la sororité et doit pour marcher pour faire cela.)

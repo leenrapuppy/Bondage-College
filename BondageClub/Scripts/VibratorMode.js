@@ -448,19 +448,18 @@ function VibratorModeSetOption(Option) {
 	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
 
-	var Message;
-	/** @type {ChatMessageDictionary} */
-	var Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name, GroupName: DialogFocusItem.Asset.Group.Name },
-	];
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacterName(C)
+		.asset(DialogFocusItem.Asset)
+		.build();
 
+	let Message;
 	if (DialogFocusItem.Property.Intensity !== OldIntensity) {
 		var Direction = DialogFocusItem.Property.Intensity > OldIntensity ? "Increase" : "Decrease";
 		Message = "Vibe" + Direction + "To" + DialogFocusItem.Property.Intensity;
 	} else {
 		Message = "VibeModeChange";
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 	}
 
 	ChatRoomPublishCustomAction(Message, false, Dictionary);

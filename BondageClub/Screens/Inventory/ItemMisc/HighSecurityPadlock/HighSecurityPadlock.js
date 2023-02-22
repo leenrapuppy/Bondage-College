@@ -113,10 +113,11 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 				ElementValue("MemberNumberList", DialogFocusSourceItem.Property.MemberNumberListKeys);
 
 				if (CurrentScreen == "ChatRoom") {
-					var Dictionary = [];
-					Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-					Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-					Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name});
+					const Dictionary = new DictionaryBuilder()
+						.sourceCharacter(Player)
+						.destinationCharacter(C)
+						.focusGroup(C.FocusGroup.Name)
+						.build();
 					ChatRoomPublishCustomAction("HighSecurityUpdate", true, Dictionary);
 					InventoryItemMiscHighSecurityPadlockExit();
 				}

@@ -44,11 +44,11 @@ function InventoryItemNeckAccessoriesCollarShockUnitResetCount() {
 	// Gets the current item and character
 	DialogFocusItem.Property.TriggerCount = 0;
 	const C = CharacterGetCurrent();
-	const Dictionary = [
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name, GroupName: DialogFocusItem.Asset.Group.Name },
-	];
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacterName(C)
+		.asset(DialogFocusItem.Asset)
+		.build();
 
 	if (DialogFocusItem.Property.ShowText) {
 		ChatRoomPublishCustomAction("ShockCountReset", false, Dictionary);

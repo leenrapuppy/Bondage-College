@@ -239,14 +239,20 @@ const CommonCommands = [
 					Total += Roll;
 					CurrentRoll++;
 				}
-				const Dictionary = [];
-				Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player) });
-				Dictionary.push({ Tag: "DiceType", Text: DiceNumber.toString() + "D" + DiceSize.toString() });
 				if (DiceNumber > 1) {
 					Result.sort((a, b) => a - b);
-					Dictionary.push({ Tag: "DiceResult", Text: Result.toString() + " = " + Total.toString() });
 				}
-				else if (DiceNumber == 1) Dictionary.push({ Tag: "DiceResult", Text: Total.toString() });
+
+				const Dictionary = new DictionaryBuilder()
+					.sourceCharacter(Player)
+					.text("DiceType", DiceNumber.toString() + "D" + DiceSize.toString())
+					.if(DiceNumber > 1)
+					.text("DiceResult", Result.toString() + " = " + Total.toString())
+					.endif()
+					.if(DiceNumber=== 1)
+					.text("DiceResult", Total.toString())
+					.endif()
+					.build();
 				ServerSend("ChatRoomChat", { Content: "ActionDice", Type: "Action", Dictionary: Dictionary });
 			}
 		}
@@ -255,9 +261,11 @@ const CommonCommands = [
 		Tag: 'coin',
 		Action: () => {
 			const Heads = Math.random() >= 0.5;
-			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: CharacterNickname(Player) },
-				{ Tag: "CoinResult", TextToLookUp: Heads ? "Heads" : "Tails" }];
+
+			const Dictionary = new DictionaryBuilder()
+				.sourceCharacter(Player)
+				.textLookup("CoinResult", Heads ? "Heads" : "Tails")
+				.build();
 			ServerSend("ChatRoomChat", { Content: "ActionCoin", Type: "Action", Dictionary: Dictionary });
 		}
 	},

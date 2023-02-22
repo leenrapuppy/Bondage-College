@@ -1,31 +1,31 @@
 ###_NPC
 (You can use or remove items by selecting specific body regions.)
 (你可以選擇身體部位來使用或移除物品)
-(You don't have access to use or remove items on her.)
+(You don't have access to use or remove items on DialogCharacterPossessive.)
 (你沒有使用或移除她身上物品的權限)
 ###_PLAYER
-(View her profile.)
+(View DialogCharacterPossessive profile.)
 (查看她的檔案)
-(Change her clothes.)
+(Change DialogCharacterPossessive clothes.)
 (更改她的服裝)
 (Manage your relationship.)
 (管理你們的關係)
 ###_NPC
-(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)
+(You can give more access to your items by putting DialogCharacterObject on your whitelist, or less control by putting DialogCharacterObject on your blacklist.)
 (你可以將她添加到你的黑名單或白名單來讓他獲得更少或更多你的物品權限)
 ###_PLAYER
-(Check her drink tray.)
+(Check DialogCharacterObject drink tray.)
 (檢查她的飲料托盤)
 ###_NPC
 (There's a variety of drinks.  Some are offered by the club and some are more expensive.)
 (這裡有許多飲料，部分由俱樂部免費提供，還有一些較為昂貴)
 ###_PLAYER
-(Try to take her suitcase.)
+(Try to take DialogCharacterObject suitcase.)
 (嘗試拿走她的文件箱)
 ###_NPC
-(It will take 5 minutes to get the suitcase open and steal the cash. Make sure she is secure!)
+(It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!)
 (需要花費5分鐘來打開箱子偷走現金。確保她無法干擾！)
-(You will need to tie her first so she can't escape or resist!)
+(You will need to tie DialogCharacterObject first so DialogCharacterSubject can't escape or resist!)
 (你需要首先把她捆起來她才不會逃跑和抵抗！)
 ###_PLAYER
 (Use the laptop to steal data.)
@@ -33,7 +33,7 @@
 (Room administrator action.)
 (房管動作)
 ###_NPC
-(As a room administrator, you can take these actions with her.)
+(As a room administrator, you can take these actions with DialogCharacterObject.)
 (作為房間管理員，你可以對她做這些動作)
 ###_PLAYER
 (Character actions.)
@@ -42,12 +42,12 @@
 (Possible character actions.)
 (可用的角色動作)
 ###_PLAYER
-(Stop her from leaving.)
+(Stop DialogCharacterObject from leaving.)
 (阻止她離開)
 (GGTS interactions.)
 (GGTS互動)
 ###_NPC
-(As a nurse, you can program GGTS for her specific needs.)
+(As a nurse, you can program GGTS for DialogCharacterPossessive specific needs.)
 (作為一名護士，你可以針對她的具體需要對GGTS進行編程)
 ###_PLAYER
 (Leave this menu.)
@@ -55,7 +55,7 @@
 (Add to item whitelist.)
 (添加到白名單)
 ###_NPC
-(This member is now on your item permission whitelist.  She will have higher access to restrain or free you.)
+(This member is now on your item permission whitelist.  DialogCharacterSubject will have higher access to restrain or free you.)
 (已將目標添加到物品權限白名單，她將獲得對你進行束縛和解鎖的更高權限)
 ###_PLAYER
 (Remove from item whitelist.)
@@ -67,7 +67,7 @@
 (Add to item blacklist.)
 (添加到黑名單)
 ###_NPC
-(This member is now on your item permission blacklist.  She will have less access to restrain or free you.)
+(This member is now on your item permission blacklist.  DialogCharacterSubject will have less access to restrain or free you.)
 (已將目標添加到物品權限黑名單，她將失去對你進行束縛和解鎖的更少權限)
 ###_PLAYER
 (Remove from item blacklist.)
@@ -79,7 +79,7 @@
 (Add to friendlist.)
 (添加到好友列表)
 ###_NPC
-(This member is considered to be a friend by you.  She must also add you on her friendlist to be able to find each other.)
+(This member is considered to be a friend by you.  DialogCharacterSubject must also add you on DialogCharacterPossessive friendlist to be able to find each other.)
 (您已將她加好友。她必須也將您添加到好友列表才能互相找到)
 ###_PLAYER
 (Remove from friendlist.)
@@ -88,22 +88,22 @@
 (This member is not longer considered to be a friend by you.)
 (她不不再是您的朋友)
 ###_PLAYER
-(Ghost and ignore her.)
+(Ghost and ignore DialogCharacterObject.)
 (忽視並忽略她)
 ###_NPC
-(This member is now ghosted and ignored by you.  Nothing she says or does will appear in your chat log.)
+(This member is now ghosted and ignored by you.  Nothing DialogCharacterSubject says or does will appear in your chat log.)
 (這個成員已經被你無視了，她的動作和發言不會在你的聊天記錄中顯示)
 ###_PLAYER
-(Stop ghosting her.)
+(Stop ghosting DialogCharacterObject.)
 (停止忽視她)
 ###_NPC
-(This member is no longer ghosted by you.  You will see what she says or does in your chat log.)
+(This member is no longer ghosted by you.  You will see what DialogCharacterSubject says or does in your chat log.)
 (這個成員不再被你無視了，她的動作和發言會在你的聊天記錄中顯示)
 ###_PLAYER
 (Manage Ownership & Lovership)
 (管理主人和戀人關係)
 ###_NPC
-(You can ask her to become your lover or submissive or advance the relationship.)
+(You can ask DialogCharacterObject to become your lover or submissive or advance the relationship.)
 (你可以讓她成為你的戀人或M，或者加深你們的關係)
 ###_PLAYER
 (Owner rules, restrictions & punishments.)
@@ -118,54 +118,54 @@
 (Select the lover rule, restriction or punishment that you want to enforce on your lover.)
 (為你的戀人選擇你想要強制執行的戀人規則、限制或懲罰)
 ###_PLAYER
-(Give her the money envelope.)
+(Give DialogCharacterObject the money envelope.)
 (把裝著錢的信封給她)
-(Offer her a trial period to become your submissive.)
+(Offer DialogCharacterObject a trial period to become your submissive.)
 (讓她成為你的M並進行一段時間的主奴試任)
 ###_NPC
-(The request was sent.  She must accept for the trial period to start.)
+(The request was sent.  DialogCharacterSubject must accept for the trial period to start.)
 (請求已發送，她必須接受來開始試任)
 ###_PLAYER
-(Accept a trial period to become her submissive.)
+(Accept a trial period to become DialogCharacterPossessive submissive.)
 (接受並成為她的M，開始主奴試任)
-(Offer her to end the trial and be fully collared.)
+(Offer DialogCharacterObject to end the trial and be fully collared.)
 (結束與她的試任並正式為她帶上項圈)
 ###_NPC
-(There's a $100 fee to prepare the ceremony and get her a slave collar.  Will you pay now?)
+(There's a $100 fee to prepare the ceremony and get DialogCharacterObject a slave collar.  Will you pay now?)
 (需要支付$100來準備典禮和購買奴隸項圈，現在付款嗎？)
 ###_PLAYER
-(Accept her collar and begin the ceremony.)
+(Accept DialogCharacterObject collar and begin the ceremony.)
 (接受她的項圈並開始典禮)
-(Ask her to be your girlfriend.)
+(Ask DialogCharacterObject to be your girlfriend.)
 (請求她成為你的女朋友)
 ###_NPC
-(The request has been sent.  She must accept it to start dating you.)
+(The request has been sent.  DialogCharacterSubject must accept it to start dating you.)
 (請求已被發送，她必須接受來和你開始約會)
 ###_PLAYER
-(Accept to be her girlfriend.)
+(Accept to be DialogCharacterPossessive girlfriend.)
 (同意成為她的女朋友)
-(Offer her to become your fiancée.)
+(Offer DialogCharacterObject to become your fiancée.)
 (請求與她訂婚)
 ###_NPC
-(The request has been sent.  She must accept it to become your fiancée.)
+(The request has been sent.  DialogCharacterSubject must accept it to become your fiancée.)
 (請求已被發送，她必須接受以成為你的未婚妻)
 ###_PLAYER
-(Accept her proposal of engagement.)
+(Accept DialogCharacterObject proposal of engagement.)
 (接受她的求婚)
-(Offer her to marry each other.)
+(Offer DialogCharacterObject to marry each other.)
 (讓她與你結婚)
 ###_NPC
 (There's a $100 fee asked of both sides for the wedding.  Will you pay now?)
 (結婚需要雙方各支付$100，現在付款嗎?)
 ###_PLAYER
-(Accept her proposal and become her wife.)
+(Accept DialogCharacterObject proposal and become DialogCharacterPossessive wife.)
 (接受她的求婚並成為她的新娘)
 (Back)
 (返回)
-(Release her from the slave bond.)
+(Release DialogCharacterObject from the slave bond.)
 (放棄與她的主奴關係)
 ###_NPC
-(Are you sure you want to release her? THIS ACTION IS NOT REVERSIBLE!)
+(Are you sure you want to release DialogCharacterObject? THIS ACTION IS NOT REVERSIBLE!)
 (你確定要釋放她嗎？這個行動【無法取消】)
 ###_PLAYER
 (Yes, I want to permanently break the ownership!)
@@ -185,7 +185,7 @@
 (Pay $100 for the collaring ceremony.)
 (支付$100進行項圈佩戴典禮)
 ###_NPC
-(You pay and prepare the ceremony.  A maid brings a slave collar, she must accept it to complete the collaring.)
+(You pay and prepare the ceremony.  A maid brings a slave collar, DialogCharacterSubject must accept it to complete the collaring.)
 (你付了款並準備了儀式。一個女僕帶來了奴隸項圈，她必須接受來完成佩戴項圈的儀式)
 ###_PLAYER
 (Refuse to pay.)
@@ -193,7 +193,7 @@
 (Pay $100 for the wedding.)
 (支付$100進行結婚儀式)
 ###_NPC
-(You pay and ask her to marry you. You wait for her answer.)
+(You pay and ask DialogCharacterObject to marry you. You wait for DialogCharacterPossessive answer.)
 (你付了錢並請求她與你結婚，正在焦急的等待回應)
 ###_PLAYER
 (Back to main menu.)
@@ -266,9 +266,9 @@
 (點一杯$5的濃縮咖啡)
 (Get a $5 cappuccino.)
 (點一杯$5的卡布奇諾)
-(Call the maids to escort her out of the room.)
+(Call the maids to escort DialogCharacterObject out of the room.)
 (呼叫女僕把她攆出這個房間)
-(Ban her from the room.)
+(Ban DialogCharacterObject from the room.)
 (禁止她進入房間)
 (Move Character.)
 (移動角色)
@@ -276,53 +276,53 @@
 (Move started.)
 (開始移動)
 ###_PLAYER
-(Promote her as room administrator.)
+(Promote DialogCharacterObject as room administrator.)
 (賦予她房管權限)
-(Demote her from room administration.)
+(Demote DialogCharacterObject from room administration.)
 (取消她的房管權限)
-(Hold on to her leash.)
+(Hold on to DialogCharacterObject leash.)
 (抓住她的鏈子)
-(Let go of her leash.)
+(Let go of DialogCharacterObject leash.)
 (放開她的鏈子)
-(Help her stand.)
+(Help DialogCharacterObject stand.)
 (幫她站起來)
 ###_NPC
-(You help her up on her feet.)
+(You help DialogCharacterObject up on DialogCharacterPossessive feet.)
 (你幫助她站了起來)
 ###_PLAYER
-(Help her kneel.)
+(Help DialogCharacterObject kneel.)
 (幫她跪下)
 ###_NPC
-(You help her down on her knees.)
+(You help DialogCharacterObject down on DialogCharacterPossessive knees.)
 (你幫助她跪了下來)
 ###_PLAYER
-(Help her to struggle free.)
+(Help DialogCharacterObject to struggle free.)
 (幫她掙扎束縛)
 (Take a photo of both of you.)
 (拍一張你們倆的合照)
-(Lend her some lockpicks.)
+(Lend DialogCharacterObject some lockpicks.)
 (借給她一些開鎖器)
 ###_NPC
-(You give her some lockpicks to struggle out with until she leaves the room)
+(You give DialogCharacterObject some lockpicks to struggle out with until DialogCharacterSubject leaves the room)
 (你給了她一些開鎖器幫助她在離開房間前掙脫束縛)
 ###_PLAYER
-(Give her a spare key to your locks.)
+(Give DialogCharacterObject a spare key to your locks.)
 (給她一把你的鎖的備用鑰匙)
 ###_NPC
-(You give her an extra key to your private padlocks)
+(You give DialogCharacterObject an extra key to your private padlocks)
 (你給了她一把你私人小鎖的備用鑰匙)
 ###_PLAYER
 (Hand over the keys to your locks.)
 (交出你的鎖的鑰匙)
 ###_NPC
-(You give her the keys to your private padlocks)
+(You give DialogCharacterObject the keys to your private padlocks)
 (你給了她你私人小鎖的鑰匙)
 ###_PLAYER
 (Spin the Wheel of Fortune.)
 (轉動命運之輪。)
 (Generate a new GGTS task.)
 (生成一個新的GGTS任務）
-(Give her a five minutes pause.)
+(Give DialogCharacterObject a five minutes pause.)
 (給她五分鐘的休息時間)
 (Slow pace for GGTS demands.)
 (GGTS慢速發令)
@@ -333,7 +333,7 @@
 (Wardrobe access.)
 (衣櫃權限)
 ###_NPC
-(Select her wardrobe access.)
+(Select DialogCharacterPossessive wardrobe access.)
 (選擇衣櫃權限)
 ###_PLAYER
 (Owner presence rules.)
@@ -345,19 +345,19 @@
 (Key and locks restrictions.)
 (鑰匙和鎖類限制)
 ###_NPC
-(Select her restrictions for keys and locks.)
+(Select DialogCharacterPossessive restrictions for keys and locks.)
 (選擇對她的鑰匙和鎖的限制)
 ###_PLAYER
 (Remote restrictions.)
 (遙控限制)
 ###_NPC
-(Select her restrictions for remotes.)
+(Select DialogCharacterPossessive restrictions for remotes.)
 (選擇對她的遙控器的限制)
 ###_PLAYER
 (Timed cell, GGTS and forced labor.)
 (定時監牢、GGTS和強制勞動)
 ###_NPC
-(You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)
+(You can send DialogCharacterObject to a timed cell, the Good Girl Training System or force DialogCharacterObject to serve drinks and get DialogCharacterPossessive salary.)
 (你可以將她送入定時監牢，讓她開始GGTS訓練，或強制她送水並收取她的工資)
 ###_PLAYER
 (Collar and nickname options.)
@@ -372,284 +372,284 @@
 (Select the advanced rule to configure.)
 (選擇要配置的高級規則。)
 ###_PLAYER
-(Allow her wardrobe access.)
+(Allow DialogCharacterObject wardrobe access.)
 (允許她使用衣櫃)
 ###_NPC
-(She can now access her wardrobe and change clothes.)
+(DialogCharacterSubject can now access DialogCharacterPossessive wardrobe and change clothes.)
 (她現在可以使用衣櫃來換衣服了)
 ###_PLAYER
-(Block her wardrobe for 1 hour.)
+(Block DialogCharacterObject wardrobe for 1 hour.)
 (禁止她使用衣櫃1小時)
 ###_NPC
-(Her wardrobe access will be blocked for the next hour.)
+(DialogCharacterSubject wardrobe access will be blocked for the next hour.)
 (她在一個小時內將無法使用衣櫃)
 ###_PLAYER
-(Block her wardrobe for 1 day.)
+(Block DialogCharacterObject wardrobe for 1 day.)
 (禁止她使用衣櫃1天)
 ###_NPC
-(Her wardrobe access will be blocked for the next day.)
+(DialogCharacterSubject wardrobe access will be blocked for the next day.)
 (她在明天之前將無法使用衣櫃)
 ###_PLAYER
-(Block her wardrobe for 1 week.)
+(Block DialogCharacterObject wardrobe for 1 week.)
 (禁止她使用衣櫃1週)
 ###_NPC
-(Her wardrobe access will be blocked for the next week.)
+(DialogCharacterSubject wardrobe access will be blocked for the next week.)
 (她在接下來的一週中將無法使用衣櫃)
 ###_PLAYER
-(Block her wardrobe until you allow it.)
+(Block DialogCharacterObject wardrobe until you allow it.)
 (直到你允許前禁止她使用衣櫃)
 ###_NPC
-(Her wardrobe access will be blocked until you allow it again.)
+(DialogCharacterSubject wardrobe access will be blocked until you allow it again.)
 (直到你允許前她將無法使用衣櫃)
 ###_PLAYER
 (Back to rules.)
 (返回規則列表)
-(☑ Forbid her from talking.)
+(☑ Forbid DialogCharacterObject from talking.)
 (☑ 禁止她公開發言)
 ###_NPC
-(She will now be able to talk when she's in the same room as you.)
+(DialogCharacterSubject will now be able to talk when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時公開發言了)
 ###_PLAYER
-(☐ Forbid her from talking.)
+(☐ Forbid DialogCharacterObject from talking.)
 (☐ 禁止她公開發言)
 ###_NPC
-(She won't be able to talk when she's in the same room as you.)
+(DialogCharacterSubject won't be able to talk when DialogCharacterSubject's in the same room as you.)
 (她將無法與你同處一室時公開發言)
 ###_PLAYER
-(☑ Forbid her from emoting.)
+(☑ Forbid DialogCharacterObject from emoting.)
 (☑ 禁止她發表情)
 ###_NPC
-(She will now be able to emote when she's in the same room as you.)
+(DialogCharacterSubject will now be able to emote when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時發表情了)
 ###_PLAYER
-(☐ Forbid her from emoting.)
+(☐ Forbid DialogCharacterObject from emoting.)
 (☐ 禁止她發表情)
 ###_NPC
-(She won't be able to emote when she's in the same room as you.)
+(DialogCharacterSubject won't be able to emote when DialogCharacterSubject's in the same room as you.)
 (她將無法與你同處一室時發表情)
 ###_PLAYER
-(☑ Forbid her from whispering.)
+(☑ Forbid DialogCharacterObject from whispering.)
 (☑ 禁止她使用悄悄話)
 ###_NPC
-(She can now whisper to anyone when she's in the same room as you.)
+(DialogCharacterSubject can now whisper to anyone when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時使用悄悄話了)
 ###_PLAYER
-(☐ Forbid her from whispering.)
+(☐ Forbid DialogCharacterObject from whispering.)
 (☐ 禁止她使用悄悄話)
 ###_NPC
-(She won't be able to whisper to someone else when she's in the same room as you.)
+(DialogCharacterSubject won't be able to whisper to someone else when DialogCharacterSubject's in the same room as you.)
 (她將無法與你同處一室時使用悄悄話)
 ###_PLAYER
-(☑ Forbid her from changing pose.)
+(☑ Forbid DialogCharacterObject from changing pose.)
 (☑ 禁止她更改姿勢)
 ###_NPC
-(She will now be able to change her pose when she's in the same room as you.)
+(DialogCharacterSubject will now be able to change DialogCharacterPossessive pose when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時更改姿勢了)
 ###_PLAYER
-(☐ Forbid her from changing pose.)
+(☐ Forbid DialogCharacterObject from changing pose.)
 (☐ 禁止她更改姿勢)
 ###_NPC
-(She won't be able to change her pose when she's in the same room as you.)
+(DialogCharacterSubject won't be able to change DialogCharacterPossessive pose when DialogCharacterSubject's in the same room as you.)
 (她現在無法與你同處一室時更改姿勢了)
 ###_PLAYER
-(☑ Forbid her from accessing herself.)
+(☑ Forbid DialogCharacterObject from accessing DialogCharacterSelf.)
 (☑ 禁止她檢視自己)
 ###_NPC
-(She will now be able to access herself when she's in the same room as you.)
+(DialogCharacterSubject will now be able to access DialogCharacterSelf when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時檢視自己了)
 ###_PLAYER
-(☐ Forbid her from accessing herself.)
+(☐ Forbid DialogCharacterObject from accessing DialogCharacterSelf.)
 (☐ 禁止她檢視自己)
 ###_NPC
-(She won't be able to access herself when she's in the same room as you.)
+(DialogCharacterSubject won't be able to access DialogCharacterSelf when DialogCharacterSubject's in the same room as you.)
 (她現在無法與你同處一室時檢視自己了)
 ###_PLAYER
-(☑ Forbid her from accessing others.)
+(☑ Forbid DialogCharacterObject from accessing others.)
 (☑ 禁止她檢視她人)
 ###_NPC
-(She will now be able to access other members when she's in the same room as you.)
+(DialogCharacterSubject will now be able to access other members when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時檢視她人了)
 ###_PLAYER
-(☐ Forbid her from accessing others.)
+(☐ Forbid DialogCharacterObject from accessing others.)
 (☐ 禁止她檢視她人)
 ###_NPC
-(She won't be able to access other members when she's in the same room as you.)
+(DialogCharacterSubject won't be able to access other members when DialogCharacterSubject's in the same room as you.)
 (她現在可以與你同處一室時檢視她人了)
 ###_PLAYER
-(Allow her to buy keys.)
+(Allow DialogCharacterObject to buy keys.)
 (允許她購買鑰匙)
 ###_NPC
-(The store will sell keys to her.)
+(The store will sell keys to DialogCharacterObject.)
 (商店將會賣給她鑰匙)
 ###_PLAYER
-(Confiscate her keys.)
+(Confiscate DialogCharacterPossessive keys.)
 (沒收她的鑰匙)
 ###_NPC
-(She lost all of her keys.)
+(DialogCharacterSubject lost all of DialogCharacterPossessive keys.)
 (她失去了她所有的鑰匙)
 ###_PLAYER
-(Block her from buying keys.)
+(Block DialogCharacterObject from buying keys.)
 (禁止她購買鑰匙)
 ###_NPC
-(The store will not sell keys to her anymore.)
+(The store will not sell keys to DialogCharacterObject anymore.)
 (商店將不會賣給她任何鑰匙)
 ###_PLAYER
-(Allow her to use owner locks on herself.)
+(Allow DialogCharacterObject to use owner locks on DialogCharacterSelf.)
 (允許她對自己使用主人鎖)
 ###_NPC
-(She will be able to use owner locks on herself.)
+(DialogCharacterSubject will be able to use owner locks on DialogCharacterSelf.)
 (她將可以對自己使用主人鎖)
 ###_PLAYER
-(Block her from using owner locks on herself.)
+(Block DialogCharacterObject from using owner locks on DialogCharacterSelf.)
 (禁止她對自己使用主人鎖)
 ###_NPC
-(She will not be able to use owner locks on herself anymore.)
+(DialogCharacterSubject will not be able to use owner locks on DialogCharacterSelf anymore.)
 (她將無法對自己使用主人鎖)
 ###_PLAYER
-(Allow her to buy remotes.)
+(Allow DialogCharacterObject to buy remotes.)
 (允許她購買遙控器)
 ###_NPC
-(The store will sell remotes to her.)
+(The store will sell remotes to DialogCharacterObject.)
 (商店將會賣給她遙控器)
 ###_PLAYER
-(Allow her to use remotes on herself.)
+(Allow DialogCharacterObject to use remotes on DialogCharacterSelf.)
 (允許她對自己使用遙控器)
 ###_NPC
-(Her remotes will work on her now.)
+(DialogCharacterPossessive remotes will work on DialogCharacterObject now.)
 (她的遙控器將可以對她自己生效)
 ###_PLAYER
-(Confiscate her remotes.)
+(Confiscate DialogCharacterPossessive remotes.)
 (沒收她的遙控器)
 ###_NPC
-(She lost all of her remotes.)
+(DialogCharacterSubject lost all of DialogCharacterPossessive remotes.)
 (她失去了她所有的遙控器)
 ###_PLAYER
-(Block her from buying remotes.)
+(Block DialogCharacterObject from buying remotes.)
 (禁止她購買遙控器)
 ###_NPC
-(The store will not sell remotes to her anymore.)
+(The store will not sell remotes to DialogCharacterObject anymore.)
 (商店將不會賣給她任何遙控器)
 ###_PLAYER
-(Block her from using remotes on herself)
+(Block DialogCharacterObject from using remotes on DialogCharacterSelf)
 (禁止她對自己使用遙控器)
 ###_NPC
-(Her remotes won't work on her anymore.)
+(DialogCharacterPossessive remotes won't work on DialogCharacterObject anymore.)
 (她的遙控器將無法對她自己生效)
 ###_PLAYER
 (Timed cell.)
 (定時監牢)
 ###_NPC
-(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)
+(For how long do you want to lock DialogCharacterObject up?  DialogCharacterSubject will be isolated, and you won't be able to unlock DialogCharacterObject.)
 (你想鎖她多長時間？She will be isolated, and you won't be able to unlock her.)
 ###_PLAYER
 (Good Girl Training System.)
 (好女孩訓練系統 (GGTS))
 ###_NPC
-(How many minutes of Good Girl Training System will she be forced to do?)
+(How many minutes of Good Girl Training System will DialogCharacterSubject be forced to do?)
 (選擇強制她使用GGTS系統的時長)
 ###_PLAYER
-(Force her to serve drinks as a maid.)
+(Force DialogCharacterObject to serve drinks as a maid.)
 (強制她作為女僕端茶送水)
 ###_NPC
-(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
+(DialogCharacterSubject will be sent to the maid quarters to prepare drinks.  You will earn DialogCharacterPossessive salary.)
 (她將被送到女僕宿舍準備飲品，你會獲得她的工資)
-(She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
+(DialogCharacterSubject needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
 （她必須是女僕協會的一員，能交夠說話和移動，才能為你做這個工作。）
 ###_PLAYER
-(Lock her for 5 minutes.)
+(Lock DialogCharacterObject for 5 minutes.)
 (把她鎖上5分鐘)
 ###_NPC
-(She will be isolated and locked up for 5 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 5 minutes.)
 (她將被鎖上並禁閉5分鐘)
 ###_PLAYER
-(Lock her for 15 minutes.)
+(Lock DialogCharacterObject for 15 minutes.)
 (把她鎖上15分鐘)
 ###_NPC
-(She will be isolated and locked up for 15 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 15 minutes.)
 (她將被鎖上並禁閉15分鐘)
 ###_PLAYER
-(Lock her for 30 minutes.)
+(Lock DialogCharacterObject for 30 minutes.)
 (把她鎖上30分鐘)
 ###_NPC
-(She will be isolated and locked up for 30 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 30 minutes.)
 (她將被鎖上並禁閉30分鐘)
 ###_PLAYER
-(Lock her for 60 minutes.)
+(Lock DialogCharacterObject for 60 minutes.)
 (把她鎖上60分鐘)
 ###_NPC
-(She will be isolated and locked up for 60 minutes.)
+(DialogCharacterSubject will be isolated and locked up for 60 minutes.)
 (她將被鎖上並禁閉60分鐘)
 ###_PLAYER
-(Send her for 5 minutes.)
+(Send DialogCharacterObject for 5 minutes.)
 (送她過去5分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 5 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 5 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成5分鐘的GGTS)
 ###_PLAYER
-(Send her for 15 minutes.)
+(Send DialogCharacterObject for 15 minutes.)
 (送她過去15分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 15 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 15 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成15分鐘的GGTS)
 ###_PLAYER
-(Send her for 30 minutes.)
+(Send DialogCharacterObject for 30 minutes.)
 (送她過去30分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 30 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 30 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成30分鐘的GGTS)
 ###_PLAYER
-(Send her for 60 minutes.)
+(Send DialogCharacterObject for 60 minutes.)
 (送她過去60分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 60 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 60 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成60分鐘的GGTS)
 ###_PLAYER
-(Send her for 90 minutes.)
+(Send DialogCharacterObject for 90 minutes.)
 (送她過去90分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 90 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 90 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成90分鐘的GGTS)
 ###_PLAYER
-(Send her for 120 minutes.)
+(Send DialogCharacterObject for 120 minutes.)
 (送她過去120分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 120 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 120 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成120分鐘的GGTS)
 ###_PLAYER
-(Send her for 180 minutes.)
+(Send DialogCharacterObject for 180 minutes.)
 (送她過去180分鐘)
 ###_NPC
-(She will be locked up in the asylum until she completes 180 minutes of Good Girl Training System.)
+(DialogCharacterSubject will be locked up in the asylum until DialogCharacterSubject completes 180 minutes of Good Girl Training System.)
 (她將被關在收容所中，直到她完成180分鐘的GGTS)
 ###_PLAYER
-(Don't send her.)
+(Don't send DialogCharacterObject.)
 (不送走她)
 ###_NPC
 (Select the rule, restriction or punishment that you want to enforce.)
 (選擇你想要強制的規則、限制或懲罰)
 ###_PLAYER
-(Release her from the slave collar.)
+(Release DialogCharacterObject from the slave collar.)
 (取下她佩戴的奴隸項圈)
 ###_NPC
-(You remove her slave collar.)
+(You remove DialogCharacterPossessive slave collar.)
 (你移除了她的奴隸項圈)
 ###_PLAYER
-(Give her the slave collar.)
+(Give DialogCharacterObject the slave collar.)
 (給她奴隸項圈)
 ###_NPC
-(You lock the slave collar back on her.)
+(You lock the slave collar back on DialogCharacterObject.)
 (你將奴隸項圈鎖回了她的脖子上)
 ###_PLAYER
-(Prevent her from changing her nickname.)
+(Prevent DialogCharacterObject from changing DialogCharacterPossessive nickname.)
 (禁止她更改暱稱)
 ###_NPC
-(She won't be able to change her nickname anymore.)
+(DialogCharacterSubject won't be able to change DialogCharacterPossessive nickname anymore.)
 (即刻起她將無法更改她的暱稱)
 ###_PLAYER
-(Allow her to change her nickname.)
+(Allow DialogCharacterObject to change DialogCharacterPossessive nickname.)
 (允許她更改暱稱)
 ###_NPC
-(She will be able to change her nickname.)
+(DialogCharacterSubject will be able to change DialogCharacterPossessive nickname.)
 (即刻起她將可以更改她的暱稱)
 ###_PLAYER
 (Restrict Bondage Club areas.)
@@ -676,26 +676,26 @@
 (The forbidden words list for your submissive has been updated.)
 (你的順從者的禁止詞列表已經更新。)
 ###_PLAYER
-(Allow her to use lovers locks on herself.)
+(Allow DialogCharacterObject to use lovers locks on DialogCharacterSelf.)
 (允許她對自己使用戀人鎖)
 ###_NPC
-(She will be able to use lovers locks on herself.)
+(DialogCharacterSubject will be able to use lovers locks on DialogCharacterSelf.)
 (她將可以對自己使用戀人鎖)
 ###_PLAYER
-(Block her from using lovers locks on herself.)
+(Block DialogCharacterObject from using lovers locks on DialogCharacterSelf.)
 (禁止她對自己使用戀人鎖)
 ###_NPC
-(She will not be able to use lovers locks on herself anymore.)
+(DialogCharacterSubject will not be able to use lovers locks on DialogCharacterSelf anymore.)
 (她將無法對自己使用戀人鎖)
 ###_PLAYER
-(Allow her owner to use lovers locks on her.)
+(Allow DialogCharacterObject owner to use lovers locks on DialogCharacterObject.)
 (允許她的主人對她使用戀人鎖)
 ###_NPC
-(Her owner will be able to use lovers locks on her.)
+(DialogCharacterPossessive owner will be able to use lovers locks on DialogCharacterObject.)
 (她的主人將可以對她使用戀人鎖)
 ###_PLAYER
-(Block her owner from using lovers locks on her.)
+(Block DialogCharacterObject owner from using lovers locks on DialogCharacterObject.)
 (禁止她的主人對她使用戀人鎖)
 ###_NPC
-(Her owner will not be able to use lovers locks on her anymore.)
+(DialogCharacterPossessive owner will not be able to use lovers locks on DialogCharacterObject anymore.)
 (她的主人將無法再對她使用戀人鎖)
