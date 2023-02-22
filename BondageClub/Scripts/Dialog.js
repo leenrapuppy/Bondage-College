@@ -15,6 +15,8 @@ var DialogInventoryOffset = 0;
 /** @type {Item|null} */
 var DialogFocusItem = null;
 /** @type {Item|null} */
+var DialogTightenLoosenItem = null;
+/** @type {Item|null} */
 var DialogFocusSourceItem = null;
 /** @type {null | ReturnType<typeof setTimeout>} */
 var DialogFocusItemColorizationRedrawTimer = null;
@@ -674,10 +676,14 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
  * @returns {boolean} - Returns true, if an item specific exit function was called, false otherwise
  */
 function DialogLeaveFocusItem() {
-	if (DialogFocusItem != null) {
-		const FuncName = ExtendedItemFunctionPrefix() + "Exit";
-		ExtendedItemExit();
-		return (typeof window[FuncName] === "function");
+	if (DialogTightenLoosenItem != null) {
+		TightenLoosenItemExit();
+	} else {
+		if (DialogFocusItem != null) {
+			const FuncName = ExtendedItemFunctionPrefix() + "Exit";
+			ExtendedItemExit();
+			return (typeof window[FuncName] === "function");
+		}
 	}
 	return false;
 }
@@ -1006,6 +1012,9 @@ function DialogMenuButtonBuild(C) {
 
 			if (C.FocusGroup.Name == "ItemMouth" || C.FocusGroup.Name == "ItemMouth2" || C.FocusGroup.Name == "ItemMouth3")
 				DialogMenuButton.push("ChangeLayersMouth");
+
+			if (!IsItemLocked && !IsGroupBlocked && (Item != null) && (Item.Asset != null) && Item.Asset.AllowTighten && Player.CanInteract() && InventoryAllow(C, Item.Asset))
+				DialogMenuButton.push("TightenLoosen");
 
 			if (IsItemLocked && DialogCanUnlock(C, Item) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked && ((C.ID != 0) || Player.CanInteract()))
 				DialogMenuButton.push("Remove");
@@ -1480,6 +1489,11 @@ function DialogMenuButtonClick() {
 				return;
 			}
 
+			// Tigthen/Loosen Icon - Opens the sub menu
+			else if (((DialogMenuButton[I] == "TightenLoosen")) && (Item != null)) {
+				DialogSetTightenLoosenItem(Item);
+				return;
+			}
 
 			// Remove/Struggle Icon - Starts the struggling mini-game (can be impossible to complete)
 			else if (["Remove", "Struggle", "Dismount", "Escape"].includes(DialogMenuButton[I]) && Item != null) {
@@ -1789,6 +1803,7 @@ function DialogClick() {
 						C.FocusGroup = AssetGroup[A];
 						DialogItemToLock = null;
 						DialogFocusItem = null;
+						DialogTightenLoosenItem = null;
 						DialogInventoryBuild(C);
 						DialogText = DialogTextDefault;
 						break;
@@ -1852,7 +1867,9 @@ function DialogClick() {
 	if (((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem)) && (DialogIntro() != "")) {
 
 		// If we must are in the extended menu of the item
-		if (DialogFocusItem != null) {
+		if (DialogTightenLoosenItem != null) {
+			TightenLoosenItemClick();
+		} else if (DialogFocusItem != null) {
 			CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Click()");
 		} else {
 
@@ -2055,14 +2072,30 @@ function DialogExtendItem(Item, SourceItem) {
 	const C = CharacterGetCurrent();
 	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
-	if (DialogIsStruggling())
-		StruggleMinigameStop();
+	if (DialogIsStruggling()) StruggleMinigameStop();
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
 	DialogColor = null;
 	DialogFocusItem = Item;
 	DialogFocusSourceItem = SourceItem;
 	CommonDynamicFunction("Inventory" + Item.Asset.Group.Name + Item.Asset.Name + "Load()");
+}
+
+/**
+ * Shows the tigthen/loosen item menu for a given item, if possible.
+ * @param {Item} Item - The item to open the menu for
+ * @returns {void} - Nothing
+ */
+function DialogSetTightenLoosenItem(Item) {
+	const C = CharacterGetCurrent();
+	if (AsylumGGTSControlItem(C, Item)) return;
+	if (InventoryBlockedOrLimited(C, Item)) return;
+	if (DialogIsStruggling()) StruggleMinigameStop();
+	DialogLockMenu = false;
+	DialogCraftingMenu = false;
+	DialogColor = null;
+	DialogTightenLoosenItem = Item;
+	TightenLoosenItemLoad();
 }
 
 /**
@@ -2401,7 +2434,9 @@ function DialogDraw() {
 		var C = CharacterGetCurrent();
 
 		// The view can show one specific extended item or the list of all items for a group
-		if (DialogFocusItem != null) {
+		if (DialogTightenLoosenItem != null) {
+			TightenLoosenItemDraw();
+		} else if (DialogFocusItem != null) {
 			CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Draw()");
 			DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 		} else {

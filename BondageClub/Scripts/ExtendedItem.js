@@ -195,9 +195,8 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	if (Asset.AllowTighten) {
 		let Difficulty = DialogFocusItem.Difficulty;
 		if (Difficulty == null) Difficulty = 0;
-		DrawText(DialogFindPlayer("Tightness") + ": " + Difficulty.toString(), 1200, 90, "White", "Silver");
-		DrawButton(1080, 170, 240, 65, DialogFindPlayer("Tighten"), "White");
-		DrawButton(1080, 260, 240, 65, DialogFindPlayer("Loosen"), "White");
+		DrawText(DialogFindPlayer("Tightness") + " " + Difficulty.toString(), 1200, 140, "White", "Silver");
+		DrawButton(1050, 220, 300, 65, DialogFindPlayer("AdjustTightness"), "White");
 	}
 
 }
@@ -398,22 +397,10 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 	}
 
 	// If the assets allows tightening / loosening
-	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten)
-		if (MouseIn(1080, 170, 240, 65) || MouseIn(1080, 260, 240, 65)) {
-			if (DialogFocusItem.Difficulty == null) DialogFocusItem.Difficulty = 0;
-			if (MouseIn(1080, 170, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty + 4;
-			if (MouseIn(1080, 260, 240, 65)) DialogFocusItem.Difficulty = DialogFocusItem.Difficulty - 4;
-			if (DialogFocusItem.Difficulty < -10) DialogFocusItem.Difficulty = -10;
-			let MaxDifficulty = SkillGetLevel(Player, "Bondage") + 4;
-			if (DialogFocusItem.Asset.Difficulty != null) MaxDifficulty = MaxDifficulty + DialogFocusItem.Asset.Difficulty;
-			if (DialogFocusItem.Difficulty > MaxDifficulty) DialogFocusItem.Difficulty = MaxDifficulty;
-			CharacterRefresh(C, true);
-			if (CurrentScreen == "ChatRoom") {
-				ChatRoomCharacterUpdate(C);
-				ChatRoomPublishAction(C, (MouseIn(1080, 170, 240, 65)) ? "ActionTighten" : "ActionLoosen", DialogFocusItem, null);
-				DialogLeave();
-			}
-		}
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && MouseIn(1050, 220, 300, 65)) {
+		DialogTightenLoosenItem = DialogFocusItem;
+		TightenLoosenItemLoad();
+	}
 
 }
 
