@@ -76,7 +76,7 @@ function AssetsItemBreastFuturisticBraBeforeDraw(data) {
 
 /** @type {DynamicAfterDrawCallback} */
 function AssetsItemBreastFuturisticBraAfterDraw({
-    C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, G, Color
+	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, G, Color
 }) {
 	if (L === "_Text" && Property && (Property.Type != "Solid" && Property.Type != "Solid2")) {
 

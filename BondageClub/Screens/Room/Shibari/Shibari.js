@@ -66,12 +66,12 @@ function ShibariCanPayForTraining() { return (Player.Money >= ShibariTrainingPri
  * Checks if the player can pay for a training.
  * @returns {boolean} - Returns TRUE if the player can pay for the requested training.
  */
- function ShibariCanTrain() { return (!Player.IsRestrained() && !LogQuery("Training", "Shibari")); }
+function ShibariCanTrain() { return (!Player.IsRestrained() && !LogQuery("Training", "Shibari")); }
 /**
  * Checks if the player can pay for a training.
  * @returns {boolean} - Returns TRUE if the player can pay for the requested training.
  */
- function ShibariCannotTrainDelay() { return (!Player.IsRestrained() && LogQuery("Training", "Shibari")); }
+function ShibariCannotTrainDelay() { return (!Player.IsRestrained() && LogQuery("Training", "Shibari")); }
 
 /**
  * Puts a character in a random bondage position.

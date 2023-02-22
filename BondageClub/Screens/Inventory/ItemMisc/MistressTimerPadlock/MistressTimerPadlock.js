@@ -138,8 +138,8 @@ function InventoryItemMiscMistressTimerPadlockAdd(TimeToAdd, PlayerMemberNumberT
 			.destinationCharacter(C)
 			.focusGroup(C.FocusGroup.Name)
 			.if(property.ShowTimer)
-				.text("TimerTime", Math.round(Math.abs(timeAdded)).toString())
-				.textLookup("TimerUnit", "Minutes")
+			.text("TimerTime", Math.round(Math.abs(timeAdded)).toString())
+			.textLookup("TimerUnit", "Minutes")
 			.endif()
 			.build();
 

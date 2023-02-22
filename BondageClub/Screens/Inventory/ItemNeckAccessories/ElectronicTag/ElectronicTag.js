@@ -2,7 +2,7 @@
 
 // Loads the item extension properties
 function InventoryItemNeckAccessoriesElectronicTagLoad() {
-    var C = CharacterGetCurrent();
+	var C = CharacterGetCurrent();
 	var MustRefresh = false;
 
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = {};
@@ -27,7 +27,7 @@ function InventoryItemNeckAccessoriesElectronicTagDraw() {
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
 		PropertyTextDraw();
-    }
+	}
 }
 
 // Catches the item extension clicks
@@ -55,7 +55,7 @@ function AssetsItemNeckAccessoriesElectronicTagAfterDraw({
 		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "Tag";
 		text = text.substring(0, A.TextMaxLength.Text);
 
-        /** @type {DynamicDrawOptions} */
+		/** @type {DynamicDrawOptions} */
 		const drawOptions = {
 			fontSize: 14,
 			fontFamily: A.TextFont,

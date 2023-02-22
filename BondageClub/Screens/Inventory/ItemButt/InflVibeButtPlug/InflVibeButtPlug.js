@@ -6,19 +6,19 @@
  * @returns {void} - Nothing
  */
 function InventoryItemButtInflVibeButtPlugDraw(OriginalFunction) {
-    OriginalFunction();
+	OriginalFunction();
 
-    const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-    if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
-        const [InflateLevel, Intensity] = ModularItemParseCurrent(Data);
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
+		const [InflateLevel, Intensity] = ModularItemParseCurrent(Data);
 
-        // Display option information
-        MainCanvas.textAlign = "right";
-        DrawText(DialogFindPlayer("InflateLevel"), 1500, 565, "White", "Gray");
-        DrawText(DialogFindPlayer("Intensity"), 1500, 640, "White", "Gray");
-        MainCanvas.textAlign = "left";
-        DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}f${InflateLevel}`), 1510, 565, "White", "Gray");
-        DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}i${Intensity}`), 1510, 640, "White", "Gray");
-        MainCanvas.textAlign = "center";
-    }
+		// Display option information
+		MainCanvas.textAlign = "right";
+		DrawText(DialogFindPlayer("InflateLevel"), 1500, 565, "White", "Gray");
+		DrawText(DialogFindPlayer("Intensity"), 1500, 640, "White", "Gray");
+		MainCanvas.textAlign = "left";
+		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}f${InflateLevel}`), 1510, 565, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}i${Intensity}`), 1510, 640, "White", "Gray");
+		MainCanvas.textAlign = "center";
+	}
 }

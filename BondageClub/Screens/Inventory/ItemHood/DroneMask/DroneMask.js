@@ -9,7 +9,7 @@ function InventoryItemHoodDroneMaskPattern5Load() {
 
 // Draw extension screen image
 function InventoryItemHoodDroneMaskPattern5Draw() {
-    InventoryItemHeadDroneMaskPattern5Draw();
+	InventoryItemHeadDroneMaskPattern5Draw();
 }
 
 // Click function

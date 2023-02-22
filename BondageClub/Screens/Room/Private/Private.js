@@ -294,13 +294,13 @@ function PrivateIsLover() { return CurrentCharacter.IsLoverPrivate(); }
  * Checks if the current NPC is a lover of the player and currently on the Fiancée stage.
  * @returns {boolean} - TRUE if the NPC is a fiancee for the player.
  */
- function PrivateIsFiancee() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0); }
+function PrivateIsFiancee() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0); }
 /**
  * Checks if the current NPC is a lover of the player and currently on the Wife stage.
  * @returns {boolean} - TRUE if the NPC is a wife for the player.
  */
- function PrivateIsWife() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Wife") > 0); }
- /**
+function PrivateIsWife() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Wife") > 0); }
+/**
  * Checks if the NPC will take the player as a lover.
  * @returns {boolean} - TRUE if the player can have one more lover, the NPC loves the player enough and the event delay has expired.
  */
@@ -324,23 +324,23 @@ function PrivateWontTakePlayerAsLoverPlayerDating() { return (((CurrentCharacter
  * Checks if the NPC will upgrade her lovership from girlfriend to fiancée
  * @returns {boolean} - TRUE if the NPC is already a girlfriend, her love is at least 70 and enough time has gone by
  */
- function PrivateWillTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && (CurrentCharacter.Love >= 70) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter))); }
+function PrivateWillTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && (CurrentCharacter.Love >= 70) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter))); }
 /**
  * Checks if the NPC will not upgrade her lovership from girlfriend to fiancée
  * @returns {boolean} - TRUE if the NPC is already a girlfriend, her love is below 70 or not enough time has gone by
  */
- function PrivateWontTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && ((CurrentCharacter.Love < 70) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter)))); }
+function PrivateWontTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && ((CurrentCharacter.Love < 70) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter)))); }
 /**
  * Checks if the NPC will upgrade her lovership from fiancée to wife
  * @returns {boolean} - TRUE if the NPC is already a fiancée, her love is at least 90 and enough time has gone by
  */
- function PrivateWillTakePlayerAsWife() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0) && (CurrentCharacter.Love >= 90) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Fiancee") + NPCLongLoverEventDelay(CurrentCharacter))); }
+function PrivateWillTakePlayerAsWife() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0) && (CurrentCharacter.Love >= 90) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Fiancee") + NPCLongLoverEventDelay(CurrentCharacter))); }
 /**
  * Checks if the NPC will not upgrade her lovership from fiancée to wife
  * @returns {boolean} - TRUE if the NPC is already a fiancée, her love is below 90 or not enough time has gone by
  */
- function PrivateWontTakePlayerAsWife() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0) && ((CurrentCharacter.Love < 90) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Fiancee") + NPCLongLoverEventDelay(CurrentCharacter)))); }
- /**
+function PrivateWontTakePlayerAsWife() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0) && ((CurrentCharacter.Love < 90) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Fiancee") + NPCLongLoverEventDelay(CurrentCharacter)))); }
+/**
  * Checks if it's possible for the player to turn the tables against her NPC owner
  * @returns {boolean} - TRUE if turning the tables is possible
  */
@@ -379,7 +379,7 @@ function PrivateTitleIs(Title) { return ((CurrentCharacter.Title != null) && (Cu
  * Returns TRUE if it's the player birthday of at least 1 year (based on same month and day, different year)
  * @returns {boolean} - TRUE if it's the birthday
  */
- function PrivateIsPlayerBirthday() {
+function PrivateIsPlayerBirthday() {
 	return ((new Date(Player.Creation)).getDate() == (new Date(CurrentTime)).getDate()) &&
 		   ((new Date(Player.Creation)).getMonth() == (new Date(CurrentTime)).getMonth()) &&
 		   ((new Date(Player.Creation)).getFullYear() != (new Date(CurrentTime)).getFullYear());
@@ -388,28 +388,28 @@ function PrivateTitleIs(Title) { return ((CurrentCharacter.Title != null) && (Cu
  * Returns TRUE if the private room friend will join the player in bed, love must be positive and higher than frigid trait
  * @returns {boolean} - TRUE if she will join
  */
- function PrivateWillJoinBed() {
+function PrivateWillJoinBed() {
 	return (PrivateBedActive() && PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will not join the player in bed, love must be positive and higher than frigid trait
  * @returns {boolean} - TRUE if she will not join
  */
- function PrivateWillNotJoinBed() {
+function PrivateWillNotJoinBed() {
 	return (PrivateBedActive() && PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will join the player in bed, love must be positive and higher than frigid trait (gagged version)
  * @returns {boolean} - TRUE if she will join
  */
- function PrivateWillJoinBedGag() {
+function PrivateWillJoinBedGag() {
 	return (PrivateBedActive() && PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will not join the player in bed, love must be positive and higher than frigid trait (gagged version)
  * @returns {boolean} - TRUE if she will not join
  */
- function PrivateWillNotJoinBedGag() {
+function PrivateWillNotJoinBedGag() {
 	return (PrivateBedActive() && PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 
@@ -1116,16 +1116,16 @@ function PrivateRelationDecay() {
 		if (LastDecay * CheatFactor("NoLoveDecay", 0) == 0)
 			NPCEventAdd(PrivateCharacter[C], "LastDecay", CurrentTime);
 		else
-			if (LastDecay <= CurrentTime - 7200000) {
-				var Decay = Math.floor((CurrentTime - LastDecay) / 7200000);
-				NPCEventAdd(PrivateCharacter[C], "LastDecay", LastDecay + (Decay * 7200000));
-				NPCLoveChange(PrivateCharacter[C], Decay * -1);
-				MustSave = true;
-				if ((PrivateCharacter[C].Love <= -100) && (PrivateCharacter[C].Cage == null)) {
-					CurrentCharacter = PrivateCharacter[C];
-					PrivateKickOut();
-				}
+		if (LastDecay <= CurrentTime - 7200000) {
+			var Decay = Math.floor((CurrentTime - LastDecay) / 7200000);
+			NPCEventAdd(PrivateCharacter[C], "LastDecay", LastDecay + (Decay * 7200000));
+			NPCLoveChange(PrivateCharacter[C], Decay * -1);
+			MustSave = true;
+			if ((PrivateCharacter[C].Love <= -100) && (PrivateCharacter[C].Cage == null)) {
+				CurrentCharacter = PrivateCharacter[C];
+				PrivateKickOut();
 			}
+		}
 	}
 	return MustSave;
 }
@@ -1566,7 +1566,7 @@ function PrivateStartFiancee() {
  * Triggered when the player upgrades her NPC fiancee to wife, gets two wedding items for free
  * @returns {void} - Nothing.
  */
- function PrivateStartWife() {
+function PrivateStartWife() {
 	NPCEventAdd(CurrentCharacter, "NewCloth", CurrentTime);
 	NPCEventAdd(CurrentCharacter, "Wife", CurrentTime);
 	NPCLoveChange(CurrentCharacter, 20);
@@ -1858,7 +1858,7 @@ function PrivateJoinInBed() {
  * When the NPC enters the bed
  * @returns {void} - Nothing.
  */
- function PrivateEnterBed() {
+function PrivateEnterBed() {
 	NPCEventAdd(CurrentCharacter, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(CurrentCharacter, "Frigid") * 3000);
 	CurrentCharacter.PrivateBed = true;
 }

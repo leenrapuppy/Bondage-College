@@ -20,10 +20,10 @@ const InventoryItemPelvisLoveChastityBeltCrotchShield = new Map([
 function InventoryItemPelvisLoveChastityBeltDraw(OriginalFunction) {
 	OriginalFunction();
 	if (ModularItemModuleIsActive(ModularItemBase)) {
-        const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-        if (Data == null) {
-            return;
-        }
+		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+		if (Data == null) {
+			return;
+		}
 		const [FrontShield, BackShield, Intensity, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const CrotchShield = InventoryItemPelvisLoveChastityBeltCrotchShield.get(`${FrontShield}${BackShield}`);
 		const ShieldSuffix = (["f2", "f3"].includes(FrontShield)) ? "" : ` (${DialogFindPlayer(`${Data.dialogOptionPrefix}${FrontShield}`)})`;
@@ -69,7 +69,7 @@ function InventoryItemPelvisLoveChastityBeltClick(OriginalFunction) {
 			}
 		}
 	}
-	InventoryItemPelvisSciFiPleasurePantiesClickHook(OriginalFunction, false)
+	InventoryItemPelvisSciFiPleasurePantiesClickHook(OriginalFunction, false);
 }
 
 /**

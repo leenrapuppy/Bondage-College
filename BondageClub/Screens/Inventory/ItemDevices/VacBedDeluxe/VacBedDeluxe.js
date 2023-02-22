@@ -6,11 +6,11 @@
  * @returns {void} Nothing
  */
 function InventoryItemDevicesVacBedDeluxeDraw(OriginalFunction) {
-    // Hide the Opacity slider while not in the base kmodule
-    const ID = PropertyGetID("Opacity");
-    if (ModularItemHideElement(ID, ModularItemBase)) {
-        PropertyOpacityDraw(OriginalFunction);
-    } else {
-        OriginalFunction();
-    }
+	// Hide the Opacity slider while not in the base kmodule
+	const ID = PropertyGetID("Opacity");
+	if (ModularItemHideElement(ID, ModularItemBase)) {
+		PropertyOpacityDraw(OriginalFunction);
+	} else {
+		OriginalFunction();
+	}
 }

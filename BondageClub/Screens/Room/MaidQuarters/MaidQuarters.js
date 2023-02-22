@@ -58,7 +58,7 @@ function MaidQuartersPlayerInMaidUniform() {
 		(CharacterAppearanceGetCurrentValue(Player, "Hat", "Name") == "MaidHairband1")
 		&& (
 		// Either regular maid outfits
-		(clothes == "MaidOutfit1" || clothes == "MaidOutfit2")
+			(clothes == "MaidOutfit1" || clothes == "MaidOutfit2")
 		// Or mostly naked
 		|| (NakedOrWithApron
 		&& CharacterAppearanceGetCurrentValue(Player, "ClothLower", "Name") == "None"
@@ -164,7 +164,7 @@ function MaidQuartersAllowMaidCleaning() { return (!Player.IsRestrained() && !Ma
  * @returns {boolean} - Returns true, if the player is ready for the job, false otherwise
  */
 function MaidQuartersAllowSelfBondageMaidCleaning() {
-return (MaidQuartersPlayerInCleaningUniform() && !MaidQuartersMaid.IsRestrained() && !LogQuery("ClubMistress", "Management")); }
+	return (MaidQuartersPlayerInCleaningUniform() && !MaidQuartersMaid.IsRestrained() && !LogQuery("ClubMistress", "Management")); }
 /**
  * Accept to start the 'clean room job' when self prepared for it
  * @returns {void} - Nothing

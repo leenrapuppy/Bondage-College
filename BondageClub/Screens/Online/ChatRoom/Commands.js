@@ -556,7 +556,7 @@ const CommonCommands = [
 			// No forbidden words if not owned
 			if (CurrentScreen != "ChatRoom") return;
 			if (!Player.IsOwned()) return;
-		
+
 			// Gets the forbidden words list from the log
 			let ForbiddenList = [];
 			for (let L of Log)

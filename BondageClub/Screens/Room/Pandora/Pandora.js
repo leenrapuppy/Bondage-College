@@ -47,7 +47,7 @@ function PandoraOdds25() { return ((CurrentCharacter.RandomOdds == null) || (Cur
 /** @param {string} Costume */
 function PandoraCostumeIs(Costume) { return (PandoraClothes == Costume); }
 /** @param {number} Number */
-function PandoraQuizIs(Number) { return ((CurrentCharacter.QuizLog != null) && (CurrentCharacter.QuizLog[CurrentCharacter.QuizLog.length - 1].toString() == Number.toString())) }
+function PandoraQuizIs(Number) { return ((CurrentCharacter.QuizLog != null) && (CurrentCharacter.QuizLog[CurrentCharacter.QuizLog.length - 1].toString() == Number.toString())); }
 function PandoraCanAskForPaint() { return (!PandoraPaint && (PandoraClothes == "Maid") && (InfiltrationMission == "ReverseMaid")); }
 
 /**
@@ -1097,7 +1097,7 @@ function PandoraPunishmentSentence(Minutes) {
 		Minutes: parseInt(Minutes),
 		Background: PandoraBackground,
 		Difficulty: InfiltrationDifficulty,
-	}
+	};
 }
 
 /**

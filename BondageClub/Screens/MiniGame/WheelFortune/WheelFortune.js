@@ -735,7 +735,7 @@ function WheelFortuneLoad() {
  * Draws the full lucky wheel
  * @returns {void} - Nothing
  */
- function WheelFortuneDraw(FullWheel, Pos, MaxPos, X, Y, Zoom) {
+function WheelFortuneDraw(FullWheel, Pos, MaxPos, X, Y, Zoom) {
 
 	// Draw the black background
 	DrawRect(X + 2, Y, 496 * Zoom, 1000 * Zoom, "Black");
@@ -746,7 +746,7 @@ function WheelFortuneLoad() {
 		Wheel = [].concat(Wheel, FullWheel.split(""));
 
 	// For each elements in the wheel
-    for (let W = 0; W < Wheel.length; W++) {
+	for (let W = 0; W < Wheel.length; W++) {
 
 		// If the element would be visible on screen
 		let PosY = (Y + 3 + Pos * Zoom + W * 83 * Zoom) - MaxPos;
@@ -772,7 +772,7 @@ function WheelFortuneLoad() {
 
 		}
 
-    }
+	}
 
 	// Draw the border and arrow
 	DrawEmptyRect(X - 2, Y - 2, 504, 1004 * Zoom, (WheelFortuneVelocity == 0) ? "White" : "Gold", 2);
@@ -788,7 +788,7 @@ function WheelFortuneLoad() {
 function WheelFortuneRun() {
 
 	// If the mouse position changed to spin the wheel
-    if (MouseY < 0) WheelFortuneMouseUp();
+	if (MouseY < 0) WheelFortuneMouseUp();
 	if ((WheelFortunePosY != null) && (WheelFortunePosY != MouseY) && (MouseY != -1) && (WheelFortuneVelocity == 0)) {
 		WheelFortunePos = WheelFortunePos - WheelFortunePosY + MouseY;
 		WheelFortunePosY = MouseY;
@@ -820,7 +820,7 @@ function WheelFortuneRun() {
 	WheelFortunePos = WheelFortunePos % WheelFortunePosMax;
 
 	// Draw the character and buttons
-	DrawRect(0, 0, 2000, 1000, "#00000080")
+	DrawRect(0, 0, 2000, 1000, "#00000080");
 	DrawCharacter(Player, 100, 0, 1, true);
 	let BackColor = (WheelFortuneVelocity == 0) ? "White" : "Silver";
 	DrawButton(1885, 25, 90, 90, "", (WheelFortuneForced ? "Pink" : BackColor), "Icons/Exit.png", TextGet("Exit"));
@@ -884,7 +884,7 @@ function WheelFortuneMouseDown() {
  * @returns {void} - Nothing
  */
 function WheelFortuneMouseUp() {
-    if ((WheelFortunePosY != null) && (WheelFortuneVelocity == 0)) {
+	if ((WheelFortunePosY != null) && (WheelFortuneVelocity == 0)) {
 		if ((WheelFortunePosY < 400) && (MouseY == -1)) WheelFortunePosY = -1;
 		if ((WheelFortunePosY > 600) && (MouseY == -1)) WheelFortunePosY = 1001;
 		if ((WheelFortuneInitTime + 1000 >= CommonTime()) && (Math.abs(WheelFortuneInitY - WheelFortunePosY) > 300)) {

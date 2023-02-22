@@ -155,7 +155,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				}
 			}
 			if (!eyesOnly) {
-				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true)
+				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true);
 				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels.get(EffectName) || 0), 0);
 				blindLevel += InventoryCraftCount(this, "Thick");
 				blindLevel -= InventoryCraftCount(this, "Thin");
@@ -1567,7 +1567,7 @@ function CharacterDecompressWardrobe(Wardrobe) {
  * @param {string} Attribute - The name of the attribute that must be allowed
  * @returns {boolean} - TRUE if at least one item has that attribute
  */
- function CharacterHasItemWithAttribute(C, Attribute) {
+function CharacterHasItemWithAttribute(C, Attribute) {
 	return C.Appearance.some(item => {
 		const attrs = InventoryGetItemProperty(item, "Attribute");
 		return attrs && attrs.includes(Attribute);
@@ -1707,7 +1707,7 @@ function CharacterGetTints(C) {
 	}
 	/** @type {RGBAColor[]} */
 	const tints = C.Tints.map(({Color, Strength, DefaultColor, Item}) => {
-		let colorIndex = 0
+		let colorIndex = 0;
 		if (typeof Color === "number") {
 			colorIndex = Color;
 			if (typeof Item.Color === "string") {

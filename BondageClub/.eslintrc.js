@@ -15,7 +15,8 @@ module.exports = {
 	],
 	ignorePatterns: [
 		"Scripts/lib/**/*.js",
-		"*.min.js"
+		"*.min.js",
+		"Screens/MiniGame/KinkyDungeon/*.js"
 	],
 	settings: {
 		polyfills: [
@@ -38,6 +39,7 @@ module.exports = {
 		"semi": "warn",
 		"indent": ["warn", "tab", { "SwitchCase": 1, "ignoredNodes": ["ConditionalExpression"] }],
 		"unicode-bom": ["error", "never"],
+		"eol-last": "error",
 		"no-tabs": ["warn", { "allowIndentationTabs": true }],
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
 		// Until globals are properly documented

@@ -50,10 +50,11 @@ var KidnapRPS = ["Rock", "Scissors", "Paper"];
 function KidnapLoadStats(C, Bonus) {
 	let Pandora = (KidnapReturnFunction.indexOf("Pandora") == 0);
 	if (C.ID == 0)
-		C.KidnapStat = [6 + CharacterGetBonus(C, "Kidnap" + KidnapMoveType[0]) + ((Pandora && InfiltrationPerksActive("Strength")) ? 2 : 0),
-						6 + CharacterGetBonus(C, "Kidnap" + KidnapMoveType[1]) + ((Pandora && InfiltrationPerksActive("Charisma")) ? 2 : 0),
-						6 + CharacterGetBonus(C, "Kidnap" + KidnapMoveType[2]) + ((Pandora && InfiltrationPerksActive("Agility")) ? 2 : 0),
-						-1];
+		C.KidnapStat = [
+			6 + CharacterGetBonus(C, "Kidnap" + KidnapMoveType[0]) + ((Pandora && InfiltrationPerksActive("Strength")) ? 2 : 0),
+			6 + CharacterGetBonus(C, "Kidnap" + KidnapMoveType[1]) + ((Pandora && InfiltrationPerksActive("Charisma")) ? 2 : 0),
+			6 + CharacterGetBonus(C, "Kidnap" + KidnapMoveType[2]) + ((Pandora && InfiltrationPerksActive("Agility")) ? 2 : 0),
+			-1];
 	else
 		C.KidnapStat = [6 + Bonus, 6 + Bonus, 6 + Bonus, -1];
 }
@@ -74,8 +75,8 @@ function KidnapBuildCards(C) {
 			C.KidnapCard.push({Move: MoveType, Value: Math.floor(Math.random() * C.KidnapStat[MoveType]) + 2});
 		}
 	}
-	C.KidnapCard.sort((a, b) => (a.Value > b.Value) ? 1 : -1)
-	C.KidnapCard.sort((a, b) => (a.Move > b.Move) ? 1 : -1)
+	C.KidnapCard.sort((a, b) => (a.Value > b.Value) ? 1 : -1);
+	C.KidnapCard.sort((a, b) => (a.Move > b.Move) ? 1 : -1);
 	C.KidnapCard.push({Move: 3});
 }
 

@@ -70,8 +70,8 @@ function MaidDrinksDrawIcons() {
 	while (Seq < MaidDrinksMove.length) {
 
 		// Draw the move from 3 seconds before to 1 second after
-        if ((MaidDrinksMove[Seq].Time <= MiniGameTimer + 3000) && (MaidDrinksMove[Seq].Time >= MiniGameTimer - 1000))
-            DrawImage("Screens/" + CurrentModule + "/" + CurrentScreen + "/Icon" + MaidDrinksMove[Seq].Type + ".png", 1200 + (MaidDrinksMove[Seq].Type * 200), 666 + Math.floor((MiniGameTimer - MaidDrinksMove[Seq].Time) / 4));
+		if ((MaidDrinksMove[Seq].Time <= MiniGameTimer + 3000) && (MaidDrinksMove[Seq].Time >= MiniGameTimer - 1000))
+			DrawImage("Screens/" + CurrentModule + "/" + CurrentScreen + "/Icon" + MaidDrinksMove[Seq].Type + ".png", 1200 + (MaidDrinksMove[Seq].Type * 200), 666 + Math.floor((MiniGameTimer - MaidDrinksMove[Seq].Time) / 4));
 
 		// Remove the move from the sequence if it's past due
 		if (MaidDrinksMove[Seq].Time < MiniGameTimer - 1000) {

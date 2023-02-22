@@ -295,8 +295,8 @@ function GameMagicBattleCanLaunchGame() {
 			if (House == "")
 				House = ChatRoomCharacter[C].Game.MagicBattle.House;
 			else
-				if ((House != ChatRoomCharacter[C].Game.MagicBattle.House) || (ChatRoomCharacter[C].Game.MagicBattle.House == "Independent") || (Player.Game.MagicBattle.TeamType == "FreeForAll"))
-					return true;
+			if ((House != ChatRoomCharacter[C].Game.MagicBattle.House) || (ChatRoomCharacter[C].Game.MagicBattle.House == "Independent") || (Player.Game.MagicBattle.TeamType == "FreeForAll"))
+				return true;
 		}
 	return false;
 }
@@ -426,17 +426,17 @@ function GameMagicBattleCalculateTurnWinner() {
 	if (WinNum == null)
 		GameMagicBattleAddChatLog("NoWinner", Player, Player, null, "#000000");
 	else
-		if (TieRound)
-			GameMagicBattleAddChatLog("TieRound", Player, Player, null, "#000000");
-		else {
-			let Source = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Sender);
-			let Target = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Data.Target);
-			if ((Source != null) && (Target != null)) {
-				GameMagicBattleAddChatLog("RoundWinner", Source, Target, GameMagicBattleLog[WinNum].Data, "#000000");
-				MagicSpellEffect(Target, GameMagicBattleLog[WinNum].Data.Spell);
-				if (Target.MemberNumber == Player.MemberNumber) ChatRoomCharacterUpdate(Player);
-			}
+	if (TieRound)
+		GameMagicBattleAddChatLog("TieRound", Player, Player, null, "#000000");
+	else {
+		let Source = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Sender);
+		let Target = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Data.Target);
+		if ((Source != null) && (Target != null)) {
+			GameMagicBattleAddChatLog("RoundWinner", Source, Target, GameMagicBattleLog[WinNum].Data, "#000000");
+			MagicSpellEffect(Target, GameMagicBattleLog[WinNum].Data.Spell);
+			if (Target.MemberNumber == Player.MemberNumber) ChatRoomCharacterUpdate(Player);
 		}
+	}
 
 	// Checks if there is a winning team/player, based on the team type setup
 	let TeamType = GameMagicBattleGetTeamType();

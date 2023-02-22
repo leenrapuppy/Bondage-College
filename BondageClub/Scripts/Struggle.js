@@ -153,7 +153,7 @@ function StruggleKeyDown() {
 
 	// Call the minigame handler if there is one
 	if (StruggleProgressCurrentMinigame !== "" && StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) {
-		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown")
+		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown");
 	}
 }
 

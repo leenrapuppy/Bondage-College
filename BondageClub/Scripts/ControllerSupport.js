@@ -474,7 +474,7 @@ function ControllerButton(buttons) {
 				if (buttons[g].pressed == true) {
 					h = true;
 				}
-				g += 1
+				g += 1;
 			}
 			if (h == false) {
 				ControllerButtonsRepeat = false;

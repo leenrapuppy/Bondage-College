@@ -137,8 +137,8 @@ function InventoryItemMiscLoversTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToL
 			.destinationCharacter(C)
 			.focusGroup(C.FocusGroup.Name)
 			.if(property.ShowTimer)
-				.text("TimerTime", Math.round(Math.abs(timeAdded)).toString())
-				.textLookup("TimerUnit", "Hours")
+			.text("TimerTime", Math.round(Math.abs(timeAdded)).toString())
+			.textLookup("TimerUnit", "Hours")
 			.endif()
 			.build();
 

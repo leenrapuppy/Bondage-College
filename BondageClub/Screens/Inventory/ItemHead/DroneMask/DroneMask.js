@@ -6,7 +6,7 @@ function InventoryItemHeadDroneMaskPattern5Load() {
 
 // Draw extension screen image
 function InventoryItemHeadDroneMaskPattern5Draw() {
-    ExtendedItemDrawHeader(1387, 125);
+	ExtendedItemDrawHeader(1387, 125);
 	PropertyTextDraw();
 }
 
@@ -25,7 +25,7 @@ function InventoryItemHeadDroneMaskPattern5Exit() {
 
 /** @type {DynamicAfterDrawCallback} */
 function AssetsItemHeadDroneMaskAfterDraw({
-    C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color,
+	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color,
 }) {
 	if (L === "_Text"){
 		const Properties = Property || {};

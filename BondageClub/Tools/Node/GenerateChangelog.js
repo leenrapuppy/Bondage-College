@@ -126,7 +126,7 @@ function generateContributorNote() {
 		 an issue</a> on the game's GitGud project.
 	</p>
 </blockquote>
-`
+`;
 }
 
 function generateToc(sourceMarkdown) {

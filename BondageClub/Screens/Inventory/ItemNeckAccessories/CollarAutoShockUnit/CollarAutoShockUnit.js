@@ -8,10 +8,10 @@
 function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
 	OriginalFunction();
 	if (ModularItemModuleIsActive(ModularItemBase)) {
-        const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-        if (Data == null) {
-            return;
-        }
+		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+		if (Data == null) {
+			return;
+		}
 		const [ShockLevel, AutoPunish] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information
@@ -55,7 +55,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(OriginalFunction) 
 function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
 		const property = data.Property || {};
-		return { Color: "#2f0", Opacity: property.BlinkState ? 0 : 1 }
+		return { Color: "#2f0", Opacity: property.BlinkState ? 0 : 1 };
 	}
 }
 

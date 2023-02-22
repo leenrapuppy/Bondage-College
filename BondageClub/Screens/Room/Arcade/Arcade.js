@@ -117,7 +117,7 @@ function ArcadeLoad() {
 	InventoryWear(ArcadePlayer, "InteractiveVRHeadset","ItemHead");
 
 	//if (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player)) {
-		ArcadeDeviousChallenge = LogValue("DeviousChallenge", "Arcade") == 1;
+	ArcadeDeviousChallenge = LogValue("DeviousChallenge", "Arcade") == 1;
 	//ArcadeCannotDoDeviousChallenge = false
 	//}
 	//else
