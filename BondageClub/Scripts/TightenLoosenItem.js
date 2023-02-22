@@ -36,12 +36,26 @@ function TightenLoosenItemDraw() {
 
 }
 
+
+/**
+ * Sets a facial expression for the character being tightneded/loosened
+ * @param {Character} C - The character affected
+ * @param {string} Blush - The blush style
+ * @param {string} Eyes - The eyes style
+ * @param {string} Eyebrows - The eyebrows style
+ * @returns {void} Nothing
+ */
+function TightenLoosenFacialExpression(C, Blush, Eyes, Eyebrows) {
+	if ((Blush != "") && (InventoryGet(C, "Blush") == null) || (InventoryGet(C, "Blush").Property == null) || (InventoryGet(C, "Blush").Property.Expression == null)) CharacterSetFacialExpression(C, "Blush", Blush, 7);
+	if ((Eyes != "") && (InventoryGet(C, "Eyes") == null) || (InventoryGet(C, "Eyes").Property == null) || (InventoryGet(C, "Eyes").Property.Expression == null)) CharacterSetFacialExpression(C, "Eyes", Eyes, 3);
+	if ((Eyebrows != "") && (InventoryGet(C, "Eyebrows") == null) || (InventoryGet(C, "Eyebrows").Property == null) || (InventoryGet(C, "Eyebrows").Property.Expression == null)) CharacterSetFacialExpression(C, "Eyebrows", Eyebrows, 5);
+}
+
 /**
  * Handles clicks on the tighten / loosen menu
  * @returns {void} Nothing
  */
 function TightenLoosenItemClick() {
-	const C = CharacterGetCurrent();
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
@@ -51,11 +65,15 @@ function TightenLoosenItemClick() {
 		return;
 	}
 
-	// Tigthen a little
+	// Gets the current character and action to do
+	const C = CharacterGetCurrent();
 	let Action = "";
+
+	// Tigthen a little
 	if (MouseIn(1150, 650, 300, 65) && (DialogTightenLoosenItem.Difficulty < TightenLoosenItemMaximumDifficulty)) {
 		DialogTightenLoosenItem.Difficulty = DialogTightenLoosenItem.Difficulty + 2;
 		if (DialogTightenLoosenItem.Difficulty > TightenLoosenItemMaximumDifficulty) DialogTightenLoosenItem.Difficulty = TightenLoosenItemMaximumDifficulty;
+		TightenLoosenFacialExpression(C, "Low", "Angry", "Angry");
 		Action = "TightenLittle";
 	}
 
@@ -63,6 +81,7 @@ function TightenLoosenItemClick() {
 	if (MouseIn(1150, 800, 300, 65) && (DialogTightenLoosenItem.Difficulty < TightenLoosenItemMaximumDifficulty - 2)) {
 		DialogTightenLoosenItem.Difficulty = DialogTightenLoosenItem.Difficulty + 4;
 		if (DialogTightenLoosenItem.Difficulty > TightenLoosenItemMaximumDifficulty) DialogTightenLoosenItem.Difficulty = TightenLoosenItemMaximumDifficulty;
+		TightenLoosenFacialExpression(C, "Medium", "Surprised", "Harsh");
 		Action = "TightenLot";
 	}
 
@@ -70,6 +89,7 @@ function TightenLoosenItemClick() {
 	if (MouseIn(1550, 650, 300, 65) && (DialogTightenLoosenItem.Difficulty > TightenLoosenItemMinimumDifficulty)) {
 		DialogTightenLoosenItem.Difficulty = DialogTightenLoosenItem.Difficulty - 2;
 		if (DialogTightenLoosenItem.Difficulty < TightenLoosenItemMinimumDifficulty) DialogTightenLoosenItem.Difficulty = TightenLoosenItemMinimumDifficulty;
+		TightenLoosenFacialExpression(C, "", "Shy", "Lowered");
 		Action = "LoosenLittle";
 	}
 
@@ -77,6 +97,7 @@ function TightenLoosenItemClick() {
 	if (MouseIn(1550, 800, 300, 65) && (DialogTightenLoosenItem.Difficulty > TightenLoosenItemMinimumDifficulty + 2)) {
 		DialogTightenLoosenItem.Difficulty = DialogTightenLoosenItem.Difficulty - 4;
 		if (DialogTightenLoosenItem.Difficulty < TightenLoosenItemMinimumDifficulty) DialogTightenLoosenItem.Difficulty = TightenLoosenItemMinimumDifficulty;
+		TightenLoosenFacialExpression(C, "ShortBreath", "Closed", "Soft");
 		Action = "LoosenLot";
 	}
 
