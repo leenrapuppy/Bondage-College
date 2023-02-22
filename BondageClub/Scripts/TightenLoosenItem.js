@@ -10,6 +10,7 @@ function TightenLoosenItemLoad() {
 	if (DialogTightenLoosenItem.Difficulty == null) DialogTightenLoosenItem.Difficulty = 0;
 	TightenLoosenItemMaximumDifficulty = SkillGetLevel(Player, "Bondage") + 4;
 	if (DialogTightenLoosenItem.Asset.Difficulty != null) TightenLoosenItemMaximumDifficulty = TightenLoosenItemMaximumDifficulty + DialogTightenLoosenItem.Asset.Difficulty;
+	if ((DialogTightenLoosenItem.Craft != null) && (DialogTightenLoosenItem.Craft.Property === "Secure")) TightenLoosenItemMaximumDifficulty = TightenLoosenItemMaximumDifficulty + 4;
 }
 
 /**
@@ -35,7 +36,6 @@ function TightenLoosenItemDraw() {
 	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 
 }
-
 
 /**
  * Sets a facial expression for the character being tightneded/loosened

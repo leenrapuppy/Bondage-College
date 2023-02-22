@@ -489,14 +489,14 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 
 		// The secure property adds 5 to the difficulty rating to struggle out
 		if (Craft.Property === "Secure") {
-			if (Item.Difficulty == null) Item.Difficulty = 5;
-			else Item.Difficulty = Item.Difficulty + 5;
+			if (Item.Difficulty == null) Item.Difficulty = 4;
+			else Item.Difficulty = Item.Difficulty + 4;
 		}
 
 		// The loose property removes 5 to the difficulty rating to struggle out
 		if (Craft.Property === "Loose") {
-			if (Item.Difficulty == null) Item.Difficulty = -5;
-			else Item.Difficulty = Item.Difficulty - 5;
+			if (Item.Difficulty == null) Item.Difficulty = -4;
+			else Item.Difficulty = Item.Difficulty - 4;
 		}
 
 		// The decoy property makes it always possible to struggle out
