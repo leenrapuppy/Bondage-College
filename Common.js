@@ -147,7 +147,7 @@ function ReadCSV(Array, ChapterOrPath, Screen, Type, Language) {
     }
 
     // Opens the file, parse it and returns the result in an array
-    Get(Path, function() {
+    Get(Path + (TranslationCheatAllow ? "?force_" + TranslationCacheCounter : ""), function() {
         if (this.status == 200) {
             CSVCache[Path] = ParseCSV(this.responseText);
             window[Array] = CSVCache[Path];
@@ -190,6 +190,7 @@ function GetWorkingLanguageForChapter(Chapter) {
 	if ((CurrentLanguageTag == "ES") && ["C000_Intro", "C001_BeforeClass", "C002_FirstClass", "C003_MorningDetention"].indexOf(Chapter) >= 0) return "ES";
 	if ((CurrentLanguageTag == "CN") && ["C000_Intro", "C001_BeforeClass", "C002_FirstClass", "C003_MorningDetention", "C004_ArtClass", "C005_GymClass", "C006_Isolation","C009_Library", "C010_Revenge", "C011_LiteratureClass","C013_BondageClub","C999_Common"].indexOf(Chapter) >= 0) return "CN";
 	if ((CurrentLanguageTag == "RU") && ["C000_Intro", "C001_BeforeClass"].indexOf(Chapter) >= 0) return "RU";
+	// if ((CurrentLanguageTag == "CS") && ["C000_Intro", "C001_BeforeClass"].indexOf(Chapter) >= 0) return "CS";
 	return "EN";
     //return CurrentLanguageTag;
 }
