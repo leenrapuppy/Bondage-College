@@ -812,7 +812,7 @@ function CharacterDeleteAllOnline() {
 /**
  * Adds a pose to a character's pose list, does not add it if it's already there
  * @param {Character} C - Character for which to add a pose to its list
- * @param {string} NewPose - The name of the pose to add
+ * @param {AssetPoseName[]} NewPose - The name of the pose to add
  * @returns {void} - Nothing
  */
 function CharacterAddPose(C, NewPose) {
@@ -824,7 +824,7 @@ function CharacterAddPose(C, NewPose) {
 /**
  * Checks whether the given character can change to the named pose unaided
  * @param {Character} C - The character to check
- * @param {string} poseName - The name of the pose to check for
+ * @param {AssetPoseName} poseName - The name of the pose to check for
  * @returns {boolean} - Returns true if the character has no conflicting items and is not prevented from changing to
  * the provided pose
  */
@@ -839,8 +839,8 @@ function CharacterCanChangeToPose(C, poseName) {
 /**
  * Checks if a certain pose is whitelisted and available for the pose menu
  * @param {Character} C - Character to check for the pose
- * @param {string|undefined} Type - Pose type to check for within items
- * @param {string} Pose - Pose to check for whitelist
+ * @param {AssetPoseCategory|undefined} Type - Pose type to check for within items
+ * @param {AssetPoseName} Pose - Pose to check for whitelist
  * @returns {boolean} - TRUE if the character has the pose available
  */
 function CharacterItemsHavePoseAvailable(C, Type, Pose) {
@@ -864,7 +864,7 @@ function CharacterItemsHavePoseAvailable(C, Type, Pose) {
 /**
  * Checks if a character has a pose from items (not active pose unless an item lets it through)
  * @param {Character} C - Character to check for the pose
- * @param {string} Pose - Pose to check for within items
+ * @param {AssetPoseName} Pose - Pose to check for within items
  * @param {boolean} [ExcludeClothes=false] - Ignore clothing items in the check
  * @returns {boolean} - TRUE if the character has the pose
  */
@@ -876,7 +876,7 @@ function CharacterItemsHavePose(C, Pose, ExcludeClothes = false) {
 /**
  * Checks whether the items on a character set a given pose on the character
  * @param {Character} C - The character to check
- * @param {string} pose - The name of the pose to check for
+ * @param {AssetPoseName} pose - The name of the pose to check for
  * @param {boolean} [excludeClothes=false] - Ignore clothing items in the check
  * @returns {boolean} - Returns true if the character is wearing an item that sets the given pose, false otherwise
  */
@@ -983,9 +983,9 @@ function CharacterLoadAttributes(C) {
 /**
  * Returns a list of effects for a character from some or all groups
  * @param {Character} C - The character to check
- * @param {string[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
+ * @param {AssetGroupName[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
  * @param {boolean} [AllowDuplicates=false] - Optional: If true, keep duplicates of the same effect provided they're taken from different groups
- * @returns {string[]} - A list of effects
+ * @returns {EffectName[]} - A list of effects
  */
 function CharacterGetEffects(C, Groups = null, AllowDuplicates = false) {
 	let totalEffects = [];
@@ -1317,7 +1317,7 @@ function CharacterDress(C, Appearance) {
 /**
  * Removes all binding items from a given character
  * @param {Character} C - Character to release
- * @param {false} [Refresh] - do not call CharacterRefresh if false
+ * @param {boolean} [Refresh=false] - do not call CharacterRefresh if false
  * @returns {void} - Nothing
  */
 function CharacterRelease(C, Refresh) {
@@ -1331,7 +1331,7 @@ function CharacterRelease(C, Refresh) {
 /**
  * Releases a character from all locks matching the given lock name
  * @param {Character} C - Character to release from the lock(s)
- * @param {string} LockName - Name of the lock to look for
+ * @param {AssetLockType} LockName - Name of the lock to look for
  * @returns {void} - Nothing
  */
 function CharacterReleaseFromLock(C, LockName) {
@@ -1420,7 +1420,7 @@ function CharacterFullRandomRestrain(C, Ratio, Refresh) {
 /**
  * Sets a new pose for the character
  * @param {Character} C - Character for which to set the pose
- * @param {string} NewPose - Name of the pose to set as active
+ * @param {AssetPoseName} NewPose - Name of the pose to set as active
  * @param {boolean} [ForceChange=false] - TRUE if the set pose(s) should overwrite current active pose(s)
  * @returns {void} - Nothing
  */
@@ -1452,10 +1452,14 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
 }
 
 /**
- * Sets a specific facial expression for the character's specified AssetGroup, if there's a timer, the expression will expire after it, a
- * timed expression cannot override another one.
+ * Sets a specific facial expression on the character's specified AssetGroup.
+ *
+ * If there's a timer, the expression will expire after it. Note that a timed expression cannot override another one.
+ *
+ * Be careful that "Eyes" for this function means both eyes. Use Eyes1/Eyes2 to target the left or right one only.
+ *
  * @param {Character} C - Character for which to set the expression of
- * @param {string} AssetGroup - Asset group for the expression
+ * @param {AssetGroupName | "Eyes1"} AssetGroup - Asset group for the expression
  * @param {string} Expression - Name of the expression to use
  * @param {number} [Timer] - Optional: time the expression will last
  * @param {string|string[]} [Color] - Optional: color of the expression to set
@@ -1463,7 +1467,7 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
  */
 function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer, Color) {
 	// A normal eye expression is triggered for both eyes
-	if (AssetGroup == "Eyes") CharacterSetFacialExpression(C, "Eyes2", Expression, Timer);
+	if (AssetGroup == "Eyes") CharacterSetFacialExpression(C, "Eyes2", Expression, Timer, Color);
 	if (AssetGroup == "Eyes1") AssetGroup = "Eyes";
 
 	var Ex = InventoryGet(C, AssetGroup);
@@ -1820,7 +1824,7 @@ function CharacterCheckHooks(C, IgnoreHooks) {
  * Transfers an item from one character to another
  * @param {Character} FromC - The character from which to pick the item
  * @param {Character} ToC - The character on which we must put the item
- * @param {string} Group - The item group to transfer (Cloth, Hat, etc.)
+ * @param {AssetGroupName} Group - The item group to transfer (Cloth, Hat, etc.)
  * @returns {void} - Nothing
  */
 function CharacterTransferItem(FromC, ToC, Group, Refresh) {

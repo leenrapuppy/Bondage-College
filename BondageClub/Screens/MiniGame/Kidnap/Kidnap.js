@@ -20,8 +20,8 @@ var KidnapOpponentClothLower = null;
 var KidnapTimer = 0;
 var KidnapMode = "";
 var KidnapDialog = "";
-var KidnapPlayerMove = "";
-var KidnapOpponentMove = "";
+var KidnapPlayerMove = 0;
+var KidnapOpponentMove = 0;
 var KidnapPlayerDamage = 0;
 var KidnapOpponentDamage = 0;
 var KidnapResultPlayer = "test";
@@ -226,9 +226,10 @@ function KidnapUpperHandMoveAvailable(MoveType, DoMove) {
 
 	// If we need to check to remove the restrain
 	if ((MoveName == "UndoItemFeet") || (MoveName == "UndoItemMouth")) {
-		let I = InventoryGet(C, MoveName.replace("Undo", ""));
+		const groupName = /** @type {AssetGroupName} */(MoveName.replace("Undo", ""));
+		let I = InventoryGet(C, groupName);
 		if ((I != null) && ((C.ID != 0) || !InventoryItemHasEffect(I, "Lock", true))) {
-			if (DoMove) InventoryRemove(C, MoveName.replace("Undo", ""));
+			if (DoMove) InventoryRemove(C, groupName);
 			return true;
 		}
 	}
@@ -275,14 +276,16 @@ function KidnapShowMove() {
  * @returns {boolean} - Returns TRUE if the move for that person is effective
  */
 function KidnapMoveEffective(C, MoveType) {
-	if ((KidnapUpperHandMoveType[MoveType] == "Cloth") && (InventoryGet(C, KidnapUpperHandMoveType[MoveType]) != null)) return true;
-	if ((KidnapUpperHandMoveType[MoveType] != "Cloth") && (InventoryGet(C, KidnapUpperHandMoveType[MoveType]) == null)) return true;
+	// Not completely true, but unknown groups will just return null anyway
+	const groupName = /** @type {AssetGroupName} */(KidnapUpperHandMoveType[MoveType]);
+	if ((KidnapUpperHandMoveType[MoveType] == "Cloth") && (InventoryGet(C, groupName) != null)) return true;
+	if ((KidnapUpperHandMoveType[MoveType] != "Cloth") && (InventoryGet(C, groupName) == null)) return true;
 	return false;
 }
 
 /**
  * Processes a selected move. Triggered when the player selects their move.
- * @param {number} PlayerMove - Type of the player move (Represented by the index of the character move array)
+ * @param {number} CardIndex - Type of the player move (Represented by the index of the character move array)
  * @returns {void} - Nothing
  */
 function KidnapSelectMove(CardIndex) {

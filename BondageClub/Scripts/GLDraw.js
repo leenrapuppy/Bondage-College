@@ -462,7 +462,7 @@ function GLChooseProgram(gl, color, fullAlpha, blendingMode) {
 function GLDraw2DCanvas(gl, Img, X, Y, blinkOffset, alphaMasks) {
 	const TempCanvasName = Img.getAttribute("name");
 	gl.textureCache.delete(TempCanvasName);
-	GLDrawImageCache.set(TempCanvasName, Img);
+	GLDrawImageCache.set(TempCanvasName, /** @type {HTMLImageElement} */(Img));
 	GLDrawImage(TempCanvasName, gl, X, Y, blinkOffset, null, null, alphaMasks);
 }
 

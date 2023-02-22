@@ -362,7 +362,7 @@ function AsylumGGTSTaskDone(C, T) {
 /**
  * Returns TRUE if GGTS can remove an item for a body group
  * @param {Character} C - The character to evaluate
- * @param {string} Group - The body group on which to remove the item
+ * @param {AssetGroupName} Group - The body group on which to remove the item
  * @returns {boolean} - TRUE if removing the item is possible
  */
 function AsylumGGTSCanRemove(C, Group) {
@@ -472,7 +472,7 @@ function AsylumGGTSTaskFail(C, T) {
 
 /**
  * Checks if there's a futuristic item in the group slot and remove it if it's the case
- * @param {string} Group - The group name to validate
+ * @param {AssetGroupName} Group - The group name to validate
  * @returns {void} - Nothing
  */
 function AsylumGGTSTaskRemoveFuturisticItem(Group) {
@@ -484,7 +484,7 @@ function AsylumGGTSTaskRemoveFuturisticItem(Group) {
 
 /**
  * Transforms a ballgag to a panelgag for the specified group
- * @param {string} Group - The group name to transform
+ * @param {AssetGroupName} Group - The group name to transform
  * @returns {void} - Nothing
  */
 function AsylumGGTSTransformGag(Group) {
@@ -495,7 +495,7 @@ function AsylumGGTSTransformGag(Group) {
 
 /**
  * Changes the inflation setting on the ballgag or panelgag
- * @param {string} Group - The group name to transform
+ * @param {AssetGroupName} Group - The group name to transform
  * @returns {void} - Nothing
  */
 function AsylumGGTSConfigureGag(Group) {

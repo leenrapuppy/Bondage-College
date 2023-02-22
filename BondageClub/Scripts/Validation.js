@@ -68,7 +68,7 @@ function ValidationCreateDiffParams(C, sourceMemberNumber) {
  * Resolves an appearance diff based on the previous item, new item, and the appearance update parameters provided.
  * Returns an {@link ItemDiffResolution} object containing the final appearance item and a valid flag indicating
  * whether or not the new item had to be modified/rolled back.
- * @param {string} groupName - The name of the group for the appearance diff
+ * @param {AssetGroupName} groupName - The name of the group for the appearance diff
  * @param {Item|null} previousItem - The previous item that the target character had equipped (or null if none)
  * @param {Item|null} newItem - The new item to equip (may be identical to the previous item, or null if removing)
  * @param {AppearanceUpdateParameters} params - The appearance update parameters that apply to the diff
@@ -96,6 +96,12 @@ function ValidationResolveAppearanceDiff(groupName, previousItem, newItem, param
 	return { item, valid };
 }
 
+/**
+ * Check whether newArray is different from oldArray.
+ * @param {any[]} oldArray
+ * @param {any[]} newArray
+ * @returns
+ */
 function ValidationHasArrayPropertyBeenModified(oldArray, newArray) {
 	if (!oldArray && !newArray) {
 		return false;
@@ -407,8 +413,8 @@ function ValidationResolveLockModification(previousItem, newItem, params, itemBl
 
 /**
  * Determines whether or not a lock was modified on an item from its previous and new property values
- * @param previousProperty - The previous item property
- * @param newProperty - The new item property
+ * @param {ItemProperties} previousProperty - The previous item property
+ * @param {ItemProperties} newProperty - The new item property
  * @returns {boolean} - true if the item's lock was modified (added/removed/swapped/modified), false otherwise
  */
 function ValidationLockWasModified(previousProperty, newProperty) {
@@ -476,8 +482,8 @@ function ValidationRollbackInvalidLockProperties(sourceProperty, targetProperty,
 
 /**
  * Clones all lock properties from one Property object to another.
- * @param {object} sourceProperty - The property object to clone properties from
- * @param {object} targetProperty - The property object to clone properties to
+ * @param {ItemProperties} sourceProperty - The property object to clone properties from
+ * @param {ItemProperties} targetProperty - The property object to clone properties to
  * @returns {void} - Nothing
  */
 function ValidationCloneLock(sourceProperty, targetProperty) {
@@ -488,8 +494,8 @@ function ValidationCloneLock(sourceProperty, targetProperty) {
 
 /**
  * Copies the value of a single property key from a source Property object to a target Property object.
- * @param {object} sourceProperty - The original Property object on the item
- * @param {object} targetProperty - The Property object on the modified item
+ * @param {ItemProperties} sourceProperty - The original Property object on the item
+ * @param {ItemProperties} targetProperty - The Property object on the modified item
  * @param {string} key - The property key whose value to copy
  * @returns {boolean} - TRUE if the target Property object was modified as a result of copying (indicating that there
  * were invalid changes to the property), FALSE otherwise
@@ -533,7 +539,7 @@ function ValidationCanAddItem(newItem, params) {
  * the target character `C`, based on the asset's group name, asset name and type (if applicable). This only checks
  * against the target character's limited and blocked item lists, not their global item permissions.
  * @param {Character} C - The target character
- * @param sourceMemberNumber - The member number of the source character
+ * @param {number} sourceMemberNumber - The member number of the source character
  * @param {string} groupName - The name of the asset group for the intended item
  * @param {string} assetName - The asset name of the intended item
  * @param {string|null} [type] - The type of the intended item
@@ -703,7 +709,7 @@ function ValidationSanitizeProperties(C, item) {
 	// Block advanced vibrator modes if disabled
 	if (typeof property.Mode === "string" && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes && !VibratorModeOptions[VibratorModeSet.STANDARD].includes(VibratorModeGetOption(property.Mode))) {
 		console.warn(`Removing invalid mode "${property.Mode}" from ${asset.Name}`);
-		property.Mode = VibratorModeOff.Name;
+		property.Mode = /** @type {VibratorMode} */(VibratorModeOff.Name);
 		changed = true;
 	}
 
@@ -932,7 +938,7 @@ function ValidationSanitizeSetPose(C, item) {
  * Sanitizes a property on an object to ensure that it is a valid string array or null/undefined. If the property is not
  * a valid array and is not null, it will be deleted from the object. If it is a valid array, any non-string entries
  * will be removed.
- * @param {object} property - The object whose property should be sanitized
+ * @param {ItemProperties} property - The object whose property should be sanitized
  * @param {string} key - The key indicating which property on the object should be sanitized
  * @returns {boolean} - TRUE if the object's property was modified as part of the sanitization process (indicating  that
  * the property was not a valid array, or that it contained a non-string entry), FALSE otherwise
@@ -961,7 +967,7 @@ function ValidationSanitizeStringArray(property, key) {
 /**
  * Completely removes a lock from an item's Property object. This removes all lock-related properties, and the "Lock"
  * effect from the property object.
- * @param {object} property - The Property object to remove the lock from
+ * @param {ItemProperties} property - The Property object to remove the lock from
  * @param {boolean} verbose - Whether or not to print console warnings when properties are deleted. Defaults to true.
  * @returns {boolean} - TRUE if the Property object was modified as a result of the lock deletion (indicating that at
  * least one lock-related property was present), FALSE otherwise
@@ -1129,8 +1135,8 @@ function ValidationFindBlockCycles(appearance) {
 /**
  * Finds the groups, from a provided list of groups, that are blocked by a given item.
  * @param {Item} item - The item to check
- * @param {string[]} groupNames - A list of group names that should be used to filter the final block list
- * @returns {string[]} - A subset of the provided group names representing the groups that are blocked by the given
+ * @param {AssetGroupName[]} groupNames - A list of group names that should be used to filter the final block list
+ * @returns {AssetGroupName[]} - A subset of the provided group names representing the groups that are blocked by the given
  * item.
  */
 function ValidationGetBlockedGroups(item, groupNames) {
@@ -1153,7 +1159,7 @@ function ValidationGetBlockedGroups(item, groupNames) {
  * an item is considered to be blocking if the target item can't be added with it, but can without it.
  * @param {Item} item - The item to check
  * @param {Item[]} appearance - The appearance array to check
- * @returns {string[]} - A list of group names corresponding to items from the appearance array that block the given
+ * @returns {AssetGroupName[]} - A list of group names corresponding to items from the appearance array that block the given
  * item due to prerequisites
  */
 function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
@@ -1161,7 +1167,7 @@ function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
 
 	appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== item.Asset);
 	const char = CharacterLoadSimple(`PrerequisiteCheck${item.Asset.Group.Name}`);
-	/** @type {string[]} */
+	/** @type {AssetGroupName[]} */
 	const blockingGroups = [];
 
 	for (const checkItem of appearance) {

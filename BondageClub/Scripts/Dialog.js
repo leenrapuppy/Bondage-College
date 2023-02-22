@@ -193,21 +193,21 @@ function DialogChangeReputation(RepType, Value) { ReputationProgress(RepType, Va
  * @param {string} AssetGroup - The name of the corresponding asset group
  * @returns {void} - Nothing
  */
-function DialogWearItem(AssetName, AssetGroup) { InventoryWear(Player, AssetName, AssetGroup); }
+function DialogWearItem(AssetName, AssetGroup) { InventoryWear(Player, AssetName, /** @type {AssetGroupName} */(AssetGroup)); }
 
 /**
  * Equips a random item from a given group to the player from dialog
  * @param {string} AssetGroup - The name of the asset group to pick from
  * @returns {void} - Nothing
  */
-function DialogWearRandomItem(AssetGroup) { InventoryWearRandom(Player, AssetGroup); }
+function DialogWearRandomItem(AssetGroup) { InventoryWearRandom(Player, /** @type {AssetGroupName} */(AssetGroup)); }
 
 /**
  * Removes an item of a specific item group from the player
  * @param {string} AssetGroup - The item to be removed belongs to this asset group
  * @returns {void} - Nothing
  */
-function DialogRemoveItem(AssetGroup) { InventoryRemove(Player, AssetGroup); }
+function DialogRemoveItem(AssetGroup) { InventoryRemove(Player, /** @type {AssetGroupName} */(AssetGroup)); }
 
 /**
  * Releases a character from restraints
@@ -319,7 +319,7 @@ function DialogCanInteract(C) { return DialogGetCharacter(C).CanInteract(); }
  * Sets a new pose for the given character
  * @param {string} C - The character whose pose should be altered.
  * Either the player (value: Player) or the current character (value: CurrentCharacter)
- * @param {string} [NewPose=null] - The new pose, the character should take.
+ * @param {AssetPoseName} [NewPose=null] - The new pose, the character should take.
  * Can be omitted to bring the character back to the standing position.
  * @returns {void} - Nothing
  */
@@ -339,7 +339,7 @@ function DialogSkillGreater(SkillType, Value) { return (parseInt(SkillGetLevel(P
  * @param {string} InventoryGroup
  * @returns {boolean} - Returns true, if the item is available, false otherwise
  */
-function DialogInventoryAvailable(InventoryName, InventoryGroup) { return InventoryAvailable(Player, InventoryName, InventoryGroup); }
+function DialogInventoryAvailable(InventoryName, InventoryGroup) { return InventoryAvailable(Player, InventoryName, /** @type {AssetGroupName} */(InventoryGroup)); }
 
 /**
  * Checks, if the player is the administrator of the current chat room

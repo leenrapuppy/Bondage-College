@@ -585,7 +585,7 @@ function LoginResponse(C) {
 			Player.OnlineID = C.ID.toString();
 			CurrentCharacter = RelogData.Character;
 			CommonSetScreen(RelogData.Module, RelogData.Screen);
-			var Elements = document.getElementsByClassName("HideOnDisconnect");
+			var Elements = /** @type {HTMLCollectionOf<HTMLElement>} */(document.getElementsByClassName("HideOnDisconnect"));
 			for (let E = 0; E < Elements.length; E++)
 				Elements[E].style.display = "";
 			if ((ChatRoomData != null) && (ChatRoomData.Name != null) && (ChatRoomData.Name != "") && (RelogChatLog != null)) {

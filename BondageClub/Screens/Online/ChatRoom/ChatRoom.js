@@ -17,7 +17,7 @@ var ChatRoomBackground = "";
 let ChatRoomData = null;
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
-/** @type {{ SenderMemberNumber: number, Time: number, Original: string, Chat: string, Garbled: string, SenderName: string }[]} */
+/** @type {ChatRoomChatLogEntry[]} */
 var ChatRoomChatLog = [];
 var ChatRoomLastMessage = [""];
 var ChatRoomLastMessageIndex = 0;
@@ -2190,7 +2190,7 @@ function ChatRoomPublishAction(C, Action, PrevItem, NextItem) {
  * DO NOT USE. The server doesn't persist changes made that way to the database.
  *
  * @param {Character} C - Character to update.
- * @param {string} [Group] - Item group to update.
+ * @param {AssetGroupName} [Group] - Item group to update.
  * @returns {void} - Nothing.
  */
 function ChatRoomCharacterItemUpdate(C, Group) {
@@ -2293,8 +2293,7 @@ function ChatRoomHTMLEntities(str) {
 function ChatRoomMessageInvolvesPlayer(data) {
 	return (data.Sender == Player.MemberNumber
 		|| Array.isArray(data.Dictionary) && data.Dictionary.some(d => {
-			return /^((Target|Destination|Source)Character(Name)?|ItemMemberNumber)$/u.test(d.Tag)
-				&& d.MemberNumber === Player.MemberNumber;
+			return IsCharacterReferenceDictionaryEntry(d) && d.MemberNumber === Player.MemberNumber;
 		}));
 }
 

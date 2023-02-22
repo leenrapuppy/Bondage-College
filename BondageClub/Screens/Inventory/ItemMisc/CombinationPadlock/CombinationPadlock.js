@@ -45,7 +45,7 @@ function InventoryItemMiscCombinationPadlockLoad() {
 				combinationInput.setAttribute("placeholder", DialogFocusSourceItem.Property.CombinationNumber);
 			}
 		} else {
-			document.getElementById('CombinationNumber').type = CombinationPadlockPlayerIsBlind ? "password" : "text";
+			/** @type {HTMLInputElement} */(document.getElementById('CombinationNumber')).type = CombinationPadlockPlayerIsBlind ? "password" : "text";
 		}
 		if (newCombinationInput) {
 			newCombinationInput.autocomplete = "off";
@@ -53,7 +53,7 @@ function InventoryItemMiscCombinationPadlockLoad() {
 			newCombinationInput.type = CombinationPadlockPlayerIsBlind ? "password" : "text";
 			newCombinationInput.addEventListener("input", InventoryItemMiscCombinationPadlockModifyInput);
 		} else {
-			document.getElementById('NewCombinationNumber').type = CombinationPadlockPlayerIsBlind ? "password" : "text";
+			/** @type {HTMLInputElement} */(document.getElementById('NewCombinationNumber')).type = CombinationPadlockPlayerIsBlind ? "password" : "text";
 		}
 	}
 	CombinationPadlockLoaded = true;

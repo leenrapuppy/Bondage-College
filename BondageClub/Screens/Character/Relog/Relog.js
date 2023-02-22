@@ -13,10 +13,10 @@ var RelogInputText = "";
 function RelogLoad() {
 
 	// Hides any HTML DOM element with the tag "HideOnPopup", like text boxes
-	var Elements = document.getElementsByClassName("HideOnPopup");
+	var Elements = /** @type {HTMLCollectionOf<HTMLElement>} */(document.getElementsByClassName("HideOnPopup"));
 	for (let E = 0; E < Elements.length; E++)
 		Elements[E].style.display = "none";
-	Elements = document.getElementsByClassName("HideOnDisconnect");
+	Elements = /** @type {HTMLCollectionOf<HTMLElement>} */(document.getElementsByClassName("HideOnDisconnect"));
 	for (let E = 0; E < Elements.length; E++)
 		Elements[E].style.display = "none";
 

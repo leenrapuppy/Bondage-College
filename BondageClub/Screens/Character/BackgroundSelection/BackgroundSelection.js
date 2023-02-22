@@ -86,7 +86,7 @@ function BackgroundSelectionInputChanged() {
  * @returns {void} - Nothing
  */
 function BackgroundSelectionTagChanged() {
-	const DD = document.getElementById("TagDropDown-select");
+	const DD = /** @type {HTMLSelectElement} */(document.getElementById("TagDropDown-select"));
 	if (DD == null) return;
 	BackgroundSelectionList = BackgroundsGenerateList((DD.selectedIndex == 0) ? BackgroundSelectionTagList : [DD.options[DD.selectedIndex].text]);
 	BackgroundSelectionView = BackgroundSelectionAll.slice().sort(BackGroundSelectionSort);

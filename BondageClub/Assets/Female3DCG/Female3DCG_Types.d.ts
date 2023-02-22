@@ -1,7 +1,7 @@
 interface AssetGroupDefinition {
 	Asset: (AssetDefinition | string)[];
 	Group: AssetGroupName;
-	ParentGroup?: string;
+	ParentGroup?: AssetGroupName;
 	Category?: 'Appearance' | 'Item' | 'Script';
 	/** Whether the group should have an asset selected at random at character creation. */
 	Default?: boolean;
@@ -21,22 +21,22 @@ interface AssetGroupDefinition {
 	Hide?: AssetGroupName[];
 	Block?: AssetGroupItemName[];
 	Zone?: [number, number, number, number][];
-	SetPose?: string[];
-	AllowPose?: string[];
+	SetPose?: AssetPoseName[];
+	AllowPose?: AssetPoseName[];
 	AllowExpression?: string[];
 	Effect?: EffectName[];
-	MirrorGroup?: string;
-	RemoveItemOnRemove?: { Group: string, Name: string, Type?: string }[];
+	MirrorGroup?: AssetGroupName;
+	RemoveItemOnRemove?: { Group: AssetGroupItemName, Name: string, Type?: string }[];
 	Priority?: number;
 	Left?: number;
 	Top?: number;
 	FullAlpha?: boolean;
 	Blink?: boolean;
 	InheritColor?: AssetGroupName;
-	FreezeActivePose?: string[];
+	FreezeActivePose?: AssetPoseCategory[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: AssetGroupName;
-	MirrorActivitiesFrom?: string;
+	MirrorActivitiesFrom?: AssetGroupItemName;
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
 	HasPreviewImages?: boolean;
@@ -57,7 +57,7 @@ interface AssetDefinition {
 	ParentItem?: string;
 
 	/** The group the asset belongs to. Mainly useful to inherit the body size. */
-	ParentGroup?: string | null;
+	ParentGroup?: AssetGroupName | null;
 
 	/**
 	 * Whether the asset is enabled or not. Defaults to true.
@@ -89,7 +89,7 @@ interface AssetDefinition {
 	ActivityExpression?: Record<string, ExpressionTrigger[]>;
 
 	/** A list of groups that should still be allowed to be acted on even though they should be blocked by the asset. */
-	AllowActivityOn?: AssetGroupName[];
+	AllowActivityOn?: AssetGroupItemName[];
 
 	/** Identifies a set of assets that's part of the same group for shopping purposes. Buying one will give access to all of them. */
 	BuyGroup?: string;
@@ -151,7 +151,7 @@ interface AssetDefinition {
 	 *
 	 * Works like DynamicGroupName, but for poses.
 	 */
-	PoseMapping?: { [index: string]: string};
+	PoseMapping?: AssetPoseMapping;
 
 	/** A list of poses that wearing the asset also enables. */
 	AllowActivePose?: AssetPoseName[];
@@ -206,7 +206,7 @@ interface AssetDefinition {
 	LoverOnly?: boolean;
 
 	/** A list of facial expression using the asset causes to the character */
-	ExpressionTrigger?: { Name: string, Group: string, Timer: number }[];
+	ExpressionTrigger?: { Name: string, Group: AssetGroupName, Timer: number }[];
 
 	/** A list of assets to also remove when the asset is taken off. */
 	RemoveItemOnRemove?: { Name: string, Group: AssetGroupItemName, Type?: string }[];
@@ -272,13 +272,13 @@ interface AssetDefinition {
 	AvailableLocations?: string[];
 
 	OverrideHeight?: AssetOverrideHeight;
-	FreezeActivePose?: string[];
+	FreezeActivePose?: AssetPoseCategory[];
 
 	/** Whether the game should auto-add a Lock layer to the asset. */
 	DrawLocks?: boolean;
 
 	AllowExpression?: string[];
-	MirrorExpression?: string;
+	MirrorExpression?: AssetGroupName;
 
 	/** Whether the asset is drawn at an absolute position. */
 	FixedPosition?: boolean;
@@ -348,10 +348,10 @@ interface AssetLayerDefinition {
 	Visibility?: string;
 
 	/** The group the layer belongs to. Mainly useful to inherit the body's size. */
-	ParentGroup?: string | null,
+	ParentGroup?: AssetGroupName | null,
 
 	/** A list of poses that layer supports. */
-	AllowPose?: string[];
+	AllowPose?: AssetPoseName[];
 
 	/** The drawing priority for that layer. Defaults to the asset's priority. */
 	Priority?: number;
@@ -384,9 +384,9 @@ interface AssetLayerDefinition {
 	/** Specify that this is (one of) the asset's lock layer. See DrawsLock at the asset level. */
 	LockLayer?: boolean;
 
-	MirrorExpression?: string;
-	HideForPose?: string[];
-	PoseMapping?: { [index: string]: string };
+	MirrorExpression?: AssetGroupName;
+	HideForPose?: (AssetPoseName | "")[];
+	PoseMapping?: AssetPoseMapping;
 	AllowModuleTypes?: string[];
 	ModuleType?: string[];
 	/* Specifies that this layer should not be drawn if the character is wearing any item with the given attributes */

@@ -528,6 +528,7 @@ function PreferenceInitPlayer() {
 	delete C.ChatSettings.SearchFriendsFirst;
 	delete C.ChatSettings.DisableAnimations;
 	delete C.ChatSettings.SearchShowsFullRooms;
+	// @ts-ignore: Just backward-compat cleanup
 	delete C.OnlineSettings.EnableWardrobeIcon;
 
 	// Onilne shared settings
@@ -552,6 +553,7 @@ function PreferenceInitPlayer() {
 	};
 	const ScriptPermissions = C.OnlineSharedSettings.ScriptPermissions;
 	for (const property of PreferenceScriptPermissionProperties) {
+		// @ts-ignore About to be initialized
 		if (!ScriptPermissions[property] || typeof ScriptPermissions[property] !== "object") ScriptPermissions[property] = {};
 		if (typeof ScriptPermissions[property].permission !== "number" || ScriptPermissions[property].permission < 0 || ScriptPermissions[property].permission > maxScriptPermission) {
 			ScriptPermissions[property].permission = 0;
@@ -837,7 +839,7 @@ function PreferenceSubscreenGeneralRun() {
 	DrawCharacter(Player, 50, 50, 0.9);
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
 	if (PreferenceColorPick != "")
-		ColorPickerDraw(1250, 185, 675, 800, document.getElementById(PreferenceColorPick));
+		ColorPickerDraw(1250, 185, 675, 800, /** @type {HTMLInputElement} */(document.getElementById(PreferenceColorPick)));
 	else
 		ColorPickerHide();
 

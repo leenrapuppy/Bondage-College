@@ -85,7 +85,7 @@ function ItemColorLoad(c, item, x, y, width, height, includeResetButton) {
 /**
  * Draws the item color UI according to its current state
  * @param {Character} c - The character being colored
- * @param {string} group - The name of the item group being colored
+ * @param {AssetGroupName} group - The name of the item group being colored
  * @param {number} x - The x-coordinate at which to draw the UI
  * @param {number} y - The y-coordinate at which to draw the UI
  * @param {number} width - The width the UI should be drawn at
@@ -141,7 +141,7 @@ function ItemColorDraw(c, group, x, y, width, height, includeResetButton) {
 				ItemColorConfig.colorInputHeight,
 			);
 			return ColorPickerDraw(
-				x, contentY, width, y + height - contentY, document.getElementById("InputColor"), ItemColorOnPickerChange);
+				x, contentY, width, y + height - contentY, /** @type {HTMLInputElement} */(document.getElementById("InputColor")), ItemColorOnPickerChange);
 		default:
 			return ItemColorDrawDefault(x, contentY);
 	}
@@ -220,7 +220,7 @@ const ItemColorOnPickerChange = CommonLimitFunction((color) => {
 /**
  * Click handler for the item color UI according to its current state
  * @param {Character} c - The character being colored
- * @param {string} group - The name of the item group being colored
+ * @param {AssetGroupName} group - The name of the item group being colored
  * @param {number} x - The x-coordinate at which the UI was drawn
  * @param {number} y - The y-coordinate at which the UI was drawn
  * @param {number} width - The width with which the UI was drawn
