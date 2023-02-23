@@ -101,10 +101,14 @@ function TightenLoosenItemClick() {
 		Action = "LoosenLot";
 	}
 
-	// If the difficulty changed and we must refresh
+	// If the difficulty changed and we must refresh, improves the skill a little if done in a multiplayer
 	if (Action != "") {
 		CharacterRefresh(C, true);
 		if (CurrentScreen == "ChatRoom") {
+			if (((Action == "LoosenLot") || (Action == "LoosenLittle")) && C.IsPlayer()) SkillProgress("Evasion", 25);
+			if (((Action == "LoosenLot") || (Action == "LoosenLittle")) && !C.IsPlayer()) SkillProgress("Bondage", 25);
+			if (((Action == "TightenLot") || (Action == "TightenLittle")) && C.IsPlayer()) SkillProgress("SelfBondage", 25);
+			if (((Action == "TightenLot") || (Action == "TightenLittle")) && !C.IsPlayer()) SkillProgress("Bondage", 25);
 			ChatRoomCharacterUpdate(C);
 			ChatRoomPublishAction(C, "Action" + Action, DialogTightenLoosenItem, null);
 			DialogLeave();
