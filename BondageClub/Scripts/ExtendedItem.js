@@ -192,7 +192,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"));
 
 	// If the assets allows tightening / loosening
-	if (Asset.AllowTighten) {
+	if (Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock")) {
 		let Difficulty = DialogFocusItem.Difficulty;
 		if (Difficulty == null) Difficulty = 0;
 		DrawText(DialogFindPlayer("Tightness") + " " + Difficulty.toString(), 1200, 140, "White", "Silver");
@@ -397,7 +397,7 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 	}
 
 	// If the assets allows tightening / loosening
-	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && MouseIn(1050, 220, 300, 65)) {
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock") && MouseIn(1050, 220, 300, 65)) {
 		DialogTightenLoosenItem = DialogFocusItem;
 		TightenLoosenItemLoad();
 	}
