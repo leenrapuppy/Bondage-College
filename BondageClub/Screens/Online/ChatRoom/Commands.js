@@ -125,11 +125,11 @@ function CommandHelp(low, timeout) {
 
 /**
  * Prints out the help for commands
- * @param {Optional<ICommand, 'Action'>[]} Commands - list of commands
+ * @param {Optional<ICommand, 'Action'>[]} CommandList - list of commands
  * @param {number} Timeout - total time to display the help message in ms
  */
-function CommandPrintHelpFor(Commands, Timeout) {
-	Commands
+function CommandPrintHelpFor(CommandList, Timeout) {
+	CommandList
 		.filter(C => !C.Prerequisite || C.Prerequisite.call(C))
 		.forEach(C => {
 			const Help = CommandText.cache[C.Tag] || C.Description || TextGet("CommandHelpMissing");
@@ -145,7 +145,7 @@ function CommandPrintHelpFor(Commands, Timeout) {
 function CommandExecute(msg) {
 	const low = msg.toLowerCase();
 	const [key, ...parsed] = low.replace(/\s{2,}/g, ' ').split(' ');
-	const flt = GetCommands().filter(C => key.indexOf(CommandsKey + C.Tag) == 0);
+	const flt = GetCommands().filter(cmd => key.indexOf(CommandsKey + cmd.Tag) == 0);
 	let C = flt[0];
 
 	if (flt.length > 1) C = null;

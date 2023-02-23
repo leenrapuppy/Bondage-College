@@ -305,13 +305,13 @@ function PrivateBedNPCActivity(Source) {
 
 	// Selects a random location on the body from available locations
 	let GroupList = [];
-	for (let Group of AssetGroup) {
-		if (PrivateBedGroupActivityIsValid(Source, Target, Group, Activity))
-			GroupList.push(Group);
-		else if ((ActivityPussy != null) && !Target.HasPenis() && PrivateBedGroupActivityIsValid(Source, Target, Group, ActivityPussy))
-			GroupList.push(Group);
-		else if ((ActivityPenis != null) && Target.HasPenis() && PrivateBedGroupActivityIsValid(Source, Target, Group, ActivityPenis))
-			GroupList.push(Group);
+	for (let G of AssetGroup) {
+		if (PrivateBedGroupActivityIsValid(Source, Target, G, Activity))
+			GroupList.push(G);
+		else if ((ActivityPussy != null) && !Target.HasPenis() && PrivateBedGroupActivityIsValid(Source, Target, G, ActivityPussy))
+			GroupList.push(G);
+		else if ((ActivityPenis != null) && Target.HasPenis() && PrivateBedGroupActivityIsValid(Source, Target, G, ActivityPenis))
+			GroupList.push(G);
 	}
 	if (GroupList.length == 0) return;
 	let Group = CommonRandomItemFromList(null, GroupList);

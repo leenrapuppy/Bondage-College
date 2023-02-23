@@ -613,9 +613,8 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 function CharacterLoadNPC(NPCType) {
 
 	// Checks if the NPC already exists and returns it if it's the case
-	for (let C = 0; C < Character.length; C++)
-		if (Character[C].AccountName == NPCType)
-			return Character[C];
+	const duplicate = Character.find(c => c.AccountName === NPCType);
+	if (duplicate) return duplicate;
 
 	// Randomize the new character
 	CharacterReset(CharacterNextId++, "Female3DCG", CharacterType.NPC);
@@ -643,9 +642,8 @@ function CharacterLoadNPC(NPCType) {
  */
 function CharacterLoadSimple(AccName) {
 	// Checks if the character already exists and returns it if it's the case
-	for (let C = 0; C < Character.length; C++)
-		if (Character[C].AccountName === AccName)
-			return Character[C];
+	const duplicate = Character.find(c => c.AccountName === AccName);
+	if (duplicate) return duplicate;
 
 	// Create the new character
 	const C = CharacterReset(CharacterNextId++, "Female3DCG", CharacterType.SIMPLE);
@@ -745,7 +743,7 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 	// If the character isn't found
 	if (Char == null) {
 		// We delete the duplicate character if the person relogged.
-		for (var C = 0; C < Character.length; C++)
+		for (let C = 0; C < Character.length; C++)
 			if (Character[C].MemberNumber == data.MemberNumber) {
 				CharacterDelete(Character[C].AccountName);
 				break;

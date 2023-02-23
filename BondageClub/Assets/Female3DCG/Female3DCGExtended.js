@@ -7115,9 +7115,9 @@ var AssetFemale3DCGExtended = {
 			            CopyConfig: { GroupName: "ClothAccessory", AssetName: "Kissmark" },
 			Config: {
 			    Dialog: {
-                    Select: "ClothAccessoryKissmarkSelect",
-                    ModulePrefix: "ClothAccessoryKissmarkModule",
-                    OptionPrefix: "ClothAccessoryKissmarkOption",
+					Select: "ClothAccessoryKissmarkSelect",
+					ModulePrefix: "ClothAccessoryKissmarkModule",
+					OptionPrefix: "ClothAccessoryKissmarkOption",
 					ChatPrefix: "ClothAccessoryKissmarkSet",
 				},
 			},

@@ -1282,9 +1282,9 @@ function StruggleLockPickDraw(C) {
 					} else {
 						if (StruggleLockPickSetFalse.filter(x => x==true).length > 0) {
 							if (StruggleLockPickSetFalse.filter(x => x==true).length < StruggleLockPickSetFalse.length) {
-								var looped = false;
-								var startLoop = Math.floor(Math.random() * StruggleLockPickOrder.length);
-								var P = startLoop;
+								const startLoop = Math.floor(Math.random() * StruggleLockPickOrder.length);
+								let looped = false;
+								let P = startLoop;
 								while (!looped) {
 									if (StruggleLockPickSetFalse[P] == true) {
 										StruggleLockPickOffsetTarget[P] = 0;

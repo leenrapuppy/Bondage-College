@@ -13,25 +13,25 @@ var SkillValidSkills = ["Bondage", "SelfBondage", "LockPicking", "Evasion", "Wil
  * When the player progresses in a skill. Also validates the values to make sure they are within the proper ranges once changed. (level 0-10, progress 0-100)
  * @param {SkillType} SkillType - Name of the skill to set the value for
  * @param {number} SkillLevel - Level to set for the given skill
- * @param {number} SkillProgress - Progress to set for the given skill
+ * @param {number} Progress - Progress to set for the given skill
  * @param {boolean} [Push=true] - Pushes the skills to the server if TRUE
  * @returns {void} - Nothing
  */
-function SkillChange(SkillType, SkillLevel, SkillProgress, Push) {
+function SkillChange(SkillType, SkillLevel, Progress, Push) {
 
 	if (SkillValidSkills.includes(SkillType)) {
 
 		// Make sure the progress and level are valid
-		SkillProgress = parseInt(SkillProgress) || 0;
+		Progress = parseInt(Progress) || 0;
 		SkillLevel = parseInt(SkillLevel) || 0;
-		if ((SkillProgress < 0) || (SkillProgress >= 1000)) SkillProgress = 0;
+		if ((Progress < 0) || (Progress >= 1000)) Progress = 0;
 		if ((SkillLevel < 0) || (SkillLevel > 10)) SkillLevel = 0;
 
 		// If the skill already exists, we updated it
 		for (let S = 0; S < Player.Skill.length; S++)
 			if (Player.Skill[S].Type == SkillType) {
 				Player.Skill[S].Level = SkillLevel;
-				Player.Skill[S].Progress = SkillProgress;
+				Player.Skill[S].Progress = Progress;
 				if ((Push == null) || Push) ServerPlayerSkillSync();
 				return;
 			}
@@ -40,7 +40,7 @@ function SkillChange(SkillType, SkillLevel, SkillProgress, Push) {
 		var NewSkill = {
 			Type: SkillType,
 			Level: SkillLevel,
-			Progress: SkillProgress
+			Progress: Progress
 		};
 		Player.Skill.push(NewSkill);
 		if ((Push == null) || Push) ServerPlayerSkillSync();
@@ -136,14 +136,14 @@ function SkillGetProgress(C, SkillType) {
 /**
  * Add progress to a skill, the skill progresses slower for each level, takes into account cheaters version.
  * @param {SkillType} SkillType - Name of the skill to add progress to
- * @param {number} SkillProgress - Progress to be made before the ratios are applied
+ * @param {number} Progress - Progress to be made before the ratios are applied
  * @returns {void} - Nothing
  */
-function SkillProgress(SkillType, SkillProgress) {
+function SkillProgress(SkillType, Progress) {
 
 	// Makes sure there's a progress, we cannot go beyond level 10
 	var L = SkillGetLevelReal(Player, SkillType);
-	var P = Math.round(SkillProgress * 3 / ((L * L) + 1));
+	var P = Math.round(Progress * 3 / ((L * L) + 1));
 	P = P * CheatFactor("DoubleSkill", 2);
 	if ((P > 0) && (L < 10)) {
 

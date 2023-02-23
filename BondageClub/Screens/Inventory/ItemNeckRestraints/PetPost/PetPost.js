@@ -29,11 +29,7 @@ function AssetsItemNeckRestraintsPetPostAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
 	if (L === "_Text") {
-		// Determine the canvas position and size
-		const Properties = Property || {};
-		const Type = Properties.Type || "t0";
-
-		// We set up a canvas
+		// Setup a canvas to draw the post's text
 		let Height = 100;
 		let Width = 90;
 		let YOffset = 20;

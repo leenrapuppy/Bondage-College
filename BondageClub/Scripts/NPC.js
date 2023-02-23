@@ -65,19 +65,19 @@ function NPCTraitReverse(Trait) {
 /**
  * Returns the weight value of the specified option (The higher the value, the higher the chances the option will be picked, an opposite trait will always result as an option that's not picked)
  * @param {string} Dialog - Specified dialog line with the affecting traits.
- * @param {readonly NPCTrait[]} NPCTrait - List of traits of the NPC.
+ * @param {readonly NPCTrait[]} Trait - List of traits of the NPC.
  * @returns {number} - Weight of the dialog option
  */
-function NPCTraitGetOptionValue(Dialog, NPCTrait) {
-	if ((Dialog != null) && (NPCTrait != null)) {
+function NPCTraitGetOptionValue(Dialog, Trait) {
+	if ((Dialog != null) && (Trait != null)) {
 		var Value = 0;
 		var DialogTrait = Dialog.split("|");
 		for (let T = 0; T < DialogTrait.length; T++)
-			for (let N = 0; N < NPCTrait.length; N++)
-				if (NPCTrait[N].Name != null) {
-					if (NPCTrait[N].Name.trim() == DialogTrait[T].trim())
-						Value = Value + NPCTrait[N].Value;
-					else if (NPCTrait[N].Name.trim() == NPCTraitReverse(DialogTrait[T].trim()))
+			for (let N = 0; N < Trait.length; N++)
+				if (Trait[N].Name != null) {
+					if (Trait[N].Name.trim() == DialogTrait[T].trim())
+						Value = Value + Trait[N].Value;
+					else if (Trait[N].Name.trim() == NPCTraitReverse(DialogTrait[T].trim()))
 						Value = Value - 10000;
 				}
 		return Value;

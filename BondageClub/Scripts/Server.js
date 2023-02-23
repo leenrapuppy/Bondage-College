@@ -390,6 +390,7 @@ function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumb
 
 	const appearanceKeys = /** @type {AssetGroupName[]} */(Object.keys(appearanceDiffs));
 	let { appearance, updateValid } = appearanceKeys
+		// eslint-disable-next-line
 		.reduce(({ appearance, updateValid }, groupName) => {
 			const diff = appearanceDiffs[groupName];
 			const { item, valid } = ValidationResolveAppearanceDiff(groupName, diff[0], diff[1], updateParams);

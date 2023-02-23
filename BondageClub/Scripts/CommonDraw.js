@@ -138,7 +138,7 @@ function CommonDrawAppearanceBuild(C, {
 		const BlinkExpression = (A.OverrideBlinking ? !AG.DrawingBlink : AG.DrawingBlink) ? "Closed/" : Expression;
 		/** @type {RectTuple[]} */
 		let AlphaMasks = Layer.GroupAlpha
-			.filter(({ Pose }) => !Pose || !Array.isArray(Pose) || !!CommonDrawFindPose(C, Pose))
+			.filter(({ Pose: P }) => !P || !Array.isArray(P) || !!CommonDrawFindPose(C, P))
 			.reduce((Acc, { Masks }) => {
 				Array.prototype.push.apply(Acc, Masks);
 				return Acc;

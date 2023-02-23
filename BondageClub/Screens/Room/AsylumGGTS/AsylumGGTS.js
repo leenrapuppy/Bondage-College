@@ -538,7 +538,7 @@ function AsylumGGTSConfigureGag(Group) {
 }
 
 /**
- * Processes the tasks that doesn't need any player input.	GGTS does everything and ends the task automatically.
+ * Processes the tasks that doesn't need any player input. GGTS does everything and ends the task automatically.
  * @returns {void} - Nothing
  */
 function AsylumGGTSAutomaticTask() {

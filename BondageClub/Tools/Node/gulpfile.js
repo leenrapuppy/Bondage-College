@@ -6,7 +6,7 @@ const c = require("ansi-colors");
 const gulp = require("gulp");
 const gulpCount = require("gulp-count");
 const gulpIf = require("gulp-if");
-const size = require("gulp-size");
+const gulpSize = require("gulp-size");
 const filter = require("gulp-filter");
 const imagemin = require("gulp-imagemin");
 const jpegtran = require("imagemin-jpegtran");
@@ -30,18 +30,18 @@ exports.clean = function (cb) {
 
 let files = [];
 let batches = [];
-const sizes = {
+const supportedSizes = {
 	before: {
-		png: size(SIZE_CONFIG),
-		jpg: size(SIZE_CONFIG),
-		svg: size(SIZE_CONFIG),
-		total: size(SIZE_CONFIG),
+		png: gulpSize(SIZE_CONFIG),
+		jpg: gulpSize(SIZE_CONFIG),
+		svg: gulpSize(SIZE_CONFIG),
+		total: gulpSize(SIZE_CONFIG),
 	},
 	after: {
-		png: size(SIZE_CONFIG),
-		jpg: size(SIZE_CONFIG),
-		svg: size(SIZE_CONFIG),
-		total: size(SIZE_CONFIG),
+		png: gulpSize(SIZE_CONFIG),
+		jpg: gulpSize(SIZE_CONFIG),
+		svg: gulpSize(SIZE_CONFIG),
+		total: gulpSize(SIZE_CONFIG),
 	},
 };
 
@@ -89,15 +89,15 @@ function analyze(beforeOrAfter, sizePlugins, record = false) {
 }
 
 function analyzeBefore() {
-	return analyze("before", sizes.before, true);
+	return analyze("before", supportedSizes.before, true);
 }
 
 function analyzeAfter() {
-	return analyze("after", sizes.after);
+	return analyze("after", supportedSizes.after);
 }
 
 function report(cb) {
-	const { before, after } = sizes;
+	const { before, after } = supportedSizes;
 	log("");
 	log(c.cyan("Image minification report"));
 	log("--------------------------------");

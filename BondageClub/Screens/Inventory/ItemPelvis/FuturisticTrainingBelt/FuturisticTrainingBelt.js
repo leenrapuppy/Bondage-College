@@ -458,7 +458,6 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 		} else {
 			// @ts-ignore
 			punishment = InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime);
-			let Property = Item.Property;
 			if (punishment == "Speech") {
 				let NoShock = true;
 				if (Item.Property.PunishSpeech == FuturisticTrainingBeltSpeechPunishments.indexOf("Shock")) NoShock = false;

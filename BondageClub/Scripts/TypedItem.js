@@ -611,7 +611,7 @@ function TypedItemInit(Item, C, Refresh=true) {
 		Item.Property = Object.assign(
 			Item.Property,
 			(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-		)
+		);
 	}
 
 	if (Refresh) {

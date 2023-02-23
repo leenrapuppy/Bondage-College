@@ -143,7 +143,7 @@ function ExtendedItemInit(Item, C, Refresh=true, Archetype=null, Type=null) {
  * @param {Item} Item - The item in question
  * @param {Character} C - The character that has the item equiped
  * @param {ItemProperties} Properties - A record that maps property keys to their default value.
- * 		The type of each value is used for basic validation.
+ *        The type of each value is used for basic validation.
  * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
  * @returns {void} Nothing
  */

@@ -259,10 +259,12 @@ function DrawArousalMeter(C, X, Y, Zoom) {
  * @param {CanvasRenderingContext2D} [DrawCanvas] - The canvas to draw to; If undefined `MainCanvas` is used
  * @returns {void} - Nothing
  */
+/* eslint-disable-next-line */
 function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 	// Record that the character was drawn this frame
 	DrawLastCharacters.push(C);
 
+	// FIXME: that whole parameter is dangerous, as there's a bunch of calls in here that blindly draw directly onto MainCanvas
 	if (!DrawCanvas) DrawCanvas = MainCanvas;
 
 	var OverrideDark = (
