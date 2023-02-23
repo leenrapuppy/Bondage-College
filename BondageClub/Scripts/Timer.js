@@ -55,7 +55,7 @@ function TimerInventoryRemove() {
 			for (let A = 0; A < Character[C].Appearance.length; A++)
 				if ((Character[C].Appearance[A].Property != null) && (Character[C].Appearance[A].Property.RemoveTimer != null))
 					if ((typeof Character[C].Appearance[A].Property.RemoveTimer == "number") && (Character[C].Appearance[A].Property.RemoveTimer <= CurrentTime)) {
-						const Lock = InventoryGetLock(Character[C].Appearance[A])
+						const Lock = InventoryGetLock(Character[C].Appearance[A]);
 						const ShouldRemoveItem = Character[C].Appearance[A].Property.RemoveItem;
 
 						// Remove any lock or timer
