@@ -961,6 +961,8 @@ interface AssetLayer {
 	HideForAttribute: readonly AssetAttribute[] | null;
 	/* Specifies that this layer should not be drawn unless the character is wearing an item with one of the given attributes */
 	ShowForAttribute: readonly AssetAttribute[] | null;
+	/** Used along with a hook to make layers of an asset disappear in some cases. */
+	Visibility: "Player" | "AllExceptPlayerDialog" | "Others" | "OthersExceptDialog" | "Owner" | "Lovers" | "Mistresses" | null;
 }
 
 /** An object defining a group of alpha masks to be applied when drawing an asset layer */
@@ -1428,8 +1430,8 @@ interface Character {
 	DrawPose?: AssetPoseName[];
 	DrawAppearance?: Item[];
 	AppearanceLayers?: AssetLayer[];
-	Hooks: Map<string, Map<string, any>> | null;
-	RegisterHook: (hookName: string, hookInstance: string, callback: any) => boolean | any;
+	Hooks: Map<string, Map<string, () => void>> | null;
+	RegisterHook: (hookName: string, hookInstance: string, callback: () => void) => boolean | any;
 	UnregisterHook: (hookName: string, hookInstance: string) => boolean;
 	HeightRatioProportion?: number;
 	GetGenders: () => string[];

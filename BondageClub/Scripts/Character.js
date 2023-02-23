@@ -1089,7 +1089,7 @@ function CharacterLoadCanvas(C) {
 	if (C.Hooks && typeof C.Hooks.get == "function") {
 		let hooks = C.Hooks.get("BeforeSortLayers");
 		if (hooks)
-			hooks.forEach((hook) => hook(C)); // If there's a hook, call it
+			hooks.forEach((hook) => hook()); // If there's a hook, call it
 	}
 
 	// Generates a layer array from the character's appearance array, sorted by drawing order
@@ -1099,7 +1099,7 @@ function CharacterLoadCanvas(C) {
 	if (C.Hooks && typeof C.Hooks.get == "function") {
 		let hooks = C.Hooks.get("AfterLoadCanvas");
 		if (hooks)
-			hooks.forEach((hook) => hook(C)); // If there's a hook, call it
+			hooks.forEach((hook) => hook()); // If there's a hook, call it
 	}
 
 	// Sets the total height modifier for that character
@@ -1802,7 +1802,7 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 	if (C && C.DrawAppearance) {
 		if (!IgnoreHooks && Player.Effect.includes("VRAvatars") && C.Effect.includes("HideRestraints")) {
 			// Then when that character enters the virtual world, register a hook to strip out restraint layers (if needed):
-			if (C.RegisterHook("BeforeSortLayers", "HideRestraints", (C) => {
+			if (C.RegisterHook("BeforeSortLayers", "HideRestraints", () => {
 				C.DrawAppearance = C.DrawAppearance.filter((Layer) => !(Layer.Asset && Layer.Asset.IsRestraint));
 				C.DrawPose = C.DrawPose.filter((Pose) => (Pose != "TapedHands"));
 
@@ -1828,7 +1828,7 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 		}
 		if (LayerVisibility) {
 			// Fancy logic is to use a different hook for when the character is focused
-			if (IgnoreHooks && (C.UnregisterHook("AfterLoadCanvas", "LayerVisibility") || C.RegisterHook("AfterLoadCanvas", "LayerVisibilityDialog", (C) => {
+			if (IgnoreHooks && (C.UnregisterHook("AfterLoadCanvas", "LayerVisibility") || C.RegisterHook("AfterLoadCanvas", "LayerVisibilityDialog", () => {
 				C.AppearanceLayers = C.AppearanceLayers.filter((Layer) => (
 					!Layer.Visibility ||
 					(Layer.Visibility == "Player" && C == Player) ||
@@ -1841,7 +1841,7 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 				));
 			}))) refresh = true;
 			// Use the regular hook when the character is not
-			else if (!IgnoreHooks && (C.UnregisterHook("AfterLoadCanvas", "LayerVisibilityDialog") || C.RegisterHook("AfterLoadCanvas", "LayerVisibility", (C) => {
+			else if (!IgnoreHooks && (C.UnregisterHook("AfterLoadCanvas", "LayerVisibilityDialog") || C.RegisterHook("AfterLoadCanvas", "LayerVisibility", () => {
 				C.AppearanceLayers = C.AppearanceLayers.filter((Layer) => (
 					!Layer.Visibility ||
 					(Layer.Visibility == "Player" && C == Player) ||
