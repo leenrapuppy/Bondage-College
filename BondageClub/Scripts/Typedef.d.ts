@@ -390,6 +390,29 @@ interface IChatRoomGameResponse {
 
 //#endregion
 
+//#region Server messages
+
+interface IChatRoomSyncExpressionMessage {
+	MemberNumber: number;
+	Group: string;
+	Name?: string;
+}
+
+
+interface IChatRoomSyncPoseMessage {
+	MemberNumber: number;
+	Pose: string[] | string;
+}
+
+interface IChatRoomSyncArousalMessage {
+	MemberNumber: number;
+	OrgasmTimer: number;
+	OrgasmCount: number;
+	Progress: number;
+	ProgressTimer: number;
+}
+//#endregion
+
 //#region Chat
 
 interface ChatRoom {
