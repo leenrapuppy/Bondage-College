@@ -3701,6 +3701,42 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Modules: [
 					{
+						Name: "Ears1", Key: "e", // Left Ear!
+						Options:
+						[
+							{}, // e0 - none
+							{}, // e1 - stud
+							{}, // e2 - ring
+							{}, // e3 - hoop
+							{}, // e4 - indust
+							{}, // e5 - bigstud
+							{}, // e6 - 2stud
+							{}, // e7 - 3stud
+							{}, // e8 - 2ring
+							{}, // e9 - 3ring
+							{}, // e10 - carti
+							{}, // e11 - indust mix
+						],
+					},
+					{
+						Name: "Ears2", Key: "a", // Right Ear!
+						Options:
+						[
+							{}, // a0 - none
+							{}, // a1 - stud
+							{}, // a2 - ring
+							{}, // a3 - hoop
+							{}, // a4 - indust
+							{}, // a5 - bigstud
+							{}, // a6 - 2stud
+							{}, // a7 - 3stud
+							{}, // a8 - 2ring
+							{}, // a9 - 3ring
+							{}, // a10 - carti
+							{}, // a11 - indust mix
+						],
+					},
+					{
 						Name: "Nose", Key: "n",
 						Options:
 						[
@@ -3713,22 +3749,6 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
-						Name: "Ears", Key: "e",
-						Options:
-						[
-							{}, // e0 - none
-							{}, // e1 - stud both
-							{}, // e2 - stud right
-							{}, // e3 - stud left
-							{}, // e4 - ring both
-							{}, // e5 - ring right
-							{}, // e6 - ring left
-							{}, // e7 - hoop both
-							{}, // e8 - hoop right
-							{}, // e9 - hoop left
-						],
-					},
-					{
 						Name: "Face", Key: "f",
 						Options:
 						[
@@ -3737,6 +3757,8 @@ var AssetFemale3DCGExtended = {
 							{}, // f2 - dermals right
 							{}, // f3 - dermals left
 							{}, // f4 - bridge
+							{}, // f5 - monroe right
+							{}, // f6 - monroe left
 						],
 					},
 				],
@@ -3759,17 +3781,27 @@ var AssetFemale3DCGExtended = {
 						]
 					},
 					{
-						Name: "Piercing", Key: "p",
+						Name: "LeftPiercing", Key: "p",
 						Options: [
 							{
 								Property: { Type: null }
 							}, // p0 none
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 BarRight
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 BarLeft
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p3 BarBoth
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p4 RingRight
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p5 RingLeft
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p6 RingBoth
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 1Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 2Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p3 1Ring
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p4 2Ring
+						]
+					},
+					{
+						Name: "RightPiercing", Key: "r",
+						Options: [
+							{
+								Property: { Type: null }
+							}, // r0 none
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r1 1Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r2 2Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r3 1Ring
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r4 2Ring
 						]
 					},
 				]
@@ -3777,6 +3809,34 @@ var AssetFemale3DCGExtended = {
 		},
 	},
 	Mouth: {
+		Regular: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Lips", Key: "l",
+						Options: [
+							{}, // l0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l1 - middle
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l2 - left
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l3 - right
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l4 - both sides
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l5 - triple
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l6 - vertical labret
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l7 - vertical labret with rings
+						]
+					},
+					{
+						Name: "Tongue", Key: "t",
+						Options: [
+							{}, // t0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t1 - one stud
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t2 - double studs
+						]
+					},
+				]
+			},
+		},
 		Full: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
