@@ -1922,7 +1922,8 @@ function DialogChangeFocusToGroup(C, Group) {
 	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
 	if (C.FocusGroup) {
 		// If we're changing permissions on ourself, don't change to the item list
-		if (!(DialogMenuMode === "permissions" && C.IsPlayer())) {
+		// Same for activities, keep us in that mode if the focus moves around
+		if (!(DialogMenuMode === "permissions" && C.IsPlayer() || DialogMenuMode === "activities")) {
 			DialogChangeMode("items");
 		}
 	} else {
