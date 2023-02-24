@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Rozepni přezky.),"Vytáhla jsi popruhy z přezek, visí teď volně.|V aktovce vidíš nějaké provazy.",10,0,0,
+0,0,0,,(Zatahej jí za aktovku.),Přestaň tahat ty blbko! Co to děláš?|(Táhne aktovku k sobě.),30,0,0,SidneyAnnoy()
+10,0,0,,(Zapni přezky.),Opatrně jsi zasunula popruhy zpátky do přezek.,0,0,0,
+10,0,0,,(Seber provazy.),Opatrně jsi z aktovky vyndala provazy.,20,0,0,GetRope()
+10,0,0,,(Zeptej se na provazy.),,30,0,0,SidneyRope()
+10,0,0,,(Zatahej za aktovku.),Přestaň tahat ty blbko! Co to děláš?|(Táhne aktovku k sobě.),30,0,0,SidneyAnnoy()
+20,0,0,,(Zatahej za aktovku.),Přestaň tahat ty blbko! Co to děláš?|(Táhne aktovku k sobě.),30,0,0,SidneyAnnoy()

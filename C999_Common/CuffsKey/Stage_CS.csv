@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,Je vyroben z nerezové oceli|a měl by fungovat s většinou pout.,0,0,0,
+0,0,0,IsCuffed,(Odemkni si pouta.)ADD_MINUTES:1,"Nejprve s klíčem trochu zápasíš,|ale nakonec se ti povede pouta odemknout.",0,0,0,Unlock()

@@ -1,0 +1,14 @@
+Tag,Content
+Easy,Snadná
+Normal,Normální
+Hard,Těžká
+FirstQuestionIn,První otázka za
+NextQuestionIn,Další otázka za
+Difficulty,Obtížnost:
+Opponent,Protivník:
+Perfect,Skvěle!  Klikni|kdekoliv pro pokračování.
+Victory,Vyhrála jsi!  Klikni|kdekoliv pro pokračování.
+Defeat,Prohrála jsi!  Klikni|kdekoliv pro pokračování.
+Explanation,"Odpověz dříve,|než tvůj soupeř."
+GoodAnswer,Správně!
+BadAnswer,Špatně!

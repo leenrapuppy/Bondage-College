@@ -1,0 +1,58 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Jen se ti chci představit.,"Hm, čau, já jsem Sidney.|(Otáčí se a zírá na tu druhou dívku)",10,0,0,
+0,0,0,,"Copak děvče, to jsi|na cizí vždycky tak hrubá?","Asi ne, promiň, já jsem Sidney.|(Otočí se a zírá na tu druhou dívku)",10,0,1,
+0,0,0,,"Nezlob se na mě, prosím,|jsem tady nová.","Nová a ubohá, nepřežiješ tady ani den.|(Otočí se a zírá na tu druhou dívku)",10,-1,-1,
+0,0,0,,"Vypadáš jako silná holka,|ráda tě poznávám.","Si piš! Jsem tu nejdrsnější ze všech. Já jsem Sidney.|(Otáčí se a zírá na tu druhou dívku)",10,1,0,
+0,0,0,,Chováš se jak hovado!,"Raději drž hubu, pokud nechceš mít přeražený nos.|(Otočí se a zírá na tu druhou dívku)",10,-2,0,
+0,0,0,AmandaInBondage,"Jo, šprti brzy poznají,|že tomu tadu velíme.","Jo, kurva! Já jsem Sidney, ráda tě poznávám.",20,2,0,
+0,0,0,AmandaInBondage,"Jestli nechceš skončit jako|ona, koukej poslouchat!","(Sklopí oči a na pár vteřin zmlkne)|Ano, dokud je ta šprtka svázaná, jsem s tím v pohodě.",20,0,2,
+10,0,0,,Nějaký problém?,"Jo, ta zasraná brunetka a ta její|pitomá kámoška jsou problém!",20,0,0,
+10,0,0,,Proč na ni tak zíráš?,To tě nemusí zajímat!,20,0,0,
+10,0,0,,Přestaň na ni zírat!,Hej! Přestaň mi poroučet!,20,-1,1,
+20,0,0,,Vypadáš pěkně nasraně.,Co je ti vůbec do toho?,30,0,0,
+20,0,0,,"Vypadá to, že tu šprtku|nemůžeš vystát.","To si piš, že ne! Pěkně mě sere!|Ale jednou se jí pěkně pomstím!",30,1,0,
+20,0,0,,"Jsi pěkně horkokrevná,|to se mi líbí.",Jo! Ale teď mě nech připravit se na hodinu.,40,1,0,
+20,0,0,,Ty máš ale skutečně|problém s chováním.,Naser si!|(Otočí se a ignoruje tě.),40,-1,0,
+20,1,0,,Potřebuješ abych ti|s ní trochu pomohla?,"Jo, kurva! Mám v báglu nějaké provazy.|Po hodině jí dáme co proto.",40,1,0,
+30,0,0,,"Jsi pěkně horkokrevná,|to se mi líbí.",Jo! Ale teď mě nech připravit se na hodinu.,40,1,0,
+30,0,0,,Ty máš ale skutečně|problém s chováním.,Naser si!|(Otočí se a ignoruje tě.),40,-1,0,
+30,1,0,,Potřebuješ abych ti|s ní trochu pomohla?,"Jo, kurva! Mám v báglu nějaké provazy.|Po hodině jí dáme co proto.",40,1,0,
+40,-2,0,,Děvko! Chceš se prát?,,40,-1,0,Fight()
+100,0,0,,"Hele, proč máš|v aktovce provazy?",Do toho ti nic není!|(Zavírá si tašku.),20,-1,0,
+100,0,0,,Chystáš se po škole|někam na stěnu?,Jo! A teď mi to vrať!|(Zavírá si tašku.),20,-1,0,
+100,0,0,,"Copak, chystáš se|někoho unést?","Hmm, proč se ptáš?",110,0,-1,
+100,0,0,,"Takže ty jsi kinky holka|co se ráda nechá svázat?",Ty o bondage něco víš?,110,0,1,
+110,0,0,,Copak máš v plánu?|To mě zajímá!,"Tak jo, po hodině si o tom promluvíme.|(Zavírá si tašku.)",20,1,0,
+110,0,0,,To mě nezajímá.,Fajn! Je mi to fuk.|(Zavírá si tašku.),20,0,0,
+110,0,0,,To se nesmí!|Povím to učitelce.,,40,-2,0,Fight()
+200,0,0,BondageNotConfronted,Visely ti volně z aktovky.,Lhářko! Vrať mi ty moje provazy!,200,0,0,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Pokud si nosíš provazy,|asi chceš být svázaná.",(Červená se) Ne! Vůbec ne!|A teď mi je vrať!,200,0,1,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Promiň. Mám provazy|ráda, svázala bys mě?","Jseš lůzr, brzy mi tady budeš lízat boty.|A teď je naval. (Bere si provazy.)",300,0,-2,GiveRope()
+200,0,0,,Tady máš své provazy.|Příště si je líp schovej.,Fajn! A teď mě nechej na pokoji.|(Bere is provazy a otáčí se.),300,1,0,GiveRope()
+200,0,0,,Nejdříve si popovídáme.,Hmm. Tak jo.|A o čem chceš mluvit?,200,0,0,StopRope()
+200,0,2,,(Svlékni ji a svaž ji.)ADD_MINUTES:1,"(Přitiskneš ji a svážeš jí ruce za zády.|Mrská se a kope, nakonec se ale poddá.)",220,0,0,Tie()
+200,0,4,,"Ty víš, že se mi poddáš.|(Svléknout a svázat.)ADD_MINUTES:1","(Neochotně si svlékne uniformu|a nastaví ti ruce, abys je mohla svázat.)",220,0,0,TieSub()
+200,0,0,,"Pokud je chceš|pojď a bij se o ně.",,40,-2,0,Fight()
+220,0,0,,(Otoč ji.),"Do prdele, co to děláš?|(Násilím ji otáčíš.)",230,0,0,
+220,0,0,,(Rozvaž ji.)ADD_MINUTES:1,"(Rozvazuješ jí ruce, zatímco ti nadává.|Jakmile ji rozvážeš, vztekle tě odstrčí.)",200,0,0,Untie()
+220,0,0,,(Polechtej ji.)ADD_MINUTES:1,"Říkám ti, že nejsem lechtivá!|(Vztekle se na tebe dívá.)",220,0,0,Tickle()
+220,1,0,,(Polib ji.)ADD_MINUTES:1,(Po polibku na tebe tupě zírá|a zůstává beze slova.),220,0,0,
+220,0,0,AmandaInBondage,(Donuť ji obejmout|se s Amandou.)ADD_MINUTES:1,(Obě dívky jsou přinuceny se objímat a třít se o sebe.)|Kurva! Co jsi to za perverzáčku?,240,-1,0,
+220,0,0,,Ty provazy úžasně ladí|k tvému pořádnému tělu.,Ó! Ehm… Díky… Asi.,220,0,0,
+220,0,0,,"Když tě nechám jít,|můžu tě svázat později?ADD_MINUTES:1","To je asi fér. Dohodnuto.|(Rozvážeš ji a potřesete si rukou.)",310,1,1,Untie()
+220,0,0,,"Když tě nechám jít,|svážeš mě pak někdy?ADD_MINUTES:1","Ó, jasně! Pomsta bude sladká!|(Rozvážeš ji a potřesete si rukou.)",310,1,-2,Untie()
+230,0,0,,(Otoč ji.),(Otáčíš ji zpět a ona na tebe vztekle zírá.),220,0,0,
+230,0,0,,(Rozvaž ji.)ADD_MINUTES:1,"(Rozvazuješ jí ruce, zatímco ti nadává.|Jakmile ji rozvážeš, vztekle tě odstrčí.)",200,0,0,Untie()
+230,0,0,,(Polechtej ji.)ADD_MINUTES:1,"Říkám ti, že nejsem lechtivá!|(Vztekle se na tebe dívá.)",230,0,0,Tickle()
+230,0,0,,(Naplácej ji.)ADD_MINUTES:1,"(Dáváš jí na zadek před ostatními studentkami.)|Ha! Nic lepšího neumíš?",230,0,0,
+230,0,0,,"Podle tvých kalhotek|se ti to dost líbí.","Přestaň na mě čumět, perverzačko!",230,0,0,PantiesRemark()
+230,0,0,,"Když tě nechám jít,|můžu tě svázat později?ADD_MINUTES:1","To je asi fér. Dohodnuto.|(Rozvážeš ji a potřesete si rukou.)",310,1,1,Untie()
+230,0,0,,"Když tě nechám jít,|svážeš mě pak někdy?ADD_MINUTES:1","Ó, jasně! Pomsta bude sladká!|(Rozvážeš ji a potřesete si rukou.)",310,1,-2,Untie()
+240,0,0,,(Odděl je.),Konečně! To byl pěkně pitomý nápad!,220,0,0,
+240,0,0,,(Přinuť je se políbit.)ADD_MINUTES:1,"(Přinutíš je k polibku, Sidney vypadá vztekle)|Amando, jestli použiješ jazyk, uříznu ti ho!",250,0,0,KissAmanda()
+240,0,0,,Vy jste mi ale pěkný|svázaný páreček.,(Obě na tebe zírají.),240,0,0,
+250,0,0,,(Odděl je.),Konečně! To byl pěkně pitomý nápad!,220,0,0,
+250,0,0,,(Zastav líbání.),"Přiznej to! Jsem lepší než ta blbá bloncka.|(Snaží se zastrašit Amandu a ta se odvrací.)",240,0,0,
+250,0,0,,Cítím lásku ve vzduchu!,"Vzduchem budeš lítat ty, jen co se z toho dostanu!",250,0,0,
+250,2,0,,Můžu taky jednu dostat?,"Hmmmmm, jistě proč ne?|(Otáčí se na tebe a políbí tě.)",250,0,0,
+300,-2,0,,Děvko! Chceš se prát?,,40,-1,0,Fight()

@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerNotRestrained,Učitelčina kabelka tady leží zcela bez dozoru.,Bag.jpg
+0,0,0,Common_PlayerRestrained,Učitelčina kabelka tady leží zcela bez dozoru.|V poutech ji ale bez povšimnutí nedokážeš otevřít.,Bag.jpg
+10,0,0,Common_PlayerNotRestrained,Učitelčina kabelka je stále otevřená.,Bag.jpg
+10,0,0,Common_PlayerRestrained,Učitelčina kabelka je stále otevřená.|V poutech ji ale bez povšimnutí nedokážeš prohledat.,Bag.jpg

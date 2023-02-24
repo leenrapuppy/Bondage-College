@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej kalhotky.)ADD_MINUTES:1,"Podle cedulky je velikost XXXL. Moc velké na nošení,|ale správně velké na to zacpat i tu největší pusu.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Použij je jako roubík.)ADD_MINUTES:1,"Srolovala jsi kalhotky a nacpala sis je do pusy.|Máš ji teď úplně plnou.",10,0,0,SelfGag()
+10,0,0,HasLoosePantieGag,(Prozkoumej|volné kalhotky.)ADD_MINUTES:1,"Podle cedulky je velikost XXXL. Moc velké na nošení,|ale správně velké na to zacpat i tu největší pusu.",10,0,0,ShowImage()
+10,0,0,,(Skousni kalhotky.)ADD_MINUTES:1,Žvýkáš smotek kalhotek ve svých ústech.|Začínají být nasáklé tvými slinami.,10,0,0,
+10,0,0,,(Žužlej kalhotky.)ADD_MINUTES:1,"Žužláš a saješ smotek kalhotek, zkoušíš|jejich chuť a přemýšlíš, jak byly vlastně čisté.",10,0,0,
+10,0,0,!HasOtherGag,(Vyplivni kalhotky.)ADD_MINUTES:1,Vyplivla jsi promočený žmolek kalhotek|ze svých úst a zase můžeš mluvit,0,0,0,SelfUngag()
+10,0,0,HasOtherGag,(Vyplivni kalhotky.)ADD_MINUTES:1,"Zkoušíš vyplivnout kalhotky, ale druhý roubík je drží|na místě. Budeš ho muset nejprve sundat.",10,0,0,

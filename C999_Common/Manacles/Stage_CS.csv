@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej je.)ADD_MINUTES:1,Okovy i řetězy jsou ze silné oceli|a uzavírají je zámky.,0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Pohrej si.)ADD_MINUTES:1,"Zkoušíš si okovy bez toho, abys je zamkla.|Krásně ti padnou a určitě se z nich nevysmekneš.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Spoutej se.)ADD_MINUTES:1,"Zavřela jsi a zamkla okovy kolem krku,|kotníků i zápěstí.",10,0,0,SelfShackle()
+10,0,0,HasLooseManacles,(Pohrej si|s volnými okovy.)ADD_MINUTES:1,"Spoutaná si hraješ s volnými okovy,|ale nic moc toho dělat nemůžeš.",10,0,0,ShowImage()
+10,0,0,HasKey,(Odemkni je.)ADD_MINUTES:1,"Chvíli zápasíš s klíčem,|ale nakonec se dokážeš odemknout.",0,0,0,Unlock()
+10,0,0,,(Pokus se vysmeknout)ADD_MINUTES:1,"Snažíš se vysmeknout ruce z okovů,|ale sedí příliš těsně.",10,0,0,
+10,0,0,,(Pokus se|vyprostit se silou.)ADD_MINUTES:1,"Zmítáš se divoce v řetězech,|ale není šance, že by ses osvobodila.",10,0,0,

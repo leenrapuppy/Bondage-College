@@ -1,0 +1,68 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Ano, paní.|Omlouvám se.",Dobře. Takže už budete řádnou studentkou?,10,1,-1,
+0,0,0,,"Já vím, já vím,|nemusíte mi to opakovat.","Slečno, vaše chování je nevhodné.|Takže, budete se snažit být řádnou studentkou?",10,-1,0,
+0,0,0,,Za všechno může Sidney!,"Je to ale také vaše vina.|Takže, budete se snažit být řádnou studentkou?",10,0,0,
+0,0,0,Fighting,Musela jsem se|přece bránit Sidney.,"Pro rvačku nejsou přijatelné důvody.|Takže, teď už budete řádnou studentkou?",10,0,0,
+0,0,0,Bondage,Přiznejte si to!|Že to bylo fakt sexy!,"Mladá dámo, toto je naprosto nevhodné!|Takže, teď už budete řádnou studentkou?",10,0,1,
+10,0,0,,"Jo, už nebudu|dělat další potiže.","Velmi dobře. A teď,|dokážete v klidu sedět až do konce trestu?",20,0,0,
+10,0,0,,"Pokud bude v klidu|Sidney, tak já taky.","Hmm, dobrá. A teď,|dokážete v klidu sedět až do konce trestu?",20,0,0,
+10,0,0,,Řádná studentka? Až mi|ukážete řádnou učitelku!,"Vy opravdu potřebujete disciplínu, slečno!|Dokážete alespoň v klidu sedět až do konce trestu?",20,-1,0,
+10,0,0,,"Budu v pohodě. Ale jen|proto, že jste fajn.","Dobrá tedy. A teď,|dokážete v klidu sedět až do konce trestu?",20,1,0,
+20,0,0,,Hodinu potichu?|To snad ani nejde.,"Alespoň to zkuste, uteče to rychle! Musím si|vyřídit pár hovorů, tak buďte zticha aspoň při nich.",40,0,1,
+20,0,0,,"Jo, asi jo.|Budu zticha.","Dobrá. Musím si vyřídit|pár hovorů, takže buďte prosím potichu.",40,0,0,
+20,0,0,,"Budu si mluvit,|kdy chci!","Máme způsoby, jak vás ztišit. Musím si|vyřídit pár hovorů, tak buďte zticha aspoň při nich.",40,-1,1,
+20,0,0,,"Ano, paní.|Budu zticha.","Velmi dobře. Musím si vyřídit|pár hovorů, takže buďte prosím potichu.",40,1,-1,
+30,0,0,,Do toho vám nic není!,"Odevzdáte mi to teď hned, mladá dámo!|(Bere ti tvé věci a zabavuje je.)",40,-1,0,Confiscate()
+30,0,0,,Našla jsem to|na podlaze.,"Děkuji mladá dámo, to je od vás hezké.|(Usmívá se a zabavuje ti tvé věci.)",40,1,0,Confiscate()
+30,0,0,,Vůbec nic.|(Schovej předmět.),"Aha, dobře. Měla jsem dojem, že něco vidím.|A teď buďte potichu, musím si vyřídit pár hovorů.",40,0,0,
+50,0,0,Common_PlayerNotRestrained,(Zkus ji otravovat.)ADD_MINUTES:1,"Mladá dámo. Raději toho hned nechte,|jinak vás budu muset spoutat.",50,-1,0,Annoyed()
+60,0,0,Common_PlayerRestrained,"Co to je, do hajzlu!|Nemůžete mi dát pouta!",Můžu i něco lepšího. (Odchází|a vrací se s pruhem lepící pásky pro tvou pusu.),60,0,0,GagPlayer()
+70,0,0,Common_PlayerGagged,@Uhmma huhme!,(Nevšímá si tě.),70,0,0,
+70,0,0,Common_PlayerGagged,(Makes pleading eyes.),(Nevšímá si tě.),70,0,0,
+100,0,0,Common_PlayerRestrained,(Hledej klíček od pout.)ADD_MINUTES:1,"(Vypadá to, že další klíček už Yuki nemá.)",100,0,0,SearchCuffKeys()
+100,0,0,Common_PlayerNotRestrained,(Vysvleč ji.)ADD_MINUTES:1,"(Opatrně ji svlékáš tak, abys ji neprobudila.)",110,0,0,
+100,0,0,Common_PlayerNotRestrained,(Uteč ze sborovny.),,100,0,0,Escape()
+100,0,0,,(Probuď ji.)ADD_MINUTES:1,(Pořádně jsi s ní zatřásla a ona se probouzí.)|Eeeh? Cože? Co se to stalo?,200,0,0,NoLeave()
+110,0,0,Common_PlayerNotRestrained,(Obleč ji.)ADD_MINUTES:1,"(Opatrně ji oblékáš tak, abys ji neprobudila.)",100,0,0,
+110,0,0,CanSearch,(Prohledej její věci.)ADD_MINUTES:1,(Našla jsi v jejich věcech pouta a klíčky.),110,0,0,Search()
+110,0,0,EggReady,(Zasuň jí|vajíčko do pochvy.)ADD_MINUTES:1,(Zasouváš do ní vajíčko a ona slabě vzdychá. Vajíčko|bzučí a klouže hlouběji. Bude těžké ho vyjmout.),110,0,0,Insert()
+110,0,0,EggInside,(Vyndej jí vajíčko.)ADD_MINUTES:1,"(Strkáš ji do pochvy prsty, ale vajíčko nedokážeš|zachytit. Prozatím zůstane v ní.)",110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Uteč ze sborovny.),,110,0,0,Escape()
+110,0,0,,(Probuď ji.)ADD_MINUTES:1,(Pořádně jsi s ní zatřásla a ona se probouzí.)|Cože? Co se stalo? Kde jsou mé šaty?,210,0,0,NoLeave()
+120,0,0,Common_PlayerNotRestrained,(Polož ji na stůl.)ADD_MINUTES:1,Pokládáš jí na stůl.,130,0,0,
+120,0,0,EggReady,(Zasuň jí|vajíčko do pochvy.)ADD_MINUTES:1,(Zasouváš do ní vajíčko a ona slabě vzdychá. Vajíčko|bzučí a klouže hlouběji. Bude těžké ho vyjmout.),120,0,0,Insert()
+120,0,0,EggInside,(Vyndej jí vajíčko.)ADD_MINUTES:1,"(Strkáš ji do pochvy prsty, ale vajíčko nedokážeš|zachytit. Prozatím zůstane v ní.)",120,0,0,
+120,0,0,Common_PlayerNotRestrained,(Uteč ze sborovny.),,120,0,0,Escape()
+120,0,0,,(Probuď ji.)ADD_MINUTES:1,(Pořádně jsi s ní zatřásla a ona se probouzí.)|Cože? Kde jsou mé šaty? A kdo mě spoutal?,220,0,0,NoLeave()
+130,0,0,Common_PlayerNotRestrained,(Posaď ji.)ADD_MINUTES:1,Usazuješ ji zpátky do jejího křesla.,120,0,0,
+130,0,0,EggReady,(Zasuň jí|vajíčko do pochvy.)ADD_MINUTES:1,(Zasouváš do ní vajíčko a ona slabě vzdychá. Vajíčko|bzučí a klouže hlouběji. Bude těžké ho vyjmout.),130,0,0,Insert()
+130,0,0,EggInside,(Vyndej jí vajíčko.)ADD_MINUTES:1,"(Strkáš ji do pochvy prsty, ale vajíčko nedokážeš|zachytit. Prozatím zůstane v ní.)",130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Uteč ze sborovny.),,130,0,0,Escape()
+130,0,0,,(Probuď ji.)ADD_MINUTES:1,(Pořádně jsi s ní zatřásla a ona se probouzí.)|Cože? Kde jsou mé šaty? A kdo mě spoutal?,220,0,0,NoLeave()
+200,0,0,Common_PlayerGagged,@Heaheruhi!,Sundám vám tu pásku.|Takže já jsem usnula?,200,0,0,Ungag()
+200,0,0,,"Ano, usnula jste.",To je ale trapné. Dám si tedy další|sklenici vody a trest může pokračovat.,250,0,0,NoCrime()
+200,0,0,,"Usnula jste,|tak jsem vás vzbudila.","Děkuji, vážím si toho. Dám si tedy další|sklenici vody a trest může pokračovat.",250,1,0,NoCrime()
+200,0,0,,Zdrogovala jsem vás.,"COŽE?! (Vrhne se na tebe, přimáčkne tě,|spoutá a zalepí ti pusu jakousi páskou.)",260,-2,1,FullRestrain()
+200,0,0,!SidneyGone,Sidney vás zdrogovala.,"Lhářko! Ona má pouta, takže jste to musela být vy!|(Vrhne se na tebe, spoutá tě a pusu zalepí páskou.)",260,-2,0,FullRestrain()
+200,0,0,SidneyGone,Sidney vás zdrogovala.,"SIDNEY!!! (Vyskočí ze svého křesla,|opustí místnost a utíká chodbou.)",270,1,0,NoCrime()
+210,0,0,Common_PlayerGagged,@Heaheruhi!,Sundám vám tu pásku.|Takže já jsem usnula? Kde mám šaty?,210,0,0,Ungag()
+210,0,0,,Usnula jste a já si|chtěla zkusit vaše šaty.,To byl ale velmi špatný nápad. (Obléká se.)|Dám si ještě vodu a váš trest může pokračovat.,250,-1,0,NoCrime()
+210,0,0,,"Byla jste jak v horečce,|tak jsem vás svlékla.",To je od vás hezké. (Obléká se.)|Dám si ještě vodu a váš trest může pokračovat.,250,1,0,NoCrime()
+210,0,0,,Zdrogovala jsem vás|a vysvlékla.,"COŽE?! (Vrhne se na tebe, přimáčkne tě,|spoutá a zalepí ti pusu jakousi páskou.)",260,-2,1,FullRestrain()
+210,0,0,!SidneyGone,Sidney vás zdrogovala|a svlékla,"Lhářko! Ona má přece pouta! (Vrhne se|na tebe, spoutá tě a zalepí pusu a obleče se.)",260,-2,0,FullRestrain()
+210,0,0,SidneyGone,Sidney vás zdrogovala|a svlékla.,"SIDNEY!!! (Vyskočí ze svého křesla,|rychle se obléká a utíká na chodbu.)",270,1,0,NoCrime()
+220,0,0,Common_PlayerGagged,@Heaheruhi!,"Předkloň se, ať ti můžu sundat tu pásku.|Kde mám šaty? A proč jsem spoutaná?",220,0,0,Ungag()
+220,0,0,,Teď jsi moje čubka.,Okamžitě mi sundejte ta pouta!,230,-1,2,AllowLeave()
+220,0,0,,Zdrogovala jsem vás|svlékla a spoutala.,Okamžitě mi ta pouta sundejte!,230,-1,1,AllowLeave()
+220,0,0,!SidneyGone,Sidney vás|svlékla a spoutala.,Lhářko! Ona má pouta! Vy jste to udělala!|Okamžitě mi ta pouta sundejte!,230,-1,0,AllowLeave()
+220,0,0,SidneyGone,Sidney vás|svlékla a spoutala.,Děkuji! SIDNEY! (Vyskakuje z křesla|a spoutaná a polonahá vybíhá z místnosti.),270,1,0,NoCrime()
+230,0,0,,Vypadáte takhle|nesmírně roztomile.,"Lichotky vašemu dobrodružství nijak nepomůžou,|slečínko. A teď mi koukejte sundat ta pouta!",230,0,0,
+230,0,0,,(Polechtej ji.)ADD_MINUTES:1,Hej!!! HeheHEHEhehe! Dost! Nechte toho!|(Nahlas se řehtá a červená se.),230,0,0,Tickle()
+230,0,0,,(Naplácej jí.)ADD_MINUTES:1,Au! Neopovažujte se na mne sahat!,230,0,0,
+230,0,0,,(Uteč ze sborovny.),,230,0,0,Escape()
+250,0,0,SidneyGone,"Pokud chcete Sidney,|utekla na chodbu.",Děkuji! Zůstaňte tady a já ji chytnu.|(Vyskakuje na nohy a opouští místnost.),270,1,0,
+250,0,0,Common_PlayerRestrained,(Ukaž jí svá pouta.),"Pouta si zatím nechte.|Odemknu vás, až vám skončí trest.",250,0,0,
+250,0,0,Common_PlayerRestrained,Hej! Nemůžete mě|tu nechat spoutanou.,Můžu i něco lepšího. (Odchází|a vrací se s pruhem lepící pásky pro tvou pusu.),250,0,0,GagPlayer()
+260,0,0,Common_PlayerGagged,@Uhmma huhme!,(Nevšímá si tě.),260,0,0,
+260,0,0,Common_PlayerGagged,(Makes pleading eyes.),(Nevšímá si tě.),260,0,0,
+270,0,0,,(Uteč ze sborovny.),,270,0,0,Escape()

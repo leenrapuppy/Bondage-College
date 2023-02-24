@@ -1,0 +1,30 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Nová hra,,0,0,0,"LoadChapter(""C001_BeforeClass"")"
+0,0,0,,Nahrát hru,,0,0,0,LoadScreen()
+0,0,0,,Výběr kapitoly,"Vyberte kapitolu, kterou chcete hrát.|Pokud hrajete poprvé, začněte 1. kapitolou.",10,0,0,
+0,0,0,,Změna jazyka,,30,0,0,
+0,0,0,,Poděkování / titulky,"Obrovské PODĚKOVÁNÍ všem,|kteří se podíleli na hře.",0,0,0,RollCredits()
+10,0,0,,1. kapitola|Před hodinou,,10,0,0,"LoadChapter(""C001_BeforeClass"")"
+10,0,0,,2. kapitola|První hodina,,10,0,0,"LoadChapter(""C002_FirstClass"")"
+10,0,0,,3. kapitola|Ranní trest,,10,0,0,"LoadChapter(""C003_MorningDetention"")"
+10,0,0,,4. kapitola|Hodina výtvarky,,10,0,0,"LoadChapter(""C004_ArtClass"")"
+10,0,0,,5. kapitola|Tělocvik,,10,0,0,"LoadChapter(""C005_GymClass"")"
+10,0,0,,6. kapitola|Samotka,,10,0,0,"LoadChapter(""C006_Isolation"")"
+10,0,0,,7. kapitola|Pauza na oběd,,10,0,0,"LoadChapter(""C007_LunchBreak"")"
+10,0,0,,8. kapitola|Dramatický kroužek,,10,0,0,"LoadChapter(""C008_DramaClass"")"
+10,0,0,,Další kapitoly,"Vyberte kapitolu, kterou chcete hrát.|Pokud hrajete poprvé, začněte 1. kapitolou",20,0,0,
+10,0,0,,Hlavní nabídka,"Vítejte na Bondage College.|Bavte se, buďte zvídaví a buďte zvrhlí!",0,0,0,
+20,0,0,,9. kapitola|Knihovna,,20,0,0,"LoadChapter(""C009_Library"")"
+20,0,0,,10. kapitola|Pomsta,,20,0,0,"LoadChapter(""C010_Revenge"")"
+20,0,0,,11. kapitola|Hodina literatury,,20,0,0,"LoadChapter(""C011_LiteratureClass"")"
+20,0,0,,12. kapitola|Po vyučování,,20,0,0,"LoadChapter(""C012_AfterClass"")"
+20,0,0,,Kapitola 101|Klub Kinbaku (od wildsj),,20,0,0,"LoadChapter(""C101_KinbakuClub"")"
+20,0,0,,Předešlé kapitoly,"Vyberte kapitolu, kterou chcete hrát.|Pokud hrajete poprvé, začněte 1. kapitolou",10,0,0,
+20,0,0,,Hlavní nabídka,"Vítejte na Bondage College.|Bavte se, buďte zvídaví a buďte zvrhlí!",0,0,0,
+30,0,0,,English,,0,0,0,"SetLanguage(""EN"")"
+30,0,0,,Français (Chapitre 1 à 9)|Traduit par gottspende,,0,0,0,"SetLanguage(""FR"")"
+30,0,0,,"Čínsky (Kap. 1.-6. & 9.)|Dwscdv3, Es & asdcvbgf",,0,0,0,"SetLanguage(""CN"")"
+30,0,0,,Español (Capítulo 1 & 2)|Rafael R. & tree13003,,0,0,0,"SetLanguage(""ES"")"
+30,0,0,,"Deutsch (Kapitel 1 bis 13)|adokilume, Knife, fleisch11",,0,0,0,"SetLanguage(""DE"")"
+30,0,0,,Русский (Глава 1)|От Fluend,,0,0,0,"SetLanguage(""RU"")"
+30,0,0,,Česky (Kapitoly 1 a 2)|Miisha,,0,0,0,"SetLanguage(""CS"")"

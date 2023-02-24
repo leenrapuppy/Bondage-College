@@ -1,0 +1,11 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,@Slot 1,Pozice 1 byla uložena.,0,0,0,SaveGame(1)
+0,0,0,,@Slot 2,Pozice 2 byla uložena.,0,0,0,SaveGame(2)
+0,0,0,,@Slot 3,Pozice 3 byla uložena.,0,0,0,SaveGame(3)
+0,0,0,,@Slot 4,Pozice 4 byla uložena.,0,0,0,SaveGame(4)
+0,0,0,,@Slot 5,Pozice 5 byla uložena.,0,0,0,SaveGame(5)
+0,0,0,,@Slot 6,Pozice 6 byla uložena.,0,0,0,SaveGame(6)
+0,0,0,,@Slot 7,Pozice 7 byla uložena.,0,0,0,SaveGame(7)
+0,0,0,,@Slot 8,Pozice 8 byla uložena.,0,0,0,SaveGame(8)
+0,0,0,,@Slot 9,Pozice 9 byla uložena.,0,0,0,SaveGame(9)
+0,0,0,,@Continue,,0,0,0,Continue()

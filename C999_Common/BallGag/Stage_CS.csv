@@ -1,0 +1,7 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej roubík.)ADD_MINUTES:1,"Tenhle velký roubík má postroj na celou hlavu.|Bude těžké ti rozumět, když ho budeš mít v ústech.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Nasaď si ho.)ADD_MINUTES:1,"Přetáhla sis popruhy přes hlavu,|zatlačila kuličku za zuby a zapla přezky.",10,0,0,SelfGag()
+10,0,0,HasLooseBallGag,(Prozkoumej|nepoužitý roubík.)ADD_MINUTES:1,"Tenhle velký roubík má postroj na celou hlavu.|Bude těžké ti rozumět, když ho budeš mít v ústech.",10,0,0,ShowImage()
+10,0,0,,(Skousni kuličku)ADD_MINUTES:1,"Zkoušíš žvýkat kuličku. Čelistem to malinko pomohlo,|ale roubík to ani v nejmenším nepoškodilo.",10,0,0,
+10,0,0,,(Zkus kuličku vyplivnout.)ADD_MINUTES:1,"Jazykem zkoušíš vytlačit kuličku z úst,|ale ani se nepohne. Bez rukou to nepůjde.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Sundej si roubík.)ADD_MINUTES:1,"Rozepla jsi všechny přezky, vytáhla sis roubík z úst|a už zase můžeš normálně mluvit.",0,0,0,SelfUngag()

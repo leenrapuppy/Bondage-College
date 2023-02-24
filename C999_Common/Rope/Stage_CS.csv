@@ -1,0 +1,9 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Pohraj si s ním.)ADD_MINUTES:1,Hraješ si s provazem. Zdá se velmi měkký|a na kůži je krásně příjemný.,0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Svaž se.)ADD_MINUTES:1,"Zkoušíš se svázat, ale uzly se ti nedaří.|Budeš potřebovat někoho jíného, aby tě svázal",0,0,0,QuerySelfBondage()
+10,0,0,HasLooseRope,(Pohraj si|s volným provazem.)ADD_MINUTES:1,Svázaná si hraješ s volným provazem.|Zdá se velmi měkký a příjemný na kůži.,10,0,0,ShowImage()
+10,0,0,,(Zkus dosáhnout na uzly.)ADD_MINUTES:1,"Snažíš se najít nějaký uzel,|co by se dal rozvázat, ale na žádný nedosáhneš.",10,0,0,
+10,0,0,,(Vyprosti se silou.)ADD_MINUTES:1,"Zmítáš se zuřivě v provazech,|ale osvobodit se nedokážeš.",10,0,0,
+10,0,0,,(Zatáhni za provaz|v rozkroku.)ADD_MINUTES:1,"Podařilo se ti zatahat za provaz,|který ti prochází rozkrokem a je to docela příjemné.",10,0,0,
+20,0,0,,(Svaž se.)ADD_MINUTES:1,Opatrně si omotáváš provaz kolem těla|a dokážeš ho zakončit pevným a bezpečným uzlem.,10,0,0,DoSelfBondage()
+20,0,0,,(Nedělej to.),Odoláváš nutkání se sama svázat.,0,0,0,

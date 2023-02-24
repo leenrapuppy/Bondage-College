@@ -1,0 +1,31 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Hádám, že jsi|po škole často?",Často? Tuhle místnost by měli přejmenovat po mně.,10,0,0,
+0,0,0,,Ještě jednou mi uděláš|problémy a budeš litovat!,"Ale hovno! To jsi byla ty, kdo nás tady dostal!",10,-1,1,
+0,0,0,,"Asi bychom měli zvolnit,|nebo nás vyhodí.",Co to je za blábol? Žijem přece jen jednou!,10,0,-1,
+0,0,0,,"Trest hned v první hodině.|To jde, ne?","To je hodně působivé, to musím uznat!",10,1,0,
+10,0,0,,A proč máš|vlastně pouta?,"Protože jsem posledně zdrhla.|Asi si ty paka chtěj pojistit, že tu zůstanu.",20,0,0,
+10,0,0,,Proč mi taky|nenasadili pouta?,Cha! Nechceš třeba ty moje?|Tak zkus utéct a taky tě zhaftnou.,20,0,-1,
+10,0,0,,Vypadáš v těch|poutech submisivně.,"(Červená se.) Ani omylem!|Nezkoušej odsud utéct nebo tě taky spoutají.",20,0,1,
+10,0,0,,"Potížista jako ty by|měl vždycky v poutech!","Nakopu ti prdel hned, co se jich zbavím.|A vsadím se, že ty je budeš mít za chvíli taky.",20,-1,0,
+20,0,0,,"Aspoň jsem ráda,|že mě tu zavřeli s tebou.","Jo, hádám, že to mohlo dopadnout hůř.",30,1,0,
+20,0,0,,"Tak co, jak|tu zabijeme čas?","Netuším, můžem třeba pozorovat ručičky hodinek.",30,0,0,
+20,0,0,,"Tak co, jak|odtud zdrheme?",Ty chceš zdrhnout? Najdi klíčky|od těchhle pout a já ti pomůžu.,30,0,0,
+30,0,0,,"Není toho moc,|co můžeme dělat.","Přesně! A teď mě přestaň otravovat.|(Cuká s pouty, aby se z nich dostala.)",40,0,0,
+30,0,0,,Vymýšlím plán.|Teď buď zticha!,"(Kývá hlavou, zůstává potichu a kontroluje si pouta.)",40,0,1,
+30,0,0,,Je to marné.|Musíme počkat.,TY jsi marná!|(Nevšímá si tě a cuká svými pouty.),40,0,-1,
+100,0,0,,Jo! A teď si|počkáme na výsledek.,"Jo! To je boží!|Vsadím se, že to za chvíli zabere.",110,1,0,
+100,0,0,,Teď víš proč si|na mě dávat pozor.,"Kurva jo. Jsem zvědavá, za jak dlouho to zabere.",110,0,1,
+100,0,0,,"Ne, že o tom cekneš!","Neboj, nic neřeknu.|Nemůžu se dočkat, až to zabere.",110,0,0,
+150,0,0,,To už by přeci|bylo přes čáru!,"Na škole není větší kretén, než jsi ty!|Měla jsi boží plán a takhle ho skopeš!",160,-1,-1,
+150,0,0,,Neboj se.|Ještě ji dostaneme!,Ještě? Před pár minutama jsi ji měla!|Měla jsi boží plán a takhle ho skopeš!,160,-1,0,
+150,0,0,,"Zmlkni! Já vím,|že jsem to posrala.","Jo, kurva! Totálně posrala!|Měla jsi boží plán a takhle ho skopeš!",160,-1,1,
+200,0,0,,Jo! A teď|se pobavíme.,(Nervózně na tebe hledí.)|Co máš na mysli?,210,0,0,
+200,0,0,,"Tak co,|chceš zdrhnout?","Jo, kurva! Máš klíčky od těchhle pout?",210,1,-1,
+200,0,0,,"Teď jsi celá|moje, čubičko.",O čem to kurva mluvíš?|(Nervózně na tebe hledí.),210,-1,1,
+210,0,0,Common_PlayerNotRestrained,(Svleč ji.)ADD_MINUTES:1,"Hej, moment! Co to děláš?!|(Přinutíš ji se svléct.)",220,0,0,Strip()
+210,1,0,,(Polib ji.)ADD_MINUTES:1,(Líbáš ji a ona zůstává beze slova.),210,0,0,Kiss()
+220,0,0,Common_PlayerNotRestrained,(Zase ji obleč.)ADD_MINUTES:1,"Je v tom, co děláš vůbec nějaká logika?",210,0,0,Dress()
+220,1,0,,(Polib ji.)ADD_MINUTES:1,(Líbáš ji a ona zůstává beze slova.),220,0,0,Kiss()
+220,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"Srát na tebe a na ten tvůj lechtací fetiš!|(Nezdá se, že by se smála nebo se jí to líbilo.)",220,0,0,Tickle()
+220,0,0,EggReady,(Strč jí vajíčko|do pochvy.)ADD_MINUTES:1,(Zasouváš jí vajíčko do pochvy. Bzučí a vklouzává|hlouběji.) Do hajzlu s tebou! Proč jsi to udělala?,220,-1,1,Insert()
+220,0,0,EggInside,(Vyndej jí vajíčko.)ADD_MINUTES:1,"(Strkáš do ní prsty, ale vajíčko nedokážeš zachytit.)|Ty ho neumíš vyndat?! Ty jsi ale pitomá!",220,0,0,

@@ -1,0 +1,71 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Rozumím.,"Dobře. Vítejte v našem zařízení. Věřím,|že se mezi těmito zdmi mnoho věcí naučíte.",10,0,0,
+0,0,0,,"Ano, slečno Mildred.","Velmi dobře. Vítejte v našem zařízení. Věřím,|že se mezi těmito zdmi mnoho věcí naučíte.",10,1,-1,
+0,0,0,,(Zůstaň potichu.),"Jste tichá, dobře. Vítejte v našem zařízení. Věřím,|že se mezi těmito zdmi mnoho věcí naučíte.",10,0,0,
+0,0,0,,To těžko.,"Možná vás budu muset nejprve naučit chování.|Věřím, že se mezi těmito zdmi mnoho věcí naučíte.",10,-1,1,
+10,0,0,,"Já doufám, že|ano, slečno Mildred.","Pokud se budete chovat podle školních pravidel,|stanete se řádnou dámou.",20,0,-1,
+10,0,0,,"Učte mě, prosím.","Budu. Pokud se budete chovat podle|školních pravidel, stanete se řádnou dámou.",20,0,0,
+10,0,0,,"Myslím, že se|mi tu bude líbit.","Jsem si jista, že ano. Pokud se budete chovat|podle školních pravidel, stanete se řádnou dámou.",20,1,0,
+10,0,0,,"Věřím, že vaše hodina|bude poučná.","To bude. Pokud se budete chovat podle|školních pravidel, stanete se řádnou dámou.",20,0,1,
+10,0,0,,(Zívni.),"Studentko, pokud se chcete stát řádnou dámou,|měla byste se soustředit a držet se pravidel.",20,-1,0,
+10,0,0,,(Pomalu přikývni.),"Pokud se budete chovat podle školních pravidel,|stanete se řádnou dámou.",20,0,-1,
+20,0,0,,Řádnou dámou?|To je vtip?,"Já nežertuji, slečínko! Dnes probereme|derivace. Doufám, že máte učebnice.",30,-1,1,
+20,0,0,,Řádnou dámou?|To je milé.,"(Usměje se na tebe.) Dnes probereme|derivace. Doufám, že máte učebnice.",30,1,0,
+20,0,0,,(Skloň hlavu|a pomalu přikývni.),"(Usměje se na tebe.) Dnes probereme|derivace. Doufám, že máte učebnice.",30,0,-1,
+30,0,0,,Ano slečno Mildred.|Těším se na učení.,Velmi dobře. Teď si otevřete učebnici|na straně 147 a prohlédněte si rovnice.,40,1,-1,
+30,0,0,,Derivace?|Co to kurva je?,(Švihne bičíkem do tvé lavice.) Pozor na jazyk!|A otevřete si učebnici na straně 147.,40,-1,0,
+30,0,0,,Derivace?|Matiku miluju!,Skvěle! Teď si otevřete učebnici|na straně 147 a prohlédněte si rovnice.,40,1,0,
+30,0,0,,Derivace?|Ty jsou těžké.,Tak do práce. Teď si otevřete učebnici|na straně 147 a prohlédněte si rovnice.,40,0,0,
+40,0,0,,(Zůstaň potichu a|otevři si učebnici.),"Dobře. Teď buďte potichu, zatímco vás budu učit.|(Vrací se za katedru a začíná vyučovat.)",50,0,0,
+40,0,0,,(Podívej se na|hodiny na zdi.),"(Přísně se na tebe podívá a vrací se|za katedru, kde začíná vyučovat.)",50,-1,0,
+40,0,0,,Ano slečno Mildred.|(Otevři učebnici.),"Velmi dobře. Buďte potichu, zatímco vás budu učit.|(Vrací se za katedru a začíná vyučovat.)",50,0,-1,
+40,0,0,,"Ano, dost řečí.|(Otevři učebnici.)","Dobře. Teď buďte potichu, zatímco vás budu učit.|(Vrací se za katedru a začíná vyučovat.)",50,0,1,
+100,0,0,,Slečno Mildred!|Co to děláte?,"Dávám vám lekci, mladá dámo.|(Lehce tě švihne svým bičíkem.)",110,0,0,
+100,0,0,,Co to kurva je?,Takovýto jazyk tady nehodlám tolerovat.|(Pořádně tě přetáhne svým bičíkem.),110,-1,0,
+100,0,0,,Hele!|To ale nesmíte!,"Samozřejmě, že můžu. Nemáte představu kde jste.|(Lehce tě švihne svým bičíkem.)",110,0,0,
+100,0,0,,(Zkus ji kopnout.),"Takže vy jste vzpurná mladá dáma? Tohle vás naučí!|(Pořádně tě přetáhne svým bičíkem.)",110,-1,1,
+110,0,0,,Do prdele!|To bolí!,Taková nevymáchaná ústa!|(Udeří tě skutečně velkou silou.),120,-1,0,
+110,0,0,,"Au! Slečno Mildred.|Prosím, přestaňte!","Přestanu, až vám dám lekci.|(Zlehka tě udeří a usmívá se.)",120,1,0,
+110,0,0,,"(Zůstaň zticha, tvař se,|že je ti to jedno.)","Jste silná, ale já vás zlomím!|(Udeří tě skutečně velkou silou.)",120,0,1,
+110,0,0,,Cha! Na víc|se nezmůžete?,"Takové mizerné vychování. Já vás zlomím!|(Udeří tě skutečně velkou silou.)",120,-1,1,
+110,0,0,,(Zůstaň zticha|a zkus nekřičet.),"Tahle lekce vás naučí, slečínko!|(Znova tě udeří, ale ne tak silně.)",120,0,0,
+120,0,0,,"Slečno, prosím!|Já už budu hodná!",(Naposledy tě lehce udeří.)|Takže budete hodná a budete dodržovat pravidla?,130,1,-1,
+120,0,0,,Slečno Mildred.|Dostala jsem lekci.,(Naposledy tě lehce udeří.)|Takže budete hodná a budete dodržovat pravidla?,130,1,0,
+120,0,0,,"Myslíte si,|že mi ublížíte?","(Naposledy tě pořádně udeří.) Poslední varování,|budete hodná a budete dodržovat pravidla?",130,0,0,
+120,0,0,,"Trhni si, krávo!","(Naposledy tě pořádně udeří.) Poslední varování,|budete hodná a budete dodržovat pravidla?",130,-1,1,
+130,0,0,,"Ano, slečno Mildred,|prosím za prominutí!",Odpouštím vám. A teď zpátky k učení.,50,2,-1,
+130,0,0,,"Ano, budu hodná.",Dobrá. A teď zpátky k učení.,50,1,0,
+130,0,0,,Ani nápad! Já se|řídím podle sebe.,"(Nasadí ti pouta a do úst ti dá kuličkový roubík.)|Když se neumíte chovat, zbytek hodiny strávíte takto.",50,0,0,RestrainPlayer()
+130,0,0,,(Odmítni odpovědět.),"(Nasadí ti pouta a do úst ti dá kuličkový roubík.)|Když chcete být zticha, zbytek hodiny strávíte takto.",50,0,-1,RestrainPlayer()
+200,0,0,Common_PlayerNotRestrained,"(Promluv, aby|si tě všimla)",,200,-1,0,Disturb()
+200,0,0,Common_PlayerNotRestrained,(Pokus se ji přemoci.),"Opravdu ji chceš zkusit přemoci a svázat?|(Každá studentka, ochotná ti pomoci, zvedá šanci.)",210,0,0,
+200,0,0,Common_PlayerRestrained,Uummph!,(Tvých zvuků si nevšímá|a ostatní studentky se chichotají.),200,0,0,
+200,0,0,Common_PlayerRestrained,(Škubej pouty.)ADD_MINUTES:1,"(Bezvýsledně se mrskáš. Ona věří,|že se osvobodit nedokážeš a proto tě ignoruje.)",200,0,0,
+210,0,0,Common_PlayerNotRestrained,"(Ano, zkus ji přemoci.)",,210,-2,0,Subdue()
+210,0,0,,"(Ne, možná později.)",Vzdáváš se svého plánu na únos.|(Slečna Mildred pokračuje ve své hodině.),200,0,0,
+220,0,0,,Lekce od vás?|Ani náhodou!,"(Šestkrát tě tvrdě udeří, nasadí ti pouta a roubík.)|Když se neumíte chovat, zůstanete takhle.",220,0,1,RestrainPlayer()
+220,0,0,,"Naser si, krávo!","(Desetkrát tě tvrdě udeří, nasadí ti pouta a roubík.)|Když se neumíte chovat, zůstanete takhle.",220,-1,0,RestrainPlayer()
+220,0,0,,Ne! Prosím!|Moc se omlouvám!,"(Dvakrát tě tvrdě udeří a nasadí ti pouta a roubík.)|Na omluvy už je pozdě, zůstanete takhle.",220,0,-1,RestrainPlayer()
+220,0,0,,(Zůstaň potichu.),"(Čtyřikrát tě tvrdě udeří a pak ti nasadí pouta a roubík.)|Když se neumíte chovat, zůstanete takhle.",220,0,0,RestrainPlayer()
+300,0,0,,"Teď tomu tady|velím já, Mildred","Velíte? Ale učitelka jsem já!|Jste ve velikém problému, slečínko!",310,0,1,
+300,0,0,,"Konečně bude tahle|hodina zajímavější, dámo!","Nesmysl! Tuhle hodinu vedu já!|Jste ve velikém problému, slečínko!",310,0,0,
+300,0,0,,Nedělejte problémy|a brzy to skončí,(Přikývne a zůstane zticha.),310,0,1,
+300,0,0,,"Netušila jsem,|že jste tak pěkná.","(Červená se.)|Co vlastně máte v plánu, mladá dámo?",310,1,0,
+310,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Mrská se, aby se ti vyhnula a tiše se směje.)|Jste v čím dál větším problému!",310,0,0,
+310,0,0,SearchAvail,(Prohledej jí věci.)ADD_MINUTES:1,(Prohledala jsi její věci a našla spoustu|zajímavých předmětů.) Vy malá zlodějko!,310,-1,0,Search()
+320,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Mrská se, aby se ti vyhnula a tiše se směje.)",320,0,0,
+320,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Pomalu rozepínáš přezky roubíku.)|Mladá dámo! To je krajně nevhodné!,310,0,0,Ungag()
+330,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Mrská se, aby se ti vyhnula a tiše se směje.)|Jste v čím dál větším problému!",330,0,0,
+330,0,0,SearchAvail,(Prohledej jí věci.)ADD_MINUTES:1,(Prohledala jsi její věci a našla spoustu|zajímavých předmětů.) Vy malá zlodějko!,330,-1,0,Search()
+340,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Mrská se, aby se ti vyhnula a tiše se směje.)",340,0,0,
+340,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Pomalu rozepínáš přezky roubíku.)|Mladá dámo! To je krajně nevhodné!,330,0,0,Ungag()
+410,0,0,Common_PlayerNotRestrained,(Švihni jí.)ADD_MINUTES:1,(Pořádně jsi jí bičíkem švihla přes zadek.)|Slečínko! Tohohle budete brzy litovat!,410,0,0,Whip()
+410,0,0,Common_PlayerNotRestrained,(Odlož bičík.)ADD_MINUTES:1,(Odložila jsi bičík a postavila ji zpátky na nohy.),310,0,0,
+420,0,0,Common_PlayerNotRestrained,(Švihni jí.)ADD_MINUTES:1,(Pořádně jsi jí bičíkem švihla přes zadek.)|(Vztekle křičí do svého roubíku.),420,0,0,Whip()
+420,0,0,Common_PlayerNotRestrained,(Odlož bičík.)ADD_MINUTES:1,(Odložila jsi bičík a postavila ji zpátky na nohy.),320,0,0,
+420,0,0,Common_PlayerNotRestrained,(Sundej jí roubík)ADD_MINUTES:1,(Pomalu rozepínáš přezky roubíku.)|Mladá dámo! To je krajně nevhodné!,410,0,0,Ungag()
+430,0,0,Common_PlayerNotRestrained,(Švihni jí.)ADD_MINUTES:1,(Pořádně jsi jí bičíkem švihla přes zadek.)|Slečínko! Tohohle budete brzy litovat!,430,0,0,Whip()
+430,0,0,Common_PlayerNotRestrained,(Odlož bičík.)ADD_MINUTES:1,(Odložila jsi bičík a postavila ji zpátky na nohy.),330,0,0,
+440,0,0,Common_PlayerNotRestrained,(Švihni jí.)ADD_MINUTES:1,(Pořádně jsi jí bičíkem švihla přes zadek.)|(Vztekle křičí do svého roubíku.),440,0,0,Whip()
+440,0,0,Common_PlayerNotRestrained,(Odlož bičík.)ADD_MINUTES:1,(Odložila jsi bičík a postavila ji zpátky na nohy.),340,0,0,
+440,0,0,Common_PlayerNotRestrained,(Sundej jí roubík)ADD_MINUTES:1,(Pomalu rozepínáš přezky roubíku.)|Mladá dámo! To je krajně nevhodné!,430,0,0,Ungag()

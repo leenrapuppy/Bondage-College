@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,Je vyroben z dobré kůže a jeho úder musí pěkně|štípat. Trvalé jizvy ale nezanechává.,0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Švihni se.)ADD_MINUTES:1,Švihla ses bičíkem do dlaně a pěkně tě to štíplo.|Červený otisk by měl za chvíli zmizet.,0,0,0,

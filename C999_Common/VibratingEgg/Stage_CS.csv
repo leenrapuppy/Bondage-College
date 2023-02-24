@@ -1,0 +1,9 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,"Tohle vibrační vajíčko je tak maličké a nevyzpytatelné.|Asi bude problém ho vytáhnout ven, když ho zastrčíš.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Zastrč si ho.)ADD_MINUTES:1,"Strkáš sis vajíčko do pochvy. Vibruje a vklouzává|hlouběji a nejsi si jista, že ho dokážeš vyjmout.",0,0,0,Insert()
+10,0,0,HasLooseEgg,(Prozkoumej|volné vajíčko)ADD_MINUTES:1,"Tohle vibrační vajíčko je tak maličké a nevyzpytatelné.|Asi bude problém ho vytáhnout ven, když ho zastrčíš.",10,0,0,ShowImage()
+10,0,0,!Common_PlayerChaste,(Vyjmi ho prstem.)ADD_MINUTES:1,"Šmátráš prstem, ale nedokážeš vajíčko zachytit tak,|abys ho vyndala. Je tam jako v pasti.",10,0,0,
+10,0,0,Common_PlayerChaste,(Vyjmi ho prstem.)ADD_MINUTES:1,"Zataháš za pás a snažíš se dostat tam prstem,|ale nemáš šanci na vajíčko dosáhnout.",10,0,0,
+10,0,0,,(Vytlač ho.)ADD_MINUTES:1,"Zmítáš se a snažíš se z pochvy vajíčko|vytlačit, ale to se nehýbe. Je tam jak v pasti.",10,0,0,Contract()
+20,0,0,HasLooseEgg,(Prozkoumej|volné vajíčko.)ADD_MINUTES:1,"Tohle vibrační vajíčko je tak maličké a nevyzpytatelné.|Asi bude problém ho vytáhnout ven, když ho zastrčíš.",20,0,0,ShowImage()
+20,0,0,,(Vytlač ho.)ADD_MINUTES:1,"Zmítáš se a snažíš se z pochvy vajíčko|vytlačit, ale bez volné ruky vajíčko nevyndáš.",20,0,0,

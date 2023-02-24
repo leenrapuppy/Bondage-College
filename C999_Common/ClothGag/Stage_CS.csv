@@ -1,0 +1,6 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej roubík.)ADD_MINUTES:1,"Tento roubík se skládá ze spousty látky, co jde do úst.|Další pruh se pak váže kolem hlavy a výplň drží uvnitř.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Dej si ho do úst.)ADD_MINUTES:1,"Nacpala sis látku do pusy, druhou látku|zavázala přes ústa a zauzlovala za hlavou.",10,0,0,SelfGag()
+10,0,0,,(Skousni látku v puse.)ADD_MINUTES:1,"Zkoušíš žvýkat kuličku látky. Čelistem to trochu|pomohlo, ale roubík pořád drží pevně.",10,0,0,
+10,0,0,,(Zkus výplň vyplivnout.)ADD_MINUTES:1,"Jazykem zkoušíš vytlačit kuličku látky z úst, ale látka|přes ústa ji pevně drží uvnitř. Bez rukou to nepůjde.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Sundej si roubík.)ADD_MINUTES:1,"Rozvázalas látku která držela v tvých ústech|výplň, vyplivla ji ven a už zase můžeš mluvit.",0,0,0,SelfUngag()

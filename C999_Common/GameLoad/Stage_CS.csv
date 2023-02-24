@@ -1,0 +1,11 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,@Slot 1,Pozici 1 není možné nahrát.,0,0,0,LoadGame(1)
+0,0,0,,@Slot 2,Pozici 2 není možné nahrát.,0,0,0,LoadGame(2)
+0,0,0,,@Slot 3,Pozici 3 není možné nahrát.,0,0,0,LoadGame(3)
+0,0,0,,@Slot 4,Pozici 4 není možné nahrát.,0,0,0,LoadGame(4)
+0,0,0,,@Slot 5,Pozici 5 není možné nahrát.,0,0,0,LoadGame(5)
+0,0,0,,@Slot 6,Pozici 6 není možné nahrát.,0,0,0,LoadGame(6)
+0,0,0,,@Slot 7,Pozici 7 není možné nahrát.,0,0,0,LoadGame(7)
+0,0,0,,@Slot 8,Pozici 8 není možné nahrát.,0,0,0,LoadGame(8)
+0,0,0,,@Slot 9,Pozici 9 není možné nahrát.,0,0,0,LoadGame(9)
+0,0,0,,Hlavní nabídka,,0,0,0,MainMenu()

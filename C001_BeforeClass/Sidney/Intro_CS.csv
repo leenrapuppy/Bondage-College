@@ -1,0 +1,22 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,Co chceš? (Zírá na tebe.),SidneyFace.jpg
+0,0,0,AmandaInBondage,Boží! Svázat ji chci už několik týdnů.|A co vlastně chceš? (Zírá na tebe.),SidneyFace.jpg
+10,0,0,,(Zírá na dívku s hnědými vlasy.),SidneyStare.jpg
+20,0,0,,(Založí si paže a dívá se ti do očí.),SidneyFace.jpg
+30,0,0,,(Zase zírá na dívku s hnědými vlasy.),SidneyStare.jpg
+40,0,0,,(Otočí hlavu a ignoruje tě.),SidneyBack.jpg
+40,2,0,,"Hodina za chvíli začne, ale promluvíme si později.",SidneyFace.jpg
+40,-2,0,,"Nemluv na mě, krávo!|(Otočí hlavu a ignoruje tě.)",SidneyBack.jpg
+40,0,0,AmandaInBondage,"Gratuluji ti, žes ji tak ztrapnila. Pak si promluvíme.|(Prohlíží si Amandu a pak dává palec nahoru)",SidneyFace.jpg
+100,0,0,,"Fuck! Ty mi čumíš do báglu?|(Vypadá nervózní z toho, že jsi našla provazy)",SidneyFace.jpg
+110,0,0,,(Se zvědavým výrazem se na tebe podívá),SidneyFace.jpg
+200,0,0,,Ty jsi mi z báglu ukradla provazy?|(Vypadá rozzuřeně.),SidneyFace.jpg
+210,0,0,,Vrať mi moje provazy!,SidneyFace.jpg
+220,0,0,,"Počkej, až se z toho dostanu!|(Bezúspěšně se snaží se osvobodit.)",SidneyBondageFront.jpg
+220,0,0,AmandaInBondage,"Alespoň, že ona vypadá poníženěji než já!|(Dívá se na Amandu a usmívá se.)",SidneyBondageFront.jpg
+230,0,0,,,SidneyBondageBack.jpg
+240,0,0,,,SidneyBondageHug.jpg
+250,0,0,,,SidneyBondageKiss.jpg
+300,0,0,,Zlodějko! Nemáme se o čem bavit!,SidneyBack.jpg
+310,0,0,,"Nemůžu uvěřit, žes mě tu svázala!|Ještě si o tom promluvíme.",SidneyFace.jpg
+310,0,0,AmandaInBondage,"Nemůžu uvěřit, žes mě tu svázala!|Na druhou stranu, ona je pořád ještě v loji.",SidneyFace.jpg

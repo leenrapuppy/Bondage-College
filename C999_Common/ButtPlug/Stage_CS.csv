@@ -1,0 +1,13 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,"I když je z bezpečného silikonu a má velkou základnu,|tenle kolík tě pěkně roztáhne a určitě nevyklouzne.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Zastrč si ho.)ADD_MINUTES:1,Uvolnila ses a zastrčila ho na místo. Roztahuje a plní|tvůj zadek. Ta stopka se už tak malá nezdá.,0,0,0,Insert()
+10,0,0,HasLoosePlug,(Prozkoumej volný kolík.)ADD_MINUTES:1,"I když je z bezpečného silikonu a má velkou základnu,|tenle kolík tě pěkně roztáhne a určitě nevyklouzne.",10,0,0,ShowImage()
+10,0,0,!Common_PlayerChaste,(Vyndej si ho rukou.)ADD_MINUTES:1,Uvolnila ses a pomalu jsi vytáhla kolík za jeho konec.|Ještě jednou ti přitom pořádně roztáhl svěrač.,0,0,0,HandOut()
+10,0,0,Common_PlayerChaste,(Vyndej si ho rukou.)ADD_MINUTES:1,"Pás cudnosti překrývá i kolík|a tím ti brání v jeho vyjmutí.",10,0,0,
+10,0,0,,(Zatni svaly na zadku.)ADD_MINUTES:1,"Kolík se ti zdá nemilosrdně tvrdý a tvůj zadek|příliš těsný, až do chvíle, než se zase uvolníš.",10,0,0,
+10,0,0,!Common_PlayerChaste,(Vytlač ho.)ADD_MINUTES:1,"Uvolňuješ a zatínáš svaly, kroutíš se|a snažíš se tlačit, ale ani se nehne. Musíš ho i tahat.",10,0,0,
+10,0,0,Common_PlayerChaste,(Vytlač ho.)ADD_MINUTES:1,"Uvolňuješ se, kroutíš se a snažíš se tlačit, ale pás|cudnosti brání všem pokusům o jeho vyklouznutí.",10,0,0,
+20,0,0,HasLoosePlug,(Prozkoumej volný kolík.)ADD_MINUTES:1,"I když je z bezpečného silikonu a má velkou základnu,|tenle kolík tě pěkně roztáhne a určitě nevyklouzne.",20,0,0,ShowImage()
+20,0,0,!Common_PlayerChaste,(Vytlač ho.)ADD_MINUTES:1,"Uvolňuješ a zatínáš svaly, kroutíš se|a snažíš se tlačit, ale ani se nehne. Musíš ho i tahat.",20,0,0,
+20,0,0,Common_PlayerChaste,(Vytlač ho.)ADD_MINUTES:1,"Uvolňuješ se, kroutíš se a snažíš se tlačit, ale pás|cudnosti brání všem pokusům o jeho vyklouznutí.",20,0,0,
+20,0,0,,(Zatni svaly na zadku.)ADD_MINUTES:1,"Kolík se ti zdá nemilosrdně tvrdý a tvůj zadek|příliš těsný, až do chvíle, než se zase uvolníš.",20,0,0,
