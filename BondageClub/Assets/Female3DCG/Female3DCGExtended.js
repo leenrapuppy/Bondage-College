@@ -3799,6 +3799,34 @@ var AssetFemale3DCGExtended = {
 		},
 	},
 	Mouth: {
+		Regular: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Lips", Key: "l",
+						Options: [
+							{}, // l0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l1 - middle
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l2 - left
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l3 - right
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l4 - both sides
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l5 - triple
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l6 - vertical labret
+							{PrerequisiteBuyGroup: "JewelrySet"}, // l7 - vertical labret with rings
+						]
+					},
+					{
+						Name: "Tongue", Key: "t",
+						Options: [
+							{}, // t0 - none
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t1 - one stud
+							{PrerequisiteBuyGroup: "JewelrySet"}, // t2 - double studs
+						]
+					},
+				]
+			},
+		},
 		Full: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {

@@ -3167,8 +3167,14 @@ var AssetFemale3DCG = [
 			{
 				Name: "Regular",
 				Layer: [
-					{ Name: "Lips", AllowColorize: true },
-					{ Name: "Inner", AllowColorize: false }
+					{ Name: "Lips", HasType: false, AllowColorize: true },
+					{ Name: "Inner", HasType: false, AllowColorize: false },
+					{ Name: "RingMiddle", HasType: false, AllowModuleTypes: ["l1","l5"] },
+					{ Name: "RingLeft", HasType: false, AllowModuleTypes: ["l2","l4","l5","l7"], CopyLayerColor: "RingMiddle" },
+					{ Name: "RingRight", HasType: false, AllowModuleTypes: ["l3","l4","l5","l7"], CopyLayerColor: "RingMiddle" },
+					{ Name: "Labret", HasType: false, AllowModuleTypes: ["l6","l7"], CopyLayerColor: "RingMiddle" },
+					{ Name: "TongueStud1", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "RingMiddle" },
+					{ Name: "TongueStud2", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "RingMiddle" },
 				]
 			},
 			{ Name: "Discreet" },
