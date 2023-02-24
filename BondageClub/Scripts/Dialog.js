@@ -1893,15 +1893,13 @@ function DialogClick() {
 				if (StruggleMinigameIsRunning()) {
 					StruggleMinigameClick();
 					// Minigame handled the click
-				} else if (MouseIn(1387-300, 600, 225, 275)) {
-					StruggleMinigameStart(Player, "Strength", DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
-					DialogMenuButtonBuild(C);
-				} else if (MouseIn(1387, 600, 225, 275)) {
-					StruggleMinigameStart(Player, "Flexibility", DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
-					DialogMenuButtonBuild(C);
-				} else if (MouseIn(1387+300, 600, 225, 275)) {
-					StruggleMinigameStart(Player, "Dexterity", DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
-					DialogMenuButtonBuild(C);
+				} else {
+					for (const [idx, [game, data]] of StruggleGetMinigames().entries()) {
+						if (MouseIn(1387 + 300 * (idx - 1), 600, 225, 275) && data.DisablingCraftedProperty && !InventoryCraftPropertyIs(DialogStrugglePrevItem, data.DisablingCraftedProperty)) {
+							StruggleMinigameStart(Player, game, DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
+							DialogMenuButtonBuild(C);
+						}
+					}
 				}
 				return;
 			}
@@ -2358,12 +2356,11 @@ function DialogDrawItemMenu(C) {
 		// Draw UI to select struggling minigame
 		DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
 
-		const struggleCraftingBonus = ["Strong", "Flexible", "Nimble"];
-		for (const [idx, game] of ["Strength", "Flexibility", "Dexterity"].entries()) {
+		for (const [idx, [game, data]] of StruggleGetMinigames().entries()) {
 			const offset = 300 * idx;
 			const hover = MouseIn(1087 + offset, 600, 225, 275);
-			const bonus = InventoryCraftPropertyIs(StruggleProgressPrevItem, struggleCraftingBonus[idx]);
-			const bgColor = hover ? "aqua" : (bonus ? "Pink" : "white");
+			const disabled = data.DisablingCraftedProperty ? InventoryCraftPropertyIs(DialogStrugglePrevItem, data.DisablingCraftedProperty) : false;
+			const bgColor = disabled ? "Gray" : (hover ? "aqua" : "white");
 			DrawRect(1087 + offset, 600, 225, 275, bgColor);
 			DrawImageResize("Icons/Struggle/" + game + ".png", 1089 + offset, 602, 221, 221);
 			DrawTextFit(DialogFindPlayer(game), 1200 + offset, 850, 221, "black");

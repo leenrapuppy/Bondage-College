@@ -2895,6 +2895,7 @@ interface StruggleMinigame {
 	Setup: (C: Character, PrevItem: Item, NextItem: Item) => void;
 	Draw: (C: Character) => void;
 	HandleEvent?: (EventType: "KeyDown"|"Click") => void;
+	DisablingCraftedProperty?: CraftingPropertyType;
 }
 
 interface StruggleCompletionData {

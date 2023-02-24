@@ -86,16 +86,19 @@ const StruggleMinigames = {
 		Setup: StruggleStrengthSetup,
 		Draw: StruggleStrengthDraw,
 		HandleEvent: StruggleStrengthHandleEvent,
+		DisablingCraftedProperty: "Strong",
 	},
 	Flexibility: {
 		Setup: StruggleFlexibilitySetup,
 		Draw: StruggleFlexibilityDraw,
 		HandleEvent: StruggleFlexibilityHandleEvent,
+		DisablingCraftedProperty: "Flexible",
 	},
 	Dexterity: {
 		Setup: StruggleDexteritySetup,
 		Draw: StruggleDexterityDraw,
 		HandleEvent: StruggleDexterityHandleEvent,
+		DisablingCraftedProperty: "Nimble",
 	},
 	LockPick: {
 		Setup: StruggleLockPickSetup,
@@ -103,6 +106,13 @@ const StruggleMinigames = {
 		HandleEvent: StruggleLockPickHandleEvent,
 	}
 };
+
+/**
+ * Get the list of struggle minigames.
+ */
+function StruggleGetMinigames() {
+	return /** @type {[StruggleKnownMinigames, StruggleMinigame][]} */(Object.entries(StruggleMinigames).filter(e => e[0] !== "LockPick"));
+}
 
 /**
  * Main handler for drawing the struggle minigame screen
