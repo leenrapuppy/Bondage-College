@@ -645,24 +645,29 @@ function DialogIntro() {
  * @returns {void} - Nothing
  */
 function DialogLeave() {
-	if (DialogMenuMode === "permissions" && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
+	if (!CurrentCharacter) return;
+
 	DialogLeaveFocusItem();
-	Player.FocusGroup = null;
-	if (CurrentCharacter) {
-		if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
-			CharacterAppearanceForceUpCharacter = -1;
-			CharacterRefresh(CurrentCharacter, false);
-		}
-		CurrentCharacter.FocusGroup = null;
+
+	// Reset the character's height
+	if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
+		CharacterAppearanceForceUpCharacter = -1;
+		CharacterRefresh(CurrentCharacter, false);
 	}
-	DialogInventory = null;
-	DialogChangeMode("dialog");
+
+	DialogChangeFocusToGroup(CurrentCharacter, null);
+
+	// Deselect the character, exiting the dialog
 	CurrentCharacter = null;
+
+	// Reset the state of the self menu
 	DialogSelfMenuSelected = null;
 	DialogSavedExpressionPreviews = [];
 	DialogFacialExpressionsSelected = -1;
-	ControllerClearAreas();
 	DialogFacialExpressions = [];
+
+	// Go controller, go!
+	ControllerClearAreas();
 }
 
 /**
@@ -772,21 +777,7 @@ function DialogMenuBack() {
  * @returns {void} - Nothing
  */
 function DialogLeaveItemMenu() {
-	DialogEndExpression();
-	Player.FocusGroup = null;
-	if (CurrentCharacter) {
-		CurrentCharacter.FocusGroup = null;
-	}
-	DialogInventory = null;
-	DialogMenuButton = [];
-	DialogTextDefault = "";
-	DialogTextDefaultTimer = 0;
-	ElementRemove("InputColor");
-	AudioDialogStop();
-	ColorPickerEndPick();
-	ColorPickerRemoveEventListener();
-	ItemColorCancelAndExit();
-	DialogChangeMode("dialog");
+	DialogChangeFocusToGroup(CharacterGetCurrent(), null);
 }
 
 /**
@@ -1295,9 +1286,6 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 	// Make sure there's a focused group
 	DialogInventoryOffset = Offset == null ? 0 : Offset;
 
-	// Refresh the list of activities
-	DialogBuildActivities(C);
-
 	const DialogInventoryBefore = DialogInventoryStringified(C);
 	DialogInventory = [];
 	if (C.FocusGroup != null) {
@@ -1368,9 +1356,7 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 
 		}
 
-		// Rebuilds the dialog menu and its buttons
 		DialogInventorySort();
-		DialogMenuButtonBuild(C);
 
 		// Build the list of preview images
 		const DialogInventoryAfter = DialogInventoryStringified(C);
@@ -1944,12 +1930,38 @@ function DialogChangeFocusToGroup(C, Group) {
 		G = Group;
 	}
 
-	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
+	// Deselect any extended screen and color picking in progress
+	// It's done without calling DialogLeaveFocusItem() so it
+	// acts as cancelling out of a in-progress edit.
 	DialogFocusItem = null;
 	DialogTightenLoosenItem = null;
-	DialogChangeMode("items");
-	DialogInventoryBuild(C);
-	DialogText = DialogTextDefault;
+	ItemColorCancelAndExit();
+
+	// Stop sounds & expressions from struggling/swapping items
+	AudioDialogStop();
+	DialogEndExpression();
+
+	// If we're in the two-character dialog, clear their focused group
+	if (!CurrentCharacter.IsPlayer()) {
+		Player.FocusGroup = null;
+		CurrentCharacter.FocusGroup = null;
+	}
+
+	// Reset default dialog text so it gets regenerated
+	DialogTextDefault = "";
+	// DialogTextDefaultTimer = 0;
+
+	// Now set the selected group and refresh
+	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
+	if (C.FocusGroup) {
+		// If we're changing permissions on ourself, don't change to the item list
+		if (!(DialogMenuMode === "permissions" && C.IsPlayer())) {
+			DialogChangeMode("items");
+		}
+	} else {
+		// We don't have a focused group anymore. Switch to dialog mode.
+		DialogChangeMode("dialog");
+	}
 }
 
 /**
@@ -1974,11 +1986,6 @@ function DialogClick() {
 
 	// User clicked on the interacted character or herself, check if we need to update the menu
 	if (MouseIn(0, 0, 1000, 1000) && (CurrentCharacter.AllowItem || (MouseX < 500)) && ((CurrentCharacter.ID != 0) || (MouseX > 500)) && (DialogIntro() != "") && DialogAllowItemScreenException()) {
-		// Permissions are player-only. If we clicked away from us, switch back to items.
-		if (DialogMenuMode === "permissions" && C.ID !== (MouseX < 500 ? Player.ID : CurrentCharacter.ID)) {
-			DialogLeaveItemMenu();
-		}
-
 		C = (MouseX < 500) ? Player : CurrentCharacter;
 		let X = MouseX < 500 ? 0 : 500;
 		for (const Group of AssetGroup) {
@@ -2447,7 +2454,7 @@ function DialogDrawItemMenu(C) {
 	if (DialogMenuMode === "crafted" && (FocusItem != null) && (FocusItem.Craft != null))
 		return DialogDrawCrafting(C, FocusItem);
 
-	// Draws the color picker
+	// Draws the color picker for the default color
 	if (!FocusItem && DialogMenuMode === "color") {
 		ElementPosition("InputColor", 1450, 65, 300);
 		ColorPickerDraw(1300, 145, 675, 830,
