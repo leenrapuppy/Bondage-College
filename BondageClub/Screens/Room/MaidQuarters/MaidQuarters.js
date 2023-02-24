@@ -37,12 +37,12 @@ function MaidQuartersIsMaidsDisabled() { var expire = LogValue("MaidsDisabled", 
  * Checks if the player is helpless (maids disabled) or not and also if they have reputation to do work
  * @returns {boolean} - Returns true if the player has maids enabled and also has rep
  */
-function MaidQuartersCanDoWorkForMaids() { return (DialogReputationGreater("Maid", 1) && !MaidQuartersIsMaidsDisabled()); }
+function MaidQuartersCanDoWorkForMaids() { return (DialogReputationGreater("Maid", "1") && !MaidQuartersIsMaidsDisabled()); }
 /**
  * Checks if the player is helpless (maids disabled) or not and also if they have reputation to do work
  * @returns {boolean} - Returns true if the player has maids enabled and also has rep
  */
-function MaidQuartersCanDoWorkButMaidsDisabled() { return (DialogReputationGreater("Maid", 1) && MaidQuartersIsMaidsDisabled()); }
+function MaidQuartersCanDoWorkButMaidsDisabled() { return (DialogReputationGreater("Maid", "1") && MaidQuartersIsMaidsDisabled()); }
 /**
  * CHecks for appropriate dressing
  * @returns {boolean} - Returns true if the player wears a maid dress and a maid hair band, false otherwise
@@ -164,7 +164,9 @@ function MaidQuartersAllowMaidCleaning() { return (!Player.IsRestrained() && !Ma
  * @returns {boolean} - Returns true, if the player is ready for the job, false otherwise
  */
 function MaidQuartersAllowSelfBondageMaidCleaning() {
-	return (MaidQuartersPlayerInCleaningUniform() && !MaidQuartersMaid.IsRestrained() && !LogQuery("ClubMistress", "Management")); }
+	return (MaidQuartersPlayerInCleaningUniform() && !MaidQuartersMaid.IsRestrained() && !LogQuery("ClubMistress", "Management"));
+}
+
 /**
  * Accept to start the 'clean room job' when self prepared for it
  * @returns {void} - Nothing

@@ -57,7 +57,7 @@ const AssetsClothCheerleaderTopData = {
 		width: 130,
 		yOffset: 84,
 	}
-}
+};
 
 /**
  * @param {DynamicDrawingData} data

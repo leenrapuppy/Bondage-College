@@ -85,13 +85,13 @@ function EmptyShopRelease() {
  * @returns {void} - Nothing
  */
 function EmptyShopEnd(Sold) {
-	Sold = (Sold == "true");
-	ShopVendor.Stage = (Sold) ? "33" : "34";
-	if (Sold) CharacterChangeMoney(Player, ShopDemoItemPayment);
+	const WasSold = (Sold == "true");
+	ShopVendor.Stage = (WasSold) ? "33" : "34";
+	if (WasSold) CharacterChangeMoney(Player, ShopDemoItemPayment);
 	DialogLeave();
 	CommonSetScreen("Room", "Shop");
 	CharacterSetCurrent(ShopVendor);
-	ShopVendor.CurrentDialog = DialogFind(ShopVendor, (Sold) ? "ItemSold" : "ItemNotSold").replace("MoneyAmount", ShopDemoItemPayment.toString());
+	ShopVendor.CurrentDialog = DialogFind(ShopVendor, (WasSold) ? "ItemSold" : "ItemNotSold").replace("MoneyAmount", ShopDemoItemPayment.toString());
 	CharacterAppearanceFullRandom(ShopCustomer, false);
 	CharacterRandomName(ShopCustomer);
 }

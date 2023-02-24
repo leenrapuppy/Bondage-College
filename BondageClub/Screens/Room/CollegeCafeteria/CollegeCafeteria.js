@@ -195,7 +195,7 @@ function CollegeCafeteriaInviteToPrivateRoom() {
 	CharacterAppearanceFullRandom(CollegeCafeteriaSidney);
 	CharacterRandomName(CollegeCafeteriaSidney);
 	CollegeEntranceWearStudentClothes(CollegeCafeteriaSidney);
-	CollegeCafeteriaSidney.Stage = 1000;
+	CollegeCafeteriaSidney.Stage = "1000";
 	CharacterRefresh(CollegeCafeteriaSidney);
 
 }

@@ -3,17 +3,17 @@ var PrisonBackground = "Prison";
 /** @type {null | number} */
 var PrisonNextEventTimer = null;
 var PrisonNextEvent = false;
-/** @type {null | boolean} */
-var PrisonerMetalCuffsKey = null;
-/** @type {null | boolean} */
-var PrisonerMetalPadlockKey = null;
-/** @type {null | boolean} */
-var PrisonerIntricatePadlockKey = null;
-/** @type {null | boolean} */
-var PrisonerSleepingPills = null;
-/** @type {null | boolean} */
-var PrisonerSpankingToys = null;
-/** @type {null | boolean} */
+/** @type {boolean} */
+var PrisonerMetalCuffsKey = false;
+/** @type {boolean} */
+var PrisonerMetalPadlockKey = false;
+/** @type {boolean} */
+var PrisonerIntricatePadlockKey = false;
+/** @type {boolean} */
+var PrisonerSleepingPills = false;
+/** @type {boolean} */
+var PrisonerSpankingToys = false;
+/** @type {InventoryItem[] | null} */
 var PrisonerConfiscatedHandhelds = null;
 
 var PrisonBehavior = 0;
@@ -605,7 +605,6 @@ release/entlassung
 
 //Determine how strongly the player is wanted for MainHall
 function PrisonWantedPlayer() {
-	var i;
 	if (LogQuery("Caught", "BadGirl")) return 9;
 	else if (LogQuery("Hide", "BadGirl")) return 7;
 	else if (LogQuery("Stolen", "BadGirl")) return 4;
