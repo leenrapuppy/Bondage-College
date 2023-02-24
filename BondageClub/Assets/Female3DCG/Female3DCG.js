@@ -6430,6 +6430,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Ball" },
 					{ Name: "Strap", HasType: false },
+					{ Name: "Metal", HasType: false },
 				]
 			},
 			{
@@ -6799,6 +6800,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Ball" },
 					{ Name: "Strap", HasType: false },
+					{ Name: "Metal", HasType: false },
 				]
 			},
 			{
