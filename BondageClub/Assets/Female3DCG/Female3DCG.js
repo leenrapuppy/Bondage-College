@@ -8485,7 +8485,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "FoldingScreen", Value: 100, Difficulty: -5, Time: 5, RemoveTime: 5, IsRestraint: false, Top: 0, DefaultColor: ["#B7A5A5", "#A5112C", "#616060"], Extended: true, MinOpacity: 0, Opacity: 1,
-				NotVisibleOnScreen: ["Appearance"],
+				NotVisibleOnScreen: ["Appearance","Wardrobe"],
 				FixedPosition: true,
 				Layer: [
 					{ Name: "Paper1", Priority: 71, MinOpacity: 1, AllowTypes: ["Opaque"], },
