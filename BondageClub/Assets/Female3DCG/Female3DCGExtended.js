@@ -3701,6 +3701,42 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Modules: [
 					{
+						Name: "Ears1", Key: "e", // Left Ear!
+						Options:
+						[
+							{}, // e0 - none
+							{}, // e1 - stud
+							{}, // e2 - ring
+							{}, // e3 - hoop
+							{}, // e4 - indust
+							{}, // e5 - bigstud
+							{}, // e6 - 2stud
+							{}, // e7 - 3stud
+							{}, // e8 - 2ring
+							{}, // e9 - 3ring
+							{}, // e10 - carti
+							{}, // e11 - indust mix
+						],
+					},
+					{
+						Name: "Ears2", Key: "a", // Right Ear!
+						Options:
+						[
+							{}, // a0 - none
+							{}, // a1 - stud
+							{}, // a2 - ring
+							{}, // a3 - hoop
+							{}, // a4 - indust
+							{}, // a5 - bigstud
+							{}, // a6 - 2stud
+							{}, // a7 - 3stud
+							{}, // a8 - 2ring
+							{}, // a9 - 3ring
+							{}, // a10 - carti
+							{}, // a11 - indust mix
+						],
+					},
+					{
 						Name: "Nose", Key: "n",
 						Options:
 						[
@@ -3713,22 +3749,6 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
-						Name: "Ears", Key: "e",
-						Options:
-						[
-							{}, // e0 - none
-							{}, // e1 - stud both
-							{}, // e2 - stud right
-							{}, // e3 - stud left
-							{}, // e4 - ring both
-							{}, // e5 - ring right
-							{}, // e6 - ring left
-							{}, // e7 - hoop both
-							{}, // e8 - hoop right
-							{}, // e9 - hoop left
-						],
-					},
-					{
 						Name: "Face", Key: "f",
 						Options:
 						[
@@ -3737,6 +3757,8 @@ var AssetFemale3DCGExtended = {
 							{}, // f2 - dermals right
 							{}, // f3 - dermals left
 							{}, // f4 - bridge
+							{}, // f5 - monroe right
+							{}, // f6 - monroe left
 						],
 					},
 				],
