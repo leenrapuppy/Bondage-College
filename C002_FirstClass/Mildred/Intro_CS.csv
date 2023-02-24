@@ -1,0 +1,24 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"Vítejte na mé hodině, mladá dámo.|Budete mě oslovovat slečno Mildred.",MildredIntro.jpg
+10,0,0,,,MildredIntro.jpg
+20,0,0,,,MildredIntro.jpg
+30,0,0,,,MildredIntro.jpg
+40,0,0,,,MildredIntro.jpg
+50,0,0,,"(Slečna Mildred vyučuje až do 9:00 derivace.|Zdá se, že má hodinu pevně pod kontrolou.)",MildredTeach.jpg
+100,0,0,,,MildredCrop.jpg
+110,0,0,,,MildredCrop.jpg
+120,0,0,,,MildredCrop.jpg
+130,0,0,,,MildredCrop.jpg
+200,0,0,Common_PlayerNotRestrained,"(Slečna Mildred vyučuje až do 9:00 derivace.|Zdá se, že má hodinu pevně pod kontrolou.)",MildredTeach.jpg
+200,0,0,Common_PlayerRestrained,"(Hodina slečny Mildred pokračuje, zatímco se zmítáš|v poutech a slintáš. Budeš muset vydržet do 9:00)",MildredTeach.jpg
+210,0,0,,(Slečna Mildred plně ovládá svou hodinu.|Opravdu ji chceš zkusit přemoci?),MildredTeach.jpg
+220,0,0,,,MildredCrop.jpg
+300,0,0,,"Mladá dámo! Odemkněte ta pouta, ale hned!",Mildred_Cuffs.jpg
+310,0,0,,"Mladá dámo! Odemkněte ta pouta, ale hned!",Mildred_Cuffs.jpg
+320,0,0,,(Zatíná zuby do roubíku a srší vzteky.),Mildred_Cuffs_BallGag.jpg
+330,0,0,,"Mladá dámo! Okamžitě mě rozvažte!|(Zavírá oči, aby si zachovala trochu důstojnosti.)",Mildred_Rope.jpg
+340,0,0,,"(Zatíná zuby do roubíku a srší vzteky.)|(Zavírá oči, aby si zachovala trochu důstojnosti.)",Mildred_Rope_BallGag.jpg
+410,0,0,,"(Přehneš ji přes lavici a zvedneš bičík.) Slečínko,|dobře se předtím zamyslete nad svou budoucností!",Mildred_Cuffs_Crop.jpg
+420,0,0,,"(Přehneš ji přes lavici a zvedneš bičík.)|(Protestuje do roubíku, ale není jí rozumět).",Mildred_Cuffs_Crop.jpg
+430,0,0,,"(Přehneš ji přes lavici a zvedneš bičík.) Slečínko,|dobře se předtím zamyslete nad svou budoucností!",Mildred_Rope_Crop.jpg
+440,0,0,,"(Přehneš ji přes lavici a zvedneš bičík.)|(Protestuje do roubíku, ale není jí rozumět).",Mildred_Rope_Crop.jpg

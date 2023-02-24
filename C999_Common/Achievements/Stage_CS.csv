@@ -1,0 +1,17 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,[Hlavní nabídka],,0,0,0,MainMenu()
+0,0,0,,[Další stránka],,10,0,0,
+0,0,0,!LearningTheRopes,???,Sežeň si provaz ještě před hodinou.,0,0,0,
+0,0,0,LearningTheRopes,Průvodce provazy,Ukradla jsi provaz ze Sidniny aktovky.,0,0,0,ShowImage('C001_BeforeClass/Bag/BagOpen.jpg')
+0,0,0,!MatchMadeInHell,???,"Přesvědči dvojici, která se nemá ráda|k polibku před celou třídou.",0,0,0,
+0,0,0,MatchMadeInHell,Svazek z pekla,"Přinutila jsi Amandu a Sidney,|aby se políbily před celou třídou.",0,0,0,ShowImage('C001_BeforeClass/Amanda/AmandaBondageKiss.jpg')
+0,0,0,!HappyEaster,???,Najdi skryté vajíčko.,0,0,0,
+0,0,0,HappyEaster,Veselé velikonoce!,Našla jsi vajíčko ukryté v učebně kreslení.,0,0,0,ShowImage('C004_ArtClass/HiddenEgg/HiddenEgg.jpg')
+0,0,0,!BeggarsChoosers,???,Dostaň se ze své cely|jen abys se pak sama zamkla jinde.,0,0,0,
+0,0,0,BeggarsChoosers,I žebráci si mohou vybírat,Utekla jsi ze své cely jen abys|se pak zamkla v jiném zařízení.,0,0,0,ShowImage('C006_Isolation/Horse/HorseRide.jpg')
+0,0,0,!SpeedrunningBitch,???,Dokonči závod Sidney a Jennifer|do jedné minuty.,0,0,0,
+0,0,0,SpeedrunningBitch,Tryskočubka,Dokončila jsi závod Sidney a Jennifer|do jedné minuty.,0,0,0,ShowImage('C999_Common/Races/Actors/Player/ChastityBelt_Rope_Collar_TapeGag_Dog_Move_2.png')
+10,0,0,,[Previous Page],,0,0,0,
+10,0,0,,[Next Page],,20,0,0,
+20,0,0,,[Previous Page],,10,0,0,
+20,0,0,,[Main Menu],,0,0,0,MainMenu()

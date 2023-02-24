@@ -1,0 +1,6 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej roubík.)ADD_MINUTES:1,"Tenhle roubík drží otevřená ústa dvou lidí|u sebe. Budou se muset domlouvat neverbálně.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Nasaď si ho.)ADD_MINUTES:1,"Strčila sis náustek do pusy a zapnula přezky.|Teď potřebuješ někoho, s kým bys roubík sdílela.",10,0,0,SelfGag()
+10,0,0,,(Skousni náustek)ADD_MINUTES:1,"Zkusila ses zakousnout do roubíku,|ale kovová část ti tak maximálně poničí zuby.",10,0,0,
+10,0,0,,(Zkus náustek vyplivnout.)ADD_MINUTES:1,"Zkoušíš vytlačit náustek z pusy, ale popruhy|ho pevně drží. Bez rukou to nepůjde.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Sundej si roubík.)ADD_MINUTES:1,"Rozepla jsi všechny přezky, vytáhla sis roubík z úst|a už zase můžeš normálně mluvit.",0,0,0,SelfUngag()

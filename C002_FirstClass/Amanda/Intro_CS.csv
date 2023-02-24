@@ -1,0 +1,21 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,!BondageBefore,"(Dívá se na tebe, ale zůstává potichu,|aby nerušila učitelku.)",Amanda.jpg
+0,1,0,!BondageBefore,"(Šeptá) Promluvíme si po hodině,|slečna Mildred teď učí.",Amanda.jpg
+0,0,0,BondageBefore,"(Dívá se na tebe a šeptá)|Vůbec na svazování nemysli, je vyučování!",Amanda.jpg
+0,1,0,BondageBefore,"(Dívá se na tebe a šeptá)|Už žádné svazování, prosím, je vyučování.",Amanda.jpg
+10,0,0,,(Šeptá) Potřebuješ něco?,Amanda.jpg
+20,0,0,,"(Šeptá) Vypadá to, že tě ta hodina nebaví.",Amanda.jpg
+30,0,0,,(Šeptá) Co máš za nápad?,Amanda.jpg
+40,0,0,,"(Šeptá) Ty chceš unést slečnu Mildred?|(K přemluvení je třeba lásku nebo submisi aspoň +4.)",Amanda.jpg
+50,0,0,,"(Šeptá a červená se.) Pomůžu ti,|ale začít musíš ty.",Amanda.jpg
+100,0,0,Common_PlayerNotGagged,Probůh! To je neuvěřitelné!,Amanda.jpg
+100,0,0,Common_PlayerGagged,(Při pohledu na tebe se tiše chichotá.),Amanda.jpg
+100,2,0,Common_PlayerGagged,(Dívá se na tebe a šeptá.)|S tím roubíkem vypadáš rozkošně.,Amanda.jpg
+100,-2,0,Common_PlayerGagged,"(Dívá se na tebe a šeptá.)|Myslím, že s roubíkem se mi líbíš víc.",Amanda.jpg
+110,0,0,,(Kňourá do roubíku a třese|hlavou ze strany na stranu.),Amanda_BallGag.jpg
+120,0,0,,"(Cuká s pouty a snaží se|vyprostit z nich ruce.)",Amanda_Cuffs.jpg
+130,0,0,,(Kňourá do roubíku a třese|hlavou ze strany na stranu.),Amanda_Cuffs_BallGag.jpg
+140,0,0,,"(Tře si kůži o provazy a vypadá,|že se jí ten pocit líbí.)",Amanda_Rope.jpg
+150,0,0,,(Kňourá do roubíku a třese|hlavou ze strany na stranu.),Amanda_Rope_BallGag.jpg
+160,0,0,,,Amanda_Rope.jpg
+170,0,0,,,Amanda_Rope_BallGag.jpg

@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej je.)ADD_MINUTES:1,"Jsou pěkně silná, je bez šance,|že by z nich bez klíče někdo unikl.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Spoutej se.)ADD_MINUTES:1,Spínáš si ruce pouty za svými zády. S posledním|cvaknutím zámku ti přeběhne mráz po zádech.,10,0,0,SelfCuff()
+10,0,0,HasLooseCuffs,(Prozkoumej volná pouta.)ADD_MINUTES:1,"Spoutaná si nešikovně prohlížíš zbylá pouta.|Jsou silná a bez klíčů z nich neunikneš.",10,0,0,ShowImage()
+10,0,0,,(Pokus se vyklouznout.)ADD_MINUTES:1,"Snažíš se vysunout zápěstí z pout,|ale naprosto selháváš.",10,0,0,
+10,0,0,,(Zkus je rozbít.)ADD_MINUTES:1,"Snažíš se pouta rozbít,|ale nedokážeš na nich udělat ani šrám.",10,0,0,
+10,0,0,HasKey,(Odemkni je.)ADD_MINUTES:1,"Nejprve s klíčem trochu zápasíš,|ale nakonec se ti povede pouta odemknout.",0,0,0,Unlock()
+10,0,0,CanEscape,(Osvoboď se|sponkou.)ADD_MINUTES:1,"Chvíli se sponkou trochu zápasíš, ale nakonec|se ti mechanismus zámku podaří překonat.",0,0,0,Escape()

@@ -31,7 +31,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 230,0,0,,(Untie her.)ADD_MINUTES:1,(You slowly untie her) Thank you so much!|Is it alright if I put my clothes back on?,220,0,0,Untie()
 230,0,0,,(Tickle her.)ADD_MINUTES:1,(She blushes and can't stop laughing.)|Hey!  Haaahahahaha!  You're funny.,230,0,0,Tickle()
 230,1,0,,(Kiss her.)ADD_MINUTES:1,Another kiss?|(She blushes red and smiles at you.),230,0,0,Kiss()
-230,0,0,SidneyInBondage,(Make her hug Sidney.)ADD_MINUTES:1,(Both girls are forced to hug and rub each other.)|Oh my!  This is not appropriated.,250,0,0,
+230,0,0,SidneyInBondage,(Make her hug Sidney.)ADD_MINUTES:1,(Both girls are forced to hug and rub each other.)|Oh my!  This is not appropriate.,250,0,0,
 230,0,0,,You look like an|angel in bondage.,(She giggles and smiles at you.),230,0,0,
 230,0,0,,"If I untie you, can I tie|you up later?ADD_MINUTES:1",Ooooh!  Yes!  Of course!|(You untie her and shake her hand.),300,1,1,Untie()
 230,0,0,,"If I untie you, will you|tie me later?ADD_MINUTES:1","Hehehe, alright.|(You untie her and shake her hand.)",300,1,-2,Untie()

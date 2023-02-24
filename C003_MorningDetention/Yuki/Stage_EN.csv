@@ -14,7 +14,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 20,0,0,,Yes Ma'am.|I'll be quiet.,Very well.  I have a few phone|calls to make so please be silent.,40,1,-1,
 30,0,0,,It's none of|your business.,"Young lady, you will give me that right now.|(She grabs your items and confiscates them.)",40,-1,0,Confiscate()
 30,0,0,,I found this|on the floor.,"Thanks young lady, that's nice of you.|(She smiles and confiscates your items.)",40,1,0,Confiscate()
-30,0,0,,It's nothing.|(Hide the item),"Mmh, alright.  I thought I saw something.|Now stay quiet, I have some calls to make.",40,0,0,
+30,0,0,,It's nothing.|(Hide the item.),"Mmh, alright.  I thought I saw something.|Now stay quiet, I have some calls to make.",40,0,0,
 50,0,0,Common_PlayerNotRestrained,(Try to annoy her.)ADD_MINUTES:1,Young lady.  You better stop right|now or I'll have to restrain you.,50,-1,0,Annoyed()
 60,0,0,Common_PlayerRestrained,What the fuck!|You cannot cuff me.,I can do even better.  (She walks away|and returns with a strip of tape for your mouth.),60,0,0,GagPlayer()
 70,0,0,Common_PlayerGagged,@Uhmma huhme!,(She ignores you.),70,0,0,

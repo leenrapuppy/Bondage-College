@@ -1,0 +1,35 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,"Svazování spolužáků je přísně zakázáno.|Doufám, že vám tenhle trest dá za vyučenou.",YukiFace.jpg
+0,0,0,Fighting,"Praní se ve škole je nepřijatelné.|Doufám, že si to po tomhle trestu zapamatujete.",YukiFace.jpg
+0,0,0,Sleepy,"To co jste udělala je nepřijatelné, mladá dámo.|(Nahlas si zívne.)",YukiSleepy.jpg
+10,0,0,,"Tak co, zkusíte být řádnou studentkou?",YukiFace.jpg
+10,0,0,Sleepy,"Tak co,zkusíte být dobrou studentkou?",YukiSleepy.jpg
+20,0,0,,Dokážete během trestu potichu sedět?,YukiFace.jpg
+20,0,0,Sleepy,Dokážete během trestu potichu sedět?,YukiSleepy.jpg
+30,0,0,,Co to máte v ruce?,YukiFace.jpg
+30,0,0,Sleepy,Co to máte v ruce?,YukiSleepy.jpg
+40,0,0,,,YukiFace.jpg
+40,0,0,Sleepy,,YukiSleepy.jpg
+50,0,0,,"Buďte prosím potichu, mladá dámo.|Váš trest končí v devět hodin.",YukiFace.jpg
+50,0,0,Sleepy,"(Zívá a bojuje s ospalostí.)|(Může to pár minut trvat, než piluka zabere.)",YukiSleepy.jpg
+60,0,0,,"Buďte prosím potichu, mladá dámo.|Váš trest končí v devět hodin.",YukiFace.jpg
+60,0,0,Sleepy,"(Zívá a bojuje s ospalostí.)|(Může to pár minut trvat, než piluka zabere.)",YukiSleepy.jpg
+70,0,0,,"Tenhle roubík vás naučí mlčet, slečínko.|Váš trest končí v devět hodin.",YukiFace.jpg
+70,0,0,Sleepy,"(Zívá a bojuje s ospalostí.)|(Může to pár minut trvat, než piluka zabere.)",YukiSleepy.jpg
+100,0,0,,(Učitelka Yuki tvrdě spí.),YukiSleep.jpg
+100,0,0,EggInside,(Učitelka Yuki tvrdě spí.|Občas se díky vajíčku otřese a zasténá.),YukiSleep.jpg
+110,0,0,,"(Učitelka Yuki, svlečená do prádla, tvrdě spí.)",YukiStrip.jpg
+110,0,0,EggInside,"(Učitelka Yuki, svlečená do prádla, tvrdě spí.|Občas se díky vajíčku otřese a zasténá.)",YukiStrip.jpg
+120,0,0,,"(Spoutaná učitelka Yuki,|svlečená do prádla, tvrdě spí.)",YukiCuffs.jpg
+120,0,0,EggInside,"(Spoutaná učitelka Yuki, svlečená do prádla,|tvrdě spí. Občas se díky vajíčku otřese a zasténá.)",YukiCuffs.jpg
+130,0,0,,"(Spoutaná učitelka Yuki,|svlečená do prádla, tvrdě spí.)",YukiLay.jpg
+130,0,0,EggInside,"(Spoutaná učitelka Yuki, svlečená do prádla,|tvrdě spí. Občas se díky vajíčku otřese a zasténá.)",YukiLay.jpg
+200,0,0,,Co se to tady stalo? Usnula jsem?,YukiSleepy.jpg
+210,0,0,,Já jsem usnula? A kdo mě svléknul?,YukiSleepyStrip.jpg
+220,0,0,,Co se to tady stalo? Usnula jsem?|A kdo mě to svléknul a spoutal?,YukiAwakeCuffs.jpg
+230,0,0,,Děláte si jen další a další potíže.|Okamžitě mě z těch pout pusťte!,YukiAwakeCuffs.jpg
+250,0,0,,Zůstanete až do konce trestu pěkně potichu.,YukiFace.jpg
+250,0,0,EggInside,"Och! Není tady nějak moc horko?|(Vypadá to, že se díky vajíčku pořádně potí.)",YukiFace.jpg
+260,0,0,,(Je pořád naštvaná a nevšímá si tě.),YukiFace.jpg
+260,0,0,EggInside,"(Je pořád naštvaná a nevšímá si tě.)|(Taky to vypadá, že se díky vajíčku pořádně potí.)",YukiFace.jpg
+270,0,0,,(Yuki je pryč.),YukiGone.jpg

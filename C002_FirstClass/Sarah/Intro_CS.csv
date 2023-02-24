@@ -1,0 +1,35 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+10,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+20,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+30,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+40,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+50,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+60,0,0,Common_PlayerGagged,S tím roubíkem vypadáš roztomile.|Mohla bych taky jeden dostat?,Sarah.jpg
+0,0,0,SubdueNotDone,"(Otáčí se na tebe a šeptá.)|Nazdar, já jsem Sarah.",Sarah.jpg
+10,0,0,SubdueNotDone,To je tvoje první hodina matiky se slečnou Mildred?,Sarah.jpg
+20,0,0,SubdueNotDone,(Zívá a otáčí se na tebe.),Sarah.jpg
+30,0,0,SubdueNotDone,"Slečna Mildred je pěkně přísná učitelka, že?",Sarah.jpg
+40,0,0,SubdueNotDone,"To by mě zajímalo|co máš na mysli?",Sarah.jpg
+50,0,0,SubdueNotDone,"Ty chceš přemoct a unést slečnu Mildred?|(K přemluvení je třeba lásku nebo submisi aspoň +2.)",Sarah.jpg
+60,0,0,SubdueNotDone,Pomůžu ti. Ale únos musíš začít ty.,Sarah.jpg
+0,0,0,SubdueSuccess,"Ty jo! To je poprvé, co je mi líto,|že jsem na matiku nepřišla včas.",Sarah.jpg
+10,0,0,SubdueSuccess,"Já jsem Sarah, ráda tě poznávám.",Sarah.jpg
+20,0,0,SubdueSuccess,To je ta nejlepší matika co znám!,Sarah.jpg
+30,0,0,SubdueSuccess,"Teď bys měla znemožnit čuníka.|Teda, mám na mysli Sidney.",Sarah.jpg
+40,0,0,SubdueSuccess,Zbylo ti něco i na moje spoutání?,Sarah.jpg
+50,0,0,SubdueSuccess,Zbylo ti něco i na moje spoutání?,Sarah.jpg
+60,0,0,SubdueSuccess,Zbylo ti něco i na moje spoutání?,Sarah.jpg
+110,0,0,,(Hravě požvykuje roubík|a ukazuje ti palec nahoru.),Sarah_BallGag.jpg
+120,0,0,,(Pohrává si s želízky.)|Taková pouta bych potřebovala doma.,Sarah_Cuffs.jpg
+130,0,0,,"(Pohrává si s želízky a|zdá se, že si spoutáníí užívá.)",Sarah_Cuffs_BallGag.jpg
+140,0,0,,"(Pohrává si s provazy a vypadá, že se baví.)|Líbí se mi, jak jsi mě svázala.",Sarah_Rope.jpg
+150,0,0,,"(Pohrává si s provazy and tře si tělo.|Zdá se, že se velmi dobře baví.)",Sarah_Rope_BallGag.jpg
+200,0,0,,"Vypadá to, že někdo je tu ve větším problému, než já.",Sarah.jpg
+210,0,0,,"Já jsem Sarah, ráda tě poznávám.",Sarah.jpg
+220,0,0,,A co se ti stalo?,Sarah.jpg
+230,0,0,,"Vypadáš roztomile, takhle svázaná.",Sarah.jpg
+240,0,0,,Kéž bych byla svázaná tak jako ty.,Sarah.jpg
+250,0,0,,"Myslíš, že když budu rušit učitelku,|tak budu ve stejných potížích jako ty?",Sarah.jpg
+260,0,0,,(Kouše do roubíku a hravě cuká s pouty.),Sarah_Cuffs_BallGag.jpg
+300,0,0,,"Tahle hodina je tak nudná!|Doufám, že už brzo skončí.",Sarah.jpg

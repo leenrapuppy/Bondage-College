@@ -1,0 +1,51 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Jo, je to tady|můj první den.",No tak to vítej! Já jsem Amanda.,10,0,0,
+0,0,0,,"Ano, poprvé v nové škole|je vždycky strašidelné.","Neboj, to bude dobrý! Já jsem Amanda, vítej!",10,0,-1,
+0,0,0,,"Vypadáš, jako nějaký|učitelčin mazlíček.","Eeee… Víš… Já…|Já jsem Amanda, vítej.",10,-1,1,
+0,0,0,,Co je ti do toho?,"Eh… No, to já jen tak.|Já jsem Amanda, vítej.",10,-1,0,
+0,0,0,SidneyInBondage,"Vsadím se, že bys svázaná|vypadala taky roztomile!","(Červená se)|Myslíš? Já jsem Amanda, ráda tě poznávám.",10,0,1,
+0,0,0,SidneyInBondage,"Raději se chovej pořádně,|nebo skončíš jako ona!","Ano, ano, jistě. Já jsem Amanda.|(Sklání hlavu a dívá se do podlahy.)",10,-1,2,
+10,0,0,,Řekni mi něco|o téhle škole.,Založily ji před sto lety řádové sestry.|Teď je to vysoká škola pro dívky.,20,0,0,
+10,0,0,,Co teď budeme|mít za hodinu?,"Matiku! Tu miluju! Počkej, až uvidíš naši učitelku!",20,0,0,
+10,0,0,,O téhle škole jsem|slyšela fakt pěkné věci.,"Slyšela jsi správně, tahle škola je boží!",20,1,0,
+10,0,0,,"Snad to bude rychlé,|a budeme moct zdrhnout.","Nejsem si jista, že tohle je správný přístup k učení",20,-1,0,
+20,0,0,,Máš pěkné vlasy.,"(Chichotá se a červená se.)|Jsi milá, ale teď se už připrav, hodina za chvíli začíná.",30,1,0,
+20,0,0,,"Vypadá to, že tě tahle|pitomá škola dost bere.",Hm… (Otočí se a zmlkne),50,-1,0,
+20,0,0,,"Na oběd si nic neplánuj|a na večeři tě zvu.","Fakt? (chichotá se)|Teď se soustředíme na hodinu, jo?",30,0,1,
+20,0,0,,"Provedeš mě tu, prosím?|Až to tady skončí.",Možná jo.|Ale nejdříve se připrav na hodinu.,30,0,-1,
+30,0,0,,"Jasně, připravme se|na dnešní hodinu!",Lépe bych to neřekla.,50,1,0,
+30,0,0,,"Hodina, hodina, hodina.|S tebou je taková nuda!","Jo? Tak promiň (Otočí se a zmlkne)",50,-1,0,
+30,1,0,,"Bacha, ta černovláska|na tebe zírá.","A jéje! Díky za varování. To je poprvé,|co vidím její brašnu. Zajímalo by mě, co v ní má.",40,1,0,
+40,1,0,,"Neboj, pokud bude dělat|problémy, ochráním tě!","Opravdu? Díky, to je boží!|Teď už se ale připravíme na hodinu, jo?",50,0,1,
+40,1,0,,"Možná bys to měla říct|paní učitelce, bojím se.","Obtěžovat tím učitelku? Já nevím.|Teď se ale připravíme na hodinu, jo?",50,0,-1,
+40,1,0,SidneyInBondage,"V aktovce is nesla provazy.|A teď je ""nosí"".",Ha ha ha! To vidím.|Ale neměla bys ji na tu hodinu rozvázat?,50,1,0,
+200,0,0,BondageNotConfronted,Líbilo by se ti|být teď svázaná?,Cože? Ne! Hodina za pár minut začíná!|Dej ty provazy prosím pryč.,200,-1,0,ConfrontBondage()
+200,0,0,BondageNotConfronted,"Přiznej to holčičko, tobě|by se líbílo být svázaná.","Ježíšku! (červená se.)|Ne… Víš, já… N… Hodina už za chviličku začíná.",200,-1,1,ConfrontBondage()
+200,0,0,StopRopeSubAllowed,"Miluji svazování,|mohla bys mě svázat?","Ach! Ty jsi submisivní! Možná po škole.|(Mrkne.) Takže nováček, říkáš?",200,0,-2,StopRopeSub()
+200,0,0,,Můžeme je použít později|(Schovej provazy.),"Později? (Podívá se na tebe zvědavě.)|Takže nováček, říkáš, jo?",200,0,0,StopRope()
+200,0,2,,(Popadni ji a svleč|jí školní uniformu)ADD_MINUTES:1,"Proboha ne! Už zase!|(Snaží se bránit, ale nedaří se jí to.)",220,0,0,Strip()
+200,0,4,,"Teď si svleč uniformu,|subinko.ADD_MINUTES:1","N… Eh… Ano, paní…|(submisivně si svléká halenku a sukni)",220,0,0,
+220,0,0,,(Svaž ji.)ADD_MINUTES:1,(Omotala jsi jí provazy kolem těla|a svázala jí ruce za zády. Tiše sténá),230,0,0,Tie()
+220,0,0,,Zase se obleč.ADD_MINUTES:1,Ó ano! Tohle je mi tak trapné.,200,0,0,
+230,0,0,,(Otoč ji.),"Cože? Proboha, co to děláš?|(Násilím ji otáčíš)",240,0,0,
+230,0,0,,(Rozvaž ji.)ADD_MINUTES:1,(Pomalu ji rozvazuješ) Děkuji moc!|Už se můžu zase obléct?,220,0,0,Untie()
+230,0,0,,(Polechtej ji.)ADD_MINUTES:1,(Červená se a nemůže se přestat smát)|Hej! Ha ha ha haaa! S tebou je psina.,230,0,0,Tickle()
+230,1,0,,(Polib ji.)ADD_MINUTES:1,Další pusa?|(Červená se a usmívá se na tebe.),230,0,0,Kiss()
+230,0,0,SidneyInBondage,(Donuť ji obejmout Sidney.)ADD_MINUTES:1,"(Obě dívky jsou přinuceny se objímat a třít se o sebe.)|Ale, ale! To se přece tak nehodí!",250,0,0,
+230,0,0,,Vypadáš jako|spoutaný anděl.,(Chichotá se a usmívá se na tebe.),230,0,0,
+230,0,0,,"Když tě teď rozvážu,|můžu si tě později svázat?ADD_MINUTES:1",Ó! Ano! Určitě!|(Rozvážeš ji a potřesete si rukou.),300,1,1,Untie()
+230,0,0,,"Když tě teď rozvážu,|svážeš mě později?ADD_MINUTES:1","Che che che, no tak jo!|(Rozvážeš ji a potřesete si rukou.)",300,1,-2,Untie()
+240,0,0,,(Otoč ji.),(Přinutila jsi ji se otočit.)|Ó! Vlastně se raději dívám na tebe.,230,0,0,
+240,0,0,,(Rozvaž ji.)ADD_MINUTES:1,(Pomalu ji rozvazuješ) Děkuji moc!|Už se můžu zase obléct?,220,0,0,Untie()
+240,0,0,,(Polechtej ji.)ADD_MINUTES:1,(Červená se a nemůže se přestat smát)|Hej! Ha ha ha haaa! S tebou je psina.,240,0,0,Tickle()
+240,0,0,,(Naplácej ji.)ADD_MINUTES:1,"(Znova ji plácáš, ale vypadá to, že to už nese lépe.)|Nech toho!",240,0,0,Spank()
+240,0,0,,"Máš fakt pěkný zadek,|víš to?",Opravdu? (Červená se.),240,0,0,
+240,0,0,,"Když tě teď rozvážu,|můžu si tě později svázat?ADD_MINUTES:1",Ó! Ano! Určitě!|(Rozvážeš ji a potřesete si rukou.),300,1,1,Untie()
+240,0,0,,"Když tě teď rozvážu,|svážeš mě později?ADD_MINUTES:1","Che che che, no tak jo!|(Rozvážeš ji a potřesete si rukou.)",300,1,-2,Untie()
+250,0,0,,(Odděl je.),Děkuji. To bylo trapné.,230,0,0,
+250,0,0,,(Přinuť je k polibku.)ADD_MINUTES:1,Další pusa? To je nechutné!|(Tiskneš jim hlavy k dalšímu polibku.),260,0,0,ForceKiss()
+250,0,0,,Vy jste mi ale pěkný|svázaný páreček.,(Obě na tebe zírají.),250,0,0,
+260,0,0,,(Odděl je.),Děkuji. To bylo trapné.,230,0,0,
+260,0,0,,(Zastav líbání.),"Bez urážky, Sidney,|ale nejsi můj typ.",250,0,0,
+260,0,0,,Cítím lásku ve vzduchu!,Hele! To vůbec není vtipné!|(Vyplázne na tebe jazyk),260,0,0,
+260,2,0,,Můžu taky jednu dostat?,"Hehehe, OK.|(Otáčí se na tebe, aby tě políbila.)",260,0,0,

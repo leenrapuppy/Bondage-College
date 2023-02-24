@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerNotRestrained,(Otevři kabelku.),Opatrně otevíráš učitelčinu kabelku|a hledáš cokoliv zajímavého.,10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Zavři kabelku.),Zavíráš kabelku učitelky Yuki.,0,0,0,
+10,0,0,PillInBagAvail,(Ukradni prášek na spaní.),Bereš z kabelky prášek na spaní.,10,0,0,StealPill()
+10,0,0,EggInBagAvail,(Ukradni vibrační vajíčko.),"Bereš z kabelky vibrační vajíčko na dálkové|ovládání, ale nikde k němu nenacházíš ovladač.",10,0,0,StealEgg()

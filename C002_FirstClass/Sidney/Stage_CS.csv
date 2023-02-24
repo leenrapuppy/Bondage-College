@@ -1,0 +1,42 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Psssst.,"(Otáčí se a šeptá.)|Co, do prdele, chceš?",10,0,0,
+0,0,0,,"Promiň, že ruším.","(Otáčí se a zírá na tebe.)|Co, do prdele, chceš, zoufalko?",10,0,-1,
+0,0,0,,(Poklep ji na rameno.),"(Otáčí se a šeptá.)|Co, do prdele, chceš?",10,0,0,
+10,0,0,,Taky se tak nudíš?,(Šeptá.) Si piš!|Nudím se jak blázen.,20,1,0,
+10,0,0,,Jak dlouho ta hodina|ještě bude?,(Šeptá.) Až do devíti.|Zasraná a nekonečná hodina.,20,0,0,
+10,0,0,,Uprdla sis?|Strašne to tu páchne.,(Šeptá.) Ne! Hrabe ti?|Tahle hodina snad nikdy neskončí.,20,-1,0,
+10,0,0,,Ať neusneš!,"(Promne si oči a šeptá.)|Já za to nemůžu, ta hodina je nudná k zešílení.",20,0,1,
+20,0,0,,Měli bysme vypadnout!,"(Kývne hlavou a šeptá.) Jasně,|ale úča nás jen tak jít nenechá.",30,1,0,
+20,0,0,,Jak zabijeme čas?,(Pokrčí rameny.)|Netuším. Jsme tu jak v pasti.,30,0,0,
+20,0,0,,Pomohla bys mi|po hodině s matikou?,"(Vrtí hlavou, že ne.) Vypadám snad|jako šprt? Já umím jen utéct.",30,0,-1,
+30,0,0,,"Možná bych věděla,|jak utéct.",(Zvědavě se na tebe dívá.)|Co máš na mysli?,40,0,0,
+30,0,0,,"Zmlkni, mám plán.",(Ztichne a zvědavě se na tebe dívá.),40,-1,1,
+40,0,0,,Měli bychom spolu|zkusit přemoct Mildred.,"Přemoct ji? Jako únos?|To je dost o hubu, proč bych to dělala?",50,0,0,
+40,0,0,,Měli bysme unést|tu zasranou úču.,"Unést ji v hodině? Jako fakt?|To je dost o hubu, proč bych to dělala?",50,1,0,
+40,0,0,,Pomůžeš mi|svázat učitelku!,"Pomoct ti jí unést v hodině?|To je dost o hubu, proč bych to dělala?",50,0,1,
+50,3,0,PlayerHasRope,"Třeba proto,|že jsme kámošky.","Asi jo. Dobře, pomůžu ti.|(Otáčí se.) Ale první krok je na tobě.",60,0,0,AgreeHelp()
+50,3,0,!PlayerHasRope,"Třeba proto,|že jsme kámošky.",Asi jo. Pomůžu ti a můžeš si na to vzít tenhle provaz.|(Otáčí se.) Ale první krok je na tobě.,60,0,0,AgreeHelp()
+50,0,3,PlayerHasRope,"Pokud mi nepomůžeš,|udělám ti peklo na zemi.",Fajn. Nepotřebuju mít potíže i po škole. Pomůžu ti.|(Otáčí se.) Ale první krok je na tobě.,60,0,0,AgreeHelp()
+50,0,3,!PlayerHasRope,"Pokud mi nepomůžeš,|udělám ti peklo na zemi.","Fajn, pomůžu ti. Můžu ti na to dát i tenhle provaz.|(Otáčí se.)  Ale první krok je na tobě.",60,0,0,AgreeHelp()
+50,0,0,,Pojď to toho|Bude to psina!,"Cha! Myslíš že mě tak snadno přesvědčíš?|Abych ti pomohla, musíš mi dát sakra dobrý důvod.",50,0,0,
+50,0,0,,Zamyslím se nad tím,"(Pokrčí rameny.) Fajn, nebudu nikde daleko.|Abych ti pomohla, musíš mi dát sakra dobrý důvod.",50,0,0,
+100,0,0,SubdueRemarkReady,"Vsadím se, že spoutaná|bys taky vypadala skvěle.",Cože? To nemyslíš vážně! (Červená se.),100,0,1,SubdueRemark()
+100,0,4,SubdueRemarkReady,Přiznej to. Chceš být| spoutaná jako ona.,(Zůstává potichu a červená se.),100,0,1,SubdueRemark()
+100,0,0,SubdueRemarkReady,High five!|Tohle je konečně hodina!,High five! Nejlepší matika ever!,100,1,0,SubdueRemark()
+100,0,0,SubdueRemarkReady,Dneska máme|úplně novou hodinu.,Kurva jo! Tohle je mnohem lepší!,100,0,0,SubdueRemark()
+100,0,0,AmandaWhipReady,Chtěla bys našvihat|Amandě?ADD_MINUTES:1,Jasně! (Bere si tvůj bičík|a několikrát s ním Amandu přetáhne.),100,1,0,AmandaWhip()
+100,0,0,SarahWhipReady,Chtěla bys našvihat|Sarah?ADD_MINUTES:1,"Óó, kurva jo! (Bere si tvůj bičík|a několikrát s ním Sarah přetáhne.)",100,1,0,SarahWhip()
+100,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Šeptá.) Přestaň rušit.,100,0,0,
+100,0,0,Common_PlayerGagged,(Skousni kuličku roubíku.),"(Šeptá.) Vypadáš jako idiot.",100,0,0,
+100,1,0,Common_PlayerGagged,(Zkus ukázat|na roubík.),(Šeptá) Ztichni.|Po hodině ti pomůžu.,100,0,0,
+100,-1,0,Common_PlayerGagged,(Zkus ukázat|na roubík.),"(Šeptá.) Zůstaň pěkně potichu, čubko.",100,0,0,
+100,0,0,Common_PlayerRestrained,(Zamel se v poutech.),(Šeptá.) Z toho se nikdy nedostaneš.,100,0,0,
+100,0,-2,BowRemarkReady,(Skloň hlavu.),(Šeptá.) Jsi ubohá.,100,0,-1,BowRemark()
+110,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Obrací oči v sloup.),110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vyndáváš jí kuličku z úst.)|Zasraný roubík!,100,0,0,Ungag()
+130,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Obrací oči v sloup.),130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vyndáváš jí kuličku z úst.)|Zasraný roubík!,120,0,0,Ungag()
+140,0,0,Common_PlayerNotRestrained,(Rozvaž ji.),(Rozvazuješ provazy a ona se obléká.)|Do hajzlu! Ty jsi ale perverzačka!,100,0,0,Untie()
+150,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Obrací oči v sloup.),150,0,0,
+150,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vyndáváš jí kuličku z úst.)|Zasraný roubík!,140,0,0,Ungag()
+150,0,0,Common_PlayerNotRestrained,(Rozvaž ji.),(Rozvazuješ provazy a ona se obléká.)|(Otáčí se a ukazuje si na roubík.),110,0,0,Untie()

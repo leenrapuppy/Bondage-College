@@ -1,0 +1,6 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej obojek.)ADD_MINUTES:1,"Kožený obojek, co se dá zamknut visacím zámkem.|Je dělán pro lidi a má na sobě vyšité písmeno „S“.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Nasaď si ho.)ADD_MINUTES:1,Natáhla sis obojek okolo krku a zapnula přezku.,10,0,0,SelfCollar()
+10,0,0,HasLooseCollar,(Prozkoumej|volný obojek.)ADD_MINUTES:1,"Kožený obojek, co se dá zamknut visacím zámkem.|Je dělán pro lidi a má na sobě vyšité písmeno „S“.",10,0,0,ShowImage()
+10,0,0,,(Protáhni si krk)ADD_MINUTES:1,"Protáhla sis krk aby ti na něm obojek pohodlněji|seděl, přesto ho ale na sobě stále vnímáš.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Sundej si ho.)ADD_MINUTES:1,Rozepnula jsi přezku a obojek si sundala.,0,0,0,SelfUncollar()

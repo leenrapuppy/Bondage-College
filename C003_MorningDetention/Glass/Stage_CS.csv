@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+10,0,0,,(Dej do ní prášek.),Rozdrtila jsi do sklenice prášek na spaní|a ten se v ní rychle rozpoští.,0,0,0,BreakPill()
+10,0,0,,(Tabletku si nechej.),Nechala sis tabletku prášku na spaní pro sebe.,0,0,0,

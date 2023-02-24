@@ -1,0 +1,20 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,!BondageBefore,"(Ani se neobtěžuje se otočit,|ale vypadá, že tě poslouchá.)",SidneyBack.jpg
+0,1,0,!BondageBefore,(Otáčí se na tebe a šeptá.) Co je?,SidneyFace.jpg
+0,0,0,BondageBefore,"(Neotáčí se, ale šeptá.)|Zapomeň na to! Znova mě vázat nebudeš!",SidneyBack.jpg
+0,1,0,BondageBefore,"(Otáčí se na tebe a šeptá.)|Ani neuvažuj, že bys mě znova svázala..",SidneyFace.jpg
+10,0,0,,(Otáčí se na tebe a šeptá.) Co je?,SidneyFace.jpg
+20,0,0,,(Otáčí se na tebe a šeptá.)|Taky se tak šíleně nudíš?,SidneyFace.jpg
+30,0,0,,(Otáčí se na tebe a šeptá.)|Kéž bysme tak mohly vypadnout dřív.,SidneyFace.jpg
+40,0,0,,(Otáčí se na tebe a šeptá.)|Co máš v plánu?,SidneyFace.jpg
+50,0,0,,"Ty ji chceš unést? Co z toho budu mít já?|(K přesvědčení musí mít lásku nebo submisi alespoň +3.)",SidneyFace.jpg
+60,0,0,,"(Neobtěžuje se na tebe otočit ale šeptá.)|Pomůžu ti, ale první krok musíš udělat ty.",SidneyBack.jpg
+100,0,0,Common_PlayerNotGagged,Shit! To bylo kurevsky dobré!,SidneyFace.jpg
+100,0,0,Common_PlayerGagged,(Ukazuje na tvůj roubík a kření se.),SidneyFace.jpg
+100,2,0,Common_PlayerGagged,(Otáčí se na tebe a šeptá.)|Po hodině tě pustím.,SidneyFace.jpg
+100,-2,0,Common_PlayerGagged,"(Neotáčí se, ale šeptá.)|Dostalas, co si kurva zasloužíš!",SidneyBack.jpg
+110,0,0,,(Vztekle se na tebe koukne|a zatne zuby do roubíku.),Sidney_BallGag.jpg
+120,0,0,,"(Cuká pouty a snaží se je silou otevřít.)",Sidney_Cuffs.jpg
+130,0,0,,(Vztekle se na tebe koukne|a zatne zuby do roubíku.),Sidney_Cuffs_BallGag.jpg
+140,0,0,,"(Kroutí se aby dosáhla na uzly, ale selhává.)",Sidney_Rope.jpg
+150,0,0,,(Vztekle se na tebe koukne|a zatne zuby do roubíku.),Sidney_Rope_BallGag.jpg

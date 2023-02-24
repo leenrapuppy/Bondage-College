@@ -1,0 +1,7 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej pásku.)ADD_MINUTES:1,"Je to silná jednorázová lepící páska. Bude|těžké ti rozumět, pokud ti s ní někdo zalepí pusu.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Zalep si pusu.)ADD_MINUTES:1,Utrhneš kus pásky a pevně si ji přelepíš přes ústa.,10,0,0,SelfGag()
+10,0,0,HasLooseTape,(Prozkoumej|volnou pásku.)ADD_MINUTES:1,"Je to silná jednorázová lepící páska. Bude|těžké ti rozumět, pokud ti s ní někdo zalepí pusu.",10,0,0,ShowImage()
+10,0,0,,(Zkus otevřít pusu.)ADD_MINUTES:1,"Pokoušíš se silou otevřít pusu,|ale páska je příliš silná.",10,0,0,
+10,0,0,,(Zkus pásku|vytlačit.)ADD_MINUTES:1,"Snažíš se pásku vytlačit jazykem a foukáním,|ale páska se ani nehne.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Sundej si pásku.)ADD_MINUTES:1,"Strhneš si pásku z obličeje.|Pěkně to bolí, ale už zase můžeš mluvit.",0,0,0,SelfUngag()

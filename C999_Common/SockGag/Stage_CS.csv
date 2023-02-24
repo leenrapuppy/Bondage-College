@@ -1,0 +1,8 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ponožku.)ADD_MINUTES:1,"Lichá ponožka, co se moc nehodí k nošení,|ale akorát tak velká zacpat i tu největší pusu.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Použij ji jako roubík.)ADD_MINUTES:1,"Nacpala sis podkolenku celou do pusy.|Máš ji teď úplně plnou.",10,0,0,SelfGag()
+10,0,0,HasLooseSockGag,(Prozkoumej|volnou ponožku.)ADD_MINUTES:1,"Lichá ponožka, co se moc nehodí k nošení,|ale akorát tak velká zacpat i tu největší pusu.",10,0,0,ShowImage()
+10,0,0,,(Skousni ponožku.)ADD_MINUTES:1,Žvýkáš smotek z ponožky ve svých ústech.|Začíná být nasáklý tvými slinami.,10,0,0,
+10,0,0,,(Žužlej ponožku.)ADD_MINUTES:1,"Žužláš a saješ smotek z ponožky, zkoušíš|jeho chuť a dumáš, jak ta ponožka byla čistá.",10,0,0,
+10,0,0,!HasOtherGag,(Vyplivni ponožku.)ADD_MINUTES:1,Vyplivla jsi promočenou ponožku|ze svých úst a zase můžeš mluvit,0,0,0,SelfUngag()
+10,0,0,HasOtherGag,(Vyplivni ponožku.)ADD_MINUTES:1,"Zkoušíš ponožku vyplivnout, ale druhý roubík ji drží|na místě. Budeš ho muset nejprve sundat.",10,0,0,

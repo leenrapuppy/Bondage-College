@@ -1,0 +1,9 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,"Tenhle pás cudnosti je, zdá se, v dobrém stavu.|Pokud ho zavřeš, budeš k otevření potřebovat klíč.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Zamkni se.)ADD_MINUTES:1,"Zhluboka ses nadechla a uzavřela jej na sobě.|Zámek s hlasitým cvaknutím zapadl.",0,0,0,LockSelf()
+10,0,0,,(Prozkoumej svůj pás.)ADD_MINUTES:1,"Tenhle pás cudnosti je, zdá se, v dobrém stavu.|K jeho otevření budeš potřebovat klíč.",10,0,0,
+10,0,0,HasLooseBelt,(Prozkoumej|volný pás.)ADD_MINUTES:1,"Tenhle pás cudnosti je, zdá se, v dobrém stavu.|Pokud ho zavřeš, budeš k otevření potřebovat klíč.",10,0,0,ShowImage()
+10,0,0,Common_PlayerNotRestrained,(Sundej si pás.)ADD_MINUTES:1,"Pokoušíš se stáhnout si pás z boků,|ale je zapnutý příliš těsně a vůbec se nehne.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Otevři ho násilím.)ADD_MINUTES:1,"Snažíš se silou otevřít nebo vypáčit pás,|ale ten zůstává pevně uzamčený.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Pokus se masturbovat.)ADD_MINUTES:1,"Sotva se ti daří strčit si prst pod pás.|Takhle masturbovat je úplně nemožné.",10,0,0,
+10,0,0,,(Tři si poštěváček.)ADD_MINUTES:1,"Nešikovně se snažíš třít si klitoris o pás.|Není to úplně nejhorší, ale na vyvrcholení to nestačí.",10,0,0,

@@ -1,0 +1,7 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,Rukáv vypadá velmi solidně.|Určitě vydrží jakékoliv pokusy o vyproštění.,0,0,0,
+0,0,0,,(Pohrej si s ním.)ADD_MINUTES:1,Pohráváš si s koženými popruhy a s tkanicemi.|Z přejetí po kůži ti běhá mráz po zádech.,0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Nasaď si ho.)ADD_MINUTES:1,"Strkáš si paže za zády do rukávu, ale dokud ti|nikdo nestáhne a nezapne popruhy, držet nebude.",0,0,0,
+10,0,0,HasLooseArmbinder,(Pohrej si|s volným rukávem.)ADD_MINUTES:1,"Hraješ si s přebytečným rukávem,|ale dokud jsi spoutaná, moc dělat nemůžeš.",10,0,0,ShowImage()
+10,0,0,,(Pokus se|ho rozbít.)ADD_MINUTES:1,"Vší silou se snažíš rukáv roztrhnout nebo|rozepnout, ale tvá snaha naprosto selhává.",10,0,0,
+10,0,0,,(Vykruť se|z něj ven.)ADD_MINUTES:1,"Mrskáš se v rukávu co to jde,|ale ven se dostat nedokážeš.",10,0,0,

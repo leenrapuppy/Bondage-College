@@ -1,0 +1,48 @@
+5Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Psssst.,(Šeptá.) Copak?,10,0,0,
+0,0,0,,"Promiň, že tě ruším.",(Šeptá.) Neměli bychom mluvit až později?,10,0,-1,
+0,0,0,,Hej! Krasavice!,"(Červená se a šeptá) Kdo, já?",10,1,0,
+10,0,0,,Taky se tak nudíš?,(Vypadá zmateně.) Nudím?|Jak se někdo u derivací může nudit?,20,-1,0,
+10,0,0,,Skončí ta hodina někdy?,"(Šeptá.) Končí v devět.|Koukám, že matematika není tvoje silná stránka.",20,0,0,
+10,0,0,,Pomůžeš mi|s těmihle příklady?,"(Vrtí hlavou, že ne.) Teď ne.|Ale možná bych ti mohla pomoci dnes večer.",20,0,-1,
+10,0,0,,"Vypadá to, že se|ti ta hodina fakt líbí.","(Kývá hlavou.) Ano! Slečna Mildred|je možná tvrdá, ale učitelka je báječná.",20,0,0,
+20,0,0,,Nechtěla bys|odsud vypadnout?,(Vypadá překvapeně.) Vypadnout?|Ze třídy? Co máš na mysli?,30,0,0,
+20,0,0,,"Přiznej to, jsou|lepší věci, co dají dělat.",Lepší věci? Co máš na mysli?,30,0,0,
+20,0,0,,Cukrouš jako jsi ty|by se mohl bavit líp.,Líp bavit? Co máš na mysli?,30,0,1,
+20,0,0,,"Nudíš mě! Pojďme|dělat něco jiného!",Něco jiného? Co máš na mysli?,30,-1,0,
+30,0,0,,Chtěla bys učitelku vidět|v měkkých provázcích?,(Vykulí oči a červená se.)|Svázat slečnu Mildred? Jako my?,40,1,0,
+30,0,0,,Měli bysme unést|učitelku.,(Vykulí oči a šeptá.)|Jako fakt? Svázat jí v hodině?,40,0,0,
+30,0,0,,Měli bychom zbít|a svázat učitelku.,"(Vrtí hlavou zleva doprava.)|Proboha ne, slečně Mildred nemůžeme ublížit!",40,-1,0,
+30,0,0,,"Pomůžeš mi unést|Mildred, holčičko.",(Vykulí oči a šeptá.)|Cože? Svázat ji před celou třídou?,40,0,1,
+40,4,0,,Můžeš to udělat|z přátelství. (Mrk.),"(Přikývne.) Dobře, z přátelství.|Pomůžu ti, ale začít musíš ty.",50,0,0,AgreeHelp()
+40,0,4,,"Ty to uděláš, subinko.","(Sklání hlavu.) Ano, slečno.|Prosím udělejte první krok a já vám pomůžu.",50,0,0,AgreeHelp()
+40,0,0,,"Ano, pomůžeš mi?","(Vrtí hlavou, že ne.)|Nemůžu, já mám slečnu Midred ráda.",40,0,0,
+40,0,0,,"Ano, ale nejdřív|si to musím promyslet.","(Pokrčí rameny) Dobře, ale|budeš muset být fakt přesvědčivá.",40,0,0,
+100,0,0,SubdueRemarkReady,"Chtěla bys být|svázaná, jako ona?",Já? (Chichotá se.) An… …ne.|To by se nehodilo.,100,0,1,SubdueRemark()
+100,0,4,SubdueRemarkReady,Přiznej to subinko.|Ty jí závidíš.,"Já… no… hmm… Ano, slečno.|(Sklání před tebou hlavu.)",100,0,1,SubdueRemark()
+100,0,0,SubdueRemarkReady,Takhle krásně jsem|ji svázala pro tebe.,(Červená se.) Pro mne?|(Chichotá se.) To je tak zvrhlé!,100,1,0,SubdueRemark()
+100,0,0,SubdueRemarkReady,Dnes ráno máme|trochu jinou hodinu.,A bude z toho zkouška? (Chichotá se.),100,0,0,SubdueRemark()
+100,0,0,Common_PlayerGagged,"@Uuuummph, mmph!","(Dává si ruku přes ústa, aby se nechichotala.)",100,0,0,
+100,0,0,Common_PlayerGagged,(Skousni roubík.),"(Dívá se na tebe a vypadá,|že to co vidí se jí líbí.)",100,0,0,
+100,1,0,Common_PlayerGagged,(Zkus ukázat|na roubík.),(Šeptá) Po hodině ti pomůžu.,100,0,0,
+100,-1,0,Common_PlayerGagged,(Zkus ukázat|na roubík.),(Ukazuje palec nahoru a chichotá se.),100,0,0,
+100,0,0,Common_PlayerRestrained,(Cukej s pouty.),(Vrtí hlavou ze strany na stranu.),100,0,0,
+100,0,-2,BowRemarkReady,(Skloň hlavu.),"(Šeptá.) Jsi tak roztomilá,|když jsi spoutaná a s roubíkem.",100,1,-1,BowRemark()
+110,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Chichotá se a něco mumlá nazpátek.),110,0,0,
+110,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vytahuješ z úst velkou kuličku.)|Děkuji. To bylo dost nepohodlné.,100,0,0,Ungag()
+130,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Chichotá se a něco mumlá nazpátek.),130,0,0,
+130,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vytahuješ z úst velkou kuličku.)|Děkuji. To bylo dost nepohodlné.,120,0,0,Ungag()
+140,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Lechtáš ji a ona se bláznivě chechtá.)|HahaHAHAha! Prosím, přestaň!",140,0,0,Tickle()
+140,0,0,Common_PlayerNotRestrained,(Rozvaž ji.)ADD_MINUTES:1,(Rozvazuješ uzly a ona se zase obléká.)|Ty to s těmi uzly umíš! (Chichotá se.),100,0,0,Untie()
+140,0,0,BondageHugReady,Chtěla bys Sarah|pomazlit?ADD_MINUTES:1,(Vřele dává Sarah svázané objetí|a něco něžného ji šeptá do ucha.),160,0,0,BondageHug()
+150,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Chichotá se a něco mumlá nazpátek.),150,0,0,
+150,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Lechtáš ji a ona se bláznivě chechtá|do svého roubíku, pak se červená.)",150,0,0,Tickle()
+150,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vytahuješ z úst velkou kuličku.)|Děkuji. To bylo dost nepohodlné.,140,0,0,Ungag()
+150,0,0,Common_PlayerNotRestrained,(Rozvaž ji.)ADD_MINUTES:1,(Rozvazuješ uzly a ona se zase obléká.)|(Ukazuje potom na svůj roubík.),110,0,0,Untie()
+150,0,0,BondageHugReady,Chtěla bys Sarah|pomazlit?ADD_MINUTES:1,"(Váhá, ale pomalu se přesouvá za svou|přítelkyní, aby ji dala vřelé svázané objetí.)",170,0,0,BondageHug()
+160,0,0,,Nechceš jí dát pusu? ADD_MINUTES:1,"Sarah, chceš mě políbit?|(Nakloní se a Sarah políbí.)",160,0,0,KissSarah()
+160,0,0,,Nejste vy zamilované?,Já… Ehm… No… (Červená se.),160,0,0,
+160,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Šeptá něco Sarah a pak se oddělí.),140,0,0,Separate()
+170,0,0,,Vy jste mi|krásný spoutaný pár.,(Červená se a dívá se na stranu.),170,0,0,
+170,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Podívá se naposledy na Sarah|a vrátí se na svou židli.),150,0,0,Separate()
+170,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a roubík jí vyndáváš.)|Děkuji. To bylo dost nepohodlné.,160,0,0,Ungag()

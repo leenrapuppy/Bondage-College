@@ -1,0 +1,6 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej masku.)ADD_MINUTES:1,"Tahle maska je zcela neprůhledná.|Kdo ji má nasazenou, neuvidí vůbec nic.",0,0,0,
+0,0,0,Common_PlayerNotRestrained,(Nasaď si masku.)ADD_MINUTES:1,Nasadila sis masku přes oči|a zapnula přezky za hlavou.,10,0,0,SelfBlind()
+10,0,0,Common_PlayerNotRestrained,(Zamávej si rukou|před očima.)ADD_MINUTES:1,"Jsi si jistá, že tam je,|ale svou ruku ani její stín přesto nevidíš.",10,0,0,
+10,0,0,,(Pokus se setřást masku.)ADD_MINUTES:1,"Zkoušíš si masku sundat třením o předměty, ale|popruhy ji drží pevně na místě. Bez rukou to nepůjde.",10,0,0,
+10,0,0,Common_PlayerNotRestrained,(Sundej si masku.)ADD_MINUTES:1,"Rozepla jsi popruhy masky,|stáhla si ji z očí a už zase vidíš.",0,0,0,SelfUnBlind()
