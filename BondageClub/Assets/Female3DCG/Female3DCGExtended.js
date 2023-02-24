@@ -3781,17 +3781,27 @@ var AssetFemale3DCGExtended = {
 						]
 					},
 					{
-						Name: "Piercing", Key: "p",
+						Name: "LeftPiercing", Key: "p",
 						Options: [
 							{
 								Property: { Type: null }
 							}, // p0 none
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 BarRight
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 BarLeft
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p3 BarBoth
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p4 RingRight
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p5 RingLeft
-							{ PrerequisiteBuyGroup: "JewelrySet" }, // p6 RingBoth
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p1 1Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p2 2Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p3 1Ring
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // p4 2Ring
+						]
+					},
+					{
+						Name: "RightPiercing", Key: "r",
+						Options: [
+							{
+								Property: { Type: null }
+							}, // r0 none
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r1 1Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r2 2Bar
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r3 1Ring
+							{ PrerequisiteBuyGroup: "JewelrySet" }, // r4 2Ring
 						]
 					},
 				]

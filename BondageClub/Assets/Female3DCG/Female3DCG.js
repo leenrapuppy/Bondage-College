@@ -3113,10 +3113,14 @@ var AssetFemale3DCG = [
 					{ Name: "Eyebrows4", HasType: false, AllowModuleTypes: ["s2"], CopyLayerColor: "Main" },
 					{ Name: "Eyebrows5", HasType: false, AllowModuleTypes: ["s3"], CopyLayerColor: "Main" },
 					{ Name: "Eyebrows6", HasType: false, AllowModuleTypes: ["s4"], CopyLayerColor: "Main" },
-					{ Name: "EyebrowBarRight", HasType: false, AllowModuleTypes: ["p3","p1"] },
-					{ Name: "EyebrowBarLeft", HasType: false, AllowModuleTypes: ["p3","p2"], CopyLayerColor: "EyebrowBarRight" },
-					{ Name: "EyebrowRingRight", HasType: false, AllowModuleTypes: ["p6","p4"], CopyLayerColor: "EyebrowBarRight" },
-					{ Name: "EyebrowRingLeft", HasType: false, AllowModuleTypes: ["p6","p5"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowBarRight", HasType: false, AllowModuleTypes: ["r1","r2"] },
+					{ Name: "EyebrowBar2Right", HasType: false, AllowModuleTypes: ["r2"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowBarLeft", HasType: false, AllowModuleTypes: ["p1","p2"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowBar2Left", HasType: false, AllowModuleTypes: ["p2"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowRingRight", HasType: false, AllowModuleTypes: ["r3","r4"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowRing2Right", HasType: false, AllowModuleTypes: ["r4"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowRingLeft", HasType: false, AllowModuleTypes: ["p3","p4"], CopyLayerColor: "EyebrowBarRight" },
+					{ Name: "EyebrowRing2Left", HasType: false, AllowModuleTypes: ["p4"], CopyLayerColor: "EyebrowBarRight" },
 				]
 			}, //Eyebrows2
 			"Eyebrows7",
