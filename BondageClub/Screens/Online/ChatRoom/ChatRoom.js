@@ -2752,13 +2752,13 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 	for (let entry of data.Dictionary) {
 		if (IsSourceCharacterDictionaryEntry(entry)) {
 			const {SourceCharacter} = entry;
-			const C = ChatRoomCharacter.find((c) => c.MemberNumber === SourceCharacter);
+			const C = Character.find((c) => c.MemberNumber === SourceCharacter);
 			if (C) {
 				meta.SourceCharacter = C;
 			}
 		} else if (IsTargetCharacterDictionaryEntry(entry)) {
 			const {TargetCharacter, Index} = entry;
-			const C = ChatRoomCharacter.find((c) => c.MemberNumber === TargetCharacter);
+			const C = Character.find((c) => c.MemberNumber === TargetCharacter);
 			if (C) {
 				if (Index) {
 					if (!meta.AdditionalTargets) meta.AdditionalTargets = {};
@@ -2770,7 +2770,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			}
 		} else if (IsCharacterReferenceDictionaryEntry(entry)) {
 			const {Tag, MemberNumber} = entry;
-			const C = ChatRoomCharacter.find((c) => c.MemberNumber === MemberNumber);
+			const C = Character.find((c) => c.MemberNumber === MemberNumber);
 			if (C) {
 				switch (Tag) {
 					case "SourceCharacter":
