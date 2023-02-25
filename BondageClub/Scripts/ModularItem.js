@@ -79,11 +79,14 @@ const ModularItemChatSetting = {
  */
 function ModularItemRegister(asset, config) {
 	const data = ModularItemCreateModularData(asset, config);
-	ModularItemCreateLoadFunction(data);
-	ModularItemCreateDrawFunction(data);
-	ModularItemCreateClickFunction(data);
-	ModularItemCreateExitFunction(data);
-	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
+
+	if (IsBrowser()) {
+		ModularItemCreateLoadFunction(data);
+		ModularItemCreateDrawFunction(data);
+		ModularItemCreateClickFunction(data);
+		ModularItemCreateExitFunction(data);
+		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
+	}
 	ModularItemGenerateValidationProperties(data);
 }
 

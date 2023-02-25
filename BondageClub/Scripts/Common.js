@@ -1026,3 +1026,11 @@ function CommonIsObject(value) {
 function CommonIsNonNegativeInteger(value) {
 	return typeof value === "number" && Number.isInteger(value) && value >= 0;
 }
+
+/**
+ * Return whether BC is running in a browser environment (as opposed to Node.js as used for the test suite).
+ * @returns {boolean}
+ */
+function IsBrowser() {
+	return typeof window !== "undefined" && typeof window.document !== "undefined";
+}

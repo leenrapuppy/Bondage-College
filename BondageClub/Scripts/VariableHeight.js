@@ -35,12 +35,15 @@ const VariableHeightDataLookup = {};
  */
 function VariableHeightRegister(asset, config, property, parentOptions = null) {
 	const data = VariableHeightCreateData(asset, config, property, parentOptions);
-	VariableHeightCreateLoadFunction(data);
-	VariableHeightCreateDrawFunction(data);
-	VariableHeightCreateClickFunction(data);
-	VariableHeightCreateExitFunction(data);
-	VariableHeightCreatePublishFunction(data);
-	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
+
+	if (IsBrowser()) {
+		VariableHeightCreateLoadFunction(data);
+		VariableHeightCreateDrawFunction(data);
+		VariableHeightCreateClickFunction(data);
+		VariableHeightCreateExitFunction(data);
+		VariableHeightCreatePublishFunction(data);
+		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
+	}
 }
 
 /**

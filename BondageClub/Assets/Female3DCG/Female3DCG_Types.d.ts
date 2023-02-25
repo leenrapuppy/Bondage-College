@@ -907,3 +907,17 @@ interface VariableHeightDialogConfig {
 }
 
 //#endregion
+
+// #region Testing
+
+/** An interface representing missing data for a given (simplified) asset */
+interface TestingMissingStruct {
+	/** The asset's group */
+	readonly Group: AssetGroupName;
+	/** The asset's name */
+	readonly Name: string;
+	/** The name of the asset's missing data */
+	readonly Missing: string;
+}
+
+// #endregion

@@ -53,14 +53,18 @@ const TypedItemChatSetting = {
  */
 function TypedItemRegister(asset, config) {
 	const data = TypedItemCreateTypedItemData(asset, config);
-	TypedItemCreateLoadFunction(data);
-	TypedItemCreateDrawFunction(data);
-	TypedItemCreateClickFunction(data);
-	TypedItemCreateExitFunction(data);
-	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
-	TypedItemCreatePublishFunction(data);
-	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
-	TypedItemCreatePublishActionFunction(data);
+
+	if (IsBrowser()) {
+		TypedItemCreateLoadFunction(data);
+		TypedItemCreateDrawFunction(data);
+		TypedItemCreateClickFunction(data);
+		TypedItemCreateExitFunction(data);
+		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
+		TypedItemCreatePublishFunction(data);
+		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
+		TypedItemCreatePublishActionFunction(data);
+	}
+
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
 	TypedItemGenerateAllowBlock(data);
