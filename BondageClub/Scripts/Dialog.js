@@ -660,7 +660,7 @@ function DialogRemove() {
 	var pos = 0;
 	for (let D = 0; D < CurrentCharacter.Dialog.length; D++)
 		if ((CurrentCharacter.Dialog[D].Stage == CurrentCharacter.Stage) && (CurrentCharacter.Dialog[D].Option != null) && DialogPrerequisite(D)) {
-			if ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 160 + pos * 105) && (MouseY <= 250 + pos * 105)) {
+			if (MouseIn(1025, 160 + pos * 105, 950, 90)) {
 				CurrentCharacter.Dialog.splice(D, 1);
 				break;
 			}
@@ -1479,7 +1479,7 @@ function DialogMenuButtonClick() {
 
 	// Finds the current icon
 	for (let I = 0; I < DialogMenuButton.length; I++)
-		if ((MouseX >= 1885 - I * 110) && (MouseX <= 1975 - I * 110)) {
+		if (MouseXIn(1885 - I * 110, 90)) {
 
 			// Gets the current character and item
 			/** The focused character */
@@ -1911,7 +1911,7 @@ function DialogClick() {
 
 	// In activity mode, we check if the user clicked on an activity box
 	if (DialogActivityMode && (DialogColor == null) && ((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem))) {
-		if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000)) {
+		if (MouseIn(1000, 125, 975, 875)) {
 
 			// For each activities in the list
 			let X = 1000;
@@ -1919,7 +1919,7 @@ function DialogClick() {
 			for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
 				const act = DialogActivity[A];
 				// If this specific activity is clicked, we run it
-				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
+				if (MouseIn(X, Y, 225, 275)) {
 					const type = (act.Item && act.Item.Property ? act.Item.Property.Type : null);
 					if (!act.Blocked || act.Blocked === "limited" && InventoryCheckLimitedPermission(C, act.Item, type)) {
 						if (C.IsNpc() && act.Item) {
@@ -1984,17 +1984,17 @@ function DialogClick() {
 			}
 
 			// If the user wants to click on one of icons in the item menu
-			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 15) && (MouseY <= 105)) DialogMenuButtonClick();
+			if (MouseIn(1000, 15, 1000, 90)) DialogMenuButtonClick();
 
 			// If the user clicks on one of the items
-			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && !StruggleMinigameIsRunning() && (DialogColor == null)) {
+			if (MouseIn(1000, 125, 975, 875) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && !StruggleMinigameIsRunning() && (DialogColor == null)) {
 				// For each items in the player inventory
 				let X = 1000;
 				let Y = 125;
 				for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + 12); I++) {
 
 					// If the item is clicked
-					if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275))
+					if (MouseIn(X, Y, 225, 275))
 						if (DialogInventory[I].Asset.Enable || (DialogInventory[I].Asset.Extended && DialogInventory[I].Asset.OwnerOnly && CurrentCharacter.IsOwnedByPlayer())) {
 							DialogItemClick(DialogInventory[I]);
 							break;
@@ -2012,17 +2012,16 @@ function DialogClick() {
 		}
 
 	} else {
-
 		// If we need to leave the dialog (only allowed when there's an entry point to the dialog, not in the middle of a conversation)
-		if ((DialogIntro() != "") && (DialogIntro() != "NOEXIT") && (MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110))
+		if (MouseIn(1885, 25, 90, 90) && DialogIntro() != "" && DialogIntro() != "NOEXIT")
 			DialogLeave();
 
 		// If the user clicked on a text dialog option, we trigger it
-		if ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 100) && (MouseY <= 990) && (CurrentCharacter != null)) {
-			var pos = 0;
+		if (MouseIn(1025, 100, 950, 890) && CurrentCharacter != null) {
+			let optionID = 0;
 			for (let D = 0; D < CurrentCharacter.Dialog.length; D++) {
 				if ((CurrentCharacter.Dialog[D].Stage == CurrentCharacter.Stage) && (CurrentCharacter.Dialog[D].Option != null) && DialogPrerequisite(D)) {
-					if ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 160 + pos * 105) && (MouseY <= 250 + pos * 105)) {
+					if (MouseIn(1025, 160 + optionID * 105, 950, 90)) {
 						// If the player is gagged, the answer will always be the same
 						if (!Player.CanTalk()) CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, "PlayerGagged");
 						else CurrentCharacter.CurrentDialog = CurrentCharacter.Dialog[D].Result;
@@ -2036,15 +2035,16 @@ function DialogClick() {
 							DialogLeave();
 						break;
 					}
-					pos++;
+					optionID++;
 				}
 			}
 		}
 	}
 
 	// If the user clicked in the facial expression menu
-	if ((CurrentCharacter != null) && (CurrentCharacter.ID == 0) && (MouseX >= 0) && (MouseX <= 500)) {
-		if (MouseIn(420, 50, 90, 90) && DialogSelfMenuOptions.filter(SMO => SMO.IsAvailable()).length > 1) DialogFindNextSubMenu();
+	if (MouseXIn(0, 500) && CurrentCharacter != null && CurrentCharacter.IsPlayer()) {
+		if (MouseIn(420, 50, 90, 90) && DialogSelfMenuOptions.filter(SMO => SMO.IsAvailable()).length > 1)
+			DialogFindNextSubMenu();
 		if (!DialogSelfMenuSelected)
 			DialogClickExpressionMenu();
 		else
@@ -2575,7 +2575,7 @@ function DialogDraw() {
 			let pos = 0;
 			for (let D = 0; D < CurrentCharacter.Dialog.length; D++) {
 				if ((CurrentCharacter.Dialog[D].Stage == CurrentCharacter.Stage) && (CurrentCharacter.Dialog[D].Option != null) && DialogPrerequisite(D)) {
-					DrawTextWrap(SpeechGarble(Player, CurrentCharacter.Dialog[D].Option), 1025, 160 + 105 * pos, 950, 90, "black", ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 160 + pos * 105) && (MouseY <= 250 + pos * 105) && !CommonIsMobile) ? "cyan" : "white", 2);
+					DrawTextWrap(SpeechGarble(Player, CurrentCharacter.Dialog[D].Option), 1025, 160 + 105 * pos, 950, 90, "black", (MouseIn(1025, 160 + pos * 105, 950, 90) && !CommonIsMobile) ? "cyan" : "white", 2);
 					pos++;
 				}
 			}
