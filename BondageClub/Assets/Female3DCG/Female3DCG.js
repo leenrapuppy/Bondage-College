@@ -1738,7 +1738,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "BakerBoyHat", Value: 40, HideForPose: ["Suspension"], Layer: [
 				{ Name: "Long", HideForAttribute: ["ShortHair"] },
-				{ Name: "Short", ShowForAttribute: ["ShortHair"], Top: 35 },
+				{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 35 },
 			]
 			},
 			{ Name: "ReindeerBand", Value: 10, Layer: [
@@ -3366,10 +3366,10 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "UpperRope", HasType: false, AllowTypes: ["Knees", "AnklesKnees"] },
 					{ Name: "LowerRope", HasType: false, AllowTypes: ["", "AnklesKnees"] },
-					{ Name: "BedSpreadEagleRope", HasType: false, AllowTypes: ["BedSpreadEagle"] },
+					{ Name: "BedSpreadEagleRope", HasType: false, AllowTypes: ["BedSpreadEagle"], CopyLayerColor: "LowerRope" },
 					{ Name: "UpperShine", AllowColorize: false, HasType: false, AllowTypes: ["Knees", "AnklesKnees"] },
 					{ Name: "LowerShine", AllowColorize: false, HasType: false, AllowTypes: ["", "AnklesKnees"] },
-					{ Name: "BedSpreadEagleShine", AllowColorize: false, HasType: false, AllowTypes: ["BedSpreadEagle"] },
+					{ Name: "BedSpreadEagleShine", AllowColorize: false, HasType: false, AllowTypes: ["BedSpreadEagle"], CopyLayerColor: "LowerShine" },
 				]
 			},
 			{ Name: "HempRope", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 15, DefaultColor: "#956B1C", BuyGroup: "HempRope", HideItem: ["ItemMiscTeddyBear", "ItemDevicesLittleMonster", "ItemDevicesFamiliar"], SetPose: ["LegsClosed"], Audio: "RopeShort", Extended: true, AllowActivePose: ["Kneel"], DynamicBeforeDraw: true, AllowTighten: true },
@@ -3506,10 +3506,10 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "UpperRope", HasType: false, AllowTypes: ["Thighs", "KneesThighs"] },
 					{ Name: "LowerRope", HasType: false, AllowTypes: ["", "KneesThighs"] },
-					{ Name: "FrogtieRope", HasType: false, AllowTypes: ["Frogtie"] },
+					{ Name: "FrogtieRope", HasType: false, AllowTypes: ["Frogtie"], CopyLayerColor: "UpperRope" },
 					{ Name: "UpperShine", AllowColorize: false, HasType: false, AllowTypes: ["Thighs", "KneesThighs"] },
 					{ Name: "LowerShine", AllowColorize: false, HasType: false, AllowTypes: ["", "KneesThighs"] },
-					{ Name: "FrogtieShine", AllowColorize: false, HasType: false, AllowTypes: ["Frogtie"] },
+					{ Name: "FrogtieShine", AllowColorize: false, HasType: false, AllowTypes: ["Frogtie"], CopyLayerColor: "UpperRope" },
 				]
 			},
 			{ Name: "HempRope", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 10, RemoveTime: 15, DefaultColor: "#956B1C", BuyGroup: "HempRope", SetPose: ["LegsClosed"], Extended: true, Audio: "RopeShort", AllowPose: ["Kneel", "KneelingSpread"], AllowActivePose: ["Kneel", "LegsClosed"], FreezeActivePose: [], AllowTighten: true },
