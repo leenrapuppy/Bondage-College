@@ -2887,6 +2887,8 @@ interface ICommand {
 	Clear?: false;
 }
 
+// #region Struggle Minigame
+
 type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "LockPick";
 
 interface StruggleMinigame {
@@ -2894,6 +2896,20 @@ interface StruggleMinigame {
 	Draw: (C: Character) => void;
 	HandleEvent?: (EventType: "KeyDown"|"Click") => void;
 }
+
+interface StruggleCompletionData {
+	Progress: number;
+	PrevItem: Item;
+	NextItem?: Item;
+	Skill: number;
+	Attempts: number;
+	Interrupted: boolean;
+	Auto?: boolean;
+}
+
+type StruggleCompletionCallback = (character: Character, game: StruggleKnownMinigames, data: StruggleCompletionData) => void;
+
+// #endregion
 
 //#region Poker Minigame
 

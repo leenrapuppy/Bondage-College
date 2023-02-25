@@ -64,6 +64,7 @@ var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
 let DialogStruggleAction = null;
 let DialogStrugglePrevItem = null;
 let DialogStruggleNextItem = null;
+let DialogStruggleSelectMinigame = false;
 
 /** @type {Map<string, string>} */
 var PlayerDialog = new Map();
@@ -651,8 +652,8 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 		CurrentCharacter.FocusGroup = null;
 	}
 	DialogInventory = null;
-	if (DialogIsStruggling())
-		StruggleMinigameStop();
+	StruggleMinigameStop();
+	DialogStruggleSelectMinigame = false;
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
 	DialogColor = null;
@@ -942,8 +943,13 @@ function DialogBuildActivities(C) {
  */
 function DialogMenuButtonBuild(C) {
 
+	DialogMenuButton = [];
+
 	// The "Exit" button is always available
 	DialogMenuButton = ["Exit"];
+
+	// There's no group focused, hence no menu to draw
+	if (C.FocusGroup == null) return;
 
 	/** The item in the current slot */
 	const Item = InventoryGet(C, C.FocusGroup.Name);
@@ -955,11 +961,12 @@ function DialogMenuButtonBuild(C) {
 		DialogMenuButton.push("ColorSelect");
 		return;
 	}
-	if (StruggleLockPickOrder)
+
+	if (StruggleProgressCurrentMinigame === "LockPick")
 		DialogMenuButton.push("LockCancel");
 
 	// Out of struggle mode, we calculate which buttons to show in the UI
-	if (!DialogIsStruggling() && !DialogActivityMode) {
+	if (!StruggleMinigameIsRunning() && !DialogStruggleSelectMinigame) {
 
 		// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
 		const IsItemLocked = InventoryItemHasEffect(Item, "Lock", true);
@@ -1400,13 +1407,20 @@ function DialogMenuButtonClick() {
 		if ((MouseX >= 1885 - I * 110) && (MouseX <= 1975 - I * 110)) {
 
 			// Gets the current character and item
+			/** The focused character */
 			const C = CharacterGetCurrent();
+			/** The focused item */
 			const Item = InventoryGet(C, C.FocusGroup.Name);
 
 			// Exit Icon - Go back to the character dialog
 			if (DialogMenuButton[I] == "Exit") {
 				if (DialogItemPermissionMode) ChatRoomCharacterUpdate(Player);
-				DialogLeaveItemMenu();
+				if (StruggleMinigameIsRunning())
+					StruggleMinigameStop();
+				else if (DialogStruggleSelectMinigame)
+					DialogStruggleSelectMinigame = false;
+				else
+					DialogLeaveItemMenu();
 				return;
 			}
 
@@ -1474,18 +1488,16 @@ function DialogMenuButtonClick() {
 
 			// Unlock Icon - If the item is padlocked, we immediately unlock.  If not, we start the struggle progress.
 			else if ((DialogMenuButton[I] == "Unlock") && (Item != null)) {
-				if (!InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && ((C.ID != 0) || C.CanInteract())) {
+				// Check that this is not one of the sticky-locked items
+				if (!InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && (!C.IsPlayer() || C.CanInteract())) {
 					InventoryUnlock(C, C.FocusGroup.Name);
 					if (ChatRoomPublishAction(C, "ActionUnlock", Item, null)) {
 						DialogLeave();
 					} else {
 						DialogInventoryBuild(C);
 					}
-					DialogLockMenu = false;
 				} else
 					DialogStruggleStart(C, "ActionUnlock", Item, null);
-				StruggleLockPickOrder = null;
-				DialogLockMenu = false;
 				return;
 			}
 
@@ -1508,7 +1520,8 @@ function DialogMenuButtonClick() {
 
 			// PickLock Icon - Starts the lockpicking mini-game
 			else if (((DialogMenuButton[I] == "PickLock")) && (Item != null)) {
-				StruggleMinigameStart(C, "LockPick", Item, null);
+				StruggleMinigameStart(C, "LockPick", Item, null, DialogStruggleStop);
+				DialogMenuButtonBuild(C);
 				return;
 			}
 
@@ -1559,8 +1572,9 @@ function DialogMenuButtonClick() {
 
 			// When the user cancels out of lock menu, we recall the original color
 			else if (Item && DialogMenuButton[I] == "LockCancel") {
+				if (StruggleMinigameIsRunning())
+					StruggleMinigameStop();
 				DialogLockMenu = false;
-				StruggleLockPickOrder = null;
 				DialogMenuButtonBuild(C);
 				return;
 			}
@@ -1817,7 +1831,7 @@ function DialogClick() {
 	}
 
 	// In activity mode, we check if the user clicked on an activity box
-	if (DialogActivityMode && !DialogIsStruggling() && (DialogColor == null) && ((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem)))
+	if (DialogActivityMode && (DialogColor == null) && ((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem))) {
 		if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000)) {
 
 			// For each activities in the list
@@ -1862,6 +1876,7 @@ function DialogClick() {
 			return;
 
 		}
+	}
 
 	// In item menu mode VS text dialog mode
 	if (((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem)) && (DialogIntro() != "")) {
@@ -1874,23 +1889,28 @@ function DialogClick() {
 		} else {
 
 			// If the user wants to speed up the add / swap / remove progress
-			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (DialogIsStruggling())) {
-				if (!StruggleMinigameClick()) {
-					if (MouseIn(1387-300, 600, 225, 275)) {
-						StruggleMinigameStart(Player, "Strength", DialogStrugglePrevItem, DialogStruggleNextItem);
-					} else if (MouseIn(1387, 600, 225, 275)) {
-						StruggleMinigameStart(Player, "Flexibility", DialogStrugglePrevItem, DialogStruggleNextItem);
-					} else if (MouseIn(1387+300, 600, 225, 275)) {
-						StruggleMinigameStart(Player, "Dexterity", DialogStrugglePrevItem, DialogStruggleNextItem);
-					}
+			if (MouseIn(1000, 200, 1000, 800) && (DialogStruggleSelectMinigame || StruggleMinigameIsRunning())) {
+				if (StruggleMinigameIsRunning()) {
+					StruggleMinigameClick();
+					// Minigame handled the click
+				} else if (MouseIn(1387-300, 600, 225, 275)) {
+					StruggleMinigameStart(Player, "Strength", DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
+					DialogMenuButtonBuild(C);
+				} else if (MouseIn(1387, 600, 225, 275)) {
+					StruggleMinigameStart(Player, "Flexibility", DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
+					DialogMenuButtonBuild(C);
+				} else if (MouseIn(1387+300, 600, 225, 275)) {
+					StruggleMinigameStart(Player, "Dexterity", DialogStrugglePrevItem, DialogStruggleNextItem, DialogStruggleStop);
+					DialogMenuButtonBuild(C);
 				}
+				return;
 			}
 
 			// If the user wants to click on one of icons in the item menu
 			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 15) && (MouseY <= 105)) DialogMenuButtonClick();
 
 			// If the user clicks on one of the items
-			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && !DialogIsStruggling() && (DialogColor == null)) {
+			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && !StruggleMinigameIsRunning() && (DialogColor == null)) {
 				// For each items in the player inventory
 				let X = 1000;
 				let Y = 125;
@@ -2072,7 +2092,8 @@ function DialogExtendItem(Item, SourceItem) {
 	const C = CharacterGetCurrent();
 	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
-	if (DialogIsStruggling()) StruggleMinigameStop();
+	StruggleMinigameStop();
+	DialogStruggleSelectMinigame = false;
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
 	DialogColor = null;
@@ -2090,7 +2111,8 @@ function DialogSetTightenLoosenItem(Item) {
 	const C = CharacterGetCurrent();
 	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
-	if (DialogIsStruggling()) StruggleMinigameStop();
+	StruggleMinigameStop();
+	DialogStruggleSelectMinigame = false;
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
 	DialogColor = null;
@@ -2254,7 +2276,8 @@ function DialogDrawItemMenu(C) {
 
 	// Draws the top menu text & icons
 	if (DialogMenuButton.length === 0) DialogMenuButtonBuild(CharacterGetCurrent());
-	if ((DialogColor == null) && Player.CanInteract() && !DialogIsStruggling() && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
+	if ((DialogColor == null) && Player.CanInteract() && !DialogStruggleSelectMinigame && !StruggleMinigameIsRunning() && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8)
+		DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
 	for (let I = DialogMenuButton.length - 1; I >= 0; I--) {
 		const ButtonColor = DialogGetMenuButtonColor(DialogMenuButton[I]);
 		const ButtonImage = DialogGetMenuButtonImage(DialogMenuButton[I], FocusItem);
@@ -2277,8 +2300,8 @@ function DialogDrawItemMenu(C) {
 
 	// In item permission mode, the player can choose which item he allows other users to mess with.
 	// Allowed items have a green background.  Disallowed have a red background. Limited have an orange background
-	if ((DialogItemPermissionMode && (C.ID == 0) && !DialogIsStruggling())
-		|| (Player.CanInteract() && !DialogIsStruggling() && !InventoryGroupIsBlocked(C, null, true))) {
+	if ((DialogItemPermissionMode && (C.ID == 0) && !StruggleMinigameIsRunning() && !DialogStruggleSelectMinigame)
+		|| (Player.CanInteract() && !StruggleMinigameIsRunning() && !DialogStruggleSelectMinigame && !InventoryGroupIsBlocked(C, null, true))) {
 
 		if (DialogInventory == null) DialogInventoryBuild(C);
 
@@ -2319,25 +2342,31 @@ function DialogDrawItemMenu(C) {
 	}
 
 	// If the player is struggling or lockpicking
-	if (DialogIsStruggling()) {
-		if (!StruggleMinigameDraw(C)) {
-			if ((DialogStrugglePrevItem != null) && (DialogStruggleNextItem != null)) {
-				DrawAssetPreview(1200, 150, DialogStrugglePrevItem.Asset);
-				DrawAssetPreview(1575, 150, DialogStruggleNextItem.Asset);
-			} else DrawAssetPreview(1387, 150, (DialogStrugglePrevItem != null) ? DialogStrugglePrevItem.Asset : DialogStruggleNextItem.Asset);
+	if (StruggleMinigameIsRunning()) {
+		StruggleMinigameDraw(C);
+		return;
+	}
 
-			DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
+	if (DialogStruggleSelectMinigame) {
+		// Draw previews for the assets we're swapping/struggling
+		if ((DialogStrugglePrevItem != null) && (DialogStruggleNextItem != null)) {
+			DrawAssetPreview(1200, 150, DialogStrugglePrevItem.Asset);
+			DrawAssetPreview(1575, 150, DialogStruggleNextItem.Asset);
+		} else
+			DrawAssetPreview(1387, 150, (DialogStrugglePrevItem != null) ? DialogStrugglePrevItem.Asset : DialogStruggleNextItem.Asset);
 
-			const struggleCraftingBonus = ["Strong", "Flexible", "Nimble"];
-			for (const [idx, game] of ["Strength", "Flexibility", "Dexterity"].entries()) {
-				const offset = 300 * idx;
-				const hover = MouseIn(1087 + offset, 600, 225, 275);
-				const bonus = InventoryCraftPropertyIs(StruggleProgressPrevItem, struggleCraftingBonus[idx]);
-				const bgColor = hover ? "aqua" : (bonus ? "Pink" : "white");
-				DrawRect(1087 + offset, 600, 225, 275, bgColor);
-				DrawImageResize("Icons/Struggle/" + game + ".png", 1089 + offset, 602, 221, 221);
-				DrawTextFit(DialogFindPlayer(game), 1200 + offset, 850, 221, "black");
-			}
+		// Draw UI to select struggling minigame
+		DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
+
+		const struggleCraftingBonus = ["Strong", "Flexible", "Nimble"];
+		for (const [idx, game] of ["Strength", "Flexibility", "Dexterity"].entries()) {
+			const offset = 300 * idx;
+			const hover = MouseIn(1087 + offset, 600, 225, 275);
+			const bonus = InventoryCraftPropertyIs(StruggleProgressPrevItem, struggleCraftingBonus[idx]);
+			const bgColor = hover ? "aqua" : (bonus ? "Pink" : "white");
+			DrawRect(1087 + offset, 600, 225, 275, bgColor);
+			DrawImageResize("Icons/Struggle/" + game + ".png", 1089 + offset, 602, 221, 221);
+			DrawTextFit(DialogFindPlayer(game), 1200 + offset, 850, 221, "black");
 		}
 		return;
 	}
@@ -2766,17 +2795,6 @@ function DialogActualNameForGroup(C, G) {
 }
 
 /**
- * Check if there's a struggling minigame started.
- *
- * StruggleProgress == 0 also happens when the selection screen is up,
- * but StruggleProgressCurrentMinigame will be "" in that case.
- * @returns {boolean}
- */
-function DialogIsStruggling() {
-	return (StruggleProgress >= 0 || !!StruggleLockPickOrder);
-}
-
-/**
  * Propose one of the struggle minigames.
  *
  * If it's not the player struggling, or we're applying a new item, or the
@@ -2795,6 +2813,7 @@ function DialogIsStruggling() {
  */
 function DialogStruggleStart(C, Action, PrevItem, NextItem) {
 	ChatRoomStatusUpdate("Struggle");
+
 	if (C != Player
 			|| PrevItem == null
 			|| ((PrevItem != null)
@@ -2802,13 +2821,118 @@ function DialogStruggleStart(C, Action, PrevItem, NextItem) {
 				&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
 				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
 		DialogStruggleAction = Action;
-		StruggleMinigameStart(C, "Strength", PrevItem, NextItem);
+		StruggleMinigameStart(C, "Strength", PrevItem, NextItem, DialogStruggleStop);
 	} else {
 		DialogStruggleAction = Action;
 		DialogStrugglePrevItem = PrevItem;
 		DialogStruggleNextItem = NextItem;
-		StruggleProgressCurrentMinigame = "";
-		StruggleProgress = 0;
+		DialogStruggleSelectMinigame = true;
+	}
+	// Refresh menu buttons
+	DialogMenuButtonBuild(C);
+
+}
+
+/**
+ * Handle the struggle minigame completing, either as a failure, an interruption, or a success.
+ *
+ * @type {StruggleCompletionCallback}
+ */
+function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Attempts, Interrupted, Auto }) {
+	const Success = Progress >= 100;
+	if (Interrupted) {
+		// Handle the minigame having been interrupted by showing a message in chat
+		let action;
+		if (PrevItem != null && NextItem != null && !NextItem.Asset.IsLock)
+			action = "ActionInterruptedSwap";
+		else if (StruggleProgressNextItem != null)
+			action = "ActionInterruptedAdd";
+		else
+			action = "ActionInterruptedRemove";
+
+		ChatRoomPublishAction(C, action, PrevItem, NextItem);
+
+		DialogLeave();
+		return;
+	} else if (Game === "LockPick") {
+		if (Success) {
+			if (C.FocusGroup && C) {
+				const item = InventoryGet(C, C.FocusGroup.Name);
+				if (item) {
+					InventoryUnlock(C, item);
+					ChatRoomPublishAction(C, "ActionPick", item, null);
+				}
+			}
+			SkillProgress("LockPicking", Skill);
+		}
+
+		// For an NPC we move out to their reaction, for other characters we return to the item list
+		if (C.IsNpc()) {
+			DialogLeaveItemMenu();
+		} else {
+			DialogLockMenu = false;
+			DialogInventoryBuild(C);
+		}
+		return;
+	} else if (Game === "Dexterity" || Game === "Flexibility" || Game === "Strength") {
+
+		if (!Success) {
+			// Send a stimulation event for that
+			if (Attempts >= 10 && !Auto && Progress >= 0 && Progress < 100) {
+				ChatRoomStimulationMessage("StruggleFail");
+			}
+			DialogInventoryBuild(C);
+			return;
+		}
+
+		// Removes the item & associated items if needed, then wears the new one
+		InventoryRemove(C, C.FocusGroup.Name);
+		if (NextItem != null) {
+			let Color = (DialogColorSelect == null) ? "Default" : DialogColorSelect;
+			if ((NextItem.Craft != null) && CommonIsColor(NextItem.Craft.Color))
+				Color = NextItem.Craft.Color;
+
+			InventoryWear(C, NextItem.Asset.Name, NextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, NextItem.Craft);
+
+			if (NextItem.Craft != null)
+				InventoryCraft(Player, C, NextItem.Asset.Group.Name, NextItem.Craft, true);
+		}
+
+		// The player can use another item right away, for another character we jump back to her reaction
+		if (C.IsPlayer()) {
+			if (NextItem == null) SkillProgress("Evasion", Skill);
+			if (PrevItem == null && NextItem != null)
+				SkillProgress("SelfBondage", (Skill + NextItem.Asset.SelfBondage) * 2);
+			if (NextItem == null || !NextItem.Asset.Extended) {
+				DialogInventoryBuild(C);
+				DialogColor = null;
+			}
+		} else {
+			if (NextItem != null) SkillProgress("Bondage", Skill);
+			if ((NextItem == null || !NextItem.Asset.Extended) && CurrentScreen != "ChatRoom") {
+				C.CurrentDialog = DialogFind(C, (NextItem == null ? "Remove" + PrevItem.Asset.Name : NextItem.Asset.Name), (NextItem == null ? "Remove" : "") + C.FocusGroup.Name);
+				DialogLeaveItemMenu();
+			}
+		}
+
+		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
+		if (NextItem != null && NextItem.Asset.Extended && NextItem.Craft == null) {
+			DialogInventoryBuild(C);
+			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
+			DialogExtendItem(InventoryGet(C, NextItem.Asset.Group.Name));
+		} else {
+			if (ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem))
+				DialogLeave();
+		}
+
+		// Reset the the character's position
+		if (CharacterAppearanceForceUpCharacter == C.MemberNumber) {
+			CharacterAppearanceForceUpCharacter = -1;
+			CharacterRefresh(C, false);
+		}
+
+		// Rebuilds the menu
+		DialogEndExpression();
 		DialogMenuButtonBuild(C);
 	}
 }
