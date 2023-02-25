@@ -57,7 +57,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemCreateDrawFunction(data);
 	TypedItemCreateClickFunction(data);
 	TypedItemCreateExitFunction(data);
-	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate, data.changeWhenLocked);
+	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
 	TypedItemCreatePublishFunction(data);
 	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
 	TypedItemCreatePublishActionFunction(data);
@@ -120,7 +120,6 @@ function TypedItemCreateTypedItemData(asset, {
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
-		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 	};
 }

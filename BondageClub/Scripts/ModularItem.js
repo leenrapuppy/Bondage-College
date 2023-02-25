@@ -83,7 +83,7 @@ function ModularItemRegister(asset, config) {
 	ModularItemCreateDrawFunction(data);
 	ModularItemCreateClickFunction(data);
 	ModularItemCreateExitFunction(data);
-	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate, data.changeWhenLocked);
+	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
 	ModularItemGenerateValidationProperties(data);
 }
 
@@ -223,7 +223,6 @@ function ModularItemCreateModularData(asset, {
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
 		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length, asset, BaseDrawImages) },
-		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		scriptHooks: {
 			load: ScriptHooks ? ScriptHooks.Load : undefined,
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
