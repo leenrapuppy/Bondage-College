@@ -1271,91 +1271,101 @@ function DialogCanUseCraftedItem(C, Craft) {
  * the player's inventory and the character's inventory for that group
  * @param {Character} C - The character whose inventory must be built
  * @param {number} [Offset] - The offset to be at, if specified.
+ * @param {boolean} [locks=false] - If TRUE we build a list of locks instead.
  * @param {boolean} [redrawPreviews=false] - If TRUE and if building a list of preview character images, redraw the canvases
  * @returns {void} - Nothing
  */
-function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
+function DialogInventoryBuild(C, Offset, locks = false, redrawPreviews = false) {
 
 	// Make sure there's a focused group
 	DialogInventoryOffset = Offset == null ? 0 : Offset;
 
 	const DialogInventoryBefore = DialogInventoryStringified(C);
 	DialogInventory = [];
-	if (C.FocusGroup != null) {
+	if (C.FocusGroup == null) return;
 
-		// First, we add anything that's currently equipped
-		const CurItem = C.Appearance.find(A => A.Asset.Group.Name == C.FocusGroup.Name && A.Asset.DynamicAllowInventoryAdd(C));
-		if (CurItem)
-			DialogInventoryAdd(C, CurItem, true, DialogSortOrder.Enabled);
-
-		// In item permission mode we add all the enable items except the ones already on, unless on Extreme difficulty
-		if (DialogMenuMode === "permissions") {
-			for (const A of C.FocusGroup.Asset) {
-				if (!A.Enable)
-					continue;
-
-				if (A.Wear) {
-					if ((CurItem == null) || (CurItem.Asset.Name != A.Name) || (CurItem.Asset.Group.Name != A.Group.Name))
-						DialogInventoryAdd(Player, { Asset: A }, false, DialogSortOrder.Enabled);
-				} else if (A.IsLock) {
-					const LockIsWorn = InventoryCharacterIsWearingLock(C, /** @type {AssetLockType} */(A.Name));
-					DialogInventoryAdd(Player, { Asset: A }, LockIsWorn, DialogSortOrder.Enabled);
-				}
+	if (locks) {
+		for (const item of Player.Inventory) {
+			if (item.Asset != null && item.Asset.IsLock) {
+				DialogInventoryAdd(C, item, false);
 			}
-		} else {
+		}
+		DialogInventorySort();
+		return;
+	}
 
-			// Second, we add everything from the victim inventory
-			for (const I of C.Inventory)
+	// First, we add anything that's currently equipped
+	const CurItem = C.Appearance.find(A => A.Asset.Group.Name == C.FocusGroup.Name && A.Asset.DynamicAllowInventoryAdd(C));
+	if (CurItem)
+		DialogInventoryAdd(C, CurItem, true, DialogSortOrder.Enabled);
+
+	// In item permission mode we add all the enable items except the ones already on, unless on Extreme difficulty
+	if (DialogMenuMode === "permissions") {
+		for (const A of C.FocusGroup.Asset) {
+			if (!A.Enable)
+				continue;
+
+			if (A.Wear) {
+				if ((CurItem == null) || (CurItem.Asset.Name != A.Name) || (CurItem.Asset.Group.Name != A.Group.Name))
+					DialogInventoryAdd(Player, { Asset: A }, false, DialogSortOrder.Enabled);
+			} else if (A.IsLock) {
+				const LockIsWorn = InventoryCharacterIsWearingLock(C, /** @type {AssetLockType} */ (A.Name));
+				DialogInventoryAdd(Player, { Asset: A }, LockIsWorn, DialogSortOrder.Enabled);
+			}
+		}
+	} else {
+
+		// Second, we add everything from the victim inventory
+		for (const I of C.Inventory)
+			if ((I.Asset != null) && (I.Asset.Group.Name == C.FocusGroup.Name) && I.Asset.DynamicAllowInventoryAdd(C))
+				DialogInventoryAdd(C, I, false);
+
+		// Third, we add everything from the player inventory if the player isn't the victim
+		if (C.ID != 0)
+			for (const I of Player.Inventory)
 				if ((I.Asset != null) && (I.Asset.Group.Name == C.FocusGroup.Name) && I.Asset.DynamicAllowInventoryAdd(C))
 					DialogInventoryAdd(C, I, false);
 
-			// Third, we add everything from the player inventory if the player isn't the victim
-			if (C.ID != 0)
-				for (const I of Player.Inventory)
-					if ((I.Asset != null) && (I.Asset.Group.Name == C.FocusGroup.Name) && I.Asset.DynamicAllowInventoryAdd(C))
-						DialogInventoryAdd(C, I, false);
+		// Fourth, we add all free items (especially useful for clothes), or location-specific always available items
+		for (const A of Asset)
+			if (A.Group.Name === C.FocusGroup.Name && A.DynamicAllowInventoryAdd(C))
+				if (A.Value === 0 || (A.AvailableLocations.includes("Asylum") && (CurrentScreen.startsWith("Asylum") || ChatRoomSpace === "Asylum")))
+					DialogInventoryAdd(C, { Asset: A }, false);
 
-			// Fourth, we add all free items (especially useful for clothes), or location-specific always available items
-			for (const A of Asset)
-				if (A.Group.Name === C.FocusGroup.Name && A.DynamicAllowInventoryAdd(C))
-					if (A.Value === 0 || (A.AvailableLocations.includes("Asylum") && (CurrentScreen.startsWith("Asylum") || ChatRoomSpace === "Asylum")))
-						DialogInventoryAdd(C, { Asset: A }, false);
+		// Fifth, we add all crafted items for the player that matches that slot
+		if (Player.Crafting != null) {
+			for (let Craft of Player.Crafting)
+				if ((Craft != null) && (Craft.Item != null)) {
+					const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+					for (let A of group.Asset)
+						if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
+							DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+				}
+		}
 
-			// Fifth, we add all crafted items for the player that matches that slot
-			if (Player.Crafting != null) {
-				for (let Craft of Player.Crafting)
-					if ((Craft != null) && (Craft.Item != null)) {
+		// Sixth. we add all crafted items from the character that matches that slot
+		if (C.Crafting != null) {
+			let Crafting = CraftingDecompressServerData(C.Crafting);
+			for (let Craft of Crafting)
+				if ((Craft != null) && (Craft.Item != null))
+					if ((Craft.Private == null) || (Craft.Private == false)) {
+						Craft.MemberName = CharacterNickname(C);
+						Craft.MemberNumber = C.MemberNumber;
 						const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
 						for (let A of group.Asset)
 							if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
 								DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
 					}
-			}
-
-			// Sixth. we add all crafted items from the character that matches that slot
-			if (C.Crafting != null) {
-				let Crafting = CraftingDecompressServerData(C.Crafting);
-				for (let Craft of Crafting)
-					if ((Craft != null) && (Craft.Item != null))
-						if ((Craft.Private == null) || (Craft.Private == false)) {
-							Craft.MemberName = CharacterNickname(C);
-							Craft.MemberNumber = C.MemberNumber;
-							const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
-							for (let A of group.Asset)
-								if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
-									DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
-						}
-			}
-
 		}
 
-		DialogInventorySort();
-
-		// Build the list of preview images
-		const DialogInventoryAfter = DialogInventoryStringified(C);
-		const redraw = redrawPreviews || (DialogInventoryBefore !== DialogInventoryAfter);
-		AppearancePreviewBuild(C, redraw);
 	}
+
+	DialogInventorySort();
+
+	// Build the list of preview images
+	const DialogInventoryAfter = DialogInventoryStringified(C);
+	const redraw = redrawPreviews || (DialogInventoryBefore !== DialogInventoryAfter);
+	AppearancePreviewBuild(C, redraw);
 }
 
 /**
@@ -1857,21 +1867,10 @@ function DialogChangeMode(mode) {
 	DialogMenuMode = mode;
 	switch (DialogMenuMode) {
 		case "locking":
-			DialogInventoryOffset = 0;
-			DialogInventory = [];
-			for (const item of Player.Inventory) {
-				if (item.Asset != null && item.Asset.IsLock) {
-					DialogInventoryAdd(C, item, false);
-				}
-			}
-			DialogInventorySort();
-			DialogMenuButtonBuild(C);
-			break;
-
 		case "activities":
 		case "permissions":
 		case "items":
-			DialogInventoryBuild(C);
+			DialogInventoryBuild(C, null, DialogMenuMode === "locking");
 			DialogMenuButtonBuild(C);
 			DialogBuildActivities(C);
 			break;
@@ -2436,7 +2435,8 @@ function DialogDrawItemMenu(C) {
 	if ((DialogMenuMode === "permissions" && (C.ID == 0))
 		|| ((DialogMenuMode === "items" || DialogMenuMode === "activities" || DialogMenuMode === "locking") && Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) {
 
-		if (DialogInventory == null) DialogInventoryBuild(C);
+		// Safe-guard against the item list not being set
+		if (DialogInventory == null) DialogInventoryBuild(C, 0, DialogMenuMode === "locking");
 
 		// Draw all possible items in that category (12 per screen)
 		let X = 1000;
