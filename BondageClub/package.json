@@ -10,7 +10,7 @@
 		"assets:minify": "gulp --gulpfile Tools/Node/gulpfile.js assetMinify --max-old-space-size=8192",
 		"assets:lint": "eslint Assets/Female3DCG/Female3DCG.js Assets/Female3DCG/Female3DCGExtended.js",
 		"assets:lint:fix": "eslint --fix Assets/Female3DCG/Female3DCG.js Assets/Female3DCG/Female3DCGExtended.js",
-		"assets:check": "cd Tools/Node && node AssetCheck",
+		"assets:check": "cd Tools/Node && node --unhandled-rejections=strict AssetCheck",
 		"assets:typecheck": "cd ../ && tsc -p BondageClub/Tools/Node/tsconfig-assetcheck.json",
 		"scripts:lint": "eslint \"Scripts/**/*.js\" \"Screens/**/*.js\" \"Tools/**/*.js\" \"Backgrounds/Backgrounds.js\"",
 		"scripts:lint:fix": "eslint --fix \"Scripts/**/*.js\" \"Screens/**/*.js\" \"Tools/**/*.js\" \"Backgrounds/Backgrounds.js\"",
