@@ -345,6 +345,22 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 	return ret;
 }
 
+/**
+ * Strigify and parse the passed object to get the correct Array and Object prototypes, because VM uses different ones.
+ * This unfortunately results in Functions being lost and replaced with a dummy function
+ * @param {any} input The to-be sanitized input
+ * @returns {any} The sanitized output
+ */
+function sanitizeVMOutput(input) {
+	return JSON.parse(
+		JSON.stringify(
+			input,
+			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
+		),
+		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
+	);
+}
+
 (function () {
 	const context = vm.createContext({ OuterArray: Array, Object: Object });
 	for (const file of neededFiles) {
@@ -354,24 +370,10 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 		});
 	}
 
-	// We need to strigify and parse the asset array to have correct Array and Object prototypes, because VM uses different ones
-	// This unfortunately results in Functions being lost and replaced with a dummy function
 	/** @type {AssetGroupDefinition[]} */
-	const AssetFemale3DCG = JSON.parse(
-		JSON.stringify(
-			context.AssetFemale3DCG,
-			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
-		),
-		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
-	);
+	const AssetFemale3DCG = sanitizeVMOutput(context.AssetFemale3DCG);
 	/** @type {ExtendedItemConfig} */
-	const AssetFemale3DCGExtended = JSON.parse(
-		JSON.stringify(
-			context.AssetFemale3DCGExtended,
-			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
-		),
-		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
-	);
+	const AssetFemale3DCGExtended = sanitizeVMOutput(context.AssetFemale3DCGExtended);
 
 	if (!Array.isArray(AssetFemale3DCG)) {
 		error("AssetFemale3DCG not found");
