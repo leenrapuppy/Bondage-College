@@ -656,7 +656,7 @@ function DialogLeave() {
 		CurrentCharacter.FocusGroup = null;
 	}
 	DialogInventory = null;
-	DialogMenuMode = "dialog";
+	DialogChangeMode("dialog");
 	CurrentCharacter = null;
 	DialogSelfMenuSelected = null;
 	DialogSavedExpressionPreviews = [];
@@ -734,18 +734,18 @@ function DialogLeaveItemMenu() {
 			// Move back to the item list only if we automatically started to struggle
 			if (DialogStruggleSelectMinigame) {
 				DialogStruggleSelectMinigame = false;
-				DialogMenuMode = "items";
+				DialogChangeMode("items");
 			}
 		} else {
-			DialogMenuMode = "items";
+			DialogChangeMode("items");
 		}
 	} else if (DialogMenuMode === "permissions") {
 		// Send out an update so that other players get our updated permissions
 		if (CurrentScreen == "ChatRoom")
 			ChatRoomCharacterUpdate(Player);
-		DialogMenuMode = "items";
+		DialogChangeMode("items");
 	} else {
-		DialogMenuMode = "dialog";
+		DialogChangeMode("dialog");
 	}
 	if (DialogMenuMode === "items") {
 		const C = CharacterGetCurrent();
@@ -771,14 +771,14 @@ function DialogLeaveFocusItem() {
 		TightenLoosenItemExit();
 		// If we still have a focused item, then we entered tightening through its extended screen
 		if (DialogFocusItem)
-			DialogMenuMode = "extended";
+			DialogChangeMode("extended");
 		else
-			DialogMenuMode = "items";
+			DialogChangeMode("items");
 	} else {
 		if (DialogFocusItem != null) {
 			const FuncName = ExtendedItemFunctionPrefix() + "Exit";
 			ExtendedItemExit();
-			DialogMenuMode = "items";
+			DialogChangeMode("items");
 			return (typeof window[FuncName] === "function");
 		}
 	}
@@ -1573,18 +1573,7 @@ function DialogMenuButtonClick() {
 			// Lock Icon - Rebuilds the inventory list with locking items
 			else if (DialogMenuButton[I] == "Lock") {
 				if (Item && InventoryDoesItemAllowLock(Item)) {
-					DialogMenuMode = "locking";
-					DialogInventoryOffset = 0;
-					DialogInventory = [];
-					for (const item of Player.Inventory) {
-						if (item.Asset != null && item.Asset.IsLock) {
-							DialogInventoryAdd(C, item, false);
-						}
-					}
-					DialogInventorySort();
-					DialogMenuButtonBuild(C);
-				} else {
-					DialogInventoryBuild(C);
+					DialogChangeMode("locking");
 				}
 				return;
 			}
@@ -1598,8 +1587,7 @@ function DialogMenuButtonClick() {
 					if (ChatRoomPublishAction(C, "ActionUnlock", Item, null)) {
 						DialogLeave();
 					} else {
-						DialogMenuMode = "items";
-						DialogInventoryBuild(C);
+						DialogChangeMode("items");
 					}
 				} else
 					DialogStruggleStart(C, "ActionUnlock", Item, null);
@@ -1646,33 +1634,30 @@ function DialogMenuButtonClick() {
 					const originalColor = Item.Color;
 					ItemColorLoad(C, Item, 1300, 25, 675, 950);
 					ItemColorOnExit((save) => {
-						DialogMenuMode = "items";
+						DialogChangeMode("items");
 						if (save && !CommonColorsEqual(originalColor, Item.Color)) {
 							if (C.ID == 0) ServerPlayerAppearanceSync();
 							ChatRoomPublishAction(C, "ActionChangeColor", Object.assign({}, Item, { Color: originalColor }), Item);
 						}
 					});
 				}
-				DialogMenuMode = "color";
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("color");
 				return;
 			}
 
 			// When the user selects a color, applies it to the item
 			else if (!Item && (DialogMenuButton[I] == "ColorSelect") && CommonIsColor(ElementValue("InputColor"))) {
-				DialogMenuMode = "items";
 				DialogColorSelect = ElementValue("InputColor");
 				ElementRemove("InputColor");
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("items");
 				return;
 			}
 
 			// When the user cancels out of color picking, we recall the original color
 			else if (!Item && DialogMenuButton[I] == "ColorCancel") {
-				DialogMenuMode = "items";
 				DialogColorSelect = null;
 				ElementRemove("InputColor");
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("items");
 				return;
 			}
 
@@ -1680,54 +1665,43 @@ function DialogMenuButtonClick() {
 			else if (Item && DialogMenuButton[I] == "LockCancel") {
 				if (StruggleMinigameIsRunning())
 					StruggleMinigameStop();
-				DialogMenuMode = "items";
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("items");
 				return;
 			}
 
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "LockMenu") {
-				DialogMenuMode = "locked";
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("locked");
 				return;
 			}
 
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "Crafting") {
-				DialogMenuMode = "crafted";
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("crafted");
 				return;
 			}
 
 			// When the user cancels out of lock menu, we recall the original color
 			else if (Item && DialogMenuButton[I] == "CraftingCancel") {
-				DialogMenuMode = "items";
-				DialogMenuButtonBuild(C);
+				DialogChangeMode("items");
 				return;
 			}
 
 			// When the user wants to select a sexual activity to perform
 			else if (DialogMenuButton[I] == "Activity") {
-				DialogMenuMode = "activities";
-				DialogMenuButton = [];
-				DialogInventoryOffset = 0;
-				DialogTextDefault = "";
-				DialogTextDefaultTimer = 0;
+				DialogChangeMode("activities");
 				return;
 			}
 
 			// When we enter item permission mode, we rebuild the inventory to set permissions
 			else if (DialogMenuButton[I] == "DialogPermissionMode") {
-				DialogMenuMode = "permissions";
-				DialogInventoryBuild(C);
+				DialogChangeMode("permissions");
 				return;
 			}
 
 			// When we leave item permission mode, we upload the changes for everyone in the room
 			else if (DialogMenuButton[I] == "DialogNormalMode") {
-				if (CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-				DialogMenuMode = "items";
-				DialogInventoryBuild(C);
+				DialogChangeMode("items");
 				return;
 			}
 		}
@@ -1800,8 +1774,7 @@ function DialogItemClick(ClickItem) {
 		if (CurrentItem && InventoryDoesItemAllowLock(CurrentItem)) {
 			InventoryLock(C, CurrentItem, ClickItem, Player.MemberNumber);
 			IntroductionJobProgress("DomLock", ClickItem.Asset.Name, true);
-			DialogMenuMode = "items";
-			DialogInventoryBuild(C);
+			DialogChangeMode("items");
 			if (ChatRoomPublishAction(C, "ActionAddLock", CurrentItem, ClickItem))
 				DialogLeave();
 		}
@@ -1888,6 +1861,48 @@ function DialogInventoryTogglePermission(item, worn) {
 }
 
 /**
+ * Changes the dialog mode and perform the initial setup.
+ *
+ * @param {DialogMenuMode} mode The new mode for the dialog.
+ */
+function DialogChangeMode(mode) {
+	// In permission-mode, send a character update so that others
+	// catch up on our (maybe) updated item permissions
+	if (DialogMenuMode == "permissions" && CurrentScreen == "ChatRoom") {
+		ChatRoomCharacterUpdate(Player);
+	}
+
+	const C = CharacterGetCurrent();
+	DialogMenuMode = mode;
+	switch (DialogMenuMode) {
+		case "locking":
+			DialogInventoryOffset = 0;
+			DialogInventory = [];
+			for (const item of Player.Inventory) {
+				if (item.Asset != null && item.Asset.IsLock) {
+					DialogInventoryAdd(C, item, false);
+				}
+			}
+			DialogInventorySort();
+			DialogMenuButtonBuild(C);
+			break;
+
+		case "activities":
+		case "permissions":
+		case "items":
+			DialogInventoryBuild(C);
+			DialogMenuButtonBuild(C);
+			DialogBuildActivities(C);
+			break;
+
+		case "dialog":
+			DialogInventory = [];
+			DialogMenuButton = [];
+			break;
+	}
+}
+
+/**
  * Change the given character's focused group.
  * @param {Character} C - The character to change the focus of.
  * @param {AssetItemGroup|string} Group - The group that should gain focus.
@@ -1904,7 +1919,7 @@ function DialogChangeFocusToGroup(C, Group) {
 	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
 	DialogFocusItem = null;
 	DialogTightenLoosenItem = null;
-	DialogMenuMode = "items";
+	DialogChangeMode("items");
 	DialogInventoryBuild(C);
 	DialogText = DialogTextDefault;
 }
@@ -2214,7 +2229,7 @@ function DialogExtendItem(Item, SourceItem) {
 	const C = CharacterGetCurrent();
 	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
-	DialogMenuMode = "extended";
+	DialogChangeMode("extended");
 	DialogFocusItem = Item;
 	DialogFocusSourceItem = SourceItem;
 	CommonDynamicFunction("Inventory" + Item.Asset.Group.Name + Item.Asset.Name + "Load()");
@@ -2229,7 +2244,7 @@ function DialogSetTightenLoosenItem(Item) {
 	const C = CharacterGetCurrent();
 	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
-	DialogMenuMode = "tighten";
+	DialogChangeMode("tighten");
 	DialogTightenLoosenItem = Item;
 	TightenLoosenItemLoad();
 }
@@ -2704,11 +2719,11 @@ function DialogClickExpressionMenu() {
 			const Item = InventoryGet(Player, GroupName);
 			const originalColor = Item.Color;
 			Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(Player.AssetFamily, GroupName));
-			DialogMenuMode = "color";
+			DialogChangeMode("color");
 			DialogExpressionColor = "";
 			ItemColorLoad(Player, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((save) => {
-				DialogMenuMode = "items";
+				DialogChangeMode("items");
 				DialogExpressionColor = null;
 				Player.FocusGroup = null;
 				if (save && !CommonColorsEqual(originalColor, Item.Color)) {
@@ -2967,7 +2982,7 @@ function DialogStruggleStart(C, Action, PrevItem, NextItem) {
 		DialogStruggleNextItem = NextItem;
 		DialogStruggleSelectMinigame = true;
 	}
-	DialogMenuMode = "struggle";
+	DialogChangeMode("struggle");
 	// Refresh menu buttons
 	DialogMenuButtonBuild(C);
 
@@ -3010,7 +3025,7 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 		if (C.IsNpc()) {
 			DialogLeaveItemMenu();
 		} else {
-			DialogInventoryBuild(C);
+			DialogChangeMode("items");
 		}
 		return;
 	} else if (Game === "Dexterity" || Game === "Flexibility" || Game === "Strength") {
@@ -3020,7 +3035,6 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 			if (Attempts >= 10 && !Auto && Progress >= 0 && Progress < 100) {
 				ChatRoomStimulationMessage("StruggleFail");
 			}
-			DialogInventoryBuild(C);
 			return;
 		}
 
@@ -3069,11 +3083,7 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 		} else if (NextItem === null) {
 			// Removing an item, we move back to the menu
 			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
-			DialogMenuMode = "items";
-			DialogInventoryBuild(C);
-			DialogMenuButtonBuild(C);
-			DialogEndExpression();
-			DialogStruggleSelectMinigame = false;
+			DialogChangeMode("items");
 		} else if (
 			NextItem !== null
 			&& NextItem.Asset.Extended
@@ -3081,11 +3091,6 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 		) {
 			// Applying an extended, non-crafted/typeless crafted item, refresh the inventory and open the extended UI
 			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
-			DialogMenuMode = "items";
-			DialogInventoryBuild(C);
-			DialogMenuButtonBuild(C);
-			DialogEndExpression();
-			DialogStruggleSelectMinigame = false;
 			DialogExtendItem(NextItem);
 		} else {
 			// Applying a non-extended or crafted-with-preset-type item, just exit the dialog altogether

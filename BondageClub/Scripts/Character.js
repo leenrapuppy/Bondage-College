@@ -1250,9 +1250,8 @@ function CharacterRefreshDialog(C) {
 		const FocusItem = C && C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
 		if ((ItemColorItem && !FocusItem) || (!ItemColorItem && FocusItem) || InventoryGetItemProperty(ItemColorItem, "Name") !== InventoryGetItemProperty(FocusItem, "Name")) {
 			ItemColorCancelAndExit();
-			DialogMenuMode = "items";
+			DialogChangeMode("items");
 			DialogColorSelect = null;
-			DialogMenuButtonBuild(C);
 		}
 	}
 }

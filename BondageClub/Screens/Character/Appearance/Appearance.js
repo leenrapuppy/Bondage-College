@@ -1319,8 +1319,7 @@ function AppearanceMenuClick(C) {
 
 					// Opens permission mode
 					if (Button === "DialogPermissionMode") {
-						DialogMenuMode = "permissions";
-						DialogInventoryBuild(C);
+						DialogChangeMode("permissions");
 					}
 
 					// Strips the current item
@@ -1352,9 +1351,8 @@ function AppearanceMenuClick(C) {
 					// Accepts the new selection
 					if (Button === "Accept") {
 						if (DialogMenuMode === "permissions") {
-							DialogMenuMode = "items";
+							DialogChangeMode("items");
 							AppearanceMenuBuild(C);
-							DialogInventoryBuild(C);
 						}
 						else {
 							if (AppearancePreviewUseCharacter(C.FocusGroup)) AppearancePreviewCleanup();
