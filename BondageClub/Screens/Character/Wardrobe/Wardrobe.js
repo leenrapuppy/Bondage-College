@@ -305,6 +305,8 @@ function WardrobeGetExpression(C) {
  * Checks if a given group of a character can be accessed.
  * @param {Character} C - The character in the wardrobe
  * @param {AssetGroup} Group - The group to check for accessibility
+ * @param {object} [Options] - Options to use for the check
+ * @param {boolean} Options.ExcludeNonCloth - Removes anything that's not clothing.
  * @returns {boolean} - Whether the zone can be altered or not.
  */
 function WardrobeGroupAccessible(C, Group, Options) {
