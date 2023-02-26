@@ -1174,6 +1174,11 @@ function CharacterRefresh(C, Push, RefreshDialog = true) {
 }
 
 /**
+ * Refresh the character's dialog state.
+ *
+ * This function restore consistency between its state variables and the new character appearance,
+ * like making sure the focused items are still present and deselecting them otherwise.
+ *
  * @param {Character} C - Character to refresh
  * @returns {void} - Nothing
  */
@@ -1186,7 +1191,8 @@ function CharacterRefreshDialog(C) {
 			if (!DFI) DialogLeaveFocusItem();
 			else {
 				DialogFocusItem = DFI;
-				if (DialogFocusItem && DialogFocusItem.Asset.Extended && typeof window["Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Load"] === "function") window["Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Load"]();
+				if (DialogFocusItem.Asset.Extended)
+					DialogExtendItem(DFI);
 			}
 		} else {
 			const DFSI = DialogFocusSourceItem && DialogFocusSourceItem.Asset && C.Appearance.find(Item =>

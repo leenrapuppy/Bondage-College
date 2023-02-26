@@ -6,21 +6,42 @@ var DialogTextDefaultTimer = -1;
 var DialogColor = null;
 /** @type {null | string} */
 var DialogExpressionColor = null;
-/** @type {null | string} */
+/**
+ * The default color to use when applying items.
+ * @type {string}
+ */
 var DialogColorSelect = null;
 var DialogPreviousCharacterData = {};
-/** @type DialogInventoryItem[] */
+/**
+ * The list of available items for the selected group.
+ * @type DialogInventoryItem[]
+ */
+/**
+ * The current page offset of the item list. Also used for activities.
+ * @type {DialogInventoryItem[]}
+ */
 var DialogInventory = [];
 var DialogInventoryOffset = 0;
-/** @type {Item|null} */
+/**
+ * The item currently selected in the Dialog and showing its extended screen.
+ *
+ * Note that in case this is a lock, the item being locked is available in {@link DialogFocusSourceItem}.
+ * @type {Item|null}
+ */
 var DialogFocusItem = null;
 /** @type {Item|null} */
 var DialogTightenLoosenItem = null;
-/** @type {Item|null} */
+/**
+ * The actual item being locked while the lock asset has its extended screen drawn.
+ * @type {Item|null}
+ */
 var DialogFocusSourceItem = null;
 /** @type {null | ReturnType<typeof setTimeout>} */
 var DialogFocusItemColorizationRedrawTimer = null;
-/** @type {string[]} */
+/**
+ * The list of currently visible menu item buttons.
+ * @type {string[]}
+ */
 var DialogMenuButton = [];
 /** @type {null | Item} */
 var DialogItemToLock = null;
@@ -37,7 +58,10 @@ var DialogActivePoses = [];
 var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
 var DialogActivityMode = false;
-/** @type {ItemActivity[]} */
+/**
+ * The list of available activities for the selected group.
+ * @type {ItemActivity[]}
+ */
 var DialogActivity = [];
 /** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
@@ -61,9 +85,22 @@ var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
 var DialogGamingPreviousModule = "";
 var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
+/**
+ * The attempted action that's leading the player to struggle.
+ * @type {DialogStruggleActionType?}
+ */
 let DialogStruggleAction = null;
+/**
+ * The item we're struggling out of, or swapping from.
+ * @type {Item}
+ */
 let DialogStrugglePrevItem = null;
+/**
+ * The item we're swapping to.
+ * @type {Item}
+ */
 let DialogStruggleNextItem = null;
+/** Whether we went through the struggle selection screen or went straight through. */
 let DialogStruggleSelectMinigame = false;
 
 /** @type {Map<string, string>} */
@@ -639,8 +676,10 @@ function DialogEndExpression() {
 }
 
 /**
- * Leaves the item menu for both characters. De-initializes global variables, sets the FocusGroup of
- * player and current character to null and calls various cleanup functions
+ * Leaves the item menu for both characters.
+ *
+ * This exits the item-selecting UI and switches back to the current character's dialog options.
+ *
  * @param {boolean} [resetPermissionsMode=true] - If TRUE and in permissions mode, exits the mode
  * @returns {void} - Nothing
  */
@@ -1509,11 +1548,12 @@ function DialogMenuButtonClick() {
 
 			// Remove/Struggle Icon - Starts the struggling mini-game (can be impossible to complete)
 			else if (["Remove", "Struggle", "Dismount", "Escape"].includes(DialogMenuButton[I]) && Item != null) {
+				/** @type {DialogStruggleActionType} */
 				let action = "ActionRemove";
 				if (InventoryItemHasEffect(Item, "Lock"))
 					action = "ActionUnlockAndRemove";
 				else if (C.IsPlayer())
-					action = "Action" + DialogMenuButton[I];
+					action = /** @type {DialogStruggleActionType} */("Action" + DialogMenuButton[I]);
 				DialogStruggleStart(C, action, Item, null);
 				return;
 			}
@@ -1720,6 +1760,7 @@ function DialogItemClick(ClickItem) {
 
 						// Check if selfbondage is allowed for the item if used on self
 						if ((ClickItem.Asset.SelfBondage <= 0) || (SkillGetLevel(Player, "SelfBondage") >= ClickItem.Asset.SelfBondage) || (C.ID != 0) || DialogAlwaysAllowRestraint()) {
+							/** @type {DialogStruggleActionType} */
 							let action;
 							if (CurrentItem && ClickItem) {
 								action = "ActionSwap";
@@ -2080,7 +2121,7 @@ function DialogSetText(NewText) {
 }
 
 /**
- * Shows the extended item menue for a given item, if possible.
+ * Shows the extended item menu for a given item, if possible.
  * Therefore a dynamic function name is created and then called.
  * @param {Item} Item - The item the extended menu should be shown for
  * @param {Item} [SourceItem] - The source of the extended menu
@@ -2792,31 +2833,30 @@ function DialogActualNameForGroup(C, G) {
 }
 
 /**
- * Propose one of the struggle minigames.
+ * Propose one of the struggle minigames or start one automatically.
  *
- * If it's not the player struggling, or we're applying a new item, or the
- * existing item is locked with a key the character has, or the player can
- * interact, it's not a mountable item, or the item's difficulty is low enough
- * to progress by itself, we're currently trying to swap items on someone. In
- * that case, the Strength minigame will be started.
- *
- * Otherwise, setup the variables so DialogDrawItemMenu/DialogItemClick switch
- * to the selection screen, saving the items in the two temporary item variables.
+ * This function checks the difficulty of the current struggle attempt and
+ * either use the Strength minigame by default or setup the menu state to show
+ * the selection screen.
  *
  * @param {Character} C
- * @param {string} Action
+ * @param {DialogStruggleActionType} Action
  * @param {Item} PrevItem
  * @param {Item} NextItem
  */
 function DialogStruggleStart(C, Action, PrevItem, NextItem) {
 	ChatRoomStatusUpdate("Struggle");
 
-	if (C != Player
-			|| PrevItem == null
-			|| ((PrevItem != null)
-				&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
-				&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
-				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
+	// If it's not the player struggling, or we're applying a new item, or the
+	// existing item is locked with a key the character has, or the player can
+	// interact with it and it's not a mountable item, or the item's difficulty
+	// is low enough to progress by itself, we're currently trying to swap items
+	// on someone.
+	const autoStruggle = (C != Player || PrevItem == null || ((PrevItem != null)
+		&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
+		&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
+			|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0)));
+	if (autoStruggle) {
 		DialogStruggleAction = Action;
 		StruggleMinigameStart(C, "Strength", PrevItem, NextItem, DialogStruggleStop);
 	} else {

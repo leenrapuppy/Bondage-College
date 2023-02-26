@@ -79,6 +79,8 @@ type NotificationAlertType = 0 | 1 | 3 | 2;
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
+type DialogStruggleActionType = "ActionUse" | "ActionSwap" | "ActionRemove" | "ActionUnlock" | "ActionUnlockAndRemove" | "ActionStruggle" | "ActionEscape" | "ActionDismount";
+
 type CharacterType = "online" | "npc" | "simple";
 
 type VibratorIntensity = -1 | 0 | 1 | 2 | 3;
