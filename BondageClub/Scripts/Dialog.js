@@ -1080,9 +1080,6 @@ function DialogMenuButtonBuild(C) {
 		return;
 	}
 
-	if (StruggleProgressCurrentMinigame === "LockPick")
-		DialogMenuButton.push("LockCancel");
-
 	// Out of struggle mode, we calculate which buttons to show in the UI
 	if (DialogMenuMode === "struggle") {
 		// Struggle has no additional buttons
@@ -1094,8 +1091,6 @@ function DialogMenuButtonBuild(C) {
 		const CanAccessLockpicks = Player.CanInteract() || Player.CanWalk(); // If the character can access her tools. Maybe in the future you will be able to hide a lockpick in your panties :>
 
 		if (DialogMenuMode === "locked") {
-			DialogMenuButton.push("LockCancel");
-
 			// If the item isn't locked, there are no more buttons to add
 			const Lock = InventoryGetLock(Item);
 			if (!IsItemLocked || !Lock) return;
@@ -1128,7 +1123,7 @@ function DialogMenuButtonBuild(C) {
 
 		} else if (DialogMenuMode === "crafted") {
 
-			DialogMenuButton.push("CraftingCancel");
+			// No buttons there
 
 		} else if (DialogMenuMode === "activities") {
 			if (DialogInventory != null && DialogActivity.length > 12 && Player.CanInteract()) {
@@ -1675,14 +1670,6 @@ function DialogMenuButtonClick() {
 				return;
 			}
 
-			// When the user cancels out of lock menu, we restore the item view
-			else if (Item && DialogMenuButton[I] == "LockCancel") {
-				if (StruggleMinigameIsRunning())
-					StruggleMinigameStop();
-				DialogChangeMode("items");
-				return;
-			}
-
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "LockMenu") {
 				DialogChangeMode("locked");
@@ -1692,12 +1679,6 @@ function DialogMenuButtonClick() {
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "Crafting") {
 				DialogChangeMode("crafted");
-				return;
-			}
-
-			// When the user cancels out of lock menu, we recall the original color
-			else if (Item && DialogMenuButton[I] == "CraftingCancel") {
-				DialogChangeMode("items");
 				return;
 			}
 
