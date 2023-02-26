@@ -388,7 +388,8 @@ function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumb
 	if (SourceMemberNumber == null) SourceMemberNumber = C.MemberNumber;
 	const updateParams = ValidationCreateDiffParams(C, SourceMemberNumber);
 
-	let { appearance, updateValid } = Object.keys(appearanceDiffs)
+	const appearanceKeys = /** @type {AssetGroupName[]} */(Object.keys(appearanceDiffs));
+	let { appearance, updateValid } = appearanceKeys
 		.reduce(({ appearance, updateValid }, groupName) => {
 			const diff = appearanceDiffs[groupName];
 			const { item, valid } = ValidationResolveAppearanceDiff(groupName, diff[0], diff[1], updateParams);
@@ -469,11 +470,11 @@ function ServerBundledItemToAppearanceItem(assetFamily, item) {
  * @returns {string|string[]} - A parsed valid item color
  */
 function ServerParseColor(asset, color, schema) {
-	if (Array.isArray(color)) {
+	if (typeof color === "string") {
+		return ServerValidateColorAgainstSchema(color, schema);
+	} else {
 		if (color.length > asset.ColorableLayerCount) color = color.slice(0, asset.ColorableLayerCount);
 		return color.map(c => ServerValidateColorAgainstSchema(c, schema));
-	} else {
-		return ServerValidateColorAgainstSchema(color, schema);
 	}
 }
 

@@ -12,8 +12,9 @@ var ShopRescueScenario = "";
 var ShopRescueScenarioList = ["BoughtEverything", "CatBurglar", "BoredVendor", "SleepingAtWork"];
 var ShopItemOffset = 0;
 var ShopDemoItemPayment = 0;
+/** @type {"" | AssetGroupItemName} */
 var ShopDemoItemGroup = "";
-/** @type {AssetGroupName[]} */
+/** @type {AssetGroupItemName[]} */
 var ShopDemoItemGroupList = ["ItemHead", "ItemMouth", "ItemArms", "ItemLegs", "ItemFeet"];
 var ShopSelectAsset = ShopAssetFocusGroup;
 /** @type {Asset[]} */
@@ -371,7 +372,7 @@ function ShopCanSell(asset) {
 
 /**
  * Sets the current asset group the player is shopping for
- * @param {string} ItemGroup - Name of the asset group to look for
+ * @param {AssetGroupName} ItemGroup - Name of the asset group to look for
  * @returns {void} - Nothing
  */
 function ShopStart(ItemGroup) {
@@ -435,7 +436,7 @@ function ShopJobRestrain() {
 	DialogChangeReputation("Dominant", -1);
 	const availableGroups = ShopJobFilterAvailableGroups();
 	if (availableGroups.length > 0) {
-		ShopDemoItemGroup = CommonRandomItemFromList("", availableGroups);
+		ShopDemoItemGroup = /** @type {AssetGroupItemName} */(CommonRandomItemFromList("", availableGroups));
 	} else {
 		ShopVendor.Stage = "30";
 		return;

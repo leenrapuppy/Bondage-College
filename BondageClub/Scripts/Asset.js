@@ -666,6 +666,7 @@ function AssetGetInventoryPath(A) {
 
 /**
  * Sort a list of asset layers for the {@link Character.AppearanceLayers } property.
+ * Performs an inplace update of the passed array and then returns it.
  * @param {AssetLayer[]} layers - The to-be sorted asset layers
  * @returns {AssetLayer[]} - The newly sorted asset layers
  */

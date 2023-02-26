@@ -31,7 +31,7 @@ function InventoryAdd(C, NewItemName, NewItemGroup, Push) {
 /**
 * Adds multiple new items by group & name to the character inventory
 * @param {Character} C - The character that gets the new items added to her inventory
-* @param {readonly { Name: string, Group: AssetGroupName }[]} NewItems - The new items to add
+* @param {readonly ItemBundle[]} NewItems - The new items to add
 * @param {Boolean} [Push=true] - Set to TRUE to push to the server, pushed by default
 */
 function InventoryAddMany(C, NewItems, Push) {
@@ -387,10 +387,7 @@ function InventoryPrerequisiteConflictingGags(C, BlockingPrereqs) {
 	let MinBlockingIndex = 0;
 	for (let i = 0; i < MouthItems.length && !MinBlockingIndex; i++) {
 		// Find the lowest indexed slot in which there is a gag with a prerequisite that blocks the new gag
-		let AssetPrerequisites = MouthItems[i] && MouthItems[i].Asset.Prerequisite;
-		if (!Array.isArray(AssetPrerequisites)) {
-			AssetPrerequisites = [AssetPrerequisites];
-		}
+		const AssetPrerequisites = MouthItems[i] && MouthItems[i].Asset.Prerequisite;
 		if (AssetPrerequisites.some((Prerequisite) => BlockingPrereqs.includes(Prerequisite))) {
 			MinBlockingIndex = i + 1;
 		}
@@ -700,7 +697,7 @@ function InventoryWearCraft(Item, Craft) {
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
 * @param {AssetGroupName} AssetGroup - The name of the asset group to wear
-* @param {string | readonly string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
+* @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
 * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
 * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
 * @param {CraftingItem} [Craft] - The crafting properties of the item
@@ -853,7 +850,7 @@ function InventoryGetRandom(C, GroupName, AllowedAssets, IgnorePrerequisites = f
 	var LimitedRank = Math.pow(2, 0);
 
 	for (let A = 0; A < AssetList.length; A++)
-		if (((AssetList[A].Group.Name == GroupName && AssetList[A].Wear) || GroupName == null || GroupName == "")
+		if (((AssetList[A].Group.Name == GroupName && AssetList[A].Wear) || !GroupName)
 			&& (RandomOnly == false || AssetList[A].Random)
 			&& AssetList[A].Enable
 			&& (IgnorePrerequisites || InventoryAllow(C, AssetList[A], undefined, false)))

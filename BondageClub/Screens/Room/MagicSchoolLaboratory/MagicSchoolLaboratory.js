@@ -158,7 +158,8 @@ function MagicSchoolLaboratoryJoinHouse(House) {
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	}
 	if (House != "") {
-		DialogSetReputation("House" + House, 1);
+		const dynamicHouse = /** @type {ReputationType} */("House" + House);
+		DialogSetReputation(dynamicHouse, 1);
 		MagicSchoolLaboratoryPrepareNPC(Player, House);
 	}
 }

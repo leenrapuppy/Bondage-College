@@ -140,7 +140,7 @@ function IntroductionChangeMaidOpinion(Bonus) {
 
 /**
  * Gives focus on certain body parts with its zone
- * @param {string} NewZone - Zone to set as the new focus group
+ * @param {AssetGroupName} NewZone - Zone to set as the new focus group
  * @returns {void} - Nothing
  */
 function IntroductionSetZone(NewZone) {
@@ -161,6 +161,7 @@ function IntroductionClearZone() {
  * @returns {void} - Nothing
  */
 function IntroductionGetBasicItems() {
+	/** @type {ItemBundle[]} */
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "NylonRope", Group: "ItemFeet"});
 	ItemsToEarn.push({Name: "NylonRope", Group: "ItemLegs"});

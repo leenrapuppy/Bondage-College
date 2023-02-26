@@ -1295,10 +1295,9 @@ function DialogFacialExpressionsBuild() {
 	DialogFacialExpressions = [];
 	for (let I = 0; I < Player.Appearance.length; I++) {
 		const PA = Player.Appearance[I];
-		let ExpressionList = PA.Asset.Group.AllowExpression;
-		if (!ExpressionList || !ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
+		const ExpressionList = [...(PA.Asset.Group.AllowExpression ?? [])];
+		if (!ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
 		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
-		ExpressionList = ExpressionList.slice();
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);
 		const Item = {};
 		Item.Appearance = PA;
@@ -1524,7 +1523,7 @@ function DialogMenuButtonClick() {
 			// Unlock Icon - If the item is padlocked, we immediately unlock.  If not, we start the struggle progress.
 			else if ((DialogMenuButton[I] == "Unlock") && (Item != null)) {
 				// Check that this is not one of the sticky-locked items
-				if (!InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && (!C.IsPlayer() || C.CanInteract())) {
+				if (C.FocusGroup.IsItem() && !InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && (!C.IsPlayer() || C.CanInteract())) {
 					InventoryUnlock(C, C.FocusGroup.Name);
 					if (ChatRoomPublishAction(C, "ActionUnlock", Item, null)) {
 						DialogLeave();

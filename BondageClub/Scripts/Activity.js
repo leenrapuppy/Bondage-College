@@ -511,9 +511,9 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress, Asset) {
 
 	// Make sure we do not allow orgasms if the activity (MaxProgress or MaxProgressSelf) or the zone (AllowOrgasm) doesn't allow it
 	let Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
-	if (Max > 95 && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
+	if (Max > 95 && Zone !== "ActivityOnOther" && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
 	// For activities on other, it cannot go over 2/3
-	if (Max > 67 && Zone == "ActivityOnOther") {
+	if (Max > 67 && Zone === "ActivityOnOther") {
 		if (["PenetrateSlow", "PenetrateFast"].includes(Activity.Name) && Asset && Asset.Group.Name === "Pussy" && Asset.Name === "Penis") {
 			// If it's a penis penetration, don't cap it. This makes the cap either 100 or 95, depending on the character orgasm setting
 			Max = PreferenceGetZoneOrgasm(Player, "ItemVulva") ? 100 : 95;

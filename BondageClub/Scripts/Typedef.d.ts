@@ -1298,7 +1298,7 @@ interface Character {
 	Effect: EffectName[];
 	Tints: ResolvedTintDefinition[];
 	Attribute: AssetAttribute[];
-	FocusGroup: AssetItemGroup | null;
+	FocusGroup: AssetGroup | null;
 	Canvas: HTMLCanvasElement | null;
 	CanvasBlink: HTMLCanvasElement | null;
 	MustDraw: boolean;
@@ -2543,7 +2543,7 @@ interface GameLARPOption {
 
 interface GameMagicBattleParameters {
 	Status: OnlineGameStatus;
-	House: string;
+	House: "Independent" | "NotPlaying" | "HouseMaiestas" | "HouseVincula" | "HouseAmplector" | "HouseCorporis";
 	TeamType: "FreeForAll" | "House";
 }
 

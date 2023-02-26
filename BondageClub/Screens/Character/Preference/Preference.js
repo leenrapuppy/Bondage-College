@@ -182,7 +182,7 @@ function PreferenceSetActivityFactor(C, Type, Self, Factor) {
  * Gets the corresponding arousal zone definition from a player's preferences (if the group's activities are mirrored,
  * returns the arousal zone definition for the mirrored group).
  * @param {Character} C - The character for whom to get the arousal zone
- * @param {string} ZoneName - The name of the zone to get
+ * @param {AssetGroupName} ZoneName - The name of the zone to get
  * @returns {null|any} - Returns the arousal zone preference object, or null if a corresponding zone definition could
  * not be found.
  */
@@ -202,7 +202,7 @@ function PreferenceGetArousalZone(C, ZoneName) {
 /**
  * Gets the love factor of a zone for the character
  * @param {Character} C - The character for whom the love factor of a particular zone should be gotten
- * @param {string} ZoneName - The name of the zone to get the love factor for
+ * @param {AssetGroupName} ZoneName - The name of the zone to get the love factor for
  * @returns {number} - Returns the love factor of a zone for the character (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceGetZoneFactor(C, ZoneName) {
@@ -232,7 +232,7 @@ function PreferenceSetZoneFactor(C, Zone, Factor) {
 /**
  * Determines, if a player can reach on orgasm from a particular zone
  * @param {Character} C - The character whose ability to orgasm we check
- * @param {string} ZoneName - The name of the zone to check
+ * @param {AssetGroupName} ZoneName - The name of the zone to check
  * @returns {boolean} - Returns true if the zone allows orgasms for a character, false otherwise
  */
 function PreferenceGetZoneOrgasm(C, ZoneName) {

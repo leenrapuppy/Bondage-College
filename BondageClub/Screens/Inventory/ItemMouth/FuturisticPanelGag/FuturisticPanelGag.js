@@ -180,6 +180,7 @@ function InventoryItemMouthFuturisticPanelGagTrigger(C, Item, Deflate) {
 	const Name = Data.modules[0].Options[NewModuleValues[0]].Name;
 	InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, Name, Deflate);
 
+	/** @type {ExpressionTrigger[]} */
 	const expressions = [
 		{ Group: "Eyebrows", Name: "Soft", Timer: 10 },
 		{ Group: "Blush", Name: "Extreme", Timer: 15 },
