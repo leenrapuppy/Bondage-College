@@ -64,6 +64,9 @@ function AssetGroupAdd(Family, GroupDef) {
 		ColorSuffix: GroupDef.ColorSuffix,
 		ExpressionPrerequisite: GroupDef.ExpressionPrerequisite || [],
 		HasPreviewImages: typeof GroupDef.HasPreviewImages === "boolean" ? GroupDef.HasPreviewImages : AllowNone,
+		IsAppearance() { return this.Category === "Appearance"; },
+		IsItem() { return this.Category === "Item"; },
+		IsScript() { return this.Category === "Script"; },
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetActivityMirrorGroupSet(A);

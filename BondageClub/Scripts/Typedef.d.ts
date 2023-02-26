@@ -836,6 +836,40 @@ interface AssetGroup {
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
 	HasPreviewImages: boolean;
+	/** Return whether this group belongs to the `Appearance` {@link AssetGroup.Category} */
+	IsAppearance(): this is AssetAppearanceGroup;
+	/** Return whether this group belongs to the `Item` {@link AssetGroup.Category} */
+	IsItem(): this is AssetItemGroup;
+	/** Return whether this group belongs to the `Script` {@link AssetGroup.Category} */
+	IsScript(): this is AssetScriptGroup;
+}
+
+/** An AssetGroup subtype for the `Appearance` {@link AssetGroup.Category} */
+interface AssetAppearanceGroup extends AssetGroup {
+	Category: "Appearance";
+	Name: AssetGroupBodyName;
+	IsRestraint: false;
+}
+
+/** An AssetGroup subtype for the `Item` {@link AssetGroup.Category} */
+interface AssetItemGroup extends AssetGroup {
+	Category: "Item";
+	Name: AssetGroupItemName;
+	Underwear: false;
+	BodyCosplay: false;
+	Clothing: false;
+	IsDefault: false;
+}
+
+/** An AssetGroup subtype for the `Script` {@link AssetGroup.Category} */
+interface AssetScriptGroup extends AssetGroup {
+	Category: "Script";
+	Name: AssetGroupScriptName;
+	IsRestraint: false;
+	BodyCosplay: false;
+	Underwear: false;
+	Clothing: false;
+	IsDefault: false;
 }
 
 /** An object defining a drawable layer of an asset */
