@@ -1419,16 +1419,7 @@ interface Character {
 	LabelColor?: any;
 	Creation?: any;
 	Description?: any;
-	OnlineSharedSettings?: {
-		AllowFullWardrobeAccess: boolean;
-		BlockBodyCosplay: boolean;
-		AllowPlayerLeashing: boolean;
-		DisablePickingLocksOnSelf: boolean;
-		GameVersion: string;
-		ItemsAffectExpressions: boolean;
-		ScriptPermissions: ScriptPermissions;
-		WheelFortune: string;
-	};
+	OnlineSharedSettings?: CharacterOnlineSharedSettings;
 	Game?: {
 		LARP?: GameLARPParameters,
 		MagicBattle?: GameMagicBattleParameters,
@@ -1449,6 +1440,20 @@ interface Character {
 	Status?: string | null;
 	StatusTimer?: number;
 	Crafting?: CraftingItem[];
+
+/**
+ * The characters online shared settings.
+ * @see {@link Character.OnlineSharedSettings}
+ */
+interface CharacterOnlineSharedSettings {
+	AllowFullWardrobeAccess: boolean;
+	BlockBodyCosplay: boolean;
+	AllowPlayerLeashing: boolean;
+	DisablePickingLocksOnSelf: boolean;
+	GameVersion: string;
+	ItemsAffectExpressions: boolean;
+	ScriptPermissions: ScriptPermissions;
+	WheelFortune: string;
 }
 
 type NPCArchetype =
@@ -1660,16 +1665,7 @@ interface PlayerCharacter extends Character {
 		SlowImmunity: boolean;
 		BypassNPCPunishments: boolean;
 	};
-	OnlineSettings?: {
-		AutoBanBlackList: boolean;
-		AutoBanGhostList: boolean;
-		DisableAnimations: boolean;
-		SearchShowsFullRooms: boolean;
-		SearchFriendsFirst: boolean;
-		SendStatus?: boolean;
-		ShowStatus?: boolean;
-		EnableAfkTimer: boolean;
-	};
+	OnlineSettings?: PlayerOnlineSettings;
 	GraphicsSettings?: {
 		Font: string;
 		InvertRoom: boolean;
@@ -1722,6 +1718,21 @@ interface PlayerCharacter extends Character {
 		HideShopItems: GenderSetting;
 		AutoJoinSearch: GenderSetting;
 	};
+}
+
+/**
+ * The player's online settings.
+ * @see {@link Player.OnlineSettings}
+ */
+interface PlayerOnlineSettings {
+	AutoBanBlackList: boolean;
+	AutoBanGhostList: boolean;
+	DisableAnimations: boolean;
+	SearchShowsFullRooms: boolean;
+	SearchFriendsFirst: boolean;
+	SendStatus?: boolean;
+	ShowStatus?: boolean;
+	EnableAfkTimer: boolean;
 }
 
 /** Pandora Player extension */
