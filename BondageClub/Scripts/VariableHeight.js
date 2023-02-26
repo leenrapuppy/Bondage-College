@@ -47,6 +47,8 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
  * Generates an asset's variable height data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {VariableHeightConfig} config - The variable height configuration
+ * @param {ItemProperties} property
+ * @param {ExtendedItemOption[]} parentOptions
  * @returns {VariableHeightData} - The generated variable height data for the asset
  */
 function VariableHeightCreateData(asset,
@@ -261,7 +263,7 @@ function VariableHeightExit() {
  * Publishes a custom action to the chat for the height change
  * @param {Object} dialog - The keywords for the dialog entries to look up
  * @param {Asset} asset - The asset for the variable height item
- * @param {CommonChatTags[]} chatTags - The tags to map to a dictionary entry
+ * @param {readonly CommonChatTags[]} chatTags - The tags to map to a dictionary entry
  * @param {Function} getHeight - Function to find the current setting from a property
  * @returns {void} - Nothing
  */

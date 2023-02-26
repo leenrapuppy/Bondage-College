@@ -52,20 +52,21 @@ function TimerInventoryRemove() {
 	// Cycles through all items items for all offline characters (player + NPC)
 	for (let C = 0; C < Character.length; C++)
 		if (Character[C].IsPlayer() || Character[C].IsNpc())
-			for (let A = 0; A < Character[C].Appearance.length; A++)
-				if ((Character[C].Appearance[A].Property != null) && (Character[C].Appearance[A].Property.RemoveTimer != null))
-					if ((typeof Character[C].Appearance[A].Property.RemoveTimer == "number") && (Character[C].Appearance[A].Property.RemoveTimer <= CurrentTime)) {
-						const Lock = InventoryGetLock(Character[C].Appearance[A]);
-						const ShouldRemoveItem = Character[C].Appearance[A].Property.RemoveItem;
+			for (let A = 0; A < Character[C].Appearance.length; A++) {
+				const item = Character[C].Appearance[A];
+				if ((item.Property != null) && (item.Property.RemoveTimer != null))
+					if ((typeof item.Property.RemoveTimer == "number") && (item.Property.RemoveTimer <= CurrentTime)) {
+						const Lock = InventoryGetLock(item);
+						const ShouldRemoveItem = item.Property.RemoveItem;
 
 						// Remove any lock or timer
-						ValidationDeleteLock(Character[C].Appearance[A].Property, false);
+						ValidationDeleteLock(item.Property, false);
 
 						// If we're removing a lock and we're in a chatroom, send a chatroom message
 						if (Lock && ServerPlayerIsInChatRoom()) {
 
 							const Dictionary = new DictionaryBuilder()
-								.destinationCharacterName(C)
+								.destinationCharacterName(Character[C])
 								.focusGroup(Character[C].Appearance[1].Asset.Group.Name)
 								.asset(Lock.Asset, "LockName")
 								.build();
@@ -73,10 +74,11 @@ function TimerInventoryRemove() {
 						}
 
 						// If we must remove the linked item from the character or the facial expression
-						if (ShouldRemoveItem && Character[C].Appearance[A].Asset.Group.Category === "Item")
-							InventoryRemove(Character[C], Character[C].Appearance[A].Asset.Group.Name);
-						else if (Character[C].Appearance[A].Asset.Group.AllowExpression != null)
-							CharacterSetFacialExpression(Character[C], Character[C].Appearance[A].Asset.Group.Name, null);
+						const group = item.Asset.Group;
+						if (ShouldRemoveItem && group.IsItem())
+							InventoryRemove(Character[C], group.Name);
+						else if (group.IsAppearance() && group.AllowExpression != null)
+							CharacterSetFacialExpression(Character[C], group.Name, null);
 						else
 							CharacterRefresh(Character[C]);
 
@@ -86,13 +88,14 @@ function TimerInventoryRemove() {
 						return;
 
 					}
+			}
 
 }
 
 /**
  * Sets a remove timer in seconds for a specific item part / body part
  * @param {Character} C - Character for which we are removing an item
- * @param {string} AssetGroup - Group targeted by the removal
+ * @param {AssetGroupName} AssetGroup - Group targeted by the removal
  * @param {number} Timer - Seconds it takes to remove the item
  * @returns {void} - Nothing
  */
@@ -253,7 +256,7 @@ function TimerProcess(Timestamp) {
 /**
  * Returns a string of the time remaining on a given timer (Hours, minutes, seconds)
  * @param {number} s - Time to convert to a string in ms
- * @Returns -  The time string in the HH:MM:SS format
+ * @returns {string} -  The time string in the HH:MM:SS format
  */
 function TimermsToTime(s) {
 

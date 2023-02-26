@@ -783,7 +783,7 @@ function TranslationParseTXT(str) {
 /**
  * Translates a string to another language from the array, the translation is always the one right after the english line
  * @param {string} S - The original english string to translate
- * @param {string[]} T - The active translation dictionary
+ * @param {readonly string[]} T - The active translation dictionary
  * @param {string} CharacterName - Name of the character if it is required to replace it within the string.
  * @returns {string} - The translated string
  */
@@ -800,7 +800,7 @@ function TranslationString(S, T, CharacterName) {
 /**
  * Translates a character dialog from the specified array
  * @param {Character} C - The character for which we need to translate the dialog array.
- * @param {string[]} T - The active translation dictionary
+ * @param {readonly string[]} T - The active translation dictionary
  * @returns {void} - Nothing
  */
 function TranslationDialogArray(C, T) {
@@ -812,8 +812,8 @@ function TranslationDialogArray(C, T) {
 
 /**
  * Translates a set of tags. Rerenders the login message when on the login page.
- * @param {Array.<{Tag: string, Value: string}>} S - Array of current tag-value pairs
- * @param {string[]} T - The active translation dictionary
+ * @param {readonly { Tag: string, Value: string }[]} S - Array of current tag-value pairs
+ * @param {readonly string[]} T - The active translation dictionary
  * @returns {void} - Nothing
  */
 function TranslationTextArray(S, T) {
@@ -857,7 +857,7 @@ function TranslationDialog(C) {
 
 /**
  * Translate an array of tags in the current selected language
- * @param {Array.<{Tag: string, Value: string}>} Text - Array of current tag-value pairs
+ * @param {readonly {Tag: string, Value: string}[]} Text - Array of current tag-value pairs
  * @returns {void} - Nothing
  */
 function TranslationText(Text) {
@@ -900,7 +900,7 @@ function TranslationAssetProcess(T) {
 
 /**
  * Translates the description of the assets and groups of an asset family
- * @param {string} Family - Name of the asset family to translate
+ * @param {IAssetFamily} Family - Name of the asset family to translate
  * @returns {void} - Nothing
  */
 function TranslationAsset(Family) {

@@ -13,7 +13,7 @@ interface AssetGroupDefinition {
 	/** @see {AssetDefinition.Random} */
 	Random?: boolean;
 	Color?: string[];
-	ParentSize?: string;
+	ParentSize?: AssetGroupName;
 	ParentColor?: AssetGroupName;
 	Clothing?: boolean;
 	Underwear?: boolean;
@@ -206,7 +206,7 @@ interface AssetDefinition {
 	LoverOnly?: boolean;
 
 	/** A list of facial expression using the asset causes to the character */
-	ExpressionTrigger?: { Name: string, Group: AssetGroupName, Timer: number }[];
+	ExpressionTrigger?: { Name: string, Group: AssetGroupBodyName, Timer: number }[];
 
 	/** A list of assets to also remove when the asset is taken off. */
 	RemoveItemOnRemove?: { Name: string, Group: AssetGroupItemName, Type?: string }[];
@@ -227,7 +227,7 @@ interface AssetDefinition {
 	Category?: string[];
 
 	Fetish?: string[];
-	ArousalZone?: string;
+	ArousalZone?: AssetGroupName;
 	IsRestraint?: boolean;
 	BodyCosplay?: boolean;
 	OverrideBlinking?: boolean;
@@ -288,7 +288,7 @@ interface AssetDefinition {
 	/** The list of layers for the asset. */
 	Layer?: AssetLayerDefinition[];
 
-	Archetype?: string;
+	Archetype?: ExtendedArchetype;
 	FuturisticRecolor?: boolean;
 	FuturisticRecolorDisplay?: boolean;
 
@@ -425,7 +425,7 @@ interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config> {
 	/** The specific configuration for the item (type will vary based on the item's archetype) */
 	Config?: Config;
 	/** The group name and asset name of a configuration to copy - useful if multiple items share the same config */
-	CopyConfig?: { GroupName?: string, AssetName: string };
+	CopyConfig?: { GroupName?: AssetGroupName, AssetName: string };
 }
 
 /** Defines a single extended item option */
@@ -779,9 +779,9 @@ interface ModularItemOptionBase {
 	/** A custom background for this option that overrides the default */
 	CustomBlindBackground?: string;
 	/** A list of groups that this option blocks - defaults to [] */
-	Block?: string[];
+	Block?: AssetGroupItemName[];
 	/** A list of groups that this option hides - defaults to [] */
-	Hide?: string[];
+	Hide?: AssetGroupName[];
 	/** A list of items that this option hides */
 	HideItem?: string[];
 	/** The Property object to be applied when this option is used */
@@ -803,9 +803,9 @@ interface ModularItemOptionBase {
 	/** Whether that option moves the character up */
 	HeightModifier?: number;
 	/** Whether that option applies effects */
-	Effect?: string[];
+	Effect?: EffectName[];
 	/** Whether the option forces a given pose */
-	SetPose?: string;
+	SetPose?: AssetPoseName;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
 	/** A buy group to check for that module to be available */

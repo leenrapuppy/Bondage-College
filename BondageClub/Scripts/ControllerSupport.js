@@ -47,8 +47,8 @@ function ClearButtons() {
 }
 /**
  * adds a button to the lists
- * @param {any} X X value of the button
- * @param {any} Y Y value of the button
+ * @param {number} X X value of the button
+ * @param {number} Y Y value of the button
  */
 function setButton(X, Y) {
 	if (ControllerIgnoreButton == false) {
@@ -62,8 +62,9 @@ function setButton(X, Y) {
 }
 /**
  * checks, whether a button is already in the lists (I realize now, that I could have used .includes but it works)
- * @param {any} X X value of the button
- * @param {any} Y Y value of the button
+ * @param {number} X X value of the button
+ * @param {number} Y Y value of the button
+ * @returns {boolean}
  */
 function ButtonExists(X, Y) {
 	var g = 0;
@@ -79,7 +80,7 @@ function ButtonExists(X, Y) {
 
 /**
  * handles the sitck input
- * @param {any} axes the raw data of all axes of the controller
+ * @param {readonly number[]} axes the raw data of all axes of the controller
  */
 function ControllerAxis(axes) {
 

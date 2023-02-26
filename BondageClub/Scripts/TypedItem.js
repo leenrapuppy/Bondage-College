@@ -254,6 +254,7 @@ function TypedItemGenerateAllowType({ asset, options }) {
 function TypedItemGenerateAllowEffect({asset, options}) {
 	asset.AllowEffect = Array.isArray(asset.Effect) ? asset.Effect.slice() : [];
 	for (const option of options) {
+		// @ts-ignore: ignore `readonly` while still building the asset
 		CommonArrayConcatDedupe(asset.AllowEffect, option.Property.Effect);
 	}
 }
@@ -266,6 +267,7 @@ function TypedItemGenerateAllowEffect({asset, options}) {
 function TypedItemGenerateAllowBlock({asset, options}) {
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
 	for (const option of options) {
+		// @ts-ignore: ignore `readonly` while still building the asset
 		CommonArrayConcatDedupe(asset.AllowBlock, option.Property.Block);
 	}
 }
@@ -279,7 +281,9 @@ function TypedItemGenerateAllowHide({asset, options}) {
 	asset.AllowHide = Array.isArray(asset.Hide) ? asset.Hide.slice() : [];
 	asset.AllowHideItem = Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [];
 	for (const option of options) {
+		// @ts-ignore: ignore `readonly` while still building the asset
 		CommonArrayConcatDedupe(asset.AllowHide, option.Property.Hide);
+		// @ts-ignore: ignore `readonly` while still building the asset
 		CommonArrayConcatDedupe(asset.AllowHideItem, option.Property.HideItem);
 	}
 }
@@ -323,7 +327,7 @@ function TypedItemGenerateAllowLockType({asset, options}) {
  * Sets the AllowLock and AllowLockType properties on an asset based on an AllowLockType array and the total number of
  * possible types.
  * @param {Asset} asset - The asset to set properties on
- * @param {string[]} allowLockType - The AllowLockType array indicating which of the asset's types permit locks
+ * @param {readonly string[]} allowLockType - The AllowLockType array indicating which of the asset's types permit locks
  * @param {number} typeCount - The total number of types available on the asset
  * @returns {void} - Nothing
  */
@@ -376,7 +380,7 @@ function TypedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictio
 
 /**
  * Returns the options configuration array for a typed item
- * @param {string} groupName - The name of the asset group
+ * @param {AssetGroupName} groupName - The name of the asset group
  * @param {string} assetName - The name of the asset
  * @returns {ExtendedItemOption[]|null} - The options array for the item, or null if no typed item data was found
  */
@@ -387,7 +391,7 @@ function TypedItemGetOptions(groupName, assetName) {
 
 /**
  * Returns a list of typed item option names available for the given asset, or an empty array if the asset is not typed
- * @param {string} groupName - The name of the asset group
+ * @param {AssetGroupName} groupName - The name of the asset group
  * @param {string} assetName - The name of the asset
  * @returns {string[]} - The option names available for the asset, or an empty array if the asset is not typed or no
  * typed item data was found
@@ -399,7 +403,7 @@ function TypedItemGetOptionNames(groupName, assetName) {
 
 /**
  * Returns the named option configuration object for a typed item
- * @param {string} groupName - The name of the asset group
+ * @param {AssetGroupName} groupName - The name of the asset group
  * @param {string} assetName - The name of the asset
  * @param {string} optionName - The name of the option
  * @returns {ExtendedItemOption|null} - The named option configuration object, or null if none was found
@@ -446,7 +450,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 /**
  * Sets a typed item's type and properties to the option whose name matches the provided option name parameter.
  * @param {Character} C - The character on whom the item is equipped
- * @param {Item|string} itemOrGroupName - The item whose type to set, or the group name for the item
+ * @param {Item | AssetGroupName} itemOrGroupName - The item whose type to set, or the group name for the item
  * @param {string} optionName - The name of the option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
@@ -484,7 +488,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
  * Sets a typed item's type and properties to the option provided.
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose type to set
- * @param {ExtendedItemOption[]} options - The typed item options for the item
+ * @param {readonly ExtendedItemOption[]} options - The typed item options for the item
  * @param {ExtendedItemOption} option - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
@@ -508,7 +512,7 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 /**
  * Finds the currently set option on the given typed item
  * @param {Item} item - The equipped item
- * @param {ExtendedItemOption[]} options - The list of available options for the item
+ * @param {readonly ExtendedItemOption[]} options - The list of available options for the item
  * @returns {ExtendedItemOption} - The option which is currently applied to the item, or the first item in the options
  * array if no type is set.
  */
@@ -521,7 +525,7 @@ function TypedItemFindPreviousOption(item, options) {
 /**
  * Sets a typed item's type to a random option, respecting prerequisites and option validation.
  * @param {Character} C - The character on whom the item is equipped
- * @param {Item|string} itemOrGroupName - The item whose type to set, or the group name for the item
+ * @param {Item | AssetGroupName} itemOrGroupName - The item whose type to set, or the group name for the item
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string

@@ -23,7 +23,7 @@ var CommonPhotoMode = false;
 var GameVersion = "R0";
 const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
 var CommonVersionUpdated = false;
-/** @type {null | { pageX: number, pageY: number }} */
+/** @type {null | TouchList} */
 var CommonTouchList = null;
 
 /**
@@ -76,7 +76,7 @@ const CommonFontStacks = {
 
 /**
  * Checks if a variable is a number
- * @param {*} n - Variable to check for
+ * @param {unknown} n - Variable to check for
  * @returns {boolean} - Returns TRUE if the variable is a finite number
  */
 function CommonIsNumeric(n) {
@@ -273,7 +273,7 @@ function CommonClick(event) {
  * @param {number} Y - The Y position
  * @param {number} W - The width of the square
  * @param {number} H - The height of the square
- * @param {object} TL - Can give a specific touch event instead of the default one
+ * @param {TouchList} [TL] - Can give a specific touch event instead of the default one
  * @returns {boolean}
  */
 function CommonTouchActive(X, Y, W, H, TL) {
@@ -376,7 +376,7 @@ function CommonDynamicFunctionParams(FunctionName) {
  *  passed directly into the function call, allowing for more complex JS objects to be passed in. This
  *  function will not log to console if the provided function name does not exist as a global function.
  * @param {string} FunctionName - The name of the global function to call
- * @param {any[]} [args] - zero or more arguments to be passed to the function (optional)
+ * @param {readonly any[]} [args] - zero or more arguments to be passed to the function (optional)
  * @returns {any} - returns the result of the function call, or undefined if the function name isn't valid
  */
 function CommonCallFunctionByName(FunctionName/*, ...args */) {
@@ -390,7 +390,7 @@ function CommonCallFunctionByName(FunctionName/*, ...args */) {
 /**
  * Behaves exactly like CommonCallFunctionByName, but logs a warning if the function name is invalid.
  * @param {string} FunctionName - The name of the global function to call
- * @param {any[]} [args] - zero or more arguments to be passed to the function (optional)
+ * @param {readonly any[]} [args] - zero or more arguments to be passed to the function (optional)
  * @returns {any} - returns the result of the function call, or undefined if the function name isn't valid
  */
 function CommonCallFunctionByNameWarn(FunctionName/*, ...args */) {
@@ -480,7 +480,7 @@ function CommonIsColor(Value) {
  * Checks whether an item's color has a valid value that can be interpreted by the drawing
  * functions. Valid values are null, undefined, strings, and an array containing any of the
  * aforementioned types.
- * @param {*} Color - The Color value to check
+ * @param {null | string | readonly (null | string)[]} [Color] - The Color value to check
  * @returns {boolean} - Returns TRUE if the color is a valid item color
  */
 function CommonColorIsValid(Color) {
@@ -509,7 +509,7 @@ function CommonEmailIsValid(Email) {
  * Get a random item from a list while making sure not to pick the previous one.
  * @template T
  * @param {T} ItemPrevious - Previously selected item from the given list
- * @param {T[]} ItemList - List for which to pick a random item from
+ * @param {readonly T[]} ItemList - List for which to pick a random item from
  * @returns {T} - The randomly selected item from the list
  */
 function CommonRandomItemFromList(ItemPrevious, ItemList) {
@@ -553,7 +553,7 @@ function CommonStringShuffle(string) {
 
 /**
  * Converts an array to a string separated by commas (equivalent of .join(","))
- * @param {Array} Arr - Array to convert to a joined string
+ * @param {readonly any[]} Arr - Array to convert to a joined string
  * @returns {string} - String of all the array items joined together
  */
 function CommonConvertArrayToString(Arr) {
@@ -567,8 +567,8 @@ function CommonConvertArrayToString(Arr) {
 
 /**
  * Checks whether two item colors are equal. An item color may either be a string or an array of strings.
- * @param {string|string[]} C1 - The first color to check
- * @param {string|string[]} C2 - The second color to check
+ * @param {string | readonly string[]} C1 - The first color to check
+ * @param {string | readonly string[]} C2 - The second color to check
  * @returns {boolean} - TRUE if C1 and C2 represent the same item color, FALSE otherwise
  */
 function CommonColorsEqual(C1, C2) {
@@ -581,8 +581,8 @@ function CommonColorsEqual(C1, C2) {
 /**
  * Checks whether two arrays are equal. The arrays are considered equal if they have the same length and contain the same items in the same
  * order, as determined by === comparison
- * @param {*[]} a1 - The first array to compare
- * @param {*[]} a2 - The second array to compare
+ * @param {readonly *[]} a1 - The first array to compare
+ * @param {readonly *[]} a2 - The second array to compare
  * @param {boolean} [ignoreOrder] - Whether to ignore item order when considering equality
  * @returns {boolean} - TRUE if both arrays have the same length and contain the same items in the same order, FALSE otherwise
  */
@@ -656,7 +656,7 @@ function CommonThrottle(func) {
 /**
  * Creates a wrapper for a function to limit how often it can be called. The player-defined wait interval setting determines the
  * allowed frequency. Below 100 ms the function will be throttled and above will be debounced.
- * @template {() => void} FunctionType
+ * @template {(...args: any) => any} FunctionType
  * @param {FunctionType} func - The function to limit calls of
  * @param {number} [minWait=0] - A lower bound for how long the wait interval can be, 0 by default
  * @param {number} [maxWait=1000] - An upper bound for how long the wait interval can be, 1 second by default
@@ -893,7 +893,7 @@ function CommonDeepEqual(obj1, obj2) {
 /**
  * Adds all items from the source array to the destination array if they aren't already included
  * @param {*[]} dest - The destination array
- * @param {*[]} src - The source array
+ * @param {readonly *[]} src - The source array
  * @returns {*[]} - The destination array
  */
 function CommonArrayConcatDedupe(dest, src) {

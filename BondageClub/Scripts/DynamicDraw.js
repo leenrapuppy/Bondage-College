@@ -117,7 +117,7 @@ const DynamicDrawTextCurve = {
 
 /**
  * An enum encapsulating the available drawing effects that can be applied to dynamic text.
- * @enum {string}
+ * @type {{ BURN: "burn" }}
  */
 const DynamicDrawTextEffect = {
 	BURN: "burn",
@@ -221,8 +221,8 @@ function DynamicDrawText(text, ctx, x, y, options) {
  * contained in the rectangle defined by the from and to positions.
  * @param {string} text - The text to draw
  * @param {CanvasRenderingContext2D} ctx - The rendering context to draw the text to
- * @param {number[]} from - The [x, y] coordinates to start drawing the text at
- * @param {number[]} to - The [x, y] coordinates to end drawing the text at
+ * @param {readonly number[]} from - The [x, y] coordinates to start drawing the text at
+ * @param {readonly number[]} to - The [x, y] coordinates to end drawing the text at
  * @param {DynamicDrawOptions} options - Additional drawing options
  * @returns {void} - Nothing
  */

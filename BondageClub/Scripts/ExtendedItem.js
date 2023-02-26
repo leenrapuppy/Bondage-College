@@ -93,7 +93,7 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
 
 /**
  * Loads the item extension properties
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
  *     type
@@ -140,13 +140,13 @@ function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
 
 /**
  * Draws the extended item type selection screen
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
  *     The full dialog key will be <Prefix><Option.Name>
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images should be shown for the specific item
- * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
+ * @param {readonly [number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
 function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null) {
@@ -332,7 +332,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 
 /**
  * Handles clicks on the extended item type selection screen
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images are shown for the specific item
@@ -432,7 +432,7 @@ function ExtendedItemExit() {
 /**
  * Handler function for setting the type of an extended item
  * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {ExtendedItemOption} Option - The selected type definition
  * @returns {void} Nothing
@@ -513,7 +513,7 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 /**
  * Handler function called when an option on the type selection screen is clicked
  * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {ExtendedItemOption} Option - The selected type definition
  * @returns {void} Nothing
@@ -703,7 +703,7 @@ function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
  * @param {Character} C - The target character
  * @param {Asset} Asset - The asset for the typed item
  * @param {string | null} Type - The type of the asse
- * @param {EffectName[]} [Effects]
+ * @param {readonly EffectName[]} [Effects]
  * @returns {InventoryIcon[]} - The inventory icons
  */
 function ExtendItemGetIcons(C, Asset, Type=null, Effects=null) {

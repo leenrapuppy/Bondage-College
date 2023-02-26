@@ -2,7 +2,7 @@
  * A map containing appearance item diffs, keyed according to the item group. Used to compare and validate before/after
  * for appearance items.
  * @typedef AppearanceDiffMap
- * @type {Record.<string, Item[]>}
+ * @type {Partial<Record<AssetGroupName, Item[]>>}
  */
 
 "use strict";
@@ -347,7 +347,7 @@ function ServerPlayerRelationsSync() {
 /**
  * Prepares an appearance bundle so we can push it to the server. It minimizes it by keeping only the necessary
  * information. (Asset name, group name, color, properties and difficulty)
- * @param {Item[]} Appearance - The appearance array to bundle
+ * @param {readonly Item[]} Appearance - The appearance array to bundle
  * @returns {AppearanceBundle} - The appearance bundle created from the given appearance array
  */
 function ServerAppearanceBundle(Appearance) {
@@ -370,7 +370,7 @@ function ServerAppearanceBundle(Appearance) {
  * Loads the appearance assets from a server bundle that only contains the main info (no asset) and validates their
  * properties to prevent griefing and respecting permissions in multiplayer
  * @param {Character} C - Character for which to load the appearance
- * @param {string} AssetFamily - Family of assets used for the appearance array
+ * @param {IAssetFamily} AssetFamily - Family of assets used for the appearance array
  * @param {AppearanceBundle} Bundle - Bundled appearance
  * @param {number} [SourceMemberNumber] - Member number of the user who triggered the change
  * @param {boolean} [AppearanceFull=false] - Whether or not the appearance should be assigned to an NPC's AppearanceFull
@@ -417,8 +417,8 @@ function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumb
 
 /**
  * Builds a diff map for comparing changes to a character's appearance, keyed by asset group name
- * @param {string} assetFamily - The asset family of the appearance
- * @param {Item[]} appearance - The current appearance to compare against
+ * @param {IAssetFamily} assetFamily - The asset family of the appearance
+ * @param {readonly Item[]} appearance - The current appearance to compare against
  * @param {AppearanceBundle} bundle - The new appearance bundle
  * @returns {AppearanceDiffMap} - An appearance diff map representing the changes that have been made to the character's
  * appearance
@@ -442,7 +442,7 @@ function ServerBuildAppearanceDiff(assetFamily, appearance, bundle) {
 /**
  * Maps a bundled appearance item, as stored on the server and used for appearance update messages, into a full
  * appearance item, as used by the game client
- * @param {string} assetFamily - The asset family of the appearance item
+ * @param {IAssetFamily} assetFamily - The asset family of the appearance item
  * @param {ItemBundle} item - The bundled appearance item
  * @returns {Item} - A full appearance item representation of the provided bundled appearance item
  */
@@ -464,8 +464,8 @@ function ServerBundledItemToAppearanceItem(assetFamily, item) {
 /**
  * Parses an item color, based on the allowed colorable layers on an asset, and the asset's color schema
  * @param {Asset} asset - The asset on which the color is set
- * @param {string|string[]} color - The color value to parse
- * @param {string[]} schema - The color schema to validate against
+ * @param {string | readonly string[]} color - The color value to parse
+ * @param {readonly string[]} schema - The color schema to validate against
  * @returns {string|string[]} - A parsed valid item color
  */
 function ServerParseColor(asset, color, schema) {
@@ -480,7 +480,7 @@ function ServerParseColor(asset, color, schema) {
 /**
  * Populates an appearance diff map with any required items, to ensure that all asset groups are present that need to
  * be.
- * @param {string} assetFamily - The asset family for the appearance
+ * @param {IAssetFamily} assetFamily - The asset family for the appearance
  * @param {AppearanceDiffMap} diffMap - The appearance diff map to populate
  * @returns {void} - Nothing
  */
@@ -513,7 +513,7 @@ function ServerAddRequiredAppearance(assetFamily, diffMap) {
 /**
  * Validates and returns a color against a color schema
  * @param {string} Color - The color to validate
- * @param {string[]} Schema - The color schema to validate against (a list of accepted Color values)
+ * @param {readonly string[]} Schema - The color schema to validate against (a list of accepted Color values)
  * @returns {string} - The color if it is a valid hex color string or part of the color schema, or the default color
  *     from the color schema otherwise
  */

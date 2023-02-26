@@ -48,7 +48,7 @@ interface HTMLImageElement {
 }
 
 interface HTMLElement {
-	setAttribute(qualifiedName: string, value: string | number): void;
+	setAttribute(qualifiedName: string, value: any): void;
 }
 
 interface RGBColor {
@@ -69,9 +69,6 @@ type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?
 //#endregion
 
 //#region Enums
-
-type NotificationAudioType = 0 | 1 | 2;
-type NotificationAlertType = 0 | 1 | 3 | 2;
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
@@ -232,10 +229,12 @@ type AssetGroupItemName =
 	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
 	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
 	'ItemTorso' | 'ItemTorso2'| 'ItemVulva' | 'ItemVulvaPiercings' |
-	'ItemHandheld' | 'ItemScript' |
+	'ItemHandheld' |
 
 	'ItemHidden' /* TODO: investigate, not a real group */
 	;
+
+type AssetGroupScriptName = 'ItemScript';
 
 type AssetGroupBodyName =
 	'Blush' | 'BodyLower' | 'BodyUpper' | 'Bra' | 'Bracelet' | 'Cloth' |
@@ -247,7 +246,7 @@ type AssetGroupBodyName =
 	'Shoes' | 'Socks' | 'SocksLeft' | 'SocksRight' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
-type AssetGroupName = AssetGroupBodyName | AssetGroupItemName;
+type AssetGroupName = AssetGroupBodyName | AssetGroupItemName | AssetGroupScriptName;
 
 type AssetPoseCategory = 'BodyUpper' | 'BodyLower' | 'BodyFull';
 
@@ -256,10 +255,10 @@ type AssetPoseName =
 	/* BodyLower */ 'BaseLower' | 'Kneel' | 'KneelingSpread' | 'LegsClosed' | 'LegsOpen' | 'Spread' |
 
 	/* BodyFull  */ 'Hogtied' | 'AllFours' |
-	/* BodyAddon */ 'Suspension'
+	/* BodyAddon */ 'Suspension' | 'SuspensionHogtied'
 	;
 
-type AssetPoseMapping = { [index: string]: AssetPoseName | "" };
+type AssetPoseMapping = Partial<Record<AssetPoseName, AssetPoseName | "">>;
 
 type AssetLockType =
 	"CombinationPadlock" | "ExclusivePadlock" | "HighSecurityPadlock" |
@@ -679,7 +678,7 @@ interface IChatRoomMessageMetadata {
 	/** The assets referenced in the message */
 	Assets?: Record<string, Asset>;
 	/** The groups referenced in the message */
-	Groups?: Record<string, AssetGroup>;
+	Groups?: Partial<Record<AssetGroupName, AssetGroup>>;
 	/** How intense the shock should be */
 	ShockIntensity?: number;
 	ActivityCounter?: number;
@@ -796,7 +795,7 @@ interface AssetGroup {
 	Family: IAssetFamily;
 	Name: AssetGroupName;
 	Description: string;
-	Asset: Asset[];
+	Asset: readonly Asset[];
 	ParentGroupName: AssetGroupName | "";
 	Category: 'Appearance' | 'Item' | 'Script';
 	IsDefault: boolean;
@@ -805,28 +804,28 @@ interface AssetGroup {
 	AllowColorize: boolean;
 	AllowCustomize: boolean;
 	Random?: boolean;
-	ColorSchema: string[];
-	ParentSize: string;
+	ColorSchema: readonly string[];
+	ParentSize: AssetGroupName | "";
 	ParentColor: AssetGroupName | "";
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
-	Hide?: AssetGroupName[];
-	Block?: AssetGroupItemName[];
-	Zone?: [number, number, number, number][];
-	SetPose?: AssetPoseName[];
-	AllowPose: AssetPoseName[];
-	AllowExpression?: string[];
-	Effect?: EffectName[];
+	Hide?: readonly AssetGroupName[];
+	Block?: readonly AssetGroupItemName[];
+	Zone?: readonly [number, number, number, number][];
+	SetPose?: readonly AssetPoseName[];
+	AllowPose: readonly AssetPoseName[];
+	AllowExpression?: readonly string[];
+	Effect?: readonly EffectName[];
 	MirrorGroup: AssetGroupName | "";
-	RemoveItemOnRemove: { Group: AssetGroupItemName; Name: string; Type?: string }[];
+	RemoveItemOnRemove: readonly { Group: AssetGroupItemName; Name: string; Type?: string }[];
 	DrawingPriority: number;
 	DrawingLeft: number;
 	DrawingTop: number;
 	DrawingFullAlpha: boolean;
 	DrawingBlink: boolean;
-	InheritColor?: AssetGroupName;
-	FreezeActivePose: AssetPoseCategory[];
+	InheritColor: AssetGroupName | null;
+	FreezeActivePose: readonly AssetPoseCategory[];
 	PreviewZone?: RectTuple;
 	DynamicGroupName: AssetGroupName;
 	MirrorActivitiesFrom?: AssetGroupItemName;
@@ -834,7 +833,7 @@ interface AssetGroup {
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
 	ColorSuffix?: Record<string, string>;
-	ExpressionPrerequisite?: string[];
+	ExpressionPrerequisite?: readonly string[];
 	HasPreviewImages: boolean;
 	/** Return whether this group belongs to the `Appearance` {@link AssetGroup.Category} */
 	IsAppearance(): this is AssetAppearanceGroup;
@@ -849,6 +848,7 @@ interface AssetAppearanceGroup extends AssetGroup {
 	Category: "Appearance";
 	Name: AssetGroupBodyName;
 	IsRestraint: false;
+	AllowExpression?: readonly string[];
 }
 
 /** An AssetGroup subtype for the `Item` {@link AssetGroup.Category} */
@@ -859,6 +859,7 @@ interface AssetItemGroup extends AssetGroup {
 	BodyCosplay: false;
 	Clothing: false;
 	IsDefault: false;
+	AllowExpression?: undefined;
 }
 
 /** An AssetGroup subtype for the `Script` {@link AssetGroup.Category} */
@@ -870,6 +871,7 @@ interface AssetScriptGroup extends AssetGroup {
 	Underwear: false;
 	Clothing: false;
 	IsDefault: false;
+	AllowExpression?: undefined;
 }
 
 /** An object defining a drawable layer of an asset */
@@ -886,7 +888,7 @@ interface AssetLayer {
 	HideColoring: boolean;
 	/** A list of allowed extended item types that this layer permits - the layer will only be drawn if
 	the item type matches one of these types. If null, the layer is considered to permit all extended types. */
-	AllowTypes: string[] | null;
+	AllowTypes: readonly string[] | null;
 	/** whether or not the layer has separate assets per type. If not, the extended type will not be included in
 	the URL when fetching the layer's image */
 	HasType: boolean;
@@ -895,16 +897,16 @@ interface AssetLayer {
 	ParentGroupName?: AssetGroupName | "" | null;
 	/** An array of poses that this layer permits. If set, it will override the poses permitted
 	by the parent asset/group. */
-	AllowPose: AssetPoseName[] | null;
+	AllowPose: readonly AssetPoseName[] | null;
 	/** An array of poses that this layer should be hidden for. */
-	HideForPose: (AssetPoseName | "")[];
+	HideForPose: readonly (AssetPoseName | "")[];
 	/** An array of objects mapping poses to other poses to determine their draw folder */
 	PoseMapping?: AssetPoseMapping;
 	/** The drawing priority of this layer. Inherited from the parent asset/group if not specified in the layer
 	definition. */
 	Priority: number;
 	InheritColor: AssetGroupName | null;
-	Alpha: AlphaDefinition[];
+	Alpha: readonly AlphaDefinition[];
 	/** The asset that this layer belongs to */
 	Asset: Asset;
 	DrawingLeft?: number;
@@ -919,25 +921,25 @@ interface AssetLayer {
 	BlendingMode: GlobalCompositeOperation;
 	LockLayer: boolean;
 	MirrorExpression?: AssetGroupName;
-	AllowModuleTypes?: string[];
+	AllowModuleTypes?: readonly string[];
 	/** The coloring index for this layer */
 	ColorIndex: number;
 	/** Any group-specific alpha masks that should be applied when drawing the layer. Only available on layers that have
 	been created prior to drawing */
 	GroupAlpha?: AlphaDefinition[];
 	/** A module for which the layer can have types. */
-	ModuleType: string[] | null;
+	ModuleType: readonly string[] | null;
 	/* Specifies that this layer should not be drawn if the character is wearing any item with the given attributes */
-	HideForAttribute: AssetAttribute[] | null;
+	HideForAttribute: readonly AssetAttribute[] | null;
 	/* Specifies that this layer should not be drawn unless the character is wearing an item with one of the given attributes */
-	ShowForAttribute: AssetAttribute[] | null;
+	ShowForAttribute: readonly AssetAttribute[] | null;
 }
 
 /** An object defining a group of alpha masks to be applied when drawing an asset layer */
 interface AlphaDefinition {
 	/** A list of the group names that the given alpha masks should be applied to. If empty or not present, the
 alpha masks will be applied to every layer underneath the present one. */
-	Group?: string[];
+	Group?: AssetGroupName[];
 	/** A list of the poses that the given alpha masks should be applied to. If empty or not present, the alpha
 masks will be applied regardless of character pose. */
 	Pose?: AssetPoseName[];
@@ -960,7 +962,7 @@ interface ResolvedTintDefinition extends TintDefinition {
 }
 
 interface ExpressionTrigger {
-	Group: AssetGroupName;
+	Group: AssetGroupBodyName;
 	Name: string;
 	Timer: number;
 }
@@ -978,30 +980,30 @@ interface Asset {
 	ParentGroupName?: AssetGroupName | null;
 	Enable: boolean;
 	Visible: boolean;
-	NotVisibleOnScreen?: string[];
+	NotVisibleOnScreen?: readonly string[];
 	Wear: boolean;
 	Activity: string | null;
-	AllowActivity?: string[];
-	ActivityAudio?: string[];
-	ActivityExpression: Record<string, ExpressionTrigger[]>;
+	AllowActivity?: readonly string[];
+	ActivityAudio?: readonly string[];
+	ActivityExpression: Record<string, readonly ExpressionTrigger[]>;
 	AllowActivityOn?: AssetGroupItemName[];
 	BuyGroup?: string;
-	PrerequisiteBuyGroups?: string[];
-	Effect?: EffectName[];
+	PrerequisiteBuyGroups?: readonly string[];
+	Effect?: readonly EffectName[];
 	Bonus?: AssetBonusName;
-	Block?: AssetGroupItemName[];
-	Expose: string[];
-	Hide?: AssetGroupName[];
-	HideItem?: string[];
-	HideItemExclude: string[];
+	Block?: readonly AssetGroupItemName[];
+	Expose: readonly AssetGroupItemName[];
+	Hide?: readonly AssetGroupName[];
+	HideItem?: readonly string[];
+	HideItemExclude: readonly string[];
 	HideItemAttribute: AssetAttribute[];
-	Require: string[];
-	SetPose?: AssetPoseName[];
-	AllowPose: AssetPoseName[];
-	HideForPose: (AssetPoseName | "")[];
+	Require: readonly AssetGroupBodyName[];
+	SetPose?: readonly AssetPoseName[];
+	AllowPose: readonly AssetPoseName[] | null;
+	HideForPose: readonly (AssetPoseName | "")[];
 	PoseMapping?: AssetPoseMapping;
-	AllowActivePose?: AssetPoseName[];
-	WhitelistActivePose?: AssetPoseName[];
+	AllowActivePose?: readonly AssetPoseName[];
+	WhitelistActivePose?: readonly AssetPoseName[];
 	Value: number;
 	Difficulty: number;
 	SelfBondage: number;
@@ -1018,8 +1020,8 @@ interface Asset {
 	DrawingTop?: number;
 	HeightModifier: number;
 	ZoomModifier: number;
-	Alpha?: AlphaDefinition[];
-	Prerequisite: string[];
+	Alpha?: readonly AlphaDefinition[];
+	Prerequisite: readonly string[];
 	Extended: boolean;
 	AlwaysExtend: boolean;
 	AlwaysInteract: boolean;
@@ -1029,23 +1031,23 @@ interface Asset {
 	PickDifficulty: number;
 	OwnerOnly: boolean;
 	LoverOnly: boolean;
-	ExpressionTrigger?: ExpressionTrigger[];
-	RemoveItemOnRemove: { Name: string; Group: AssetGroupItemName; Type?: string; }[];
-	AllowEffect?: EffectName[];
-	AllowBlock?: AssetGroupItemName[];
-	AllowHide?: AssetGroupItemName[];
-	AllowHideItem?: string[];
-	AllowType?: string[];
+	ExpressionTrigger?: readonly ExpressionTrigger[];
+	RemoveItemOnRemove: readonly { Name: string; Group: AssetGroupName; Type?: string; }[];
+	AllowEffect?: readonly EffectName[];
+	AllowBlock?: readonly AssetGroupItemName[];
+	AllowHide?: readonly AssetGroupName[];
+	AllowHideItem?: readonly string[];
+	AllowType?: readonly string[];
 	AllowTighten?: boolean;
 	DefaultColor?: ItemColor;
 	Opacity: number;
 	MinOpacity: number;
 	MaxOpacity: number;
 	Audio?: string;
-	Category?: string[];
-	Fetish?: string[];
+	Category?: readonly string[];
+	Fetish?: readonly string[];
 	CustomBlindBackground?: string;
-	ArousalZone: string;
+	ArousalZone: AssetGroupName;
 	IsRestraint: boolean;
 	BodyCosplay: boolean;
 	OverrideBlinking: boolean;
@@ -1064,27 +1066,27 @@ interface Asset {
 	DynamicAfterDraw: boolean;
 	DynamicScriptDraw: boolean;
 	HasType: boolean;
-	AllowLockType?: string[];
+	AllowLockType?: readonly string[];
 	AllowColorizeAll: boolean;
-	AvailableLocations: string[];
+	AvailableLocations: readonly string[];
 	OverrideHeight?: AssetOverrideHeight;
-	FreezeActivePose: AssetPoseCategory[];
+	FreezeActivePose: readonly AssetPoseCategory[];
 	DrawLocks: boolean;
-	AllowExpression?: string[];
-	MirrorExpression?: string;
+	AllowExpression?: readonly string[];
+	MirrorExpression?: AssetGroupName;
 	FixedPosition: boolean;
-	Layer: AssetLayer[];
+	Layer: readonly AssetLayer[];
 	ColorableLayerCount: number;
-	Archetype?: string;
+	Archetype?: ExtendedArchetype;
 	Attribute: AssetAttribute[];
-	PreviewIcons: InventoryIcon[];
-	Tint: TintDefinition[];
+	PreviewIcons: readonly InventoryIcon[];
+	Tint: readonly TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
 	Gender?: 'F' | 'M';
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
-	ExpressionPrerequisite?: string[];
+	ExpressionPrerequisite?: readonly string[];
 	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
 	TextFont: null | string;
 
@@ -1096,7 +1098,7 @@ interface Asset {
 
 /** An ItemBundle is a minified version of the normal Item */
 interface ItemBundle {
-	Group: string;
+	Group: AssetGroupName;
 	Name: string;
 	Difficulty?: number;
 	Color?: ItemColor;
@@ -1114,8 +1116,8 @@ interface Pose {
 	/** Only show in menu if an asset supports it */
 	AllowMenuTransient?: true;
 	OverrideHeight?: AssetOverrideHeight;
-	Hide?: string[];
-	MovePosition?: { Group: string; X: number; Y: number; }[];
+	Hide?: AssetGroupName[];
+	MovePosition?: { Group: AssetGroupName; X: number; Y: number; }[];
 }
 
 interface Activity {
@@ -1162,20 +1164,26 @@ type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" 
 type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
 
 interface InventoryItem {
-	Group: string;
+	Group: AssetGroupName;
 	Name: string;
 	Asset: Asset;
 }
 
+type SkillType = "Bondage" | "SelfBondage" | "LockPicking" | "Evasion" | "Willpower" | "Infiltration" | "Dressage";
+
 interface Skill {
-	Type: string;
+	Type: SkillType;
 	Level: number;
 	Progress: number;
 	Ratio?: number;
 }
 
+type ReputationType =
+	"Dominant" | "Kidnap" | "ABDL" | "Gaming" | "Maid" | "LARP" | "Asylum" | "Gambling" |
+	"HouseMaiestas" | "HouseVincula" | "HouseAmplector" | "HouseCorporis";
+
 interface Reputation {
-	Type: string;
+	Type: ReputationType;
 	Value: number;
 }
 
@@ -1272,7 +1280,7 @@ interface Character {
 	Type: CharacterType;
 	Name: string;
 	Nickname?: string;
-	AssetFamily: IAssetFamily | string;
+	AssetFamily: IAssetFamily;
 	AccountName: string;
 	Owner: string;
 	Lover: string;
@@ -1287,10 +1295,10 @@ interface Character {
 	Pose: AssetPoseName[];
 	ActivePose: AssetPoseName[];
 	AllowedActivePose: AssetPoseName[];
-	Effect: string[];
+	Effect: EffectName[];
 	Tints: ResolvedTintDefinition[];
 	Attribute: AssetAttribute[];
-	FocusGroup: AssetGroup | null;
+	FocusGroup: AssetItemGroup | null;
 	Canvas: HTMLCanvasElement | null;
 	CanvasBlink: HTMLCanvasElement | null;
 	MustDraw: boolean;
@@ -1376,7 +1384,7 @@ interface Character {
 	IsInverted: () => boolean;
 	CanChangeToPose: (Pose: AssetPoseName) => boolean;
 	GetClumsiness: () => number;
-	HasEffect: (Effect: string) => boolean;
+	HasEffect: (Effect: EffectName) => boolean;
 	HasTints: () => boolean;
 	GetTints: () => RGBAColor[];
 	HasAttribute: (attribute: AssetAttribute) => boolean;
@@ -1439,7 +1447,8 @@ interface Character {
 	Rule?: LogRecord[];
 	Status?: string | null;
 	StatusTimer?: number;
-	Crafting?: CraftingItem[];
+	Crafting?: (null | CraftingItem)[];
+}
 
 /**
  * The characters online shared settings.
@@ -1708,7 +1717,7 @@ interface PlayerCharacter extends Character {
 	GhostList?: number[];
 	Wardrobe?: any[][];
 	WardrobeCharacterNames?: string[];
-	SavedExpressions?: ({ Group: AssetGroupName, CurrentExpression?: string }[] | null)[];
+	SavedExpressions?: ({ Group: AssetGroupBodyName, CurrentExpression?: string }[] | null)[];
 	SavedColors: HSVColor[];
 	FriendList?: number[];
 	FriendNames?: Map<number, string>;
@@ -1896,7 +1905,8 @@ interface AssetDefinitionProperties {
 	SelfUnlock?: boolean;
 
 	/**
-	 * The timer for after how long until a lock should be removed
+	 * The timer for after how long until a lock should be removed.
+	 * Also used for timed emoticons.
 	 * @see {@link Asset.RemoveTimer}
 	 */
 	RemoveTimer?: number;
@@ -2612,7 +2622,7 @@ type DrawImageCallback = (
 	alphasMasks: RectTuple[],
 	opacity?: number,
 	rotate?: boolean,
-	blendingMode?: GlobalCompositeOperation
+	blendingMode?: GlobalCompositeOperation,
 ) => void;
 
 /**
@@ -2713,6 +2723,8 @@ interface DynamicBeforeDrawOverrides {
 	AlphaMasks?: RectTuple[];
 	Pose?: AssetPoseName;
 }
+
+type DynamicDrawTextEffect = "burn";
 
 /**
  * A dynamic BeforeDraw callback
@@ -3049,6 +3061,28 @@ interface DialogSelfMenuOptionType {
 	Load?: () => void;
 	Draw: () => void;
 	Click: () => void;
+}
+
+// #end region
+
+// #region Notification
+
+type NotificationAudioType = 0 | 1 | 2;
+type NotificationAlertType = 0 | 1 | 3 | 2;
+type NotificationEventType = "ChatMessage" | "ChatJoin" | "Beep" | "Disconnect" | "Test" | "Larp";
+
+interface NotificationSetting {
+	AlertType: NotificationAlertType,
+	Audio: NotificationAudioType,
+}
+
+interface NotificationData {
+	body?: string,
+	character?: Character,
+	useCharAsIcon?: boolean,
+	memberNumber?: number,
+	characterName?: string,
+	chatRoomName?: string,
 }
 
 // #end region
