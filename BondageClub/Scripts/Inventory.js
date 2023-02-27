@@ -515,7 +515,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 
 			// The comfy property triggers an expression change
 			if (Craft.Property === "Comfy") {
-				CharacterSetFacialExpression(Target, "Blush", "Light", 10);
+				CharacterSetFacialExpression(Target, "Blush", "Low", 10);
 				CharacterSetFacialExpression(Target, "Eyes", "Horny", 10);
 				CharacterSetFacialExpression(Target, "Eyes2", "Horny", 10);
 				CharacterSetFacialExpression(Target, "Eyebrows", "Raised", 10);
