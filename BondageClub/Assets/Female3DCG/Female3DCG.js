@@ -6221,14 +6221,18 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Ribbons", Value: 30, Difficulty: 3, Time: 10, BuyGroup: "Ribbon", Prerequisite: "GagFlat", Effect: ["BlockMouth", "GagVeryLight"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }, { Name: "HalfOpen", Group: "Mouth", Timer: 60 }], Extended: true },
 			{
-				Name: "CropGag", Value: -1, Priority: 41, Difficulty: -100, Time: 2, Random: false, BuyGroup: "Crop", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagLight", "ProtrudingMouth"], Block: ["ItemMouth2", "ItemMouth3"], ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 5 }, { Name: "Closed", Group: "Eyes", Timer: 5 }],
+				Name: "CropGag", Value: -1, Priority: 41, Difficulty: -100, Time: 2, Random: false, BuyGroup: "Crop",
+				Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagLight", "ProtrudingMouth"],
+				Block: ["ItemMouth2", "ItemMouth3"],
 				Layer: [
 					{ Name: "Crop", AllowColorize: true, Left: 100 },
 					{ Name: "Mouth", AllowColorize: false },
 				]
 			},
 			{
-				Name: "CaneGag", Value: -1, Priority: 41, Difficulty: -100, Time: 2, Random: false, BuyGroup: "Cane", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagLight", "ProtrudingMouth"], Block: ["ItemMouth2", "ItemMouth3"], ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 5 }, { Name: "Closed", Group: "Eyes", Timer: 5 }],
+				Name: "CaneGag", Value: -1, Priority: 41, Difficulty: -100, Time: 2, Random: false, BuyGroup: "Cane",
+				Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagLight", "ProtrudingMouth"],
+				Block: ["ItemMouth2", "ItemMouth3"],
 				Layer: [
 					{ Name: "Cane", AllowColorize: true, Left: 80 },
 					{ Name: "Mouth", AllowColorize: false },
