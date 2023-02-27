@@ -255,7 +255,7 @@ type AssetPoseName =
 	/* BodyLower */ 'BaseLower' | 'Kneel' | 'KneelingSpread' | 'LegsClosed' | 'LegsOpen' | 'Spread' |
 
 	/* BodyFull  */ 'Hogtied' | 'AllFours' |
-	/* BodyAddon */ 'Suspension' | 'SuspensionHogtied'
+	/* BodyAddon */ 'Suspension'
 	;
 
 type AssetPoseMapping = Partial<Record<AssetPoseName, AssetPoseName | "">>;
