@@ -706,6 +706,16 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
 	let Item = InventoryGet(C, AssetGroup);
+
+	/**
+	 * TODO: grant tighter control over setting expressions.
+	 * As expressions handle a "first come, first served" principle this can currently override extended
+	 * item option-specific expressions (see {@link InventoryWearCraftExtended}) and crafting property-specific
+	 * expressions (see {@link InventoryCraft})
+	 */
+	if (A.ExpressionTrigger != null) {
+		InventoryExpressionTriggerApply(C, A.ExpressionTrigger);
+	}
 	InventoryWearCraft(Item, Craft);
 	CharacterRefresh(C, true);
 }
