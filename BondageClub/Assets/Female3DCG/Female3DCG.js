@@ -4652,7 +4652,8 @@ var AssetFemale3DCG = [
 				Alpha: [{ Group: ["Cloth", "Necklace", "Suit"], Masks: [[270, 190, 480, 60], [230, 190, -480, 60], [0, 250, 182, 100], [318, 250, 182, 100]] }],
 				Layer: [
 					{ Name: "Leather" },
-					{ Name: "Belts" }
+					{ Name: "Belts" },
+					{ Name: "Metal" }
 				],
 				SelfUnlock: false
 			},
