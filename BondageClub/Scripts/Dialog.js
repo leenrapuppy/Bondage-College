@@ -629,7 +629,7 @@ function DialogLeave() {
 	DialogSelfMenuSelected = null;
 	DialogSavedExpressionPreviews = [];
 	DialogFacialExpressionsSelected = -1;
-	ClearButtons();
+	ControllerClearAreas();
 	DialogFacialExpressions = [];
 }
 
@@ -2493,7 +2493,7 @@ function DialogFindAutoReplace(C, KeyWord1, KeyWord2, ReturnPrevious) {
  */
 function DialogDraw() {
 	if (ControllerIsActive()) {
-		ClearButtons();
+		ControllerClearAreas();
 	}
 	// Draw both the player and the interaction character
 	if (CurrentCharacter.ID != 0) DrawCharacter(Player, 0, 0, 1);

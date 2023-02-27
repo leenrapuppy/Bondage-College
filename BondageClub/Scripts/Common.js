@@ -411,7 +411,7 @@ function CommonSetScreen(NewModule, NewScreen) {
 		CurrentScreenFunctions.Unload();
 	}
 	if (ControllerIsActive()) {
-		ClearButtons();
+		ControllerClearAreas();
 	}
 
 

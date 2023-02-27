@@ -300,9 +300,8 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 		}
 	}
 	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
-	if (ControllerIsActive()) {
-		setButton(X + 112, Y + 30 + ImageHeight);
-	}
+
+	ControllerAddActiveArea(X + 112, Y + 30 + ImageHeight);
 }
 
 /**

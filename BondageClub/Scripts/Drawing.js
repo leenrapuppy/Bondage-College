@@ -274,9 +274,7 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 
 		CharacterCheckHooks(C, CurrentCharacter != null);
 
-		if (ControllerIsActive()) {
-			setButton(X + 100, Y + 200);
-		}
+		ControllerAddActiveArea(X + 100, Y + 200);
 
 		// If there's a fixed image to draw instead of the character
 		if (C.FixedImage != null) {
@@ -418,9 +416,7 @@ function DrawAssetGroupZone(C, Zone, Zoom, X, Y, HeightRatio, Color, Thickness =
 		if (FillColor != null) DrawRect(CZ[0], CZ[1], CZ[2], CZ[3], FillColor);
 		DrawEmptyRect(CZ[0], CZ[1], CZ[2], CZ[3], Color, Thickness);
 
-		if (ControllerIsActive()) {
-			setButton(Math.round(CZ[0]), Math.round(CZ[1]));
-		}
+		ControllerAddActiveArea(Math.round(CZ[0]), Math.round(CZ[1]));
 	}
 }
 
@@ -855,9 +851,8 @@ function GetWrapTextSize(Text, Width, MaxLine) {
  * @returns {void} - Nothing
  */
 function DrawTextWrap(Text, X, Y, Width, Height, ForeColor, BackColor, MaxLine) {
-	if (ControllerIsActive()) {
-		setButton(X, Y);
-	}
+	ControllerAddActiveArea(X, Y);
+
 	// Draw the rectangle if we need too
 	if (BackColor != null) {
 		MainCanvas.beginPath();
@@ -1014,9 +1009,7 @@ function DrawText(Text, X, Y, Color, BackColor) {
  */
 function DrawButton(Left, Top, Width, Height, Label, Color, Image, HoveringText, Disabled) {
 
-	if (ControllerIsActive()) {
-		setButton(Left, Top);
-	}
+	ControllerAddActiveArea(Left, Top);
 
 	// Draw the button rectangle (makes the background color cyan if the mouse is over it)
 	MainCanvas.beginPath();
@@ -1078,10 +1071,8 @@ function DrawBackNextButton(Left, Top, Width, Height, Label, Color, Image, BackT
 	const LeftSplit = Left + ArrowWidth;
 	const RightSplit = Left + Width - ArrowWidth;
 
-	if (ControllerIsActive()) {
-		setButton(Left, Top);
-		setButton(Left + Width - ArrowWidth, Top);
-	}
+	ControllerAddActiveArea(Left, Top);
+	ControllerAddActiveArea(Left + Width - ArrowWidth, Top);
 
 	// Draw the button rectangle
 	MainCanvas.beginPath();
@@ -1113,9 +1104,8 @@ function DrawBackNextButton(Left, Top, Width, Height, Label, Color, Image, BackT
 	// Draw the text or image
 	DrawTextFit(Label, Left + Width / 2, Top + (Height / 2) + 1, (CommonIsMobile) ? Width - 6 : Width - 36, "Black");
 	if ((Image != null) && (Image != "")) DrawImage(Image, Left + 2, Top + 2);
-	if (ControllerIsActive()) {
-		setButton(Left + Width / 2, Top);
-	}
+
+	ControllerAddActiveArea(Left + Width / 2, Top);
 
 	// Draw the back arrow
 	MainCanvas.beginPath();
@@ -1493,7 +1483,7 @@ function DrawPreviewBox(X, Y, Path, Description, Options) {
 	if (Disabled === true) Background = "#888";
 	else if (Hover && MouseHovering(X, Y, 225, Height)) Background = (HoverBackground || "cyan");
 	DrawRect(X, Y, 225, Height, Background);
-	setButton(X, Y);
+	ControllerAddActiveArea(X, Y);
 	if (Border) DrawEmptyRect(X, Y, 225, Height, Foreground);
 	const ImageX = Vibrating ? X + 1 + Math.floor(Math.random() * 3) : X + 2;
 	const ImageY = Vibrating ? Y + 1 + Math.floor(Math.random() * 3) : Y + 2;

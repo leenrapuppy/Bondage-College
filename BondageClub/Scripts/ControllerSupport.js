@@ -9,7 +9,6 @@ var ControllerDetectedCount = 0;
 
 var ControllerCurrentButton = 0;
 var ControllerButtonsRepeat = true;
-var ControllerIgnoreButton = false;
 
 var ControllerA = 1;
 var ControllerB = 0;
@@ -94,45 +93,28 @@ function ControllerProcess() {
 }
 
 /**
- *removes all buttons from the lists
+ * Adds a point to the active points list.
+ *
+ * @param {number} X - The X coordinate of the point
+ * @param {number} Y - The Y coordinate of the point
  */
-function ClearButtons() {
+function ControllerAddActiveArea(X, Y) {
+	if (!ControllerIsActive()) return;
+
+	X += 10;
+	Y += 10;
+	if (!ControllerButtonsX.some((x, idx) => x === X && ControllerButtonsY[idx] === Y)) {
+		ControllerButtonsX.push(X);
+		ControllerButtonsY.push(Y);
+	}
+}
+
+/**
+ * Removes all active points.
+ */
+function ControllerClearAreas() {
 	ControllerButtonsX = [];
 	ControllerButtonsY = [];
-}
-
-/**
- * adds a button to the lists
- * @param {number} X X value of the button
- * @param {number} Y Y value of the button
- */
-function setButton(X, Y) {
-	if (ControllerIgnoreButton == false) {
-		X += 10;
-		Y += 10;
-		if (!ButtonExists(X, Y)) {
-			ControllerButtonsX.push(X);
-			ControllerButtonsY.push(Y);
-		}
-	}
-}
-
-/**
- * checks, whether a button is already in the lists (I realize now, that I could have used .includes but it works)
- * @param {number} X X value of the button
- * @param {number} Y Y value of the button
- * @returns {boolean}
- */
-function ButtonExists(X, Y) {
-	let g = 0;
-	let Exists = false;
-	while (g < ControllerButtonsX.length) {
-		if (ControllerButtonsX[g] == X && ControllerButtonsY[g] == Y) {
-			Exists = true;
-		}
-		g += 1;
-	}
-	return Exists;
 }
 
 /**

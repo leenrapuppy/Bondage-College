@@ -807,13 +807,8 @@ function PreferenceRun() {
 
 	// Draw all the buttons to access the submenus
 	for (let A = 0; A < PreferenceSubscreenList.length; A++) {
-		ControllerIgnoreButton = true;
 		DrawButton(500 + 420 * Math.floor(A / 7), 160 + 110 * (A % 7), 400, 90, "", "White", "Icons/" + PreferenceSubscreenList[A] + ".png");
-		ControllerIgnoreButton = false;
 		DrawTextFit(TextGet("Homepage" + PreferenceSubscreenList[A]), 745 + 420 * Math.floor(A / 7), 205 + 110 * (A % 7), 310, "Black");
-		if (ControllerIsActive()) {
-			setButton(745 + 420 * Math.floor(A / 7), 205 + 110 * (A % 7));
-		}
 	}
 
 }
@@ -940,7 +935,7 @@ function PreferenceSubscreenRestrictionRun() {
  */
 function PreferenceClick() {
 	if (ControllerIsActive()) {
-		ClearButtons();
+		ControllerClearAreas();
 	}
 	// Pass the click into the opened subscreen
 	if (PreferenceSubscreen != "") return CommonDynamicFunction("PreferenceSubscreen" + PreferenceSubscreen + "Click()");
@@ -1876,7 +1871,7 @@ function PreferenceSubscreenControllerClick() {
 
 		if (MouseIn(500, 272, 64, 64)) {
 			Player.ControllerSettings.ControllerActive = !Player.ControllerSettings.ControllerActive;
-			ClearButtons();
+			ControllerClearAreas();
 			ControllerStart();
 		}
 	}
