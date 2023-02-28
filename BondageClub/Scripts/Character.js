@@ -1233,7 +1233,7 @@ function CharacterRefreshDialog(C) {
 		}
 	} else if (DialogFocusItem) DialogLeaveFocusItem();
 	if (!DialogFocusItem) {
-		const IsLockMode = DialogItemToLock && C.Appearance.find(Item => Item.Asset.Name == DialogItemToLock.Asset.Name && DialogItemToLock.Asset.Group.Name == Item.Asset.Group.Name);
+		const IsLockMode = DialogMenuMode === "locking" && C.FocusGroup && InventoryGet(C, C.FocusGroup.Name);
 		if (IsLockMode) {
 			DialogInventory = [];
 			for (let A = 0; A < Player.Inventory.length; A++)
@@ -1246,11 +1246,11 @@ function CharacterRefreshDialog(C) {
 		}
 		DialogBuildActivities(C);
 	}
-	if (DialogColor != null) {
+	if (DialogMenuMode === "color") {
 		const FocusItem = C && C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
 		if ((ItemColorItem && !FocusItem) || (!ItemColorItem && FocusItem) || InventoryGetItemProperty(ItemColorItem, "Name") !== InventoryGetItemProperty(FocusItem, "Name")) {
 			ItemColorCancelAndExit();
-			DialogColor = null;
+			DialogMenuMode = "items";
 			DialogColorSelect = null;
 			DialogMenuButtonBuild(C);
 		}

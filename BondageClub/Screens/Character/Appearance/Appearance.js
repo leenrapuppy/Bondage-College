@@ -635,7 +635,7 @@ function AppearanceMenuBuild(C) {
 			if (C.ID === 0) {
 				AppearanceMenu.push(LogQuery("Wardrobe", "PrivateRoom") ? "Wardrobe" : "WardrobeDisabled");
 				if (!LogQuery("Wardrobe", "PrivateRoom") && AppearanceGroupAllowed(C, "ALL")) AppearanceMenu.push("Reset");
-				if (!DialogItemPermissionMode) AppearanceMenu.push("WearRandom");
+				if (DialogMenuMode !== "permissions") AppearanceMenu.push("WearRandom");
 				AppearanceMenu.push("Random");
 			} else AppearanceMenu.push(LogQuery("Wardrobe", "PrivateRoom") ? "Wardrobe" : "WardrobeDisabled");
 			AppearanceMenu.push("Naked", "Character", "Next");
@@ -644,7 +644,7 @@ function AppearanceMenuBuild(C) {
 			AppearanceMenu.push("Naked", "Prev", "Next");
 			break;
 		case "Cloth":
-			if (!DialogItemPermissionMode) {
+			if (DialogMenuMode !== "permissions") {
 				let Item = InventoryGet(C, C.FocusGroup.Name);
 				if (Item && Item.Asset.Extended) AppearanceMenu.push(InventoryBlockedOrLimited(C, Item) ? "UseDisabled" : "Use");
 				if (C.IsPlayer()) AppearanceMenu.push("WearRandom");
@@ -662,7 +662,7 @@ function AppearanceMenuBuild(C) {
 
 	// Add the exit buttons
 	if (CharacterAppearanceMode !== "Color") {
-		if (!DialogItemPermissionMode) AppearanceMenu.push("Cancel");
+		if (DialogMenuMode !== "permissions") AppearanceMenu.push("Cancel");
 		AppearanceMenu.push("Accept");
 	}
 }
@@ -872,7 +872,7 @@ function AppearanceRun() {
  * @returns {string} - A CSS color string determining the color that the preview icon should be drawn in
  */
 function AppearanceGetPreviewImageColor(C, item, hover) {
-	if (DialogItemPermissionMode && C.ID === 0) {
+	if (DialogMenuMode === "permissions" && C.ID === 0) {
 		let permission = "green";
 		if (InventoryIsPermissionBlocked(C, item.Asset.Name, item.Asset.Group.Name)) permission = "red";
 		else if (InventoryIsPermissionLimited(C, item.Asset.Name, item.Asset.Group.Name)) permission = "amber";
@@ -1229,7 +1229,7 @@ function AppearanceClick() {
 				const worn = (CurrentItem && (CurrentItem.Asset.Name == Item.Asset.Name));
 
 				// In permission mode, we toggle the settings for an item
-				if (DialogItemPermissionMode) {
+				if (DialogMenuMode === "permissions") {
 					DialogInventoryTogglePermission(Item, worn);
 				} else {
 					if (InventoryBlockedOrLimited(C, Item)) return;
@@ -1319,7 +1319,7 @@ function AppearanceMenuClick(C) {
 
 					// Opens permission mode
 					if (Button === "DialogPermissionMode") {
-						DialogItemPermissionMode = true;
+						DialogMenuMode = "permissions";
 						DialogInventoryBuild(C);
 					}
 
@@ -1351,8 +1351,8 @@ function AppearanceMenuClick(C) {
 
 					// Accepts the new selection
 					if (Button === "Accept") {
-						if (DialogItemPermissionMode) {
-							DialogItemPermissionMode = false;
+						if (DialogMenuMode === "permissions") {
+							DialogMenuMode = "items";
 							AppearanceMenuBuild(C);
 							DialogInventoryBuild(C);
 						}

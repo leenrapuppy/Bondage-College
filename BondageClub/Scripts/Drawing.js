@@ -368,7 +368,7 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 		}
 
 		// Draws the character focus zones if we need too
-		if ((C.FocusGroup != null) && (C.FocusGroup.Zone != null) && (CurrentScreen != "Preference") && (DialogColor == null)) {
+		if ((C.FocusGroup != null) && (C.FocusGroup.Zone != null) && (CurrentScreen != "Preference") && (DialogMenuMode !== "color")) {
 
 			// Draw all the possible zones in transparent colors (gray if free, yellow if occupied, red if blocker)
 			for (const group of AssetGroup) {

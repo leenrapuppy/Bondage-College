@@ -70,6 +70,8 @@ type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?
 
 //#region Enums
 
+type DialogMenuMode = "dialog" | "items" | "color" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
+
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 type DialogStruggleActionType = "ActionUse" | "ActionSwap" | "ActionRemove" | "ActionUnlock" | "ActionUnlockAndRemove" | "ActionStruggle" | "ActionEscape" | "ActionDismount";
