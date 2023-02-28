@@ -2453,11 +2453,6 @@ interface ModularItemData {
 	/** A lookup for the click functions for each of the item's modules */
 	clickFunctions: Record<string, () => void>;
 	/**
-	 * A boolean indicating whether or not the item's type can be changed while the
-	 * item is locked (if set to `false`, the player must be able to unlock the item to change its type). Defaults to `true`
-	 */
-	changeWhenLocked: boolean;
-	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
@@ -2614,11 +2609,6 @@ interface TypedItemData {
 	chatSetting?: TypedItemChatSetting;
 	/** A boolean indicating whether or not images should be drawn in this item's extended item menu. Defaults to `true` */
 	drawImages?: boolean;
-	/**
-	 * A boolean indicating whether or not the item's type can be changed while the
-	 * item is locked (if set to false, the player must be able to unlock the item to change its type). Defaults to `true`
-	 */
-	changeWhenLocked?: boolean;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
