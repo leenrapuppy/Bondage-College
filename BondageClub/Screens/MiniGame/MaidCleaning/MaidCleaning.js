@@ -75,7 +75,7 @@ function MaidCleaningRun() {
 	var Time = CommonTime();
 	if (!MiniGameEnded && (MaidCleaningSpots.length == 0)) MaidCleaningEnd(true);
 	if (!MiniGameEnded && (Time >= MiniGameTimer)) MaidCleaningEnd(false);
-	if (Time >= MiniGameTimer + 5000) CommonDynamicFunction(MiniGameReturnFunction + "()");
+	if (Time >= MiniGameTimer + 5000) MiniGameEnd();
 
 	// Draw the player character, progress bar and text
 	MaidCleaningDoMove();

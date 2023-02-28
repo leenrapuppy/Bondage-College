@@ -984,7 +984,7 @@ function RhythmGameRun() {
 		MiniGameAdvancedPayment = RhythmGamePassed ? Math.round(RhythmGameScript.score + 10) : 0;
 		RhythmGameAudio.stop();
 		RhythmGameKey.removeKeyListener();
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
+		MiniGameEnd()
 	}
 	else RhythmGameKernel.update();
 }

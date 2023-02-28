@@ -39,6 +39,10 @@ function MiniGameStart(GameType, Difficulty, ReturnFunction) {
 	CommonSetScreen("MiniGame", GameType);
 }
 
+function MiniGameEnd() {
+	CommonDynamicFunction(MiniGameReturnFunction + "()");
+}
+
 /**
  * Checks if the C key is being pressed and if cheats are available
  * @returns {boolean} - TRUE if C and cheats are allowed
