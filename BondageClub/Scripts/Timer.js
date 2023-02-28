@@ -241,7 +241,7 @@ function TimerProcess(Timestamp) {
 
 	}
 
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		if (ControllerCurrentButton >= ControllerButtonsX.length) {
 			ControllerCurrentButton = 0;
 		}

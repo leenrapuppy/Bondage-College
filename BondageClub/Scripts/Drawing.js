@@ -274,7 +274,7 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 
 		CharacterCheckHooks(C, CurrentCharacter != null);
 
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			setButton(X + 100, Y + 200);
 		}
 
@@ -418,7 +418,7 @@ function DrawAssetGroupZone(C, Zone, Zoom, X, Y, HeightRatio, Color, Thickness =
 		if (FillColor != null) DrawRect(CZ[0], CZ[1], CZ[2], CZ[3], FillColor);
 		DrawEmptyRect(CZ[0], CZ[1], CZ[2], CZ[3], Color, Thickness);
 
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			setButton(Math.round(CZ[0]), Math.round(CZ[1]));
 		}
 	}
@@ -855,7 +855,7 @@ function GetWrapTextSize(Text, Width, MaxLine) {
  * @returns {void} - Nothing
  */
 function DrawTextWrap(Text, X, Y, Width, Height, ForeColor, BackColor, MaxLine) {
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		setButton(X, Y);
 	}
 	// Draw the rectangle if we need too
@@ -1014,7 +1014,7 @@ function DrawText(Text, X, Y, Color, BackColor) {
  */
 function DrawButton(Left, Top, Width, Height, Label, Color, Image, HoveringText, Disabled) {
 
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		setButton(Left, Top);
 	}
 
@@ -1078,7 +1078,7 @@ function DrawBackNextButton(Left, Top, Width, Height, Label, Color, Image, BackT
 	const LeftSplit = Left + ArrowWidth;
 	const RightSplit = Left + Width - ArrowWidth;
 
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		setButton(Left, Top);
 		setButton(Left + Width - ArrowWidth, Top);
 	}
@@ -1113,7 +1113,7 @@ function DrawBackNextButton(Left, Top, Width, Height, Label, Color, Image, BackT
 	// Draw the text or image
 	DrawTextFit(Label, Left + Width / 2, Top + (Height / 2) + 1, (CommonIsMobile) ? Width - 6 : Width - 36, "Black");
 	if ((Image != null) && (Image != "")) DrawImage(Image, Left + 2, Top + 2);
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		setButton(Left + Width / 2, Top);
 	}
 

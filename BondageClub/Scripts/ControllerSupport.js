@@ -4,10 +4,9 @@
 var ControllerButtonsX = [];//there probably is a way to use just one list, but I don't want to bother and this works anyway
 /** @type {number[]} */
 var ControllerButtonsY = [];
-/** Whether controller support is enabled in preferences */
-var ControllerEnabled = false;
-/** Whether a controller has been detected */
-var ControllerActive = false;
+/** Number of detected controllers */
+var ControllerDetectedCount = 0;
+
 var ControllerCurrentButton = 0;
 var ControllerButtonsRepeat = true;
 var ControllerIgnoreButton = false;
@@ -26,6 +25,7 @@ var ControllerDPadUp = 4;
 var ControllerDPadDown = 5;
 var ControllerDPadLeft = 6;
 var ControllerDPadRight = 7;
+
 var Calibrating = false;
 var ControllerStick = false;
 var waitasec = false;
@@ -40,17 +40,37 @@ var ControllerGameActiveButttons = {};
  * Register the gamepad connection/disconnection events.
  */
 function ControllerStart() {
-	if (!ControllerEnabled) return;
+	if (!ControllerIsEnabled()) return;
 
 	window.addEventListener('gamepadconnected', (event) => {
 		console.log("gamepadconnected", event);
-		ControllerActive = true;
+		ControllerDetectedCount++;
 	});
 
 	window.addEventListener("gamepaddisconnected", (event) => {
 		console.log("gamepaddisconnected", event);
-		ControllerActive = false;
+		ControllerDetectedCount--;
+		if (ControllerDetectedCount < 0) ControllerDetectedCount = 0;
 	});
+}
+
+/**
+ * Check whether controller support is enabled.
+ *
+ * Uses the Player's configuration, with a workaround to allow
+ * the controller to activate on login.
+ */
+function ControllerIsEnabled() {
+	if (!Player || !Player.ControllerSettings) return true;
+
+	return Player.ControllerSettings.ControllerActive;
+}
+
+/**
+ * Check whether we have detected a gamepad.
+ */
+function ControllerIsActive() {
+	return ControllerIsEnabled() && ControllerDetectedCount > 0;
 }
 
 /**
@@ -59,8 +79,13 @@ function ControllerStart() {
  * This functions goes over gamepads and collects their inputs.
  */
 function ControllerProcess() {
-	if (!ControllerActive || !ControllerEnabled) return;
+	if (!ControllerIsEnabled() || !ControllerIsActive()) return;
 
+	// Loop through all gamepads, which seems odd but the one I
+	// have at hand registers as two controllers and the buttons
+	// are literally everywhere.
+	// If you need a nice test bed, https://gamepad-tester.com/ has
+	// a nice button viewer.
 	for (const gamepad of navigator.getGamepads()) {
 		if (!gamepad) continue;
 		ControllerButton(gamepad.buttons);
@@ -75,6 +100,7 @@ function ClearButtons() {
 	ControllerButtonsX = [];
 	ControllerButtonsY = [];
 }
+
 /**
  * adds a button to the lists
  * @param {number} X X value of the button
@@ -90,6 +116,7 @@ function setButton(X, Y) {
 		}
 	}
 }
+
 /**
  * checks, whether a button is already in the lists (I realize now, that I could have used .includes but it works)
  * @param {number} X X value of the button
@@ -133,7 +160,7 @@ function ControllerAxis(axes) {
 			}
 			g += 1;
 		}
-		if (ControllerStick == true && ControllerActive == true) {
+		if (ControllerStick == true) {
 			if (Math.abs(axes[ControllerStickUpDown]) > ControllerDeadZone) {
 				MouseY += axes[ControllerStickUpDown] * ControllerStickDown * ControllerSensitivity;
 			}
@@ -261,259 +288,255 @@ function ControllerManagedByGame(Buttons) {
 
 /**
  * handles button input
- * @param {any} buttons raw buttons data
+ * @param {readonly GamepadButton[]} buttons raw buttons data
  */
 function ControllerButton(buttons) {
-	if (ControllerActive == true) {
+	//makes sure that no value is undefined
+	if (buttons[ControllerA] == undefined) {
+		ControllerA = 1;
+	}
+	if (buttons[ControllerB] == undefined) {
+		ControllerB = 0;
+	}
+	if (buttons[ControllerX] == undefined) {
+		ControllerX = 3;
+	}
+	if (buttons[ControllerY] == undefined) {
+		ControllerY = 2;
+	}
+	if (buttons[ControllerStickUpDown] == undefined) {
+		ControllerStickUpDown = 1;
+	}
+	if (buttons[ControllerStickLeftRight] == undefined) {
+		ControllerStickLeftRight = 0;
+	}
+	if (buttons[ControllerStickRight] == undefined) {
+		ControllerStickRight = 1;
+	}
+	if (buttons[ControllerStickDown] == undefined) {
+		ControllerStickDown = 1;
+	}
+	if (buttons[ControllerDPadUp] == undefined) {
+		ControllerDPadUp = 4;
+	}
+	if (buttons[ControllerDPadDown] == undefined) {
+		ControllerDPadDown = 5;
+	}
+	if (buttons[ControllerDPadLeft] == undefined) {
+		ControllerDPadLeft = 6;
+	}
+	if (buttons[ControllerDPadRight] == undefined) {
+		ControllerDPadRight = 7;
+	}
 
-		//makes sure that no value is undefined
-		if (buttons[ControllerA] == undefined) {
-			ControllerA = 1;
-		}
-		if (buttons[ControllerB] == undefined) {
-			ControllerB = 0;
-		}
-		if (buttons[ControllerX] == undefined) {
-			ControllerX = 3;
-		}
-		if (buttons[ControllerY] == undefined) {
-			ControllerY = 2;
-		}
-		if (buttons[ControllerStickUpDown] == undefined) {
-			ControllerStickUpDown = 1;
-		}
-		if (buttons[ControllerStickLeftRight] == undefined) {
-			ControllerStickLeftRight = 0;
-		}
-		if (buttons[ControllerStickRight] == undefined) {
-			ControllerStickRight = 1;
-		}
-		if (buttons[ControllerStickDown] == undefined) {
-			ControllerStickDown = 1;
-		}
-		if (buttons[ControllerDPadUp] == undefined) {
-			ControllerDPadUp = 4;
-		}
-		if (buttons[ControllerDPadDown] == undefined) {
-			ControllerDPadDown = 5;
-		}
-		if (buttons[ControllerDPadLeft] == undefined) {
-			ControllerDPadLeft = 6;
-		}
-		if (buttons[ControllerDPadRight] == undefined) {
-			ControllerDPadRight = 7;
-		}
+	// If a game intercepts the controller inputs
+	if (ControllerManagedByGame(buttons)) return;
 
-		// If a game intercepts the controller inputs
-		if (ControllerManagedByGame(buttons)) return;
+	if (ControllerButtonsRepeat == false) {
+		if (Calibrating == false) {
+			if (buttons[ControllerA].pressed == true) {
+				ControllerClick();
+				ControllerButtonsRepeat = true;
+			}
 
+			if (buttons[ControllerB].pressed == true) {
+				if (CurrentScreenFunctions.Exit) {
+					CurrentScreenFunctions.Exit();
+				} else if ((CurrentCharacter != null) && Array.isArray(DialogMenuButton) && (DialogMenuButton.indexOf("Exit") >= 0)) {
+					if (!DialogLeaveFocusItem())
+						DialogLeaveItemMenu();
+				} else if ((CurrentCharacter != null) && (CurrentScreen == "ChatRoom")) {
+					DialogLeave();
+				} else if ((CurrentCharacter == null) && (CurrentScreen == "ChatRoom") && (document.getElementById("TextAreaChatLog") != null)) {
+					ElementScrollToEnd("TextAreaChatLog");
+				}
+				ControllerButtonsRepeat = true;
+			}
+
+			if (buttons[ControllerX].pressed == true) {
+				KeyPress = 65;
+				StruggleKeyDown();
+				ControllerButtonsRepeat = true;
+			}
+
+			if (buttons[ControllerY].pressed == true) {
+				KeyPress = 97;
+				StruggleKeyDown();
+				ControllerButtonsRepeat = true;
+			}
+
+			if (buttons[ControllerDPadUp].pressed == true) {
+				ControllerStick = true;
+				ControllerUp();
+				ControllerButtonsRepeat = true;
+			}
+			if (buttons[ControllerDPadDown].pressed == true) {
+				ControllerStick = true;
+				ControllerDown();
+				ControllerButtonsRepeat = true;
+			}
+			if (buttons[ControllerDPadLeft].pressed == true) {
+				ControllerStick = true;
+				ControllerLeft();
+				ControllerButtonsRepeat = true;
+			}
+			if (buttons[ControllerDPadRight].pressed == true) {
+				ControllerStick = true;
+				ControllerRight();
+				ControllerButtonsRepeat = true;
+			}
+		}
 		if (ControllerButtonsRepeat == false) {
-			if (Calibrating == false) {
-				if (buttons[ControllerA].pressed == true) {
-					ControllerClick();
-					ControllerButtonsRepeat = true;
+			if (Calibrating == true) {
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 1) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerA = g;
+								Player.ControllerSettings.ControllerA = g;
+								h = true;
+								PreferenceCalibrationStage = 2;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
 				}
 
-				if (buttons[ControllerB].pressed == true) {
-					if (CurrentScreenFunctions.Exit) {
-						CurrentScreenFunctions.Exit();
-					} else if ((CurrentCharacter != null) && Array.isArray(DialogMenuButton) && (DialogMenuButton.indexOf("Exit") >= 0)) {
-						if (!DialogLeaveFocusItem())
-							DialogLeaveItemMenu();
-					} else if ((CurrentCharacter != null) && (CurrentScreen == "ChatRoom")) {
-						DialogLeave();
-					} else if ((CurrentCharacter == null) && (CurrentScreen == "ChatRoom") && (document.getElementById("TextAreaChatLog") != null)) {
-						ElementScrollToEnd("TextAreaChatLog");
-					}
-					ControllerButtonsRepeat = true;
-				}
-
-				if (buttons[ControllerX].pressed == true) {
-					KeyPress = 65;
-					StruggleKeyDown();
-					ControllerButtonsRepeat = true;
-				}
-
-				if (buttons[ControllerY].pressed == true) {
-					KeyPress = 97;
-					StruggleKeyDown();
-					ControllerButtonsRepeat = true;
-				}
-
-				if (buttons[ControllerDPadUp].pressed == true) {
-					ControllerStick = true;
-					ControllerUp();
-					ControllerButtonsRepeat = true;
-				}
-				if (buttons[ControllerDPadDown].pressed == true) {
-					ControllerStick = true;
-					ControllerDown();
-					ControllerButtonsRepeat = true;
-				}
-				if (buttons[ControllerDPadLeft].pressed == true) {
-					ControllerStick = true;
-					ControllerLeft();
-					ControllerButtonsRepeat = true;
-				}
-				if (buttons[ControllerDPadRight].pressed == true) {
-					ControllerStick = true;
-					ControllerRight();
-					ControllerButtonsRepeat = true;
-				}
-			}
-			if (ControllerButtonsRepeat == false) {
-				if (Calibrating == true) {
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 1) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerA = g;
-									Player.ControllerSettings.ControllerA = g;
-									h = true;
-									PreferenceCalibrationStage = 2;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 2) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerB = g;
+								Player.ControllerSettings.ControllerB = g;
+								h = true;
+								PreferenceCalibrationStage = 3;
+								ControllerButtonsRepeat = true;
 							}
-						}
-					}
-
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 2) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerB = g;
-									Player.ControllerSettings.ControllerB = g;
-									h = true;
-									PreferenceCalibrationStage = 3;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
-						}
-					}
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 3) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerX = g;
-									Player.ControllerSettings.ControllerX = g;
-									h = true;
-									PreferenceCalibrationStage = 4;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
-						}
-					}
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 4) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerY = g;
-									Player.ControllerSettings.ControllerY = g;
-									h = true;
-									PreferenceCalibrationStage = 5;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
-						}
-					}
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 5) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerDPadUp = g;
-									Player.ControllerSettings.ControllerDPadUp = g;
-									h = true;
-									PreferenceCalibrationStage = 6;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
-						}
-					}
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 6) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerDPadDown = g;
-									Player.ControllerSettings.ControllerDPadDown = g;
-									h = true;
-									PreferenceCalibrationStage = 7;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
-						}
-					}
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 7) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerDPadLeft = g;
-									Player.ControllerSettings.ControllerDPadLeft = g;
-									h = true;
-									PreferenceCalibrationStage = 8;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
-						}
-					}
-					if (ControllerButtonsRepeat == false) {
-						if (PreferenceCalibrationStage == 8) {
-							var g = 0;
-							var h = false;
-							while (g < buttons.length && h == false) {
-								if (buttons[g].pressed == true) {
-									ControllerDPadRight = g;
-									Player.ControllerSettings.ControllerDPadRight = g;
-									h = true;
-									PreferenceCalibrationStage = 0;
-									Calibrating = false;
-									ControllerButtonsRepeat = true;
-								}
-								g += 1;
-							}
+							g += 1;
 						}
 					}
 				}
-			}
-		}
-
-
-		if (ControllerButtonsRepeat == true) {
-			var g = 0;
-			var h = false;
-			while (g < buttons.length && h == false) {
-				if (buttons[g].pressed == true) {
-					h = true;
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 3) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerX = g;
+								Player.ControllerSettings.ControllerX = g;
+								h = true;
+								PreferenceCalibrationStage = 4;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
 				}
-				g += 1;
-			}
-			if (h == false) {
-				ControllerButtonsRepeat = false;
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 4) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerY = g;
+								Player.ControllerSettings.ControllerY = g;
+								h = true;
+								PreferenceCalibrationStage = 5;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
+				}
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 5) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerDPadUp = g;
+								Player.ControllerSettings.ControllerDPadUp = g;
+								h = true;
+								PreferenceCalibrationStage = 6;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
+				}
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 6) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerDPadDown = g;
+								Player.ControllerSettings.ControllerDPadDown = g;
+								h = true;
+								PreferenceCalibrationStage = 7;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
+				}
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 7) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerDPadLeft = g;
+								Player.ControllerSettings.ControllerDPadLeft = g;
+								h = true;
+								PreferenceCalibrationStage = 8;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
+				}
+				if (ControllerButtonsRepeat == false) {
+					if (PreferenceCalibrationStage == 8) {
+						var g = 0;
+						var h = false;
+						while (g < buttons.length && h == false) {
+							if (buttons[g].pressed == true) {
+								ControllerDPadRight = g;
+								Player.ControllerSettings.ControllerDPadRight = g;
+								h = true;
+								PreferenceCalibrationStage = 0;
+								Calibrating = false;
+								ControllerButtonsRepeat = true;
+							}
+							g += 1;
+						}
+					}
+				}
 			}
 		}
 	}
-}
 
+
+	if (ControllerButtonsRepeat == true) {
+		var g = 0;
+		var h = false;
+		while (g < buttons.length && h == false) {
+			if (buttons[g].pressed == true) {
+				h = true;
+			}
+			g += 1;
+		}
+		if (h == false) {
+			ControllerButtonsRepeat = false;
+		}
+	}
+}
 
 //uncomment to test it with keyboard
 /**
@@ -531,7 +554,7 @@ function ControllerSupportKeyDown() {
  * A -> Click
  */
 function ControllerClick() {
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		if (ControllerStick == false) {
 			MouseX = ControllerButtonsX[ControllerCurrentButton];
 			MouseY = ControllerButtonsY[ControllerCurrentButton];

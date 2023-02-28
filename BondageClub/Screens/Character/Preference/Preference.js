@@ -486,7 +486,6 @@ function PreferenceInitPlayer() {
 	ControllerDPadDown = C.ControllerSettings.ControllerDPadDown;
 	ControllerDPadLeft = C.ControllerSettings.ControllerDPadLeft;
 	ControllerDPadRight = C.ControllerSettings.ControllerDPadRight;
-	ControllerEnabled = C.ControllerSettings.ControllerActive;
 
 	ControllerStart();
 
@@ -812,7 +811,7 @@ function PreferenceRun() {
 		DrawButton(500 + 420 * Math.floor(A / 7), 160 + 110 * (A % 7), 400, 90, "", "White", "Icons/" + PreferenceSubscreenList[A] + ".png");
 		ControllerIgnoreButton = false;
 		DrawTextFit(TextGet("Homepage" + PreferenceSubscreenList[A]), 745 + 420 * Math.floor(A / 7), 205 + 110 * (A % 7), 310, "Black");
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			setButton(745 + 420 * Math.floor(A / 7), 205 + 110 * (A % 7));
 		}
 	}
@@ -940,7 +939,7 @@ function PreferenceSubscreenRestrictionRun() {
  * @returns {void} - Nothing
  */
 function PreferenceClick() {
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		ClearButtons();
 	}
 	// Pass the click into the opened subscreen
@@ -1255,7 +1254,7 @@ function PreferenceSubscreenControllerRun() {
 		DrawText(TextGet("ControllerPreferences"), 500, 125, "Black", "Gray");
 		DrawText(TextGet("Sensitivity"), 800, 225, "Black", "Gray");
 		DrawText(TextGet("DeadZone"), 800, 625, "Black", "Gray");
-		DrawCheckbox(500, 272, 64, 64, TextGet("ControllerActive"), ControllerActive);
+		DrawCheckbox(500, 272, 64, 64, TextGet("ControllerActive"), ControllerIsEnabled());
 
 		DrawButton(500, 380, 400, 90, "", "White");
 		DrawTextFit(TextGet("MapButtons"), 590, 425, 310, "Black");
@@ -1876,8 +1875,7 @@ function PreferenceSubscreenControllerClick() {
 		}
 
 		if (MouseIn(500, 272, 64, 64)) {
-			ControllerEnabled = !ControllerEnabled;
-			Player.ControllerSettings.ControllerActive = ControllerEnabled;
+			Player.ControllerSettings.ControllerActive = !Player.ControllerSettings.ControllerActive;
 			ClearButtons();
 			ControllerStart();
 		}

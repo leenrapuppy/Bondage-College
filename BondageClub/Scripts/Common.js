@@ -292,13 +292,13 @@ function CommonKeyDown(event) {
 	if (CurrentCharacter == null) {
 		if (CurrentScreenFunctions.KeyDown)
 			CurrentScreenFunctions.KeyDown(event);
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			ControllerSupportKeyDown();
 		}
 	}
 	else {
 		StruggleKeyDown();
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			ControllerSupportKeyDown();
 		}
 	}
@@ -410,7 +410,7 @@ function CommonSetScreen(NewModule, NewScreen) {
 	if (CurrentScreenFunctions && CurrentScreenFunctions.Unload) {
 		CurrentScreenFunctions.Unload();
 	}
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		ClearButtons();
 	}
 

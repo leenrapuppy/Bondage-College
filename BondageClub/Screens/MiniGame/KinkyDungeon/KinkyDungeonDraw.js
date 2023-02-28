@@ -2121,7 +2121,7 @@ function DrawBackNextButtonVis(Left, Top, Width, Height, Label, Color, Image, Ba
 	const LeftSplit = Left + ArrowWidth;
 	const RightSplit = Left + Width - ArrowWidth;
 
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		setButton(Left, Top);
 		setButton(Left + Width - ArrowWidth, Top);
 	}
@@ -2156,7 +2156,7 @@ function DrawBackNextButtonVis(Left, Top, Width, Height, Label, Color, Image, Ba
 	// Draw the text or image
 	DrawTextFitKD(Label, Left + Width / 2, Top + (Height / 2) + 1, (CommonIsMobile) ? Width - 6 : Width - 36, "#ffffff");
 	if ((Image != null) && (Image != "")) DrawImage(Image, Left + 2, Top + 2);
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		setButton(Left + Width / 2, Top);
 	}
 

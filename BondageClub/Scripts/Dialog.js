@@ -2492,7 +2492,7 @@ function DialogFindAutoReplace(C, KeyWord1, KeyWord2, ReturnPrevious) {
  * @returns {void} - Nothing
  */
 function DialogDraw() {
-	if (ControllerActive == true) {
+	if (ControllerIsActive()) {
 		ClearButtons();
 	}
 	// Draw both the player and the interaction character
