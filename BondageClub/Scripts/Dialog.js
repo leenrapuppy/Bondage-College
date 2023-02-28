@@ -2931,33 +2931,23 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 
 			if (NextItem.Craft != null)
 				InventoryCraft(Player, C, NextItem.Asset.Group.Name, NextItem.Craft, true);
+
+			// Refresh the item by getting it back
+			NextItem = InventoryGet(C, NextItem.Asset.Group.Name);
 		}
 
-		// The player can use another item right away, for another character we jump back to her reaction
+		// Handle skills
 		if (C.IsPlayer()) {
-			if (NextItem == null) SkillProgress("Evasion", Skill);
-			if (PrevItem == null && NextItem != null)
-				SkillProgress("SelfBondage", (Skill + NextItem.Asset.SelfBondage) * 2);
-			if (NextItem == null || !NextItem.Asset.Extended) {
-				DialogInventoryBuild(C);
-				DialogColor = null;
+			if (NextItem === null) {
+				// We successfully removed one of our items
+				SkillProgress("Evasion", Skill);
+			} else if (PrevItem === null) {
+				// We successfully added an item
+				SkillProgress("SelfBondage", Skill);
 			}
-		} else {
-			if (NextItem != null) SkillProgress("Bondage", Skill);
-			if ((NextItem == null || !NextItem.Asset.Extended) && CurrentScreen != "ChatRoom") {
-				C.CurrentDialog = DialogFind(C, (NextItem == null ? "Remove" + PrevItem.Asset.Name : NextItem.Asset.Name), (NextItem == null ? "Remove" : "") + C.FocusGroup.Name);
-				DialogLeaveItemMenu();
-			}
-		}
-
-		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
-		if (NextItem != null && NextItem.Asset.Extended && NextItem.Craft == null) {
-			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
-			DialogExtendItem(InventoryGet(C, NextItem.Asset.Group.Name));
-		} else {
-			if (ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem))
-				DialogLeave();
+		} else if (NextItem !== null) {
+			// We successfully added an item on someone
+			SkillProgress("Bondage", Skill);
 		}
 
 		// Reset the the character's position
@@ -2966,8 +2956,32 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 			CharacterRefresh(C, false);
 		}
 
-		// Rebuilds the menu
-		DialogEndExpression();
-		DialogMenuButtonBuild(C);
+		// Update the dialog state
+		if (C.IsNpc()) {
+			// For NPCs, we need to show their reaction and never leave the dialog abruptly
+			C.CurrentDialog = DialogFind(C, (NextItem == null ? "Remove" + PrevItem.Asset.Name : NextItem.Asset.Name), (NextItem == null ? "Remove" : "") + C.FocusGroup.Name);
+			DialogLeaveItemMenu();
+		} else if (NextItem === null) {
+			// Removing an item, we move back to the menu
+			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
+			DialogInventoryBuild(C);
+			DialogMenuButtonBuild(C);
+			DialogEndExpression();
+			DialogColor = null;
+			DialogStruggleSelectMinigame = false;
+		} else if (NextItem !== null && NextItem.Asset.Extended && NextItem.Craft !== null) {
+			// Applying an extended, non-crafted item, refresh the inventory and open the extended UI
+			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
+			DialogInventoryBuild(C);
+			DialogMenuButtonBuild(C);
+			DialogEndExpression();
+			DialogStruggleSelectMinigame = false;
+			DialogExtendItem(NextItem);
+		} else if (NextItem !== null && NextItem.Craft) {
+			// Applying a crafted item, just exit the dialog altogether
+			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
+			DialogEndExpression();
+			DialogLeave();
+		}
 	}
 }
