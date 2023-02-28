@@ -285,7 +285,11 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
 
 		// Returns no message, indicating that all prerequisites are fine
-		default: return "";
+		case "GagFlat": return "";
+		default: {
+			console.warn(`Unknown asset prerequisite "${Prerequisite}"`);
+			return "";
+		}
 	}
 }
 
