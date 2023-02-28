@@ -79,6 +79,8 @@ type NotificationAlertType = 0 | 1 | 3 | 2;
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
+type DialogStruggleActionType = "ActionUse" | "ActionSwap" | "ActionRemove" | "ActionUnlock" | "ActionUnlockAndRemove" | "ActionStruggle" | "ActionEscape" | "ActionDismount";
+
 type CharacterType = "online" | "npc" | "simple";
 
 type VibratorIntensity = -1 | 0 | 1 | 2 | 3;
@@ -2877,13 +2879,30 @@ interface ICommand {
 	Clear?: false;
 }
 
+// #region Struggle Minigame
+
 type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "LockPick";
 
 interface StruggleMinigame {
 	Setup: (C: Character, PrevItem: Item, NextItem: Item) => void;
 	Draw: (C: Character) => void;
 	HandleEvent?: (EventType: "KeyDown"|"Click") => void;
+	DisablingCraftedProperty?: CraftingPropertyType;
 }
+
+interface StruggleCompletionData {
+	Progress: number;
+	PrevItem: Item;
+	NextItem?: Item;
+	Skill: number;
+	Attempts: number;
+	Interrupted: boolean;
+	Auto?: boolean;
+}
+
+type StruggleCompletionCallback = (character: Character, game: StruggleKnownMinigames, data: StruggleCompletionData) => void;
+
+// #endregion
 
 //#region Poker Minigame
 
