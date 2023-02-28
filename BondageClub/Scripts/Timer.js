@@ -242,9 +242,6 @@ function TimerProcess(Timestamp) {
 	}
 
 	if (ControllerIsActive()) {
-		if (ControllerCurrentButton >= ControllerButtonsX.length) {
-			ControllerCurrentButton = 0;
-		}
 		DrawRect(MouseX - 5, MouseY - 5, 10, 10, "Red");
 	}
 

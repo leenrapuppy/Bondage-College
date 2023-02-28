@@ -1,13 +1,15 @@
 "use strict";
 /* eslint-disable no-redeclare */
-/** @type {number[]} */
-var ControllerButtonsX = [];//there probably is a way to use just one list, but I don't want to bother and this works anyway
-/** @type {number[]} */
-var ControllerButtonsY = [];
+/**
+ * A list of points that can be interacted in the UI.
+ *
+ * @type {[X: number, Y: number][]}
+ */
+var ControllerActiveAreas = [];
+
 /** Number of detected controllers */
 var ControllerDetectedCount = 0;
 
-var ControllerCurrentButton = 0;
 var ControllerButtonsRepeat = true;
 
 var ControllerA = 1;
@@ -101,11 +103,14 @@ function ControllerProcess() {
 function ControllerAddActiveArea(X, Y) {
 	if (!ControllerIsActive()) return;
 
+	// Skip coordinates out-of-bound from the canvas. Happens because we're
+	// piggy-backing on the drawing, and sometimes it does that.
+	if (X < 0 || X > 2000 || Y < 0 || Y > 1000) return;
+
 	X += 10;
 	Y += 10;
-	if (!ControllerButtonsX.some((x, idx) => x === X && ControllerButtonsY[idx] === Y)) {
-		ControllerButtonsX.push(X);
-		ControllerButtonsY.push(Y);
+	if (!ControllerActiveAreas.some(([x, y]) => x === X && y === Y)) {
+		ControllerActiveAreas.push([X, Y]);
 	}
 }
 
@@ -113,8 +118,7 @@ function ControllerAddActiveArea(X, Y) {
  * Removes all active points.
  */
 function ControllerClearAreas() {
-	ControllerButtonsX = [];
-	ControllerButtonsY = [];
+	ControllerActiveAreas = [];
 }
 
 /**
@@ -349,22 +353,22 @@ function ControllerButton(buttons) {
 
 			if (buttons[ControllerDPadUp].pressed == true) {
 				ControllerStick = true;
-				ControllerUp();
+				ControllerMoveToActiveZone("Up");
 				ControllerButtonsRepeat = true;
 			}
 			if (buttons[ControllerDPadDown].pressed == true) {
 				ControllerStick = true;
-				ControllerDown();
+				ControllerMoveToActiveZone("Down");
 				ControllerButtonsRepeat = true;
 			}
 			if (buttons[ControllerDPadLeft].pressed == true) {
 				ControllerStick = true;
-				ControllerLeft();
+				ControllerMoveToActiveZone("Left");
 				ControllerButtonsRepeat = true;
 			}
 			if (buttons[ControllerDPadRight].pressed == true) {
 				ControllerStick = true;
-				ControllerRight();
+				ControllerMoveToActiveZone("Right");
 				ControllerButtonsRepeat = true;
 			}
 		}
@@ -526,310 +530,67 @@ function ControllerButton(buttons) {
  * @returns {void} Nothing
  */
 function ControllerSupportKeyDown() {
-	/*i*///    if (KeyPress == 105) ControllerUp();
-	/*k*///    if (KeyPress == 107) ControllerDown();
-	/*j*///    if (KeyPress == 106) ControllerLeft();
-	/*l*///    if (KeyPress == 108) ControllerRight();
+	/*i*///    if (KeyPress == 105) ControllerMoveToActiveZone("Up");
+	/*k*///    if (KeyPress == 107) ControllerMoveToActiveZone("Down");
+	/*j*///    if (KeyPress == 106) ControllerMoveToActiveZone("Left");
+	/*l*///    if (KeyPress == 108) ControllerMoveToActiveZone("Right");
 	/*space*///if (KeyPress == 32) ControllerClick();
 }
+
 /**
  * A -> Click
  */
 function ControllerClick() {
-	if (ControllerIsActive()) {
-		if (ControllerStick == false) {
-			MouseX = ControllerButtonsX[ControllerCurrentButton];
-			MouseY = ControllerButtonsY[ControllerCurrentButton];
-		}
-		CommonClick(null);
-	}
+	if (!ControllerIsActive() || !ControllerStick) return;
+
+	// Trigger a fake click event
+	CommonClick(null);
 }
+
 /**
- * moves the pointer to either a button in a straight line above it or the closest one above
- * (all the commented stuff in the function is for debugging)
+ * Finds the closest point in a list, favoring the given direction.
+ *
+ * Used to navigate the active zones with a controller.
+ *
+ * @param {[X: number, Y: number]} point
+ * @param {[X: number, Y: number][]} points
+ * @param {"Up"|"Down"|"Left"|"Right"} direction
  */
-function ControllerUp() {
-	MouseX = ControllerButtonsX[ControllerCurrentButton];
-	MouseY = ControllerButtonsY[ControllerCurrentButton];
-	// console.log("starting search");
-	if (ControllerCurrentButton > ControllerButtonsX.length) ControllerCurrentButton = 0;
-	var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-	var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-	var found = false;
-	while (CurrentY > 0 && found == false) {
-		CurrentY -= 1;
-		var f = 0;
-		while (f < ControllerButtonsX.length && found == false) {
-			if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-				found = true;
-				MouseX = CurrentX;
-				MouseY = CurrentY;
-				ControllerCurrentButton = f;
-				//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-			}
-			f += 1;
-			//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-		}
-	}
-	if (found == false) {
-		// console.log("round 2");
-		var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-		var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-		var CurrentXX = ControllerButtonsX[ControllerCurrentButton];
-		while (CurrentY > 0 && found == false) {
-			CurrentY -= 1;
-			var OffsetX = 0;
-			while (OffsetX < 2000 && found == false) {
-				OffsetX += 1;
-				CurrentX = CurrentXX + OffsetX;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				CurrentX = CurrentXX - OffsetX;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				//console.log(OffsetX);
-			}
-			//console.log("searching round 2 Y=" + CurrentY);
-			//console.log("searching round 2 MouseX, MouseY=" + MouseX + ", " + MouseY);
-		}
-	}
-	if (found == false) {
-		// console.log("not found");
-	}
+function ControllerFindClosestPoint(point, points, direction) {
+	console.log("finding point: ", point, "closest to", ...points.map(([x, y]) => `(${x}, ${y})`));
+	const [X, Y] = point;
+
+	// Filter points in the opposite direction we're searching, then map the remainder in 2d-space using good old Pythagoras
+	points = points.filter(([x, y]) => direction === "Up" && y < Y || direction === "Down" && y > Y || direction === "Left" && x < X || direction === "Right" && x > X);
+	console.log("filtered: ", ...points.map(([x, y]) => `(${x}, ${y})`));
+
+	let candidates = points.map(([x, y]) => [x, y, Math.sqrt((x - X) ** 2 + (y - Y) ** 2)]); // XXX: not enough. Might need a bit of trig too to find the closest, most in-line point
+	console.log("candidates: ", ...candidates.map(([x, y, dist]) => `(${x}, ${y}, ${dist})`));
+
+	candidates = candidates.sort(([ax, ay, adist], [bx, by, bdist]) => adist - bdist);
+	console.log("sorted: ", ...candidates.map(([x, y, dist]) => `(${x}, ${y}, ${dist})`));
+
+	if (!candidates[0]) return null;
+
+	return [candidates[0][0], candidates[0][1]];
 }
+
 /**
- * same as ControllerUp()
+ * Moves the pointer throught the active zones in the direction wanted.
+ *
+ * @param {"Up"|"Down"|"Left"|"Right"} direction
  */
-function ControllerDown() {
-	MouseX = ControllerButtonsX[ControllerCurrentButton];
-	MouseY = ControllerButtonsY[ControllerCurrentButton];
-	// console.log("starting search");
-	if (ControllerCurrentButton > ControllerButtonsX.length) ControllerCurrentButton = 0;
-	var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-	var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-	var found = false;
-	while (CurrentY < 1000 && found == false) {
-		CurrentY += 1;
-		var f = 0;
-		while (f < ControllerButtonsX.length && found == false) {
-			if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-				found = true;
-				MouseX = CurrentX;
-				MouseY = CurrentY;
-				ControllerCurrentButton = f;
-				//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-			}
-			f += 1;
-			//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-		}
-	}
-	if (CurrentY >= 1000 && found == false) {
-		// console.log("round 2");
-		var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-		var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-		var CurrentXX = ControllerButtonsX[ControllerCurrentButton];
-		while (CurrentY < 1000 && found == false) {
-			CurrentY += 1;
-			var OffsetX = 0;
-			while (OffsetX < 2000 && found == false) {
-				OffsetX += 1;
-				CurrentX = CurrentXX + OffsetX;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				CurrentX = CurrentXX - OffsetX;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				//console.log(OffsetX);
-			}
-			//console.log("searching round 2 Y=" + CurrentY);
-			//console.log("searching round 2 MouseX, MouseY=" + MouseX + ", " + MouseY);
-		}
-	}
-	if (found == false) {
-		// console.log("not found");
-	}
-}
-/**
- * same as ControllerUp()
- */
-function ControllerLeft() {
-	MouseX = ControllerButtonsX[ControllerCurrentButton];
-	MouseY = ControllerButtonsY[ControllerCurrentButton];
-	// console.log("starting search");
-	if (ControllerCurrentButton > ControllerButtonsX.length) ControllerCurrentButton = 0;
-	var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-	var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-	var found = false;
-	while (CurrentX > 0 && found == false) {
-		CurrentX -= 1;
-		var f = 0;
-		while (f < ControllerButtonsX.length && found == false) {
-			if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-				found = true;
-				MouseX = CurrentX;
-				MouseY = CurrentY;
-				ControllerCurrentButton = f;
-				//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-			}
-			f += 1;
-			//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-		}
-	}
-	if (found == false) {
-		// console.log("round 2");
-		var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-		var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-		var CurrentYY = ControllerButtonsY[ControllerCurrentButton];
-		while (CurrentX > 0 && found == false) {
-			CurrentX -= 1;
-			var OffsetY = 0;
-			while (OffsetY < 1000 && found == false) {
-				OffsetY += 1;
-				CurrentY = CurrentYY + OffsetY;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				CurrentY = CurrentYY - OffsetY;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				//console.log(OffsetX);
-			}
-			//console.log("searching round 2 Y=" + CurrentY);
-			//console.log("searching round 2 MouseX, MouseY=" + MouseX + ", " + MouseY);
-		}
-	}
-	if (found == false) {
-		// console.log("not found");
-	}
-}
-/**
- * same as ControllerUp()
- */
-function ControllerRight() {
-	MouseX = ControllerButtonsX[ControllerCurrentButton];
-	MouseY = ControllerButtonsY[ControllerCurrentButton];
-	// console.log("starting search");
-	if (ControllerCurrentButton > ControllerButtonsX.length) ControllerCurrentButton = 0;
-	var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-	var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-	var found = false;
-	while (CurrentX <= 2000 && found == false) {
-		CurrentX += 1;
-		var f = 0;
-		while (f < ControllerButtonsX.length && found == false) {
-			if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-				found = true;
-				MouseX = CurrentX;
-				MouseY = CurrentY;
-				ControllerCurrentButton = f;
-				//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-			}
-			f += 1;
-			//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-		}
-	}
-	if (found == false) {
-		// console.log("round 2");
-		var CurrentY = ControllerButtonsY[ControllerCurrentButton];
-		var CurrentX = ControllerButtonsX[ControllerCurrentButton];
-		var CurrentYY = ControllerButtonsY[ControllerCurrentButton];
-		while (CurrentX < 2000 && found == false) {
-			CurrentX += 1;
-			var OffsetY = 0;
-			while (OffsetY < 1000 && found == false) {
-				OffsetY += 1;
-				CurrentY = CurrentYY + OffsetY;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				CurrentY = CurrentYY - OffsetY;
-				var f = 0;
-				while (f < ControllerButtonsX.length && found == false) {
-					if (CurrentY == ControllerButtonsY[f] && CurrentX == ControllerButtonsX[f]) {
-						found = true;
-						MouseX = CurrentX;
-						MouseY = CurrentY;
-						ControllerCurrentButton = f;
-						//console.log("found at X=" + CurrentX + ", Y=" + CurrentY);
-					}
-					f += 1;
-					//console.log("searching: " + CurrentY + " " + CurrentX); //debug
-				}
-				//console.log(OffsetX);
-			}
-			//console.log("searching round 2 Y=" + CurrentY);
-			//console.log("searching round 2 MouseX, MouseY=" + MouseX + ", " + MouseY);
-		}
-	}
-	if (found == false) {
-		// console.log("not found");
-	}
+function ControllerMoveToActiveZone(direction) {
+	// No active points right now, bail as there's nothing to navigate
+	if (ControllerActiveAreas.length === 0) return;
+
+	// Filter out our current location so we don't jump to it
+	const points = ControllerActiveAreas.filter(([x, y]) => !(x === MouseX && y === MouseY));
+	console.log("filtered areas: ", points.map(([x, y]) => `(${x}, ${y})`).join(", "));
+
+	const dest = ControllerFindClosestPoint([MouseX, MouseY], points, direction);
+	if (!dest) return;
+
+	MouseX = dest[0];
+	MouseY = dest[1];
 }
