@@ -249,7 +249,7 @@ function TimerProcess(Timestamp) {
 	}
 
 	// Launches the main again for the next frame
-	requestAnimationFrame(MainRun);
+	requestAnimationFrame(GameRun);
 
 }
 

@@ -19,7 +19,6 @@ var MagicPuzzleTrailRainbow = false;
  * @returns {void} - Nothing
  */
 function MagicPuzzleLoad() {
-	if (CommonIsMobile) document.addEventListener("touchmove", MagicPuzzleTouchMove);
 	MagicPuzzleStart = CommonTime() + 5000;
 	MagicPuzzleFinish = 0;
 	MagicPuzzleSize = 10 + Math.round(MagicBattleGetDifficulty(Player) * 1.5);
@@ -91,17 +90,6 @@ function MagicPuzzleAntiCheat() {
 	}
 	MagicPuzzleLastMouseX = MouseX;
 	MagicPuzzleLastMouseY = MouseY;
-}
-
-/**
- * On mobile only, when the finger is dragged on the screen, we change the MouseX & MouseY to process the game
- * @param {TouchEvent} Event - contains the X & Y coordinates on where the finger is positioned
- * @returns {void} - Nothing
- */
-function MagicPuzzleTouchMove(Event) {
-	if ((Event == null) || (Event.changedTouches == null) || (Event.changedTouches.length == 0) || (Event.changedTouches[0].clientX == null) || (Event.changedTouches[0].clientY == null)) return;
-	MouseX = (Event.changedTouches[0].clientX - MainCanvas.canvas.offsetLeft) / MainCanvas.canvas.clientWidth * 2000;
-	MouseY = (Event.changedTouches[0].clientY - MainCanvas.canvas.offsetTop) / MainCanvas.canvas.clientHeight * 1000;
 }
 
 /**
@@ -250,6 +238,5 @@ function MagicPuzzleKeyDown() {
  */
 function MagicPuzzleEnd() {
 	MagicPuzzleTrail = [];
-	if (CommonIsMobile) document.removeEventListener("touchmove", MagicPuzzleTouchMove);
 	MiniGameEnd();
 }

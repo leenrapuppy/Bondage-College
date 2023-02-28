@@ -486,7 +486,9 @@ function PreferenceInitPlayer() {
 	ControllerDPadDown = C.ControllerSettings.ControllerDPadDown;
 	ControllerDPadLeft = C.ControllerSettings.ControllerDPadLeft;
 	ControllerDPadRight = C.ControllerSettings.ControllerDPadRight;
-	ControllerActive = C.ControllerSettings.ControllerActive;
+	ControllerEnabled = C.ControllerSettings.ControllerActive;
+
+	ControllerStart();
 
 	// Gameplay settings
 	// @ts-ignore: Individual properties validated separately
@@ -1874,9 +1876,10 @@ function PreferenceSubscreenControllerClick() {
 		}
 
 		if (MouseIn(500, 272, 64, 64)) {
-			ControllerActive = !ControllerActive;
-			Player.ControllerSettings.ControllerActive = ControllerActive;
+			ControllerEnabled = !ControllerEnabled;
+			Player.ControllerSettings.ControllerActive = ControllerEnabled;
 			ClearButtons();
+			ControllerStart();
 		}
 	}
 }

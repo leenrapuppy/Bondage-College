@@ -40,6 +40,7 @@ var AppearanceUseCharacterInPreviewsSetting = false;
 
 const CanvasUpperOverflow = 700;
 const CanvasLowerOverflow = 150;
+const CanvasDrawWidth = 500;
 const CanvasDrawHeight = 1000 + CanvasUpperOverflow + CanvasLowerOverflow;
 
 const AppearancePermissionColors = {

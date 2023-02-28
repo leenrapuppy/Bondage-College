@@ -4,22 +4,20 @@
 var ControllerButtonsX = [];//there probably is a way to use just one list, but I don't want to bother and this works anyway
 /** @type {number[]} */
 var ControllerButtonsY = [];
-var ControllerActive = true;
+/** Whether controller support is enabled in preferences */
+var ControllerEnabled = false;
+/** Whether a controller has been detected */
+var ControllerActive = false;
 var ControllerCurrentButton = 0;
 var ControllerButtonsRepeat = true;
-var ControllerAxesRepeat = false;
 var ControllerIgnoreButton = false;
-var ControllerAxesRepeatTime = 0;
+
 var ControllerA = 1;
 var ControllerB = 0;
 var ControllerX = 3;
 var ControllerY = 2;
 var ControllerTriggerRight = 6;
 var ControllerTriggerLeft = 7;
-var ControllerStart = 9;
-var ControllerSelect = 8;
-var ControllerDPadPressLeft = 10;
-var ControllerDPadPressRight = 11;
 var ControllerStickUpDown = 1;
 var ControllerStickLeftRight = 0;
 var ControllerStickRight = 1;
@@ -37,6 +35,38 @@ var ControllerIgnoreStick = [];
 var ControllerDeadZone = 0.01;
 /** @type {Record<string, boolean>} */
 var ControllerGameActiveButttons = {};
+
+/**
+ * Register the gamepad connection/disconnection events.
+ */
+function ControllerStart() {
+	if (!ControllerEnabled) return;
+
+	window.addEventListener('gamepadconnected', (event) => {
+		console.log("gamepadconnected", event);
+		ControllerActive = true;
+	});
+
+	window.addEventListener("gamepaddisconnected", (event) => {
+		console.log("gamepaddisconnected", event);
+		ControllerActive = false;
+	});
+}
+
+/**
+ * Main gamepad processing.
+ *
+ * This functions goes over gamepads and collects their inputs.
+ */
+function ControllerProcess() {
+	if (!ControllerActive || !ControllerEnabled) return;
+
+	for (const gamepad of navigator.getGamepads()) {
+		if (!gamepad) continue;
+		ControllerButton(gamepad.buttons);
+		ControllerAxis(gamepad.axes);
+	}
+}
 
 /**
  *removes all buttons from the lists
@@ -67,8 +97,8 @@ function setButton(X, Y) {
  * @returns {boolean}
  */
 function ButtonExists(X, Y) {
-	var g = 0;
-	var Exists = false;
+	let g = 0;
+	let Exists = false;
 	while (g < ControllerButtonsX.length) {
 		if (ControllerButtonsX[g] == X && ControllerButtonsY[g] == Y) {
 			Exists = true;
