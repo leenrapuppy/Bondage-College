@@ -104,7 +104,7 @@ function GetUpRun() {
 	DrawText(GetUpText, 500, 977, "white", "black");
 
 
-	if (Time >= MiniGameTimer + 750) CommonDynamicFunction(MiniGameReturnFunction + "()");
+	if (Time >= MiniGameTimer + 750) MiniGameEnd();
 
 }
 
