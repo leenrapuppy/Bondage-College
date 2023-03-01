@@ -389,7 +389,7 @@ function InventoryPrerequisiteConflictingGags(C, BlockingPrereqs) {
 	for (let i = 0; i < MouthItems.length && !MinBlockingIndex; i++) {
 		// Find the lowest indexed slot in which there is a gag with a prerequisite that blocks the new gag
 		const AssetPrerequisites = MouthItems[i] && MouthItems[i].Asset.Prerequisite;
-		if (AssetPrerequisites.some((Prerequisite) => BlockingPrereqs.includes(Prerequisite))) {
+		if ((AssetPrerequisites != null) && AssetPrerequisites.some((Prerequisite) => BlockingPrereqs.includes(Prerequisite))) {
 			MinBlockingIndex = i + 1;
 		}
 	}
