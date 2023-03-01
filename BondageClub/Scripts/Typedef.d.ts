@@ -2443,7 +2443,7 @@ interface ICommand {
 
 // #region Struggle Minigame
 
-type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "LockPick";
+type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "Loosen" | "LockPick";
 
 interface StruggleMinigame {
 	Setup: (C: Character, PrevItem: Item, NextItem: Item) => void;

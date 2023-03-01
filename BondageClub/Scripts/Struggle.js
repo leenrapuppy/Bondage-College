@@ -100,6 +100,12 @@ const StruggleMinigames = {
 		HandleEvent: StruggleDexterityHandleEvent,
 		DisablingCraftedProperty: "Nimble",
 	},
+	Loosen: {
+		Setup: StruggleLoosenSetup,
+		Draw: StruggleLoosenDraw,
+		HandleEvent: StruggleLoosenHandleEvent,
+		DisablingCraftedProperty: "Nimble",
+	},
 	LockPick: {
 		Setup: StruggleLockPickSetup,
 		Draw: StruggleLockPickDraw,
@@ -111,7 +117,7 @@ const StruggleMinigames = {
  * Get the list of struggle minigames.
  */
 function StruggleGetMinigames() {
-	return /** @type {[StruggleKnownMinigames, StruggleMinigame][]} */(Object.entries(StruggleMinigames).filter(e => e[0] !== "LockPick"));
+	return /** @type {[StruggleKnownMinigames, StruggleMinigame][]} */(Object.entries(StruggleMinigames).filter(e => e[0] !== "LockPick" && e[0] !== "Loosen"));
 }
 
 /**
@@ -152,6 +158,14 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
 	if (InventoryItemHasEffect(NextItem, "Lock", true)) return DialogFindPlayer("Locking");
 	if ((PrevItem == null) && (NextItem != null)) return DialogFindPlayer("Adding");
 	return "...";
+}
+
+/**
+ * We can loosen if the item allows it, if enough time was spent and if the challenge is between 1 and 9
+ * @returns {boolean} - TRUE if it's allowed
+ */
+function StruggleAllowLoosen() {
+	return (StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge >= 1) && (StruggleProgressChallenge <= 9) && (StruggleProgressPrevItem != null) && (StruggleProgressPrevItem.Asset != null) && (StruggleProgressPrevItem.Asset != null) && StruggleProgressPrevItem.Asset.AllowTighten && !InventoryItemHasEffect(StruggleProgressPrevItem, "Lock");
 }
 
 /**
@@ -473,8 +487,9 @@ function StruggleStrengthSetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleStrengthDraw(C) {
-	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
 
+	// Draw the base controls
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
 	StruggleMinigameDrawCommon();
 
 	// Draw the current operation and progress
@@ -482,11 +497,13 @@ function StruggleStrengthDraw(C) {
 		DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 650, "White", "Black");
 	DrawProgressBar(1200, 700, 600, 100, StruggleProgress);
-	if (ControllerActive == false) {
-		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeys"), 1500, 900, "White", "Black");
-	} else {
-		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeysController"), 1500, 900, "White", "Black");
-	}
+
+	// Draw the tighten/loosen button or the explaination message
+	if (StruggleAllowLoosen())
+		DrawButton(1300, 880, 400, 65, DialogFindPlayer("TryLoosen"), "White");
+	else
+		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : ((ControllerActive) ? "ProgressKeysController" : "ProgressKeys")), 1500, 900, "White", "Black");
+
 }
 
 /**
@@ -496,19 +513,25 @@ function StruggleStrengthDraw(C) {
  * @returns {void}
  */
 function StruggleStrengthHandleEvent(EventType) {
-	if (StruggleProgress < 0) {
-		// Minigame is not running
-		return;
-	}
+
+	// Minigame is not running
+	if (StruggleProgress < 0) return;
 
 	if (EventType === "KeyDown") {
 		if ((KeyPress == 65) || (KeyPress == 83) || (KeyPress == 97) || (KeyPress == 115)) {
 			StruggleStrengthProcess((StruggleProgressLastKeyPress == KeyPress));
 			StruggleProgressLastKeyPress = KeyPress;
 		}
-	} else if (EventType === "Click" && CommonIsMobile) {
+	} else if (EventType === "Click") {
+
 		// Only mobile users get to click, otherwise it's too easy.
-		StruggleStrengthProcess();
+		if (CommonIsMobile) StruggleStrengthProcess();
+
+		// If we must enter the loosen mini-game
+		if (StruggleAllowLoosen())
+			if (MouseIn(1300, 880, 400, 65) && (StruggleProgressCurrentMinigame == "Strength"))
+				StruggleProgressCurrentMinigame = "Loosen";
+
 	}
 }
 
@@ -534,8 +557,8 @@ function StruggleStrengthProcess(Decrease) {
 	if (!Decrease) StruggleProgressStruggleCount++;
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0))
 		StruggleProgressOperation = DialogFindPlayer("Impossible");
-
 	StruggleMinigameHandleExpression(Decrease);
+
 }
 
 /**
@@ -590,6 +613,34 @@ function StruggleStrengthGetDifficulty(C, PrevItem, NextItem) {
 		auto: TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5)),
 		timer: Timer
 	};
+}
+
+////////////////////////////STRUGGLE MINIGAME: LOOSEN//////////////////////////////
+
+/**
+ * Loosen minigame main drawing routine.
+ * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
+ * @returns {void} - Nothing
+ */
+function StruggleLoosenDraw(C) {
+}
+
+/**
+ * Loosen minigame main setup.
+* @param {Character} C - The character who tries to struggle
+* @param {Item} PrevItem - The item, the character wants to struggle out of
+* @param {Item} [NextItem] - The item that should substitute the first one
+* @returns {void} - Nothing
+*/
+function StruggleLoosenSetup(C, PrevItem, NextItem) {
+}
+
+/**
+ * Handle events for the loosen minigame
+ * @param {"Click"|"KeyDown"} EventType
+ * @returns {void}
+ */
+function StruggleLoosenHandleEvent(EventType) {
 }
 
 ////////////////////////////STRUGGLE MINIGAME: USE FLEXIBILITY//////////////////////////////
@@ -713,7 +764,10 @@ function StruggleFlexibilityDraw(C) {
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 425, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 476, "White", "Black");
 	DrawProgressBar(1200, 800, 600, 100, StruggleProgress);
-	DrawText(DialogFindPlayer("ProgressFlex"), 1500, 950, "White", "Black");
+	if (StruggleAllowLoosen())
+		DrawButton(1300, 925, 400, 65, DialogFindPlayer("TryLoosen"), "White");
+	else
+		DrawText(DialogFindPlayer("ProgressFlex"), 1500, 950, "White", "Black");
 }
 
 
@@ -745,14 +799,23 @@ function StruggleFlexibilityCheck() {
  * @returns {void}
  */
 function StruggleFlexibilityHandleEvent(EventType) {
-	if (StruggleProgress < 0) {
-		// Minigame is not running
-		return;
+
+	// Minigame is not running
+	if (StruggleProgress < 0) return;
+
+	// Click events
+	if (EventType === "Click") {
+
+		// Process the flex game
+		StruggleFlexibilityProcess();
+
+		// If we must enter the loosen mini-game
+		if (StruggleAllowLoosen())
+			if (MouseIn(1300, 925, 400, 65) && (StruggleProgressCurrentMinigame == "Flexibility"))
+				StruggleProgressCurrentMinigame = "Loosen";
+
 	}
 
-	if (EventType === "Click") {
-		StruggleFlexibilityProcess();
-	}
 }
 
 /**
@@ -781,8 +844,8 @@ function StruggleFlexibilityProcess(Decrease) {
 	if ((StruggleProgress >= 100) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgress = 99;
 	if (!Decrease) StruggleProgressStruggleCount += 3;
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
-
 	StruggleMinigameHandleExpression(Decrease);
+
 }
 
 ////////////////////////////STRUGGLE MINIGAME: DEXTERITY//////////////////////////////
@@ -899,7 +962,10 @@ function StruggleDexterityDraw(C) {
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 600, "White", "Black");
 	DrawProgressBar(1200, 800, 600, 100, StruggleProgress);
-	DrawText(DialogFindPlayer("ProgressDex"), 1500, 950, "White", "Black");
+	if (StruggleAllowLoosen())
+		DrawButton(1300, 925, 400, 65, DialogFindPlayer("TryLoosen"), "White");
+	else
+		DrawText(DialogFindPlayer("ProgressDex"), 1500, 950, "White", "Black");
 }
 
 
@@ -910,13 +976,21 @@ function StruggleDexterityDraw(C) {
  * @returns {void}
  */
 function StruggleDexterityHandleEvent(EventType) {
-	if (StruggleProgress < 0) {
-		// Minigame is not running
-		return;
-	}
 
+	// Minigame is not running
+	if (StruggleProgress < 0) return;
+
+	// Click events
 	if (EventType === "Click") {
+
+		// Process the dex game
 		StruggleDexterityProcess();
+
+		// If we must enter the loosen mini-game
+		if (StruggleAllowLoosen())
+			if (MouseIn(1300, 925, 400, 65) && (StruggleProgressCurrentMinigame == "Dexterity"))
+				StruggleProgressCurrentMinigame = "Loosen";
+
 	}
 }
 
@@ -932,10 +1006,7 @@ function StruggleDexterityProcess() {
 	if ((StruggleProgressChallenge > 6) && (StruggleProgress > 50) && (StruggleProgressAuto < 0)) P = P * (1 - ((StruggleProgress - 50) / 50)); // Beyond challenge 6, it becomes impossible after 50% progress
 	var distMult = Math.max(-0.5, Math.min(1, (85 - Math.abs(StruggleProgressDexTarget - StruggleProgressDexCurrent))/75));
 	P = P * distMult; // Reverses the progress if too far
-
-	if (P > 0) {
-		StruggleProgressDexTarget = Math.random() * 2 * StruggleProgressDexMax - StruggleProgressDexMax;
-	}
+	if (P > 0) StruggleProgressDexTarget = Math.random() * 2 * StruggleProgressDexMax - StruggleProgressDexMax;
 
 	// Sets the new progress and writes the "Impossible" message if we need to
 	StruggleProgress = StruggleProgress + P;
@@ -943,8 +1014,8 @@ function StruggleDexterityProcess() {
 	if ((StruggleProgress >= 100) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgress = 99;
 	StruggleProgressStruggleCount += Math.max(1, 3*(distMult + 0.5));
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
-
 	StruggleMinigameHandleExpression();
+
 }
 
 
