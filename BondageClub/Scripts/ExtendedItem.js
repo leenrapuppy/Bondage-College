@@ -621,8 +621,9 @@ function ExtendedItemCheckBuyGroups(Option) {
  */
 function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
 	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
+	const canChangeWhenLocked = typeof CurrentOption.ChangeWhenLocked === "boolean" ? CurrentOption.ChangeWhenLocked : true;
 
-	if (CurrentOption && CurrentOption.ChangeWhenLocked !== true && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
+	if (!canChangeWhenLocked && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
 		return DialogFindPlayer("CantChangeWhileLocked");
 	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
@@ -758,20 +759,14 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
  * Creates an asset's extended item validation function.
  * @param {string} functionPrefix - The prefix of the new `Validate` function
  * @param {null | ExtendedItemValidateScriptHookCallback<any>} ValidationCallback - A custom validation callback
- * @param {boolean} changeWhenLocked - whether or not the item's type can be changed while the item is locked
  * @returns {void} Nothing
  */
-function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, changeWhenLocked) {
+function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback) {
 	const validateFunctionName = `${functionPrefix}Validate`;
 
 	/** @type {ExtendedItemValidateCallback<ModularItemOption | ExtendedItemOption>} */
 	const validateFunction = function (C, item, option, currentOption) {
-		const itemLocked = item && item.Property && item.Property.LockedBy;
-		if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, item)) {
-			return DialogFindPlayer("CantChangeWhileLocked");
-		} else {
-			return ExtendedItemValidate(C, item, option, currentOption);
-		}
+		return ExtendedItemValidate(C, item, option, currentOption);
 	};
 
 	if (ValidationCallback) {

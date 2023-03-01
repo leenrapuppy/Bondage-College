@@ -129,7 +129,7 @@ function PuppyWalkerClick() {
 
 	// If the game is over, clicking on the image will end it
 	if (MiniGameEnded && (MouseX >= 800) && (MouseX <= 1200) && (MouseY >= 0) && (MouseY <= 999))
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
+		MiniGameEnd();
 
 	// If the game has started, we check the click position and send it as a move
 	if ((MiniGameTimer > 10000) && (MouseY >= 350) && (MouseY <= 650) && !MiniGameEnded) {

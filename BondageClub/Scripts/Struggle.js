@@ -59,6 +59,12 @@ var StruggleProgressPrevItem = null;
  */
 var StruggleProgressNextItem = null;
 
+/**
+ * A function called when the struggle minigame completes
+ * @type {StruggleCompletionCallback}
+ */
+var StruggleExitFunction = null;
+
 // For flexibility
 /** @type {null | { X: number, Y: number, Size: number, Velocity: number }[]} */
 var StruggleProgressFlexCircles = [];
@@ -80,16 +86,19 @@ const StruggleMinigames = {
 		Setup: StruggleStrengthSetup,
 		Draw: StruggleStrengthDraw,
 		HandleEvent: StruggleStrengthHandleEvent,
+		DisablingCraftedProperty: "Strong",
 	},
 	Flexibility: {
 		Setup: StruggleFlexibilitySetup,
 		Draw: StruggleFlexibilityDraw,
 		HandleEvent: StruggleFlexibilityHandleEvent,
+		DisablingCraftedProperty: "Flexible",
 	},
 	Dexterity: {
 		Setup: StruggleDexteritySetup,
 		Draw: StruggleDexterityDraw,
 		HandleEvent: StruggleDexterityHandleEvent,
+		DisablingCraftedProperty: "Nimble",
 	},
 	LockPick: {
 		Setup: StruggleLockPickSetup,
@@ -97,6 +106,13 @@ const StruggleMinigames = {
 		HandleEvent: StruggleLockPickHandleEvent,
 	}
 };
+
+/**
+ * Get the list of struggle minigames.
+ */
+function StruggleGetMinigames() {
+	return /** @type {[StruggleKnownMinigames, StruggleMinigame][]} */(Object.entries(StruggleMinigames).filter(e => e[0] !== "LockPick"));
+}
 
 /**
  * Main handler for drawing the struggle minigame screen
@@ -147,14 +163,11 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleKeyDown() {
-	// Make sure we're not in Color-application mode. FIXME: this is strange
-	if (DialogColor != null)
-		return;
+	if (!StruggleMinigameIsRunning()) return;
 
-	// Call the minigame handler if there is one
-	if (StruggleProgressCurrentMinigame !== "" && StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) {
-		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown");
-	}
+	if (!StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) return;
+
+	StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown");
 }
 
 /**
@@ -163,23 +176,23 @@ function StruggleKeyDown() {
  * @returns {boolean} - Nothing
  */
 function StruggleMinigameClick() {
-	if (StruggleProgressCurrentMinigame !== "") {
-		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("Click");
-		return true;
-	}
-	return false;
+	if (!StruggleMinigameIsRunning()) return false;
+
+	if (!StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) return false;
+
+	StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("Click");
+	return true;
 }
 
 /**
  * Handle the common progress and drawing of the minigame
  *
- * This function draws the minigame common UI, updates the progress if it should
- * do so automatically, and checks if the minigame should abort.
+ * This function draws the minigame common UI, and updates the progress if it should
+ * do so automatically.
  *
- * @param {Character} C
  * @param {number} [Offset]
  */
-function StruggleMinigameDrawCommon(C, Offset) {
+function StruggleMinigameDrawCommon(Offset) {
 	if (!Offset) Offset = 0;
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
@@ -190,34 +203,42 @@ function StruggleMinigameDrawCommon(C, Offset) {
 	// Add or subtract to the automatic progression, doesn't move in color picking mode
 	StruggleProgress = StruggleProgress + StruggleProgressAuto;
 	if (StruggleProgress < 0) StruggleProgress = 0;
-
-	if (StruggleMinigameCheckCancel(C)) {
-		if (StruggleProgress > 0) {
-			let action;
-			if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock)
-				action = "ActionInterruptedSwap";
-			else if (StruggleProgressNextItem != null)
-				action = "ActionInterruptedAdd";
-			else
-				action = "ActionInterruptedRemove";
-
-			ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		}
-
-		DialogLeave();
-		StruggleProgress = -1;
-		DialogLockMenu = false;
-		return;
-	}
 }
 
 /**
- * Check if the minigame should be interrupted.
+ * Check if the minigame has been interrupted and we should bail out
  *
  * @param {Character} C
  * @returns {boolean}
  */
 function StruggleMinigameCheckCancel(C) {
+	const interrupted = StruggleMinigameWasInterrupted(C);
+	if (!interrupted) return false;
+
+	/** @type {StruggleCompletionData} */
+	const data = {
+		Progress: StruggleProgress,
+		PrevItem: StruggleProgressPrevItem,
+		NextItem: StruggleProgressNextItem,
+		Skill: 0,
+		Attempts: 0,
+		Interrupted: true,
+	};
+
+	const Game = StruggleProgressCurrentMinigame;
+
+	// Reset the minigame state and call the minigame end callback
+	StruggleMinigameStop();
+	if (StruggleExitFunction && Game !== "")
+		StruggleExitFunction(C, Game, data);
+}
+
+/**
+ * Helper used to tell if something interrupted the minigame.
+ * @param {Character} C
+ * @returns {boolean}
+ */
+function StruggleMinigameWasInterrupted(C) {
 	// The player can no longer interact
 	if (C != Player && !Player.CanInteract())
 		return true;
@@ -225,6 +246,7 @@ function StruggleMinigameCheckCancel(C) {
 	const PrevItem = StruggleProgressPrevItem;
 	const NextItem = StruggleProgressNextItem;
 	const CurrentItem = InventoryGet(C, PrevItem ? PrevItem.Asset.Group.Name : NextItem.Asset.Group.Name);
+
 	// We were removing an item, and it's already gone
 	if (NextItem == null && !CurrentItem)
 		return true;
@@ -311,58 +333,36 @@ function StruggleMinigameHandleExpression(Decrease) {
 function StruggleProgressCheckEnd(C) {
 
 	// If the operation is completed
-	if (StruggleProgress >= 100) {
+	if (StruggleProgress < 100) return;
 
-		// Stops the dialog sounds
-		AudioDialogStop();
+	/** @type {StruggleCompletionData} */
+	const data = {
+		PrevItem: StruggleProgressPrevItem,
+		NextItem: StruggleProgressNextItem,
+		Skill: StruggleProgressSkill,
+		Progress: StruggleProgress,
+		Attempts: StruggleProgressStruggleCount,
+		Interrupted: false,
+		Auto: StruggleProgressAuto < 0
+	};
 
-		// Removes the item & associated items if needed, then wears the new one
-		InventoryRemove(C, C.FocusGroup.Name);
-		if (StruggleProgressNextItem != null) {
-			let Color = (DialogColorSelect == null) ? "Default" : DialogColorSelect;
-			if ((StruggleProgressNextItem.Craft != null) && CommonIsColor(StruggleProgressNextItem.Craft.Color)) Color = StruggleProgressNextItem.Craft.Color;
-			InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, StruggleProgressNextItem.Craft);
-			if (StruggleProgressNextItem.Craft != null) InventoryCraft(Player, C, StruggleProgressNextItem.Asset.Group.Name, StruggleProgressNextItem.Craft, true);
-		}
+	const Game = StruggleProgressCurrentMinigame;
 
-		// The player can use another item right away, for another character we jump back to her reaction
-		if (C.ID == 0) {
-			if (StruggleProgressNextItem == null) SkillProgress("Evasion", StruggleProgressSkill);
-			if ((StruggleProgressPrevItem == null) && (StruggleProgressNextItem != null)) SkillProgress("SelfBondage", (StruggleProgressSkill + StruggleProgressNextItem.Asset.SelfBondage) * 2);
-			if ((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) {
-				DialogInventoryBuild(C);
-				StruggleProgress = -1;
-				DialogColor = null;
-			}
-		} else {
-			if (StruggleProgressNextItem != null) SkillProgress("Bondage", StruggleProgressSkill);
-			if (((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) && (CurrentScreen != "ChatRoom")) {
-				C.CurrentDialog = DialogFind(C, ((StruggleProgressNextItem == null) ? ("Remove" + StruggleProgressPrevItem.Asset.Name) : StruggleProgressNextItem.Asset.Name), ((StruggleProgressNextItem == null) ? "Remove" : "") + C.FocusGroup.Name);
-				DialogLeaveItemMenu();
-			}
-		}
-
-		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
-		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended && StruggleProgressNextItem.Craft == null) {
-			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem);
-			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
-		} else {
-			if (ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem))
-				DialogLeave();
-		}
-
-		// Reset the the character's position
-		if (CharacterAppearanceForceUpCharacter == C.MemberNumber) {
-			CharacterAppearanceForceUpCharacter = -1;
-			CharacterRefresh(C, false);
-		}
-
-		// Rebuilds the menu
-		DialogEndExpression();
-		if (C.FocusGroup != null) DialogMenuButtonBuild(C);
-
+	// Reset the minigame state and call the minigame end callback
+	StruggleMinigameStop();
+	if (StruggleExitFunction && Game !== "") {
+		StruggleExitFunction(C, Game, data);
 	}
+}
+
+
+/**
+ * Check if there's a struggling minigame started.
+ *
+ * @returns {boolean}
+ */
+function StruggleMinigameIsRunning() {
+	return (StruggleProgressCurrentMinigame !== "");
 }
 
 /**
@@ -375,8 +375,9 @@ function StruggleProgressCheckEnd(C) {
  * @param {StruggleKnownMinigames} MiniGame
  * @param {Item} PrevItem
  * @param {Item} NextItem
+ * @param {StruggleCompletionCallback} Completion
  */
-function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
+function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem, Completion) {
 
 	if (!StruggleMinigames[MiniGame])
 		return;
@@ -388,8 +389,7 @@ function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
 	StruggleProgressNextItem = NextItem;
 	StruggleProgressOperation = StruggleProgressGetOperation(C, PrevItem, NextItem);
 	StruggleProgressStruggleCount = 0;
-	DialogItemToLock = null;
-	DialogMenuButtonBuild(C);
+	StruggleExitFunction = Completion;
 
 	StruggleMinigames[MiniGame].Setup(C, PrevItem, NextItem);
 
@@ -426,12 +426,10 @@ function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
  * @returns {void}
  */
 function StruggleMinigameStop() {
-	if (StruggleProgressCurrentMinigame && StruggleProgressCurrentMinigame !== "LockPick"
-			&& StruggleProgressStruggleCount >= 10 && StruggleProgressAuto < 0 && StruggleProgress >= 0) {
-		ChatRoomStimulationMessage("StruggleFail");
-	}
+	// Stops the dialog sounds
+	AudioDialogStop();
+
 	StruggleProgress = -1;
-	StruggleLockPickOrder = null;
 	StruggleProgressCurrentMinigame = "";
 }
 
@@ -475,10 +473,13 @@ function StruggleStrengthSetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleStrengthDraw(C) {
-	StruggleMinigameDrawCommon(C);
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
+
+	StruggleMinigameDrawCommon();
 
 	// Draw the current operation and progress
-	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
+	if (StruggleProgressAuto < 0)
+		DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 650, "White", "Black");
 	DrawProgressBar(1200, 700, 600, 100, StruggleProgress);
 	if (ControllerActive == false) {
@@ -486,8 +487,6 @@ function StruggleStrengthDraw(C) {
 	} else {
 		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeysController"), 1500, 900, "White", "Black");
 	}
-
-	StruggleProgressCheckEnd(C);
 }
 
 /**
@@ -672,6 +671,7 @@ function StruggleFlexibilitySetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleFlexibilityDraw(C) {
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
 
 	if (StruggleProgressFlexTimer < CurrentTime) {
 		StruggleProgressFlexTimer = CurrentTime + StruggleProgressFlexCirclesRate + StruggleProgressFlexCirclesRate * Math.random();
@@ -707,15 +707,13 @@ function StruggleFlexibilityDraw(C) {
 	// Advance the minigame's state
 	StruggleFlexibilityProcess();
 
-	StruggleMinigameDrawCommon(C, -150);
+	StruggleMinigameDrawCommon(-150);
 
 	// Draw the current operation and progress
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 425, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 476, "White", "Black");
 	DrawProgressBar(1200, 800, 600, 100, StruggleProgress);
 	DrawText(DialogFindPlayer("ProgressFlex"), 1500, 950, "White", "Black");
-
-	StruggleProgressCheckEnd(C);
 }
 
 
@@ -877,8 +875,9 @@ function StruggleDexteritySetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleDexterityDraw(C) {
-	StruggleMinigameDrawCommon(C);
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
 
+	StruggleMinigameDrawCommon();
 
 	DrawImageResize("Icons/Struggle/Buckle.png", 1420 + StruggleProgressDexTarget, 625, 150, 150);
 	DrawImageResize("Icons/Struggle/Player.png", 1420 + StruggleProgressDexCurrent, 625, 150, 150);
@@ -896,15 +895,11 @@ function StruggleDexterityDraw(C) {
 		StruggleProgressDexDirectionRight = true;
 	}
 
-
-
 	// Draw the current operation and progress
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 600, "White", "Black");
 	DrawProgressBar(1200, 800, 600, 100, StruggleProgress);
 	DrawText(DialogFindPlayer("ProgressDex"), 1500, 950, "White", "Black");
-
-	StruggleProgressCheckEnd(C);
 }
 
 
@@ -1126,39 +1121,26 @@ function StruggleLockPickDraw(C) {
 	DrawText(DialogFindPlayer("LockpickIntro3"), X, 900, "white");
 
 	if (StruggleMinigameCheckCancel(C)) {
-		let action;
-		if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock)
-			action = "ActionInterruptedSwap";
-		else if (StruggleProgressNextItem != null)
-			action = "ActionInterruptedAdd";
-		else
-			action = "ActionInterruptedRemove";
-
-		ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		StruggleLockPickOrder = null;
-		DialogLockMenu = false;
-		DialogLeave();
+		// We got interrupted
+		return;
 	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
 		StruggleLockPickSuccessTime = 0;
-		// Success!
-		if (C.FocusGroup && C) {
-			var item = InventoryGet(C, C.FocusGroup.Name);
-			if (item) {
-				InventoryUnlock(C, item);
-				ChatRoomPublishAction(C, "ActionPick", item, null);
-			}
-		}
-		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
-		// The player can use another item right away, for another character we jump back to her reaction
-		if (C.ID == 0) {
-			StruggleProgress = -1;
-			StruggleProgressCurrentMinigame = "";
-			StruggleLockPickOrder = null;
-			DialogLockMenu = false;
-			DialogInventoryBuild(C);
-		} else {
-			DialogLeaveItemMenu();
-		}
+
+		/** @type {StruggleCompletionData} */
+		const data = {
+			Progress: 100,
+			PrevItem: StruggleProgressPrevItem,
+			NextItem: StruggleProgressNextItem,
+			Skill: StruggleLockPickProgressSkill,
+			Attempts: 0,
+			Interrupted: false,
+		};
+
+		if (StruggleExitFunction && StruggleProgressCurrentMinigame !== "")
+			StruggleExitFunction(C, StruggleProgressCurrentMinigame, data);
+
+		StruggleMinigameStop();
+		return;
 	} else {
 		if ( Player.ArousalSettings && (Player.ArousalSettings.Active != "Inactive" && Player.ArousalSettings.Active != "NoMeter") && Player.ArousalSettings.Progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
 			if (CurrentTime > StruggleLockPickArousalTick) {

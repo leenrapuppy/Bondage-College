@@ -286,7 +286,11 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
 
 		// Returns no message, indicating that all prerequisites are fine
-		default: return "";
+		case "GagFlat": return "";
+		default: {
+			console.warn(`Unknown asset prerequisite "${Prerequisite}"`);
+			return "";
+		}
 	}
 }
 
@@ -516,7 +520,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 
 			// The comfy property triggers an expression change
 			if (Craft.Property === "Comfy") {
-				CharacterSetFacialExpression(Target, "Blush", "Light", 10);
+				CharacterSetFacialExpression(Target, "Blush", "Low", 10);
 				CharacterSetFacialExpression(Target, "Eyes", "Horny", 10);
 				CharacterSetFacialExpression(Target, "Eyes2", "Horny", 10);
 				CharacterSetFacialExpression(Target, "Eyebrows", "Raised", 10);
@@ -707,6 +711,16 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
 	let Item = InventoryGet(C, AssetGroup);
+
+	/**
+	 * TODO: grant tighter control over setting expressions.
+	 * As expressions handle a "first come, first served" principle this can currently override extended
+	 * item option-specific expressions (see {@link InventoryWearCraftExtended}) and crafting property-specific
+	 * expressions (see {@link InventoryCraft})
+	 */
+	if (A.ExpressionTrigger != null) {
+		InventoryExpressionTriggerApply(C, A.ExpressionTrigger);
+	}
 	InventoryWearCraft(Item, Craft);
 	CharacterRefresh(C, true);
 }
