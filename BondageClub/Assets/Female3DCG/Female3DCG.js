@@ -436,7 +436,9 @@ var AssetFemale3DCG = [
 				Layer:[
 					{ Name: "Rfhead", HasType: false, AllowModuleTypes: ["f1"] },
 					{ Name: "Lcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["c1"] },
-					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["r0"] }
+					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["r0"] },
+					{ Name: "Lneck", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["l1"] },
+					{ Name: "Rneck", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["n1"] }
 				]
 			},
 			// Flat Chest Compatible Clothing
@@ -2597,7 +2599,9 @@ var AssetFemale3DCG = [
 				Layer:[
 					{ Name: "Rfhead", HasType: false, AllowModuleTypes: ["f1"] },
 					{ Name: "Lcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["c1"] },
-					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["r0"] }
+					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["r0"] },
+					{ Name: "Lneck", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["l1"] },
+					{ Name: "Rneck", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["n1"] }
 				]
 			}, // Kissmark
 		],

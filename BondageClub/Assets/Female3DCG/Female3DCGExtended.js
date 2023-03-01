@@ -599,6 +599,14 @@ var AssetFemale3DCGExtended = {
 						Name: "Rfhead", Key: "f",
 						Options: [{}, {}, ] // n,y
 					},
+					{
+						Name: "Rneck", Key: "n",
+						Options: [{}, {}, ] // n,y
+					},
+					{
+						Name: "Lneck", Key: "l",
+						Options: [{}, {}, ] // n,y
+					},
 				]
 			}
 		}, //KissMark
@@ -7117,6 +7125,14 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Rfhead", Key: "f",
+						Options: [{}, {}, ] // n,y
+					},
+					{
+						Name: "Rneck", Key: "n",
+						Options: [{}, {}, ] // n,y
+					},
+					{
+						Name: "Lneck", Key: "l",
 						Options: [{}, {}, ] // n,y
 					},
 				]
