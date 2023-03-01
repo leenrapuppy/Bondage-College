@@ -7113,6 +7113,15 @@ var AssetFemale3DCG = [
 				],
 				DynamicGroupName: "ItemMouth3",
 			},
+			{
+				Name: "Kissmark", Random: false, Value: 0, Difficulty: 0, Time: 5, RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockMouth"],
+				Layer: [
+					{ Name: "Lips", HasType: false, AllowModuleTypes: ["l0"] },
+					{ Name: "Rfhead", HasType: false, CopyLayerColor: "Lips", AllowModuleTypes: ["f1"] },
+					{ Name: "Lcheek", HasType: false, CopyLayerColor: "Lips", AllowModuleTypes: ["c1"] },
+					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Lips", AllowModuleTypes: ["r1"] }
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
