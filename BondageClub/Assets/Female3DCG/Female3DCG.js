@@ -428,6 +428,17 @@ var AssetFemale3DCG = [
 			{
 				Name: "JewelrySet", Value: 50, Enable: false, Visible: false, Wear: false, BuyGroup: "JewelrySet"
 			},
+			{
+				Name: "KissmarkDummy", Value: 10, Enable: false, Visible: false, Wear: false, BuyGroup: "Kissmark"
+			},
+			{
+				Name: "Kissmark", Value: -1, Priority: 9, BuyGroup: "Kissmark", Left: 150, Top: 0, DefaultColor:["#B42340"], Extended: true, BodyCosplay: true,
+				Layer:[
+					{ Name: "Rfhead", HasType: false, AllowModuleTypes: ["f1"] },
+					{ Name: "Lcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["c1"] },
+					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["r0"] }
+				]
+			},
 			// Flat Chest Compatible Clothing
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -2581,6 +2592,14 @@ var AssetFemale3DCG = [
 					{ Name: "EyeRight", ColorGroup: "Eyes" },
 				]
 			},
+			{
+				Name: "Kissmark", Value: -1, Priority: 9, BuyGroup: "Kissmark", Left: 150, Top: 0, DefaultColor:["#B42340"], Extended: true, BodyCosplay: true,
+				Layer:[
+					{ Name: "Rfhead", HasType: false, AllowModuleTypes: ["f1"] },
+					{ Name: "Lcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["c1"] },
+					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["r0"] }
+				]
+			}, // Kissmark
 		],
 		Color: ["Default", "#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},
@@ -5809,6 +5828,7 @@ var AssetFemale3DCG = [
 		Top: 0,
 		Effect: ["BlockMouth", "GagNormal"],
 		Zone: [[100, 130, 100, 70]],
+		RemoveItemOnRemove: [{Group: "ItemMouth3", Name: "Kissmark"}],
 		Asset: [
 			{ Name: "ClothGag", Value: 15, Difficulty: -4, Time: 10, AllowTighten: true, DefaultColor: "#E0E0E0", BuyGroup: "ClothGag", Prerequisite: "GagFlat", Effect: ["BlockMouth", "GagVeryLight"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }], Audio: "ClothKnot", Extended: true },
 			{
@@ -6354,6 +6374,7 @@ var AssetFemale3DCG = [
 		Block: ["ItemMouth"],
 		Effect: ["BlockMouth", "GagNormal"],
 		Zone: [[200, 130, 100, 70]],
+		RemoveItemOnRemove: [{Group: "ItemMouth3", Name: "Kissmark"}],
 		DynamicGroupName: "ItemMouth",
 		MirrorActivitiesFrom: "ItemMouth",
 		Asset: [
@@ -7114,13 +7135,7 @@ var AssetFemale3DCG = [
 				DynamicGroupName: "ItemMouth3",
 			},
 			{
-				Name: "Kissmark", Random: false, Value: 0, Difficulty: 0, Time: 5, RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockMouth"],
-				Layer: [
-					{ Name: "Lips", HasType: false, AllowModuleTypes: ["l0"] },
-					{ Name: "Rfhead", HasType: false, CopyLayerColor: "Lips", AllowModuleTypes: ["f1"] },
-					{ Name: "Lcheek", HasType: false, CopyLayerColor: "Lips", AllowModuleTypes: ["c1"] },
-					{ Name: "Rcheek", HasType: false, CopyLayerColor: "Lips", AllowModuleTypes: ["r1"] }
-				],
+				Name: "Kissmark", Random: false, Value: -1, BuyGroup: "Kissmark", Difficulty: 0, Time: 5, RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockedMouth"],
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

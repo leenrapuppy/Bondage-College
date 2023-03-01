@@ -582,6 +582,26 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //Glitter
+		Kissmark: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "Lcheek", Key: "c",
+						Options: [{}, {}, ] // n,y
+					},
+					{
+						Name: "Rcheek", Key: "r",
+						Options: [{}, {}, ] // y,n
+					},
+					{
+						Name: "Rfhead", Key: "f",
+						Options: [{}, {}, ] // n,y
+					},
+				]
+			}
+		}, //KissMark
 	}, // ClothAccessory
 	ItemBreast: {
 		Ribbons: {
@@ -6937,30 +6957,6 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, //LatexRespirator
-		Kissmark: {
-			Archetype: ExtendedArchetype.MODULAR,
-			Config: {
-				ChatSetting: ModularItemChatSetting.PER_MODULE,
-				Modules: [
-					{
-						Name: "Lips", Key: "l",
-						Options: [{Prerequisite: ["BlockMouth"]}, {}, ] // y,n
-					},
-					{
-						Name: "Lcheek", Key: "c",
-						Options: [{}, {}, ] // n,y
-					},
-					{
-						Name: "Rcheek", Key: "r",
-						Options: [{}, {}, ] // n,y
-					},
-					{
-						Name: "Rfhead", Key: "f",
-						Options: [{}, {}, ] // n,y
-					},
-				]
-			}
-		}, //LatexRespirator
 	}, // ItemMouth3
 	Mask: {
 		BunnyMask1: {
@@ -7106,6 +7102,26 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //HeadHarness
+		Kissmark: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "Lcheek", Key: "c",
+						Options: [{}, {}, ] // n,y
+					},
+					{
+						Name: "Rcheek", Key: "r",
+						Options: [{}, {}, ] // y,n
+					},
+					{
+						Name: "Rfhead", Key: "f",
+						Options: [{}, {}, ] // n,y
+					},
+				]
+			}
+		}, //KissMark
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {

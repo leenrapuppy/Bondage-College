@@ -87,6 +87,8 @@ ClothAccessory,Glitter,Glitter
 ClothAccessory,CatsuitCollar,Catsuit Collar
 ClothAccessory,Poncho,Poncho
 ClothAccessory,JewelrySet,Piercing Set
+ClothAccessory,KissmarkDummy,Smoochy Lipstick
+ClothAccessory,Kissmark,Lipstick Marks
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
 Necklace,Necklace2,Beaded Necklace
@@ -552,6 +554,7 @@ Mask,PetNose,Pet Nose
 Mask,Glitter,Glitter
 Mask,HeadHarness,Head Harness
 Mask,FestivalFoxMask,Festival Fox Mask
+Mask,Kissmark,Lipstick Marks
 Jewelry,,Jewelry
 Jewelry,JewelrySet,Piercing Set
 TailStraps,,Tail Strap
