@@ -166,11 +166,14 @@ const VibratorModeDataLookup = {};
  */
 function VibratorModeRegister(asset, config={}) {
 	const data = VibratorModeCreateData(asset, config);
-	VibratorModeCreateLoadFunction(data);
-	VibratorModeCreateDrawFunction(data);
-	VibratorModeCreateClickFunction(data);
-	VibratorModeCreateExitFunction(data);
-	VibratorModeCreateScriptDrawFunction(data);
+
+	if (IsBrowser()) {
+		VibratorModeCreateLoadFunction(data);
+		VibratorModeCreateDrawFunction(data);
+		VibratorModeCreateClickFunction(data);
+		VibratorModeCreateExitFunction(data);
+		VibratorModeCreateScriptDrawFunction(data);
+	}
 	VibratorModeSetAssetProperties(data);
 }
 

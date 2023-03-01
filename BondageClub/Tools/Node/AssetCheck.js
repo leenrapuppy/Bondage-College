@@ -8,9 +8,11 @@ const neededFiles = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
 	"Scripts/Asset.js",
+	"Scripts/ExtendedItem.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
+	"Scripts/VibratorMode.js",
 	"Scripts/Property.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
@@ -31,7 +33,9 @@ const neededFiles = [
 	"Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js",
 	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Assets/Female3DCG/Female3DCG.js",
-	"Assets/Female3DCG/Female3DCGExtended.js"
+	"Assets/Female3DCG/Female3DCGExtended.js",
+	"Screens/Character/ItemColor/ItemColor.js",
+	"Scripts/Testing.js",
 ];
 
 let localError = false;
@@ -345,33 +349,79 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 	return ret;
 }
 
+/**
+ * Check that all expected color-group entries are present in the .csv file
+ * @param {TestingMissingStruct[]} missingGroups A list of all missing color groups
+ */
+function testColorGroups(missingGroups) {
+	if (!Array.isArray(missingGroups)) {
+		error("MISSING_COLOR_GROUPS not found");
+	}
+	for (const { Group, Name, Missing } of missingGroups) {
+		error(`${Group}:${Name}: Missing color group "${Missing}"`);
+	}
+}
+
+/**
+ * Check that all expected color-layer entries are present in the .csv file
+ * @param {TestingMissingStruct[]} missingLayers A list of all missing color layers
+ */
+function testColorLayers(missingLayers) {
+	if (!Array.isArray(missingLayers)) {
+		error("MISSING_COLOR_LAYERS not found");
+		return;
+	}
+	for (const { Group, Name, Missing } of missingLayers) {
+		error(`${Group}:${Name}: Missing color layer "${Missing}"`);
+	}
+}
+
+/**
+ * Strigify and parse the passed object to get the correct Array and Object prototypes, because VM uses different ones.
+ * This unfortunately results in Functions being lost and replaced with a dummy function
+ * @param {any} input The to-be sanitized input
+ * @returns {any} The sanitized output
+ */
+function sanitizeVMOutput(input) {
+	return JSON.parse(
+		JSON.stringify(
+			input,
+			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
+		),
+		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
+	);
+}
+
+/**
+ * TODO: Mock more {@link TextCache} properties if required or create a more
+ * Node.JS-friendly version of the class and use that.
+ */
+class TextCacheMock {
+	get() { return ""; }
+}
+
 (function () {
-	const context = vm.createContext({ OuterArray: Array, Object: Object });
+	const context = vm.createContext({
+		OuterArray: Array,
+		Object: Object,
+		TextCache: TextCacheMock,
+		TestingColorLayers: new Set(loadCSV("Assets/Female3DCG/LayerNames.csv", 2).map(i => i[0])),
+		TestingColorGroups: new Set(loadCSV("Assets/Female3DCG/ColorGroups.csv", 2).map(i => i[0])),
+	});
 	for (const file of neededFiles) {
 		vm.runInContext(fs.readFileSync(BASE_PATH + file, { encoding: "utf-8" }), context, {
 			filename: file,
-			timeout: 1000
 		});
 	}
 
-	// We need to strigify and parse the asset array to have correct Array and Object prototypes, because VM uses different ones
-	// This unfortunately results in Functions being lost and replaced with a dummy function
 	/** @type {AssetGroupDefinition[]} */
-	const AssetFemale3DCG = JSON.parse(
-		JSON.stringify(
-			context.AssetFemale3DCG,
-			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
-		),
-		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
-	);
+	const AssetFemale3DCG = sanitizeVMOutput(context.AssetFemale3DCG);
 	/** @type {ExtendedItemConfig} */
-	const AssetFemale3DCGExtended = JSON.parse(
-		JSON.stringify(
-			context.AssetFemale3DCGExtended,
-			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
-		),
-		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
-	);
+	const AssetFemale3DCGExtended = sanitizeVMOutput(context.AssetFemale3DCGExtended);
+	/** @type {TestingMissingStruct[]} */
+	const missingColorLayers = sanitizeVMOutput(context.TestingMisingColorLayers);
+	/** @type {TestingMissingStruct[]} */
+	const missingColorGroups = sanitizeVMOutput(context.TestingMisingColorGroups);
 
 	if (!Array.isArray(AssetFemale3DCG)) {
 		error("AssetFemale3DCG not found");
@@ -561,4 +611,6 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 	testDynamicGroupName(AssetFemale3DCG);
 	testTypedOptionName(AssetFemale3DCGExtended);
 	testExtendedItemDialog(AssetFemale3DCGExtended, dialogArray);
+	testColorGroups(missingColorGroups);
+	testColorLayers(missingColorLayers);
 })();
