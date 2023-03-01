@@ -473,6 +473,7 @@ function ServerParseColor(asset, color, schema) {
 	if (typeof color === "string") {
 		return ServerValidateColorAgainstSchema(color, schema);
 	} else {
+		if (color == null) return "Default";
 		if (color.length > asset.ColorableLayerCount) color = color.slice(0, asset.ColorableLayerCount);
 		return color.map(c => ServerValidateColorAgainstSchema(c, schema));
 	}
