@@ -7112,31 +7112,15 @@ var AssetFemale3DCGExtended = {
 		}, //HeadHarness
 		Kissmark: {
 			Archetype: ExtendedArchetype.MODULAR,
+			            CopyConfig: { GroupName: "ClothAccessory", AssetName: "Kissmark" },
 			Config: {
-				ChatSetting: ModularItemChatSetting.PER_MODULE,
-				Modules: [
-					{
-						Name: "Lcheek", Key: "c",
-						Options: [{}, {}, ] // n,y
-					},
-					{
-						Name: "Rcheek", Key: "r",
-						Options: [{}, {}, ] // y,n
-					},
-					{
-						Name: "Rfhead", Key: "f",
-						Options: [{}, {}, ] // n,y
-					},
-					{
-						Name: "Rneck", Key: "n",
-						Options: [{}, {}, ] // n,y
-					},
-					{
-						Name: "Lneck", Key: "l",
-						Options: [{}, {}, ] // n,y
-					},
-				]
-			}
+			    Dialog: {
+                    Select: "ClothAccessoryKissmarkSelect",
+                    ModulePrefix: "ClothAccessoryKissmarkModule",
+                    OptionPrefix: "ClothAccessoryKissmarkOption",
+					ChatPrefix: "ClothAccessoryKissmarkSet",
+				},
+			},
 		}, //KissMark
 	}, // Mask
 	ItemLegs: {
