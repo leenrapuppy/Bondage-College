@@ -245,6 +245,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 
 		// Items that require access to a certain character's zone
 		case "AccessMouth": return C.IsMouthBlocked() ? "CannotBeUsedOverGag" : "";
+		case "BlockedMouth": return !C.IsMouthBlocked() ? "MustBeUsedOverGag" : "";
 		case "HoodEmpty": return InventoryGet(C, "ItemHood") ? "CannotBeUsedOverMask" : "";
 		case "EyesEmpty": return InventoryGet(C, "ItemHead") ? "CannotBeUsedOverHood" : "";
 
