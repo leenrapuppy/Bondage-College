@@ -136,6 +136,8 @@ Button Shirt
 Рубашка на пуговицах
 Slave Rags
 Тряпки раба
+Cropped Hoodie
+Короткая толстовка
 Cloth Accessory
 Аксессуар для верха
 Student Scarf
@@ -170,10 +172,16 @@ Glitter
 Веснушки
 Head Harness
 Сбруя для головы
+Festival Fox Mask
+Фестивальная маска лисы
+Jewelry
+Ювелирные изделия
 Catsuit Collar
 Ошейник от Кэтсьюта
 Poncho
 Пончо
+Piercing Set
+Набор для пирсинга
 Necklace
 Для шеи
 Fancy Necklace
@@ -228,6 +236,8 @@ Reverse Bunny Suit
 Обратный костюм кролика
 Slim Latex Leotard (Sleeveless)
 Тонкий латексный купальник (без рукавов)
+Dominatrix Leotard
+Купальник Госпожи
 Male Seamless Catsuit
 Мужской бесшовный кэтсьют
 Bottom
@@ -562,6 +572,10 @@ Cow Printed Socks
 Чулки с коровьим принтом
 Harem Stockings
 Гаремные Чулки
+Right Leg
+Правая нога
+Left Leg
+Левая нога
 Anklet (Right)
 Ножной браслет (справа)
 Band Anklet
@@ -1281,6 +1295,12 @@ Default
 По умолчанию
 Head
 Голова
+Regular Ears
+Обычные уши
+Small Ears
+Маленькие уши
+Subtle Ears
+Утонченные уши
 Feet
 Ступни
 Nylon Rope
@@ -1583,6 +1603,8 @@ Locking Swimsuit 2
 Запирающийся купальник 2
 Leather Chest Harness 1
 Кожаный нагрудный ремень 1
+Navel Bar
+Пирсинг пупка
 Nipples
 Соски
 Nipple Clamps
@@ -2499,6 +2521,8 @@ Lucky Wheel
 Колесо удачи
 Wheel of Fortune
 Колесо Фортуны
+Folding Screen
+Раскладная ширма
 Blanket
 Одеяло
 Bed Ropes

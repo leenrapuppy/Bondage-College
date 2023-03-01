@@ -192,6 +192,8 @@ Polish Toenails
 Полировать ногти ног
 Bite Foot
 Укусить ступню
+Caress Feet
+Ласкать ступню
 Wiggle Feet
 Шевелить ступнями
 Touch Foot with Gag
@@ -854,6 +856,8 @@ SourceCharacter cleans and polishes PronounPossessive toenails.
 SourceCharacter чистит и полирует ногти на своих ступнях.
 SourceCharacter bites PronounPossessive foot.
 SourceCharacter кусает себя за ступню.
+SourceCharacter caresses PronounPossessive feet.
+SourceCharacter ласкает свою ступню.
 SourceCharacter wiggles PronounPossessive feet.
 SourceCharacter шевелит своими ступнями.
 SourceCharacter rubs PronounPossessive own feet with PronounPossessive UsedAsset.
@@ -870,6 +874,8 @@ SourceCharacter shocks PronounPossessive own feet with PronounPossessive UsedAss
 SourceCharacter шокирует свою ступню с помощью UsedAsset.
 SourceCharacter bites TargetCharacter's foot.
 SourceCharacter кусает TargetCharacter's за ступню.
+SourceCharacter caresses TargetCharacter's feet.
+SourceCharacter ласкает ступню TargetCharacter.
 SourceCharacter kisses TargetCharacter's foot.
 SourceCharacter целует ступню TargetCharacter's .
 SourceCharacter gives a small and polite kiss on TargetCharacter's foot.
