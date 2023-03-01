@@ -2571,7 +2571,7 @@ var AssetFemale3DCG = [
 				],
 			}, //HeadHarness
 			{
-				Name: "FestivalFoxMask", Fetish: ["Pet"], BuyGroup: "FestivalFoxMask", Value: 30, Left: 150, Top: 20, HasType: false, DynamicGroupName: "ItemHood",
+				Name: "FestivalFoxMask", Fetish: ["Pet"], BuyGroup: "FestivalFoxMask", Value: -1, Left: 150, Top: 20, HasType: false, DynamicGroupName: "ItemHood",
 				Tint: [{ Color: 2, Strength: 0.2 }],
 				Layer: [
 					{ Name: "Base" },
