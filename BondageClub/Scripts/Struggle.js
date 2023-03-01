@@ -31,6 +31,10 @@ var StruggleProgressSkill = 0;
 var StruggleProgressLastKeyPress = 0;
 var StruggleProgressChallenge = 0;
 
+var StruggleLoosenSpeed = 400; // Higher number gives slower spin speed
+var StruggleLoosenAngle = 0;
+var StruggleLoosenHoleAngle = Math.PI; // 6.28 for a full 360 circle
+
 /**
  * The struggle minigame progress
  *
@@ -470,13 +474,10 @@ Game description: Mash A and S until you get out
  * @returns {void} - Nothing
  */
 function StruggleStrengthSetup(C, PrevItem, NextItem) {
-
 	const StruggleDiff = StruggleStrengthGetDifficulty(C, PrevItem, NextItem);
-
 	StruggleProgressAuto = StruggleDiff.auto;  // S: -9 is floor level to always give a false hope
 	StruggleProgressSkill = StruggleDiff.timer;
 	StruggleProgressChallenge = StruggleDiff.difficulty * -1;
-
 	StruggleProgressLastKeyPress = 0;
 }
 
@@ -528,9 +529,7 @@ function StruggleStrengthHandleEvent(EventType) {
 		if (CommonIsMobile) StruggleStrengthProcess();
 
 		// If we must enter the loosen mini-game
-		if (StruggleAllowLoosen())
-			if (MouseIn(1300, 880, 400, 65) && (StruggleProgressCurrentMinigame == "Strength"))
-				StruggleProgressCurrentMinigame = "Loosen";
+		if (MouseIn(1300, 880, 400, 65) && StruggleAllowLoosen()) StruggleLoosenSetup();
 
 	}
 }
@@ -623,16 +622,36 @@ function StruggleStrengthGetDifficulty(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleLoosenDraw(C) {
+
+	// Draws the mini-game circles
+	DrawImage("Screens/MiniGame/ChestLockpick/Circle.png", 1200, 150);
+	DrawImage("Screens/MiniGame/ChestLockpick/Hole.png", 1500 - 35 + Math.sin(StruggleLoosenHoleAngle) * 260, 450 - 35 + Math.cos(StruggleLoosenHoleAngle) * 260);
+	DrawImage("Screens/MiniGame/ChestLockpick/Lockpick.png", 1500 - 35 + Math.sin(StruggleLoosenAngle) * 260, 450 - 35 + Math.cos(StruggleLoosenAngle) * 260);
+
+	// Draw the number of spins left and game instructions
+	DrawText(StruggleProgressPrevItem.Asset.Description, 1500, 70, "White", "Black");
+	MainCanvas.font = CommonGetFont(300);
+	DrawText(StruggleProgressStruggleCount.toString(), 1500, 470, "White", "Black");
+	MainCanvas.font = CommonGetFont(36);
+	DrawText(DialogFindPlayer("LoosenPossible"), 1500, 850, "White", "Black");
+	DrawText(DialogFindPlayer("LoosenClick"), 1500, 930, "White", "Black");
+
+	// Spins the angle, from clockwise to counter, according to the mini-game challenge
+	if (StruggleProgressStruggleCount % 2 == 0) StruggleLoosenAngle = StruggleLoosenAngle + (TimerRunInterval / StruggleLoosenSpeed);
+	else StruggleLoosenAngle = StruggleLoosenAngle - (TimerRunInterval / StruggleLoosenSpeed);
+
 }
 
 /**
  * Loosen minigame main setup.
-* @param {Character} C - The character who tries to struggle
-* @param {Item} PrevItem - The item, the character wants to struggle out of
-* @param {Item} [NextItem] - The item that should substitute the first one
 * @returns {void} - Nothing
 */
-function StruggleLoosenSetup(C, PrevItem, NextItem) {
+function StruggleLoosenSetup() {
+	StruggleProgressCurrentMinigame = "Loosen";
+	StruggleLoosenAngle = 0; // Starting angle for the circle
+	StruggleLoosenHoleAngle = Math.PI; // 6.28 for a full 360 circle
+	StruggleLoosenSpeed = 400; // Higher number gives slower spin speed
+	StruggleProgressStruggleCount = StruggleProgressChallenge;
 }
 
 /**
@@ -641,6 +660,36 @@ function StruggleLoosenSetup(C, PrevItem, NextItem) {
  * @returns {void}
  */
 function StruggleLoosenHandleEvent(EventType) {
+
+	// When clicking in the mini-game, we check if it was close enough to the hole for a success
+	if ((EventType === "Click") || ((EventType === "KeyDown") && (KeyPress == 32))) {
+		if (StruggleProgressStruggleCount > 0) {
+			let Diff = Math.abs(StruggleLoosenHoleAngle - StruggleLoosenAngle) % (Math.PI * 2);
+			if ((Diff > 0.26) && (Diff < (Math.PI * 2) - 0.26)) {
+				StruggleLoosenSetup();
+			} else {
+				StruggleProgressStruggleCount--;
+				if (StruggleProgressStruggleCount <= 0) {
+					SkillProgress("Evasion", (StruggleProgressChallenge + 1) * 5);
+					if (StruggleProgressPrevItem.Difficulty == null) StruggleProgressPrevItem.Difficulty = 0;
+					StruggleProgressPrevItem.Difficulty = StruggleProgressPrevItem.Difficulty - 2;
+					CharacterRefresh(Player);
+					if (CurrentScreen == "ChatRoom") {
+						ChatRoomCharacterUpdate(Player);
+						ChatRoomPublishAction(Player, "ActionLoosenStruggle", StruggleProgressPrevItem, null);
+						DialogLeave();
+					} else {
+						StruggleMinigameStop();
+					}
+				} else {
+					StruggleLoosenSpeed = StruggleLoosenSpeed * 0.95;
+					StruggleLoosenHoleAngle = StruggleLoosenHoleAngle + Math.PI / 2 + Math.random() * Math.PI;
+				}
+			}
+		}
+
+	}
+
 }
 
 ////////////////////////////STRUGGLE MINIGAME: USE FLEXIBILITY//////////////////////////////
@@ -810,9 +859,7 @@ function StruggleFlexibilityHandleEvent(EventType) {
 		StruggleFlexibilityProcess();
 
 		// If we must enter the loosen mini-game
-		if (StruggleAllowLoosen())
-			if (MouseIn(1300, 925, 400, 65) && (StruggleProgressCurrentMinigame == "Flexibility"))
-				StruggleProgressCurrentMinigame = "Loosen";
+		if (MouseIn(1300, 925, 400, 65) && StruggleAllowLoosen()) StruggleLoosenSetup();
 
 	}
 
@@ -987,9 +1034,7 @@ function StruggleDexterityHandleEvent(EventType) {
 		StruggleDexterityProcess();
 
 		// If we must enter the loosen mini-game
-		if (StruggleAllowLoosen())
-			if (MouseIn(1300, 925, 400, 65) && (StruggleProgressCurrentMinigame == "Dexterity"))
-				StruggleProgressCurrentMinigame = "Loosen";
+		if (MouseIn(1300, 925, 400, 65) && StruggleAllowLoosen()) StruggleLoosenSetup();
 
 	}
 }
