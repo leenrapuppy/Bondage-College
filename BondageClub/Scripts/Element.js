@@ -136,7 +136,7 @@ function ElementCreateRangeInput(id, value, min, max, step, thumbIcon, vertical)
  * - Multiple selects are impossible
  * @param {string} ID - The name of the select item. The outer div will get this name, for positioning. The select
  * tag will get the name ID+"-select"
- * @param {string[]} Options - The list of options for the current select statement
+ * @param {readonly string[]} Options - The list of options for the current select statement
  * @param {EventListenerOrEventListenerObject} [ClickEventListener=null] - An event listener to be called, when the value of the drop down box changes
  * @returns {void} - Nothing
  */

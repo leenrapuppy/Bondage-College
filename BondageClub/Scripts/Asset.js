@@ -7,11 +7,11 @@ var Asset = [];
 var AssetGroup = [];
 /** @type {Map<string, Asset>} */
 var AssetMap = new Map();
-/** @type {Map<string, AssetGroup>} */
+/** @type {Map<AssetGroupName, AssetGroup>} */
 var AssetGroupMap = new Map();
 /** @type {Pose[]} */
 var Pose = [];
-/** @type {Map<string, AssetGroup[]>} */
+/** @type {Map<AssetGroupName, AssetGroup[]>} */
 var AssetActivityMirrorGroups = new Map();
 
 /**
@@ -56,7 +56,7 @@ function AssetGroupAdd(Family, GroupDef) {
 		DrawingTop: (GroupDef.Top == null) ? 0 : GroupDef.Top,
 		DrawingFullAlpha: (GroupDef.FullAlpha == null) ? true : GroupDef.FullAlpha,
 		DrawingBlink: (GroupDef.Blink == null) ? false : GroupDef.Blink,
-		InheritColor: (typeof GroupDef.InheritColor === "string" ? GroupDef.InheritColor : undefined),
+		InheritColor: (typeof GroupDef.InheritColor === "string" ? GroupDef.InheritColor : null),
 		FreezeActivePose: Array.isArray(GroupDef.FreezeActivePose) ? GroupDef.FreezeActivePose : [],
 		PreviewZone: GroupDef.PreviewZone,
 		DynamicGroupName: GroupDef.DynamicGroupName || GroupDef.Group,
@@ -64,6 +64,9 @@ function AssetGroupAdd(Family, GroupDef) {
 		ColorSuffix: GroupDef.ColorSuffix,
 		ExpressionPrerequisite: GroupDef.ExpressionPrerequisite || [],
 		HasPreviewImages: typeof GroupDef.HasPreviewImages === "boolean" ? GroupDef.HasPreviewImages : AllowNone,
+		IsAppearance() { return this.Category === "Appearance"; },
+		IsItem() { return this.Category === "Item"; },
+		IsScript() { return this.Category === "Script"; },
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetActivityMirrorGroupSet(A);
@@ -226,6 +229,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 	AssetAssignColorIndices(A);
 	// Unwearable assets are not visible but can be overwritten
 	if (!A.Wear && AssetDef.Visible != true) A.Visible = false;
+	// @ts-ignore: ignore `readonly` while still building the group properties
 	Group.Asset.push(A);
 	AssetMap.set(Group.Name + "/" + A.Name, A);
 	Asset.push(A);
@@ -283,7 +287,7 @@ function AssetBuildExtended(A, ExtendedConfig) {
 /**
  * Finds the extended item configuration for the provided group and asset name, if any exists
  * @param {ExtendedItemConfig} ExtendedConfig - The full extended item configuration object
- * @param {string} GroupName - The name of the asset group to find extended configuration for
+ * @param {AssetGroupName} GroupName - The name of the asset group to find extended configuration for
  * @param {string} AssetName - The name of the asset to find extended configuration fo
  * @returns {AssetArchetypeConfig | undefined} - The extended asset configuration object for the specified asset, if
  * any exists, or undefined otherwise
@@ -522,7 +526,7 @@ function AssetLoadDescription(Family) {
 
 /**
  * Loads a specific asset file
- * @param {AssetGroupDefinition[]} Groups
+ * @param {readonly AssetGroupDefinition[]} Groups
  * @param {IAssetFamily} Family
  * @param {ExtendedItemConfig} ExtendedConfig
  */
@@ -558,8 +562,8 @@ function AssetLoadAll() {
 
 /**
  * Gets a specific asset by family/group/name
- * @param {string} Family - The family to search in (Ignored until other family is added)
- * @param {string} Group - Name of the group of the searched asset
+ * @param {IAssetFamily} Family - The family to search in (Ignored until other family is added)
+ * @param {AssetGroupName} Group - Name of the group of the searched asset
  * @param {string} Name - Name of the searched asset
  * @returns {Asset|null}
  */
@@ -569,7 +573,7 @@ function AssetGet(Family, Group, Name) {
 
 /**
  * Gets all activities on a family and name
- * @param {string} family - The family to search in
+ * @param {IAssetFamily} family - The family to search in
  * @returns {Activity[]}
  */
 function AssetAllActivities(family) {
@@ -580,7 +584,7 @@ function AssetAllActivities(family) {
 
 /**
  * Gets an activity asset by family and name
- * @param {string} family - The family to search in
+ * @param {IAssetFamily} family - The family to search in
  * @param {string} name - Name of activity to search for
  * @returns {Activity|undefined}
  */
@@ -594,8 +598,8 @@ function AssetGetActivity(family, name) {
  * @description Note that this just returns activities as defined, no checks are
  * actually done on whether the activity makes sense.
  *
- * @param {string} family
- * @param {string} groupname
+ * @param {IAssetFamily} family
+ * @param {AssetGroupName} groupname
  * @param {"self" | "other" | "any"} onSelf
  * @returns {Activity[]}
  */
@@ -624,8 +628,8 @@ function AssetActivitiesForGroup(family, groupname, onSelf = "other") {
 
 /**
  * Cleans the given array of assets of any items that no longer exists
- * @param {ItemPermissions[]} AssetArray - The arrays of items to clean
- * @returns The cleaned up array
+ * @param {readonly ItemPermissions[]} AssetArray - The arrays of items to clean
+ * @returns {ItemPermissions[]} - The cleaned up array
  */
 function AssetCleanArray(AssetArray) {
 	return AssetArray.filter(({ Group, Name }) => AssetGet('Female3DCG', Group, Name) != null);
@@ -633,8 +637,8 @@ function AssetCleanArray(AssetArray) {
 
 /**
  * Gets an asset group by the asset family name and group name
- * @param {string} Family - The asset family that the group belongs to (Ignored until other family is added)
- * @param {string} Group - The name of the asset group to find
+ * @param {IAssetFamily} Family - The asset family that the group belongs to (Ignored until other family is added)
+ * @param {AssetGroupName} Group - The name of the asset group to find
  * @returns {AssetGroup|null} - The asset group matching the provided family and group name
  */
 function AssetGroupGet(Family, Group) {
@@ -662,6 +666,7 @@ function AssetGetInventoryPath(A) {
 
 /**
  * Sort a list of asset layers for the {@link Character.AppearanceLayers } property.
+ * Performs an inplace update of the passed array and then returns it.
  * @param {AssetLayer[]} layers - The to-be sorted asset layers
  * @returns {AssetLayer[]} - The newly sorted asset layers
  */

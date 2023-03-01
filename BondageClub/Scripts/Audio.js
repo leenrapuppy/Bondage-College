@@ -470,7 +470,7 @@ function AudioPlaySoundForAsset(character, asset) {
  * Get the sound effect for a given asset.
  *
  * @param {Character} character
- * @param {string} groupName
+ * @param {AssetGroupName} groupName
  * @param {string} assetName
  * @returns {AudioSoundEffect?}
  */

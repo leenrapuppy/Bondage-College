@@ -45,15 +45,15 @@ var CharacterType = {
 /**
  * Loads a character into the buffer, creates it if it does not exist
  * @param {number} CharacterID - ID of the character
- * @param {string} CharacterAssetFamily - Name of the asset family of the character
+ * @param {IAssetFamily} CharacterAssetFamily - Name of the asset family of the character
  * @param {CharacterType} [Type=CharacterType.ONLINE] - The character type
  * @returns {Character} - The newly loaded character
  */
 function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.ONLINE) {
-
 	// Prepares the character sheet
 	/** @type {Character} */
 	var NewCharacter = {
+		ActivePose: [],
 		ID: CharacterID,
 		Hooks: null,
 		Name: "",
@@ -452,7 +452,7 @@ function CharacterRandomName(C) {
 /**
  * Builds the dialog objects from the character CSV file
  * @param {Character} C - Character for which to build the dialog
- * @param {string[][]} CSV - Content of the CSV file
+ * @param {readonly string[][]} CSV - Content of the CSV file
  * @returns {void} - Nothing
  */
 function CharacterBuildDialog(C, CSV) {
@@ -542,7 +542,7 @@ function CharacterLoadCSVDialog(C, Override) {
 /**
  * Sets the clothes based on a character archetype
  * @param {Character} C - Character to set the clothes for
- * @param {string} Archetype - Archetype to determine the clothes to put on
+ * @param {"Maid" | "Mistress" | "Employee"} Archetype - Archetype to determine the clothes to put on
  * @param {string} [ForceColor] - Color to use for the added clothes
  * @returns {void} - Nothing
  */
@@ -846,7 +846,7 @@ function CharacterDeleteAllOnline() {
 /**
  * Adds a pose to a character's pose list, does not add it if it's already there
  * @param {Character} C - Character for which to add a pose to its list
- * @param {AssetPoseName[]} NewPose - The name of the pose to add
+ * @param {readonly AssetPoseName[]} NewPose - The name of the pose to add
  * @returns {void} - Nothing
  */
 function CharacterAddPose(C, NewPose) {
@@ -1017,7 +1017,7 @@ function CharacterLoadAttributes(C) {
 /**
  * Returns a list of effects for a character from some or all groups
  * @param {Character} C - The character to check
- * @param {AssetGroupName[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
+ * @param {readonly AssetGroupName[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
  * @param {boolean} [AllowDuplicates=false] - Optional: If true, keep duplicates of the same effect provided they're taken from different groups
  * @returns {EffectName[]} - A list of effects
  */
@@ -1466,7 +1466,7 @@ function CharacterFullRandomRestrain(C, Ratio, Refresh) {
  */
 function CharacterSetActivePose(C, NewPose, ForceChange = false) {
 	if (NewPose == null || ForceChange || C.ActivePose == null) {
-		C.ActivePose = NewPose;
+		C.ActivePose = [NewPose];
 		CharacterRefresh(C, false);
 		return;
 	}
@@ -1499,7 +1499,7 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
  * Be careful that "Eyes" for this function means both eyes. Use Eyes1/Eyes2 to target the left or right one only.
  *
  * @param {Character} C - Character for which to set the expression of
- * @param {AssetGroupName | "Eyes1"} AssetGroup - Asset group for the expression
+ * @param {AssetGroupBodyName | "Eyes1"} AssetGroup - Asset group for the expression
  * @param {string} Expression - Name of the expression to use
  * @param {number} [Timer] - Optional: time the expression will last
  * @param {string|string[]} [Color] - Optional: color of the expression to set
@@ -1540,9 +1540,12 @@ function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer, Color) {
  * @returns {void} - Nothing
  */
 function CharacterResetFacialExpression(C) {
-	for (let A = 0; A < C.Appearance.length; A++)
-		if (C.Appearance[A].Asset.Group.AllowExpression)
-			CharacterSetFacialExpression(C, C.Appearance[A].Asset.Group.Name, null);
+	for (const item of C.Appearance) {
+		const group = item.Asset.Group;
+		if (group.IsAppearance() && group.AllowExpression) {
+			CharacterSetFacialExpression(C, group.Name, null);
+		}
+	}
 }
 
 /**

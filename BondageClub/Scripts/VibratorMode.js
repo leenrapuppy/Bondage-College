@@ -294,8 +294,10 @@ function VibratorModeSetAssetProperties(data) {
  */
 function VibratorModeSetAllowEffect({asset, options}) {
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? [...asset.AllowEffect] : [];
+	// @ts-ignore: ignore `readonly` while still building the asset
 	CommonArrayConcatDedupe(asset.AllowEffect, ["Egged", "Vibrating"]);
 	if (options.includes(VibratorModeSet.ADVANCED)) {
+		// @ts-ignore: ignore `readonly` while still building the asset
 		CommonArrayConcatDedupe(asset.AllowEffect, ["Edged"]);
 	}
 }
@@ -307,12 +309,13 @@ function VibratorModeSetAllowEffect({asset, options}) {
  */
 function VibratorModeSetEffect({asset}) {
 	asset.Effect = Array.isArray(asset.Effect) ? [...asset.Effect] : [];
+	// @ts-ignore: ignore `readonly` while still building the asset
 	CommonArrayConcatDedupe(asset.Effect, ["Egged"]);
 }
 
 /**
  * Common load function for vibrators
- * @param {VibratorModeSet[]} [Options] - The vibrator mode sets to load the item with
+ * @param {readonly VibratorModeSet[]} [Options] - The vibrator mode sets to load the item with
  * @returns {void} - Nothing
  */
 function VibratorModeLoad(Options) {
@@ -331,7 +334,7 @@ function VibratorModeLoad(Options) {
 
 /**
  * Common draw function for vibrators
- * @param {VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
@@ -342,7 +345,7 @@ function VibratorModeDraw(Options, Y=450) {
 
 /**
  * Common draw function for drawing the control sets of the extended item menu screen for a vibrator
- * @param {VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
@@ -368,7 +371,7 @@ function VibratorModeDrawControls(Options, Y=450) {
 
 /**
  * Common click function for vibrators
- * @param {VibratorModeSet[]} Options - The vibrator mode sets for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets for the item
  * @param {number} [Y] - The y-coordinate at which the extended item controls were drawn
  * @returns {void} - Nothing
  */
@@ -594,7 +597,7 @@ function VibratorModeUpdateEdge(Item, C, PersistentData) {
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
  * @param {object} PersistentData - Persistent animation data for the item
- * @param {VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
+ * @param {readonly VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
  * the default state
  * @returns {void} - Nothing
  */
@@ -637,7 +640,7 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
  * @param {number} Arousal - The current arousal of the character
  * @param {number} TimeSinceLastChange - The time in milliseconds since the vibrator intensity was last changed
  * @param {VibratorIntensity} OldIntensity - The current intensity of the vibrating item
- * @param {VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
+ * @param {readonly VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
  * the default state
  * @returns {StateAndIntensity} - The updated state and intensity of the vibrator
  */

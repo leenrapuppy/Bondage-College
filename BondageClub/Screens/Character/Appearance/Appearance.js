@@ -148,7 +148,7 @@ function CharacterAppearanceSetDefault(C) {
 /**
  * Checks wether an item group is required for this asset
  * @param {Character} C - The character, whose assets are used for the check
- * @param {string} GroupName - The name of the group to check
+ * @param {AssetGroupBodyName} GroupName - The name of the group to check
  * @returns {boolean} - Returns TRUE if the item group is required from
  */
 function CharacterAppearanceRequired(C, GroupName) {
@@ -194,7 +194,7 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 	// For each item group (non default items only show at a 8% rate, if it can occasionally happen)
 	for (let A = 0; A < assetGroupList.length; A++) {
 		const group = assetGroupList[A];
-		if ((group.Category == "Appearance") && (group.IsDefault || (group.Random && Math.random() < 0.08) || CharacterAppearanceRequired(C, group.Name)) && (!CharacterAppearanceMustHide(C, group.Name) || !group.AllowNone) && (CharacterAppearanceGetCurrentValue(C, group.Name, "Name") == "None") && AppearanceGroupAllowed(C, group.Name)) {
+		if (group.IsAppearance() && (group.IsDefault || (group.Random && Math.random() < 0.08) || CharacterAppearanceRequired(C, group.Name)) && (!CharacterAppearanceMustHide(C, group.Name) || !group.AllowNone) && (CharacterAppearanceGetCurrentValue(C, group.Name, "Name") == "None") && AppearanceGroupAllowed(C, group.Name)) {
 
 			// Get the parent size
 			var ParentSize = "";
@@ -1031,7 +1031,7 @@ function CharacterAppearanceNextItem(C, Group, Forward) {
 /**
  * Find the next color for the item
  * @param {Character} C - The character whose items are cycled
- * @param {string} Group - The name of the group for which we are color cycling
+ * @param {AssetGroupName} Group - The name of the group for which we are color cycling
  * @returns {void} - Nothing
  */
 function CharacterAppearanceNextColor(C, Group) {

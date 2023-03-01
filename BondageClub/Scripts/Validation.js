@@ -98,9 +98,10 @@ function ValidationResolveAppearanceDiff(groupName, previousItem, newItem, param
 
 /**
  * Check whether newArray is different from oldArray.
- * @param {any[]} oldArray
- * @param {any[]} newArray
- * @returns
+ * @template T
+ * @param {T[]} oldArray
+ * @param {T[]} newArray
+ * @returns {boolean}
  */
 function ValidationHasArrayPropertyBeenModified(oldArray, newArray) {
 	if (!oldArray && !newArray) {
@@ -130,6 +131,7 @@ function ValidationResolveScriptDiff(previousItem, newItem, {C, permissions, sou
 
 	const previousProperty = (previousItem && previousItem.Property) || {};
 	const newProperty = (newItem && newItem.Property) || {};
+	/** @type {ItemProperties} */
 	const sanitizedProperty = {};
 
 	/** @type {(keyof ItemProperties)[]} */
@@ -540,7 +542,7 @@ function ValidationCanAddItem(newItem, params) {
  * against the target character's limited and blocked item lists, not their global item permissions.
  * @param {Character} C - The target character
  * @param {number} sourceMemberNumber - The member number of the source character
- * @param {string} groupName - The name of the asset group for the intended item
+ * @param {AssetGroupName} groupName - The name of the asset group for the intended item
  * @param {string} assetName - The asset name of the intended item
  * @param {string|null} [type] - The type of the intended item
  * @returns {boolean} - TRUE if the character with the provided source member number is _not_ allowed to equip the
@@ -1135,7 +1137,7 @@ function ValidationFindBlockCycles(appearance) {
 /**
  * Finds the groups, from a provided list of groups, that are blocked by a given item.
  * @param {Item} item - The item to check
- * @param {AssetGroupName[]} groupNames - A list of group names that should be used to filter the final block list
+ * @param {readonly AssetGroupName[]} groupNames - A list of group names that should be used to filter the final block list
  * @returns {AssetGroupName[]} - A subset of the provided group names representing the groups that are blocked by the given
  * item.
  */
@@ -1212,7 +1214,7 @@ function ValidationHasScriptPermission(character, property, permissionLevel) {
  * Checks whether a character permits any of the given permission levels to modify the given item property.
  * @param {Character} character - The character to check
  * @param {ScriptPermissionProperty} property - The name of the property to check
- * @param {ScriptPermissionLevel[]} permissionLevels - The permission levels to check
+ * @param {readonly ScriptPermissionLevel[]} permissionLevels - The permission levels to check
  * @returns {boolean} TRUE if the character permits modifications to the provided property
  */
 function ValidationHasSomeScriptPermission(character, property, permissionLevels) {

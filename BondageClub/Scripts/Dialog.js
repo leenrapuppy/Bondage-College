@@ -212,7 +212,7 @@ function DialogChangeMoney(Amount) { CharacterChangeMoney(Player, parseInt(Amoun
 
 /**
  * Alters the current player's reputation by a given amount
- * @param {string} RepType - The name of the reputation to change
+ * @param {ReputationType} RepType - The name of the reputation to change
  * @param {number|string} Value - The value, the player's reputation should be altered by
  * @returns {void} - Nothing
  */
@@ -220,7 +220,7 @@ function DialogSetReputation(RepType, Value) { ReputationChange(RepType, (parseI
 
 /**
  * Change the player's reputation progressively through dialog options (a reputation is easier to break than to build)
- * @param {string} RepType - The name of the reputation to change
+ * @param {ReputationType} RepType - The name of the reputation to change
  * @param {number|string} Value - The value, the player's reputation should be altered by
  * @returns {void} - Nothing
  */
@@ -229,21 +229,21 @@ function DialogChangeReputation(RepType, Value) { ReputationProgress(RepType, Va
 /**
  * Equips a specific item on the player from dialog
  * @param {string} AssetName - The name of the asset that should be equipped
- * @param {string} AssetGroup - The name of the corresponding asset group
+ * @param {AssetGroupName} AssetGroup - The name of the corresponding asset group
  * @returns {void} - Nothing
  */
 function DialogWearItem(AssetName, AssetGroup) { InventoryWear(Player, AssetName, /** @type {AssetGroupName} */(AssetGroup)); }
 
 /**
  * Equips a random item from a given group to the player from dialog
- * @param {string} AssetGroup - The name of the asset group to pick from
+ * @param {AssetGroupName} AssetGroup - The name of the asset group to pick from
  * @returns {void} - Nothing
  */
 function DialogWearRandomItem(AssetGroup) { InventoryWearRandom(Player, /** @type {AssetGroupName} */(AssetGroup)); }
 
 /**
  * Removes an item of a specific item group from the player
- * @param {string} AssetGroup - The item to be removed belongs to this asset group
+ * @param {AssetGroupName} AssetGroup - The item to be removed belongs to this asset group
  * @returns {void} - Nothing
  */
 function DialogRemoveItem(AssetGroup) { InventoryRemove(Player, /** @type {AssetGroupName} */(AssetGroup)); }
@@ -358,15 +358,15 @@ function DialogCanInteract(C) { return DialogGetCharacter(C).CanInteract(); }
  * Sets a new pose for the given character
  * @param {string} C - The character whose pose should be altered.
  * Either the player (value: Player) or the current character (value: CurrentCharacter)
- * @param {AssetPoseName} [NewPose=null] - The new pose, the character should take.
+ * @param {null | AssetPoseName} [NewPose=null] - The new pose, the character should take.
  * Can be omitted to bring the character back to the standing position.
  * @returns {void} - Nothing
  */
-function DialogSetPose(C, NewPose) { CharacterSetActivePose((C.toUpperCase().trim() == "PLAYER") ? Player : CurrentCharacter, ((NewPose != null) && (NewPose != "")) ? NewPose : null, true); }
+function DialogSetPose(C, NewPose) { CharacterSetActivePose((C.toUpperCase().trim() == "PLAYER") ? Player : CurrentCharacter, NewPose ?? null, true); }
 
 /**
  * Checks, whether a given skill of the player is greater or equal a given value
- * @param {string} SkillType - Name of the skill to check
+ * @param {SkillType} SkillType - Name of the skill to check
  * @param {string} Value - The value, the given skill must be compared to
  * @returns {boolean} - Returns true if a specific skill is greater or equal than a given value
  */
@@ -375,10 +375,10 @@ function DialogSkillGreater(SkillType, Value) { return (parseInt(SkillGetLevel(P
 /**
  * Checks, if a given item is available in the player's inventory
  * @param {string} InventoryName
- * @param {string} InventoryGroup
+ * @param {AssetGroupName} InventoryGroup
  * @returns {boolean} - Returns true, if the item is available, false otherwise
  */
-function DialogInventoryAvailable(InventoryName, InventoryGroup) { return InventoryAvailable(Player, InventoryName, /** @type {AssetGroupName} */(InventoryGroup)); }
+function DialogInventoryAvailable(InventoryName, InventoryGroup) { return InventoryAvailable(Player, InventoryName, InventoryGroup); }
 
 /**
  * Checks, if the player is the administrator of the current chat room
@@ -644,13 +644,13 @@ function DialogRemove() {
 
 /**
  * Generic dialog function to remove any dialog from a specific group
- * @param {string} GroupName - All dialog options are removed from this group
+ * @param {AssetGroupName} GroupName - All dialog options are removed from this group
  * @returns {void} - Nothing
  */
 function DialogRemoveGroup(GroupName) {
-	GroupName = GroupName.trim().toUpperCase();
+	const GroupNameUpper = GroupName.trim().toUpperCase();
 	for (let D = CurrentCharacter.Dialog.length - 1; D >= 0; D--)
-		if ((CurrentCharacter.Dialog[D].Group != null) && (CurrentCharacter.Dialog[D].Group.trim().toUpperCase() == GroupName)) {
+		if ((CurrentCharacter.Dialog[D].Group != null) && (CurrentCharacter.Dialog[D].Group.trim().toUpperCase() == GroupNameUpper)) {
 			CurrentCharacter.Dialog.splice(D, 1);
 		}
 }
@@ -953,7 +953,7 @@ function DialogCanColor(C, Item) {
 
 /**
  * Checks whether a lock can be inspected while blind.
- * @param {string} lockName - The lock type
+ * @param {AssetLockType} lockName - The lock type
  * @returns {boolean}
  */
 function DialogCanInspectLockWhileBlind(lockName) {
@@ -1034,7 +1034,7 @@ function DialogMenuButtonBuild(C) {
 							break;
 						}
 			}
-			if (Lock && (!Player.IsBlind() || DialogCanInspectLockWhileBlind(Lock.Asset.Name))) {
+			if (Lock && (!Player.IsBlind() || DialogCanInspectLockWhileBlind(/** @type {AssetLockType} */(Lock.Asset.Name)))) {
 				DialogMenuButton.push(LockBlockedOrLimited ? "InspectLockDisabled" : "InspectLock");
 			}
 
@@ -1064,8 +1064,8 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.push("Remove");
 
 			if (
-				IsItemLocked &&
-				(
+				IsItemLocked
+				&& (
 					(
 						!Player.IsBlind() ||
 						(Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy))
@@ -1080,10 +1080,8 @@ function DialogMenuButtonBuild(C) {
 						C.ID == 0 ||
 						(C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)
 					)
-				) &&
-				(Item.Property != null) &&
-				(Item.Property.LockedBy != null) &&
-				(Item.Property.LockedBy != "")
+				)
+				&& Item.Property?.LockedBy
 			) {
 				DialogMenuButton.push("LockMenu");
 			}
@@ -1218,7 +1216,7 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 					if ((CurItem == null) || (CurItem.Asset.Name != A.Name) || (CurItem.Asset.Group.Name != A.Group.Name))
 						DialogInventoryAdd(Player, { Asset: A }, false, DialogSortOrder.Enabled);
 				} else if (A.IsLock) {
-					const LockIsWorn = InventoryCharacterIsWearingLock(C, A.Name);
+					const LockIsWorn = InventoryCharacterIsWearingLock(C, /** @type {AssetLockType} */(A.Name));
 					DialogInventoryAdd(Player, { Asset: A }, LockIsWorn, DialogSortOrder.Enabled);
 				}
 			}
@@ -1297,10 +1295,9 @@ function DialogFacialExpressionsBuild() {
 	DialogFacialExpressions = [];
 	for (let I = 0; I < Player.Appearance.length; I++) {
 		const PA = Player.Appearance[I];
-		let ExpressionList = PA.Asset.Group.AllowExpression;
-		if (!ExpressionList || !ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
+		const ExpressionList = [...(PA.Asset.Group.AllowExpression ?? [])];
+		if (!ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
 		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
-		ExpressionList = ExpressionList.slice();
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);
 		const Item = {};
 		Item.Appearance = PA;
@@ -1335,10 +1332,9 @@ function DialogFacialExpressionsSave(Slot) {
  * @param {number} Slot - Index of saved expression (0 to 4)
  */
 function DialogFacialExpressionsLoad(Slot) {
-	if (Player.SavedExpressions[Slot] != null) {
-		for (let x = 0; x < Player.SavedExpressions[Slot].length; x++) {
-			CharacterSetFacialExpression(Player, Player.SavedExpressions[Slot][x].Group, Player.SavedExpressions[Slot][x].CurrentExpression);
-		}
+	const expressions = Player.SavedExpressions && Player.SavedExpressions[Slot];
+	if (expressions != null) {
+		expressions.forEach(e => CharacterSetFacialExpression(Player, e.Group, e.CurrentExpression));
 		DialogFacialExpressionsBuild();
 	}
 }
@@ -1491,6 +1487,7 @@ function DialogMenuButtonClick() {
 
 			// Cycle through the layers of restraints for the mouth
 			else if (DialogMenuButton[I] == "ChangeLayersMouth") {
+				/** @type {AssetGroupName} */
 				var NewLayerName;
 				if (C.FocusGroup.Name == "ItemMouth") NewLayerName = "ItemMouth2";
 				if (C.FocusGroup.Name == "ItemMouth2") NewLayerName = "ItemMouth3";
@@ -1526,7 +1523,7 @@ function DialogMenuButtonClick() {
 			// Unlock Icon - If the item is padlocked, we immediately unlock.  If not, we start the struggle progress.
 			else if ((DialogMenuButton[I] == "Unlock") && (Item != null)) {
 				// Check that this is not one of the sticky-locked items
-				if (!InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && (!C.IsPlayer() || C.CanInteract())) {
+				if (C.FocusGroup.IsItem() && !InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && (!C.IsPlayer() || C.CanInteract())) {
 					InventoryUnlock(C, C.FocusGroup.Name);
 					if (ChatRoomPublishAction(C, "ActionUnlock", Item, null)) {
 						DialogLeave();
@@ -2016,7 +2013,7 @@ function DialogClick() {
 /**
  * Returns whether the clicked co-ordinates are inside the asset zone
  * @param {Character} C - The character the click is on
- * @param {Array} Zone - The 4 part array of the rectangular asset zone on the character's body: [X, Y, Width, Height]
+ * @param {readonly [number, number, number, number]} Zone - The 4 part array of the rectangular asset zone on the character's body: [X, Y, Width, Height]
  * @param {number} Zoom - The amount the character has been zoomed
  * @param {number} X - The X co-ordinate of the click
  * @param {number} Y - The Y co-ordinate of the click
@@ -2031,12 +2028,12 @@ function DialogClickedInZone(C, Zone, Zoom, X, Y, HeightRatio) {
 /**
  * Return the co-ordinates and dimensions of the asset group zone as it appears on screen
  * @param {Character} C - The character the zone is calculated for
- * @param {Array} Zone - The 4 part array of the rectangular asset zone: [X, Y, Width, Height]
+ * @param {readonly [number, number, number, number]} Zone - The 4 part array of the rectangular asset zone: [X, Y, Width, Height]
  * @param {number} X - The starting X co-ordinate of the character's position
  * @param {number} Y - The starting Y co-ordinate of the character's position
  * @param {number} Zoom - The amount the character has been zoomed
  * @param {number} HeightRatio - The displayed height ratio of the character
- * @returns {Array} - The 4 part array of the displayed rectangular asset zone: [X, Y, Width, Height]
+ * @returns {[number, number, number, number]} - The 4 part array of the displayed rectangular asset zone: [X, Y, Width, Height]
  */
 function DialogGetCharacterZone(C, Zone, X, Y, Zoom, HeightRatio) {
 	X += CharacterAppearanceXOffset(C, HeightRatio) * Zoom;
@@ -2761,7 +2758,7 @@ function DialogDrawOwnerRulesMenu() {
 /**
  * Sets the skill ratio for the player, will be a % of effectiveness applied to the skill when using it.
  * This way a player can use only a part of her bondage or evasion skill.
- * @param {string} SkillType - The name of the skill to influence
+ * @param {SkillType} SkillType - The name of the skill to influence
  * @param {string} NewRatio - The ration of this skill that should be used
  * @returns {void} - Nothing
  */

@@ -1668,6 +1668,7 @@ function PrivateLoveYou() {
 	if (CurrentCharacter.Love >= Math.random() * 100) {
 
 		// Finds a valid lover activity at random, some activities skip the loop and don't return any event
+		/** @type {"" | AssetGroupItemName} */
 		var Zone = "";
 		var Act;
 		while (true) {
@@ -1695,7 +1696,10 @@ function PrivateLoveYou() {
 
 		// For regular sexual activities
 		PrivateLoverActivity = Act;
-		if ((PrivateLoverActivity == "Kiss") || (PrivateLoverActivity == "FrenchKiss") || (PrivateLoverActivity == "Caress") || (PrivateLoverActivity == "Rub") || (PrivateLoverActivity == "MasturbateHand") || (PrivateLoverActivity == "MasturbateTongue")) {
+		if (
+			Zone !== ""
+			&& ((PrivateLoverActivity == "Kiss") || (PrivateLoverActivity == "FrenchKiss") || (PrivateLoverActivity == "Caress") || (PrivateLoverActivity == "Rub") || (PrivateLoverActivity == "MasturbateHand") || (PrivateLoverActivity == "MasturbateTongue"))
+		) {
 			ActivityEffect(CurrentCharacter, Player, PrivateLoverActivity, Zone);
 			ActivityEffect(Player, CurrentCharacter, PrivateLoverActivity, Zone);
 		}

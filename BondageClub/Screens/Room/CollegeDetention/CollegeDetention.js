@@ -197,6 +197,7 @@ function CollegeDetentionRestrainPlayer(Type) {
 function CollegeDetentionInviteToPrivateRoom() {
 	CollegeDetentionDressBack();
 
+	/** @type {ItemBundle[]} */
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "Ribbons2", Group: "HairAccessory1"});
 	ItemsToEarn.push({Name: "Ribbons2", Group: "HairAccessory3"});

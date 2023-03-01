@@ -460,7 +460,7 @@ function GameMagicBattleCalculateTurnWinner() {
 		GameMagicBattleAddChatLog("GameOver", Player, Player, null, "#0000A0");
 		GameMagicBattleSetStatus("");
 		if (Player.CanTalk() && (Player.Game != null) && (Player.Game.MagicBattle != null) && (Player.Game.MagicBattle.House != null) && (Player.Game.MagicBattle.House.indexOf("House") == 0))
-			DialogChangeReputation(Player.Game.MagicBattle.House, 3);
+			DialogChangeReputation(/** @type {ReputationType} */(Player.Game.MagicBattle.House), 3);
 	}
 
 	// Returns the game status for the next round

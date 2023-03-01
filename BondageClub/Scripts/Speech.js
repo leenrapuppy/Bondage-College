@@ -5,7 +5,7 @@ const chineseRandomGarbledSound = ['啊', '恩', '咕', '唔', '哈', '嗷', '�
 
 /**
  * A lookup mapping the gag effect names to their corresponding gag level numbers.
- * @type {Object.<string,number>}
+ * @type {Partial<Record<EffectName, number>>}
  * @constant
  */
 var SpeechGagLevelLookup = {
@@ -33,7 +33,7 @@ function SpeechFullEmote(D) {
 
 /**
  * Returns the gag level corresponding to the given effect array, or 0 if the effect array contains no gag effects
- * @param {string[]} Effect - The effect to lookup the gag level for
+ * @param {EffectName[]} Effect - The effect to lookup the gag level for
  * @return {number} - The gag level corresponding to the given effects
  */
 function SpeechGetEffectGagLevel(Effect) {
@@ -47,7 +47,7 @@ function SpeechGetEffectGagLevel(Effect) {
  *     - Item.Asset.Effect
  *     - Item.Asset.Group.Effect
  * @param {Character} C - The character, whose assets are used for the check
- * @param {AssetGroupName[]} AssetGroups - The name of the asset groups to look through
+ * @param {readonly AssetGroupItemName[]} AssetGroups - The name of the asset groups to look through
  * @returns {number} - Returns the total gag effect of the character's assets
  */
 function SpeechGetGagLevel(C, AssetGroups) {
@@ -107,7 +107,7 @@ function SpeechGarble(C, CD, NoDeaf=false) {
  * @param {number} b - seed 2
  * @param {number} c - seed 3
  * @param {number} d - seed 4
- * @returns {function} - The function where it could be used to do PRNG magic.
+ * @returns {() => number} - The function where it could be used to do PRNG magic.
  */
 function sfc32(a, b, c, d) {
 	return function() {
@@ -129,8 +129,8 @@ function sfc32(a, b, c, d) {
  * (This implementation is needed because dialog refreshes every frame, we have to generate garbled text that are the same.)
  * (Otherwise it will just keep flashing and changing the text.)
  *
- * @param {*} seed - The seed to generate random numbers.
- * @returns {function} - The function where it could be used to do PRNG magic.
+ * @param {string} seed - The seed to generate random numbers.
+ * @returns {() => number} - The function where it could be used to do PRNG magic.
  */
 function randomSeeding(seed) {
 	for (var i = 0, h = 1779033703 ^ seed.length; i < seed.length; i++) {
@@ -290,9 +290,10 @@ function isAccentedOrLatinCharacter(character) {
  * The core of the speech garble function, usable without being tied to a specific character
  * @param {number} GagEffect - The gag level of the speech
  * @param {string} CD - The character's dialog to alter
+ * @param {boolean} IgnoreOOC
  * @return {string} - Garbled text
  */
-function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
+function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC=false) {
 
 	// Variables to build the new string and check if we are in a parentheses
 	var NS = "";
@@ -649,7 +650,7 @@ function SpeechBabyTalk(C, CD) {
  * Used as part of sensory-deprivation processing.
  *
  * @param {string} msg
- * @param {Character[]} characters
+ * @param {readonly Character[]} characters
  */
 function SpeechAnonymize(msg, characters) {
 	const names = [];

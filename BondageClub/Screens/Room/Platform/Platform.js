@@ -19,6 +19,7 @@ var PlatformDrawUpArrow = [null, null];
 var PlatformButtons = null;
 var PlatformRunDirection = "";
 var PlatformRunTime = 0;
+/** @type {null | TouchList} */
 var PlatformLastTouch = null;
 var PlatformImmunityTime = 500;
 var PlatformSaveMode = false;

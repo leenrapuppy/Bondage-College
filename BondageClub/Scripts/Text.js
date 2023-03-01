@@ -59,7 +59,9 @@ class TextCache {
 		this.path = path;
 		this.warn = warn;
 		this.language = TranslationLanguage;
+		/** @type {Record<string, string>} */
 		this.cache = {};
+		/** @type {((cache?: TextCache) => void)[]} */
 		this.rebuildListeners = [];
 		this.loaded = false;
 		this.buildCache();
@@ -85,7 +87,7 @@ class TextCache {
 	 * Adds a callback function as a rebuild listener. Rebuild listeners will
 	 * be called whenever the cache has completed a rebuild (either after
 	 * initial construction, or after a language change).
-	 * @param {Function} callback - The callback to register
+	 * @param {(cache?: TextCache) => void} callback - The callback to register
 	 * @param {boolean} [immediate] - Whether or not the callback should be called on registration
 	 * @returns {Function} - A callback function which can be used to unsubscribe the added listener
 	 */

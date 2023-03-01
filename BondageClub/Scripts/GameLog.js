@@ -66,9 +66,8 @@ function LogDelete(DelLogName, DelLogGroup, Push) {
 
 /**
  * Deletes all log entries to starts with the name.
- * @template {LogGroupType} T
- * @param {LogNameType[T]} DelLogName - The name of the log
- * @param {T} DelLogGroup - The name of the log's group
+ * @param {string} DelLogName - The name of the log
+ * @param {LogGroupType} DelLogGroup - The name of the log's group
  * @param {boolean} [Push=true] - TRUE if we must push the log to the server
  * @returns {void} - Nothing
  */
@@ -144,7 +143,7 @@ function LogValue(QueryLogName, QueryLogGroup) {
 
 /**
  * Loads the account log.
- * @param {LogRecord[]} NewLog - Existing logs received by the server
+ * @param {readonly LogRecord[]} NewLog - Existing logs received by the server
  * @returns {void} - Nothing
  */
 function LogLoad(NewLog) {
