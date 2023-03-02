@@ -86,7 +86,7 @@ interface AssetDefinition {
 	ActivityAudio?: string[];
 
 	/** The expression on the targeted character */
-	ActivityExpression?: Record<ActivityName, ExpressionTrigger[]>;
+	ActivityExpression?: Partial<Record<ActivityName, ExpressionTrigger[]>>;
 
 	/** A list of groups that should still be allowed to be acted on even though they should be blocked by the asset. */
 	AllowActivityOn?: AssetGroupItemName[];

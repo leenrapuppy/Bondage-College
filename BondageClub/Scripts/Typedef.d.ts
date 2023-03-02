@@ -1047,7 +1047,7 @@ interface Asset {
 	Activity: ActivityName | null;
 	AllowActivity?: readonly ActivityName[];
 	ActivityAudio?: readonly string[];
-	ActivityExpression: Record<ActivityName, readonly ExpressionTrigger[]>;
+	ActivityExpression: Partial<Record<ActivityName, readonly ExpressionTrigger[]>>;
 	AllowActivityOn?: AssetGroupItemName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: readonly string[];
