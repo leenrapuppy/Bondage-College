@@ -179,6 +179,7 @@ interface AssetDefinition {
 	RemoveAtLogin?: boolean;
 
 	Time?: number;
+	/** Enables advanced layer visibility on the asset. See {@link AssetLayerDefinition.Visibility} for more information. */
 	LayerVisibility?: boolean;
 	RemoveTime?: number;
 	RemoveTimer?: number;
@@ -345,6 +346,19 @@ interface AssetLayerDefinition {
 	HideColoring?: boolean;
 	AllowTypes?: string[];
 	HasType?: boolean;
+
+	/**
+	 * This can be used to make a layer invisible depending on certain conditions, provided the {@link AssetDefinition.LayerVisibility} is set correctly.
+	 *
+	 * Here's what each option means:
+	 * - Player: Invisible to the player.
+	 * - AllExceptPlayerDialog: Invisible to the player when in a dialog.
+	 * - Others: Invisible to others.
+	 * - OthersExceptDialog: Invisible to others in a dialog.
+	 * - Owner: Invisible to your owner.
+	 * - Lovers: Invisible to your lovers.
+	 * - Mistresses: Invisible to club mistresses.
+	 */
 	Visibility?: "Player" | "AllExceptPlayerDialog" | "Others" | "OthersExceptDialog" | "Owner" | "Lovers" | "Mistresses";
 
 	/** The group the layer belongs to. Mainly useful to inherit the body's size. */
