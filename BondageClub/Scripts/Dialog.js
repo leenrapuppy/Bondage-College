@@ -2967,16 +2967,20 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 			DialogEndExpression();
 			DialogColor = null;
 			DialogStruggleSelectMinigame = false;
-		} else if (NextItem !== null && NextItem.Asset.Extended && NextItem.Craft !== null) {
-			// Applying an extended, non-crafted item, refresh the inventory and open the extended UI
+		} else if (
+			NextItem !== null
+			&& NextItem.Asset.Extended
+			&& (NextItem.Craft == null || (NextItem.Craft && NextItem.Craft.Type == null))
+		) {
+			// Applying an extended, non-crafted/typeless crafted item, refresh the inventory and open the extended UI
 			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
 			DialogInventoryBuild(C);
 			DialogMenuButtonBuild(C);
 			DialogEndExpression();
 			DialogStruggleSelectMinigame = false;
 			DialogExtendItem(NextItem);
-		} else if (NextItem !== null && NextItem.Craft) {
-			// Applying a crafted item, just exit the dialog altogether
+		} else {
+			// Applying a non-extended or crafted-with-preset-type item, just exit the dialog altogether
 			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
 			DialogEndExpression();
 			DialogLeave();
