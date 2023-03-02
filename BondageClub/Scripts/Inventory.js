@@ -562,10 +562,11 @@ function InventoryCraftPropertyIs(Item, Property) {
 /**
 * Helper function for `InventoryWearCraft` for handling Modular items
 * @param {Item} Item - The item being applied
+* @param {Character} C - The character that must wear the item
 * @param {string} Type - The type string for a modular item
 * @returns {void}
 */
-function InventoryWearCraftModular(Item, Type) {
+function InventoryWearCraftModular(Item, C, Type) {
 	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
 	if (Data === undefined) {
 		return;
@@ -582,29 +583,30 @@ function InventoryWearCraftModular(Item, Type) {
 		}
 	});
 
-	const C = CharacterGetCurrent();
 	ModularItemSetOption(C, Item, PreviousModuleValues, NewModuleValues, Data);
 }
 
 /**
 * Helper function for `InventoryWearCraft` for handling Typed items
 * @param {Item} Item - The item being applied
+* @param {Character} C - The character that must wear the item
 * @param {string} Type - The type string for a modular item
 * @returns {void}
 */
-function InventoryWearCraftTyped(Item, Type) {
+function InventoryWearCraftTyped(Item, C, Type) {
 	if (Type != null) {
-		TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
+		TypedItemSetOptionByName(C, Item, Type);
 	}
 }
 
 /**
 * Helper function for `InventoryWearCraft` for handling Vibrating items
 * @param {Item} Item - The item being applied
+* @param {Character} C - The character that must wear the item
 * @param {string} Type - The type string for a modular item
 * @returns {void}
 */
-function InventoryWearCraftVibrating(Item, Type) {
+function InventoryWearCraftVibrating(Item, C, Type) {
 	let IsAdvanced = true;
 	let Option = VibratorModeOptions.Advanced.find((o) => o.Name == Type);
 	if (Option == undefined) {
@@ -612,7 +614,6 @@ function InventoryWearCraftVibrating(Item, Type) {
 		Option = VibratorModeOptions.Standard.find((o) => o.Name == Type);
 	}
 
-	const C = CharacterGetCurrent();
 	if ((Option == undefined) || (IsAdvanced && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes)) {
 		VibratorModeSetProperty(Item, VibratorModeOff);
 	} else {
@@ -621,46 +622,25 @@ function InventoryWearCraftVibrating(Item, Type) {
 }
 
 /**
-* Helper function for `InventoryWearCraft` for handling extended items
-* @param {Item} Item - The item being applied
-* @param {string} Type - The type string for a modular item
-* @param {(Item: Item, Type: string) => void} SetTypeCallback - A callback for setting the extend item's type
-* @returns {void}
-*/
-function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
-	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
-	const C = CharacterGetCurrent();
-	const FocusGroupOld = C.FocusGroup;
-	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
-	DialogFocusItem = Item;
-
-	// Call `Load`, `SetType` and `Exit`
-	const Prefix = ExtendedItemFunctionPrefix();
-	CommonCallFunctionByNameWarn(`${Prefix}Load`);
-	SetTypeCallback(Item, Type);
-	ExtendedItemExit();
-	C.FocusGroup = FocusGroupOld;
-}
-
-/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
+* @param {Character} C - The character that must wear the item
 * @param {CraftingItem} [Craft] - The crafting properties of the item
 */
-function InventoryWearCraft(Item, Craft) {
+function InventoryWearCraft(Item, C, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
 
 	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
 		switch(Item.Asset.Archetype) {
 			case ExtendedArchetype.TYPED:
-				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftTyped);
+				InventoryWearCraftTyped(Item, C, Craft.Type);
 				break;
 			case ExtendedArchetype.MODULAR:
-				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftModular);
+				InventoryWearCraftModular(Item, C, Craft.Type);
 				break;
 			case ExtendedArchetype.VIBRATING:
-				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftVibrating);
+				InventoryWearCraftVibrating(Item, C, Craft.Type);
 				break;
 		}
 	}
@@ -685,13 +665,13 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	/**
 	 * TODO: grant tighter control over setting expressions.
 	 * As expressions handle a "first come, first served" principle this can currently override extended
-	 * item option-specific expressions (see {@link InventoryWearCraftExtended}) and crafting property-specific
+	 * item option-specific expressions (see {@link InventoryWearCraft}) and crafting property-specific
 	 * expressions (see {@link InventoryCraft})
 	 */
 	if (A.ExpressionTrigger != null) {
 		InventoryExpressionTriggerApply(C, A.ExpressionTrigger);
 	}
-	InventoryWearCraft(Item, Craft);
+	InventoryWearCraft(Item, C, Craft);
 	CharacterRefresh(C, true);
 }
 
