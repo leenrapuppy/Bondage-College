@@ -400,6 +400,13 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			}
 
 			return false;
+		},
+		RunHooks: function (hookName) {
+			if (this.Hooks && typeof this.Hooks.get == "function") {
+				let hooks = this.Hooks.get(hookName);
+				if (hooks)
+					hooks.forEach((hook) => hook()); // If there's a hook, call it
+			}
 		}
 	};
 
@@ -1084,23 +1091,14 @@ function CharacterLoadCanvas(C) {
 	C.DrawAppearance = AppearanceItemParse(CharacterAppearanceStringify(C));
 	C.DrawPose = C.Pose.slice(); // Deep copy of pose array
 
-
 	// Run BeforeSortLayers hook
-	if (C.Hooks && typeof C.Hooks.get == "function") {
-		let hooks = C.Hooks.get("BeforeSortLayers");
-		if (hooks)
-			hooks.forEach((hook) => hook()); // If there's a hook, call it
-	}
+	C.RunHooks("BeforeSortLayer");
 
 	// Generates a layer array from the character's appearance array, sorted by drawing order
 	C.AppearanceLayers = CharacterAppearanceSortLayers(C);
 
 	// Run AfterLoadCanvas hooks
-	if (C.Hooks && typeof C.Hooks.get == "function") {
-		let hooks = C.Hooks.get("AfterLoadCanvas");
-		if (hooks)
-			hooks.forEach((hook) => hook()); // If there's a hook, call it
-	}
+	C.RunHooks("AfterLoadCanvas");
 
 	// Sets the total height modifier for that character
 	CharacterAppearanceSetHeightModifiers(C);
