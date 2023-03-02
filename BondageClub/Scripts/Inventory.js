@@ -655,8 +655,9 @@ function InventoryWearCraft(Item, C, Craft) {
 * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
 * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
 * @param {CraftingItem} [Craft] - The crafting properties of the item
+* @param {boolean} [Refresh] - Whether to refresh the character and push the changes to the server
 */
-function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft) {
+function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft, Refresh=true) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
@@ -672,7 +673,9 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 		InventoryExpressionTriggerApply(C, A.ExpressionTrigger);
 	}
 	InventoryWearCraft(Item, C, Craft);
-	CharacterRefresh(C, true);
+	if (Refresh) {
+		CharacterRefresh(C, true);
+	}
 }
 
 /**

@@ -2924,10 +2924,11 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 			if ((NextItem.Craft != null) && CommonIsColor(NextItem.Craft.Color))
 				Color = NextItem.Craft.Color;
 
-			InventoryWear(C, NextItem.Asset.Name, NextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, NextItem.Craft);
-
-			if (NextItem.Craft != null)
-				InventoryCraft(Player, C, NextItem.Asset.Group.Name, NextItem.Craft, true);
+			const isCraft = (NextItem.Craft != null);
+			InventoryWear(C, NextItem.Asset.Name, NextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, NextItem.Craft, !isCraft);
+			if (isCraft) {
+				InventoryCraft(Player, C, /** @type {AssetGroupItemName} */(NextItem.Asset.Group.Name), NextItem.Craft, true);
+			}
 
 			// Refresh the item by getting it back
 			NextItem = InventoryGet(C, NextItem.Asset.Group.Name);
