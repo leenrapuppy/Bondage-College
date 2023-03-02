@@ -599,29 +599,6 @@ function InventoryWearCraftTyped(Item, Type) {
 }
 
 /**
-* Helper function for `InventoryWearCraft` for handling extended items that lack an archetype
-* @param {Item} Item - The item being applied
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftMisc(Item, Type) {
-	const Prefix = ExtendedItemFunctionPrefix();
-	if (typeof window[`${Prefix}SetType`] === "function") {
-		CommonCallFunctionByName(Prefix + "SetType", Type);
-	} else if (Array.isArray(window[`${Prefix}Options`])) {
-		/** @type {ExtendedItemOption[]} */
-		const ItemOptions = window[Prefix + "Options"];
-		const Option = ItemOptions.find((o) => o.Name == Type);
-		const C = CharacterGetCurrent();
-		if (Option !== undefined) {
-			// NOTE: Avoid `ExtendedItemSetType` usage as the `ChatRoomCharacterUpdate` call therein can cause issues with
-			// the applying of crafted item colors (which conventionally happens *after* calling `InventoryWearCraft`)
-			TypedItemSetOption(C, Item, ItemOptions, Option, true);
-		}
-	}
-}
-
-/**
 * Helper function for `InventoryWearCraft` for handling Vibrating items
 * @param {Item} Item - The item being applied
 * @param {string} Type - The type string for a modular item
@@ -675,8 +652,7 @@ function InventoryWearCraft(Item, Craft) {
 	Item.Craft = Craft;
 
 	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
-		const Archetype = Item.Asset.Archetype || "misc";
-		switch(Archetype) {
+		switch(Item.Asset.Archetype) {
 			case ExtendedArchetype.TYPED:
 				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftTyped);
 				break;
@@ -685,9 +661,6 @@ function InventoryWearCraft(Item, Craft) {
 				break;
 			case ExtendedArchetype.VIBRATING:
 				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftVibrating);
-				break;
-			case "misc":
-				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftMisc);
 				break;
 		}
 	}
