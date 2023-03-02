@@ -88,7 +88,7 @@ function InventoryItemPelvisLoveChastityBeltSetType(module, index, data) {
 	const currentOption = module.Options[currentModuleValues[moduleIndex]];
 
 	// Make a final requirement check before actually modifying the item
-	const requirementMessage = ExtendedItemRequirementCheckMessage(option, currentOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, option, currentOption);
 	if (requirementMessage || currentModuleValues[moduleIndex] === index) {
 		DialogExtendedMessage = requirementMessage;
 		return;

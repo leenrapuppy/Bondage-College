@@ -64,7 +64,12 @@ const ExtendedXYClothes = [
 ];
 
 /** Memoization of the requirements check */
-const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage);
+const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage, [
+	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
+	(character) => character.ID.toString(),
+	(option) => String(option),
+	(option) => String(option),
+]);
 
 /**
  * The current display mode
@@ -317,13 +322,13 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 			Type = Option.Name;
 			IsFirst = Type.includes("0");
 			HasSubscreen = Option.HasSubscreen || false;
-			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
 			break;
 		default:  // Assume we're dealing with `ExtendedItemOption` at this point
 			Type = (Option.Property && Option.Property.Type) || null;
 			IsFirst = Type == null;
 			HasSubscreen = Option.HasSubscreen || false;
-			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
 			break;
 	}
 
@@ -564,7 +569,7 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 		const CurrentType = DialogFocusItem.Property.Type || null;
 		const CurrentOption = Options.find(O => O.Property.Type === CurrentType);
 		// use the unmemoized function to ensure we make a final check to the requirements
-		const RequirementMessage = ExtendedItemRequirementCheckMessage(Option, CurrentOption);
+		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
 		} else if (Option.HasSubscreen) {
@@ -581,20 +586,20 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 }
 
 /**
- * Checks whether the player meets the requirements for an extended type option. This will check against their Bondage
+ * Checks whether the character meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
+ * @param {Item} item - The item in question
+ * @param {Character} C - The character in question
  * @param {ExtendedItemOption|ModularItemOption} Option - The selected type definition
  * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The current type definition
  * @returns {string|null} null if the player meets the option requirements. Otherwise a string message informing them
  * of the requirements they do not meet
  */
-function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
-	const C = CharacterGetCurrent();
-
-	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
+function ExtendedItemRequirementCheckMessage(item, C, Option, CurrentOption) {
+	return TypedItemValidateOption(C, item, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
 		|| ExtendedItemCheckBuyGroups(Option)
-		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);
+		|| ExtendedItemCheckSkillRequirements(C, item, Option);
 }
 
 /**
@@ -847,7 +852,7 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
 		// Check if the option is blocked/limited/etc.
 		/** @type {ExtendedItemOption} */
 		const Option = { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } };
-		const requirementMessage = ExtendedItemRequirementCheckMessage(Option, Option);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, CharacterGetCurrent(), Option, Option);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return false;

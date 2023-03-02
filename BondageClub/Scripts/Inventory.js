@@ -578,7 +578,7 @@ function InventoryWearCraftModular(Item, C, Type) {
 	NewModuleValues.forEach((value, i) => {
 		const Options = Data.modules[i].Options;
 		const NewOption = Options[value];
-		if (!NewOption || ExtendedItemRequirementCheckMessage(NewOption, Options[0])) {
+		if (!NewOption || ExtendedItemRequirementCheckMessage(Item, C, NewOption, Options[0])) {
 			NewModuleValues[i] = 0;
 		}
 	});

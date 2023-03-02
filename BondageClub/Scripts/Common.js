@@ -682,36 +682,39 @@ function CommonLimitFunction(func, minWait = 0, maxWait = 1000) {
  * Creates a simple memoizer.
  * The memoized function does calculate its result exactly once and from that point on, uses
  * the result stored in a local cache to speed up things.
- * @template {Function} T
+ * @template {(...args: any) => any} T
  * @param {T} func - The function to memoize
+ * @param {((arg: any) => string)[]} argConvertors - A list of stringification functions for creating a memo, one for each function argument
  * @returns {MemoizedFunction<T>} - The result of the memoized function
  */
-function CommonMemoize(func) {
+function CommonMemoize(func, argConvertors=null) {
 	var memo = {};
-
-	/** @type {MemoizedFunction<T>} */
-	// @ts-ignore
-	var memoized = function () {
-		var index = [];
-		for (var i = 0; i < arguments.length; i++) {
-			if (typeof arguments[i] === "object") {
-				index.push(JSON.stringify(arguments[i]));
-			} else {
-				index.push(String(arguments[i]));
+	var memoized = /** @type {MemoizedFunction<T>} */(function (...args) {
+		let index = "";
+		if (argConvertors !== null) {
+			index += argConvertors.map((callback, i) => callback(args[i])).join(",");
+		} else {
+			for (const arg of args) {
+				if (typeof arg === "object") {
+					index += JSON.stringify(arg);
+				} else {
+					index += String(arg);
+				}
 			}
-		} // for
+		}
+
 		if (!(index in memo)) {
-			memo[index] = func.apply(this, arguments);
+			memo[index] = func(...args);
 		}
 		return memo[index];
-	}; // function
+	});
 
 	// add a clear cache method
 	memoized.clearCache = function () {
 		memo = {};
 	};
 	return memoized;
-} // CommonMemoize
+}
 
 /**
  * Memoized getter function. Returns a font string specifying the player's
