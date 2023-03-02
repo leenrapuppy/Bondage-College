@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const BASE_PATH = "../../";
 // Files needed to check the Female3DCG assets
-const neededFiles = [
+const NEEDED_FILES = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
 	"Scripts/Asset.js",
@@ -34,6 +34,8 @@ const neededFiles = [
 	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js",
+	"Scripts/Translation.js",
+	"Scripts/Text.js",
 	"Screens/Character/ItemColor/ItemColor.js",
 	"Scripts/Testing.js",
 ];
@@ -392,22 +394,27 @@ function sanitizeVMOutput(input) {
 	);
 }
 
-/**
- * TODO: Mock more {@link TextCache} properties if required or create a more
- * Node.JS-friendly version of the class and use that.
- */
-class TextCacheMock {
-	get() { return ""; }
-}
-
 (function () {
+	const [commonFile, ...neededFiles] = NEEDED_FILES;
 	const context = vm.createContext({
 		OuterArray: Array,
 		Object: Object,
-		TextCache: TextCacheMock,
 		TestingColorLayers: new Set(loadCSV("Assets/Female3DCG/LayerNames.csv", 2).map(i => i[0])),
 		TestingColorGroups: new Set(loadCSV("Assets/Female3DCG/ColorGroups.csv", 2).map(i => i[0])),
 	});
+	vm.runInContext(fs.readFileSync(BASE_PATH + commonFile, { encoding: "utf-8" }), context, {
+		filename: commonFile,
+	});
+
+	// Only patch `CommonGet` after loading `Common`, lest our monkey patch will be overriden again
+	context.CommonGet = (file, callback) => {
+		const data = fs.readFileSync(`../../${file}`, "utf8");
+		const obj = {
+			status: 200,
+			responseText: data,
+		};
+		callback.bind(obj)(obj);
+	};
 	for (const file of neededFiles) {
 		vm.runInContext(fs.readFileSync(BASE_PATH + file, { encoding: "utf-8" }), context, {
 			filename: file,
