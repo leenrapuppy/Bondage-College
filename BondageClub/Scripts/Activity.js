@@ -282,8 +282,6 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
  * @param {Activity} activity
  */
 function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsItem, activity) {
-	if (acting.IsEnclose() || acted.IsEnclose()) return false;
-
 	const reverse = activity.Reverse;
 	const items = CharacterItemsForActivity(!reverse ? acting : acted, needsItem);
 	if (items.length === 0) return true;
