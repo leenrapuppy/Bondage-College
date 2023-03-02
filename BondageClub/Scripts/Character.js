@@ -1800,62 +1800,53 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 	if (C && C.DrawAppearance) {
 		if (!IgnoreHooks && Player.Effect.includes("VRAvatars") && C.Effect.includes("HideRestraints")) {
 			// Then when that character enters the virtual world, register a hook to strip out restraint layers (if needed):
-			if (C.RegisterHook("BeforeSortLayers", "HideRestraints", () => {
+			const hideRestraintsHook = () => {
 				C.DrawAppearance = C.DrawAppearance.filter((Layer) => !(Layer.Asset && Layer.Asset.IsRestraint));
 				C.DrawPose = C.DrawPose.filter((Pose) => (Pose != "TapedHands"));
+			};
 
-			})) refresh = true;
-		} else if (C.UnregisterHook("BeforeSortLayers", "HideRestraints")) refresh = true;
-
-		for (let A = 0; A < C.DrawAppearance.length; A++) {
-			if (C.DrawAppearance[A].Asset && C.DrawAppearance[A].Asset.NotVisibleOnScreen && (C.DrawAppearance[A].Asset.NotVisibleOnScreen.length > 0)) {
+			if (C.RegisterHook("BeforeSortLayers", "HideRestraints", hideRestraintsHook))
 				refresh = true;
-				break;
-			}
-		}
+
+		} else if (C.UnregisterHook("BeforeSortLayers", "HideRestraints"))
+			refresh = true;
+
+
+		if (C.DrawAppearance.some(a => a.Asset && a.Asset.NotVisibleOnScreen && a.Asset.NotVisibleOnScreen.length > 0))
+			refresh = true;
 
 		// Hook for layer visibility
 		// Visibility is a string individual layers have. If an item has any layers with visibility, it should have the LayerVisibility: true property
 		// We basically check the player's items and see if any are visible that have the LayerVisibility property.
-		let LayerVisibility = false;
-		for (let A = 0; A < C.DrawAppearance.length; A++) {
-			if (C.DrawAppearance[A].Asset && C.DrawAppearance[A].Asset.LayerVisibility) {
-				LayerVisibility = true;
-				break;
-			}
-		}
+		let LayerVisibility = C.DrawAppearance.some(a => a.Asset && a.Asset.LayerVisibility);
+
 		if (LayerVisibility) {
 			// Fancy logic is to use a different hook for when the character is focused
-			if (IgnoreHooks && (C.UnregisterHook("AfterLoadCanvas", "LayerVisibility") || C.RegisterHook("AfterLoadCanvas", "LayerVisibilityDialog", () => {
+			const layerVisibilityHook = () => {
+				const inDialog = (CurrentCharacter != null);
 				C.AppearanceLayers = C.AppearanceLayers.filter((Layer) => (
 					!Layer.Visibility ||
-					(Layer.Visibility == "Player" && C == Player) ||
-					(Layer.Visibility == "AllExceptPlayerDialog" && C != Player) ||
-					(Layer.Visibility == "Others" && C != Player) ||
-					(Layer.Visibility == "OthersExceptDialog") ||
+					(Layer.Visibility == "Player" && C.IsPlayer()) ||
+					(Layer.Visibility == "AllExceptPlayerDialog" && !inDialog && C.IsPlayer()) ||
+					(Layer.Visibility == "Others" && !C.IsPlayer()) ||
+					(Layer.Visibility == "OthersExceptDialog" && !inDialog && !C.IsPlayer()) ||
 					(Layer.Visibility == "Owner" && C.IsOwnedByPlayer()) ||
 					(Layer.Visibility == "Lovers" && C.IsLoverOfPlayer()) ||
 					(Layer.Visibility == "Mistresses" && LogQuery("ClubMistress", "Management"))
 				));
-			}))) refresh = true;
-			// Use the regular hook when the character is not
-			else if (!IgnoreHooks && (C.UnregisterHook("AfterLoadCanvas", "LayerVisibilityDialog") || C.RegisterHook("AfterLoadCanvas", "LayerVisibility", () => {
-				C.AppearanceLayers = C.AppearanceLayers.filter((Layer) => (
-					!Layer.Visibility ||
-					(Layer.Visibility == "Player" && C == Player) ||
-					(Layer.Visibility == "AllExceptPlayerDialog") ||
-					(Layer.Visibility == "Others" && C != Player) ||
-					(Layer.Visibility == "OthersExceptDialog" && C != Player) ||
-					(Layer.Visibility == "Owner" && C.IsOwnedByPlayer()) ||
-					(Layer.Visibility == "Lovers" && C.IsLoverOfPlayer()) ||
-					(Layer.Visibility == "Mistresses" && LogQuery("ClubMistress", "Management"))
-				));
-			}))) refresh = true;
+			};
 
-		} else if (C.UnregisterHook("AfterLoadCanvas", "LayerVisibility")) refresh = true;
+			if (C.RegisterHook("AfterLoadCanvas", "LayerVisibilityDialog", layerVisibilityHook)) {
+				refresh = true;
+			}
+		} else if (C.UnregisterHook("AfterLoadCanvas", "LayerVisibility")) {
+			refresh = true;
+		}
 	}
 
-	if (refresh) CharacterLoadCanvas(C);
+	if (refresh)
+		CharacterLoadCanvas(C);
+
 	return refresh;
 }
 
