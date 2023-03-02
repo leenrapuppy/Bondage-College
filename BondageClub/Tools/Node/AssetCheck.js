@@ -384,6 +384,63 @@ function testColorLayers(missingLayers) {
 }
 
 /**
+ * Check whether all extended item options and modules are (at least) of length 1.
+ * @param {ExtendedItemConfig} config
+ */
+function testModuleOptionLength(config) {
+	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(config)) {
+		switch (assetConfig.Archetype) {
+			case "typed": {
+				testModuleOptionLengthTyped(groupName, assetName, assetConfig);
+				break;
+			}
+			case "modular": {
+				testModuleOptionLengthModular(groupName, assetName, assetConfig);
+				break;
+			}
+		}
+	}
+}
+
+/**
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {TypedItemAssetConfig} assetConfig
+ */
+function testModuleOptionLengthTyped(groupName, assetName, assetConfig) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Options) {
+		return;
+	}
+
+	const options = assetConfig.Config?.Options ?? [];
+	if (options.length === 0) {
+		error(`${groupName}:${assetName}: typed item require at least one option`);
+	}
+}
+
+/**
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {ModularItemAssetConfig} assetConfig
+ */
+function testModuleOptionLengthModular(groupName, assetName, assetConfig) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Modules) {
+		return;
+	}
+
+	const modules = assetConfig.Config?.Modules ?? [];
+	if (modules.length === 0) {
+		error(`${groupName}:${assetName}: modular item requires at least one option`);
+	}
+
+	for (const mod of modules) {
+		if (mod.Options.length === 0) {
+			error(`${groupName}:${assetName}: modular item module "${mod}" requires at least one option`);
+		}
+	}
+}
+
+/**
  * Strigify and parse the passed object to get the correct Array and Object prototypes, because VM uses different ones.
  * This unfortunately results in Functions being lost and replaced with a dummy function
  * @param {any} input The to-be sanitized input
@@ -625,4 +682,5 @@ function sanitizeVMOutput(input) {
 	testExtendedItemDialog(AssetFemale3DCGExtended, dialogArray);
 	testColorGroups(missingColorGroups);
 	testColorLayers(missingColorLayers);
+	testModuleOptionLength(AssetFemale3DCGExtended);
 })();
