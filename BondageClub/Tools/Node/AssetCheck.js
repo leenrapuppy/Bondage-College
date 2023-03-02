@@ -154,27 +154,34 @@ function testDynamicGroupName(groupDefinitions) {
 
 /**
  * Checks for the option names of typed items
- * @param {any} extendedItemConfig
+ * @param {ExtendedItemConfig} config
  */
-function testTypedOptionName(extendedItemConfig) {
+function testTypedOptionName(config) {
+	for (const { assetName, groupName, assetConfig } of flattenExtendedConfig(config)) {
+		if (assetConfig.Archetype !== "typed" || assetConfig.Config?.Options === undefined) {
+			continue;
+		}
+
+		const invalidOptions = assetConfig.Config.Options.filter(o => {
+			const type = o?.Property?.Type;
+			return !(o.Name === type || type === null);
+		});
+		if (invalidOptions.length !== 0) {
+			const n = invalidOptions.length;
+			const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
+			error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
+		}
+	}
+}
+
+/**
+ * Flatten and yield all combined Asset/Group configs and names
+ * @param {ExtendedItemConfig} extendedItemConfig
+ */
+function* flattenExtendedConfig(extendedItemConfig) {
 	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
 		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
-			if (
-				assetConfig.Archetype !== "typed"
-				|| (assetConfig.Config === undefined)
-				|| (assetConfig.Config.Options === undefined)
-			) {
-				continue;
-			}
-			const invalidOptions = assetConfig.Config.Options.filter(o => {
-				const type = o?.Property?.Type;
-				return !(o.Name === type || type === null);
-			});
-			if (invalidOptions.length !== 0) {
-				const n = invalidOptions.length;
-				const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
-				error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
-			}
+			yield { groupName, assetName, groupConfig, assetConfig };
 		}
 	}
 }
@@ -186,23 +193,21 @@ function testTypedOptionName(extendedItemConfig) {
  */
 function testExtendedItemDialog(extendedItemConfig, dialogArray) {
 	const dialogSet = new Set(dialogArray.map(i => i[0]));
-	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
-		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
-			/** @type {Set<string>} */
-			let missingDialog = new Set();
-			switch (assetConfig.Archetype) {
-				case "typed":
-					missingDialog = testTypedItemDialog(groupName, assetName, assetConfig, dialogSet);
-					break;
-				case "modular":
-					missingDialog = testModularItemDialog(groupName, assetName, assetConfig, dialogSet);
-					break;
-			}
+	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(extendedItemConfig)) {
+		/** @type {Set<string>} */
+		let missingDialog = new Set();
+		switch (assetConfig.Archetype) {
+			case "typed":
+				missingDialog = testTypedItemDialog(groupName, assetName, assetConfig, dialogSet);
+				break;
+			case "modular":
+				missingDialog = testModularItemDialog(groupName, assetName, assetConfig, dialogSet);
+				break;
+		}
 
-			if (missingDialog.size !== 0) {
-				const missingString = Array.from(missingDialog).sort();
-				error(`${groupName}:${assetName}: found ${missingDialog.size} missing dialog keys: ${missingString}`);
-			}
+		if (missingDialog.size !== 0) {
+			const missingString = Array.from(missingDialog).sort();
+			error(`${groupName}:${assetName}: found ${missingDialog.size} missing dialog keys: ${missingString}`);
 		}
 	}
 }
