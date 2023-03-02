@@ -753,13 +753,12 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 	if (OldIntensity === Intensity) return;
 
 	var Direction = Intensity > OldIntensity ? "Increase" : "Decrease";
-	/** @type {ChatMessageDictionary} */
-	var Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
-		{ Automatic: true },
-	];
-	if (Item.Property.ItemMemberNumber) Dictionary.push({ Tag: "ItemMemberNumber", MemberNumber: Item.Property.ItemMemberNumber });
+	const Dictionary = new DictionaryBuilder()
+		.targetCharacterName(C)
+		.asset(Item.Asset)
+		.markAutomatic()
+		.build();
+
 	if (CurrentScreen == "ChatRoom") {
 		ServerSend("ChatRoomChat", { Content: "Vibe" + Direction + "To" + Intensity, Type: "Action", Dictionary });
 		CharacterLoadEffect(C);
