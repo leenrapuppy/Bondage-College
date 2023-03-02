@@ -197,6 +197,11 @@ function InventoryItemFuturisticValidate(C, Item = DialogFocusItem) {
 	return Allowed;
 }
 
+/**
+ * Publish a chat message for denied access.
+ *
+ * @param {Character} C - The character that got denied access.
+ */
 function InventoryItemFuturisticPublishAccessDenied(C) {
 	const Dictionary = new DictionaryBuilder()
 		.sourceCharacter(Player)

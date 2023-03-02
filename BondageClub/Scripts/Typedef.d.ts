@@ -2818,10 +2818,17 @@ type DynamicBeforeDrawCallback = (data: DynamicDrawingData) => DynamicBeforeDraw
  */
 type DynamicAfterDrawCallback = (data: DynamicDrawingData) => void;
 
+
+interface DynamicScriptCallbackData {
+	C: Character;
+	Item: Item;
+	PersistentData: () => any;
+}
+
 /**
  * A dynamic ScriptDraw callback
  */
-type DynamicScriptDrawCallback = (data: {C: Character, Item: Item, PersistentData: <T>() => T}) => void;
+type DynamicScriptDrawCallback = (data: DynamicScriptCallbackData) => void;
 
 // #endregion
 
