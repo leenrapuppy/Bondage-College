@@ -283,7 +283,7 @@ function AsylumEntranceFightNurseEnd() {
  */
 function AsylumEntrancePlayerJacket(Pose) {
 	InventoryWear(Player, "StraitJacket", "ItemArms", "Default", 3);
-	Player.FocusGroup = AssetGroupGet("Female3DCG", "ItemArms");
+	Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet("Female3DCG", "ItemArms"));
 	const Options = TypedItemDataLookup.ItemArmsStraitJacket.options;
 	const Option = Options.find(o => o.Name === Pose);
 	if (Option) {

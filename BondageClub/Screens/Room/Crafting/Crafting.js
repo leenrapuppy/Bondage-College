@@ -150,7 +150,7 @@ function CraftingUpdatePreview() {
 	const Craft = CraftingConvertSelectedToItem();
 	const FoundGroups = [];
 	const RelevantAssets = Asset.filter(a => {
-		if (!a.Group.Zone) return false;
+		if (!a.Group.IsItem()) return false;
 		if (!CraftingAppliesToItem(Craft, a)) return false;
 		if (FoundGroups.includes(a.DynamicGroupName || a.Group.Name)) return false;
 		FoundGroups.push(a.Group.Name);
@@ -784,7 +784,7 @@ function CraftingAppliesToItem(Craft, Item) {
 
 	// Validates the craft asset
 	if (!Craft || !Item) return false;
-	const craftAsset = Asset.find(a => a.Name === Craft.Item && a.Group.Zone);
+	const craftAsset = Asset.find(a => a.Name === Craft.Item && a.Group.IsItem());
 	if (!craftAsset) return false;
 
 	// Find all assets that match our name/group combination, or have the same description

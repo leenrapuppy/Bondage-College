@@ -239,7 +239,7 @@ function PrivateBedActivityStart(Source, Target, Group, Activity) {
  */
 function PrivateBedGroupActivityIsValid(Source, Target, Group, Activity) {
 	if (Group.Name == "ItemNose") return false; // Skip the noses activities
-	if (Group.Zone == null) return false; // Skip groupes that cannot be clicked
+	if (!Group.IsItem()) return false; // Skip groupes that cannot be clicked
 	if (Group.MirrorActivitiesFrom) return false; // No mirror zones
 	if (!AssetActivitiesForGroup("Female3DCG", Group.Name).length) return false; // Make sure the activity is valid for that group
 	if (!ActivityHasValidTarget(Target, Activity, Group)) return false; // Make sure the target is valid

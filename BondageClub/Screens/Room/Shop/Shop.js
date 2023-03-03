@@ -209,19 +209,20 @@ function ShopClick() {
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235)) InformationSheetLoadCharacter(Player);
 	} else {
 
-		// The user can select a different body by clicking on the vendor
-		if ((ShopVendor.FocusGroup != null) && (ShopVendor.FocusGroup.Category == "Item"))
-			if ((MouseX >= 500) && (MouseX < 1000) && (MouseY >= 0) && (MouseY < 1000))
-				for (let A = 0; A < AssetGroup.length; A++)
-					if ((AssetGroup[A].Category == "Item") && (AssetGroup[A].Zone != null))
-						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++) {
-							if (DialogClickedInZone(ShopVendor, AssetGroup[A].Zone[Z], 1, 500, 0, 1)) {
-								ShopItemOffset = 0;
-								ShopVendor.FocusGroup = AssetGroup[A];
-								ShopSelectAsset = ShopAssetFocusGroup;
-								ShopCartBuild();
-							}
-						}
+		// The user can select a different group by clicking on the vendor
+		if (MouseIn(500, 0, 500, 1000)) {
+			for (const Group of AssetGroup) {
+				if (!Group.IsItem()) continue;
+				const Zone = Group.Zone.find(z => DialogClickedInZone(ShopVendor, z, 1, 500, 0, 1));
+				if (Zone) {
+					ShopItemOffset = 0;
+					ShopVendor.FocusGroup = Group;
+					ShopSelectAsset = ShopAssetFocusGroup;
+					ShopCartBuild();
+					break;
+				}
+			}
+		}
 
 		// For each items in the assets with a value
 		var X = 1000;
@@ -378,7 +379,8 @@ function ShopCanSell(asset) {
 function ShopStart(ItemGroup) {
 
 	// Finds the asset group to shop with
-	ShopVendor.FocusGroup = AssetGroupGet(ShopVendor.AssetFamily, ItemGroup);
+	// This is one place where the group can actually be an appearance group.
+	ShopVendor.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(ShopVendor.AssetFamily, ItemGroup));
 
 	// If we have a group, we start the shop
 	if (ShopVendor.FocusGroup != null) {
