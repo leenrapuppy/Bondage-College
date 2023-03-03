@@ -391,8 +391,8 @@ function MaidQuartersMiniGameEnd() {
 function MaidQuartersMiniGamePay() {
 	ReputationProgress("Maid", 4);
 	var M = 14;
-	if (MiniGameDifficulty == "Normal") M = M * 1.5;
-	if (MiniGameDifficulty == "Hard") M = M * 2;
+	if (MiniGameDifficultyMode == "Normal") M = M * 1.5;
+	if (MiniGameDifficultyMode == "Hard") M = M * 2;
 	MaidQuartersMaid.CurrentDialog = MaidQuartersMaid.CurrentDialog.replace("REPLACEMONEY", M.toString());
 	CharacterChangeMoney(Player, M);
 	IntroductionJobProgress("SubMaid");

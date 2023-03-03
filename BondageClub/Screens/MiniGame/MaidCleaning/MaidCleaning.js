@@ -58,8 +58,8 @@ function MaidCleaningLoad() {
 	MaidCleaningPlayerY = 0;
 	var Factor = (CommonIsMobile) ? 0.25 : 1;
 	var MaxSpot = 220 * Factor;
-	if (MiniGameDifficulty == "Normal") MaxSpot = 360 * Factor;
-	if (MiniGameDifficulty == "Hard") MaxSpot = 500 * Factor;
+	if (MiniGameDifficultyMode == "Normal") MaxSpot = 360 * Factor;
+	if (MiniGameDifficultyMode == "Hard") MaxSpot = 500 * Factor;
 	MiniGameTimer = CommonTime() + 60000;
 	MaidCleaningGenerateSpots(MaxSpot);
 
