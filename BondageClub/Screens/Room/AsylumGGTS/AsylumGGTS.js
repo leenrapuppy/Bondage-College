@@ -535,6 +535,26 @@ function AsylumGGTSConfigureGag(Group) {
 }
 
 /**
+ * Selects a random pose for an item and picks one, applying effects as appropriate
+ * @param {Item} Item
+ * @param {AssetPoseName[]} AdditionalPoses
+ * @param {EffectName[]} Effects
+ */
+function AsylumGGTSSetForcedPoseForItem(Item, AdditionalPoses, Effects) {
+	let SetPose = "";
+	if (Item.Property && Item.Property.SetPose && Item.Property.SetPose.length > 0)
+		SetPose = Item.Property.SetPose[0];
+
+	// @ts-ignore Used as a marker to reset the pose
+	AdditionalPoses.push("");
+	let Pose = CommonRandomItemFromList(SetPose, AdditionalPoses);
+	if (Pose == "")
+		Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
+	else
+		Item.Property = { SetPose: /** @type {AssetPoseName[]} */ ([Pose]), Difficulty: 10, Effect: Effects };
+}
+
+/**
  * Processes the tasks that doesn't need any player input. GGTS does everything and ends the task automatically.
  * @returns {void} - Nothing
  */
@@ -544,10 +564,7 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemPose") {
 		let Item = InventoryGet(Player, "ItemArms");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticCuffs")) {
-			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
-			Pose = [CommonRandomItemFromList(Pose, ["BackBoxTie", "BackElbowTouch", ""])];
-			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
-			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Block", "Prone"] };
+			AsylumGGTSSetForcedPoseForItem(Item, ["BackBoxTie", "BackElbowTouch"], ["Block", "Prone"]);
 		}
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticStraitjacket")) {
 			if (Item.Property == null) Item.Property = {};
@@ -556,17 +573,11 @@ function AsylumGGTSAutomaticTask() {
 		}
 		Item = InventoryGet(Player, "ItemFeet");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticAnkleCuffs")) {
-			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
-			Pose = [CommonRandomItemFromList(Pose, ["LegsClosed", ""])];
-			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
-			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Freeze", "Prone"] };
+			AsylumGGTSSetForcedPoseForItem(Item, ["LegsClosed"], ["Block", "Prone"]);
 		}
 		Item = InventoryGet(Player, "ItemLegs");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticLegCuffs")) {
-			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
-			Pose = [CommonRandomItemFromList(Pose, ["LegsClosed", ""])];
-			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
-			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Prone", "KneelFreeze", "Slow"] };
+			AsylumGGTSSetForcedPoseForItem(Item, ["LegsClosed"], ["Prone", "Freeze", "Slow"]);
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);
@@ -651,7 +662,7 @@ function AsylumGGTSAutomaticTask() {
 			Item.Property.Effect = ["Vibrating", "Egged", "UseRemote"];
 			let Intensity = Item.Property.Intensity;
 			while ((Item.Property.Intensity == null) || (Item.Property.Intensity == Intensity))
-				Item.Property.Intensity = Math.floor(Math.random() * 5) - 1;
+				Item.Property.Intensity = /** @type {VibratorIntensity} */ (Math.floor(Math.random() * 5) - 1);
 			if (Item.Property.Intensity == -1) Item.Color = ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"];
 			if (Item.Property.Intensity == 0) Item.Color = ["#4F7F2C", "#A3C48C", "#A3C48C", "Default", "Default", "Default"];
 			if (Item.Property.Intensity == 1) Item.Color = ["#6F6F2C", "#AFAF8C", "#AFAF8C", "Default", "Default", "Default"];
@@ -710,7 +721,7 @@ function AsylumGGTSAutomaticTask() {
 			if (Item.Property == null) Item.Property = {};
 			let Intensity = Item.Property.Intensity;
 			while ((Item.Property.Intensity == null) || (Item.Property.Intensity == Intensity))
-				Item.Property.Intensity = Math.floor(Math.random() * 5) - 1;
+				Item.Property.Intensity = /** @type {VibratorIntensity} */ (Math.floor(Math.random() * 5) - 1);
 			if (Item.Property.Intensity == -1) Item.Property.Mode = "Off";
 			if (Item.Property.Intensity == 0) Item.Property.Mode = "Low";
 			if (Item.Property.Intensity == 1) Item.Property.Mode = "Medium";
