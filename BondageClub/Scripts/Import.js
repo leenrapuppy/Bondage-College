@@ -21,12 +21,11 @@ function ImportBondageCollege(C) {
 
 			// Imports the 4 main character status
 			if ((localStorage.getItem("BondageClubImportSource") != null) && (localStorage.getItem("BondageClubImportSource") == "BondageCollege")) {
-				if ((localStorage.getItem("BondageCollegeExportAmanda") != null) && (localStorage.getItem("BondageCollegeExportAmanda") != "")) LogAdd(localStorage.getItem("BondageCollegeExportAmanda"), "NPC-Amanda");
-				if ((localStorage.getItem("BondageCollegeExportSarah") != null) && (localStorage.getItem("BondageCollegeExportSarah") != "")) LogAdd(localStorage.getItem("BondageCollegeExportSarah"), "NPC-Sarah");
-				if ((localStorage.getItem("BondageCollegeExportSidney") != null) && (localStorage.getItem("BondageCollegeExportSidney") != "")) LogAdd(localStorage.getItem("BondageCollegeExportSidney"), "NPC-Sidney");
-				if ((localStorage.getItem("BondageCollegeExportJennifer") != null) && (localStorage.getItem("BondageCollegeExportJennifer") != "")) LogAdd(localStorage.getItem("BondageCollegeExportJennifer"), "NPC-Jennifer");
-				if ((localStorage.getItem("BondageCollegeExportAmandaSarah") != null) && (localStorage.getItem("BondageCollegeExportAmandaSarah") != "")) LogAdd(localStorage.getItem("BondageCollegeExportAmandaSarah"), "NPC-AmandaSarah");
-				if ((localStorage.getItem("BondageCollegeExportSarahIntro") != null) && (localStorage.getItem("BondageCollegeExportSarahIntro") != "")) LogAdd(localStorage.getItem("BondageCollegeExportSarahIntro"), "NPC-SarahIntro");
+				for (const storyline of ["Amanda", "Sarah", "Sidney", "Jennifer", "AmandaSarah", "SarahIntro"]) {
+					const value = localStorage.getItem("BondageCollegeExport" + storyline);
+					if (value)
+						LogAdd(value, /** @type {keyof LogNameType} */ ("NPC-" + storyline));
+				}
 			}
 
 			// Imports every inventory items
