@@ -1,25 +1,15 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemDevicesPetBowlInit(Item, C, Refresh) {
+	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+}
+
 /**
  * Loads the extended item properties
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesPetBowlLoad() {
-	const C = CharacterGetCurrent();
-	let MustRefresh = false;
-
-	/** @type {ItemProperties} */
-	const Property = (DialogFocusItem.Property = DialogFocusItem.Property || {});
-	if (typeof Property.Text !== "string") {
-		Property.Text = "";
-		MustRefresh = true;
-	}
-
-	if (MustRefresh) {
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-
 	PropertyTextLoad();
 }
 

@@ -987,6 +987,7 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
 			Color: ((NewColor == null) ? ItemColor : NewColor),
 			Property: ItemAsset.CharacterRestricted ? {ItemMemberNumber: ItemMemberNumber == null ? -1 : ItemMemberNumber} : undefined
 		};
+		ExtendedItemInit(NA, C, false);
 		C.Appearance.push(NA);
 	}
 

@@ -561,6 +561,18 @@ type ExtendedItemValidateScriptHookCallback<OptionType> = (
 	PreviousOption: OptionType,
 ) => void;
 
+/**
+ * Callback for extended item `Init` functions
+ * @param Item The item in question
+ * @param C The character that has the item equiped
+ * @param Refresh Whether the character and relevant item should be refreshed and pushed to the server
+ */
+type ExtendedItemInitCallback = (
+	Item: Item,
+	C: Character,
+	Refresh?: boolean,
+) => void;
+
 //#endregion
 
 //#region Typed items

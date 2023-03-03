@@ -12,14 +12,20 @@ const ItemVulvaFuturisticVibratorAccessMode = {
 };
 const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturisticVibratorAccessMode);
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemVulvaFuturisticVibratorInit(Item, C, Refresh) {
+	VibratorModeInit(Item, C, false, [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
+	ExtendedItemInitNoArch(Item, C, {
+		AccessMode: "",
+		TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
+	}, Refresh);
+}
+
 function InventoryItemVulvaFuturisticVibratorLoad() {
 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
-		VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
-		if ((DialogFocusItem != null) && (DialogFocusItem.Property != null) && (DialogFocusItem.Property.TriggerValues == null)) DialogFocusItem.Property.TriggerValues = CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers);
-
 		ItemVulvaFuturisticVibratorTriggerValues = DialogFocusItem.Property.TriggerValues.split(',');
 
 		// Only create the inputs if the zone isn't blocked

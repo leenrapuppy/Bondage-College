@@ -43,69 +43,44 @@ var FuturisticTrainingBeltPunishmentVibeDuration = 5*60000; // 5 minutes constan
 var FuturisticTrainingBeltPage = 0;
 var FuturisticTrainingBeltMaxPage = 1;
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemPelvisFuturisticTrainingBeltInit(Item, C, Refresh) {
+	/** @type {ItemProperties} */
+	const Property = {
+		Intensity: -1,
+		// Security
+		ShowText: false,
+		NextShockTime: 0,
+		PunishStruggle: false,
+		PunishStruggleOther: false,
+		PunishOrgasm: false,
+		PunishStandup: false,
+		PunishSpeech: 0,
+		PunishRequiredSpeech: 0,
+		PunishRequiredSpeechWord: "Miss",
+		PunishProhibitedSpeech: 0,
+		PunishProhibitedSpeechWords: "I,me,am,my,im",
+		// Public Modes
+		PublicModeCurrent: 0,
+		PublicModePermission: 0,
+		// State machine
+		//DeviceState: 0,
+		//DeviceStateTimer: 0, // Timer for the end of the current state
+		//DeviceVibeMode: VibratorMode.OFF, // Timer for the end of the current state
+	};
+	ExtendedItemInitNoArch(Item, C, Property, Refresh);
+}
+
 function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else{
-		if (DialogFocusItem.Property == null) DialogFocusItem.Property = {
-			Intensity: -1,
-			// Security
-			ShowText: false,
-			NextShockTime: 0,
-			PunishStruggle: false,
-			PunishStruggleOther: false,
-			PunishOrgasm: false,
-			PunishStandup: false,
-			PunishSpeech: 0,
-			PunishRequiredSpeech: 0,
-			PunishRequiredSpeechWord: "Miss",
-			PunishProhibitedSpeech: 0,
-			PunishProhibitedSpeechWords: "I,me,am,my,im",
-			// Public Modes
-			PublicModeCurrent: 0,
-			PublicModePermission: 0,
-			// State machine
-			//DeviceState: 0,
-			//DeviceStateTimer: 0, // Timer for the end of the current state
-			//DeviceVibeMode: VibratorMode.OFF, // Timer for the end of the current state
-		};
-		// Security
-		if (DialogFocusItem.Property.NextShockTime == null) DialogFocusItem.Property.NextShockTime = 0;
-		if (DialogFocusItem.Property.PunishStruggle == null) DialogFocusItem.Property.PunishStruggle = false;
-		if (DialogFocusItem.Property.PunishSpeech == null) DialogFocusItem.Property.PunishSpeech = 0;
-		if (DialogFocusItem.Property.PunishRequiredSpeech == null) DialogFocusItem.Property.PunishRequiredSpeech = 0;
-		if (DialogFocusItem.Property.PunishRequiredSpeechWord == null) DialogFocusItem.Property.PunishRequiredSpeechWord = "Miss";
-		if (DialogFocusItem.Property.PunishProhibitedSpeech == null) DialogFocusItem.Property.PunishProhibitedSpeech = 0;
-		if (DialogFocusItem.Property.PunishProhibitedSpeechWords == null) DialogFocusItem.Property.PunishProhibitedSpeechWords = "I,me,am,my,im";
-		if (DialogFocusItem.Property.PunishStandup == null) DialogFocusItem.Property.PunishStandup = false;
-		if (DialogFocusItem.Property.PunishStruggleOther == null) DialogFocusItem.Property.PunishStruggleOther = false;
-		if (DialogFocusItem.Property.PunishOrgasm == null) DialogFocusItem.Property.PunishOrgasm = false;
-		if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = false;
-		if (DialogFocusItem.Property.Intensity == null) DialogFocusItem.Property.Intensity = -1;
-		if (DialogFocusItem.Property.PublicModeCurrent == null) DialogFocusItem.Property.PublicModeCurrent = 0;
-		if (DialogFocusItem.Property.PublicModePermission == null) DialogFocusItem.Property.PublicModePermission = 0;
-
-		// Non persistent properties
-		//if (DialogFocusItem.Property.DeviceState == null) DialogFocusItem.Property.DeviceState = 0;
-		//if (DialogFocusItem.Property.DeviceStateTimer == null) DialogFocusItem.Property.DeviceStateTimer = 0;
-		//if (DialogFocusItem.Property.DeviceVibeMode == null) DialogFocusItem.Property.DeviceVibeMode = VibratorMode.OFF;
-
-		// Validation
-		if (typeof DialogFocusItem.Property.PunishRequiredSpeechWord != "string") DialogFocusItem.Property.PunishRequiredSpeechWord = "Miss";
-		if (typeof DialogFocusItem.Property.PunishProhibitedSpeechWords != "string") DialogFocusItem.Property.PunishProhibitedSpeechWords = "I,me,am,my,im";
-		if (DialogFocusItem.Property.PublicModePermission >= FuturisticTrainingBeltPermissions.length || DialogFocusItem.Property.PublicModePermission < 0) DialogFocusItem.Property.PublicModePermission = 2;
-		if (DialogFocusItem.Property.PublicModeCurrent >= FuturisticTrainingBeltModes.length || DialogFocusItem.Property.PublicModeCurrent < 0) DialogFocusItem.Property.PublicModeCurrent = 0;
-		//if (DialogFocusItem.Property.DeviceState >= FuturisticTrainingBeltStates.length || DialogFocusItem.Property.DeviceState < 0) DialogFocusItem.Property.DeviceState = 0;
-		//if (DialogFocusItem.Property.DeviceStateTimer >= CommonTime() + 3600000) DialogFocusItem.Property.DeviceStateTimer = 0; // Prevents people from hacking in ultra-long state timers
-
-
 		const input = ElementCreateInput("PunishRequiredSpeechWord", "text", "", "70");
 		if (input) input.setAttribute("placeholder", DialogFocusItem.Property.PunishRequiredSpeechWord);
 		const input2 = ElementCreateInput("PunishProhibitedSpeechWords", "text", "", "70");
 		if (input2) input2.setAttribute("placeholder", DialogFocusItem.Property.PunishProhibitedSpeechWords);
 	}
-
 
 	if (FuturisticTrainingBeltSetMode < 0 || FuturisticTrainingBeltSetMode > FuturisticTrainingBeltModes.length)
 		FuturisticTrainingBeltSetMode = DialogFocusItem.Property.PublicModeCurrent;

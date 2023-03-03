@@ -2923,10 +2923,11 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 			if ((NextItem.Craft != null) && CommonIsColor(NextItem.Craft.Color))
 				Color = NextItem.Craft.Color;
 
-			InventoryWear(C, NextItem.Asset.Name, NextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, NextItem.Craft);
-
-			if (NextItem.Craft != null)
-				InventoryCraft(Player, C, NextItem.Asset.Group.Name, NextItem.Craft, true);
+			const isCraft = (NextItem.Craft != null);
+			InventoryWear(C, NextItem.Asset.Name, NextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, NextItem.Craft, !isCraft);
+			if (isCraft) {
+				InventoryCraft(Player, C, /** @type {AssetGroupItemName} */(NextItem.Asset.Group.Name), NextItem.Craft, true);
+			}
 
 			// Refresh the item by getting it back
 			NextItem = InventoryGet(C, NextItem.Asset.Group.Name);
@@ -2965,16 +2966,20 @@ function DialogStruggleStop(C, Game, { Progress, PrevItem, NextItem, Skill, Atte
 			DialogEndExpression();
 			DialogColor = null;
 			DialogStruggleSelectMinigame = false;
-		} else if (NextItem !== null && NextItem.Asset.Extended && NextItem.Craft !== null) {
-			// Applying an extended, non-crafted item, refresh the inventory and open the extended UI
+		} else if (
+			NextItem !== null
+			&& NextItem.Asset.Extended
+			&& (NextItem.Craft == null || (NextItem.Craft && NextItem.Craft.Type == null))
+		) {
+			// Applying an extended, non-crafted/typeless crafted item, refresh the inventory and open the extended UI
 			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
 			DialogInventoryBuild(C);
 			DialogMenuButtonBuild(C);
 			DialogEndExpression();
 			DialogStruggleSelectMinigame = false;
 			DialogExtendItem(NextItem);
-		} else if (NextItem !== null && NextItem.Craft) {
-			// Applying a crafted item, just exit the dialog altogether
+		} else {
+			// Applying a non-extended or crafted-with-preset-type item, just exit the dialog altogether
 			ChatRoomPublishAction(C, DialogStruggleAction, PrevItem, NextItem);
 			DialogEndExpression();
 			DialogLeave();
