@@ -485,8 +485,8 @@ function PrivateNewCloth(C) {
 		InventoryWear(C, "CollegeSkirt", "ClothLower");
 		InventoryWear(C, "Socks4", "Socks", "#AAAAAA");
 		InventoryWear(C, "Shoes2", "Shoes", "#222222");
-		InventoryWear(Sarah, "Bra2", "Bra", "#a02424");
-		InventoryWear(Sarah, "Panties7", "Panties", "#a02424");
+		InventoryWear(C, "Bra2", "Bra", "#a02424");
+		InventoryWear(C, "Panties7", "Panties", "#a02424");
 	} else if (C.Name == "Amanda") {
 		InventoryWear(C, "CollegeOutfit1", "Cloth");
 		InventoryWear(C, "CollegeSkirt", "ClothLower");
