@@ -828,7 +828,7 @@ function WheelFortuneRun() {
 		DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
 		MainCanvas.textAlign = "center";
 	} else DrawTextWrap(TextGet("NoRoleplay"), 1375, 400, 550, 200, "White");
-	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
+	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter && WheelFortuneCharacter.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
 
 }
 

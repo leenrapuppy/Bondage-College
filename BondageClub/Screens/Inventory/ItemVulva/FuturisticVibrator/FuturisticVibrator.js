@@ -188,9 +188,9 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
  * @param {boolean} IgnoreSame
  */
 function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame=false) {
-	const Mode = Option.Property?.Mode;
+	const Mode = Option.Property && Option.Property.Mode;
 	if (
-		C.ArousalSettings?.DisableAdvancedVibes
+		C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes
 		&& VibratorModeOptions.Advanced.some(i => i.Name === Mode)
 	) {
 		// Abort, the character has advanced vibrator modes disabled

@@ -52,7 +52,7 @@ function TestingGetMissingColorLayersGroups() {
 
 			// Gather all missing layers
 			for (const colorLayer of colorGroup.layers) {
-				const layerStruct = { Group, Name, Missing: `${Group}${Name}${colorLayer.Name ?? ""}` };
+				const layerStruct = { Group, Name, Missing: `${Group}${Name}${colorLayer.Name || ""}` };
 				const struct = (colorGroup.layers.length === 1) ? groupStruct : layerStruct;
 				if (!TestingColorLayers.has(struct.Missing)) {
 					missingLayers.push(struct);

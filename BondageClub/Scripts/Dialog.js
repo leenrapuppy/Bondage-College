@@ -362,7 +362,7 @@ function DialogCanInteract(C) { return DialogGetCharacter(C).CanInteract(); }
  * Can be omitted to bring the character back to the standing position.
  * @returns {void} - Nothing
  */
-function DialogSetPose(C, NewPose) { CharacterSetActivePose((C.toUpperCase().trim() == "PLAYER") ? Player : CurrentCharacter, NewPose ?? null, true); }
+function DialogSetPose(C, NewPose) { CharacterSetActivePose((C.toUpperCase().trim() == "PLAYER") ? Player : CurrentCharacter, NewPose || null, true); }
 
 /**
  * Checks, whether a given skill of the player is greater or equal a given value
@@ -1064,7 +1064,7 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.push("Remove");
 
 			if (
-				IsItemLocked
+				IsItemLocked && Item.Property && Item.Property.LockedBy
 				&& (
 					(
 						!Player.IsBlind() ||
@@ -1081,7 +1081,6 @@ function DialogMenuButtonBuild(C) {
 						(C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)
 					)
 				)
-				&& Item.Property?.LockedBy
 			) {
 				DialogMenuButton.push("LockMenu");
 			}
@@ -1295,7 +1294,7 @@ function DialogFacialExpressionsBuild() {
 	DialogFacialExpressions = [];
 	for (let I = 0; I < Player.Appearance.length; I++) {
 		const PA = Player.Appearance[I];
-		const ExpressionList = [...(PA.Asset.Group.AllowExpression ?? [])];
+		const ExpressionList = [...(PA.Asset.Group.AllowExpression || [])];
 		if (!ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
 		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);

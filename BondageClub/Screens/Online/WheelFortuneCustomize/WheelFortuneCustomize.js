@@ -9,7 +9,7 @@ var WheelFortuneCustomizeList = "";
  */
 function WheelFortuneCustomizeLoad() {
 	WheelFortuneCustomizeOffset = 0;
-	if (typeof WheelFortuneCharacter?.OnlineSharedSettings?.WheelFortune === "string")
+	if (typeof WheelFortuneCharacter.OnlineSharedSettings.WheelFortune === "string")
 		WheelFortuneCustomizeList = WheelFortuneCharacter.OnlineSharedSettings.WheelFortune;
 	else
 		WheelFortuneCustomizeList = WheelFortuneDefault;
@@ -20,7 +20,7 @@ function WheelFortuneCustomizeLoad() {
  * @returns {void} - Nothing
  */
 function WheelFortuneCustomizeRun() {
-	const isDisabled = !WheelFortuneCharacter?.IsPlayer();
+	const isDisabled = !WheelFortuneCharacter.IsPlayer();
 	const buttonColor = isDisabled ? "Gray" : "White";
 	let titleText = "";
 	if (isDisabled) {
@@ -70,7 +70,7 @@ function WheelFortuneCustomizeClick() {
 	}
 
 	// Non-player characters only have readonly access; abort at this point if necessary
-	if (!WheelFortuneCharacter?.IsPlayer()) {
+	if (!WheelFortuneCharacter.IsPlayer()) {
 		return;
 	}
 
@@ -112,7 +112,7 @@ function WheelFortuneCustomizeClick() {
  * @returns {void} - Nothing
  */
 function WheelFortuneCustomizeExit(Save=false) {
-	if (Save && WheelFortuneCharacter?.IsPlayer()) {
+	if (Save && WheelFortuneCharacter.IsPlayer()) {
 		// @ts-ignore: Individual properties validated separately
 		if (Player.OnlineSharedSettings == null) Player.OnlineSharedSettings = {};
 		Player.OnlineSharedSettings.WheelFortune = WheelFortuneCustomizeList;

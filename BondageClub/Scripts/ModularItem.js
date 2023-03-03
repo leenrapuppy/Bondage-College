@@ -628,8 +628,7 @@ function ModularItemDeconstructType(Type) {
 	if (typeof Type !== "string") {
 		return null;
 	} else {
-		const Iterator = Type.matchAll(/([a-zA-Z]+\d+)/g);
-		return Array.from(Iterator, (m) => m[0]);
+		return Type.split(/([a-zA-Z]+\d+)/).filter(t => t);
 	}
 }
 
