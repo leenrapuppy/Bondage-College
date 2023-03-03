@@ -47,6 +47,7 @@ var DialogItemToLock = null;
 var DialogAllowBlush = false;
 var DialogAllowEyebrows = false;
 var DialogAllowFluids = false;
+/** @type {ExpressionItem[]} */
 var DialogFacialExpressions = [];
 var DialogFacialExpressionsSelected = -1;
 var DialogFacialExpressionsSelectedBlindnessLevel = 2;
@@ -1298,11 +1299,13 @@ function DialogFacialExpressionsBuild() {
 		if (!ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
 		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);
-		const Item = {};
-		Item.Appearance = PA;
-		Item.Group = PA.Asset.Group.Name;
-		Item.CurrentExpression = (PA.Property == null) ? null : PA.Property.Expression;
-		Item.ExpressionList = ExpressionList;
+		/** @type {ExpressionItem} */
+		const Item = {
+			Appearance: PA,
+			Group: /** @type {ExpressionGroupName} */(PA.Asset.Group.Name),
+			CurrentExpression: (PA.Property == null) ? null : PA.Property.Expression,
+			ExpressionList: ExpressionList,
+		};
 		DialogFacialExpressions.push(Item);
 	}
 	// Temporary (?) solution to make the facial elements appear in a more logical order, as their alphabetical order currently happens to match up

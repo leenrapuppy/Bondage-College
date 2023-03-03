@@ -222,6 +222,35 @@ type EffectName =
 	""
 	;
 
+interface ExpressionNameMap {
+	Eyebrows: "Raised" | "Lowered" | "OneRaised" | "Harsh" | "Angry" | "Soft",
+	Eyes: (
+		"Closed" | "Dazed" | "Shy" | "Sad" | "Horny" | "Lewd" | "VeryLewd" |
+		"Heart" | "HeartPink" | "LewdHeart" | "LewdHeartPink" | "Dizzy" | "Daydream" |
+		"ShylyHappy" | "Angry" | "Surprised" | "Scared"
+	),
+	Eyes2: ExpressionNameMap["Eyes"],
+	Mouth: (
+		"Frown" | "Sad" | "Pained" | "Angry" | "HalfOpen" | "Open" | "Ahegao" | "Moan" |
+		"TonguePinch" | "LipBite" | "Happy" | "Devious" | "Laughing" | "Grin" | "Smirk" | "Pout"
+	),
+	Pussy: "Hard",
+	Blush: "Low" | "Medium" | "High" | "VeryHigh" | "Extreme" | "ShortBreath",
+	Fluids: (
+		"DroolLow" | "DroolMedium" | "DroolHigh" | "DroolSides" | "DroolMessy" | "DroolTearsLow" |
+		"DroolTearsMedium" | "DroolTearsHigh" | "DroolTearsMessy" | "DroolTearsSides" |
+		"TearsHigh" | "TearsMedium" | "TearsLow"
+	),
+	Emoticon: (
+		"Afk" | "Whisper" | "Sleep" | "Hearts" | "Tear" | "Hearing" | "Confusion" | "Exclamation" |
+		"Annoyed" | "Read" | "RaisedHand" | "Spectator" | "ThumbsDown" | "ThumbsUp" | "LoveRope" |
+		"LoveGag" | "LoveLock" | "Wardrobe" | "Gaming"
+	),
+}
+
+type ExpressionGroupName = keyof ExpressionNameMap;
+type ExpressionName = ExpressionNameMap[ExpressionGroupName];
+
 type AssetGroupItemName =
 	'ItemAddon' | 'ItemArms' | 'ItemBoots' | 'ItemBreast' | 'ItemButt' |
 	'ItemDevices' | 'ItemEars' | 'ItemFeet' | 'ItemHands' | 'ItemHead' |
@@ -237,12 +266,11 @@ type AssetGroupItemName =
 type AssetGroupScriptName = 'ItemScript';
 
 type AssetGroupBodyName =
-	'Blush' | 'BodyLower' | 'BodyUpper' | 'Bra' | 'Bracelet' | 'Cloth' |
-	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
-	'Eyes' | 'Eyes2' | 'Fluids' | 'FacialHair' | 'Garters' | 'Glasses' | 'Gloves' |
+	ExpressionGroupName | 'BodyLower' | 'BodyUpper' | 'Bra' | 'Bracelet' | 'Cloth' |
+	'ClothAccessory' | 'ClothLower' | 'Corset' | 'FacialHair' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
 	'HairFront' | 'FacialHair' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'Jewelry' | 'LeftAnklet' | 'LeftHand' | 'Mask' |
-	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'Pronouns' | 'RightAnklet' | 'RightHand' |
+	'Necklace' | 'Nipples' | 'Panties' | 'Pronouns' | 'RightAnklet' | 'RightHand' |
 	'Shoes' | 'Socks' | 'SocksLeft' | 'SocksRight' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
@@ -815,7 +843,7 @@ interface AssetGroup {
 	Zone?: readonly [number, number, number, number][];
 	SetPose?: readonly AssetPoseName[];
 	AllowPose: readonly AssetPoseName[];
-	AllowExpression?: readonly string[];
+	AllowExpression?: readonly ExpressionName[];
 	Effect?: readonly EffectName[];
 	MirrorGroup: AssetGroupName | "";
 	RemoveItemOnRemove: readonly { Group: AssetGroupItemName; Name: string; Type?: string }[];
@@ -848,7 +876,7 @@ interface AssetAppearanceGroup extends AssetGroup {
 	Category: "Appearance";
 	Name: AssetGroupBodyName;
 	IsRestraint: false;
-	AllowExpression?: readonly string[];
+	AllowExpression?: readonly ExpressionName[];
 }
 
 /** An AssetGroup subtype for the `Item` {@link AssetGroup.Category} */
@@ -961,10 +989,19 @@ interface ResolvedTintDefinition extends TintDefinition {
 	Item: Item;
 }
 
-interface ExpressionTrigger {
-	Group: AssetGroupBodyName;
-	Name: string;
+interface ExpressionTriggerBase<GroupName extends ExpressionGroupName> {
+	Group: GroupName;
+	Name: ExpressionNameMap[GroupName];
 	Timer: number;
+}
+type ExpressionTriggerMap<T> = T extends ExpressionGroupName ? ExpressionTriggerBase<T> : never;
+type ExpressionTrigger = ExpressionTriggerMap<ExpressionGroupName>;
+
+interface ExpressionItem {
+	Appearance: Item,
+	Group: ExpressionGroupName,
+	CurrentExpression: null | ExpressionName,
+	ExpressionList: ExpressionName[],
 }
 
 /**
@@ -1072,7 +1109,7 @@ interface Asset {
 	OverrideHeight?: AssetOverrideHeight;
 	FreezeActivePose: readonly AssetPoseCategory[];
 	DrawLocks: boolean;
-	AllowExpression?: readonly string[];
+	AllowExpression?: readonly ExpressionName[];
 	MirrorExpression?: AssetGroupName;
 	FixedPosition: boolean;
 	Layer: readonly AssetLayer[];
@@ -1717,7 +1754,7 @@ interface PlayerCharacter extends Character {
 	GhostList?: number[];
 	Wardrobe?: any[][];
 	WardrobeCharacterNames?: string[];
-	SavedExpressions?: ({ Group: AssetGroupBodyName, CurrentExpression?: string }[] | null)[];
+	SavedExpressions?: ({ Group: ExpressionGroupName, CurrentExpression?: ExpressionName }[] | null)[];
 	SavedColors: HSVColor[];
 	FriendList?: number[];
 	FriendNames?: Map<number, string>;
@@ -1934,7 +1971,7 @@ interface ItemPropertiesBase {
 	Type?: string | null;
 
 	/** A facial expression */
-	Expression?: string;
+	Expression?: ExpressionName;
 
 	/** Whether the asset affects should be overriden rather than extended */
 	OverrideAssetEffect?: boolean;
