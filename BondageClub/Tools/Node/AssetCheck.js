@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const BASE_PATH = "../../";
 // Files needed to check the Female3DCG assets
-const neededFiles = [
+const NEEDED_FILES = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
 	"Scripts/Asset.js",
@@ -34,6 +34,8 @@ const neededFiles = [
 	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js",
+	"Scripts/Translation.js",
+	"Scripts/Text.js",
 	"Screens/Character/ItemColor/ItemColor.js",
 	"Scripts/Testing.js",
 ];
@@ -152,27 +154,34 @@ function testDynamicGroupName(groupDefinitions) {
 
 /**
  * Checks for the option names of typed items
- * @param {any} extendedItemConfig
+ * @param {ExtendedItemConfig} config
  */
-function testTypedOptionName(extendedItemConfig) {
+function testTypedOptionName(config) {
+	for (const { assetName, groupName, assetConfig } of flattenExtendedConfig(config)) {
+		if (assetConfig.Archetype !== "typed" || assetConfig.Config?.Options === undefined) {
+			continue;
+		}
+
+		const invalidOptions = assetConfig.Config.Options.filter(o => {
+			const type = o?.Property?.Type;
+			return !(o.Name === type || type === null);
+		});
+		if (invalidOptions.length !== 0) {
+			const n = invalidOptions.length;
+			const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
+			error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
+		}
+	}
+}
+
+/**
+ * Flatten and yield all combined Asset/Group configs and names
+ * @param {ExtendedItemConfig} extendedItemConfig
+ */
+function* flattenExtendedConfig(extendedItemConfig) {
 	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
 		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
-			if (
-				assetConfig.Archetype !== "typed"
-				|| (assetConfig.Config === undefined)
-				|| (assetConfig.Config.Options === undefined)
-			) {
-				continue;
-			}
-			const invalidOptions = assetConfig.Config.Options.filter(o => {
-				const type = o?.Property?.Type;
-				return !(o.Name === type || type === null);
-			});
-			if (invalidOptions.length !== 0) {
-				const n = invalidOptions.length;
-				const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
-				error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
-			}
+			yield { groupName, assetName, groupConfig, assetConfig };
 		}
 	}
 }
@@ -184,23 +193,21 @@ function testTypedOptionName(extendedItemConfig) {
  */
 function testExtendedItemDialog(extendedItemConfig, dialogArray) {
 	const dialogSet = new Set(dialogArray.map(i => i[0]));
-	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
-		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
-			/** @type {Set<string>} */
-			let missingDialog = new Set();
-			switch (assetConfig.Archetype) {
-				case "typed":
-					missingDialog = testTypedItemDialog(groupName, assetName, assetConfig, dialogSet);
-					break;
-				case "modular":
-					missingDialog = testModularItemDialog(groupName, assetName, assetConfig, dialogSet);
-					break;
-			}
+	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(extendedItemConfig)) {
+		/** @type {Set<string>} */
+		let missingDialog = new Set();
+		switch (assetConfig.Archetype) {
+			case "typed":
+				missingDialog = testTypedItemDialog(groupName, assetName, assetConfig, dialogSet);
+				break;
+			case "modular":
+				missingDialog = testModularItemDialog(groupName, assetName, assetConfig, dialogSet);
+				break;
+		}
 
-			if (missingDialog.size !== 0) {
-				const missingString = Array.from(missingDialog).sort();
-				error(`${groupName}:${assetName}: found ${missingDialog.size} missing dialog keys: ${missingString}`);
-			}
+		if (missingDialog.size !== 0) {
+			const missingString = Array.from(missingDialog).sort();
+			error(`${groupName}:${assetName}: found ${missingDialog.size} missing dialog keys: ${missingString}`);
 		}
 	}
 }
@@ -377,6 +384,63 @@ function testColorLayers(missingLayers) {
 }
 
 /**
+ * Check whether all extended item options and modules are (at least) of length 1.
+ * @param {ExtendedItemConfig} config
+ */
+function testModuleOptionLength(config) {
+	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(config)) {
+		switch (assetConfig.Archetype) {
+			case "typed": {
+				testModuleOptionLengthTyped(groupName, assetName, assetConfig);
+				break;
+			}
+			case "modular": {
+				testModuleOptionLengthModular(groupName, assetName, assetConfig);
+				break;
+			}
+		}
+	}
+}
+
+/**
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {TypedItemAssetConfig} assetConfig
+ */
+function testModuleOptionLengthTyped(groupName, assetName, assetConfig) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Options) {
+		return;
+	}
+
+	const options = assetConfig.Config?.Options ?? [];
+	if (options.length === 0) {
+		error(`${groupName}:${assetName}: typed item require at least one option`);
+	}
+}
+
+/**
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {ModularItemAssetConfig} assetConfig
+ */
+function testModuleOptionLengthModular(groupName, assetName, assetConfig) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Modules) {
+		return;
+	}
+
+	const modules = assetConfig.Config?.Modules ?? [];
+	if (modules.length === 0) {
+		error(`${groupName}:${assetName}: modular item requires at least one option`);
+	}
+
+	for (const mod of modules) {
+		if (mod.Options.length === 0) {
+			error(`${groupName}:${assetName}: modular item module "${mod}" requires at least one option`);
+		}
+	}
+}
+
+/**
  * Strigify and parse the passed object to get the correct Array and Object prototypes, because VM uses different ones.
  * This unfortunately results in Functions being lost and replaced with a dummy function
  * @param {any} input The to-be sanitized input
@@ -392,22 +456,27 @@ function sanitizeVMOutput(input) {
 	);
 }
 
-/**
- * TODO: Mock more {@link TextCache} properties if required or create a more
- * Node.JS-friendly version of the class and use that.
- */
-class TextCacheMock {
-	get() { return ""; }
-}
-
 (function () {
+	const [commonFile, ...neededFiles] = NEEDED_FILES;
 	const context = vm.createContext({
 		OuterArray: Array,
 		Object: Object,
-		TextCache: TextCacheMock,
 		TestingColorLayers: new Set(loadCSV("Assets/Female3DCG/LayerNames.csv", 2).map(i => i[0])),
 		TestingColorGroups: new Set(loadCSV("Assets/Female3DCG/ColorGroups.csv", 2).map(i => i[0])),
 	});
+	vm.runInContext(fs.readFileSync(BASE_PATH + commonFile, { encoding: "utf-8" }), context, {
+		filename: commonFile,
+	});
+
+	// Only patch `CommonGet` after loading `Common`, lest our monkey patch will be overriden again
+	context.CommonGet = (file, callback) => {
+		const data = fs.readFileSync(`../../${file}`, "utf8");
+		const obj = {
+			status: 200,
+			responseText: data,
+		};
+		callback.bind(obj)(obj);
+	};
 	for (const file of neededFiles) {
 		vm.runInContext(fs.readFileSync(BASE_PATH + file, { encoding: "utf-8" }), context, {
 			filename: file,
@@ -613,4 +682,5 @@ class TextCacheMock {
 	testExtendedItemDialog(AssetFemale3DCGExtended, dialogArray);
 	testColorGroups(missingColorGroups);
 	testColorLayers(missingColorLayers);
+	testModuleOptionLength(AssetFemale3DCGExtended);
 })();
