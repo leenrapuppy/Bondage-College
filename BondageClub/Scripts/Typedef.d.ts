@@ -244,7 +244,7 @@ interface ExpressionNameMap {
 	Emoticon: (
 		"Afk" | "Whisper" | "Sleep" | "Hearts" | "Tear" | "Hearing" | "Confusion" | "Exclamation" |
 		"Annoyed" | "Read" | "RaisedHand" | "Spectator" | "ThumbsDown" | "ThumbsUp" | "LoveRope" |
-		"LoveGag" | "LoveLock" | "Wardrobe" | "Gaming"
+		"LoveGag" | "LoveLock" | "Wardrobe" | "Gaming" | "Coffee"
 	),
 }
 
