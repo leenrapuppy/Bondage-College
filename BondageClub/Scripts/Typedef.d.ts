@@ -1788,6 +1788,14 @@ interface AssetOverrideHeight {
 }
 
 /**
+ * The type for OverridePriority in extended items.
+ *
+ * Either a single number that will cause all of the asset's layer to
+ * inherit that priority, or a more precise specifier keyed by layer name.
+ */
+type AssetLayerOverridePriority = { string: number} | number;
+
+/**
  * Base properties of extended items derived from their respective {@link Asset} definition.
  *
  * Those are the properties the main game code enforces.
@@ -1818,7 +1826,7 @@ interface AssetDefinitionProperties {
 	 * The drawing priority of the item
 	 * @see {@link Asset.OverridePriority}
 	 */
-	OverridePriority?: number;
+	OverridePriority?: AssetLayerOverridePriority;
 	/**
 	 * The default color of the item
 	 * @see {@link Asset.DefaultColor}
