@@ -2666,6 +2666,7 @@ var AssetFemale3DCGExtended = {
 					{ Name: "AnalSlut", Property: { Type: "AnalSlut" } },
 					{ Name: "Babe", Property: { Type: "Babe" } },
 					{ Name: "Bandit", Property: { Type: "Bandit" } },
+					{ Name: "Bimbo", Property: { Type: "Bimbo" } },
 					{ Name: "Bratty", Property: { Type: "Bratty" } },
 					{ Name: "ButtSlut", Property: { Type: "ButtSlut" } },
 					{ Name: "Chair", Property: { Type: "Chair" } },
@@ -2722,6 +2723,7 @@ var AssetFemale3DCGExtended = {
 					{ Name: "Pony", Property: { Type: "Pony" } },
 					{ Name: "Puppy", Property: { Type: "Puppy" } },
 					{ Name: "Racoon", Property: { Type: "Racoon" } },
+					{ Name: "Sloth", Property: { Type: "Sloth" } },
 				],
 			},
 		}, // CollarNameTagPet
