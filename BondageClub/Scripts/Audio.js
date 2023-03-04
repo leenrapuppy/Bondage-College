@@ -529,12 +529,10 @@ function AudioGetSoundFromChatMessage(data, metadata) {
 
 		return [soundEffect, 0];
 	} else if (data.Type === "Action") {
-		const NextAsset = data.Dictionary.find((entry) => entry.Tag == "NextAsset");
-		const NextAssetGroup = data.Dictionary.find((entry) => entry.Tag == "FocusAssetGroup");
+		const NextAsset = metadata.Assets.NextAsset;
+		if (!NextAsset) return;
 
-		if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return;
-
-		return AudioGetSoundFromAsset(sender, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
+		return AudioGetSoundFromAsset(sender, NextAsset.Group.Name, NextAsset.Name);
 	}
 }
 
