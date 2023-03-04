@@ -1109,7 +1109,7 @@ interface Asset {
 	Category?: readonly string[];
 	Fetish?: readonly string[];
 	CustomBlindBackground?: string;
-	ArousalZone: AssetGroupName;
+	ArousalZone: AssetGroupItemName;
 	IsRestraint: boolean;
 	BodyCosplay: boolean;
 	OverrideBlinking: boolean;

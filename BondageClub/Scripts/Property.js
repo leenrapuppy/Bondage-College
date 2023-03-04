@@ -63,7 +63,7 @@ function PropertyOpacityLoad(OriginalFunction=null, thumbIcon="blindfold") {
 
 	if (opacitySlider) {
 		const C = CharacterGetCurrent();
-		opacitySlider.addEventListener("input", (e) => PropertyOpacityChange(C, DialogFocusItem, Number(e.target.value)));
+		opacitySlider.addEventListener("input", (e) => PropertyOpacityChange(C, DialogFocusItem, Number(/** @type {HTMLInputElement} */ (e.target).value)));
 		return opacitySlider;
 	} else {
 		return /** @type {HTMLInputElement} */(document.getElementById(ID));
@@ -374,7 +374,7 @@ function PropertyTextLoad(OriginalFunction=null, EventListeners={}) {
 			textInput.pattern = DynamicDrawTextInputPattern;
 			textInput.addEventListener("input", (e) => {
 				const I = (DialogFocusItem.Asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
-				Callback(C, I, propName, e.target.value);
+				Callback(C, I, propName, /** @type {HTMLInputElement} */ (e.target).value);
 			});
 			return textInput;
 		} else {

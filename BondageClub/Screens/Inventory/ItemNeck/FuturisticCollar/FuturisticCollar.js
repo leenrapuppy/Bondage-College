@@ -385,12 +385,18 @@ function InventoryItemNeckFuturisticCollarColor(C, FromItem) {
 	for (const item of C.Appearance) {
 		if (item.Asset && item.Asset.FuturisticRecolor && item.Asset.Group.Name != "ItemNeck") {
 
+			let colors = null;
 			if (item.Asset.Layer.length > 1 && typeof item.Color === "string") {
 				let color = item.Color;
 				item.Color = [];
 				for (let L = item.Asset.Layer.length - 1; L >= 0; L--) {
 					item.Color.push(color);
 				}
+				colors = item.Color;
+			} else if (Array.isArray(item.Color)) {
+				colors = item.Color;
+			} else {
+				continue;
 			}
 
 			for (let L = item.Asset.Layer.length - 1; L >= 0; L--) {
@@ -401,16 +407,16 @@ function InventoryItemNeckFuturisticCollarColor(C, FromItem) {
 							item.Color = (item.Asset.FuturisticRecolorDisplay) ? FromItem.Color[0] : FromItem.Color[3];
 					} else if (item.Asset.Layer[L].Name == "Lock") {
 						if (FromItem.Color[3] != "Default")
-							item.Color[L] = FromItem.Color[3];
+							colors[L] = FromItem.Color[3];
 					} else if (item.Asset.Layer[L].Name == "Display" || item.Asset.Layer[L].Name == "Screen" || item.Asset.Layer[L].Name == "Ball") {
 						if (FromItem.Color[0] != "Default")
-							item.Color[L] = FromItem.Color[0];
+							colors[L] = FromItem.Color[0];
 					} else if (item.Asset.Layer[L].Name != "Mesh" && item.Asset.Layer[L].Name != "Text") {
 						if (FromItem.Color[1] != "Default")
-							item.Color[L] = FromItem.Color[1];
+							colors[L] = FromItem.Color[1];
 					} else if (item.Asset.Layer[L].Name != "Text") {
 						if (FromItem.Color[2] != "Default")
-							item.Color[L] = FromItem.Color[2];
+							colors[L] = FromItem.Color[2];
 					}
 				}
 			}

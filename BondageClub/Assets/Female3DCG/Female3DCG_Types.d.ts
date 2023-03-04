@@ -227,7 +227,7 @@ interface AssetDefinition {
 	Category?: string[];
 
 	Fetish?: string[];
-	ArousalZone?: AssetGroupName;
+	ArousalZone?: AssetGroupItemName;
 	IsRestraint?: boolean;
 	BodyCosplay?: boolean;
 	OverrideBlinking?: boolean;

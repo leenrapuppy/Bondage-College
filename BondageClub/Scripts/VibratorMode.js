@@ -374,7 +374,7 @@ function VibratorModeClick(Options, Y) {
 			if (I % 3 === 0) Y += 75;
 			if (MouseIn(X, Y, 200, 55)) {
 				if ((Option.Property != null) && (DialogFocusItem.Property != null) && (Option.Property.Mode !== DialogFocusItem.Property.Mode) && !(OptionName == VibratorModeSet.ADVANCED && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes))
-					VibratorModeSetOption(Option);
+					VibratorModeSetOption(/** @type {ExtendedItemOption} */ (Option));
 				return true;
 			}
 		});

@@ -412,7 +412,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 
 	// Creates the inventory and default appearance
 	if (CharacterID == 0) {
-		Player = NewCharacter;
+		Player = /** @type {PlayerCharacter} */ (NewCharacter);
 		CharacterAppearanceSetDefault(NewCharacter);
 	}
 

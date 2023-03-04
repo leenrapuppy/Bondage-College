@@ -1721,9 +1721,10 @@ function PrivateLoveYou() {
 
 		// When the NPC plays with the egg speed
 		if ((PrivateLoverActivity == "EggSpeedUp") || (PrivateLoverActivity == "EggSpeedDown")) {
-			var Egg = InventoryGet(Player, "ItemVulva");
+			const Egg = InventoryGet(Player, "ItemVulva");
 			if (Egg.Property == null) Egg.Property = { Intensity: -1 };
-			Egg.Property.Intensity = Egg.Property.Intensity + ((PrivateLoverActivity == "EggSpeedUp") ? 1 : -1);
+			const newInt = Egg.Property.Intensity + ((PrivateLoverActivity == "EggSpeedUp") ? 1 : -1);
+			Egg.Property.Intensity = /** @type {VibratorIntensity} */ (Math.min(3, Math.max(-1, newInt)));
 		}
 
 		// When the NPC lover enters the bed, waiting for the player
