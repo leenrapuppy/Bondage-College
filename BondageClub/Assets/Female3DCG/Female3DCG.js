@@ -9172,7 +9172,7 @@ var ActivityFemale3DCG = [
 	{
 		Name: "MasturbateItem",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "UseHands"],
+		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "UseHands", "ZoneAccessible"],
 		Target: ["ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}],
