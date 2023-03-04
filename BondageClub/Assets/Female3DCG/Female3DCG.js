@@ -5479,6 +5479,16 @@ var AssetFemale3DCG = [
 				Name: "PotionBottle", ParentGroup: null, Value: 40, Random: false,
 				AllowActivity: ["RubItem"],
 			},
+			{
+				Name: "Mug", ParentGroup: null, Value: 10, Priority: 46, IsRestraint: false, Random: false, AllowColorize: true,
+				HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"],
+				AllowActivity: ["RubItem"],
+				DefaultColor: ["#9A9694", "#3E170B"],
+				Layer: [
+					{ Name: "Mug" },
+					{ Name: "Fluids", MinOpacity: 0.8, MaxOpacity: 0.8, Opacity: 0.8 },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
