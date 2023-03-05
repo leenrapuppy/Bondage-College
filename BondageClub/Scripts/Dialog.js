@@ -2598,6 +2598,16 @@ function DialogDrawExpressionMenu() {
 }
 
 /**
+ * Return the page number of the expression item's current expression.
+ * @param {ExpressionItem} item - The expression item
+ * @returns {number} The page number of the item's current expression
+ */
+function DialogGetCurrentExpressionPage(item) {
+	const index = item.ExpressionList.findIndex(name => item.CurrentExpression === name);
+	return index === -1 ? 0 : Math.floor(index / DialogFacialExpressionsPerPage);
+}
+
+/**
  * Handles clicks in the dialog expression menu.
  * @returns {void} - Nothing
  */
@@ -2648,7 +2658,7 @@ function DialogClickExpressionMenu() {
 			if (MouseIn(20, 185 + 100 * I, 90, 90)) {
 				if (DialogFacialExpressionsSelected !== I) {
 					DialogFacialExpressionsSelected = I;
-					DialogFacialExpressionsSelectedPage = 0;
+					DialogFacialExpressionsSelectedPage = DialogGetCurrentExpressionPage(DialogFacialExpressions[I]);
 				}
 				if (DialogExpressionColor != null) ItemColorSaveAndExit();
 			}
