@@ -31,6 +31,10 @@ var StruggleProgressSkill = 0;
 var StruggleProgressLastKeyPress = 0;
 var StruggleProgressChallenge = 0;
 
+var StruggleLoosenSpeed = 400; // Higher number gives slower spin speed
+var StruggleLoosenAngle = 0;
+var StruggleLoosenHoleAngle = Math.PI; // 6.28 for a full 360 circle
+
 /**
  * The struggle minigame progress
  *
@@ -59,6 +63,12 @@ var StruggleProgressPrevItem = null;
  */
 var StruggleProgressNextItem = null;
 
+/**
+ * A function called when the struggle minigame completes
+ * @type {StruggleCompletionCallback}
+ */
+var StruggleExitFunction = null;
+
 // For flexibility
 /** @type {null | { X: number, Y: number, Size: number, Velocity: number }[]} */
 var StruggleProgressFlexCircles = [];
@@ -80,16 +90,25 @@ const StruggleMinigames = {
 		Setup: StruggleStrengthSetup,
 		Draw: StruggleStrengthDraw,
 		HandleEvent: StruggleStrengthHandleEvent,
+		DisablingCraftedProperty: "Strong",
 	},
 	Flexibility: {
 		Setup: StruggleFlexibilitySetup,
 		Draw: StruggleFlexibilityDraw,
 		HandleEvent: StruggleFlexibilityHandleEvent,
+		DisablingCraftedProperty: "Flexible",
 	},
 	Dexterity: {
 		Setup: StruggleDexteritySetup,
 		Draw: StruggleDexterityDraw,
 		HandleEvent: StruggleDexterityHandleEvent,
+		DisablingCraftedProperty: "Nimble",
+	},
+	Loosen: {
+		Setup: StruggleLoosenSetup,
+		Draw: StruggleLoosenDraw,
+		HandleEvent: StruggleLoosenHandleEvent,
+		DisablingCraftedProperty: "Nimble",
 	},
 	LockPick: {
 		Setup: StruggleLockPickSetup,
@@ -97,6 +116,13 @@ const StruggleMinigames = {
 		HandleEvent: StruggleLockPickHandleEvent,
 	}
 };
+
+/**
+ * Get the list of struggle minigames.
+ */
+function StruggleGetMinigames() {
+	return /** @type {[StruggleKnownMinigames, StruggleMinigame][]} */(Object.entries(StruggleMinigames).filter(e => e[0] !== "LockPick" && e[0] !== "Loosen"));
+}
 
 /**
  * Main handler for drawing the struggle minigame screen
@@ -139,6 +165,14 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
 }
 
 /**
+ * We can loosen if the item allows it, if enough time was spent and if the challenge is between 1 and 9
+ * @returns {boolean} - TRUE if it's allowed
+ */
+function StruggleAllowLoosen() {
+	return (StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge >= 1) && (StruggleProgressChallenge <= 9) && (StruggleProgressPrevItem != null) && (StruggleProgressPrevItem.Asset != null) && (StruggleProgressPrevItem.Asset != null) && StruggleProgressPrevItem.Asset.AllowTighten && !InventoryItemHasEffect(StruggleProgressPrevItem, "Lock");
+}
+
+/**
  * Handles the minigames' KeyDown event.
  *
  * Only applicable for the Strength minigame.
@@ -147,14 +181,11 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleKeyDown() {
-	// Make sure we're not in Color-application mode. FIXME: this is strange
-	if (DialogColor != null)
-		return;
+	if (!StruggleMinigameIsRunning()) return;
 
-	// Call the minigame handler if there is one
-	if (StruggleProgressCurrentMinigame !== "" && StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) {
-		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown");
-	}
+	if (!StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) return;
+
+	StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown");
 }
 
 /**
@@ -163,23 +194,23 @@ function StruggleKeyDown() {
  * @returns {boolean} - Nothing
  */
 function StruggleMinigameClick() {
-	if (StruggleProgressCurrentMinigame !== "") {
-		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("Click");
-		return true;
-	}
-	return false;
+	if (!StruggleMinigameIsRunning()) return false;
+
+	if (!StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) return false;
+
+	StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("Click");
+	return true;
 }
 
 /**
  * Handle the common progress and drawing of the minigame
  *
- * This function draws the minigame common UI, updates the progress if it should
- * do so automatically, and checks if the minigame should abort.
+ * This function draws the minigame common UI, and updates the progress if it should
+ * do so automatically.
  *
- * @param {Character} C
  * @param {number} [Offset]
  */
-function StruggleMinigameDrawCommon(C, Offset) {
+function StruggleMinigameDrawCommon(Offset) {
 	if (!Offset) Offset = 0;
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
@@ -190,34 +221,42 @@ function StruggleMinigameDrawCommon(C, Offset) {
 	// Add or subtract to the automatic progression, doesn't move in color picking mode
 	StruggleProgress = StruggleProgress + StruggleProgressAuto;
 	if (StruggleProgress < 0) StruggleProgress = 0;
-
-	if (StruggleMinigameCheckCancel(C)) {
-		if (StruggleProgress > 0) {
-			let action;
-			if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock)
-				action = "ActionInterruptedSwap";
-			else if (StruggleProgressNextItem != null)
-				action = "ActionInterruptedAdd";
-			else
-				action = "ActionInterruptedRemove";
-
-			ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		}
-
-		DialogLeave();
-		StruggleProgress = -1;
-		DialogLockMenu = false;
-		return;
-	}
 }
 
 /**
- * Check if the minigame should be interrupted.
+ * Check if the minigame has been interrupted and we should bail out
  *
  * @param {Character} C
  * @returns {boolean}
  */
 function StruggleMinigameCheckCancel(C) {
+	const interrupted = StruggleMinigameWasInterrupted(C);
+	if (!interrupted) return false;
+
+	/** @type {StruggleCompletionData} */
+	const data = {
+		Progress: StruggleProgress,
+		PrevItem: StruggleProgressPrevItem,
+		NextItem: StruggleProgressNextItem,
+		Skill: 0,
+		Attempts: 0,
+		Interrupted: true,
+	};
+
+	const Game = StruggleProgressCurrentMinigame;
+
+	// Reset the minigame state and call the minigame end callback
+	StruggleMinigameStop();
+	if (StruggleExitFunction && Game !== "")
+		StruggleExitFunction(C, Game, data);
+}
+
+/**
+ * Helper used to tell if something interrupted the minigame.
+ * @param {Character} C
+ * @returns {boolean}
+ */
+function StruggleMinigameWasInterrupted(C) {
 	// The player can no longer interact
 	if (C != Player && !Player.CanInteract())
 		return true;
@@ -225,6 +264,7 @@ function StruggleMinigameCheckCancel(C) {
 	const PrevItem = StruggleProgressPrevItem;
 	const NextItem = StruggleProgressNextItem;
 	const CurrentItem = InventoryGet(C, PrevItem ? PrevItem.Asset.Group.Name : NextItem.Asset.Group.Name);
+
 	// We were removing an item, and it's already gone
 	if (NextItem == null && !CurrentItem)
 		return true;
@@ -311,58 +351,36 @@ function StruggleMinigameHandleExpression(Decrease) {
 function StruggleProgressCheckEnd(C) {
 
 	// If the operation is completed
-	if (StruggleProgress >= 100) {
+	if (StruggleProgress < 100) return;
 
-		// Stops the dialog sounds
-		AudioDialogStop();
+	/** @type {StruggleCompletionData} */
+	const data = {
+		PrevItem: StruggleProgressPrevItem,
+		NextItem: StruggleProgressNextItem,
+		Skill: StruggleProgressSkill,
+		Progress: StruggleProgress,
+		Attempts: StruggleProgressStruggleCount,
+		Interrupted: false,
+		Auto: StruggleProgressAuto < 0
+	};
 
-		// Removes the item & associated items if needed, then wears the new one
-		InventoryRemove(C, C.FocusGroup.Name);
-		if (StruggleProgressNextItem != null) {
-			let Color = (DialogColorSelect == null) ? "Default" : DialogColorSelect;
-			if ((StruggleProgressNextItem.Craft != null) && CommonIsColor(StruggleProgressNextItem.Craft.Color)) Color = StruggleProgressNextItem.Craft.Color;
-			InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, StruggleProgressNextItem.Craft);
-			if (StruggleProgressNextItem.Craft != null) InventoryCraft(Player, C, StruggleProgressNextItem.Asset.Group.Name, StruggleProgressNextItem.Craft, true);
-		}
+	const Game = StruggleProgressCurrentMinigame;
 
-		// The player can use another item right away, for another character we jump back to her reaction
-		if (C.ID == 0) {
-			if (StruggleProgressNextItem == null) SkillProgress("Evasion", StruggleProgressSkill);
-			if ((StruggleProgressPrevItem == null) && (StruggleProgressNextItem != null)) SkillProgress("SelfBondage", (StruggleProgressSkill + StruggleProgressNextItem.Asset.SelfBondage) * 2);
-			if ((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) {
-				DialogInventoryBuild(C);
-				StruggleProgress = -1;
-				DialogColor = null;
-			}
-		} else {
-			if (StruggleProgressNextItem != null) SkillProgress("Bondage", StruggleProgressSkill);
-			if (((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) && (CurrentScreen != "ChatRoom")) {
-				C.CurrentDialog = DialogFind(C, ((StruggleProgressNextItem == null) ? ("Remove" + StruggleProgressPrevItem.Asset.Name) : StruggleProgressNextItem.Asset.Name), ((StruggleProgressNextItem == null) ? "Remove" : "") + C.FocusGroup.Name);
-				DialogLeaveItemMenu();
-			}
-		}
-
-		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
-		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended && StruggleProgressNextItem.Craft == null) {
-			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem);
-			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
-		} else {
-			if (ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem))
-				DialogLeave();
-		}
-
-		// Reset the the character's position
-		if (CharacterAppearanceForceUpCharacter == C.MemberNumber) {
-			CharacterAppearanceForceUpCharacter = -1;
-			CharacterRefresh(C, false);
-		}
-
-		// Rebuilds the menu
-		DialogEndExpression();
-		if (C.FocusGroup != null) DialogMenuButtonBuild(C);
-
+	// Reset the minigame state and call the minigame end callback
+	StruggleMinigameStop();
+	if (StruggleExitFunction && Game !== "") {
+		StruggleExitFunction(C, Game, data);
 	}
+}
+
+
+/**
+ * Check if there's a struggling minigame started.
+ *
+ * @returns {boolean}
+ */
+function StruggleMinigameIsRunning() {
+	return (StruggleProgressCurrentMinigame !== "");
 }
 
 /**
@@ -375,8 +393,9 @@ function StruggleProgressCheckEnd(C) {
  * @param {StruggleKnownMinigames} MiniGame
  * @param {Item} PrevItem
  * @param {Item} NextItem
+ * @param {StruggleCompletionCallback} Completion
  */
-function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
+function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem, Completion) {
 
 	if (!StruggleMinigames[MiniGame])
 		return;
@@ -388,8 +407,7 @@ function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
 	StruggleProgressNextItem = NextItem;
 	StruggleProgressOperation = StruggleProgressGetOperation(C, PrevItem, NextItem);
 	StruggleProgressStruggleCount = 0;
-	DialogItemToLock = null;
-	DialogMenuButtonBuild(C);
+	StruggleExitFunction = Completion;
 
 	StruggleMinigames[MiniGame].Setup(C, PrevItem, NextItem);
 
@@ -426,12 +444,10 @@ function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
  * @returns {void}
  */
 function StruggleMinigameStop() {
-	if (StruggleProgressCurrentMinigame && StruggleProgressCurrentMinigame !== "LockPick"
-			&& StruggleProgressStruggleCount >= 10 && StruggleProgressAuto < 0 && StruggleProgress >= 0) {
-		ChatRoomStimulationMessage("StruggleFail");
-	}
+	// Stops the dialog sounds
+	AudioDialogStop();
+
 	StruggleProgress = -1;
-	StruggleLockPickOrder = null;
 	StruggleProgressCurrentMinigame = "";
 }
 
@@ -458,13 +474,10 @@ Game description: Mash A and S until you get out
  * @returns {void} - Nothing
  */
 function StruggleStrengthSetup(C, PrevItem, NextItem) {
-
 	const StruggleDiff = StruggleStrengthGetDifficulty(C, PrevItem, NextItem);
-
 	StruggleProgressAuto = StruggleDiff.auto;  // S: -9 is floor level to always give a false hope
 	StruggleProgressSkill = StruggleDiff.timer;
 	StruggleProgressChallenge = StruggleDiff.difficulty * -1;
-
 	StruggleProgressLastKeyPress = 0;
 }
 
@@ -475,19 +488,23 @@ function StruggleStrengthSetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleStrengthDraw(C) {
-	StruggleMinigameDrawCommon(C);
+
+	// Draw the base controls
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
+	StruggleMinigameDrawCommon();
 
 	// Draw the current operation and progress
-	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
+	if (StruggleProgressAuto < 0)
+		DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 650, "White", "Black");
 	DrawProgressBar(1200, 700, 600, 100, StruggleProgress);
-	if (ControllerActive == false) {
-		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeys"), 1500, 900, "White", "Black");
-	} else {
-		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeysController"), 1500, 900, "White", "Black");
-	}
 
-	StruggleProgressCheckEnd(C);
+	// Draw the tighten/loosen button or the explaination message
+	if (StruggleAllowLoosen())
+		DrawButton(1300, 880, 400, 65, DialogFindPlayer("TryLoosen"), "White");
+	else
+		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : ((ControllerActive) ? "ProgressKeysController" : "ProgressKeys")), 1500, 900, "White", "Black");
+
 }
 
 /**
@@ -497,19 +514,23 @@ function StruggleStrengthDraw(C) {
  * @returns {void}
  */
 function StruggleStrengthHandleEvent(EventType) {
-	if (StruggleProgress < 0) {
-		// Minigame is not running
-		return;
-	}
+
+	// Minigame is not running
+	if (StruggleProgress < 0) return;
 
 	if (EventType === "KeyDown") {
 		if ((KeyPress == 65) || (KeyPress == 83) || (KeyPress == 97) || (KeyPress == 115)) {
 			StruggleStrengthProcess((StruggleProgressLastKeyPress == KeyPress));
 			StruggleProgressLastKeyPress = KeyPress;
 		}
-	} else if (EventType === "Click" && CommonIsMobile) {
+	} else if (EventType === "Click") {
+
 		// Only mobile users get to click, otherwise it's too easy.
-		StruggleStrengthProcess();
+		if (CommonIsMobile) StruggleStrengthProcess();
+
+		// If we must enter the loosen mini-game
+		if (MouseIn(1300, 880, 400, 65) && StruggleAllowLoosen()) StruggleLoosenSetup();
+
 	}
 }
 
@@ -535,8 +556,8 @@ function StruggleStrengthProcess(Decrease) {
 	if (!Decrease) StruggleProgressStruggleCount++;
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0))
 		StruggleProgressOperation = DialogFindPlayer("Impossible");
-
 	StruggleMinigameHandleExpression(Decrease);
+
 }
 
 /**
@@ -591,6 +612,84 @@ function StruggleStrengthGetDifficulty(C, PrevItem, NextItem) {
 		auto: TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5)),
 		timer: Timer
 	};
+}
+
+////////////////////////////STRUGGLE MINIGAME: LOOSEN//////////////////////////////
+
+/**
+ * Loosen minigame main drawing routine.
+ * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
+ * @returns {void} - Nothing
+ */
+function StruggleLoosenDraw(C) {
+
+	// Draws the mini-game circles
+	DrawImage("Screens/MiniGame/ChestLockpick/Circle.png", 1200, 150);
+	DrawImage("Screens/MiniGame/ChestLockpick/Hole.png", 1500 - 35 + Math.sin(StruggleLoosenHoleAngle) * 260, 450 - 35 + Math.cos(StruggleLoosenHoleAngle) * 260);
+	DrawImage("Screens/MiniGame/ChestLockpick/Lockpick.png", 1500 - 35 + Math.sin(StruggleLoosenAngle) * 260, 450 - 35 + Math.cos(StruggleLoosenAngle) * 260);
+
+	// Draw the number of spins left and game instructions
+	DrawText(StruggleProgressPrevItem.Asset.Description, 1500, 70, "White", "Black");
+	MainCanvas.font = CommonGetFont(300);
+	DrawText(StruggleProgressStruggleCount.toString(), 1500, 470, "White", "Black");
+	MainCanvas.font = CommonGetFont(36);
+	DrawText(DialogFindPlayer("LoosenPossible"), 1500, 850, "White", "Black");
+	DrawText(DialogFindPlayer("LoosenClick"), 1500, 930, "White", "Black");
+
+	// Spins the angle, from clockwise to counter, according to the mini-game challenge
+	if (StruggleProgressStruggleCount % 2 == 0) StruggleLoosenAngle = StruggleLoosenAngle + (TimerRunInterval / StruggleLoosenSpeed);
+	else StruggleLoosenAngle = StruggleLoosenAngle - (TimerRunInterval / StruggleLoosenSpeed);
+
+}
+
+/**
+ * Loosen minigame main setup.
+* @returns {void} - Nothing
+*/
+function StruggleLoosenSetup() {
+	StruggleProgressCurrentMinigame = "Loosen";
+	StruggleLoosenAngle = 0; // Starting angle for the circle
+	StruggleLoosenHoleAngle = Math.PI; // 6.28 for a full 360 circle
+	StruggleLoosenSpeed = 400; // Higher number gives slower spin speed
+	StruggleProgressStruggleCount = StruggleProgressChallenge;
+}
+
+/**
+ * Handle events for the loosen minigame
+ * @param {"Click"|"KeyDown"} EventType
+ * @returns {void}
+ */
+function StruggleLoosenHandleEvent(EventType) {
+
+	// When clicking in the mini-game, we check if it was close enough to the hole for a success
+	if ((EventType === "Click") || ((EventType === "KeyDown") && (KeyPress == 32))) {
+		if (StruggleProgressStruggleCount > 0) {
+			let Diff = Math.abs(StruggleLoosenHoleAngle - StruggleLoosenAngle) % (Math.PI * 2);
+			if ((Diff > 0.26) && (Diff < (Math.PI * 2) - 0.26)) {
+				StruggleLoosenSetup();
+			} else {
+				StruggleProgressStruggleCount--;
+				if (StruggleProgressStruggleCount <= 0) {
+					SkillProgress("Evasion", (StruggleProgressChallenge + 1) * 5);
+					if (StruggleProgressPrevItem.Difficulty == null) StruggleProgressPrevItem.Difficulty = 0;
+					StruggleProgressPrevItem.Difficulty = StruggleProgressPrevItem.Difficulty - 2;
+					CharacterRefresh(Player);
+					if (CurrentScreen == "ChatRoom") {
+						ChatRoomCharacterUpdate(Player);
+						ChatRoomPublishAction(Player, "ActionLoosenStruggle", StruggleProgressPrevItem, null);
+						DialogLeave();
+					} else {
+						StruggleMinigameStop();
+					}
+				} else {
+					StruggleLoosenSpeed = StruggleLoosenSpeed * 0.95;
+					StruggleLoosenHoleAngle = StruggleLoosenHoleAngle + Math.PI / 2 + Math.random() * Math.PI;
+				}
+			}
+		}
+
+	}
+
 }
 
 ////////////////////////////STRUGGLE MINIGAME: USE FLEXIBILITY//////////////////////////////
@@ -672,6 +771,7 @@ function StruggleFlexibilitySetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleFlexibilityDraw(C) {
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
 
 	if (StruggleProgressFlexTimer < CurrentTime) {
 		StruggleProgressFlexTimer = CurrentTime + StruggleProgressFlexCirclesRate + StruggleProgressFlexCirclesRate * Math.random();
@@ -707,15 +807,16 @@ function StruggleFlexibilityDraw(C) {
 	// Advance the minigame's state
 	StruggleFlexibilityProcess();
 
-	StruggleMinigameDrawCommon(C, -150);
+	StruggleMinigameDrawCommon(-150);
 
 	// Draw the current operation and progress
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 425, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 476, "White", "Black");
 	DrawProgressBar(1200, 800, 600, 100, StruggleProgress);
-	DrawText(DialogFindPlayer("ProgressFlex"), 1500, 950, "White", "Black");
-
-	StruggleProgressCheckEnd(C);
+	if (StruggleAllowLoosen())
+		DrawButton(1300, 925, 400, 65, DialogFindPlayer("TryLoosen"), "White");
+	else
+		DrawText(DialogFindPlayer("ProgressFlex"), 1500, 950, "White", "Black");
 }
 
 
@@ -747,14 +848,21 @@ function StruggleFlexibilityCheck() {
  * @returns {void}
  */
 function StruggleFlexibilityHandleEvent(EventType) {
-	if (StruggleProgress < 0) {
-		// Minigame is not running
-		return;
+
+	// Minigame is not running
+	if (StruggleProgress < 0) return;
+
+	// Click events
+	if (EventType === "Click") {
+
+		// Process the flex game
+		StruggleFlexibilityProcess();
+
+		// If we must enter the loosen mini-game
+		if (MouseIn(1300, 925, 400, 65) && StruggleAllowLoosen()) StruggleLoosenSetup();
+
 	}
 
-	if (EventType === "Click") {
-		StruggleFlexibilityProcess();
-	}
 }
 
 /**
@@ -783,8 +891,8 @@ function StruggleFlexibilityProcess(Decrease) {
 	if ((StruggleProgress >= 100) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgress = 99;
 	if (!Decrease) StruggleProgressStruggleCount += 3;
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
-
 	StruggleMinigameHandleExpression(Decrease);
+
 }
 
 ////////////////////////////STRUGGLE MINIGAME: DEXTERITY//////////////////////////////
@@ -877,8 +985,9 @@ function StruggleDexteritySetup(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleDexterityDraw(C) {
-	StruggleMinigameDrawCommon(C);
+	if (StruggleMinigameCheckCancel(C) || StruggleProgressCheckEnd(C)) return;
 
+	StruggleMinigameDrawCommon();
 
 	DrawImageResize("Icons/Struggle/Buckle.png", 1420 + StruggleProgressDexTarget, 625, 150, 150);
 	DrawImageResize("Icons/Struggle/Player.png", 1420 + StruggleProgressDexCurrent, 625, 150, 150);
@@ -896,15 +1005,14 @@ function StruggleDexterityDraw(C) {
 		StruggleProgressDexDirectionRight = true;
 	}
 
-
-
 	// Draw the current operation and progress
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
 	DrawText(StruggleProgressOperation, 1500, 600, "White", "Black");
 	DrawProgressBar(1200, 800, 600, 100, StruggleProgress);
-	DrawText(DialogFindPlayer("ProgressDex"), 1500, 950, "White", "Black");
-
-	StruggleProgressCheckEnd(C);
+	if (StruggleAllowLoosen())
+		DrawButton(1300, 925, 400, 65, DialogFindPlayer("TryLoosen"), "White");
+	else
+		DrawText(DialogFindPlayer("ProgressDex"), 1500, 950, "White", "Black");
 }
 
 
@@ -915,13 +1023,19 @@ function StruggleDexterityDraw(C) {
  * @returns {void}
  */
 function StruggleDexterityHandleEvent(EventType) {
-	if (StruggleProgress < 0) {
-		// Minigame is not running
-		return;
-	}
 
+	// Minigame is not running
+	if (StruggleProgress < 0) return;
+
+	// Click events
 	if (EventType === "Click") {
+
+		// Process the dex game
 		StruggleDexterityProcess();
+
+		// If we must enter the loosen mini-game
+		if (MouseIn(1300, 925, 400, 65) && StruggleAllowLoosen()) StruggleLoosenSetup();
+
 	}
 }
 
@@ -937,10 +1051,7 @@ function StruggleDexterityProcess() {
 	if ((StruggleProgressChallenge > 6) && (StruggleProgress > 50) && (StruggleProgressAuto < 0)) P = P * (1 - ((StruggleProgress - 50) / 50)); // Beyond challenge 6, it becomes impossible after 50% progress
 	var distMult = Math.max(-0.5, Math.min(1, (85 - Math.abs(StruggleProgressDexTarget - StruggleProgressDexCurrent))/75));
 	P = P * distMult; // Reverses the progress if too far
-
-	if (P > 0) {
-		StruggleProgressDexTarget = Math.random() * 2 * StruggleProgressDexMax - StruggleProgressDexMax;
-	}
+	if (P > 0) StruggleProgressDexTarget = Math.random() * 2 * StruggleProgressDexMax - StruggleProgressDexMax;
 
 	// Sets the new progress and writes the "Impossible" message if we need to
 	StruggleProgress = StruggleProgress + P;
@@ -948,8 +1059,8 @@ function StruggleDexterityProcess() {
 	if ((StruggleProgress >= 100) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgress = 99;
 	StruggleProgressStruggleCount += Math.max(1, 3*(distMult + 0.5));
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
-
 	StruggleMinigameHandleExpression();
+
 }
 
 
@@ -1126,39 +1237,26 @@ function StruggleLockPickDraw(C) {
 	DrawText(DialogFindPlayer("LockpickIntro3"), X, 900, "white");
 
 	if (StruggleMinigameCheckCancel(C)) {
-		let action;
-		if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock)
-			action = "ActionInterruptedSwap";
-		else if (StruggleProgressNextItem != null)
-			action = "ActionInterruptedAdd";
-		else
-			action = "ActionInterruptedRemove";
-
-		ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
-		StruggleLockPickOrder = null;
-		DialogLockMenu = false;
-		DialogLeave();
+		// We got interrupted
+		return;
 	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
 		StruggleLockPickSuccessTime = 0;
-		// Success!
-		if (C.FocusGroup && C) {
-			var item = InventoryGet(C, C.FocusGroup.Name);
-			if (item) {
-				InventoryUnlock(C, item);
-				ChatRoomPublishAction(C, "ActionPick", item, null);
-			}
-		}
-		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
-		// The player can use another item right away, for another character we jump back to her reaction
-		if (C.ID == 0) {
-			StruggleProgress = -1;
-			StruggleProgressCurrentMinigame = "";
-			StruggleLockPickOrder = null;
-			DialogLockMenu = false;
-			DialogInventoryBuild(C);
-		} else {
-			DialogLeaveItemMenu();
-		}
+
+		/** @type {StruggleCompletionData} */
+		const data = {
+			Progress: 100,
+			PrevItem: StruggleProgressPrevItem,
+			NextItem: StruggleProgressNextItem,
+			Skill: StruggleLockPickProgressSkill,
+			Attempts: 0,
+			Interrupted: false,
+		};
+
+		if (StruggleExitFunction && StruggleProgressCurrentMinigame !== "")
+			StruggleExitFunction(C, StruggleProgressCurrentMinigame, data);
+
+		StruggleMinigameStop();
+		return;
 	} else {
 		if ( Player.ArousalSettings && (Player.ArousalSettings.Active != "Inactive" && Player.ArousalSettings.Active != "NoMeter") && Player.ArousalSettings.Progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
 			if (CurrentTime > StruggleLockPickArousalTick) {

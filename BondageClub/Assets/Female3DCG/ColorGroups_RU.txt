@@ -41,4 +41,34 @@ Structure
 Pleasure Module
 Модуль удовольствия
 Harness
-Упряжь
+Сбруя
+Gag
+Кляп
+Belts
+Ремни
+Metal
+Металл
+Wood
+Древесина
+Addons
+Дополнения
+Stand
+Стенд
+Misc
+Разное
+Wheel Sections
+Секции колес
+Linings
+Подкладки
+Panels
+Панели
+Cover Hood Parts
+Детали капюшона
+Fixing
+Исправления
+Tubes
+Трубки
+Glow
+Румянец
+Eyes
+Глаза

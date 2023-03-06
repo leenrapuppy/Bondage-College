@@ -62,7 +62,7 @@ function ChessClick() {
 		ChessEndStatus = "Defeat";
 		ElementRemove("DivChessBoard");
 		CollegeChessGameConcede();
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
+		MiniGameEnd();
 	}
 
 	// When the game ended, the player can click on herself to go back
@@ -70,7 +70,7 @@ function ChessClick() {
 		ChessEndStatus = "Draw";
 		if (MiniGameChessGame.in_checkmate()) ChessEndStatus = MiniGameChessGame.turn() === ChessPlayerColor() ? "Defeat" : "Victory";
 		ElementRemove("DivChessBoard");
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
+		MiniGameEnd();
 	}
 
 }

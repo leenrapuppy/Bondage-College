@@ -149,6 +149,6 @@ function PlayerAuctionClick() {
 	}
 
 	// When the auction can end
-	if (MouseIn(500, 800, 200, 65) && PlayerAuctionEnd) CommonDynamicFunction(MiniGameReturnFunction + "()");
+	if (MouseIn(500, 800, 200, 65) && PlayerAuctionEnd) MiniGameEnd();
 
 }

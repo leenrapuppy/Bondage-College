@@ -1,25 +1,15 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemHoodCanvasHoodInit(Item, C, Refresh=true) {
+	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+}
+
 /**
  * Loads the canvas hood's extended item properties
  * @returns {void} - Nothing
  */
 function InventoryItemHoodCanvasHoodLoad() {
-	const C = CharacterGetCurrent();
-	let MustRefresh = false;
-
-	/** @type {ItemProperties} */
-	const Property = DialogFocusItem.Property = DialogFocusItem.Property || {};
-	if (typeof Property.Text !== "string") {
-		Property.Text = "";
-		MustRefresh = true;
-	}
-
-	if (MustRefresh) {
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-
 	PropertyTextLoad();
 }
 

@@ -2,18 +2,22 @@
 
 const InventoryItemMiscPasswordPadlockPasswordRegex = /^[A-Z]+$/;
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscPasswordPadlockInit(Item, C) {
+	const PropRecord = {
+		Password: "PASSWORD",
+		Hint: "Take a guess...",
+		LockSet: false,
+		RemoveOnUnlock: false,
+	};
+	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+}
+
 // Loads the item extension properties
 function InventoryItemMiscPasswordPadlockLoad() {
 	if (!DialogFocusSourceItem) return;
-
-	if (!DialogFocusSourceItem.Property) DialogFocusSourceItem.Property = {};
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
-
-	if (Property.Password == null) Property.Password = "PASSWORD";
-	if (Property.Hint == null) Property.Hint = "Take a guess...";
-	if (Property.LockSet == null) Property.LockSet = false;
-	if (Property.RemoveOnUnlock == null) Property.RemoveOnUnlock = false;
 
 	// Only create the inputs if the zone isn't blocked
 	if (InventoryGroupIsBlocked(C, C.FocusGroup.Name)) return;

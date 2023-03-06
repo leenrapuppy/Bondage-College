@@ -183,7 +183,7 @@ function TennisClick() {
 
 	// If the game is over, clicking on the player image will end it
 	if (MiniGameEnded && (MouseX >= 0) && (MouseX <= 450) && (MouseY >= 100) && (MouseY <= 999))
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
+		MiniGameEnd();
 
 }
 

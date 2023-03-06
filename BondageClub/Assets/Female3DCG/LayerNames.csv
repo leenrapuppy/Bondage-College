@@ -139,7 +139,7 @@ ClothLowerHaremPantsPantyline,Panty Line
 ClothLowerHaremPants2Panty,Panty
 ClothLowerHaremPants2Fabric,Fabric
 ClothLowerHaremPants2Veil,Veil
-ClothLowerHaremPants2Pantyline,Panty Line
+ClothLowerHaremPants2PantyLine,Panty Line
 ClothLowerHaremPants2Buttons,Buttons
 ClothLowerMageSkirtSkirt,Skirt
 ClothLowerMageSkirtWaist,Waistband
@@ -169,6 +169,8 @@ SuitLowerMaleSeamlessCatsuitBase,Catsuit
 SuitLowerMaleSeamlessCatsuitLock,Lock Icon
 SuitLowerMaleCatsuitPantiesBase,Catsuit Panties
 SuitLowerMaleCatsuitPantiesLock,Lock Icon
+PantiesMaleCatsuitPantiesBase,Catsuit Panties
+PantiesMaleCatsuitPantiesLock,Lock Icon
 PantiesDiapers2Diaper,Diaper
 PantiesDiapers2Cover,Plastic Cover
 PantiesDiapers4Diaper,Diaper
@@ -320,7 +322,7 @@ LeftHandRingsThumbSteel,Thumb Ring
 LeftHandRingsIndexSteel,Index Ring
 LeftHandRingsMiddleSteel,Middle Finger Ring
 LeftHandRingsRingSteel,Ring Finger Ring
-LefttHandRingsWedding,Wedding Ring
+LeftHandRingsWedding,Wedding Ring
 LeftHandRingsPinkieSteel,Pinkie Ring
 LeftHandRingsHonorBase,Honor Ring
 LeftHandRingsHonorJewels,Honor Ring Jewels
@@ -673,9 +675,13 @@ ItemMiscPetPostPlaqueBorder,PlaqueBorder
 ItemMiscPetPostPostit,Postit
 ItemMiscPetPostPaw,Sticker
 ItemMiscPetPostPlaqueBolts,PlaqueBolts
+ItemMiscPetPostText,Text
 ItemDevicesBedPillow,Pillow
 ItemDevicesBedMattress,Mattress
 ItemDevicesBedHeadboard,Headboard
+ItemDevicesMedicalBedBedFrame,Bed Frame
+ItemDevicesMedicalBedMattress,Mattress
+ItemDevicesMedicalBedPillow,Pillow
 ItemDevicesBedBedFrame,Frame
 ItemDevicesBondageBenchBench,Bench
 ItemDevicesBondageBenchStraps,Straps
@@ -761,6 +767,8 @@ ItemNoseNoseHookBand,Strap
 ItemNoseNoseHookHook,Hook
 ItemNosePigNoseNose,Nose
 ItemNosePigNoseStrap,Strap
+ItemNosePigNoseHookBand,Band
+ItemNosePigNoseHookHook,Hook
 ItemHoodPumpkinHeadFront,Front
 ItemHoodPumpkinHeadBack,Back
 ItemHoodLatexHoodOpenHairHair,Hair
@@ -1198,6 +1206,8 @@ MaskGlitterFreckles,Color One
 MaskGlitterFreckles2,Color Two
 ItemTorsoHighSecurityHarnessStrapsHarness,Straps
 ItemTorsoHighSecurityHarnessClampsHarness,Clasps
+ItemTorso2HighSecurityHarnessStrapsHarness,Straps
+ItemTorso2HighSecurityHarnessClampsHarness,Clasps
 ItemTorsoFuturisticHarnessBand,Straps
 ItemTorsoFuturisticHarnessDisplay,Display
 ItemTorsoFuturisticHarnessMesh,Module
@@ -1206,6 +1216,15 @@ ItemTorso2FuturisticHarnessBand,Straps
 ItemTorso2FuturisticHarnessDisplay,Display
 ItemTorso2FuturisticHarnessMesh,Module
 ItemTorso2FuturisticHarnessLock,Lock
+ItemTorsoThinLeatherStrapsStrap,Straps
+ItemTorsoThinLeatherStrapsBuckle,Buckle
+ItemTorsoThinLeatherStrapsLocks,Lock
+ItemTorso2ThinLeatherStrapsStrap,Straps
+ItemTorso2ThinLeatherStrapsBuckle,Buckle
+ItemTorso2ThinLeatherStrapsLocks,Lock
+ItemArmsThinLeatherStrapsStrap,Straps
+ItemArmsThinLeatherStrapsBuckle,Buckle
+ItemArmsThinLeatherStrapsLocks,Lock
 ItemBreastFuturisticBraBra,Body
 ItemBreastFuturisticBraDisplay,Display
 ItemBreastFuturisticBraMesh,Mesh
@@ -1274,6 +1293,9 @@ ItemDevicesWoodenRackBotStocksBack,Feet Stocks
 PantiesPilotPantiesLayer1,Suit
 PantiesPilotPantiesLayer2,Highlights
 PantiesPilotPantiesLayer3,Center
+SuitLowerPilotPantiesLayer1,Suit
+SuitLowerPilotPantiesLayer2,Highlights
+SuitLowerPilotPantiesLayer3,Center
 PantiesRedBowPantiesPanties,Panties
 PantiesRedBowPantiesBow,Bow
 SuitLowerPilotSuitLayer1,Suit
@@ -1344,6 +1366,7 @@ BraceletSpikeBandsBands,Bands
 BraceletSpikeBandsSpikes,Spikes
 BraceletLaceBandsLace,Lace
 BraceletLaceBandsBands,Bands
+WingsSteampunkWingsBase,Base
 WingsSteampunkWingsGears,Gears
 WingsSteampunkWingsWings,Wings
 WingsSteampunkWingsWingFrames,Frame
@@ -1392,7 +1415,7 @@ ItemHandsSmoothLeatherMittens1Straps,Straps
 ItemHandsSmoothLeatherMittens1Buckles,Buckles
 ItemHandsSmoothLeatherMittens1Locks,Locks
 ItemArmsCanvasStraitjacket1Straps,Crotch Straps
-ItemArmsCanvasStraitjacket1Jacket,Jacket,
+ItemArmsCanvasStraitjacket1Jacket,Jacket
 ItemArmsCanvasStraitjacket1ArmStraps,Arm Strap
 ItemVulvaPlasticChastityCage2Ring,Ring
 ItemVulvaPlasticChastityCage2Penis,Penis
@@ -1451,6 +1474,8 @@ JewelryJewelrySetEarHoopLeft,Ears
 JewelryJewelrySetFaceDermalLeft,Face
 MouthFullLips,Lips
 MouthFullRingMiddle,Piercings
+MouthRegularLips,Lips
+MouthRegularRingMiddle,Piercings
 ClothHoodieMain,Main
 ClothHoodieHoodDownBack,Hood Inner
 ClothHoodieHoodUpFront,Hood Outer

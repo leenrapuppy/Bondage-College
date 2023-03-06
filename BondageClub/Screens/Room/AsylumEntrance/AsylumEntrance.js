@@ -540,6 +540,7 @@ function AsylumEntranceEscapedPatientLeave() {
  * @returns {void} - Nothing
  */
 function AsylumEntranceGiveNurseUniform() {
+	/** @type {ItemBundle[]} */
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "NurseUniform", Group: "Cloth"});
 	ItemsToEarn.push({Name: "NurseCap", Group: "Hat"});

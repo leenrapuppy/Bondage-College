@@ -17,6 +17,7 @@ var MagicPlayerAppearance = null;
 /** @type {null | string} */
 var MagicTrick = null;
 var MagicTrickList = ["ChangeBinds", "Dance", "BindAsstant", "BoxTiedLight", "GetCoin", "BoxTiedHeavy", "MilkCan", "WaterCell", "Song", "AsstantChange"];
+/** @type {AssetGroupName[]} */
 var MagicRestraintList = ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemArms", "ItemFeet", "ItemLegs", "ItemHead", "ItemMisc", "ItemDevices"];
 var MagicTrickCounter = 0;
 var MagicShowIncome = 0;

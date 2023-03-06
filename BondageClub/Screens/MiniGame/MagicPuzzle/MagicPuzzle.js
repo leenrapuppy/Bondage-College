@@ -251,5 +251,5 @@ function MagicPuzzleKeyDown() {
 function MagicPuzzleEnd() {
 	MagicPuzzleTrail = [];
 	if (CommonIsMobile) document.removeEventListener("touchmove", MagicPuzzleTouchMove);
-	CommonDynamicFunction(MiniGameReturnFunction + "()");
+	MiniGameEnd();
 }

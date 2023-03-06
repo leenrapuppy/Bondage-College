@@ -81,8 +81,8 @@ function ActivityDictionaryText(KeyWord) {
 
 /**
  * Resolve a group name to the correct group for activities
- * @param {string} family - The asset family for the named group
- * @param {string} groupname - The name of the group to resolve
+ * @param {IAssetFamily} family - The asset family for the named group
+ * @param {AssetGroupName} groupname - The name of the group to resolve
  * @returns {AssetGroup | null} - The resolved group
  */
 function ActivityGetGroupOrMirror(family, groupname) {
@@ -100,7 +100,7 @@ function ActivityGetGroupOrMirror(family, groupname) {
  * Gets all groups that mirror or are mirrored by the given group name for activities. The returned array includes the
  * named group.
  * @param {string} family - The asset family for the named group
- * @param {string} groupName - The name of the group to resolve
+ * @param {AssetGroupName} groupName - The name of the group to resolve
  * @returns {AssetGroup[]} - The group and all groups from the same family that mirror or are mirrored by it
  */
 function ActivityGetAllMirrorGroups(family, groupName) {
@@ -110,7 +110,7 @@ function ActivityGetAllMirrorGroups(family, groupName) {
 /**
  * Check if any activities are possible for a character's given group.
  * @param {Character} char - The character on which the check is done
- * @param {string} groupname - The group to check access on
+ * @param {AssetGroupName} groupname - The group to check access on
  * @returns {boolean} Whether any activity is possible
  */
 function ActivityPossibleOnGroup(char, groupname) {
@@ -212,7 +212,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			// FIXME: The original ZoneAccessible should have been prefixed with Target, which is why those are reversed
 			// TargetZoneAccessible is only used for ReverseSuckItem, which is marked as reverse, adding in to the confusion
 			const actor = prereq.startsWith("Target") ? acting : acted;
-			return ActivityGetAllMirrorGroups(actor.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(actor, g.Name, true));
+			return ActivityGetAllMirrorGroups(actor.AssetFamily, group.Name).some((g) => g.IsItem() ? !InventoryGroupIsBlocked(actor, g.Name, true) : true);
 		}
 		case "ZoneNaked":
 		case "TargetZoneNaked": {
@@ -282,8 +282,6 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
  * @param {Activity} activity
  */
 function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsItem, activity) {
-	if (acting.IsEnclose() || acted.IsEnclose()) return false;
-
 	const reverse = activity.Reverse;
 	const items = CharacterItemsForActivity(!reverse ? acting : acted, needsItem);
 	if (items.length === 0) return true;
@@ -306,7 +304,7 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 			blocked = "limited";
 		} else if (types.some((type) => InventoryBlockedOrLimited(acted, item, type))) {
 			blocked = "blocked";
-		} else if (InventoryGroupIsBlocked(acting, item.Asset.Group.Name)) {
+		} else if (InventoryGroupIsBlocked(acting, /** @type {AssetGroupItemName} */(item.Asset.Group.Name))) {
 			blocked = "unavail";
 		}
 
@@ -330,7 +328,7 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 /**
  * Builds the allowed activities on a group given the character's settings.
  * @param {Character} character - The character for which to build the activity dialog options
- * @param {string} groupname - The group to check
+ * @param {AssetGroupName} groupname - The group to check
  * @return {ItemActivity[]} - The list of allowed activities
  */
 function ActivityAllowedForGroup(character, groupname) {
@@ -392,7 +390,7 @@ function ActivityAllowedForGroup(character, groupname) {
  * Returns TRUE if an activity can be done
  * @param {Character} C - The character to evaluate
  * @param {string} Activity - The name of the activity
- * @param {string} Group - The name of the group
+ * @param {AssetGroupName} Group - The name of the group
  * @return {boolean} - TRUE if the activity can be done
  */
 function ActivityCanBeDone(C, Activity, Group) {
@@ -408,7 +406,7 @@ function ActivityCanBeDone(C, Activity, Group) {
  * @param {Character} S - The character performing the activity
  * @param {Character} C - The character on which the activity is performed
  * @param {string|Activity} A - The activity performed
- * @param {string} Z - The group/zone name where the activity was performed
+ * @param {AssetGroupName} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
  * @param {Asset} [Asset] - The asset used to perform the activity
@@ -443,7 +441,7 @@ function ActivityEffect(S, C, A, Z, Count, Asset) {
  * @param {Character} S - The character performing the activity
  * @param {Character} C - The character on which the activity is performed
  * @param {number} Amount - The base amount of arousal to add
- * @param {string} Z - The group/zone name where the activity was performed
+ * @param {AssetGroupName} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
  * @param {Asset} [Asset] - The asset used to perform the activity
@@ -495,8 +493,8 @@ function ActivitySetArousal(C, Progress) {
 /**
  * Sets an activity progress on a timer, activities are capped at MaxProgress
  * @param {Character} C - The character for which to set the timer for
- * @param {object} Activity - The activity for which the timer is for
- * @param {string} Zone - The target zone of the activity
+ * @param {null | Activity} Activity - The activity for which the timer is for
+ * @param {AssetGroupName | "ActivityOnOther"} Zone - The target zone of the activity
  * @param {number} Progress - Progress to set
  * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
@@ -511,9 +509,9 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress, Asset) {
 
 	// Make sure we do not allow orgasms if the activity (MaxProgress or MaxProgressSelf) or the zone (AllowOrgasm) doesn't allow it
 	let Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
-	if (Max > 95 && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
+	if (Max > 95 && Zone !== "ActivityOnOther" && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
 	// For activities on other, it cannot go over 2/3
-	if (Max > 67 && Zone == "ActivityOnOther") {
+	if (Max > 67 && Zone === "ActivityOnOther") {
 		if (["PenetrateSlow", "PenetrateFast"].includes(Activity.Name) && Asset && Asset.Group.Name === "Pussy" && Asset.Name === "Penis") {
 			// If it's a penis penetration, don't cap it. This makes the cap either 100 or 95, depending on the character orgasm setting
 			Max = PreferenceGetZoneOrgasm(Player, "ItemVulva") ? 100 : 95;
@@ -928,7 +926,7 @@ function ActivityRun(C, ItemActivity) {
  * Checks if a used asset should trigger an activity/arousal progress on the target character
  * @param {Character} Source - The character who used the item
  * @param {Character} Target - The character on which the item was used
- * @param {object} Asset - Asset used
+ * @param {Asset} Asset - Asset used
  * @return {void} - Nothing
  */
 function ActivityArousalItem(Source, Target, Asset) {

@@ -5,6 +5,11 @@ let CombinationPadlockCombinationLastValue = "";
 let CombinationPadlockNewCombinationLastValue = "";
 let CombinationPadlockLoaded = false;
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscCombinationPadlockInit(Item, C) {
+	ExtendedItemInitNoArch(Item, C, { CombinationNumber: "0000" }, false);
+}
+
 // Loads the item extension properties
 function InventoryItemMiscCombinationPadlockLoad() {
 	CombinationPadlockPlayerIsBlind = Player.IsBlind();
@@ -22,10 +27,6 @@ function InventoryItemMiscCombinationPadlockLoad() {
 	}
 
 	var C = CharacterGetCurrent();
-	if (!DialogFocusSourceItem.Property) DialogFocusSourceItem.Property = {};
-	if (DialogFocusSourceItem.Property.CombinationNumber == null) {
-		DialogFocusSourceItem.Property.CombinationNumber = "0000";
-	}
 
 	// Only create the inputs if the zone isn't blocked
 	if (!InventoryGroupIsBlocked(C, C.FocusGroup.Name)) {

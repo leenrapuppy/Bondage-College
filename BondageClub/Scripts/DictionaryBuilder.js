@@ -234,7 +234,7 @@ class ConditionalDictionaryBuilder extends DictionaryBuilder {
 }
 
 /**
- * @param {ChatMessageDictionaryEntry} entry
+ * @param {ChatMessageDictionaryEntry | TaggedDictionaryEntry} entry
  * @returns {entry is TaggedDictionaryEntry}
  */
 function IsTaggedDictionaryEntry(entry) {

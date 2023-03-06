@@ -79,12 +79,40 @@ const ModularItemChatSetting = {
  */
 function ModularItemRegister(asset, config) {
 	const data = ModularItemCreateModularData(asset, config);
-	ModularItemCreateLoadFunction(data);
-	ModularItemCreateDrawFunction(data);
-	ModularItemCreateClickFunction(data);
-	ModularItemCreateExitFunction(data);
-	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate, data.changeWhenLocked);
+
+	if (IsBrowser()) {
+		ModularItemCreateLoadFunction(data);
+		ModularItemCreateDrawFunction(data);
+		ModularItemCreateClickFunction(data);
+		ModularItemCreateExitFunction(data);
+		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
+	}
 	ModularItemGenerateValidationProperties(data);
+}
+
+/**
+ * Initialize the modular item properties
+ * @type {ExtendedItemInitCallback}
+ * @see {@link ExtendedItemInit}
+ */
+function ModularItemInit(Item, C, Refresh=true) {
+	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
+	if (Data === null) {
+		return;
+	}
+
+	const AllowType = Data.asset.AllowType;
+	if (Item.Property && AllowType.includes(Item.Property.Type)) {
+		return;
+	}
+
+	const currentModuleValues = ModularItemParseCurrent(Data, null);
+	Item.Property = ModularItemMergeModuleValues(Data, currentModuleValues, Data.BaselineProperty);
+
+	if (Refresh) {
+		CharacterRefresh(C);
+		ChatRoomCharacterItemUpdate(C, Data.asset.Group.Name);
+	}
 }
 
 /**
@@ -95,15 +123,6 @@ function ModularItemRegister(asset, config) {
 function ModularItemCreateLoadFunction(data) {
 	const loadFunctionName = `${data.functionPrefix}Load`;
 	const loadFunction = function () {
-		const AllowType = DialogFocusItem.Asset.AllowType;
-		if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
-			const C = CharacterGetCurrent();
-			const currentModuleValues = ModularItemParseCurrent(data);
-			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues, data.BaselineProperty);
-			const RefreshDialog = (CurrentScreen !== "Crafting");
-			CharacterRefresh(C, true, RefreshDialog);
-			ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
-		}
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${data.currentModule}`);
 	};
 	if (data.scriptHooks && data.scriptHooks.load) {
@@ -165,7 +184,7 @@ function ModularItemCreateExitFunction(data) {
 
 /**
  * Parse and convert the passed item modules inplace. Returns the originally passed object.
- * @param {ModularItemModuleBase[]} Modules - An object describing a single module for a modular item.
+ * @param {readonly ModularItemModuleBase[]} Modules - An object describing a single module for a modular item.
  * @returns {ModularItemModule[]} - The updated modules; same object as `Modules`.
  */
 function ModularItemUpdateModules(Modules) {
@@ -223,7 +242,6 @@ function ModularItemCreateModularData(asset, {
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
 		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length, asset, BaseDrawImages) },
-		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		scriptHooks: {
 			load: ScriptHooks ? ScriptHooks.Load : undefined,
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
@@ -310,7 +328,7 @@ function ModularItemMapOptionToButtonDefinition(option, module, { dialogOptionPr
 /**
  * Draws a module screen from the provided button definitions and modular item data.
  * @param {string} moduleName - The name of the module whose page is being drawn
- * @param {ModularItemButtonDefinition[]} buttonDefinitions - A list of button definitions to draw
+ * @param {readonly ModularItemButtonDefinition[]} buttonDefinitions - A list of button definitions to draw
  * @param {ModularItemData} data - The modular item's data
  * @returns {void} - Nothing
  */
@@ -517,7 +535,7 @@ function ModularItemParseCurrent({ asset, modules }, type=null) {
 /**
  * Merges all of the selected module options for a modular item into a single Property object to set on the item
  * @param {ModularItemData} data - The modular item's data
- * @param {number[]} moduleValues - The numeric values representing the current options for each module
+ * @param {readonly number[]} moduleValues - The numeric values representing the current options for each module
  * @param {ItemProperties|null} BaselineProperty - Initial properties
  * @returns {ItemProperties} - A property object created from combining each module of the modular item
  */
@@ -604,7 +622,7 @@ function ModularItemMergeOverrideHeight(currentValue, newValue) {
 /**
  * Generates the type string for a modular item from its modules and their current values.
  * @param {ModularItemModule[]} modules - The modules array for the modular item
- * @param {number[]} [values] - The numeric values representing the current options for each module
+ * @param {readonly number[]} [values] - The numeric values representing the current options for each module
  * @returns {string} - A string type generated from the selected option values for each module
  */
 function ModularItemConstructType(modules, values) {
@@ -626,8 +644,7 @@ function ModularItemDeconstructType(Type) {
 	if (typeof Type !== "string") {
 		return null;
 	} else {
-		const Iterator = Type.matchAll(/([a-zA-Z]+\d+)/g);
-		return Array.from(Iterator, (m) => m[0]);
+		return Type.split(/([a-zA-Z]+\d+)/).filter(t => t);
 	}
 }
 
@@ -647,7 +664,7 @@ function ModularItemSetType(module, index, data) {
 	const currentOption = module.Options[currentModuleValues[moduleIndex]];
 
 	// Make a final requirement check before actually modifying the item
-	const requirementMessage = ExtendedItemRequirementCheckMessage(option, currentOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, option, currentOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
@@ -700,8 +717,8 @@ function ModularItemSetType(module, index, data) {
  * Sets a modular item's type and properties to the option provided.
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} Item - The item whose type to set
- * @param {number[]} previousModuleValues - The previous module values
- * @param {number[]} newModuleValues - The new module values
+ * @param {readonly number[]} previousModuleValues - The previous module values
+ * @param {readonly number[]} newModuleValues - The new module values
  * @param {ModularItemData} data - The modular item data
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
@@ -847,6 +864,7 @@ function ModularItemGenerateLayerAllowTypes(layer, data) {
 
 		// When option 0 is an allowed module, it means the undefined/null type is allowed.
 		if (allowedModuleCombinations.find(arr => arr.find(combo => combo[1] === 0))) {
+			// @ts-ignore: ignore `readonly` while still building the asset
 			layer.AllowTypes.push("");
 		}
 	}
@@ -863,6 +881,7 @@ function ModularItemGenerateValidationProperties(data) {
 	asset.Extended = true;
 	asset.AllowType = ModularItemGenerateTypeList(data);
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
+	// @ts-ignore: ignore `readonly` while still building the asset
 	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
 	asset.AllowHide = Array.isArray(asset.Hide) ? asset.Hide.slice() : [];
@@ -870,9 +889,13 @@ function ModularItemGenerateValidationProperties(data) {
 	for (const module of modules) {
 		for (const {Property} of module.Options) {
 			if (Property) {
+				// @ts-ignore: ignore `readonly` while still building the asset
 				if (Property.Effect) CommonArrayConcatDedupe(asset.AllowEffect, Property.Effect);
+				// @ts-ignore: ignore `readonly` while still building the asset
 				if (Property.Block) CommonArrayConcatDedupe(asset.AllowBlock, Property.Block);
+				// @ts-ignore: ignore `readonly` while still building the asset
 				if (Property.Hide) CommonArrayConcatDedupe(asset.AllowHide, Property.Hide);
+				// @ts-ignore: ignore `readonly` while still building the asset
 				if (Property.HideItem) CommonArrayConcatDedupe(asset.AllowHideItem, Property.HideItem);
 				if (Property.Tint && Array.isArray(Property.Tint) && Property.Tint.length > 0) asset.AllowTint = true;
 			}

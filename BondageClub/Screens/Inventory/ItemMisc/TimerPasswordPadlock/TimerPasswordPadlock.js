@@ -3,21 +3,26 @@
 const PasswordTimerChooseList = [5, 10, 15, 30, 60, 120, 180, 240, -180, -120, -60, -30, -15];
 let PasswordTimerChooseIndex = 0;
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscTimerPasswordPadlockInit(Item, C) {
+	const Property = {
+		Password: "PASSWORD",
+		Hint: "Take a guess...",
+		LockSet: false,
+		RemoveItem: false,
+		ShowTimer: true,
+		EnableRandomInput: false,
+		MemberNumberList: [],
+	};
+	ExtendedItemInitNoArch(Item, C, Property, false);
+}
+
 // Loads the item extension properties
 function InventoryItemMiscTimerPasswordPadlockLoad() {
 	if (!DialogFocusSourceItem) return;
 
-	if (!DialogFocusSourceItem.Property) DialogFocusSourceItem.Property = {};
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
-
-	if (Property.Password == null) Property.Password = "PASSWORD";
-	if (Property.Hint == null) Property.Hint = "Take a guess...";
-	if (Property.LockSet == null) Property.LockSet = false;
-	if (Property.RemoveItem == null) Property.RemoveItem = false;
-	if (Property.ShowTimer == null) Property.ShowTimer = true;
-	if (Property.EnableRandomInput == null) Property.EnableRandomInput = false;
-	if (Property.MemberNumberList == null) Property.MemberNumberList = [];
 
 	// Only create the inputs if the zone isn't blocked
 	if (InventoryGroupIsBlocked(C, C.FocusGroup.Name)) return;

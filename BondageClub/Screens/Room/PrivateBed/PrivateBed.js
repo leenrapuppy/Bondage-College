@@ -89,8 +89,8 @@ function PrivateBedLoad() {
 function PrivateBedDrawCharacter(C) {
 	if (C.PrivateBedMoveTimer == null) C.PrivateBedMoveTimer = 0;
 	if (C.PrivateBedMoveTimer < CommonTime()) {
-		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["OverTheHead", "Yoked", "BackBoxTie", null, null, null]));
-		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["LegsOpen", "LegsClosed"]));
+		CharacterSetActivePose(C, CommonRandomItemFromList(undefined, ["OverTheHead", "Yoked", "BackBoxTie", null, null, null]));
+		CharacterSetActivePose(C, CommonRandomItemFromList(null, ["LegsOpen", "LegsClosed"]));
 		C.PrivateBedMoveTimer = CommonTime() + 10000 + Math.round(Math.random() * 20000);
 	}
 	if (C.IsNpc() && (C.PrivateBedActivityTimer < CommonTime())) PrivateBedNPCActivity(C);
@@ -173,15 +173,17 @@ function PrivateBedRun() {
 			if ((MouseX >= C.PrivateBedLeft + 60) && (MouseX <= C.PrivateBedLeft + 140) && (MouseY >= C.PrivateBedTop + 400) && (MouseY <= C.PrivateBedTop + 500) && !C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 60, C.PrivateBedTop + 400, 80, 100, "Cyan", 3); break; }
 			if ((MouseX >= C.PrivateBedLeft + 50) && (MouseX <= C.PrivateBedLeft + 150) && (MouseY >= C.PrivateBedTop + 615) && (MouseY <= C.PrivateBedTop + 715) && C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 50, C.PrivateBedTop + 615, 100, 100, "Cyan", 3); break; }
 			if (MouseIn(C.PrivateBedLeft + 100, C.PrivateBedTop, 300, C.HeightRatio * 1000)) {
-				for (let A = 0; A < AssetGroup.length; A++)
-					if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
-						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400)) {
+				for (let A = 0; A < AssetGroup.length; A++) {
+					const group = AssetGroup[A];
+					if (group.IsItem() && group.Zone != null && AssetActivitiesForGroup("Female3DCG", group.Name).length)
+						for (let Z = 0; Z < group.Zone.length; Z++)
+							if ((group.Zone[Z][0] >= 100) && (group.Zone[Z][0] < 400)) {
 								let Color = "#FF000040";
-								if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true)) Color = "#00FF0040";
-								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) Color = (Color == "#FF000040") ? "Red" : "Cyan";
-								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], Color, 3);
+								if (ActivityCanBeDone(C, PrivateBedActivity, group.Name) && !InventoryGroupIsBlocked(C, group.Name, true)) Color = "#00FF0040";
+								if (MouseIn(group.Zone[Z][0] + C.PrivateBedLeft, group.Zone[Z][1] + C.PrivateBedTop, group.Zone[Z][2], group.Zone[Z][3])) Color = (Color == "#FF000040") ? "Red" : "Cyan";
+								DrawEmptyRect(group.Zone[Z][0] + C.PrivateBedLeft, group.Zone[Z][1] + C.PrivateBedTop, group.Zone[Z][2], group.Zone[Z][3], Color, 3);
 							}
+				}
 				break;
 			}
 		}
@@ -207,7 +209,7 @@ function PrivateBedActivityStart(Source, Target, Group, Activity) {
 
 	// Sets the next timer and effect
 	Source.PrivateBedActivityTimer = CommonTime() + PrivateBedActivityDelay + ((Source.IsPlayer()) ? 0 : Math.round(Math.random() * PrivateBedActivityDelay));
-	ActivityEffect(Source, Target, Activity, GroupName, 1);
+	ActivityEffect(Source, Target, Activity, Group.Name, 1);
 
 	// Publishes in the log
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
@@ -243,7 +245,7 @@ function PrivateBedGroupActivityIsValid(Source, Target, Group, Activity) {
 	if (!ActivityHasValidTarget(Target, Activity, Group)) return false; // Make sure the target is valid
 	if (!ActivityCheckPrerequisites(Activity, Source, Target, Group)) return false; // Check if the source/target has the proper prerequisites
 	if (!ActivityCheckPermissions(Activity, Source, true) || !ActivityCheckPermissions(Activity, Target, false)) return false; // Check for permissions
-	if (InventoryGroupIsBlocked(Target, Group.Name, true)) return false; // Check if the group is blocked
+	if (Group.IsItem() && InventoryGroupIsBlocked(Target, Group.Name, true)) return false; // Check if the group is blocked
 	return true;
 }
 
@@ -363,14 +365,15 @@ function PrivateBedClick() {
 
 		// If we click in an arousal zone, we can trigger that activity
 		if (MouseIn(C.PrivateBedLeft, C.PrivateBedTop, 500, C.HeightRatio * 1000))
-			for (let A = 0; A < AssetGroup.length; A++)
-				if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
-					if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true))
-						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
-								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3]))
-									return PrivateBedActivityStart(Player, C, AssetGroup[A], PrivateBedActivity);
-
+			for (let A = 0; A < AssetGroup.length; A++) {
+				const group = AssetGroup[A];
+				if (group.IsItem() && group.Zone != null && AssetActivitiesForGroup("Female3DCG", group.Name).length)
+					if (ActivityCanBeDone(C, PrivateBedActivity, group.Name) && !InventoryGroupIsBlocked(C, group.Name, true))
+						for (let Z = 0; Z < group.Zone.length; Z++)
+							if ((group.Zone[Z][0] >= 100) && (group.Zone[Z][0] < 400))
+								if (MouseIn(group.Zone[Z][0] + C.PrivateBedLeft, group.Zone[Z][1] + C.PrivateBedTop, group.Zone[Z][2], group.Zone[Z][3]))
+									return PrivateBedActivityStart(Player, C, group, PrivateBedActivity);
+			}
 	}
 
 }

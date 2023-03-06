@@ -1,10 +1,11 @@
 "use strict";
 
+/** @type {ReputationType[]} */
 var ReputationValidReputations = ["Dominant", "Kidnap", "ABDL", "Gaming", "Maid", "LARP", "Asylum", "Gambling", "HouseMaiestas", "HouseVincula", "HouseAmplector", "HouseCorporis"];
 
 /**
  * Alters a given reputation value for the player
- * @param {string} RepType - The name/type of the reputation to alter
+ * @param {ReputationType} RepType - The name/type of the reputation to alter
  * @param {number} RepValue - Reputation to add/subtract to the current reputation value.
  * @param {boolean} [Push=true] - Pushes the reputation to the server if TRUE
  * @returns {void} - Nothing
@@ -47,7 +48,7 @@ function ReputationChange(RepType, RepValue, Push) {
 
 /**
  * Loads the reputation data from the server
- * @param {Array.<{Type: string, Value: number}>} NewRep - The array of reputation-value pairs to load for the current player
+ * @param {readonly Reputation[]} NewRep - The array of reputation-value pairs to load for the current player
  * @returns {void} - Nothing
  */
 function ReputationLoad(NewRep) {
@@ -77,7 +78,7 @@ function ReputationGet(RepType) {
 /**
  * Returns a specific reputation value for a given character
  * @param {Character} C - Character to get the reputation for.
- * @param {string} RepType - Type/name of the reputation to get the value of.
+ * @param {ReputationType} RepType - Type/name of the reputation to get the value of.
  * @returns {number} - Returns the value of the reputation. It can range from 100 to -100, and it defaults to 0 if the given character never earned this type of reputation before.
  */
 function ReputationCharacterGet(C, RepType) {
@@ -90,7 +91,7 @@ function ReputationCharacterGet(C, RepType) {
 
 /**
  * Alter the reputation progress by a factor. The higher the rep, the slower it gets, a reputation is easier to break than to build. Takes the cheater version factor into account.
- * @param {string} RepType - Type/name of the reputation
+ * @param {ReputationType} RepType - Type/name of the reputation
  * @param {number|string} Value - Value of the reputation change before the factor is applied
  * @return {void} - Nothing
  */

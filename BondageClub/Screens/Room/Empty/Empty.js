@@ -75,7 +75,9 @@ function EmptyManagementCell() {
  * @returns {void} - Nothing
  */
 function EmptyShopRelease() {
-	InventoryRemove(Player, ShopDemoItemGroup);
+	if (ShopDemoItemGroup !== "") {
+		InventoryRemove(Player, ShopDemoItemGroup);
+	}
 	DialogChangeReputation("Dominant", -1);
 }
 

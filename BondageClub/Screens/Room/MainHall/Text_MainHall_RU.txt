@@ -13,7 +13,7 @@ Shibari Dojo
 Kidnappers League
 Лига Похитителей 
 Private Room
-Приватная комната
+Личная комната
 Club Management
 Руководство Клуба
 Search for Sarah
@@ -76,6 +76,8 @@ Arcade by Ada18980
 Аркада от Ada18980
 Request maid service
 Запросить услуги горничной
+Open the changelog
+Откройте журнал изменений
 This game is for adults only.  Minors must leave immediately.
 Эта игра только для взрослых. Несовершеннолетние должны немедленно уйти.
 All game characters are considered adults, no exceptions.

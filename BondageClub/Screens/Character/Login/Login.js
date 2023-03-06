@@ -7,11 +7,11 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "Bjugh", "Bryce", "Cathryn", 
-	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin", 
-	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "Michal", "Michel", "Mike", 
-	"Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Schrödingers", "Shadow", 
-	"Tam", "Tarram", "TonyBoy", "TopHat", "Troubadix", "WhiteSniper", "Xepherio", "William" 
+	"Abcdeil", "Aceffect", "Anna", "AnnaBella", "ArashiSama", "Aylea", "Bjugh", "Bryce", "Cathryn",
+	"Chen", "Christian", "Clash", "DarkStar", "Dave", "Desch", "Dini", "Dynilath", "Edwin",
+	"Elfreda", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "Michal", "Michel", "Mike",
+	"Mindtie", "Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Schrödingers", "Shadow",
+	"Tam", "Tarram", "TonyBoy", "TopHat", "Troubadix", "WhiteSniper", "Xepherio", "William"
 ];
 
 /* eslint-enable */
@@ -154,7 +154,7 @@ function LoginRun() {
 /**
  * The list of item fixups to apply on login.
  *
- * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string, Option?: string} }[]}
+ * @type {{ Old: {Group: AssetGroupName, Name: string}, New: {Group: AssetGroupName, Name: string, Option?: string} }[]}
  */
 let LoginInventoryFixups = [
 	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
@@ -231,7 +231,7 @@ let LoginInventoryFixups = [
  * TODO: only typed items are supported.
  *
  * @param {Record<string, string[]>} Inventory - The server-provided inventory object
- * @param {{Group: string, Name: string, Property?: any}[]} Appearance - The server-provided appearance object
+ * @param {{Group: AssetGroupName, Name: string, Property?: any}[]} Appearance - The server-provided appearance object
  * @param {CraftingItem[]} Crafting - The server-provided, uncompressed crafting data
  */
 function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
@@ -552,7 +552,7 @@ function LoginExtremeItemSettings(applyDefaults) {
 		// If the item permissions are 3 = "Owner/Lover/Whitelist" don't limit the locks, since that just blocks whitelisted players
 		Player.LimitedItems = Player.ItemPermission == 3 ? [] : MainHallStrongLocks.map(L => { return { Name: L, Group: "ItemMisc", Type: null }; });
 	} else {
-		Player.LimitedItems = Player.LimitedItems.filter(item => MainHallStrongLocks.includes(item.Name));
+		Player.LimitedItems = Player.LimitedItems.filter(item => MainHallStrongLocks.includes(/** @type {AssetLockType}*/(item.Name)));
 	}
 	Player.HiddenItems = [];
 }

@@ -4,13 +4,15 @@ const fs = require("fs");
 
 const BASE_PATH = "../../";
 // Files needed to check the Female3DCG assets
-const neededFiles = [
+const NEEDED_FILES = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
 	"Scripts/Asset.js",
+	"Scripts/ExtendedItem.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
+	"Scripts/VibratorMode.js",
 	"Scripts/Property.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
@@ -31,7 +33,11 @@ const neededFiles = [
 	"Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js",
 	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Assets/Female3DCG/Female3DCG.js",
-	"Assets/Female3DCG/Female3DCGExtended.js"
+	"Assets/Female3DCG/Female3DCGExtended.js",
+	"Scripts/Translation.js",
+	"Scripts/Text.js",
+	"Screens/Character/ItemColor/ItemColor.js",
+	"Scripts/Testing.js",
 ];
 
 let localError = false;
@@ -118,20 +124,373 @@ function loadCSV(path, expectedWidth) {
 	return data;
 }
 
+/**
+ * Checks for {@link AssetDefinition.DynamicGroupName}
+ * @param {readonly AssetGroupDefinition[]} groupDefinitions
+ */
+function testDynamicGroupName(groupDefinitions) {
+	/** @type {[AssetGroupDefinition, AssetDefinition][]} */
+	const assetsList = [];
+	for (const groupDef of groupDefinitions) {
+		for (const asset of groupDef.Asset) {
+			if (typeof asset !== "string") {
+				assetsList.push([groupDef, asset]);
+			}
+		}
+	}
+
+	// If `DynamicGroupName` is set, check whether the dynamically referenced item actually exists
+	for (const [groupDef, assetDef] of assetsList) {
+		const DynamicGroupName = (assetDef.DynamicGroupName !== undefined) ? assetDef.DynamicGroupName : groupDef.DynamicGroupName;
+		if (
+			DynamicGroupName !== undefined
+			&& DynamicGroupName !== groupDef.Group
+			&& !assetsList.some(([g, a]) => a.Name === assetDef.Name && g.Group === DynamicGroupName)
+		) {
+			error(`${groupDef.Group}:${assetDef.Name}: Missing DynamicGroupName-referenced item: ${DynamicGroupName}:${assetDef.Name}`);
+		}
+	}
+}
+
+/**
+ * Checks for the option names of typed items
+ * @param {ExtendedItemConfig} config
+ */
+function testTypedOptionName(config) {
+	for (const { assetName, groupName, assetConfig } of flattenExtendedConfig(config)) {
+		if (assetConfig.Archetype !== "typed" || assetConfig.Config?.Options === undefined) {
+			continue;
+		}
+
+		const invalidOptions = assetConfig.Config.Options.filter(o => {
+			const type = o?.Property?.Type;
+			return !(o.Name === type || type === null);
+		});
+		if (invalidOptions.length !== 0) {
+			const n = invalidOptions.length;
+			const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
+			error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
+		}
+	}
+}
+
+/**
+ * Flatten and yield all combined Asset/Group configs and names
+ * @param {ExtendedItemConfig} extendedItemConfig
+ */
+function* flattenExtendedConfig(extendedItemConfig) {
+	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
+		for (const [assetName, assetConfig] of Object.entries(groupConfig)) {
+			yield { groupName, assetName, groupConfig, assetConfig };
+		}
+	}
+}
+
+/**
+ * Checks for the option names of typed items
+ * @param {ExtendedItemConfig} extendedItemConfig
+ * @param {string[][]} dialogArray
+ */
+function testExtendedItemDialog(extendedItemConfig, dialogArray) {
+	const dialogSet = new Set(dialogArray.map(i => i[0]));
+	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(extendedItemConfig)) {
+		/** @type {Set<string>} */
+		let missingDialog = new Set();
+		switch (assetConfig.Archetype) {
+			case "typed":
+				missingDialog = testTypedItemDialog(groupName, assetName, assetConfig, dialogSet);
+				break;
+			case "modular":
+				missingDialog = testModularItemDialog(groupName, assetName, assetConfig, dialogSet);
+				break;
+		}
+
+		if (missingDialog.size !== 0) {
+			const missingString = Array.from(missingDialog).sort();
+			error(`${groupName}:${assetName}: found ${missingDialog.size} missing dialog keys: ${missingString}`);
+		}
+	}
+}
+
+/**
+ * Construct all prefix/suffix combinations and add them to `diffSet` if they are not part of `referenceSet`.
+ * Performs an inplace update of `diffSet`.
+ * @param {readonly (undefined | string)[]} prefixIter
+ * @param {readonly (undefined | string)[]} suffixIter
+ * @param {Readonly<Set<string>>} referenceSet
+ * @param {Set<string>} diffSet
+ */
+function gatherDifference(prefixIter, suffixIter, referenceSet, diffSet) {
+	for (const prefix of prefixIter) {
+		if (prefix === undefined) {
+			continue;
+		}
+		for (const suffix of suffixIter) {
+			if (suffix === undefined) {
+				continue;
+			}
+			const key =`${prefix}${suffix}`;
+			if (!referenceSet.has(key)) {
+				diffSet.add(key);
+			}
+		}
+	}
+}
+
+/**
+ * Version of {@link gatherDifference} designed for handling the `fromTo` typed item chat setting.
+ * @param {readonly (undefined | string)[]} prefixIter
+ * @param {readonly (undefined | string)[]} suffixIter
+ * @param {Readonly<Set<string>>} referenceSet
+ * @param {Set<string>} diffSet
+ */
+function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
+	for (const prefix of prefixIter) {
+		if (prefix === undefined) {
+			continue;
+		}
+		for (const suffix1 of suffixIter) {
+			for (const suffix2 of suffixIter) {
+				if (suffix1 === suffix2 || suffix1 === undefined || suffix2 === undefined) {
+					continue;
+				}
+				const key =`${prefix}${suffix1}To${suffix2}`;
+				if (!referenceSet.has(key)) {
+					diffSet.add(key);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Return a set of all expected typed item dialog keys that are absent for a given iten.
+ * Helper function for {@link testExtendedItemDialog}.
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {TypedItemAssetConfig} assetConfig
+ * @param {Readonly<Set<string>>} dialogSet
+ * @returns {Set<string>}
+ */
+function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
+	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Dialog) {
+		return new Set();
+	}
+
+	const chatSetting = assetConfig.Config?.ChatSetting ?? "toOnly";
+	/** @type {Partial<TypedItemDialogConfig>} */
+	const dialogConfig = {
+		Load: `${groupName}${assetName}Select`,
+		TypePrefix: `${groupName}${assetName}`,
+		ChatPrefix: `${groupName}${assetName}Set`,
+		...(assetConfig.Config?.Dialog ?? {}),
+	};
+	if (
+		typeof dialogConfig.ChatPrefix === "function"  // Can't validate callables via the CI
+		|| chatSetting === "silent"  // No dialog when silent
+		|| !groupName.includes("Item")  // Type changes of clothing based items never have a chat message
+	) {
+		dialogConfig.ChatPrefix = undefined;
+	}
+
+	/** @type {Set<string>} */
+	const ret = new Set();
+	const optionNames = assetConfig.Config?.Options?.map(o => !o.HasSubscreen ? o.Name : undefined) ?? [];
+	gatherDifference([dialogConfig.TypePrefix], optionNames, dialogSet, ret);
+	gatherDifference([dialogConfig.Load], [""], dialogSet, ret);
+	if (chatSetting === "toOnly") {
+		gatherDifference([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+	} else if (chatSetting === "fromTo") {
+		gatherDifferenceFromTo([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+	}
+	return ret;
+}
+
+/**
+ * Return a set of all expected modular item dialog keys that are absent for a given iten.
+ * Helper function for {@link testExtendedItemDialog}.
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {ModularItemAssetConfig} assetConfig
+ * @param {Readonly<Set<string>>} dialogSet
+ * @returns {Set<string>}
+ */
+function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
+	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Dialog) {
+		return new Set();
+	}
+
+	const chatSetting = assetConfig.Config?.ChatSetting ?? "perOption";
+	/** @type {Partial<ModularItemDialogConfig>} */
+	const dialogConfig = {
+		Select: `${groupName}${assetName}Select`,
+		ModulePrefix: `${groupName}${assetName}Module`,
+		OptionPrefix: `${groupName}${assetName}Option`,
+		ChatPrefix: `${groupName}${assetName}Set`,
+		...(assetConfig.Config?.Dialog ?? {}),
+	};
+	if (typeof dialogConfig.ChatPrefix === "function" || !groupName.includes("Item")) {
+		dialogConfig.ChatPrefix = undefined;
+	}
+
+	const modulesNames = assetConfig.Config?.Modules?.map(m => m.Name) ?? [];
+	/** @type {(string | undefined)[]} */
+	const optionNames = [];
+	for (const module of assetConfig.Config?.Modules ?? []) {
+		optionNames.push(...(module.Options.map((o, i) => !o.HasSubscreen ? `${module.Key}${i}` : undefined) ?? []));
+	}
+
+	/** @type {Set<string>} */
+	const ret = new Set();
+	gatherDifference([dialogConfig.Select, dialogConfig.ModulePrefix], modulesNames, dialogSet, ret);
+	gatherDifference([dialogConfig.OptionPrefix], optionNames, dialogSet, ret);
+	if (chatSetting === "perOption") {
+		gatherDifference([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+	} else if (chatSetting === "perModule") {
+		// Ignore a module if every single one of its options links to a subscreen
+		const modulesNamesNoSubscreen = assetConfig.Config?.Modules?.map(m => m.Options.every(o => o.HasSubscreen) ? undefined : m.Name) ?? [];
+		gatherDifference([dialogConfig.ChatPrefix], modulesNamesNoSubscreen, dialogSet, ret);
+	}
+	return ret;
+}
+
+/**
+ * Check that all expected color-group entries are present in the .csv file
+ * @param {TestingMissingStruct[]} missingGroups A list of all missing color groups
+ */
+function testColorGroups(missingGroups) {
+	if (!Array.isArray(missingGroups)) {
+		error("MISSING_COLOR_GROUPS not found");
+	}
+	for (const { Group, Name, Missing } of missingGroups) {
+		error(`${Group}:${Name}: Missing color group "${Missing}"`);
+	}
+}
+
+/**
+ * Check that all expected color-layer entries are present in the .csv file
+ * @param {TestingMissingStruct[]} missingLayers A list of all missing color layers
+ */
+function testColorLayers(missingLayers) {
+	if (!Array.isArray(missingLayers)) {
+		error("MISSING_COLOR_LAYERS not found");
+		return;
+	}
+	for (const { Group, Name, Missing } of missingLayers) {
+		error(`${Group}:${Name}: Missing color layer "${Missing}"`);
+	}
+}
+
+/**
+ * Check whether all extended item options and modules are (at least) of length 1.
+ * @param {ExtendedItemConfig} config
+ */
+function testModuleOptionLength(config) {
+	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(config)) {
+		switch (assetConfig.Archetype) {
+			case "typed": {
+				testModuleOptionLengthTyped(groupName, assetName, assetConfig);
+				break;
+			}
+			case "modular": {
+				testModuleOptionLengthModular(groupName, assetName, assetConfig);
+				break;
+			}
+		}
+	}
+}
+
+/**
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {TypedItemAssetConfig} assetConfig
+ */
+function testModuleOptionLengthTyped(groupName, assetName, assetConfig) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Options) {
+		return;
+	}
+
+	const options = assetConfig.Config?.Options ?? [];
+	if (options.length === 0) {
+		error(`${groupName}:${assetName}: typed item require at least one option`);
+	}
+}
+
+/**
+ * @param {string} groupName
+ * @param {string} assetName
+ * @param {ModularItemAssetConfig} assetConfig
+ */
+function testModuleOptionLengthModular(groupName, assetName, assetConfig) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.Modules) {
+		return;
+	}
+
+	const modules = assetConfig.Config?.Modules ?? [];
+	if (modules.length === 0) {
+		error(`${groupName}:${assetName}: modular item requires at least one option`);
+	}
+
+	for (const mod of modules) {
+		if (mod.Options.length === 0) {
+			error(`${groupName}:${assetName}: modular item module "${mod}" requires at least one option`);
+		}
+	}
+}
+
+/**
+ * Strigify and parse the passed object to get the correct Array and Object prototypes, because VM uses different ones.
+ * This unfortunately results in Functions being lost and replaced with a dummy function
+ * @param {any} input The to-be sanitized input
+ * @returns {any} The sanitized output
+ */
+function sanitizeVMOutput(input) {
+	return JSON.parse(
+		JSON.stringify(
+			input,
+			(key, value) => typeof value === "function" ? "__FUNCTION__" : value,
+		),
+		(key, value) => value === "__FUNCTION__" ? () => { return; } : value,
+	);
+}
+
 (function () {
-	const context = vm.createContext({ OuterArray: Array, Object: Object });
+	const [commonFile, ...neededFiles] = NEEDED_FILES;
+	const context = vm.createContext({
+		OuterArray: Array,
+		Object: Object,
+		TestingColorLayers: new Set(loadCSV("Assets/Female3DCG/LayerNames.csv", 2).map(i => i[0])),
+		TestingColorGroups: new Set(loadCSV("Assets/Female3DCG/ColorGroups.csv", 2).map(i => i[0])),
+	});
+	vm.runInContext(fs.readFileSync(BASE_PATH + commonFile, { encoding: "utf-8" }), context, {
+		filename: commonFile,
+	});
+
+	// Only patch `CommonGet` after loading `Common`, lest our monkey patch will be overriden again
+	context.CommonGet = (file, callback) => {
+		const data = fs.readFileSync(`../../${file}`, "utf8");
+		const obj = {
+			status: 200,
+			responseText: data,
+		};
+		callback.bind(obj)(obj);
+	};
 	for (const file of neededFiles) {
 		vm.runInContext(fs.readFileSync(BASE_PATH + file, { encoding: "utf-8" }), context, {
 			filename: file,
-			timeout: 1000
 		});
 	}
 
-	// We need to strigify and parse the asset array to have correct Array and Object prototypes, because VM uses different ones
-	// This unfortunately results in Functions being lost and replaced with undefined
 	/** @type {AssetGroupDefinition[]} */
-	const AssetFemale3DCG = JSON.parse(JSON.stringify(context.AssetFemale3DCG));
-	const AssetFemale3DCGExtended = JSON.parse(JSON.stringify(context.AssetFemale3DCGExtended));
+	const AssetFemale3DCG = sanitizeVMOutput(context.AssetFemale3DCG);
+	/** @type {ExtendedItemConfig} */
+	const AssetFemale3DCGExtended = sanitizeVMOutput(context.AssetFemale3DCGExtended);
+	/** @type {TestingMissingStruct[]} */
+	const missingColorLayers = sanitizeVMOutput(context.TestingMisingColorLayers);
+	/** @type {TestingMissingStruct[]} */
+	const missingColorGroups = sanitizeVMOutput(context.TestingMisingColorGroups);
 
 	if (!Array.isArray(AssetFemale3DCG)) {
 		error("AssetFemale3DCG not found");
@@ -191,7 +550,7 @@ function loadCSV(path, expectedWidth) {
 					}
 					if (assetConfig.Config) {
 						if (assetConfig.Archetype === "typed") {
-							const HasSubscreen = !localError && assetConfig.Config.Options.some(option => !!option.HasSubscreen);
+							const HasSubscreen = !localError && assetConfig.Config.Options?.some(option => !!option.HasSubscreen);
 							if (!HasSubscreen) {
 								if (Asset.AllowEffect !== undefined) {
 									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowEffect (unless they use subscreens)`);
@@ -306,11 +665,22 @@ function loadCSV(path, expectedWidth) {
 				}
 
 				[dialog.ChatPrefix, dialog.TypePrefix].forEach((prefix) => {
-					if (prefix && !dialogArray.find(e => e[0] === prefix + option.Name)) {
+					if (
+						prefix
+						&& typeof prefix !== "function"
+						&& !dialogArray.find(e => e[0] === prefix + option.Name)
+					) {
 						error(`Missing Dialog: '${prefix + option.Name}'`);
 					}
 				});
 			});
 		});
 	});
+
+	testDynamicGroupName(AssetFemale3DCG);
+	testTypedOptionName(AssetFemale3DCGExtended);
+	testExtendedItemDialog(AssetFemale3DCGExtended, dialogArray);
+	testColorGroups(missingColorGroups);
+	testColorLayers(missingColorLayers);
+	testModuleOptionLength(AssetFemale3DCGExtended);
 })();

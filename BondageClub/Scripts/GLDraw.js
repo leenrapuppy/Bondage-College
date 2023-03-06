@@ -36,19 +36,50 @@ var GLDrawHalfAlphaHigh = 1.2 / 256.0;
 window.addEventListener('load', GLDrawLoad);
 
 /**
- * Loads WebGL, if not available, use the old canvas engine
+ * Setup WebGL rendering
+ *
+ * This will create a drawing canvas and try to initialize it for GL rendering.
+ * In case of failure, or if the fallback is required, it will disable GL
+ * rendering entirely, switching back to the normal canvas-based rendering
+ * (see Drawing.js).
+ *
+ * @param {Event} _evt - Unused DOM event
+ * @param {boolean} [force2d] - Whether to force a fallback to 2d mode
  * @returns {void} - Nothing
  */
-function GLDrawLoad() {
+function GLDrawLoad(_evt, force2d = false) {
 	GLDrawCanvas = document.createElement("canvas");
 	GLDrawCanvas.width = 1000;
 	GLDrawCanvas.height = CanvasDrawHeight;
-	GLVersion = "webgl2";
-	let gl = GLDrawCanvas.getContext(GLVersion, GLDrawGetOptions());
-	if (!gl) { GLVersion = "webgl"; gl = GLDrawCanvas.getContext(GLVersion, GLDrawGetOptions()); }
-	if (!gl) { GLVersion = "No WebGL"; GLDrawCanvas.remove(); GLDrawCanvas = null; return; }
 
-	GLDrawCanvas = GLDrawInitCharacterCanvas(GLDrawCanvas);
+	// Find a GL version that works
+	const glOpts = GLDrawGetOptions();
+	let gl = null;
+	for (const glVersion of ["webgl2", "webgl"]) {
+		gl = GLDrawCanvas.getContext(glVersion, glOpts);
+		if (gl) {
+			// Found, save the version
+			/* @ts-ignore */
+			GLVersion = glVersion;
+			break;
+		}
+	}
+	if (!gl || force2d) {
+		if (force2d) {
+			console.error('WebGL: forcing fallback to 2D renderer');
+		} else {
+			console.error('WebGL: failed to initialize canvas');
+		}
+		GLVersion = "No WebGL";
+		GLDrawCanvas.remove();
+		GLDrawCanvas = null;
+		return;
+	}
+	console.info(`WebGL: initialized as ${GLVersion}`);
+	/* @ts-ignore */
+	GLDrawCanvas.GL = gl;
+	GLDrawMakeGLProgram(GLDrawCanvas.GL);
+	GLDrawClearRect(GLDrawCanvas.GL, 0, 0, 1000, CanvasDrawHeight, 0);
 
 	// Attach context listeners
 	GLDrawCanvas.addEventListener("webglcontextlost", GLDrawOnContextLost, false);
@@ -56,8 +87,8 @@ function GLDrawLoad() {
 }
 
 /**
- * Gets the graphical options saved in the player's local storage.
- * @returns {WebGLContextAttributes} - WebG context attributes based on saved settings
+ * Loads the graphical options from localSstorage.
+ * @returns {WebGLContextAttributes} - WebGL context attributes based on saved settings
  */
 function GLDrawGetOptions() {
 	let antialias = true;
@@ -70,7 +101,22 @@ function GLDrawGetOptions() {
 		powerPreference = savedPowerMode;
 	}
 
-	return { antialias, powerPreference};
+	return { antialias, powerPreference };
+}
+
+
+/**
+ * Saves the graphical options in localStorage.
+ * @param {WebGLContextAttributes} options - WebGL context attributes based on saved settings
+ */
+function GLDrawSetOptions(options) {
+	if (options.antialias) {
+		localStorage.removeItem("GLDraw-antialiasOff");
+	} else {
+		localStorage.setItem("GLDraw-antialiasOff", "true");
+	}
+	if (["default", "high-performance", "low-power"].includes(options.powerPreference))
+		localStorage.setItem("GLDraw-powerPreference", options.powerPreference);
 }
 
 /**
@@ -99,16 +145,14 @@ function GLDrawOnContextLost(event) {
 }
 
 /**
- * Restores the original CharacterAppearanceBuildCanvas function, and cleans up any GLDraw resources.
+ * Disables GLDraw rendering, and cleans up any resources.
  * @returns {void} - Nothing
  */
 function GLDrawRevertToCanvas2D() {
 	const seconds = GLDrawContextResetSeconds + GLDrawRevertToDraw2DSeconds;
 	console.log(`WebGL context lost twice within ${seconds} seconds - reverting to canvas2D rendering`);
 	clearTimeout(GLDrawCrashTimeout);
-	GLDrawCanvas.remove();
-	GLDrawImageCache.clear();
-	GLDrawRebuildCharacters();
+	GLDrawResetCanvas(true);
 }
 
 /**
@@ -118,18 +162,25 @@ function GLDrawRevertToCanvas2D() {
 function GLDrawOnContextRestored() {
 	console.log("WebGL: Context restored.");
 	clearTimeout(GLDrawContextLostTimeout);
-	GLDrawLoad();
-	GLDrawRebuildCharacters();
+	GLDrawResetCanvas();
 }
 
 /**
- * Removes the current GLDraw canvas, clears the image cache, and reloads a fresh canvas.
+ * Resets the GLDraw renderer
+ *
+ * This function removes the current canvas, removes cached textures from the
+ * image cache, and reloads a fresh canvas unless prevented.
  * @returns {void} - Nothing
  */
-function GLDrawResetCanvas() {
+function GLDrawResetCanvas(force2d = false) {
+	console.info("WebGL: resetting canvas");
+	// Cleanup resources and canvas
 	GLDrawCanvas.remove();
 	GLDrawImageCache.clear();
-	GLDrawLoad();
+	GLDrawCanvas = null;
+
+	// Reload canvas, possibly falling back to 2d mode
+	GLDrawLoad(null, force2d);
 	GLDrawRebuildCharacters();
 }
 
@@ -148,7 +199,7 @@ function GLDrawRebuildCharacters() {
  * @param {WebGL2RenderingContext} gl - The WebGL context of the canvas
  * @returns {void} - Nothing
  */
-function GLDrawMakeGLProgam(gl) {
+function GLDrawMakeGLProgram(gl) {
 	const vertexShader = GLDrawCreateShader(gl, GLDrawVertexShaderSource, gl.VERTEX_SHADER);
 	const fragmentShader = GLDrawCreateShader(gl, GLDrawFragmentShaderSource, gl.FRAGMENT_SHADER);
 	const fragmentShaderFullAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceFullAlpha, gl.FRAGMENT_SHADER);
@@ -166,32 +217,6 @@ function GLDrawMakeGLProgam(gl) {
 
 	gl.textureCache = new Map();
 	gl.maskCache = new Map();
-}
-
-/**
- * Initializes a WebGL canvas for characters
- * @param {HTMLCanvasElement} [canvas] - The canvas used to draw characters on
- * @returns {HTMLCanvasElement} - The prepared canvas
- */
-function GLDrawInitCharacterCanvas(canvas) {
-	if (canvas == null) {
-		canvas = document.createElement("canvas");
-		canvas.width = 1000;
-		canvas.height = CanvasDrawHeight;
-	}
-	if (canvas.GL == null) {
-		canvas.GL = canvas.getContext(GLVersion);
-		if (canvas.GL == null) {
-			canvas.remove();
-			return GLDrawInitCharacterCanvas(null);
-		}
-	} else {
-		GLDrawClearRect(canvas.GL, 0, 0, 1000, CanvasDrawHeight, 0);
-	}
-	if (canvas.GL.program == null) {
-		GLDrawMakeGLProgam(canvas.GL);
-	}
-	return canvas;
 }
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Where animation data is stored. Animation data is only managed client side, nothing should be synced.
  * @constant
- * @type {object} - The animation data object.
+ * @type {Record<string, any>} - The animation data object.
  */
 var AnimationPersistentStorage = {};
 

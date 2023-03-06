@@ -485,8 +485,8 @@ function PrivateNewCloth(C) {
 		InventoryWear(C, "CollegeSkirt", "ClothLower");
 		InventoryWear(C, "Socks4", "Socks", "#AAAAAA");
 		InventoryWear(C, "Shoes2", "Shoes", "#222222");
-		InventoryWear(Sarah, "Bra2", "Bra", "#a02424");
-		InventoryWear(Sarah, "Panties7", "Panties", "#a02424");
+		InventoryWear(C, "Bra2", "Bra", "#a02424");
+		InventoryWear(C, "Panties7", "Panties", "#a02424");
 	} else if (C.Name == "Amanda") {
 		InventoryWear(C, "CollegeOutfit1", "Cloth");
 		InventoryWear(C, "CollegeSkirt", "ClothLower");
@@ -1668,6 +1668,7 @@ function PrivateLoveYou() {
 	if (CurrentCharacter.Love >= Math.random() * 100) {
 
 		// Finds a valid lover activity at random, some activities skip the loop and don't return any event
+		/** @type {"" | AssetGroupItemName} */
 		var Zone = "";
 		var Act;
 		while (true) {
@@ -1695,7 +1696,10 @@ function PrivateLoveYou() {
 
 		// For regular sexual activities
 		PrivateLoverActivity = Act;
-		if ((PrivateLoverActivity == "Kiss") || (PrivateLoverActivity == "FrenchKiss") || (PrivateLoverActivity == "Caress") || (PrivateLoverActivity == "Rub") || (PrivateLoverActivity == "MasturbateHand") || (PrivateLoverActivity == "MasturbateTongue")) {
+		if (
+			Zone !== ""
+			&& ((PrivateLoverActivity == "Kiss") || (PrivateLoverActivity == "FrenchKiss") || (PrivateLoverActivity == "Caress") || (PrivateLoverActivity == "Rub") || (PrivateLoverActivity == "MasturbateHand") || (PrivateLoverActivity == "MasturbateTongue"))
+		) {
 			ActivityEffect(CurrentCharacter, Player, PrivateLoverActivity, Zone);
 			ActivityEffect(Player, CurrentCharacter, PrivateLoverActivity, Zone);
 		}
