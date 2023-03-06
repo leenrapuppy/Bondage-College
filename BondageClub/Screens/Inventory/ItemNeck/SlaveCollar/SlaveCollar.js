@@ -93,6 +93,11 @@ var InventoryItemNeckSlaveCollarTypes = [
 	}
 ];
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemNeckSlaveCollarInit(Item, C, Refresh) {
+	ExtendedItemInitNoArch(Item, C, { Type: null, Effect: [], Block: [] }, Refresh);
+}
+
 // Loads the item extension properties
 function InventoryItemNeckSlaveCollarLoad() {
 	InventoryItemNeckSlaveCollarColorMode = false;
@@ -107,7 +112,6 @@ function InventoryItemNeckSlaveCollarLoad() {
 		});
 	}
 	else if (C && C.IsOwnedByPlayer && !C.IsLoverOfPlayer() && SC) { InventoryItemNeckSlaveCollarTypes.splice(InventoryItemNeckSlaveCollarTypes.indexOf(SC,1)); }
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Effect: [], Block: [] };
 }
 
 // Draw the item extension screen

@@ -196,7 +196,7 @@ function HorseWalkRun() {
 			}
 		}
 	}
-	if (Time >= MiniGameTimer + 5000) CommonDynamicFunction(MiniGameReturnFunction + "()");
+	if (Time >= MiniGameTimer + 5000) MiniGameEnd();
 
 	if (!MiniGameEnded) DrawProgressBar(0, 950, 2000, 50, (MiniGameTimer - Time) / 400);
 	else DrawRect(0, 950, 2000, 50, "white");

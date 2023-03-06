@@ -1,24 +1,12 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemDevicesDollBoxInit(Item, C, Refresh) {
+	ExtendedItemInitNoArch(Item, C, { Text: "", Text2: "" }, Refresh);
+}
+
 // Loads the item extension properties
 function InventoryItemDevicesDollBoxLoad() {
-	var C = CharacterGetCurrent();
-	var MustRefresh = false;
-
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = {};
-	if (typeof DialogFocusItem.Property.Text !== "string") {
-		DialogFocusItem.Property.Text = "";
-		MustRefresh = true;
-	}
-	if (typeof DialogFocusItem.Property.Text2 !== "string") {
-		DialogFocusItem.Property.Text2 = "";
-		MustRefresh = true;
-	}
-	if (MustRefresh) {
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-
 	PropertyTextLoad();
 }
 

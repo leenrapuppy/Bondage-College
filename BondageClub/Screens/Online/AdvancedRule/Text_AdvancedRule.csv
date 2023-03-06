@@ -41,6 +41,8 @@ BlockAppearanceG,Bra
 BlockAppearanceH,Corset
 BlockAppearanceI,Panties
 BlockAppearanceJ,Socks
+BlockAppearance(,Right Sock
+BlockAppearance),Left Sock
 BlockAppearanceK,Right Anklet
 BlockAppearanceL,Left Anklet
 BlockAppearanceM,Garters
@@ -54,6 +56,7 @@ BlockAppearance!,Left Hand Rings
 BlockAppearance$,Right Hand Rings
 BlockAppearanceT,Bracelet
 BlockAppearanceU,Glasses
+BlockAppearance[,Jewelry
 BlockAppearanceV,Mask
 BlockAppearanceW,Tail Strap
 BlockAppearanceX,Wings
@@ -63,6 +66,7 @@ BlockAppearance2,Lower Body
 BlockAppearance3,Front Hair
 BlockAppearance?,Facial Hair
 BlockAppearance4,Back Hair
+BlockAppearance],Ears
 BlockAppearance*,Eyebrow
 BlockAppearance5,Left Eye
 BlockAppearance6,Right Eye

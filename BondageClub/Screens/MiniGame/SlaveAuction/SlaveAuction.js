@@ -125,7 +125,7 @@ function SlaveAuctionClick() {
 		SlaveAuctionBidTime = CurrentTime;
 	}
 	if (((SlaveAuctionBidCurrent != "Player") || SlaveAuctionEnd) && (MouseX >= 1025) && (MouseX < 1200) && (MouseY >= 235) && (MouseY < 300))
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
+		MiniGameEnd();
 }
 
 /**

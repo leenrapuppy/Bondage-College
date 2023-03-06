@@ -375,13 +375,14 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 		if ((C.FocusGroup != null) && (C.FocusGroup.Zone != null) && (CurrentScreen != "Preference") && (DialogColor == null)) {
 
 			// Draw all the possible zones in transparent colors (gray if free, yellow if occupied, red if blocker)
-			for (let A = 0; A < AssetGroup.length; A++)
-				if (AssetGroup[A].Zone != null && AssetGroup[A].Name != C.FocusGroup.Name) {
+			for (const group of AssetGroup) {
+				if (group.Zone != null && group.Name != C.FocusGroup.Name) {
 					let Color = "#80808040";
-					if (InventoryGroupIsBlocked(C, AssetGroup[A].Name)) Color = "#88000580";
-					else if (InventoryGet(C, AssetGroup[A].Name) != null) Color = "#D5A30080";
-					DrawAssetGroupZone(C, AssetGroup[A].Zone, Zoom, X, Y, HeightRatio, Color, 5);
+					if (group.IsItem() && InventoryGroupIsBlocked(C, group.Name)) Color = "#88000580";
+					else if (InventoryGet(C, group.Name) != null) Color = "#D5A30080";
+					DrawAssetGroupZone(C, group.Zone, Zoom, X, Y, HeightRatio, Color, 5);
 				}
+			}
 
 			// Draw the focused zone in cyan
 			DrawAssetGroupZone(C, C.FocusGroup.Zone, Zoom, X, Y, HeightRatio, "cyan");
@@ -402,7 +403,7 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 /**
  * Draws an asset group zone outline over the character
  * @param {Character} C - Character for which to draw the zone
- * @param {number[][]} Zone - Zone to be drawn
+ * @param {readonly [number, number, number, number][]} Zone - Zone to be drawn
  * @param {number} Zoom - Height ratio of the character
  * @param {number} X - Position of the character on the X axis
  * @param {number} Y - Position of the character on the Y axis
@@ -490,7 +491,7 @@ function DrawImageResize(Source, X, Y, Width, Height) {
  * @param {CanvasRenderingContext2D} Canvas - Canvas on which to draw the image
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
+ * @param {readonly RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @param {GlobalCompositeOperation} [BlendingMode="source-over"] - blending mode for drawing the image
@@ -533,7 +534,7 @@ function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate, Blen
  * @param {CanvasRenderingContext2D} Canvas - Canvas on which to draw the image
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {RectTuple[]} AlphaMasks - A list of alpha masks to apply to the asset
+ * @param {readonly RectTuple[]} AlphaMasks - A list of alpha masks to apply to the asset
  * @returns {boolean} - whether the image was complete or not
  */
 function DrawCanvas(Img, Canvas, X, Y, AlphaMasks) {
@@ -598,7 +599,7 @@ function DrawImage(Source, X, Y, Invert) {
  * @param {number} Zoom - Zoom factor
  * @param {string} HexColor - Color of the image to draw
  * @param {boolean} FullAlpha - Whether or not it is drawn in full alpha mode
- * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
+ * @param {readonly RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @param {GlobalCompositeOperation} [BlendingMode="source-over"] - blending mode for drawing the image
@@ -705,7 +706,7 @@ function DrawImageInvert(Img) {
  * @param {object} [options] - any extra options, optional
  * @param {CanvasRenderingContext2D} [options.Canvas] - Canvas on which to draw the image, defaults to `MainCanvas`
  * @param {number} [options.Alpha] - transparency between 0-1
- * @param {[number, number, number, number]} [options.SourcePos] - Area in original image to draw in format `[left, top, width, height]`
+ * @param {readonly [number, number, number, number]} [options.SourcePos] - Area in original image to draw in format `[left, top, width, height]`
  * @param {number} [options.Width] - Width of the drawn image, defaults to width of original image
  * @param {number} [options.Height] - Height of the drawn image, defaults to height of original image
  * @param {boolean} [options.Invert=false] - If image should be flipped vertically
@@ -1455,7 +1456,7 @@ function DrawProcessHoverElements() {
  * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behavior (background color change)
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
- * @param {InventoryIcon[]} [Options.Icons] - A list of small icons to display in the top-left corner
+ * @param {readonly InventoryIcon[]} [Options.Icons] - A list of small icons to display in the top-left corner
  * @param {object} [Options.Craft] - The crafted properties of the item
  * @returns {void} - Nothing
  */
@@ -1483,7 +1484,7 @@ function DrawAssetPreview(X, Y, A, Options) {
  * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behavior (background color change)
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
- * @param {InventoryIcon[]} [Options.Icons] - A list of images to draw in the top-left of the preview box
+ * @param {readonly InventoryIcon[]} [Options.Icons] - A list of images to draw in the top-left of the preview box
  * @returns {void} - Nothing
  */
 function DrawPreviewBox(X, Y, Path, Description, Options) {
@@ -1505,7 +1506,7 @@ function DrawPreviewBox(X, Y, Path, Description, Options) {
 
 /**
  * Draws a list of small icons over a preview box
- * @param {InventoryIcon[]} icons - An array of icon names
+ * @param {readonly InventoryIcon[]} icons - An array of icon names
  * @param {number} X - The X co-ordinate to start drawing from
  * @param {number} Y - The Y co-ordinate to start drawing from
  * @returns {void} - Nothing

@@ -158,7 +158,7 @@ function CraftingUpdatePreview() {
 	});
 	for (const RelevantAsset of RelevantAssets) {
 		InventoryWear(CraftingPreview, RelevantAsset.Name, RelevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, Craft);
-		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false, true, false);
+		InventoryCraft(CraftingPreview, CraftingPreview, /** @type {AssetGroupItemName} */(RelevantAsset.Group.Name), Craft, false, true, false);
 		// Hack for the stuff in ItemAddons, since there's no way to resolve their prerequisites
 		if (RelevantAsset.Prerequisite.includes("OnBed")) {
 			const bedType = RelevantAsset.Name.includes("Medical") ? "MedicalBed" : "Bed";
@@ -362,7 +362,7 @@ function CraftingModeSet(NewMode) {
 		ElementValue(
 			"InputPriority",
 			(CraftingSelectedItem.Asset == null) ? "" :
-				(CraftingSelectedItem.OverridePriority == null) ? AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString() : CraftingSelectedItem.OverridePriority.toString(),
+				(CraftingSelectedItem.OverridePriority == null) ? AssetLayerSort([...CraftingSelectedItem.Asset.Layer])[0].Priority.toString() : CraftingSelectedItem.OverridePriority.toString(),
 		);
 		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
@@ -399,7 +399,7 @@ function CraftingKeyUp() {
  */
 function CraftingParsePriorityElement() {
 	const DrawingPriority = Number.parseInt(ElementValue("InputPriority"));
-	const InitialPriority = AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority;
+	const InitialPriority = AssetLayerSort([...CraftingSelectedItem.Asset.Layer])[0].Priority;
 
 	// Treat the initial priority as equivalent to null if `OverridePriority` has not been set yet
 	if (InitialPriority === DrawingPriority && CraftingSelectedItem.OverridePriority == null) {

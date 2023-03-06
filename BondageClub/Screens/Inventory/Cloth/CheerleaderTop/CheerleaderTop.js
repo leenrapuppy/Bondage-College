@@ -91,7 +91,7 @@ function AssetsClothCheerleaderTopAfterDraw({
 		}
 	}
 
-	let text = typeof Property?.Text === "string" && DynamicDrawTextRegex.test(Property.Text)
+	let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text)
 		? Property.Text
 		: "";
 	text = text.substring(0, A.TextMaxLength.Text)

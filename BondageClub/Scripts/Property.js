@@ -318,7 +318,7 @@ function PropertyAutoPunishDetectSpeech(Item, LastMessageLen=null) {
 		return false;
 	}
 
-	const msg = ChatRoomLastMessage.at(-1);
+	const msg = ChatRoomLastMessage[ChatRoomLastMessage.length - 1];
 	return PropertyAutoPunishParseMessage(Item.Property.AutoPunish, msg);
 }
 

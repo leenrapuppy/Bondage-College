@@ -320,7 +320,8 @@ function MaidQuartersMaidUngagPlayer() {
 function MaidQuartersWearMaidUniform() {
 	const InUniform = MaidQuartersPlayerInMaidUniform();
 
-	for (let ItemAssetGroupName in MaidQuartersItemClothPrev) {
+	const groupNames = /** @type {AssetGroupName[]} */(Object.keys(MaidQuartersItemClothPrev));
+	for (const ItemAssetGroupName of groupNames) {
 		MaidQuartersItemClothPrev[ItemAssetGroupName] = InventoryGet(Player, ItemAssetGroupName);
 		if (!InUniform)
 			InventoryRemove(Player, ItemAssetGroupName);
@@ -343,7 +344,8 @@ function MaidQuartersRemoveMaidUniform() {
 	} else if (MaidQuartersSelfBondageMaidDrinksAccepted) {
 		MaidQuartersSelfBondageMaidDrinksAccepted = false;
 	} else {
-		for (let ItemAssetGroupName in MaidQuartersItemClothPrev) {
+		const groupNames = /** @type {AssetGroupName[]} */(Object.keys(MaidQuartersItemClothPrev));
+		for (let ItemAssetGroupName of groupNames) {
 			var PreviousItem = MaidQuartersItemClothPrev[ItemAssetGroupName];
 			InventoryRemove(Player, ItemAssetGroupName);
 			if (PreviousItem) InventoryWear(Player, PreviousItem.Asset.Name, ItemAssetGroupName, PreviousItem.Color);
@@ -535,6 +537,7 @@ function MaidQuartersFreeSarah() {
  * @returns {void} - Nothing
  */
 function MaidQuartersGetDusterGag() {
+	/** @type {ItemBundle[]} */
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "DusterGag", Group: "ItemMouth"});
 	ItemsToEarn.push({Name: "DusterGag", Group: "ItemMouth2"});

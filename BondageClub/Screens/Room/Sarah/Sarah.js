@@ -514,6 +514,7 @@ function SarahKickPlayerOut() {
 function SarahTransferSophieToRoom(Love) {
 	if (SarahShackled()) SarahUnlock();
 	SarahSophieLeaveRoom();
+	/** @type {ItemBundle[]} */
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "LeatherCuffs", Group: "ItemArms"});
 	ItemsToEarn.push({Name: "LeatherCuffsKey", Group: "ItemArms"});

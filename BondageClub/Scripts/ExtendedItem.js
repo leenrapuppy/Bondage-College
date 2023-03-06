@@ -64,7 +64,12 @@ const ExtendedXYClothes = [
 ];
 
 /** Memoization of the requirements check */
-const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage);
+const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage, [
+	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
+	(character) => character.ID.toString(),
+	(option) => String(option),
+	(option) => String(option),
+]);
 
 /**
  * The current display mode
@@ -92,42 +97,75 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
 }
 
 /**
- * Loads the item extension properties
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
- *     in the array should be the default option.
- * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
- *     type
- * @param {ItemProperties | null} BaselineProperty - To-be initialized properties independent of the selected item types
+ * Initialize the extended item properties
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
+ * @param {null | ExtendedArchetype} Archetype - The item's archetype; defaults to {@link Asset.Archetype}.
+ * A value should generally only be provided here if one is initializing an archetypical subscreen.
+ * @param {string} Type - The item's type. Only relevant in the case of {@link VariableHeightData}
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
-	const AllowType = [null, ...DialogFocusItem.Asset.AllowType];
-	if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
-		const C = CharacterGetCurrent();
-		// Default to the first option if no property is set
-		let InitialProperty = Options[0].Property;
-		DialogFocusItem.Property = JSON.parse(JSON.stringify(Options[0].Property));
-
-		// If the default type is not the null type, check whether the default type is blocked
-		if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, DialogFocusItem, InitialProperty.Type)) {
-			// If the first option is blocked by the character, switch to the null type option
-			const InitialOption = Options.find(O => O.Property.Type == null);
-			if (InitialOption) InitialProperty = InitialOption.Property;
-		}
-
-		// If there is an initial and/or baseline property, set it and update the character
-		if (InitialProperty || BaselineProperty) {
-			DialogFocusItem.Property = (BaselineProperty != null) ? JSON.parse(JSON.stringify(BaselineProperty)) : {};
-			DialogFocusItem.Property = Object.assign(
-				DialogFocusItem.Property,
-				(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-			);
-			const RefreshDialog = (CurrentScreen != "Crafting");
-			CharacterRefresh(C, true, RefreshDialog);
-			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-		}
+function ExtendedItemInit(Item, C, Refresh=true, Archetype=null, Type=null) {
+	if (Item == null || C == null || !Item.Asset.Extended) {
+		return;
 	}
 
+	Archetype = (Archetype == null) ? Item.Asset.Archetype : Archetype;
+	switch (Archetype) {
+		case ExtendedArchetype.TYPED:
+			return TypedItemInit(Item, C, Refresh);
+		case ExtendedArchetype.MODULAR:
+			return ModularItemInit(Item, C, Refresh);
+		case ExtendedArchetype.VIBRATING:
+			return VibratorModeInit(Item, C, Refresh);
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			if (Type == null) {
+				console.warn(`Cannot initialize ${Item.Asset.Group.Name}${Item.Asset.Name} variable height item data with a null type`);
+			} else {
+				VariableHeightInit(Item, C, Type, Refresh);
+			}
+			return;
+		default: {
+			const initFunctionName = `Inventory${Item.Asset.Group.Name}${Item.Asset.Name}Init`;
+			/** @type {ExtendedItemInitCallback} */
+			const initFunction = window[initFunctionName];
+			if (typeof initFunction === "function") {
+				initFunction(Item, C, Refresh);
+			}
+		}
+	}
+}
+
+/**
+ * Helper init function for extended items without an archetype.
+ * Note that on the long term this function should ideally be removed in favor of adding appropriate archetypes.
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {ItemProperties} Properties - A record that maps property keys to their default value.
+ * 		The type of each value is used for basic validation.
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
+ * @returns {void} Nothing
+ */
+function ExtendedItemInitNoArch(Item, C, Properties, Refresh=true) {
+	if (!Item.Property) {
+		Item.Property = {};
+	}
+	Object.assign(Item.Property, JSON.parse(JSON.stringify(Properties)));
+
+	if (Refresh) {
+		CharacterRefresh(C, true);
+		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
+	}
+}
+
+/**
+ * Loads the item's extended item menu
+ * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
+ *     type
+ * @returns {void} Nothing
+ */
+function ExtendedItemLoad(DialogKey) {
 	if (ExtendedItemSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
 		return;
@@ -140,13 +178,13 @@ function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
 
 /**
  * Draws the extended item type selection screen
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
  *     The full dialog key will be <Prefix><Option.Name>
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images should be shown for the specific item
- * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
+ * @param {readonly [number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
 function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null) {
@@ -284,13 +322,13 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 			Type = Option.Name;
 			IsFirst = Type.includes("0");
 			HasSubscreen = Option.HasSubscreen || false;
-			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
 			break;
 		default:  // Assume we're dealing with `ExtendedItemOption` at this point
 			Type = (Option.Property && Option.Property.Type) || null;
 			IsFirst = Type == null;
 			HasSubscreen = Option.HasSubscreen || false;
-			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
 			break;
 	}
 
@@ -332,7 +370,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 
 /**
  * Handles clicks on the extended item type selection screen
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images are shown for the specific item
@@ -432,7 +470,7 @@ function ExtendedItemExit() {
 /**
  * Handler function for setting the type of an extended item
  * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {ExtendedItemOption} Option - The selected type definition
  * @returns {void} Nothing
@@ -513,7 +551,7 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 /**
  * Handler function called when an option on the type selection screen is clicked
  * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {ExtendedItemOption} Option - The selected type definition
  * @returns {void} Nothing
@@ -531,11 +569,15 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 		const CurrentType = DialogFocusItem.Property.Type || null;
 		const CurrentOption = Options.find(O => O.Property.Type === CurrentType);
 		// use the unmemoized function to ensure we make a final check to the requirements
-		const RequirementMessage = ExtendedItemRequirementCheckMessage(Option, CurrentOption);
+		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
 		} else if (Option.HasSubscreen) {
 			ExtendedItemSubscreen = Option.Name;
+			if (Option.Archetype) {
+				const Type = (Option.Property && Option.Property.Type) ? Option.Property.Type : "";
+				ExtendedItemInit(DialogFocusItem, C, true, Option.Archetype, Type);
+			}
 			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
 			ExtendedItemSetType(C, Options, Option);
@@ -544,20 +586,20 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 }
 
 /**
- * Checks whether the player meets the requirements for an extended type option. This will check against their Bondage
+ * Checks whether the character meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
+ * @param {Item} item - The item in question
+ * @param {Character} C - The character in question
  * @param {ExtendedItemOption|ModularItemOption} Option - The selected type definition
  * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The current type definition
  * @returns {string|null} null if the player meets the option requirements. Otherwise a string message informing them
  * of the requirements they do not meet
  */
-function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
-	const C = CharacterGetCurrent();
-
-	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
+function ExtendedItemRequirementCheckMessage(item, C, Option, CurrentOption) {
+	return TypedItemValidateOption(C, item, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
 		|| ExtendedItemCheckBuyGroups(Option)
-		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);
+		|| ExtendedItemCheckSkillRequirements(C, item, Option);
 }
 
 /**
@@ -621,8 +663,9 @@ function ExtendedItemCheckBuyGroups(Option) {
  */
 function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
 	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
+	const canChangeWhenLocked = typeof CurrentOption.ChangeWhenLocked === "boolean" ? CurrentOption.ChangeWhenLocked : true;
 
-	if (CurrentOption && CurrentOption.ChangeWhenLocked !== true && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
+	if (!canChangeWhenLocked && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
 		return DialogFindPlayer("CantChangeWhileLocked");
 	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
@@ -702,7 +745,7 @@ function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
  * @param {Character} C - The target character
  * @param {Asset} Asset - The asset for the typed item
  * @param {string | null} Type - The type of the asse
- * @param {EffectName[]} [Effects]
+ * @param {readonly EffectName[]} [Effects]
  * @returns {InventoryIcon[]} - The inventory icons
  */
 function ExtendItemGetIcons(C, Asset, Type=null, Effects=null) {
@@ -758,20 +801,14 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
  * Creates an asset's extended item validation function.
  * @param {string} functionPrefix - The prefix of the new `Validate` function
  * @param {null | ExtendedItemValidateScriptHookCallback<any>} ValidationCallback - A custom validation callback
- * @param {boolean} changeWhenLocked - whether or not the item's type can be changed while the item is locked
  * @returns {void} Nothing
  */
-function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, changeWhenLocked) {
+function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback) {
 	const validateFunctionName = `${functionPrefix}Validate`;
 
 	/** @type {ExtendedItemValidateCallback<ModularItemOption | ExtendedItemOption>} */
 	const validateFunction = function (C, item, option, currentOption) {
-		const itemLocked = item && item.Property && item.Property.LockedBy;
-		if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, item)) {
-			return DialogFindPlayer("CantChangeWhileLocked");
-		} else {
-			return ExtendedItemValidate(C, item, option, currentOption);
-		}
+		return ExtendedItemValidate(C, item, option, currentOption);
 	};
 
 	if (ValidationCallback) {
@@ -815,7 +852,7 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
 		// Check if the option is blocked/limited/etc.
 		/** @type {ExtendedItemOption} */
 		const Option = { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } };
-		const requirementMessage = ExtendedItemRequirementCheckMessage(Option, Option);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, CharacterGetCurrent(), Option, Option);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return false;
@@ -880,16 +917,17 @@ function ExtendedItemDrawHeader(X=1387, Y=55, Item=DialogFocusItem) {
  * @template {ExtendedArchetype} Archetype
  * @param {Item} Item - The item whose data should be extracted
  * @param {Archetype} Archetype - The archetype corresponding to the lookup table
+ * @param {string} Type - The item's type. Only relevant in the case of {@link VariableHeightData}
  * @returns {null | ExtendedDataLookupStruct[Archetype]} The item's data or `null` if the lookup failed
  */
-function ExtendedItemGetData(Item, Archetype) {
+function ExtendedItemGetData(Item, Archetype, Type=null) {
 	if (Item == null) {
 		return null;
 	}
 
 	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
 	let Data;
-	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}`;
+	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}${Type == null ? "" : Type}`;
 	switch (Archetype) {
 		case ExtendedArchetype.TYPED:
 			Data = TypedItemDataLookup[Key];

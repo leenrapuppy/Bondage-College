@@ -78,6 +78,7 @@ function StableCanHideDice() {return (LogQuery("Joined", "BadGirl") && LogQuery(
 function StableLoad() {
 	// Give items to the player in case they completed the exam before they were added
 	if (StablePlayerIsExamTrainer() || StablePlayerIsExamPony()) {
+		/** @type {ItemBundle[]} */
 		var ItemsToEarn = [];
 		ItemsToEarn.push({Name: "PonyBoots", Group: "Shoes"});
 		ItemsToEarn.push({Name: "HarnessPonyBits", Group: "ItemMouth"});
@@ -743,6 +744,7 @@ function StablePlayerExamEnd() {
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Check if the Player can become a Trainer
 function StableCanBecomeTrainer() {
+	/** @type {[string, AssetGroupItemName][]} */
 	const needed = [
 		["Crop", "ItemHandheld"],
 		["Whip", "ItemHandheld"],

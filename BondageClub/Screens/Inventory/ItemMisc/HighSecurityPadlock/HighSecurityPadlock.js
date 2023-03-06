@@ -5,14 +5,16 @@ var HighSecurityPadlockConfigOwner = true;
 var HighSecurityPadlockConfigLover = true;
 var HighSecurityPadlockConfigWhitelist = false;
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscHighSecurityPadlockInit(Item, C) {
+	const MemberNumberListKeys = (Item.Property.LockMemberNumber) ? `${Item.Property.LockMemberNumber}` : "";
+	ExtendedItemInitNoArch(Item, C, { MemberNumberListKeys: MemberNumberListKeys }, false);
+}
 
 // Loads the item extension properties
 function InventoryItemMiscHighSecurityPadlockLoad() {
 	var C = CharacterGetCurrent();
 	InventoryItemMiscHighSecurityPadlockPlayerCanUnlock = true;
-	if ((DialogFocusSourceItem != null) && (DialogFocusSourceItem.Property == null)) DialogFocusSourceItem.Property = {};
-	if ((DialogFocusSourceItem != null) && (DialogFocusSourceItem.Property != null) && (DialogFocusSourceItem.Property.MemberNumberListKeys == null))
-		DialogFocusSourceItem.Property.MemberNumberListKeys = "" + (DialogFocusSourceItem.Property.LockMemberNumber) ? DialogFocusSourceItem.Property.LockMemberNumber : "";
 
 	// Only create the inputs if the zone isn't blocked
 	if (!InventoryGroupIsBlocked(C, C.FocusGroup.Name)) {

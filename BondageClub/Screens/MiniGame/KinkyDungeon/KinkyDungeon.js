@@ -2080,7 +2080,7 @@ function KinkyDungeonClick() {
  */
 function KinkyDungeonExit() {
 	KinkyDungeonGameKey.removeKeyListener();
-	CommonDynamicFunction(MiniGameReturnFunction + "()");
+	MiniGameEnd();
 
 	// Refresh the player character if needed
 	if (ArcadeDeviousChallenge && KinkyDungeonPlayerNeedsRefresh) {

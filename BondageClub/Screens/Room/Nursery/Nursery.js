@@ -400,6 +400,7 @@ function NurseryBadBabies() {
 // Player will loose skill progress or level from drinking special milk
 function NurseryPlayerSkillsAmnesia() {
 	SkillModifierChange(-1);
+	/** @type {ItemBundle[]} */
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "RegressedMilk", Group: "ItemMouth"});
 	ItemsToEarn.push({Name: "RegressedMilk", Group: "ItemMouth2"});

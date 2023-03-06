@@ -492,6 +492,35 @@ function ItemColorPreviousLayer(colorGroup) {
 }
 
 /**
+ * @param {Item} item
+ * @param {readonly AssetLayer[]} colorableLayers
+ * @returns {ColorGroup[]}
+ */
+function ItemColorGetGroups(item, colorableLayers) {
+	const groupMap = colorableLayers.reduce((groupLookup, layer) => {
+		const groupKey = layer.ColorGroup || layer.Name || "";
+		(groupLookup[groupKey] || (groupLookup[groupKey] = [])).push(layer);
+		return groupLookup;
+	}, /** @type {Record<String, AssetLayer[]>} */({}));
+
+	const colorGroups = Object.keys(groupMap)
+		.map(key => {
+			ItemColorLayerPages[key] = ItemColorLayerPages[key] || 0;
+			return {
+				name: key,
+				layers: groupMap[key],
+				colorIndex: groupMap[key].reduce((min, layer) => Math.min(min, layer.ColorIndex), Infinity),
+			};
+		})
+		.sort((g1, g2) => g1.colorIndex - g2.colorIndex);
+
+	if (item.Asset.AllowColorizeAll) {
+		colorGroups.unshift({ name: null, layers: [], colorIndex: -1 });
+	}
+	return colorGroups;
+}
+
+/**
  * Builds the item color UI's current state based on the provided character, item and position parameters. This only rebuilds the state if
  * needed.
  * @param {Character} c - The character being colored
@@ -513,26 +542,7 @@ function ItemColorStateBuild(c, item, x, y, width, height, includeResetButton = 
 
 	ItemColorStateKey = itemKey;
 	const colorableLayers = ItemColorGetColorableLayers(item);
-	const groupMap = colorableLayers.reduce((groupLookup, layer) => {
-		const groupKey = layer.ColorGroup || layer.Name || "";
-		(groupLookup[groupKey] || (groupLookup[groupKey] = [])).push(layer);
-		return groupLookup;
-	}, /** @type {Record<String, AssetLayer[]>} */({}));
-
-	const colorGroups = Object.keys(groupMap)
-		.map(key => {
-			ItemColorLayerPages[key] = ItemColorLayerPages[key] || 0;
-			return {
-				name: key,
-				layers: groupMap[key],
-				colorIndex: groupMap[key].reduce((min, layer) => Math.min(min, layer.ColorIndex), Infinity),
-			};
-		})
-		.sort((g1, g2) => g1.colorIndex - g2.colorIndex);
-
-	if (item.Asset.AllowColorizeAll) {
-		colorGroups.unshift({ name: null, layers: [], colorIndex: -1 });
-	}
+	const colorGroups = ItemColorGetGroups(item, colorableLayers);
 
 	let colors;
 	if (Array.isArray(item.Color)) {

@@ -61,6 +61,7 @@ var PreferenceVisibilityResetClicked = false;
 var PreferenceDifficultyLevel = null;
 var PreferenceDifficultyAccept = false;
 var PreferenceGraphicsFontList = ["Arial", "TimesNewRoman", "Papyrus", "ComicSans", "Impact", "HelveticaNeue", "Verdana", "CenturyGothic", "Georgia", "CourierNew", "Copperplate"];
+/** @type {WebGLPowerPreference[]} */
 var PreferenceGraphicsPowerModes = ["low-power", "default", "high-performance"];
 var PreferenceGraphicsFontIndex = 0;
 /** @type {null | number} */
@@ -182,7 +183,7 @@ function PreferenceSetActivityFactor(C, Type, Self, Factor) {
  * Gets the corresponding arousal zone definition from a player's preferences (if the group's activities are mirrored,
  * returns the arousal zone definition for the mirrored group).
  * @param {Character} C - The character for whom to get the arousal zone
- * @param {string} ZoneName - The name of the zone to get
+ * @param {AssetGroupName} ZoneName - The name of the zone to get
  * @returns {null|any} - Returns the arousal zone preference object, or null if a corresponding zone definition could
  * not be found.
  */
@@ -202,7 +203,7 @@ function PreferenceGetArousalZone(C, ZoneName) {
 /**
  * Gets the love factor of a zone for the character
  * @param {Character} C - The character for whom the love factor of a particular zone should be gotten
- * @param {string} ZoneName - The name of the zone to get the love factor for
+ * @param {AssetGroupName} ZoneName - The name of the zone to get the love factor for
  * @returns {number} - Returns the love factor of a zone for the character (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceGetZoneFactor(C, ZoneName) {
@@ -232,7 +233,7 @@ function PreferenceSetZoneFactor(C, Zone, Factor) {
 /**
  * Determines, if a player can reach on orgasm from a particular zone
  * @param {Character} C - The character whose ability to orgasm we check
- * @param {string} ZoneName - The name of the zone to check
+ * @param {AssetGroupName} ZoneName - The name of the zone to check
  * @returns {boolean} - Returns true if the zone allows orgasms for a character, false otherwise
  */
 function PreferenceGetZoneOrgasm(C, ZoneName) {
@@ -1533,7 +1534,7 @@ function PreferenceSubscreenGraphicsRun() {
 		DrawCheckbox(500, 590, 64, 64, TextGet("DoBlindFlash"), Player.GraphicsSettings.DoBlindFlash);
 		DrawText(TextGet("GeneralAnimationQualityText"), 750, 712, "Black", "Gray");
 		if (GLVersion !== "No WebGL") {
-			DrawCheckbox(500, 765, 64, 64, TextGet("GraphicsAntialiasing"), !localStorage.getItem("GLDraw-antialiasOff"));
+			DrawCheckbox(500, 765, 64, 64, TextGet("GraphicsAntialiasing"), PreferenceGraphicsWebGLOptions.antialias);
 			DrawText(TextGet("GraphicsPowerMode"), 880, 885, "Black", "Gray");
 		} else {
 			DrawText(TextGet("GraphicsNoWebGL"), 700, 810, "Red", "Gray");
@@ -1736,19 +1737,15 @@ function PreferenceSubscreenGraphicsClick() {
 			Player.GraphicsSettings.AnimationQuality = PreferenceGraphicsAnimationQualityList[PreferenceGraphicsAnimationQualityIndex];
 		}
 		if (GLVersion !== "No WebGL" && MouseIn(500, 850, 360, 64)) {
-			if (MouseX <= 600) {
-				if (PreferenceGraphicsPowerModeIndex > 0) PreferenceGraphicsPowerModeIndex--;
+			if (MouseX <= 678) {
+				PreferenceGraphicsPowerModeIndex = Math.max(0, PreferenceGraphicsPowerModeIndex - 1);
 			} else {
-				if (PreferenceGraphicsPowerModeIndex < PreferenceGraphicsPowerModes.length - 1) PreferenceGraphicsPowerModeIndex++;
+				PreferenceGraphicsPowerModeIndex = Math.min(PreferenceGraphicsPowerModeIndex + 1, PreferenceGraphicsPowerModes.length - 1);
 			}
-			localStorage.setItem("GLDraw-powerPreference", PreferenceGraphicsPowerModes[PreferenceGraphicsPowerModeIndex]);
+			PreferenceGraphicsWebGLOptions.powerPreference = PreferenceGraphicsPowerModes[PreferenceGraphicsPowerModeIndex];
 		}
 		if (GLVersion !== "No WebGL" && MouseIn(500, 765, 64, 64)) {
-			if (localStorage.getItem("GLDraw-antialiasOff"))
-				localStorage.removeItem("GLDraw-antialiasOff");
-			else
-				localStorage.setItem("GLDraw-antialiasOff", "true");
-			PreferenceGraphicsWebGLOptions.powerPreference = !PreferenceGraphicsWebGLOptions.powerPreference;
+			PreferenceGraphicsWebGLOptions.antialias = !PreferenceGraphicsWebGLOptions.antialias;
 		}
 	} if (PreferencePageCurrent === 2) {
 		if (MouseIn(500, 190, 450, 64)) {
@@ -1774,8 +1771,12 @@ function PreferenceSubscreenGraphicsExit() {
 		GLVersion !== "No WebGL" &&
 		(currentOptions.powerPreference != PreferenceGraphicsWebGLOptions.powerPreference ||
 			currentOptions.antialias != PreferenceGraphicsWebGLOptions.antialias)
-	)
-		GLDrawLoad();
+	) {
+		// This uses localStorage so the option is taken into account even at the login screen,
+		// since we don't have any idea about the user's GL configuration at that point.
+		GLDrawSetOptions(PreferenceGraphicsWebGLOptions);
+		GLDrawResetCanvas();
+	}
 	PreferenceSubscreen = "";
 }
 

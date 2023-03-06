@@ -531,7 +531,7 @@ var WheelFortuneOption = [
  * @returns {boolean} - TRUE if we can add
  */
 function WheelFortuneCanWear(AssetName, GroupName) {
-	if (InventoryGroupIsBlocked(Player, GroupName)) return false;
+	if (InventoryGroupIsBlocked(Player, /** @type {AssetGroupItemName} */(GroupName))) return false;
 	let Item = InventoryGet(Player, GroupName);
 	if ((Item != null) && (InventoryGetLock(Item) != null)) return false;
 	if (InventoryIsPermissionBlocked(Player, AssetName, GroupName)) return false;
@@ -639,7 +639,7 @@ function WheelFortuneBlockWardrobe(Minutes) {
 function WheelFortuneInventoryWear(Group, Minutes) {
 
 	// Validates that we can use at item on that group first
-	if (InventoryGroupIsBlocked(Player, Group)) return;
+	if (InventoryGroupIsBlocked(Player, /** @type {AssetGroupItemName} */(Group))) return;
 
 	// If the item is already locked with a timer lock, we extend the time and exit
 	let Item = InventoryGet(Player, Group);
@@ -828,7 +828,7 @@ function WheelFortuneRun() {
 		DrawCheckbox(1436, 468, 64, 64, TextGet("Roleplay"), WheelFortuneRoleplay, (WheelFortuneVelocity != 0), "White");
 		MainCanvas.textAlign = "center";
 	} else DrawTextWrap(TextGet("NoRoleplay"), 1375, 400, 550, 200, "White");
-	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter?.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
+	DrawButton(1400, 800, 440, 80, (WheelFortuneCharacter && WheelFortuneCharacter.IsPlayer() ? TextGet("Customize") : TextGet("CustomizeView")), BackColor);
 
 }
 

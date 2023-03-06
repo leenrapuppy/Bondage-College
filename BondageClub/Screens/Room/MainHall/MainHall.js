@@ -27,6 +27,7 @@ var MainHallMaidWasCalledManually = false;
 var MainHallAsylumOpen = true;
 var MainHallBeingPunished = false;
 var MainHallFirstFrame = false;
+/** @type {AssetLockType[]} */
 var MainHallStrongLocks = ["CombinationPadlock", "PasswordPadlock", "TimerPasswordPadlock", "HighSecurityPadlock"];
 
 var MainHallPunishmentList = [

@@ -166,11 +166,14 @@ const VibratorModeDataLookup = {};
  */
 function VibratorModeRegister(asset, config={}) {
 	const data = VibratorModeCreateData(asset, config);
-	VibratorModeCreateLoadFunction(data);
-	VibratorModeCreateDrawFunction(data);
-	VibratorModeCreateClickFunction(data);
-	VibratorModeCreateExitFunction(data);
-	VibratorModeCreateScriptDrawFunction(data);
+
+	if (IsBrowser()) {
+		VibratorModeCreateLoadFunction(data);
+		VibratorModeCreateDrawFunction(data);
+		VibratorModeCreateClickFunction(data);
+		VibratorModeCreateExitFunction(data);
+		VibratorModeCreateScriptDrawFunction(data);
+	}
 	VibratorModeSetAssetProperties(data);
 }
 
@@ -206,12 +209,10 @@ function VibratorModeCreateLoadFunction({ options, functionPrefix, scriptHooks }
 	const loadFunctionName = `${functionPrefix}Load`;
 	if (typeof scriptHooks.load === "function") {
 		window[loadFunctionName] = function() {
-			scriptHooks.load(() => VibratorModeLoad(options));
+			scriptHooks.load(() => {});
 		};
 	} else {
-		window[loadFunctionName] = function() {
-			VibratorModeLoad(options);
-		};
+		window[loadFunctionName] = function() {};
 	}
 }
 
@@ -294,8 +295,10 @@ function VibratorModeSetAssetProperties(data) {
  */
 function VibratorModeSetAllowEffect({asset, options}) {
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? [...asset.AllowEffect] : [];
+	// @ts-ignore: ignore `readonly` while still building the asset
 	CommonArrayConcatDedupe(asset.AllowEffect, ["Egged", "Vibrating"]);
 	if (options.includes(VibratorModeSet.ADVANCED)) {
+		// @ts-ignore: ignore `readonly` while still building the asset
 		CommonArrayConcatDedupe(asset.AllowEffect, ["Edged"]);
 	}
 }
@@ -307,31 +310,13 @@ function VibratorModeSetAllowEffect({asset, options}) {
  */
 function VibratorModeSetEffect({asset}) {
 	asset.Effect = Array.isArray(asset.Effect) ? [...asset.Effect] : [];
+	// @ts-ignore: ignore `readonly` while still building the asset
 	CommonArrayConcatDedupe(asset.Effect, ["Egged"]);
 }
 
 /**
- * Common load function for vibrators
- * @param {VibratorModeSet[]} [Options] - The vibrator mode sets to load the item with
- * @returns {void} - Nothing
- */
-function VibratorModeLoad(Options) {
-	const Property = DialogFocusItem.Property;
-	const AllowType = DialogFocusItem.Asset.AllowType;
-	if (!Property || !AllowType.includes(Property.Mode)) {
-		Options = (Options && Options.length) ? Options : [VibratorModeSet.STANDARD];
-		const FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
-		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
-		const C = CharacterGetCurrent();
-		const RefreshDialog = (CurrentScreen !== "Crafting");
-		CharacterRefresh(C, true, RefreshDialog);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-}
-
-/**
  * Common draw function for vibrators
- * @param {VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
@@ -342,7 +327,7 @@ function VibratorModeDraw(Options, Y=450) {
 
 /**
  * Common draw function for drawing the control sets of the extended item menu screen for a vibrator
- * @param {VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets to draw for the item
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
  * @returns {void} - Nothing
  */
@@ -368,7 +353,7 @@ function VibratorModeDrawControls(Options, Y=450) {
 
 /**
  * Common click function for vibrators
- * @param {VibratorModeSet[]} Options - The vibrator mode sets for the item
+ * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets for the item
  * @param {number} [Y] - The y-coordinate at which the extended item controls were drawn
  * @returns {void} - Nothing
  */
@@ -594,7 +579,7 @@ function VibratorModeUpdateEdge(Item, C, PersistentData) {
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
  * @param {object} PersistentData - Persistent animation data for the item
- * @param {VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
+ * @param {readonly VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
  * the default state
  * @returns {void} - Nothing
  */
@@ -637,7 +622,7 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
  * @param {number} Arousal - The current arousal of the character
  * @param {number} TimeSinceLastChange - The time in milliseconds since the vibrator intensity was last changed
  * @param {VibratorIntensity} OldIntensity - The current intensity of the vibrating item
- * @param {VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
+ * @param {readonly VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
  * the default state
  * @returns {StateAndIntensity} - The updated state and intensity of the vibrator
  */
@@ -780,5 +765,37 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 		CharacterLoadEffect(C);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 		ActivityChatRoomArousalSync(C);
+	}
+}
+
+/**
+ * Initialize the vibrating item properties
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
+ * @param {null | VibratorModeSet[]} configSets - An optional list with the names of all supported configuration sets.
+ * Defaults to {@link VibratingItemData.options} if not specified.
+ * @see {@link ExtendedItemInit}
+ */
+function VibratorModeInit(Item, C, Refresh=true, configSets=null) {
+	if (configSets == null) {
+		const Data = ExtendedItemGetData(Item, ExtendedArchetype.VIBRATING);
+		if (Data === null) {
+			return;
+		}
+		configSets = (Data.options && Data.options.length) ? Data.options : [VibratorModeSet.STANDARD];
+	}
+
+	const AllowType = Item.Asset.AllowType;
+	if (Item.Property && AllowType.includes(Item.Property.Mode)) {
+		return;
+	}
+
+	const FirstOption = VibratorModeOptions[configSets[0]][0] || VibratorModeOff;
+	VibratorModeSetProperty(Item, FirstOption.Property);
+
+	if (Refresh) {
+		CharacterRefresh(C);
+		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
 }

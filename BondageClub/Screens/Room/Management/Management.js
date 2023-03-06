@@ -489,7 +489,7 @@ function ManagementReleasePrivateRoom() {
 
 /**
  * Triggered when the player pays to have a chastity item unlocked.
- * @param {string} ItemGroup - The group of the item to unlock.
+ * @param {AssetGroupName} ItemGroup - The group of the item to unlock.
  * @returns {void} - Nothing.
  */
 function ManagementUnlockItem(ItemGroup) {

@@ -53,7 +53,7 @@ function ShibariIsRescueScenario(ScenarioName) { return (ShibariRescueScenario =
 function ShibariIsTeacherRestrained() { return (ShibariTeacher.IsRestrained() || !ShibariTeacher.CanTalk()); }
 /**
  * Checks if the player can be trained in a given skill type.
- * @param {string} SkillType - Name of the skill to check for.
+ * @param {SkillType} SkillType - Name of the skill to check for.
  * @returns {boolean} - Returns TRUE if the player can receive a training.
  */
 function ShibariCanTrainSkill(SkillType) { return (SkillGetLevelReal(Player, SkillType) < 10); }
@@ -282,7 +282,7 @@ function ShibariCompleteRescue() {
 
 /**
  * Calculates the training price, it is linked to the current skill level of the player
- * @param {string} SkillType - Name of the skill to calculate the price of
+ * @param {SkillType} SkillType - Name of the skill to calculate the price of
  * @returns {void} - Nothing
  */
 function ShibariCalculateTrainingPrice(SkillType) {
@@ -292,7 +292,7 @@ function ShibariCalculateTrainingPrice(SkillType) {
 
 /**
  * Triggered when the player pays to get trained in a given skill.
- * @param {string} SkillType - Name of the skill being bought
+ * @param {SkillType} SkillType - Name of the skill being bought
  * @returns {void} - Nothing
  */
 function ShibariPayForTraining(SkillType) {

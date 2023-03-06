@@ -1,9 +1,12 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscSafewordPadlockInit(Item, C) {
+	ExtendedItemInitNoArch(Item, C, { RemoveItem: false }, false);
+}
+
 // Loads the item extension properties
 function InventoryItemMiscTimerPadlockLoad() {
-	if ((DialogFocusSourceItem != null) && (DialogFocusSourceItem.Property == null)) DialogFocusSourceItem.Property = {};
-	if ((DialogFocusSourceItem != null) && (DialogFocusSourceItem.Property != null) && (DialogFocusSourceItem.Property.RemoveItem == null)) DialogFocusSourceItem.Property.RemoveItem = false;
 }
 
 // Draw the extension screen

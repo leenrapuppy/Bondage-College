@@ -16,6 +16,7 @@ function InventoryItemButtAnalBeads2PublishAction(C, Option, PreviousOption) {
 	}
 
 	// Push Chatroom Event
+	/** @type {ChatMessageDictionary} */
 	const Dictionary = [];
 	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
