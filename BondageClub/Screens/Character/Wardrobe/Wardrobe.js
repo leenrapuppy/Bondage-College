@@ -293,9 +293,10 @@ function WardrobeFastSave(C, W, Push) {
 /**
  * Returns the expressions of character C as a single big object
  * @param {Character} C - The character whose expressions should be returned
- * @returns {object} Expression - The expresssion of a character
+ * @returns {Partial<Record<ExpressionGroupName, ExpressionName>>} Expression - The expresssion of a character
  */
 function WardrobeGetExpression(C) {
+	/** @type {Partial<Record<ExpressionGroupName, ExpressionName>>} */
 	var characterExpression = {};
 	ServerAppearanceBundle(C.Appearance).filter(item => item.Property != null && item.Property.Expression != null).forEach(item => characterExpression[item.Group] = item.Property.Expression);
 	return characterExpression;

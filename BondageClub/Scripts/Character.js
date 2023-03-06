@@ -1500,7 +1500,7 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
  *
  * @param {Character} C - Character for which to set the expression of
  * @param {AssetGroupBodyName | "Eyes1"} AssetGroup - Asset group for the expression
- * @param {string} Expression - Name of the expression to use
+ * @param {ExpressionName} Expression - Name of the expression to use
  * @param {number} [Timer] - Optional: time the expression will last
  * @param {string|string[]} [Color] - Optional: color of the expression to set
  * @returns {void} - Nothing
@@ -1511,7 +1511,7 @@ function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer, Color) {
 	if (AssetGroup == "Eyes1") AssetGroup = "Eyes";
 
 	var Ex = InventoryGet(C, AssetGroup);
-	if ((Timer != null) && (Ex != null) && (Ex.Property != null) && (Ex.Property.Expression != null) && (Ex.Property.Expression != "")) return;
+	if ((Timer != null) && (Ex != null) && (Ex.Property != null) && (!Ex.Property.Expression)) return;
 	for (let A = 0; A < C.Appearance.length; A++) {
 		if ((C.Appearance[A].Asset.Group.Name == AssetGroup) && (C.Appearance[A].Asset.Group.AllowExpression)) {
 			if ((Expression == null) || (C.Appearance[A].Asset.Group.AllowExpression.indexOf(Expression) >= 0)) {

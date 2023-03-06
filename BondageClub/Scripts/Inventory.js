@@ -1041,19 +1041,26 @@ function InventoryItemIsPickable(Item) {
 
 /**
  * Returns the value of a given property of an appearance item, prioritizes the Property object.
+ * @template {keyof ItemProperties | keyof Asset | keyof AssetGroup} Name
  * @param {Item} Item - The appearance item to scan
- * @param {keyof ItemProperties | keyof Asset | keyof AssetGroup} PropertyName - The property name to get.
+ * @param {Name} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
- * @returns {any} - The value of the requested property for the given item. Returns undefined if the property or the
+ * @returns {(ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
  * item itself does not exist.
  */
 function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
 	if (!Item || !PropertyName || !Item.Asset) return;
-	let Property = Item.Property && Item.Property[PropertyName];
-	if (Property === undefined) Property = Item.Asset[PropertyName];
-	if (Property === undefined && CheckGroup) Property = Item.Asset.Group[PropertyName];
-	return Property;
+	const PropertyRecords = /** @type {(ItemProperties & Asset & AssetGroup)[]} */(
+		[Item.Property || {}, Item.Asset, (CheckGroup) ? Item.Asset.Group : {}]
+	);
+
+	for (const record of PropertyRecords) {
+		if (record[PropertyName] !== undefined) {
+			return record[PropertyName];
+		}
+	}
+	return undefined;
 }
 
 /**

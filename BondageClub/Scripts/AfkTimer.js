@@ -9,7 +9,7 @@ var AfkTimerIsEnabled = null;
 var AfkTimerEventsList = ['mousedown', 'mousemove', 'keypress', 'touchstart'];
 /** @type {null | ReturnType<typeof setInterval>} */
 var AfkTimerID = null;
-/** @type {null | string} */
+/** @type {null | ExpressionNameMap["Emoticon"]} */
 var AfkTimerOldEmoticon = null;
 
 /**
@@ -80,7 +80,7 @@ function AfkTimerSetIsAfk() {
 	if (AfkTimerIsSet) return;
 	// save the current Emoticon, if there is any
 	if (InventoryGet(Player, "Emoticon") && InventoryGet(Player, "Emoticon").Property && AfkTimerOldEmoticon == null) {
-		AfkTimerOldEmoticon = InventoryGet(Player, "Emoticon").Property.Expression;
+		AfkTimerOldEmoticon = /** @type {ExpressionNameMap["Emoticon"]} */(InventoryGet(Player, "Emoticon").Property.Expression);
 	}
 	CharacterSetFacialExpression(Player, "Emoticon", "Afk");
 	AfkTimerIsSet = true;

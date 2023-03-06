@@ -383,8 +383,8 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 
 /**
  * Sets an emote for the student when there's an activity
- * @param {string} Blush
- * @param {string} Eyes
+ * @param {ExpressionNameMap["Blush"]} Blush
+ * @param {ExpressionNameMap["Eyes"]} Eyes
  * @returns {void}
  */
 function MagicSchoolLaboratoryStudentEmote(Blush, Eyes) {

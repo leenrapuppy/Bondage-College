@@ -3351,7 +3351,7 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		AllowColorize: true,
 		AllowCustomize: false,
-		AllowExpression: ["Afk", "Whisper", "Sleep", "Hearts", "Tear", "Hearing", "Confusion", "Exclamation", "Annoyed", "Read", "RaisedHand", "Spectator", "ThumbsDown", "ThumbsUp", "LoveRope", "LoveGag", "LoveLock", "Wardrobe", "Gaming"],
+		AllowExpression: ["Afk", "Whisper", "Sleep", "Hearts", "Tear", "Hearing", "Confusion", "Exclamation", "Annoyed", "Read", "RaisedHand", "Spectator", "ThumbsDown", "ThumbsUp", "LoveRope", "LoveGag", "LoveLock", "Wardrobe", "Gaming", "Coffee"],
 		Asset: ["Emoticon"],
 	},
 	// Uncolorable body parts
@@ -7143,7 +7143,7 @@ var AssetFemale3DCG = [
 				DynamicGroupName: "ItemMouth3",
 			},
 			{
-				Name: "Kissmark", Random: false, Value: -1, BuyGroup: "Kissmark", Difficulty: 0, Time: 5, 
+				Name: "Kissmark", Random: false, Value: -1, BuyGroup: "Kissmark", Difficulty: 0, Time: 5,
                 RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockedMouth"],
                 DynamicGroupName: "ItemMouth3",
 			},

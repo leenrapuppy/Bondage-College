@@ -406,7 +406,9 @@ const CommonCommands = [
 				DialogFindFacialExpressionMenuGroup("Blush");
 				return;
 			}
+			/** @type {(null | ExpressionNameMap["Blush"])[]} */
 			let BlushLevels = [null, "Low", "Medium", "High", "VeryHigh", "Extreme"];
+			/** @type {null | ExpressionName} */
 			let NewExpression = null;
 			let AcceptCmd = false;
 			if (/^[0-5]$/.test(args)) {
@@ -459,6 +461,7 @@ const CommonCommands = [
 				return;
 			}
 			let AcceptCmd = false;
+			/** @type {ExpressionName} */
 			let NewExpression;
 			let TargetLeft = false;
 			let TargetRight = false;
@@ -471,12 +474,12 @@ const CommonCommands = [
 				let RightClosed = InventoryGet(Player, "Eyes2").Property.Expression == "Closed";
 				let Close = (TargetLeft && !LeftClosed);
 				Close = Close || (TargetRight && !RightClosed);
-				NewExpression = Close ? "Closed" : "Opened";
+				NewExpression = Close ? "Closed" : "Open";
 			} else if ((Cmds = /^(c(?:lose)?|o(?:pen)?) *(r(?:ight)?|l(?:eft)?|b(?:oth)?)?$/.exec(args)) != null) {
 				AcceptCmd = true;
 				let ActionCmd = Cmds[1];
 				let TargetCmd = Cmds[2];
-				NewExpression = (ActionCmd[0] == "c") ? "Closed" : "Opened";
+				NewExpression = (ActionCmd[0] == "c") ? "Closed" : "Open";
 				if (!TargetCmd || TargetCmd[0] == "r" || TargetCmd[0] == "b") {
 					TargetRight = true;
 				}
@@ -506,8 +509,8 @@ const CommonCommands = [
 			if (!AcceptCmd) {
 				return;
 			}
-			if (NewExpression == "Opened" || NewExpression == "Closed") {
-				if (NewExpression == "Opened") {
+			if (NewExpression == "Open" || NewExpression == "Closed") {
+				if (NewExpression == "Open") {
 					// Restore opened eye expression set from GUI
 					let DialogCurrentExpr = DialogFacialExpressions.find(FE => FE.Group == "Eyes");
 					if (DialogCurrentExpr) {

@@ -26,6 +26,7 @@ var CharacterAppearanceWardrobeOffset = 0;
 var CharacterAppearanceWardrobeText = "";
 var CharacterAppearanceWardrobeName = "";
 var CharacterAppearanceForceUpCharacter = -1;
+/** @type {"" | ExpressionNameMap["Emoticon"]} */
 var CharacterAppearancePreviousEmoticon = "";
 var CharacterAppearanceMode = "";
 var CharacterAppearanceMenuMode = "";
