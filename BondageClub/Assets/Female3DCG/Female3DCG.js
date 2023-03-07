@@ -3351,7 +3351,7 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		AllowColorize: true,
 		AllowCustomize: false,
-		AllowExpression: ["Afk", "Whisper", "Sleep", "Hearts", "Tear", "Hearing", "Confusion", "Exclamation", "Annoyed", "Read", "RaisedHand", "Spectator", "ThumbsDown", "ThumbsUp", "LoveRope", "LoveGag", "LoveLock", "Wardrobe", "Gaming"],
+		AllowExpression: ["Afk", "Whisper", "Sleep", "Hearts", "Tear", "Hearing", "Confusion", "Exclamation", "Annoyed", "Read", "RaisedHand", "Spectator", "ThumbsDown", "ThumbsUp", "LoveRope", "LoveGag", "LoveLock", "Wardrobe", "Gaming", "Coffee"],
 		Asset: ["Emoticon"],
 	},
 	// Uncolorable body parts
@@ -4675,7 +4675,8 @@ var AssetFemale3DCG = [
 				Alpha: [{ Group: ["Cloth", "Necklace", "Suit"], Masks: [[270, 190, 480, 60], [230, 190, -480, 60], [0, 250, 182, 100], [318, 250, 182, 100]] }],
 				Layer: [
 					{ Name: "Leather" },
-					{ Name: "Belts" }
+					{ Name: "Belts" },
+					{ Name: "Metal" }
 				],
 				SelfUnlock: false
 			},
@@ -7143,7 +7144,7 @@ var AssetFemale3DCG = [
 				DynamicGroupName: "ItemMouth3",
 			},
 			{
-				Name: "Kissmark", Random: false, Value: -1, BuyGroup: "Kissmark", Difficulty: 0, Time: 5, 
+				Name: "Kissmark", Random: false, Value: -1, BuyGroup: "Kissmark", Difficulty: 0, Time: 5,
                 RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockedMouth"],
                 DynamicGroupName: "ItemMouth3",
 			},
@@ -7814,7 +7815,7 @@ var AssetFemale3DCG = [
 					{ Name: "FillRoundMouthTransparent", HasType: false, AllowModuleTypes: ["m10","m18"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleRoundMouth", HasType: false, AllowModuleTypes: ["m9","m17"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleRoundMouthTransparent", HasType: false, AllowModuleTypes: ["m11","m19"], CopyLayerColor: "FillRoundMouth" },
-					{ Name: "FillRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m8","m16","m10","m18","m9","m17","m11","m19"], CopyLayerColor: "PanelHeadHighlight" },
+				//	{ Name: "FillRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m8","m16","m10","m18","m9","m17","m11","m19"], CopyLayerColor: "PanelHeadHighlight" },
 					{ Name: "FillShapedMouth", HasType: false, AllowModuleTypes: ["m12","m20"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m14","m22"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m13","m21"], CopyLayerColor: "FillRoundMouth" },
@@ -7833,7 +7834,7 @@ var AssetFemale3DCG = [
 					{ Name: "LiningShapedEye", HasType: false, AllowModuleTypes: ["e3","e12","e13","e14","e15","e7","e20","e21","e22","e23"], CopyLayerColor: "LiningRoundEye" },
 					{ Name: "LiningShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e3","e12","e13","e14","e15","e7","e20","e21","e22","e23"], CopyLayerColor: "PanelHeadHighlight" },
 					{ Name: "LiningRoundMouth", HasType: false, AllowModuleTypes: ["m2","m8","m9","m10","m11","m6","m16","m17","m18","m19"], ColorGroup: "Linings" }, // master colour for mouth lining
-					{ Name: "LiningRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m2","m8","m9","m10","m11","m6","m16","m17","m18","m19"], CopyLayerColor: "PanelHeadHighlight" },
+				//	{ Name: "LiningRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m2","m8","m9","m10","m11","m6","m16","m17","m18","m19"], CopyLayerColor: "PanelHeadHighlight" },
 					{ Name: "LiningShapedMouth", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15","m7","m20","m21","m22","m23"], CopyLayerColor: "LiningRoundMouth" },
 					{ Name: "LiningShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15","m7","m20","m21","m22","m23"], CopyLayerColor: "PanelHeadHighlight" },
 					{ Name: "LiningCircleEye", HasType: false, AllowModuleTypes: ["e24","e26","e27","e25","e28","e29"], CopyLayerColor: "LiningRoundEye" },
@@ -9186,7 +9187,7 @@ var ActivityFemale3DCG = [
 	{
 		Name: "MasturbateItem",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "UseHands"],
+		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "UseHands", "ZoneAccessible"],
 		Target: ["ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}],

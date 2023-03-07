@@ -26,6 +26,7 @@ var CharacterAppearanceWardrobeOffset = 0;
 var CharacterAppearanceWardrobeText = "";
 var CharacterAppearanceWardrobeName = "";
 var CharacterAppearanceForceUpCharacter = -1;
+/** @type {"" | ExpressionNameMap["Emoticon"]} */
 var CharacterAppearancePreviousEmoticon = "";
 var CharacterAppearanceMode = "";
 var CharacterAppearanceMenuMode = "";
@@ -373,7 +374,13 @@ function CharacterAppearanceSortLayers(C) {
 						}
 					});
 					// If the item has an OverridePriority property, it completely overrides the layer priority
-					if (item.Property && typeof item.Property.OverridePriority === "number") drawLayer.Priority = item.Property.OverridePriority;
+					if (item.Property) {
+						if (typeof item.Property.OverridePriority === "number")
+							drawLayer.Priority = item.Property.OverridePriority;
+						else if (typeof item.Property.OverridePriority === "object" && typeof item.Property.OverridePriority[layer.Name] === "number") {
+							drawLayer.Priority = item.Property.OverridePriority[layer.Name];
+						}
+					}
 					return drawLayer;
 				});
 			Array.prototype.push.apply(layersAcc, layersToDraw);

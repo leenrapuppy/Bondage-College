@@ -47,7 +47,15 @@ var DialogItemToLock = null;
 var DialogAllowBlush = false;
 var DialogAllowEyebrows = false;
 var DialogAllowFluids = false;
+/** @type {ExpressionItem[]} */
 var DialogFacialExpressions = [];
+/** The maximum number of expressions per page for a given asset group. */
+const DialogFacialExpressionsPerPage = 18;
+/**
+ * The currently selected expression page number for a given asset group.
+ * Contains up to {@link DialogFacialExpressionsPerPage} expressions.
+ */
+let DialogFacialExpressionsSelectedPage = 0;
 var DialogFacialExpressionsSelected = -1;
 var DialogFacialExpressionsSelectedBlindnessLevel = 2;
 /** @type {Character[]} */
@@ -1298,11 +1306,13 @@ function DialogFacialExpressionsBuild() {
 		if (!ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
 		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);
-		const Item = {};
-		Item.Appearance = PA;
-		Item.Group = PA.Asset.Group.Name;
-		Item.CurrentExpression = (PA.Property == null) ? null : PA.Property.Expression;
-		Item.ExpressionList = ExpressionList;
+		/** @type {ExpressionItem} */
+		const Item = {
+			Appearance: PA,
+			Group: /** @type {ExpressionGroupName} */(PA.Asset.Group.Name),
+			CurrentExpression: (PA.Property == null) ? null : PA.Property.Expression,
+			ExpressionList: ExpressionList,
+		};
 		DialogFacialExpressions.push(Item);
 	}
 	// Temporary (?) solution to make the facial elements appear in a more logical order, as their alphabetical order currently happens to match up
@@ -2564,21 +2574,37 @@ function DialogDrawExpressionMenu() {
 	DrawButton(120, 50, 90, 90, "", "White", `Icons/${WinkIcon}.png`, DialogFindPlayer("WinkFacialExpressions"));
 	DrawButton(20, 50, 90, 90, "", "White", "Icons/Reset.png", DialogFindPlayer("ClearFacialExpressions"));
 	if (!DialogFacialExpressions || !DialogFacialExpressions.length) DialogFacialExpressionsBuild();
-	for (let I = 0; I < DialogFacialExpressions.length; I++) {
-		const FE = DialogFacialExpressions[I];
-		const OffsetY = 185 + 100 * I;
 
-		DrawButton(20, OffsetY, 90, 90, "", I == DialogFacialExpressionsSelected ? "Cyan" : "White", "Assets/Female3DCG/" + FE.Group + (FE.CurrentExpression ? "/" + FE.CurrentExpression : "") + "/Icon.png");
+	DialogFacialExpressions.forEach((FE, i) => {
+		const OffsetY = 185 + 100 * i;
+		DrawButton(20, OffsetY, 90, 90, "", i == DialogFacialExpressionsSelected ? "Cyan" : "White", "Assets/Female3DCG/" + FE.Group + (FE.CurrentExpression ? "/" + FE.CurrentExpression : "") + "/Icon.png");
 
 		// Draw the table with expressions
-		if (I == DialogFacialExpressionsSelected) {
-			for (let j = 0; j < FE.ExpressionList.length; j++) {
+		if (i == DialogFacialExpressionsSelected) {
+			const nPages = Math.ceil(FE.ExpressionList.length / DialogFacialExpressionsPerPage);
+			DrawButton(155, 785, 90, 90, "", nPages > 1 ? "White" : "Gray", `Icons/Prev.png`, DialogFindPlayer("PrevExpressions"), nPages <= 1);
+			DrawButton(255, 785, 90, 90, "", nPages > 1 ? "White" : "Gray", `Icons/Next.png`, DialogFindPlayer("NextExpressions"), nPages <= 1);
+			const expressionSubset = FE.ExpressionList.slice(
+				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage,
+				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage + DialogFacialExpressionsPerPage,
+			);
+			expressionSubset.forEach((expression, j) => {
 				const EOffsetX = 155 + 100 * (j % 3);
 				const EOffsetY = 185 + 100 * Math.floor(j / 3);
-				DrawButton(EOffsetX, EOffsetY, 90, 90, "", (FE.ExpressionList[j] == FE.CurrentExpression ? "Pink" : "White"), "Assets/Female3DCG/" + FE.Group + (FE.ExpressionList[j] ? "/" + FE.ExpressionList[j] : "") + "/Icon.png");
-			}
+				DrawButton(EOffsetX, EOffsetY, 90, 90, "", (expression == FE.CurrentExpression ? "Pink" : "White"), "Assets/Female3DCG/" + FE.Group + (expression ? "/" + expression : "") + "/Icon.png");
+			});
 		}
-	}
+	});
+}
+
+/**
+ * Return the page number of the expression item's current expression.
+ * @param {ExpressionItem} item - The expression item
+ * @returns {number} The page number of the item's current expression
+ */
+function DialogGetCurrentExpressionPage(item) {
+	const index = item.ExpressionList.findIndex(name => item.CurrentExpression === name);
+	return index === -1 ? 0 : Math.floor(index / DialogFacialExpressionsPerPage);
 }
 
 /**
@@ -2630,7 +2656,10 @@ function DialogClickExpressionMenu() {
 		// Expression category buttons
 		for (let I = 0; I < DialogFacialExpressions.length; I++) {
 			if (MouseIn(20, 185 + 100 * I, 90, 90)) {
-				DialogFacialExpressionsSelected = I;
+				if (DialogFacialExpressionsSelected !== I) {
+					DialogFacialExpressionsSelected = I;
+					DialogFacialExpressionsSelectedPage = DialogGetCurrentExpressionPage(DialogFacialExpressions[I]);
+				}
 				if (DialogExpressionColor != null) ItemColorSaveAndExit();
 			}
 		}
@@ -2638,14 +2667,29 @@ function DialogClickExpressionMenu() {
 		// Expression table
 		if (DialogFacialExpressionsSelected >= 0 && DialogFacialExpressionsSelected < DialogFacialExpressions.length) {
 			const FE = DialogFacialExpressions[DialogFacialExpressionsSelected];
-			for (let j = 0; j < FE.ExpressionList.length; j++) {
+
+			// Switch pages
+			const nPages = Math.ceil(FE.ExpressionList.length / DialogFacialExpressionsPerPage);
+			if (MouseIn(155, 785, 90, 90) && nPages > 1) {
+				DialogFacialExpressionsSelectedPage = (DialogFacialExpressionsSelectedPage + nPages - 1) % nPages;
+				return;
+			} else if (MouseIn(255, 785, 90, 90) && nPages > 1) {
+				DialogFacialExpressionsSelectedPage = (DialogFacialExpressionsSelectedPage + 1) % nPages;
+				return;
+			}
+
+			const expressionSubset = FE.ExpressionList.slice(
+				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage,
+				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage + DialogFacialExpressionsPerPage,
+			);
+			expressionSubset.forEach((expression, j) => {
 				const EOffsetX = 155 + 100 * (j % 3);
 				const EOffsetY = 185 + 100 * Math.floor(j / 3);
 				if (MouseIn(EOffsetX, EOffsetY, 90, 90)) {
-					CharacterSetFacialExpression(Player, FE.Group, FE.ExpressionList[j]);
-					FE.CurrentExpression = FE.ExpressionList[j];
+					CharacterSetFacialExpression(Player, FE.Group, expression);
+					FE.CurrentExpression = expression;
 				}
-			}
+			});
 		}
 	}
 }

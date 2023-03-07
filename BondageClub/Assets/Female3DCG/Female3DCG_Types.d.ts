@@ -23,7 +23,7 @@ interface AssetGroupDefinition {
 	Zone?: [number, number, number, number][];
 	SetPose?: AssetPoseName[];
 	AllowPose?: AssetPoseName[];
-	AllowExpression?: string[];
+	AllowExpression?: ExpressionName[];
 	Effect?: EffectName[];
 	MirrorGroup?: AssetGroupName;
 	RemoveItemOnRemove?: { Group: AssetGroupItemName, Name: string, Type?: string }[];
@@ -206,7 +206,7 @@ interface AssetDefinition {
 	LoverOnly?: boolean;
 
 	/** A list of facial expression using the asset causes to the character */
-	ExpressionTrigger?: { Name: string, Group: AssetGroupBodyName, Timer: number }[];
+	ExpressionTrigger?: ExpressionTrigger[];
 
 	/** A list of assets to also remove when the asset is taken off. */
 	RemoveItemOnRemove?: { Name: string, Group: AssetGroupItemName, Type?: string }[];
@@ -277,7 +277,7 @@ interface AssetDefinition {
 	/** Whether the game should auto-add a Lock layer to the asset. */
 	DrawLocks?: boolean;
 
-	AllowExpression?: string[];
+	AllowExpression?: ExpressionName[];
 	MirrorExpression?: AssetGroupName;
 
 	/** Whether the asset is drawn at an absolute position. */
