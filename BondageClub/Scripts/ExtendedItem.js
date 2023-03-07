@@ -67,8 +67,8 @@ const ExtendedXYClothes = [
 const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage, [
 	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
 	(character) => character.ID.toString(),
-	(option) => String(option),
-	(option) => String(option),
+	(option) => option.Name,
+	(option) => option.Name,
 ]);
 
 /**
