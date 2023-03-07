@@ -3548,6 +3548,42 @@ var AssetFemale3DCGExtended = {
 							{ // m24 - Open
 								Property: { Effect: []}
 							},
+							{ // m25 - Fishnet Mouth
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m26 - Circle Mouth
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m27 - Circle Mouth Transparent
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m28 - Circle Mouth Opaque, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m29 - Circle Mouth Transparent, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m30 - Circle Mouth Opaque, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m31 - Circle Mouth Transparent, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: 38,
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
 						]
 					},
 					{
@@ -3639,6 +3675,28 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // e23 - Shaped Eyes Transparent, filled Transparent + pinhole
 								Property: { Effect: []}
+							},
+							{ // e24 - Circle Eyes
+								Property: { Effect: []}
+							},
+							{ // e25 - Circle Eyes Transparent
+								Property: { Effect: []}
+							},
+							{ // e26 - Circle Eyes Opaque, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e27 - Circle Eyes Opaque, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e28 - Circle Eyes Transparent, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e29 - Circle Eyes Transparent, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
 							},
 						]
 					},
