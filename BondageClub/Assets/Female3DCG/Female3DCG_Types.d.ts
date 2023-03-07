@@ -490,6 +490,12 @@ interface ExtendedItemOption {
 	OptionType?: "ExtendedItemOption";
 }
 
+/** Extended item option subtype for vibrating items */
+interface VibratingItemOption extends ExtendedItemOption {
+	Name: VibratorMode;
+	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity" | "Effect">;
+}
+
 /**
  * An object containing data about the type change that triggered the chat message
  * @param {Character} C - A reference to the character wearing the item

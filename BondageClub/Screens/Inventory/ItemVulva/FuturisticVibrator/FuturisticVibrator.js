@@ -190,7 +190,7 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
 /**
  * @param {Character} C
  * @param {Item} Item
- * @param {ExtendedItemOption} Option
+ * @param {VibratingItemOption} Option
  * @param {boolean} IgnoreSame
  */
 function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame=false) {

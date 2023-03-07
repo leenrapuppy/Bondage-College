@@ -47,8 +47,8 @@ var VibratorModeSet = {
  *       get turned into the appropriate type.
  *
  * @type {{
- *     Standard: ExtendedItemOption[],
- *     Advanced: (ExtendedItemOption | {
+ *     Standard: VibratingItemOption[],
+ *     Advanced: (VibratingItemOption | {
  *         Name: string,
  *         Property: {
  *             Mode: VibratorMode,
@@ -386,7 +386,7 @@ function VibratorModeClick(Options, Y) {
 /**
  * Gets a vibrator mode from VibratorModeOptions
  * @param {VibratorMode} ModeName - The name of the mode from VibratorMode, e.g. VibratorMode.OFF
- * @returns {ExtendedItemOption} - The option gotten
+ * @returns {VibratingItemOption} - The option gotten
  */
 function VibratorModeGetOption(ModeName) {
 	var result = null;
@@ -422,7 +422,7 @@ function VibratorModeSetMode(Item, Mode) {
 
 /**
  * Sets a vibrating item's option and publishes the corresponding chatroom message
- * @param {ExtendedItemOption} Option - The extended item option defining the new mode to be set
+ * @param {VibratingItemOption} Option - The extended item option defining the new mode to be set
  * @returns {void} - Nothing
  */
 function VibratorModeSetOption(Option) {
