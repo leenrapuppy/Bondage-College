@@ -92,6 +92,12 @@ function VariableHeightCreateLoadFunction({ maxHeight, minHeight, slider, functi
 	// Create the load function
 	const loadFunctionName = `${functionPrefix}Load`;
 	window[loadFunctionName] = function () {
+		// Record the previously set properties, reverting back to them on exiting unless otherwise instructed
+		if ((!VariableHeightPreviousProperty || VariableHeightPreviousProperty.Revert) && DialogFocusItem.Property) {
+			VariableHeightPreviousProperty = JSON.parse(JSON.stringify(DialogFocusItem.Property));
+			VariableHeightPreviousProperty.Revert = true;
+		}
+
 		// Create the function to apply the user's setting changes
 		const changeHeight = function (heightValue, elementId) {
 			VariableHeightChange(heightValue, maxHeight, minHeight, setHeight, elementId);
@@ -313,12 +319,6 @@ function VariableHeightInit(Item, C, Type, Refresh=true) {
 	const Data = ExtendedItemGetData(Item, ExtendedArchetype.VARIABLEHEIGHT, Type);
 	if (Data === null) {
 		return;
-	}
-
-	// Record the previously set properties, reverting back to them on exiting unless otherwise instructed
-	if ((!VariableHeightPreviousProperty || VariableHeightPreviousProperty.Revert) && Item.Property) {
-		VariableHeightPreviousProperty = JSON.parse(JSON.stringify(Item.Property));
-		VariableHeightPreviousProperty.Revert = true;
 	}
 
 	// Get the item/option's current height setting, initialising it if not set or invalid
