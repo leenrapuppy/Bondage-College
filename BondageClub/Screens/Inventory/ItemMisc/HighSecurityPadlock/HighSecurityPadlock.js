@@ -19,7 +19,7 @@ function InventoryItemMiscHighSecurityPadlockLoad() {
 	// Only create the inputs if the zone isn't blocked
 	if (!InventoryGroupIsBlocked(C, C.FocusGroup.Name)) {
 		if (DialogFocusSourceItem != null && ((DialogFocusSourceItem.Property.MemberNumberListKeys && CommonConvertStringToArray("" + DialogFocusSourceItem.Property.MemberNumberListKeys).indexOf(Player.MemberNumber) >= 0))) {
-			if (!((document.getElementById("MemberNumberList") != null) && ElementValue("MemberNumberList") && "" + ElementValue("MemberNumberList").length > 1)) { // Only update if there isnt text already..
+			if (!((document.getElementById("MemberNumberList") != null) && ElementValue("MemberNumberList") && ElementValue("MemberNumberList").length > 1)) { // Only update if there isnt text already..
 				ElementCreateTextArea("MemberNumberList");
 				document.getElementById("MemberNumberList").setAttribute("maxLength", 250);
 				document.getElementById("MemberNumberList").setAttribute("autocomplete", "off");
@@ -33,12 +33,13 @@ function InventoryItemMiscHighSecurityPadlockLoad() {
 	}
 }
 
+// FIXME: should be merged into either DialogHasKey or DialogCanUnlock
 function InventoryItemMiscHighSecurityPadlockPlayerHasKeys(C, Item) {
 	if (LogQuery("KeyDeposit", "Cell")) return false;
-	var UnlockName = "Unlock-" + Item.Asset.Name;
+	let UnlockName = "Unlock-" + Item.Asset.Name;
 	if ((Item != null) && (Item.Property != null) && (Item.Property.LockedBy != null)) UnlockName = "Unlock-" + Item.Property.LockedBy;
 	for (let I = 0; I < Player.Inventory.length; I++)
-		if (InventoryItemHasEffect(Player.Inventory[I], UnlockName)) {
+		if (InventoryItemHasEffect(Player.Inventory[I], /** @type {EffectName} */ (UnlockName))) {
 			var Lock = InventoryGetLock(Item);
 			if (Lock != null) {
 				if (Lock.Asset.LoverOnly && !C.IsLoverOfPlayer()) return false;

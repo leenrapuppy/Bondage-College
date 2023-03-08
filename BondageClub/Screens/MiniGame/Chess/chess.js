@@ -151,6 +151,7 @@ function MiniGameChessStart(Depth, PlayerColor) {
 	}
 
 	let board;
+	// @ts-expect-error
 	let game = new Chess();
 
 	// Creates the board div

@@ -950,6 +950,7 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 		console.warn(`No key "${Key}" in "${Archetype}" lookup table`);
 		return null;
 	} else {
+		// @ts-ignore It works but I don't know why.
 		return Data;
 	}
 }

@@ -51,15 +51,14 @@ function ValidationCreateDiffParams(C, sourceMemberNumber) {
 	const fromFriend = C.IsPlayer() ? C.FriendList.includes(sourceMemberNumber) : true;
 	const fromWhitelist = C.IsPlayer() ? C.WhiteList.includes(sourceMemberNumber) : true;
 
-	/** @type {ScriptPermissionLevel[]} */
-	const permissions = [
+	const permissions = /** @type {ScriptPermissionLevel[]} */([
 		fromSelf && ScriptPermissionLevel.SELF,
 		fromOwner && !fromSelf && ScriptPermissionLevel.OWNER,
 		fromLover && !fromOwner && !fromSelf && ScriptPermissionLevel.LOVERS,
 		fromFriend && ScriptPermissionLevel.FRIENDS,
 		fromWhitelist && ScriptPermissionLevel.WHITELIST,
 		ScriptPermissionLevel.PUBLIC,
-	].filter(Boolean);
+	].filter(Boolean));
 
 	return { C, fromSelf, fromOwner, fromLover, permissions, sourceMemberNumber };
 }

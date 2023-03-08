@@ -65,13 +65,22 @@ function ColorPickerRemoveEventListener() {
 }
 
 /**
+ * Helper to guard for TouchEvents
+ * @param {Event} event
+ * @returns {event is TouchEvent}
+ */
+function isTouchEvent(event) {
+	return event instanceof TouchEvent;
+}
+
+/**
  * When the touch/mouse event begins to be registered. On mobile we only fire it once
  * @param {MouseEvent|TouchEvent} Event - The touch/mouse event
  * @returns {void} - Nothing
  */
 function ColorPickerStartPick(Event) {
 	// Only fires at first touch on mobile devices
-	if (Event.changedTouches) {
+	if (isTouchEvent(Event) && Event.changedTouches) {
 		if (Event.changedTouches.length > 1) return;
 	}
 
@@ -132,10 +141,12 @@ function ColorPickerEndPick() {
  * @returns {{X: number, Y: number}} - Coordinates of the click/touch event on the canvas
  */
 function ColorPickerGetCoordinates(Event) {
-	if (Event.changedTouches) {
-		// Mobile
-		var Touch = Event.changedTouches[0];
-		TouchMove(Touch);
+	if (isTouchEvent(Event)) {
+		if (Event.changedTouches) {
+			// Mobile
+			var Touch = Event.changedTouches[0];
+			TouchMove(Touch);
+		}
 	} else {
 		// PC
 		MouseMove(Event);

@@ -80,15 +80,11 @@ function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, Optio
 	const Prefix = (Data == null) ? "" : ModularItemCustomChatPrefix("Pump", Data);
 	const ActionTag = `${Prefix}Pump${Deflate ? "Deflate" : "Inflate"}${OptionName}`;
 
-	/** @type {ChatMessageDictionary} */
-	const Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name, GroupName: Item.Asset.Group.Name },
-		{ Automatic: true },
-	];
-	if (Item.Property.ItemMemberNumber) {
-		Dictionary.push({ Tag: "ItemMemberNumber", MemberNumber: Item.Property.ItemMemberNumber });
-	}
+	const Dictionary = new DictionaryBuilder()
+		.targetCharacterName(C)
+		.asset(Item.Asset)
+		.markAutomatic()
+		.build();
 
 	if (Item.Property.ShowText) {
 		ChatRoomPublishCustomAction(ActionTag, false, Dictionary);

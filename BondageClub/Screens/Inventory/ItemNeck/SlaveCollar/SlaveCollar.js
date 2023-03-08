@@ -1,5 +1,6 @@
 "use strict";
 var InventoryItemNeckSlaveCollarColorMode = false;
+/** @type {ItemColor} */
 var InventoryItemNeckSlaveCollarColor = "Default";
 var InventoryItemNeckSlaveCollarOffset = 0;
 
@@ -134,7 +135,7 @@ function InventoryItemNeckSlaveCollarDraw() {
 			ColorPickerHide();
 			DrawText(DialogFindPlayer("SlaveCollarSelectType"), 1500, 250, "white", "gray");
 			DrawButton(1665, 25, 90, 90, "", "White", "Icons/Next.png");
-			DrawButton(1775, 25, 90, 90, "", (DialogFocusItem.Color != null && DialogFocusItem.Color != "Default" && DialogFocusItem.Color != "None") ? DialogFocusItem.Color : "White", "Icons/ColorPick.png");
+			DrawButton(1775, 25, 90, 90, "", (DialogFocusItem.Color != null && DialogFocusItem.Color != "Default" && DialogFocusItem.Color != "None") ? DialogFocusItem.Color.toString() : "White", "Icons/ColorPick.png");
 			for (let I = InventoryItemNeckSlaveCollarOffset; I < InventoryItemNeckSlaveCollarTypes.length && I < InventoryItemNeckSlaveCollarOffset + 8; I++) {
 				const A = DialogFocusItem.Asset;
 				const Type = InventoryItemNeckSlaveCollarTypes[I];

@@ -963,11 +963,11 @@ function PrivateLoadCharacter(C) {
 		if (PrivateCharacter[C].Title != null) N.Title = PrivateCharacter[C].Title;
 		if (PrivateCharacter[C].AssetFamily != null) N.AssetFamily = PrivateCharacter[C].AssetFamily;
 		if (PrivateCharacter[C].Appearance != null) {
-			const updateValid = ServerAppearanceLoadFromBundle(N, PrivateCharacter[C].AssetFamily, PrivateCharacter[C].Appearance);
+			const updateValid = ServerAppearanceLoadFromBundle(N, PrivateCharacter[C].AssetFamily, ServerAppearanceBundle(PrivateCharacter[C].Appearance));
 			updateRequired = updateRequired || !updateValid;
 		}
 		if (PrivateCharacter[C].AppearanceFull != null) {
-			const updateValid = ServerAppearanceLoadFromBundle(N, PrivateCharacter[C].AssetFamily, PrivateCharacter[C].AppearanceFull, null, true);
+			const updateValid = ServerAppearanceLoadFromBundle(N, PrivateCharacter[C].AssetFamily, ServerAppearanceBundle(PrivateCharacter[C].AppearanceFull), null, true);
 			updateRequired = updateRequired || !updateValid;
 		}
 		if (PrivateCharacter[C].Trait != null) N.Trait = PrivateCharacter[C].Trait.slice();
@@ -1721,9 +1721,10 @@ function PrivateLoveYou() {
 
 		// When the NPC plays with the egg speed
 		if ((PrivateLoverActivity == "EggSpeedUp") || (PrivateLoverActivity == "EggSpeedDown")) {
-			var Egg = InventoryGet(Player, "ItemVulva");
+			const Egg = InventoryGet(Player, "ItemVulva");
 			if (Egg.Property == null) Egg.Property = { Intensity: -1 };
-			Egg.Property.Intensity = Egg.Property.Intensity + ((PrivateLoverActivity == "EggSpeedUp") ? 1 : -1);
+			const newInt = Egg.Property.Intensity + ((PrivateLoverActivity == "EggSpeedUp") ? 1 : -1);
+			Egg.Property.Intensity = /** @type {VibratorIntensity} */ (Math.min(3, Math.max(-1, newInt)));
 		}
 
 		// When the NPC lover enters the bed, waiting for the player

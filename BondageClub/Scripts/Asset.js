@@ -171,7 +171,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Audio: AssetDef.Audio,
 		Category: AssetDef.Category,
 		Fetish: AssetDef.Fetish,
-		ArousalZone: (AssetDef.ArousalZone == null) ? Group.Name : AssetDef.ArousalZone,
+		ArousalZone: typeof AssetDef.ArousalZone === "string" ? AssetDef.ArousalZone : /** @type {AssetGroupItemName} */ (Group.Name),
 		IsRestraint: (AssetDef.IsRestraint == null) ? ((Group.IsRestraint == null) ? false : Group.IsRestraint) : AssetDef.IsRestraint,
 		BodyCosplay: (AssetDef.BodyCosplay == null) ? Group.BodyCosplay : AssetDef.BodyCosplay,
 		OverrideBlinking: (AssetDef.OverrideBlinking == null) ? false : AssetDef.OverrideBlinking,

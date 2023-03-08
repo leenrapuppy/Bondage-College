@@ -184,7 +184,7 @@ function PreferenceSetActivityFactor(C, Type, Self, Factor) {
  * returns the arousal zone definition for the mirrored group).
  * @param {Character} C - The character for whom to get the arousal zone
  * @param {AssetGroupName} ZoneName - The name of the zone to get
- * @returns {null|any} - Returns the arousal zone preference object, or null if a corresponding zone definition could
+ * @returns {Character["ArousalSettings"]["Zone"][0]|null} - Returns the arousal zone preference object, or null if a corresponding zone definition could
  * not be found.
  */
 function PreferenceGetArousalZone(C, ZoneName) {
@@ -248,12 +248,11 @@ function PreferenceGetZoneOrgasm(C, ZoneName) {
  * @param {boolean} CanOrgasm - Sets, if the character can cum from the given zone (true) or not (false)
  * @returns {void} - Nothing
  */
-function PreferenceSetZoneOrgasm(C, Zone, CanOrgasm) {
-	if ((C.ArousalSettings != null) && (C.ArousalSettings.Zone != null))
-		for (let Z = 0; Z < C.ArousalSettings.Zone.length; Z++)
-			if (C.ArousalSettings.Zone[Z].Name == Zone)
-				if (CanOrgasm) C.ArousalSettings.Zone[Z].Orgasm = true;
-				else delete C.ArousalSettings.Zone[Z].Orgasm;
+function PreferenceSetZoneOrgasm(C, ZoneName, CanOrgasm) {
+	const Zone = PreferenceGetArousalZone(C, ZoneName);
+	if (!Zone) return;
+
+	Zone.Orgasm = CanOrgasm;
 }
 
 /**
@@ -346,20 +345,17 @@ function PreferenceInit(C) {
 		}
 
 		// Validates the zones
-		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup(Player.AssetFamily, AssetGroup[A].Name, "any").length) {
-				let Found = false;
-				for (let Z = 0; Z < C.ArousalSettings.Zone.length; Z++)
-					if ((C.ArousalSettings.Zone[Z] != null) && (C.ArousalSettings.Zone[Z].Name != null) && (AssetGroup[A].Name == C.ArousalSettings.Zone[Z].Name)) {
-						Found = true;
-						if ((C.ArousalSettings.Zone[Z].Factor == null) || (typeof C.ArousalSettings.Zone[Z].Factor !== "number") || (C.ArousalSettings.Zone[Z].Factor < 0) || (C.ArousalSettings.Zone[Z].Factor > 4)) C.ArousalSettings.Zone[Z].Factor = 2;
-					}
-				if (!Found) {
-					C.ArousalSettings.Zone.push({ Name: AssetGroup[A].Name, Factor: 2 });
-					if (AssetGroup[A].Name == "ItemVulva") PreferenceSetZoneOrgasm(C, "ItemVulva", true);
+		for (let Group of AssetGroup) {
+			if (Group.IsItem() && AssetActivitiesForGroup(Player.AssetFamily, Group.Name, "any").length) {
+				const Zone = PreferenceGetArousalZone(C, Group.Name);
+				if (!Zone) {
+					C.ArousalSettings.Zone.push({ Name: Group.Name, Factor: 2, Orgasm: false });
+					if (Group.Name == "ItemVulva") Zone.Orgasm = true;
+				} else if (Zone.Factor < 0 || Zone.Factor > 4) {
+					Zone.Factor = 2;
 				}
 			}
-
+		}
 	}
 }
 
