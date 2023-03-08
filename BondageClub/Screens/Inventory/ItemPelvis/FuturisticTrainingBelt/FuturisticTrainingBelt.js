@@ -466,6 +466,7 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 			}
 		}
 	}
+	return { name: "" };
 }
 
 /**
@@ -505,11 +506,8 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 		CharacterSetActivePose(Player, "Kneel");
 		ServerSend("ChatRoomCharacterPoseUpdate", { Pose: Player.ActivePose });
 	} else {
-		let punishment2 = InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime);
-		const {name, word} = punishment2;
-		if (!punishment2) {
-			// Yay!
-		} else if (name  === "Speech") {
+		const {name, word} = InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime);
+		if (name  === "Speech") {
 			let NoShock = true;
 			if (Item.Property.PunishSpeech == FuturisticTrainingBeltSpeechPunishments.indexOf("Shock")) NoShock = false;
 			else if (Item.Property.PunishSpeech == FuturisticTrainingBeltSpeechPunishments.indexOf("Edge")) {
