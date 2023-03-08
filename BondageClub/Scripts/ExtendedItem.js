@@ -217,6 +217,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 
 	// Draw the header and item
 	ExtendedItemDrawHeader();
+	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
 	const typeField = (Options.length && Options[0].OptionType === "VibratingItemOption") ? "Mode" : "Type";
 	const CurrentOption = Options.find(O => O.Property[typeField] === DialogFocusItem.Property[typeField]);
