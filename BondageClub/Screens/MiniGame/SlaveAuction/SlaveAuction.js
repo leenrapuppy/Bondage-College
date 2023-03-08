@@ -64,6 +64,15 @@ function SlaveAuctionRun() {
 	else DrawText(TextGet("HighestBidder") + " " + TextGet("SomeoneElse"), 1000, 125, "White", "Black");
 	DrawText(TextGet("YourMoney") + " " + Player.Money.toString() + "$", 1000, 175, "White", "Black");
 
+	// The auction ends after 15 seconds
+	if ((SlaveAuctionBidTime <= CurrentTime - 15000) || SlaveAuctionEnd) {
+		SlaveAuctionEnd = true;
+		DrawImage("Screens/" + CurrentModule + "/" + CurrentScreen + "/Bubble.png", 1175, 16);
+		DrawText(TextGet("Sold"), 1400, 53, "Black", "Gray");
+		DrawButton(1025, 235, 175, 65, TextGet("Return"), "White");
+		return;
+	}
+
 	// If we must draw the "I bid X$" bubble
 	if ((SlaveAuctionBidTime >= CurrentTime - 3000) && (SlaveAuctionBidCurrent != "")) {
 		var X = -25;
@@ -91,13 +100,6 @@ function SlaveAuctionRun() {
 		DrawText(TextGet("GoingTwice"), 1400, 53, "Black", "Gray");
 	}
 
-	// The auction ends after 15 seconds
-	if (SlaveAuctionBidTime <= CurrentTime - 15000) {
-		SlaveAuctionEnd = true;
-		DrawImage("Screens/" + CurrentModule + "/" + CurrentScreen + "/Bubble.png", 1175, 16);
-		DrawText(TextGet("Sold"), 1400, 53, "Black", "Gray");
-	}
-
 	// If a new bid happens, we raise the amount and there's a 90% chance of another bid
 	if ((CurrentTime >= SlaveAuctionBidNextTime) && (SlaveAuctionBidNextTime != -1)) {
 		SlaveAuctionSetNextBidTime();
@@ -109,7 +111,7 @@ function SlaveAuctionRun() {
 
 	// Draw the buttons
 	if (!SlaveAuctionEnd && (SlaveAuctionBidCurrent != "Player") && (Player.Money >= SlaveAuctionBidAmount + 10)) DrawButton(800, 235, 175, 65, TextGet("Bid"), "White");
-	if ((SlaveAuctionBidCurrent != "Player") || SlaveAuctionEnd) DrawButton(1025, 235, 175, 65, TextGet((SlaveAuctionEnd) ? "Return" : "GiveUp"), "White");
+	if (SlaveAuctionBidCurrent != "Player") DrawButton(1025, 235, 175, 65, TextGet("GiveUp"), "White");
 
 }
 
