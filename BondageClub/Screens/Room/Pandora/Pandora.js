@@ -750,7 +750,7 @@ function PandoraBuildMainHall() {
 			}
 			if (InfiltrationMission == "Rescue") {
 				let Victim = PandoraGenerateNPC("Rescue", "Victim", InfiltrationTarget.Name, true);
-				if ((InfiltrationTarget.PrivateRoom != null) && InfiltrationTarget.PrivateRoom) {
+				if (InfiltrationTarget.PrivateRoom) {
 					Victim.Appearance = PrivateRansomCharacter.Appearance.slice(0);
 					CharacterRefresh(Victim);
 				} else {

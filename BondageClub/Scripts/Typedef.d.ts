@@ -2842,10 +2842,13 @@ type InfiltrationTargetType = "NPC" | "USBKey" | "BDSMPainting" | "GoldCollar" |
 
 interface InfiltrationMissionTarget {
 	Type: InfiltrationTargetType;
-	Found: boolean;
-	Fail: boolean;
 	Name: string;
-	PrivateRoom: boolean;
+	/** Whether the target was found */
+	Found?: boolean;
+	/** Whether the mission failed */
+	Fail?: boolean;
+	/** Whether this is an Rescue NPC mission from having a Private Room character kidnapped */
+	PrivateRoom?: boolean;
 }
 
 type PandoraDirection = "North" | "South" | "East" | "West";
