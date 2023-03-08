@@ -7775,6 +7775,9 @@ var AssetFemale3DCG = [
 					{ Name: "PanelShapedEye", HasType: false, AllowModuleTypes: ["e3","e12","e13","e14","e15"], CopyLayerColor: "PanelNoEye" },
 					{ Name: "PanelShapedEyeTransparent", HasType: false, AllowModuleTypes: ["e7","e20","e21","e22","e23"], CopyLayerColor: "PanelNoEye" },
 					{ Name: "PanelShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e3","e12","e13","e14","e15","e7","e20","e21","e22","e23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "PanelCircleEye", HasType: false, AllowModuleTypes: ["e24","e26","e27"], CopyLayerColor: "PanelNoEye" },
+					{ Name: "PanelCircleEyeTransparent", HasType: false, AllowModuleTypes: ["e25","e28","e29"], CopyLayerColor: "PanelNoEye" },
+					{ Name: "PanelCircleEyeHighlight", HasType: false, AllowModuleTypes: ["e24","e26","e27","e25","e28","e29"], CopyLayerColor: "PanelHeadHighlight" },
 
 					// Eye Panel Fills
 					{ Name: "FillRoundEye", HasType: false, AllowModuleTypes: ["e8","e16"], ColorGroup: "Panels" }, // master colour for eye panel fills
@@ -7787,6 +7790,8 @@ var AssetFemale3DCG = [
 					{ Name: "FillHoleShapedEye", HasType: false, AllowModuleTypes: ["e13","e21"], CopyLayerColor: "FillRoundEye" },
 					{ Name: "FillHoleShapedEyeTransparent", HasType: false, AllowModuleTypes: ["e15","e23"], CopyLayerColor: "FillRoundEye" },
 					{ Name: "FillShapedEyeHighlight", HasType: false, AllowModuleTypes: ["e12","e20","e14","e22","e13","e21","e15","e23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "FillCircleEye", HasType: false, AllowModuleTypes: ["e26","e28"], CopyLayerColor: "FillRoundEye" },
+					{ Name: "FillCircleEyeTransparent", HasType: false, AllowModuleTypes: ["e27","e29"], CopyLayerColor: "FillRoundEye" },
 
 					// Mouth Panel Parts
 					{ Name: "PanelNoMouth", HasType: false, AllowModuleTypes: ["m0"], ColorGroup: "Panels" }, // master colour for mouth panel
@@ -7800,6 +7805,10 @@ var AssetFemale3DCG = [
 					{ Name: "PanelShapedMouth", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15"], CopyLayerColor: "PanelNoMouth" },
 					{ Name: "PanelShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m7","m20","m21","m22","m23"], CopyLayerColor: "PanelNoMouth" },
 					{ Name: "PanelShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15","m7","m20","m21","m22","m23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "PanelFishnetMouth", HasType: false, AllowModuleTypes: ["m25"], CopyLayerColor: "PanelNoMouth" },
+					{ Name: "PanelCircleMouth", HasType: false, AllowModuleTypes: ["m26","m28","m30"], CopyLayerColor: "PanelNoMouth" },
+					{ Name: "PanelCircleMouthTransparent", HasType: false, AllowModuleTypes: ["m27","m29","m31"], CopyLayerColor: "PanelNoMouth" },
+					{ Name: "PanelCircleMouthHighlight", HasType: false, AllowModuleTypes: ["m26","m28","m30","m27","m29","m31"], CopyLayerColor: "PanelHeadHighlight" },
 
 					// Mouth Panel Fill
 					{ Name: "FillRoundMouth", HasType: false, AllowModuleTypes: ["m8","m16"], ColorGroup: "Panels" }, // master colour for mouth panel fill
@@ -7811,7 +7820,9 @@ var AssetFemale3DCG = [
 					{ Name: "FillShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m14","m22"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouth", HasType: false, AllowModuleTypes: ["m13","m21"], CopyLayerColor: "FillRoundMouth" },
 					{ Name: "FillHoleShapedMouthTransparent", HasType: false, AllowModuleTypes: ["m15","m23"], CopyLayerColor: "FillRoundMouth" },
-				//	{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m12","m20","m14","m22","m13","m21","m15","m23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "FillShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m12","m20","m14","m22","m13","m21","m15","m23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "FillCircleMouth", HasType: false, AllowModuleTypes: ["m28","m29"], CopyLayerColor: "FillRoundMouth" },
+					{ Name: "FillCircleMouthTransparent", HasType: false, AllowModuleTypes: ["m30","m31"], CopyLayerColor: "FillRoundMouth" },
 
 					// Linings
 					{ Name: "LiningRoundFace", HasType: false, ColorGroup: "Linings" }, // master colour for face lining
@@ -7825,7 +7836,10 @@ var AssetFemale3DCG = [
 					{ Name: "LiningRoundMouth", HasType: false, AllowModuleTypes: ["m2","m8","m9","m10","m11","m6","m16","m17","m18","m19"], ColorGroup: "Linings" }, // master colour for mouth lining
 				//	{ Name: "LiningRoundMouthHighlight", HasType: false, AllowModuleTypes: ["m2","m8","m9","m10","m11","m6","m16","m17","m18","m19"], CopyLayerColor: "PanelHeadHighlight" },
 					{ Name: "LiningShapedMouth", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15","m7","m20","m21","m22","m23"], CopyLayerColor: "LiningRoundMouth" },
-				//	{ Name: "LiningShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15","m7","m20","m21","m22","m23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningShapedMouthHighlight", HasType: false, AllowModuleTypes: ["m3","m12","m13","m14","m15","m7","m20","m21","m22","m23"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningCircleEye", HasType: false, AllowModuleTypes: ["e24","e26","e27","e25","e28","e29"], CopyLayerColor: "LiningRoundEye" },
+					{ Name: "LiningCircleEyeHighlight", HasType: false, AllowModuleTypes: ["e24","e26","e27","e25","e28","e29"], CopyLayerColor: "PanelHeadHighlight" },
+					{ Name: "LiningCircleMouth", HasType: false, AllowModuleTypes: ["m26","m28","m30","m27","m29","m31"], CopyLayerColor: "LiningRoundMouth" },
 
 					// Hood Cover
 					{ Name: "ZipperHoodOpen", Priority: 50, HasType: false, AllowModuleTypes: ["z1"], ColorGroup: "HoodCoverParts" }, // master colour for hood cover

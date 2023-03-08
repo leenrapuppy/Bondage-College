@@ -3412,14 +3412,36 @@ var AssetFemale3DCGExtended = {
 							{ // m0 - No Mouth
 								Property: {
 									Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m1 - Hole Only
 								Property: {
 									Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
@@ -3432,14 +3454,36 @@ var AssetFemale3DCGExtended = {
 							{ // m4 - No Mouth Transparent
 								Property: {
 									Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m5 - Hole Only Transparent
 								Property: {
 									Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
@@ -3451,102 +3495,369 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // m8 - Round Mouth Opaque, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m9 - Round Mouth Opaque, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m10 - Round Mouth Opaque, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m11 - Round Mouth Opaque, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m12 - Shaped Mouth Opaque, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m13 - Shaped Mouth Opaque, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m14 - Shaped Mouth Opaque, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m15 - Shaped Mouth Opaque, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m16 - Round Mouth Transparent, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m17 - Round Mouth Transparent, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m18 - Round Mouth Transparent, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m19 - Round Mouth Transparent, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m20 - Shaped Mouth Transparent, filled Opaque
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m21 - Shaped Mouth Transparent, filled Opaque + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m22 - Shaped Mouth Transparent, filled Transparent
 								Property: { Effect: ["GagEasy","BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m23 - Shaped Mouth Transparent, filled Transparent + pinhole
 								Property: { Effect: ["BlockMouth"],
-									OverridePriority: 38,
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
 								}
 							},
 							{ // m24 - Open
 								Property: { Effect: []}
+							},
+							{ // m25 - Fishnet Mouth
+								Property: { Effect: ["BlockMouth"],
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m26 - Circle Mouth
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m27 - Circle Mouth Transparent
+								Property: { Effect: ["OpenMouth"] }
+							},
+							{ // m28 - Circle Mouth Opaque, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m29 - Circle Mouth Transparent, filled Opaque
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m30 - Circle Mouth Opaque, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
+							},
+							{ // m31 - Circle Mouth Transparent, filled Transparent
+								Property: { Effect: ["GagEasy","BlockMouth"],
+									OverridePriority: {
+										"PanelHead": 38, "PanelHeadTransparent": 38, "PanelHeadHighlight": 38, "PanelNoEye": 38, "PanelNoEyeTransparent": 38, "PanelHoleNoEye": 38, "PanelHoleNoEyeTransparent": 38,
+										"PanelNoEyeHighlight": 38, "PanelRoundEye": 38, "PanelRoundEyeTransparent": 38, "PanelRoundEyeHighlight": 38, "PanelShapedEye": 38, "PanelShapedEyeTransparent": 38, "PanelShapedEyeHighlight": 38,
+										"PanelCircleEye": 38, "PanelCircleEyeTransparent": 38, "PanelCircleEyeHighlight": 38, "FillRoundEye": 38, "FillRoundEyeTransparent": 38, "FillHoleRoundEye": 38, "FillHoleRoundEyeTransparent": 38,
+										"FillRoundEyeHighlight": 38, "FillShapedEye": 38, "FillShapedEyeTransparent": 38, "FillHoleShapedEye": 38, "FillHoleShapedEyeTransparent": 38, "FillShapedEyeHighlight": 38, "FillCircleEye": 38,
+										"FillCircleEyeTransparent": 38, "PanelNoMouth": 38, "PanelNoMouthTransparent": 38, "PanelHoleNoMouth": 38, "PanelHoleNoMouthTransparent": 38, "PanelNoMouthHighlight": 38, "PanelRoundMouth": 38,
+										"PanelRoundMouthTransparent": 38, "PanelRoundMouthHighlight": 38, "PanelShapedMouth": 38, "PanelShapedMouthTransparent": 38, "PanelShapedMouthHighlight": 38, "PanelFishnetMouth": 38,
+										"PanelCircleMouth": 38, "PanelCircleMouthTransparent": 38, "PanelCircleMouthHighlight": 38, "FillRoundMouth": 38, "FillRoundMouthTransparent": 38, "FillHoleRoundMouth": 38, "FillHoleRoundMouthTransparent": 38,
+										"FillShapedMouth": 38, "FillShapedMouthTransparent": 38, "FillHoleShapedMouth": 38, "FillHoleShapedMouthTransparent": 38, "FillCircleMouth": 38, "FillCircleMouthTransparent": 38, "LiningRoundFace": 38,
+										"LiningRoundFaceHighlight": 38, "LiningCrossFace": 38, "LiningCrossFaceHighlight": 38, "LiningRoundEye": 38, "LiningRoundEyeHighlight": 38, "LiningShapedEye": 38, "LiningShapedEyeHighlight": 38,
+										"LiningRoundMouth": 38, "LiningShapedMouth": 38, "LiningCircleEye": 38, "LiningCircleEyeHighlight": 38, "LiningCircleMouth": 38,
+									},
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"]
+								}
 							},
 						]
 					},
@@ -3640,6 +3951,28 @@ var AssetFemale3DCGExtended = {
 							{ // e23 - Shaped Eyes Transparent, filled Transparent + pinhole
 								Property: { Effect: []}
 							},
+							{ // e24 - Circle Eyes
+								Property: { Effect: []}
+							},
+							{ // e25 - Circle Eyes Transparent
+								Property: { Effect: []}
+							},
+							{ // e26 - Circle Eyes Opaque, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e27 - Circle Eyes Opaque, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
+							{ // e28 - Circle Eyes Transparent, filled Opaque
+								Property: { Effect: ["BlindHeavy"]
+								}
+							},
+							{ // e29 - Circle Eyes Transparent, filled Transparent
+								Property: { Effect: ["BlindLight"]
+								}
+							},
 						]
 					},
 					{
@@ -3674,15 +4007,12 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [""], }
 							},
 							{// z1 - Open
-								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: [""],
 									Hide: ["HairFront"],
 									HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-									Block: ["ItemHead"],
 								}
 							},
 							{// z2 - Closed
-								Prerequisite: ["EyesEmpty"],
 								Property: {
 									Effect: ["BlindHeavy","GagEasy","BlockMouth"],
 									Hide: ["HairFront","Mask"],
@@ -3690,15 +4020,12 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{// z3 - Open Transparent
-								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: [""],
 									Hide: ["HairFront"],
 									HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
-									Block: ["ItemHead"],
 								}
 							},
 							{// z4 - Closed Transparent
-								Prerequisite: ["EyesEmpty"],
 								Property: { Effect: ["BlindLight","GagEasy","BlockMouth"],
 									Hide: ["HairFront"],
 									HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
