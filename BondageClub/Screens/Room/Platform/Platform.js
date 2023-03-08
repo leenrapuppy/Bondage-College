@@ -246,7 +246,7 @@ var PlatformTemplate = [
 			{ Name: "Idle", Cycle: [0], Speed: 1000 }
 		]
 	},
-	/*	{
+	/*{
 		Name: "Kara",
 		Status: "Nude",
 		Health: 10,

@@ -193,8 +193,7 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 		AssetGroup.filter(g => firstGroups.includes(g.Name)).concat(AssetGroup.filter(g => !firstGroups.includes(g.Name)));
 
 	// For each item group (non default items only show at a 8% rate, if it can occasionally happen)
-	for (let A = 0; A < assetGroupList.length; A++) {
-		const group = assetGroupList[A];
+	for (const group of assetGroupList) {
 		if (group.IsAppearance() && (group.IsDefault || (group.Random && Math.random() < 0.08) || CharacterAppearanceRequired(C, group.Name)) && (!CharacterAppearanceMustHide(C, group.Name) || !group.AllowNone) && (CharacterAppearanceGetCurrentValue(C, group.Name, "Name") == "None") && AppearanceGroupAllowed(C, group.Name)) {
 
 			// Get the parent size
@@ -230,10 +229,12 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 					if (CharacterAppearanceGetCurrentValue(C, SelectedAsset.Group.ParentColor, "Color") != "None")
 						SelectedColor = CharacterAppearanceGetCurrentValue(C, SelectedAsset.Group.ParentColor, "Color");
 				// Rare chance of keeping eyes of a different color
-				if (SelectedAsset.Group.Name == "Eyes2" && Math.random() < 0.995)
-					for (let A = 0; A < C.Appearance.length; A++)
-						if (C.Appearance[A].Asset.Group.Name == "Eyes")
-							SelectedColor = C.Appearance[A].Color;
+				if (SelectedAsset.Group.Name == "Eyes2" && Math.random() < 0.995) {
+					const eye = C.Appearance.find(item => item.Asset.Group.Name === "Eyes");
+					if (eye) {
+						SelectedColor = eye.Color;
+					}
+				}
 				if (SelectedColor == "Default" && SelectedAsset.DefaultColor != null) SelectedColor = SelectedAsset.DefaultColor;
 				/** @type {Item} */
 				var NA = {

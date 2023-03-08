@@ -30,7 +30,7 @@ function MiniGameChessStart(Depth, PlayerColor) {
 	 * @param {string} color - Players color, either 'b' or 'w'
 	 * @return {Number} board value relative to player
 	 */
-	function evaluateBoard(board, color) {
+	function evaluateBoard(chessboard, color) {
 		// Sets the value for each piece using standard piece value
 		const pieceValue = {
 			p: 100,
@@ -43,7 +43,7 @@ function MiniGameChessStart(Depth, PlayerColor) {
 
 		// Loop through all pieces on the board and sum up total
 		let value = 0;
-		for (const row of board) {
+		for (const row of chessboard) {
 			for (const piece of row) {
 				if (piece) value += pieceValue[piece.type] * (piece.color === color ? 1 : -1);
 			}
@@ -59,16 +59,16 @@ function MiniGameChessStart(Depth, PlayerColor) {
 	/**
 	 * Calculates the best move using Minimax with Alpha Beta Pruning.
 	 * @param {Number} depth - How many moves ahead to evaluate
-	 * @param {Object} game - The game to evaluate
+	 * @param {Object} chessgame - The game to evaluate
 	 * @param {string} playerColor - Players color, either 'b' or 'w'
 	 * @param {Number} alpha
 	 * @param {Number} beta
 	 * @param {Boolean} isMaximizingPlayer - If current turn is maximizing or minimizing player
-	 * @return {Array} The best move value, and the best move
+	 * @return {Promise<[number, number]>} The best move value, and the best move
 	 */
 	async function calcBestMove(
 		depth,
-		game,
+		chessgame,
 		playerColor,
 		alpha = Number.NEGATIVE_INFINITY,
 		beta = Number.POSITIVE_INFINITY,
@@ -78,7 +78,7 @@ function MiniGameChessStart(Depth, PlayerColor) {
 
 		// Base case: evaluate board
 		if (depth === 0) {
-			value = evaluateBoard(game.board(), playerColor);
+			value = evaluateBoard(chessgame.board(), playerColor);
 			return [value, null];
 		}
 		if (depth >= PauseDepth) {
@@ -86,7 +86,7 @@ function MiniGameChessStart(Depth, PlayerColor) {
 		}
 		// Recursive case: search possible moves
 		let bestMove = null; // best move not set yet
-		const possibleMoves = game.moves();
+		const possibleMoves = chessgame.moves();
 		// Set random order for possible moves
 		possibleMoves.sort(() => 0.5 - Math.random());
 		// Set a default best move value
@@ -95,9 +95,9 @@ function MiniGameChessStart(Depth, PlayerColor) {
 		for (let i = 0; i < possibleMoves.length; i++) {
 			const move = possibleMoves[i];
 			// Make the move, but undo before exiting loop
-			game.move(move);
+			chessgame.move(move);
 			// Recursively get the value from this move
-			value = (await calcBestMove(depth - 1, game, playerColor, alpha, beta, !isMaximizingPlayer))[0];
+			value = (await calcBestMove(depth - 1, chessgame, playerColor, alpha, beta, !isMaximizingPlayer))[0];
 			// Log the value of this move
 			//console.log(isMaximizingPlayer ? 'Max: ' : 'Min: ', depth, move, value, bestMove, bestMoveValue);
 
@@ -117,7 +117,7 @@ function MiniGameChessStart(Depth, PlayerColor) {
 				beta = Math.min(beta, value);
 			}
 			// Undo previous move
-			game.undo();
+			chessgame.undo();
 			// Check for alpha beta pruning
 			if (beta <= alpha) {
 				//console.log('Prune', alpha, beta);

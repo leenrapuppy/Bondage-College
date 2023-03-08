@@ -7145,8 +7145,8 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "Kissmark", Random: false, Value: -1, BuyGroup: "Kissmark", Difficulty: 0, Time: 5,
-                RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockedMouth"],
-                DynamicGroupName: "ItemMouth3",
+				RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: false, Effect: [], Prerequisite: ["BlockedMouth"],
+				DynamicGroupName: "ItemMouth3",
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

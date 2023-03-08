@@ -583,7 +583,7 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
 	else if (typeof Property.OverridePriority === "object") {
 		let valid = true;
-		for (const [layerName, prio] of Object.entries(Property.OverridePriority)) {
+		for (const [layerName] of Object.entries(Property.OverridePriority)) {
 			if (!Asset.Layer.find(l => l.Name === layerName)) {
 				console.warn(`invalid OverridePriority property: unknown layer name ${layerName}`);
 				valid = false;

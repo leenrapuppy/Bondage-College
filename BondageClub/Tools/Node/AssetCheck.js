@@ -541,7 +541,7 @@ function sanitizeVMOutput(input) {
 						if (!assetConfig) {
 							error(`Asset ${Group.Group}:${Asset.Name}: CopyConfig target not found!`);
 							assetConfig = groupConfig[Asset.Name];
-						} else if (assetConfig.Archetype !== groupConfig[Asset.Name].Archetype) {
+						} else if (Archetype !== groupConfig[Asset.Name].Archetype) {
 							error(`Asset for ${Group.Group}:${Asset.Name}: Mismatch in archetypes after CopyConfig`);
 						} else if (Overrides) {
 							const MergedConfig = Object.assign({}, assetConfig.Config, Overrides);

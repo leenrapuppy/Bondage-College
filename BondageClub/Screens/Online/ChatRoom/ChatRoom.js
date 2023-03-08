@@ -3145,7 +3145,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	// Checks if the message is a notification about the user entering or leaving the room
 	let MsgEnterLeave = "";
 	let MsgNonDialogue = "";
-	if (data.Type === "Action" && ["ServerEnter", "ServerLeave", "ServerDisconnect", "ServerBan", "ServerKick"].some(msg => data.Content.startsWith(msg)))
+	if (data.Type === "Action" && ["ServerEnter", "ServerLeave", "ServerDisconnect", "ServerBan", "ServerKick"].some(m => data.Content.startsWith(m)))
 		MsgEnterLeave = " ChatMessageEnterLeave";
 	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
 		MsgNonDialogue = " ChatMessageNonDialogue";
@@ -3568,86 +3568,79 @@ function ChatRoomSyncSingle(data) {
 
 /**
  * Updates a single character's expression in the chatroom.
- * @param {object} data - Data object containing the new character expression data.
+ * @param {IChatRoomSyncExpressionMessage} data - Data object containing the new character expression data.
  * @returns {void} - Nothing.
  */
 function ChatRoomSyncExpression(data) {
-	if ((data == null) || (typeof data !== "object") || (data.Group == null) || (typeof data.Group !== "string")) return;
-	for (let C = 0; C < ChatRoomCharacter.length; C++)
-		if (ChatRoomCharacter[C].MemberNumber == data.MemberNumber) {
+	if (data === null || typeof data !== "object" || typeof data.Group !== "string" || typeof data.Name !== "string") return;
+	const character = ChatRoomCharacter.find(c => c.MemberNumber === data.MemberNumber);
+	if (!character) return;
 
-			// Changes the facial expression
-			for (let A = 0; A < ChatRoomCharacter[C].Appearance.length; A++)
-				if ((ChatRoomCharacter[C].Appearance[A].Asset.Group.Name == data.Group) && (ChatRoomCharacter[C].Appearance[A].Asset.Group.AllowExpression))
-					if ((data.Name == null) || (ChatRoomCharacter[C].Appearance[A].Asset.Group.AllowExpression.indexOf(data.Name) >= 0)) {
-						if (!ChatRoomCharacter[C].Appearance[A].Property) ChatRoomCharacter[C].Appearance[A].Property = {};
-						if (ChatRoomCharacter[C].Appearance[A].Property.Expression != data.Name) {
-							ChatRoomCharacter[C].Appearance[A].Property.Expression = data.Name;
-							CharacterRefresh(ChatRoomCharacter[C], false);
-						}
-					}
+	// Changes the facial expression if the group exists and allows it
+	const item = character.Appearance.find(i => i.Asset.Group.Name === data.Group && i.Asset.Group.AllowExpression && i.Asset.Group.AllowExpression.includes(data.Name));
+	if (!item) return;
 
-			// Keeps a copy of the previous version
-			for (let C = 0; C < ChatRoomData.Character.length; C++)
-				if (ChatRoomData.Character[C].MemberNumber == data.MemberNumber)
-					ChatRoomData.Character[C].Appearance = ChatRoomCharacter[C].Appearance;
-			return;
+	if (!item.Property) item.Property = {};
+	if (item.Property.Expression != data.Name) {
+		item.Property.Expression = data.Name;
+		CharacterRefresh(character, false);
+	}
 
-		}
+	// Update the cached copy in the chatroom
+	const roomCharacter = ChatRoomData.Character.find(c => c.MemberNumber === data.MemberNumber);
+	if (roomCharacter) {
+		roomCharacter.Appearance = character.Appearance;
+	}
 }
 
 /**
  * Updates a single character's pose in the chatroom.
- * @param {object} data - Data object containing the new character pose data.
+ * @param {IChatRoomSyncPoseMessage} data - Data object containing the new character pose data.
  * @returns {void} - Nothing.
  */
 function ChatRoomSyncPose(data) {
 	if ((data == null) || (typeof data !== "object")) return;
-	for (let C = 0; C < ChatRoomCharacter.length; C++)
-		if (ChatRoomCharacter[C].MemberNumber == data.MemberNumber) {
+	const character = ChatRoomCharacter.find(c => c.MemberNumber === data.MemberNumber);
+	if (!character) return;
 
-			// Sets the active pose
-			ChatRoomCharacter[C].ActivePose = data.Pose;
-			CharacterRefresh(ChatRoomCharacter[C], false);
+	// Sets the active pose
+	character.ActivePose = /** @type {AssetPoseName[]} */(data.Pose);
+	CharacterRefresh(character, false);
 
-			// Keeps a copy of the previous version
-			for (let C = 0; C < ChatRoomData.Character.length; C++)
-				if (ChatRoomData.Character[C].MemberNumber == data.MemberNumber)
-					ChatRoomData.Character[C].ActivePose = data.Pose;
-			return;
-
-		}
+	// Update the cached copy in the chatroom
+	const roomCharacter = ChatRoomData.Character.find(c => c.MemberNumber === data.MemberNumber);
+	if (roomCharacter) {
+		roomCharacter.ActivePose = character.ActivePose;
+	}
 }
 
 /**
  * Updates a single character's arousal progress in the chatroom.
- * @param {object} data - Data object containing the new character arousal data.
+ * @param {IChatRoomSyncArousalMessage} data - Data object containing the new character arousal data.
  * @returns {void} - Nothing.
  */
 function ChatRoomSyncArousal(data) {
 	if ((data == null) || (typeof data !== "object")) return;
-	for (let C = 0; C < ChatRoomCharacter.length; C++)
-		if ((ChatRoomCharacter[C].MemberNumber == data.MemberNumber) && (ChatRoomCharacter[C].ArousalSettings != null)) {
+	const character = ChatRoomCharacter.find(c => c.MemberNumber === data.MemberNumber);
+	if (!character || !character.ArousalSettings) return;
 
-			// Sets the orgasm count & progress
-			ChatRoomCharacter[C].ArousalSettings.OrgasmTimer = data.OrgasmTimer;
-			ChatRoomCharacter[C].ArousalSettings.OrgasmCount = data.OrgasmCount;
-			ChatRoomCharacter[C].ArousalSettings.Progress = data.Progress;
-			ChatRoomCharacter[C].ArousalSettings.ProgressTimer = data.ProgressTimer;
-			if ((ChatRoomCharacter[C].ArousalSettings.AffectExpression == null) || ChatRoomCharacter[C].ArousalSettings.AffectExpression) ActivityExpression(ChatRoomCharacter[C], ChatRoomCharacter[C].ArousalSettings.Progress);
+	// Sets the orgasm count & progress
+	character.ArousalSettings.OrgasmTimer = data.OrgasmTimer;
+	character.ArousalSettings.OrgasmCount = data.OrgasmCount;
+	character.ArousalSettings.Progress = data.Progress;
+	character.ArousalSettings.ProgressTimer = data.ProgressTimer;
+	if ((character.ArousalSettings.AffectExpression == null) || character.ArousalSettings.AffectExpression)
+		ActivityExpression(character, character.ArousalSettings.Progress);
 
-			// Keeps a copy of the previous version
-			for (let C = 0; C < ChatRoomData.Character.length; C++)
-				if (ChatRoomData.Character[C].MemberNumber == data.MemberNumber) {
-					ChatRoomData.Character[C].ArousalSettings.OrgasmTimer = data.OrgasmTimer;
-					ChatRoomData.Character[C].ArousalSettings.OrgasmCount = data.OrgasmCount;
-					ChatRoomData.Character[C].ArousalSettings.Progress = data.Progress;
-					ChatRoomData.Character[C].ArousalSettings.ProgressTimer = data.ProgressTimer;
-					ChatRoomData.Character[C].Appearance = ChatRoomCharacter[C].Appearance;
-				}
-			return;
-
-		}
+	// Update the cached copy in the chatroom
+	const roomCharacter = ChatRoomData.Character.find(c => c.MemberNumber === data.MemberNumber);
+	if (roomCharacter && roomCharacter.ArousalSettings) {
+		roomCharacter.ArousalSettings.OrgasmTimer = data.OrgasmTimer;
+		roomCharacter.ArousalSettings.OrgasmCount = data.OrgasmCount;
+		roomCharacter.ArousalSettings.Progress = data.Progress;
+		roomCharacter.ArousalSettings.ProgressTimer = data.ProgressTimer;
+		roomCharacter.Appearance = character.Appearance;
+	}
 }
 
 

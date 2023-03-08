@@ -68,14 +68,14 @@ function setButton(X, Y) {
  */
 function ButtonExists(X, Y) {
 	var g = 0;
-	var ButtonExists = false;
+	var Exists = false;
 	while (g < ControllerButtonsX.length) {
 		if (ControllerButtonsX[g] == X && ControllerButtonsY[g] == Y) {
-			ButtonExists = true;
+			Exists = true;
 		}
 		g += 1;
 	}
-	return ButtonExists;
+	return Exists;
 }
 
 /**

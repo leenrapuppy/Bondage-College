@@ -373,8 +373,8 @@ function PropertyTextLoad(OriginalFunction=null, EventListeners={}) {
 			const Callback = EventListeners[propName] || PropertyTextChange;
 			textInput.pattern = DynamicDrawTextInputPattern;
 			textInput.addEventListener("input", (e) => {
-				const Item = (DialogFocusItem.Asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
-				Callback(C, Item, propName, e.target.value);
+				const I = (DialogFocusItem.Asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
+				Callback(C, I, propName, e.target.value);
 			});
 			return textInput;
 		} else {

@@ -844,21 +844,21 @@ function CraftingItemListBuild() {
  */
 const CraftingValidationRecord = {
 	Color: {
-		Validate: function(c, a) {
-			if (typeof c.Color !== "string") {
+		Validate: function(craft, asset) {
+			if (typeof craft.Color !== "string") {
 				return false;
-			} else if ((c.Color === "") || (a == null)) {
+			} else if ((craft.Color === "") || (asset == null)) {
 				return true;
 			} else {
-				const Colors = c.Color.replace(" ", "").split(",");
+				const Colors = craft.Color.replace(" ", "").split(",");
 				return Colors.every((c) => CommonIsColor(c) || (c === "Default"));
 			}
 		},
-		GetDefault: function(c, a) {
-			if ((typeof c.Color !== "string") || (a == null)) {
+		GetDefault: function(craft, asset) {
+			if ((typeof craft.Color !== "string") || (asset == null)) {
 				return "";
 			} else {
-				const Colors = c.Color.replace(" ", "").split(",");
+				const Colors = craft.Color.replace(" ", "").split(",");
 				const ColorsNew = Colors.map((c) => CommonIsColor(c) ? c : "Default");
 				return ColorsNew.join(",");
 			}

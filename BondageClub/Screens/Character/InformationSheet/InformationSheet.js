@@ -229,9 +229,10 @@ function InformationSheetSecondScreenRun() {
 		}
 
 		// Draw the player skill modifier if there's one
+		// FIXME: this relies on the side-effects of that function to grab onto the modifier
 		SkillGetLevel(C, "Evasion");
 		if ((C.ID == 0) && (SkillModifier != 0)) {
-			let pos = 0;
+			pos = 0;
 			var PlusSign = (SkillModifier > 0) ? "+" : "";
 			DrawText(TextGet("SkillModifier"), 1425, 650 + (pos++ * lineHeight), "Black", "Gray");
 			DrawText(TextGet("SkillBondage") + " " + PlusSign + SkillModifier, 1425, 650 + (pos++ * lineHeight), "Black", "Gray");

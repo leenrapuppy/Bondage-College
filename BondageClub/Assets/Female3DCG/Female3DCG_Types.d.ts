@@ -345,7 +345,7 @@ interface AssetLayerDefinition {
 	HideColoring?: boolean;
 	AllowTypes?: string[];
 	HasType?: boolean;
-	Visibility?: string;
+	Visibility?: "Player" | "AllExceptPlayerDialog" | "Others" | "OthersExceptDialog" | "Owner" | "Lovers" | "Mistresses";
 
 	/** The group the layer belongs to. Mainly useful to inherit the body's size. */
 	ParentGroup?: AssetGroupName | null,

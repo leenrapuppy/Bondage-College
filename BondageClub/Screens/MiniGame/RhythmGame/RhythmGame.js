@@ -122,7 +122,7 @@ let RhythmGameAudio =  {
 		mp3.onreadystatechange = function() {
 			if (mp3.readyState === 4 && mp3.status === 200) {
 				let audioData = mp3.response;
-				RhythmGameAudio.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+				RhythmGameAudio.audioCtx = new window.AudioContext();
 				RhythmGameAudio.bufferSource = RhythmGameAudio.audioCtx.createBufferSource();
 				RhythmGameAudio.audioCtx.decodeAudioData(
 					audioData,
@@ -984,7 +984,7 @@ function RhythmGameRun() {
 		MiniGameAdvancedPayment = RhythmGamePassed ? Math.round(RhythmGameScript.score + 10) : 0;
 		RhythmGameAudio.stop();
 		RhythmGameKey.removeKeyListener();
-		MiniGameEnd()
+		MiniGameEnd();
 	}
 	else RhythmGameKernel.update();
 }
