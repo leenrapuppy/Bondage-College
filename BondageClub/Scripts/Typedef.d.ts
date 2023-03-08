@@ -1456,6 +1456,7 @@ interface Character {
 	Hooks: Map<string, Map<string, () => void>> | null;
 	RegisterHook: (hookName: string, hookInstance: string, callback: () => void) => boolean | any;
 	UnregisterHook: (hookName: string, hookInstance: string) => boolean;
+	RunHooks: (hookName: string) => void;
 	HeightRatioProportion?: number;
 	GetGenders: () => string[];
 	HasPenis: () => boolean;
