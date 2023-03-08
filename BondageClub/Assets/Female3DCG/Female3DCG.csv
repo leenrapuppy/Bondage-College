@@ -63,7 +63,7 @@ Cloth,CropTop,Crop Top
 Cloth,Laurel,Laurel Top
 Cloth,SeethroughTop,See-through Top
 Cloth,Jacket,Jacket
-Cloth,MaleTankTop1,Male Cloth Tank-Top 
+Cloth,MaleTankTop1,Male Cloth Tank-Top
 Cloth,ButtonShirt,Button Shirt
 Cloth,SlaveRags,Slave Rags
 Cloth,Hoodie,Cropped Hoodie
@@ -800,8 +800,8 @@ Pussy,PussyDark2,Dark 2
 Pussy,PussyDark3,Dark 3
 Pussy,Penis,Penis
 Pronouns,,Pronouns
-Pronouns,SheHer,She/Her 
-Pronouns,HeHim,He/Him 
+Pronouns,SheHer,She/Her
+Pronouns,HeHim,He/Him
 Blush,,Blush
 Blush,Blush,Blush
 Fluids,,Fluids
@@ -1200,6 +1200,7 @@ ItemHandheld,GlassEmpty,Empty Glass
 ItemHandheld,GlassFilled,Filled Glass
 ItemHandheld,PotionBottle,Potion Bottle
 ItemHandheld,MedicalInjector,Medical Injector
+ItemHandheld,Mug,Coffee Mug
 ItemNeck,,Neck
 ItemNeck,LeatherCollar,Leather Collar
 ItemNeck,LeatherCollarBell,Bell Collar
