@@ -347,10 +347,11 @@ function PreferenceInit(C) {
 		// Validates the zones
 		for (let Group of AssetGroup) {
 			if (Group.IsItem() && AssetActivitiesForGroup(Player.AssetFamily, Group.Name, "any").length) {
-				const Zone = PreferenceGetArousalZone(C, Group.Name);
+				let Zone = PreferenceGetArousalZone(C, Group.Name);
 				if (!Zone) {
-					C.ArousalSettings.Zone.push({ Name: Group.Name, Factor: 2, Orgasm: false });
+					Zone = { Name: Group.Name, Factor: 2, Orgasm: false };
 					if (Group.Name == "ItemVulva") Zone.Orgasm = true;
+					C.ArousalSettings.Zone.push(Zone);
 				} else if (Zone.Factor < 0 || Zone.Factor > 4) {
 					Zone.Factor = 2;
 				}
