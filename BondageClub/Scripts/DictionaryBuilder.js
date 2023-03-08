@@ -13,6 +13,8 @@ class DictionaryBuilder {
 		/** @type {DictionaryBuilder[]} */
 		this._children = [];
 		this._targetIndex = 0;
+		/** @type {boolean} */
+		this._condition = true;
 	}
 
 	/**
@@ -45,6 +47,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	sourceCharacter(character) {
+		if (!this._condition) return this;
 		this._addEntry({SourceCharacter: character.MemberNumber});
 		return this;
 	}
@@ -74,6 +77,8 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	targetCharacter(character, index) {
+		if (!this._condition) return this;
+
 		/** @type {TargetCharacterDictionaryEntry} */
 		const entry = {TargetCharacter: character.MemberNumber};
 		if (this._targetIndex) {
@@ -100,7 +105,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	focusGroup(groupName) {
-		if (groupName) {
+		if (this._condition && groupName) {
 			this._addEntry({Tag: "FocusAssetGroup", FocusGroupName: groupName});
 		}
 		return this;
@@ -111,7 +116,7 @@ class DictionaryBuilder {
 	 * @param {Asset} asset
 	 */
 	asset(asset, tag="AssetName") {
-		if (asset) {
+		if (this._condition && asset) {
 			this._addEntry({ Tag: tag, AssetName: asset.Name, GroupName: asset.Group.Name });
 		}
 		return this;
@@ -125,7 +130,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	text(tag, text) {
-		if (tag && text) {
+		if (this._condition && tag && text) {
 			this._addEntry({Tag: tag, Text: text});
 		}
 		return this;
@@ -139,7 +144,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	textLookup(tag, lookupText) {
-		if (tag && lookupText) {
+		if (this._condition && tag && lookupText) {
 			this._addEntry({Tag: tag, TextToLookUp: lookupText});
 		}
 		return this;
@@ -151,7 +156,7 @@ class DictionaryBuilder {
 	 * @returns {this}
 	 */
 	shockIntensity(intensity) {
-		if (typeof intensity === "number" && !isNaN(intensity)) {
+		if (this._condition && typeof intensity === "number" && !isNaN(intensity)) {
 			this._addEntry({ ShockIntensity: intensity });
 		}
 		return this;
@@ -174,6 +179,8 @@ class DictionaryBuilder {
 	 * @protected
 	 */
 	_addEntry(entry) {
+		if (!this._condition) return false;
+
 		this._entries.push(entry);
 		return true;
 	}
@@ -186,7 +193,7 @@ class DictionaryBuilder {
 	 * @private
 	 */
 	_addCharacterReference(tag, character) {
-		if (character) {
+		if (this._condition && character) {
 			this._addEntry({
 				Tag: tag,
 				MemberNumber: character.MemberNumber,
@@ -222,14 +229,6 @@ class ConditionalDictionaryBuilder extends DictionaryBuilder {
 	 */
 	endif() {
 		return this._parent;
-	}
-
-	_addEntry(entry) {
-		if (this._condition) {
-			super._addEntry(entry);
-			return true;
-		}
-		return false;
 	}
 }
 
