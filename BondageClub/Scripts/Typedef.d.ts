@@ -1190,9 +1190,9 @@ type ActivityName = "Bite" | "Caress" | "Choke" | "Cuddle" | "FrenchKiss" |
 	"MoanGag" |"MoanGagAngry" | "MoanGagGiggle" | "MoanGagGroan" | "MoanGagTalk" |
 	"MoanGagWhimper" | "Nibble" | "Nod" | "PenetrateFast" | "PenetrateItem" |
 	"PenetrateSlow" | "Pet" | "Pinch" | "PoliteKiss" | "PourItem" | "Pull" |
-	"RestHead" | "RollItem" | "Rub" | "RubItem" | "ShockItem" | "Sit" | "Slap" |
-	"Spank" | "SpankItem" | "Step" | "StruggleArms" | "StruggleLegs" | "Suck" |
-	"TakeCare" | "Tickle" | "TickleItem" | "Whisper" | "Wiggle"
+	"RestHead" | "RollItem" | "Rub" | "RubItem" | "ShockItem" | "SipItem" | "Sit" | 
+	"Slap" | "Spank" | "SpankItem" | "Step" | "StruggleArms" | "StruggleLegs" | 
+	"Suck" | "TakeCare" | "Tickle" | "TickleItem" | "Whisper" | "Wiggle"
 ;
 
 interface Activity {
