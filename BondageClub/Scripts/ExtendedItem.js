@@ -67,8 +67,8 @@ const ExtendedXYClothes = [
 const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage, [
 	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
 	(character) => character.ID.toString(),
-	(option) => String(option),
-	(option) => String(option),
+	(option) => option.Name,
+	(option) => option.Name,
 ]);
 
 /**
@@ -478,12 +478,6 @@ function ExtendedItemExit() {
 function ExtendedItemSetType(C, Options, Option) {
 	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 	const FunctionPrefix = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "");
-
-	if (CurrentScreen == "ChatRoom") {
-		// Call the item's load function
-		CommonCallFunctionByName(FunctionPrefix + "Load");
-	}
-
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options);
 

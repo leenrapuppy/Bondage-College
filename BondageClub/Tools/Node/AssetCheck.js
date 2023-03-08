@@ -384,6 +384,32 @@ function testColorLayers(missingLayers) {
 }
 
 /**
+ * Gather all duplicate module/option names from the passed module/option list
+ * @param {readonly { Name: string }[]} options
+ * @returns {string[]}
+ */
+function gatherDuplicateOptionNames(options) {
+	/** @type {Record<string, number>} */
+	const nameCount = {};
+	for (const option of options) {
+		if (option.Name in nameCount) {
+			nameCount[option.Name] += 1;
+		} else {
+			nameCount[option.Name] = 1;
+		}
+	}
+
+	/** @type {string[]} */
+	const duplicates = [];
+	for (const [name, count] of Object.entries(nameCount)) {
+		if (count > 1) {
+			duplicates.push(name);
+		}
+	}
+	return duplicates;
+}
+
+/**
  * Check whether all extended item options and modules are (at least) of length 1.
  * @param {ExtendedItemConfig} config
  */
@@ -416,6 +442,11 @@ function testModuleOptionLengthTyped(groupName, assetName, assetConfig) {
 	if (options.length === 0) {
 		error(`${groupName}:${assetName}: typed item require at least one option`);
 	}
+
+	const duplicateNames = gatherDuplicateOptionNames(options);
+	if (duplicateNames.length) {
+		error(`${groupName}:${assetName}: found ${duplicateNames.length} typed item options with a duplicate Name: ${duplicateNames}`);
+	}
 }
 
 /**
@@ -437,6 +468,11 @@ function testModuleOptionLengthModular(groupName, assetName, assetConfig) {
 		if (mod.Options.length === 0) {
 			error(`${groupName}:${assetName}: modular item module "${mod}" requires at least one option`);
 		}
+	}
+
+	const duplicateNames = gatherDuplicateOptionNames(modules);
+	if (duplicateNames.length) {
+		error(`${groupName}:${assetName}: found ${duplicateNames.length} modular item modules with a duplicate Name: ${duplicateNames}`);
 	}
 }
 
