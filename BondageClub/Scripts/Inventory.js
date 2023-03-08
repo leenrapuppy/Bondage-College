@@ -614,7 +614,7 @@ function InventoryWearCraftVibrating(Item, C, Type) {
 
 	const options = VibratorModeGetOptions(Data.options);
 	const option = options.find(o => o.Name === Type) || VibratorModeOff;
-	VibratorModeSetOption(C, Item, options, option);
+	TypedItemSetOption(C, Item, options, option);
 }
 
 /**

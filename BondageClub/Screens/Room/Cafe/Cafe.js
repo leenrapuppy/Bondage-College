@@ -428,8 +428,7 @@ function CafeGivenDildo() {
  */
 function CafeTurnDildoUp() {
 	const vibe = InventoryGet(Player, "ItemVulva");
-	VibratorModeSetMode(vibe, VibratorMode.MEDIUM);
-	vibe.Property.Type = "f0i2";
+	InventoryWearCraftModular(vibe, Player, "f0i2");
 	CharacterRefresh(Player, true);
 	ChatRoomCharacterItemUpdate(Player, vibe.Asset.Group.Name);
 	CafeVibeIncreased = true;

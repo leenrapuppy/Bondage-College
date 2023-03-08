@@ -4407,6 +4407,9 @@ var AssetFemale3DCGExtended = {
 					Click: FuturisticAccessClick,
 					Draw: FuturisticAccessDraw,
 					Exit: FuturisticAccessExit,
+					Validate: (next, ...args) => {
+						return FuturisticAccessValidate(next, ...args) || VibratorModeValidate(...args);
+					},
 				}
 			},
 		}, // FuturisticCrate

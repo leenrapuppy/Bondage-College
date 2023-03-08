@@ -163,10 +163,12 @@ function ExtendedItemInitNoArch(Item, C, Properties, Refresh=true) {
  * Loads the item's extended item menu
  * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
  *     type
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(DialogKey) {
-	if (ExtendedItemSubscreen) {
+function ExtendedItemLoad(DialogKey, IgnoreSubscreen=false) {
+	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
 		return;
 	}
@@ -185,11 +187,13 @@ function ExtendedItemLoad(DialogKey) {
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images should be shown for the specific item
  * @param {readonly [number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} Nothing
  */
-function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null) {
+function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
 	// If an option's subscreen is open, it overrides the standard screen
-	if (ExtendedItemSubscreen) {
+	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
 		return;
 	}
@@ -386,13 +390,15 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images are shown for the specific item
  * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} Nothing
  */
-function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=null) {
+function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
 	const C = CharacterGetCurrent();
 
 	// If an option's subscreen is open, pass the click into it
-	if (ExtendedItemSubscreen) {
+	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click", C, Options);
 		return;
 	}

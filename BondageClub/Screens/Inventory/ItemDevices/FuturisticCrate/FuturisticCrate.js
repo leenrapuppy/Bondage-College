@@ -6,13 +6,15 @@ function InventoryItemDevicesFuturisticCrateDevice1Init(Item, C, Refresh) {
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Load() {
+	InventoryItemDevicesFuturisticCrateDevice1Init(DialogFocusItem, CharacterGetCurrent(), false);
+	VibratorModeLoad(true);
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Draw() {
 	if (DialogFocusItem && DialogFocusItem.Property) {
 		if (DialogFocusItem.Property.Intensity == undefined) DialogFocusItem.Property.Intensity = -1;
 	}
-	VibratorModeDraw([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
+	VibratorModeDraw([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], 450, true);
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Click() {

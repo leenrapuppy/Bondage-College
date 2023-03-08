@@ -167,7 +167,7 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
  * @param {ItemVulvaFuturisticVibratorAccessMode} Option
  */
 function InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, Option) {
-	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
+	if (!Item.Property) TypedItemSetOption(C, Item, VibratorModeGetOptions(), VibratorModeOff);
 	Item.Property.AccessMode = Option;
 	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
@@ -194,18 +194,10 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
  * @param {boolean} IgnoreSame
  */
 function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame=false) {
-	const Mode = Option.Property && Option.Property.Mode;
-	if (
-		C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes
-		&& VibratorModeOptions.Advanced.some(i => i.Name === Mode)
-	) {
-		// Abort, the character has advanced vibrator modes disabled
+	var OldIntensity = Item.Property.Intensity;
+	if (TypedItemSetOption(C, Item, VibratorModeGetOptions(), Option, true)) {
 		return;
 	}
-
-	var OldIntensity = Item.Property.Intensity;
-	VibratorModeSetProperty(Item, Option.Property);
-	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 
 	if (CurrentScreen == "ChatRoom") {
@@ -237,6 +229,11 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 	}
 }
 
+/** @type {ExtendedItemValidateCallback<VibratingItemOption>} */
+function InventoryItemVulvaFuturisticVibratorValidate(...args) {
+	return VibratorModeValidate(...args);
+}
+
 /**
  * @param {Character} C
  * @param {Item} Item
@@ -244,7 +241,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
  */
 function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	if (!Item) return;
-	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
+	if (!Item.Property) TypedItemSetOption(C, Item, VibratorModeGetOptions(), VibratorModeOff);
 	var TriggerValues = Item.Property.TriggerValues && Item.Property.TriggerValues.split(',');
 	if (!TriggerValues) TriggerValues = ItemVulvaFuturisticVibratorTriggers;
 

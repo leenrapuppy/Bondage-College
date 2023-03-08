@@ -364,8 +364,9 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 		PersistentData.DeviceVibeMode = VibeMode;
 
 		const Option = VibratorModeGetOption(VibeMode);
-		VibratorModeSetProperty(Item, Option.Property);
-		CharacterRefresh(C);
+		if (TypedItemSetOption(C, Item, VibratorModeOptions[VibratorModeSet.STANDARD], Option, true)) {
+			return;
+		}
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 
 		if (CurrentScreen == "ChatRoom") {
@@ -399,6 +400,11 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 				CharacterSetFacialExpression(C, "Blush", "Medium", 5);
 		}
 	}
+}
+
+/** @type {ExtendedItemValidateCallback<VibratingItemOption>} */
+function InventoryItemFuturisticTrainingBeltValidate(...args) {
+	return VibratorModeValidate(...args);
 }
 
 /**

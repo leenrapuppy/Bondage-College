@@ -238,15 +238,21 @@ function VibratorModeGetOptions(modes=Object.values(VibratorModeSet)) {
  * @returns {void} - Nothing
  */
 function VibratorModeCreateLoadFunction({ functionPrefix, scriptHooks }) {
-	const loadFunction = () => {
-		const intensity = DialogFocusItem.Property.Intensity;
-		ExtendedItemLoad(`Intensity${intensity}`);
-	};
 	if (typeof scriptHooks.load === "function") {
-		window[`${functionPrefix}Load`] = () => scriptHooks.load(loadFunction);
+		window[`${functionPrefix}Load`] = () => scriptHooks.load(VibratorModeLoad);
 	} else {
-		window[`${functionPrefix}Load`] = loadFunction;
+		window[`${functionPrefix}Load`] = VibratorModeLoad;
 	}
+}
+
+/**
+ * Loads the vibrating item's extended item menu.
+ * @param IgnoreSubscreen Whether loading subscreen draw functions should be ignored.
+ * Should be set to true to avoid infinite recursions if the the subscreen also calls this function.
+ */
+function VibratorModeLoad(IgnoreSubscreen=false) {
+	const intensity = DialogFocusItem.Property.Intensity;
+	ExtendedItemLoad(`Intensity${intensity}`, IgnoreSubscreen);
 }
 
 /**
@@ -443,24 +449,28 @@ function VibratorModeGenerateCoords(Options, Y=450) {
  * Common draw function for vibrators
  * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets for the item
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} - Nothing
  */
-function VibratorModeDraw(Options, Y=450) {
+function VibratorModeDraw(Options, Y=450, IgnoreSubscreen=false) {
 	const coords = VibratorModeGenerateCoords(Options, Y);
 	const actualOptions = VibratorModeGetOptions(Options);
-	ExtendedItemDraw(actualOptions, "", 10, false, coords);
+	ExtendedItemDraw(actualOptions, "", 10, false, coords, IgnoreSubscreen);
 }
 
 /**
  * Common click function for vibrators
  * @param {readonly VibratorModeSet[]} Options - The vibrator mode sets for the item
  * @param {number} [Y] - The y-coordinate at which the extended item controls were drawn
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} - Nothing
  */
-function VibratorModeClick(Options, Y=450) {
+function VibratorModeClick(Options, Y=450, IgnoreSubscreen=false) {
 	const coords = VibratorModeGenerateCoords(Options, Y);
 	const actualOptions = VibratorModeGetOptions(Options);
-	ExtendedItemClick(actualOptions, 10, false, coords);
+	ExtendedItemClick(actualOptions, 10, false, coords, IgnoreSubscreen);
 }
 
 /**
