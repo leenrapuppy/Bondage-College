@@ -68,7 +68,7 @@ function InfiltrationLoad() {
 	InfiltrationCollectRansom = false;
 	if ((PandoraParty != null) && (PandoraParty.length > 0)) {
 		for (let P = 0; P < PandoraParty.length; P++) {
-			if (PandoraParty[P].Name == InfiltrationTarget.Name) InfiltrationTarget.Found = true;
+			if (InfiltrationTarget && PandoraParty[P].Name == InfiltrationTarget.Name) InfiltrationTarget.Found = true;
 			if (PandoraParty[P].AccountName.indexOf("RandomMistress") >= 0) InfiltrationCollectRansom = true;
 		}
 		PandoraParty = [];
@@ -137,15 +137,18 @@ function InfiltrationPrepareMission() {
 	if ((InfiltrationMission == "Rescue") || (InfiltrationMission == "Kidnap")) {
 		let C = {};
 		CharacterRandomName(C);
-		InfiltrationTarget.Type = "NPC";
-		InfiltrationTarget.Name = C.Name;
-		InfiltrationTarget.PrivateRoom = false;
+		InfiltrationTarget = {
+			Type: "NPC",
+			Name: C.Name,
+			PrivateRoom: false
+		};
 	} else {
 		const PreviousTarget = InfiltrationTarget && InfiltrationTarget.Type || "";
-		InfiltrationTarget.Type = /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(PreviousTarget, InfiltrationObjectType));
-		InfiltrationTarget.Name = DialogFind(InfiltrationSupervisor, "Object" + InfiltrationTarget.Type);
+		InfiltrationTarget = {
+			Type: /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(PreviousTarget, InfiltrationObjectType)),
+			Name: DialogFind(InfiltrationSupervisor, "Object" + InfiltrationTarget.Type),
+		};
 	}
-	InfiltrationTarget.Found = false;
 	InfiltrationSupervisor.Stage = InfiltrationMission;
 	InfiltrationSupervisor.CurrentDialog = DialogFind(InfiltrationSupervisor, InfiltrationMission + "Intro");
 	InfiltrationSupervisor.CurrentDialog = InfiltrationSupervisor.CurrentDialog.replace("TargetName", InfiltrationTarget.Name);
