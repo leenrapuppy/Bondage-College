@@ -478,12 +478,6 @@ function ExtendedItemExit() {
 function ExtendedItemSetType(C, Options, Option) {
 	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 	const FunctionPrefix = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "");
-
-	if (CurrentScreen == "ChatRoom") {
-		// Call the item's load function
-		CommonCallFunctionByName(FunctionPrefix + "Load");
-	}
-
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options);
 
