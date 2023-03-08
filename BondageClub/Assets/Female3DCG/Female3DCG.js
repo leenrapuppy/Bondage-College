@@ -5472,7 +5472,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "GlassFilled", ParentGroup: null, Priority: 46, Value: 20, Random: false,
-				AllowActivity: ["RubItem"], BuyGroup: "DrinkingGlass",
+				AllowActivity: ["RubItem", "SipItem"], BuyGroup: "DrinkingGlass",
 				ActivityExpression: { "RubItem": [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}], },
 			},
 			{
@@ -5482,7 +5482,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Mug", ParentGroup: null, Value: 10, Priority: 46, IsRestraint: false, Random: false, AllowColorize: true,
 				HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"],
-				AllowActivity: ["RubItem"],
+				AllowActivity: ["RubItem", "SipItem"],
 				DefaultColor: ["#9A9694", "#3E170B"],
 				Layer: [
 					{ Name: "Mug" },
@@ -9221,6 +9221,13 @@ var ActivityFemale3DCG = [
 		MaxProgress: 100,
 		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "CanUsePenis"],
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
+	},
+	{
+		Name: "SipItem",
+		MaxProgress: 0,
+		Prerequisite: ["TargetCanUseTongue", "Needs-SipItem"],
+		Target: ["ItemMouth"],
+		TargetSelf: true,
 	},
 ];
 
