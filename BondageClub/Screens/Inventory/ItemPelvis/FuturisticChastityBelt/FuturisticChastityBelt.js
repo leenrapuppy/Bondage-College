@@ -1,7 +1,5 @@
 "use strict";
 var FuturisticChastityBeltShockCooldownOrgasm = 15000; // 15 sec
-var FuturisticChastityBeltConfigure = false;
-var FuturisticChastityBeltSwitchModel = false;
 
 var InventoryItemPelvisFuturisticChastityBeltTamperZones = [
 	"ItemPelvis",
@@ -74,6 +72,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 			AudioPlayInstantSound("Audio/Shocks.mp3");
 	} else {
 
+		/** @type {ChatMessageDictionary} */
 		var Dictionary = [];
 		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });

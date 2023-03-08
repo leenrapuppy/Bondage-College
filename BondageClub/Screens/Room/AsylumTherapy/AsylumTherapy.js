@@ -249,15 +249,15 @@ function AsylumTherapyTherapyMiniGameEnd() {
 		DialogChangeReputation("Asylum", -2);
 		if (ReputationGet("Asylum") <= 0) DialogSetReputation("Asylum", 1);
 	}
-	if (MiniGameVictory && (MiniGameDifficulty == "Easy")) {
+	if (MiniGameVictory && (MiniGameDifficultyMode == "Easy")) {
 		DialogChangeReputation("Asylum", 2);
 		CharacterChangeMoney(Player, 15);
 	}
-	if (MiniGameVictory && (MiniGameDifficulty == "Normal")) {
+	if (MiniGameVictory && (MiniGameDifficultyMode == "Normal")) {
 		DialogChangeReputation("Asylum", 4);
 		CharacterChangeMoney(Player, 20);
 	}
-	if (MiniGameVictory && (MiniGameDifficulty == "Hard")) {
+	if (MiniGameVictory && (MiniGameDifficultyMode == "Hard")) {
 		DialogChangeReputation("Asylum", 6);
 		CharacterChangeMoney(Player, 25);
 	}

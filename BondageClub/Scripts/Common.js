@@ -77,7 +77,7 @@ const CommonFontStacks = {
 /**
  * Checks if a variable is a number
  * @param {any} n - Variable to check for
- * @returns {boolean} - Returns TRUE if the variable is a finite number
+ * @returns {n is number} - Returns TRUE if the variable is a finite number
  */
 function CommonIsNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);

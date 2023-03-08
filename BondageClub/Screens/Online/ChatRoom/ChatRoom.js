@@ -2478,12 +2478,12 @@ var ChatRoomMessageHandlers = [
 			if (data.Type === "Action" && metadata.ShockIntensity >= 0) {
 				intensity = metadata.ShockIntensity;
 			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
-				const focusGroupName = metadata.FocusGroup && metadata.FocusGroup.Name;
-				let item = InventoryGet(Player, focusGroupName);
-				if (item && item.Property && item.Property.ShockLevel != null) {
-					intensity = 1.5 * item.Property.ShockLevel;
-				} else {
-					intensity = 1.5;
+				intensity = 1.5;
+				if (metadata.FocusGroup) {
+					let item = InventoryGet(Player, metadata.FocusGroup.Name);
+					if (item && item.Property && item.Property.ShockLevel != null) {
+						intensity = 1.5 * item.Property.ShockLevel;
+					}
 				}
 			}
 
@@ -2798,13 +2798,13 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				meta.Groups[entry.Tag] = group;
 			}
 		} else if (IsFocusGroupDictionaryEntry(entry)) {
-			const group = AssetGroupGet("Female3DCG", entry.FocusGroupName);
+			const group = /** @type {AssetItemGroup} */ (AssetGroupGet("Female3DCG", entry.FocusGroupName));
 			if (group) {
 				meta.FocusGroup = group;
 				meta.GroupName = group.Name;
 			}
 		} else if (IsAssetGroupNameDictionaryEntry(entry)) {
-			const group = AssetGroupGet("Female3DCG", entry.AssetGroupName);
+			const group =  /** @type {AssetItemGroup} */ (AssetGroupGet("Female3DCG", entry.AssetGroupName));
 			if (group) {
 				meta.FocusGroup = group;
 				meta.GroupName = group.Name;

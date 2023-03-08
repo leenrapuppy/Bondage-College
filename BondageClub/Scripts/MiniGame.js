@@ -2,8 +2,10 @@
 var MiniGameType = "";
 var MiniGameVictory = false;
 var MiniGamePerfect = true;
-/** @type {number|string} */
-var MiniGameDifficulty = "";
+/** @type {number} */
+var MiniGameDifficulty = 0;
+/** @type {string} */
+var MiniGameDifficultyMode = "";
 var MiniGameDifficultyRatio = 1;
 var MiniGameAdvancedPayment = 0;
 var MiniGameReturnFunction = "";
@@ -27,7 +29,13 @@ function MiniGameLoad() {
 function MiniGameStart(GameType, Difficulty, ReturnFunction) {
 	CurrentCharacter = null;
 	MiniGameType = GameType;
-	MiniGameDifficulty = Difficulty;
+	MiniGameDifficulty = 0;
+	MiniGameDifficultyMode = "";
+
+	if (CommonIsNumeric(Difficulty))
+		MiniGameDifficulty = parseInt(Difficulty, 10);
+	else
+		MiniGameDifficultyMode = Difficulty;
 	MiniGameDifficultyRatio = 1;
 	MiniGameReturnFunction = ReturnFunction;
 	MiniGameVictory = (Math.random() > 0.5);

@@ -96,12 +96,12 @@ function HorseWalkGenerateHurdleTrainingItems(MaxHurdle) {
  * @returns {void} - Nothing
  */
 function HorseWalkDrawItem() {
-	if (MiniGameDifficulty == "Carrot") {
+	if (MiniGameDifficultyMode == "Carrot") {
 		for (let S = 0; S < HorseWalkCarrots.length; S++)
 			DrawImage("Screens/MiniGame/HorseWalk/carrot.png", HorseWalkCarrots[S].X - (HorseWalkItemSize / 2), HorseWalkCarrots[S].Y - (HorseWalkItemSize / 2));
 		for (let S = 0; S < HorseWalkCrops.length; S++)
 			DrawImage("Screens/MiniGame/HorseWalk/LeatherCrop.png", HorseWalkCrops[S].X - (HorseWalkItemSize / 2), HorseWalkCrops[S].Y - (HorseWalkItemSize / 2));
-	} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
+	} else if (MiniGameDifficultyMode == "Hurdle" || MiniGameDifficultyMode == "HurdleTraining") {
 		for (let S = 0; S < HorseWalkHurdle.length; S++) {
 			if (HorseWalkHurdle[S].Stat == 0) {
 				DrawImage("Screens/MiniGame/HorseWalk/hurdle_90.png", HorseWalkHurdle[S].X - (HorseWalkItemSize / 2), HorseWalkHurdle[S].Y - (HorseWalkItemSize / 2));
@@ -125,22 +125,22 @@ function HorseWalkLoad() {
 	HorseWalkPlayerX = 900;
 	HorseWalkPlayerY = 400;
 	var Factor = (CommonIsMobile) ? 0.25 : 1;
-	if (MiniGameDifficulty == "Carrot") {
+	if (MiniGameDifficultyMode == "Carrot") {
 		var MaxCarrot = 12 * Factor;
 		HorseWalkGenerateCarrotItems(MaxCarrot, MaxCarrot);
 		HorseWalkCollectedCarrots = 0;
 		HorseWalkCollectedCrops = 0;
-	} else if (MiniGameDifficulty == "Hurdle") {
+	} else if (MiniGameDifficultyMode == "Hurdle") {
 		let MaxHurdle = 12;
 		HorseWalkGenerateHurdleItems(MaxHurdle);
 		HorseWalkHurdleWin = 0;
 		HorseWalkHurdleFail = 0;
-	} else if (MiniGameDifficulty == "HurdleTraining") {
+	} else if (MiniGameDifficultyMode == "HurdleTraining") {
 		let MaxHurdle = 12;
 		HorseWalkGenerateHurdleTrainingItems(MaxHurdle);
 		HorseWalkHurdleWin = 0;
 		HorseWalkHurdleFail = 0;
-	} else if (MiniGameDifficulty == "WhipPony") {
+	} else if (MiniGameDifficultyMode == "WhipPony") {
 		HorseWalkHitPony = 0;
 		HorseWalkHitTrainer = 0;
 		HorseWalkEventTimer = CommonTime();
@@ -158,7 +158,7 @@ function HorseWalkRun() {
 	// The game ends in victory if the time runs out
 	var Time = CommonTime();
 	if (!MiniGameEnded && (Time >= MiniGameTimer)) {
-		if (MiniGameDifficulty == "Carrot") {
+		if (MiniGameDifficultyMode == "Carrot") {
 			if (HorseWalkCollectedCarrots > HorseWalkCollectedCrops) {
 				let HorseWalkSkillProgress = (HorseWalkCollectedCarrots - HorseWalkCollectedCrops) * 5;
 				SkillProgress("Dressage",  HorseWalkSkillProgress);
@@ -166,7 +166,7 @@ function HorseWalkRun() {
 			} else {
 				HorseWalkEnd(false);
 			}
-		} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
+		} else if (MiniGameDifficultyMode == "Hurdle" || MiniGameDifficultyMode == "HurdleTraining") {
 			if (HorseWalkHurdleWin > 0 && HorseWalkHurdleFail < 1) {
 				let HorseWalkSkillProgress = HorseWalkHurdleWin * 6;
 				SkillProgress("Dressage",  HorseWalkSkillProgress);
@@ -180,7 +180,7 @@ function HorseWalkRun() {
 				SkillProgress("Dressage",  HorseWalkSkillProgress);
 				HorseWalkEnd(false);
 			}
-		} else if (MiniGameDifficulty == "WhipPony") {
+		} else if (MiniGameDifficultyMode == "WhipPony") {
 			if (HorseWalkHitPony > 0 && HorseWalkHitTrainer < 1) {
 				let HorseWalkSkillProgress = HorseWalkHitPony * 4;
 				SkillProgress("Dressage",  HorseWalkSkillProgress);
@@ -201,7 +201,7 @@ function HorseWalkRun() {
 	if (!MiniGameEnded) DrawProgressBar(0, 950, 2000, 50, (MiniGameTimer - Time) / 400);
 	else DrawRect(0, 950, 2000, 50, "white");
 
-	if (MiniGameDifficulty == "WhipPony") {
+	if (MiniGameDifficultyMode == "WhipPony") {
 		if (HorseWalkEventTimer < CommonTime()) {
 			if (HorseWalkDrawPony == true && !MiniGameEnded) HorseWalkHitTrainer++;
 			HorseWalkEventTimer = CommonTime() + 1000;
@@ -230,7 +230,7 @@ function HorseWalkRun() {
 	} else { //Hurdle & Carrot
 		// Draw the player character, progress bar and text
 		HorseWalkDoMove();
-		if (MiniGameDifficulty == "HurdleTraining") {
+		if (MiniGameDifficultyMode == "HurdleTraining") {
 			DrawCharacter(Player, 0, 100, 0.8);
 			DrawCharacter(StablePony, HorseWalkPlayerX, HorseWalkPlayerY, 0.4);
 		} else {
@@ -238,18 +238,18 @@ function HorseWalkRun() {
 		}
 		HorseWalkDrawItem();
 		if (Time < MiniGameTimer) {
-			if (MiniGameDifficulty == "Carrot") {
+			if (MiniGameDifficultyMode == "Carrot") {
 				HorseWalkText = TextGet("HorseWalkCarrotSpots");
 				HorseWalkText = HorseWalkText.replace("$CARROTS", HorseWalkCollectedCarrots.toString()).replace("$CROPS", HorseWalkCollectedCrops.toString());
-			} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
+			} else if (MiniGameDifficultyMode == "Hurdle" || MiniGameDifficultyMode == "HurdleTraining") {
 				HorseWalkText = TextGet("HorseWalkHurdleSpots");
 				HorseWalkText = HorseWalkText.replace("$HURDLEWIN", HorseWalkHurdleWin.toString()).replace("$HURDLEFAIL", HorseWalkHurdleFail.toString());
 			}
 		} else {
-			if (MiniGameDifficulty == "Carrot") {
+			if (MiniGameDifficultyMode == "Carrot") {
 				HorseWalkText = TextGet(MiniGameVictory ? "CarrotVictory" : "CarrotDefeat");
 				HorseWalkText = HorseWalkText.replace("$CARROTS", HorseWalkCollectedCarrots.toString()).replace("$CROPS", HorseWalkCollectedCrops.toString());
-			} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
+			} else if (MiniGameDifficultyMode == "Hurdle" || MiniGameDifficultyMode == "HurdleTraining") {
 				HorseWalkText = TextGet(MiniGameVictory ? "HurdleVictory" : "HurdleDefeat");
 				HorseWalkText = HorseWalkText.replace("$HURDLEWIN", HorseWalkHurdleWin.toString()).replace("$HURDLEFAIL", HorseWalkHurdleFail.toString());
 			}
@@ -298,7 +298,7 @@ function HorseWalkDoMove() {
 
 		// If the game has started, we check the click position and change a Item at that position
 		if (!MiniGameEnded) {
-			if (MiniGameDifficulty == "Carrot") {
+			if (MiniGameDifficultyMode == "Carrot") {
 				for (let S = 0; S < HorseWalkCarrots.length; S++) {
 					if (((HorseWalkPlayerX+100) >= HorseWalkCarrots[S].X - Range) && ((HorseWalkPlayerX+100) <= HorseWalkCarrots[S].X + Range) && ((HorseWalkPlayerY+100) >= HorseWalkCarrots[S].Y - Range) && ((HorseWalkPlayerY+100) <= HorseWalkCarrots[S].Y + Range)) {
 						HorseWalkCarrots.splice(S, 1);
@@ -313,7 +313,7 @@ function HorseWalkDoMove() {
 						return;
 					}
 				}
-			} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
+			} else if (MiniGameDifficultyMode == "Hurdle" || MiniGameDifficultyMode == "HurdleTraining") {
 				for (let S = 0; S < HorseWalkHurdle.length; S++) {
 					if (((HorseWalkPlayerX+100) >= HorseWalkHurdle[S].X - Range) && ((HorseWalkPlayerX+100) <= HorseWalkHurdle[S].X + Range) && ((HorseWalkPlayerY+300) >= HorseWalkHurdle[S].Y - Range) && ((HorseWalkPlayerY+300) <= HorseWalkHurdle[S].Y + Range) && HorseWalkHurdle[S].Stat == 0) {
 						if ((Math.random() * Math.random() * 10) < SkillGetLevel(Player, "Dressage")) {
@@ -337,7 +337,7 @@ function HorseWalkDoMove() {
  * @returns {void} - Nothing
  */
 function HorseWalkClick() {
-	if (MiniGameDifficulty == "WhipPony") {
+	if (MiniGameDifficultyMode == "WhipPony") {
 		if ((MouseX >= HorseWalkDrawXPosition) && (MouseX < (HorseWalkDrawXPosition + (HorseWalkDrawYHeigh / 2))) && (MouseY >= HorseWalkDrawYPosition) && (MouseY < (HorseWalkDrawYPosition + HorseWalkDrawYHeigh))) {
 			if (HorseWalkDrawPony && !MiniGameEnded) {
 				HorseWalkHitPony++;

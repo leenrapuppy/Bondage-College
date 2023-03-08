@@ -244,7 +244,7 @@ function PreferenceGetZoneOrgasm(C, ZoneName) {
 /**
  * Sets the ability to induce an orgasm for a given zone*
  * @param {Character} C - The characterfor whom we set the ability to órgasm from a given zone
- * @param {string} Zone - The name of the zone to set the ability to orgasm for
+ * @param {AssetGroupItemName} ZoneName - The name of the zone to set the ability to orgasm for
  * @param {boolean} CanOrgasm - Sets, if the character can cum from the given zone (true) or not (false)
  * @returns {void} - Nothing
  */
@@ -1406,9 +1406,10 @@ function PreferenceSubscreenArousalRun() {
 		DrawText(TextGet("ArousalActivityLoveOther"), 1255, 725, "Black", "Gray");
 
 		// Draws all the available character zones
-		for (let A = 0; A < AssetGroup.length; A++)
-			if (AssetGroup[A].Zone != null && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
-				DrawAssetGroupZone(Player, AssetGroup[A].Zone, 0.9, 50, 50, 1, "#808080FF", 3, PreferenceGetFactorColor(PreferenceGetZoneFactor(Player, AssetGroup[A].Name)));
+		for (let Group of AssetGroup) {
+			if (Group.IsItem() && !Group.MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", Group.Name).length)
+				DrawAssetGroupZone(Player, Group.Zone, 0.9, 50, 50, 1, "#808080FF", 3, PreferenceGetFactorColor(PreferenceGetZoneFactor(Player, Group.Name)));
+		}
 
 		// The zones can be selected and drawn on the character
 		if (Player.FocusGroup != null) {
@@ -2069,13 +2070,15 @@ function PreferenceSubscreenArousalClick() {
 			PreferenceSetZoneOrgasm(Player, Player.FocusGroup.Name, !PreferenceGetZoneOrgasm(Player, Player.FocusGroup.Name));
 
 		// In arousal mode, the player can click on her zones
-		for (let A = 0; A < AssetGroup.length; A++)
-			if (AssetGroup[A].Zone != null && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
-				for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-					if (DialogClickedInZone(Player, AssetGroup[A].Zone[Z], 0.9, 50, 50, 1)) {
-						Player.FocusGroup = AssetGroup[A];
-						PreferenceArousalZoneFactor = PreferenceGetZoneFactor(Player, AssetGroup[A].Name);
-					}
+		for (const Group of AssetGroup) {
+			if (Group.IsItem() && !Group.MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", Group.Name).length) {
+				const Zone = Group.Zone.find(z => DialogClickedInZone(Player, z, 0.9, 50, 50, 1));
+				if (Zone) {
+					Player.FocusGroup = Group;
+					PreferenceArousalZoneFactor = PreferenceGetZoneFactor(Player, Group.Name);
+				}
+			}
+		}
 
 	}
 

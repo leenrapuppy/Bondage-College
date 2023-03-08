@@ -1502,7 +1502,7 @@ function DialogMenuButtonClick() {
 				if (C.FocusGroup.Name == "ItemMouth2") NewLayerName = "ItemMouth3";
 				if (C.FocusGroup.Name == "ItemMouth3") NewLayerName = "ItemMouth";
 
-				C.FocusGroup = AssetGroupGet(C.AssetFamily, NewLayerName);
+				C.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(C.AssetFamily, NewLayerName));
 				DialogInventoryBuild(C);
 			}
 
@@ -1855,18 +1855,19 @@ function DialogClick() {
 		}
 		C = (MouseX < 500) ? Player : CurrentCharacter;
 		let X = MouseX < 500 ? 0 : 500;
-		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Category == "Item") && (AssetGroup[A].Zone != null))
-				for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-					if (DialogClickedInZone(C, AssetGroup[A].Zone[Z], 1, X, 0, C.HeightRatio)) {
-						C.FocusGroup = AssetGroup[A];
-						DialogItemToLock = null;
-						DialogFocusItem = null;
-						DialogTightenLoosenItem = null;
-						DialogInventoryBuild(C);
-						DialogText = DialogTextDefault;
-						break;
-					}
+		for (const Group of AssetGroup) {
+			if (!Group.IsItem()) continue;
+			const Zone = Group.Zone.find(Z => DialogClickedInZone(C, Z, 1, X, 0, C.HeightRatio));
+			if (Zone) {
+				C.FocusGroup = Group;
+				DialogItemToLock = null;
+				DialogFocusItem = null;
+				DialogTightenLoosenItem = null;
+				DialogInventoryBuild(C);
+				DialogText = DialogTextDefault;
+				break;
+			}
+		}
 	}
 
 	// If the user clicked anywhere outside the current character item zones, ensure the position is corrected
@@ -2638,7 +2639,7 @@ function DialogClickExpressionMenu() {
 			const GroupName = DialogFacialExpressions[DialogFacialExpressionsSelected].Appearance.Asset.Group.Name;
 			const Item = InventoryGet(Player, GroupName);
 			const originalColor = Item.Color;
-			Player.FocusGroup = AssetGroupGet(Player.AssetFamily, GroupName);
+			Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(Player.AssetFamily, GroupName));
 			DialogColor = "";
 			DialogExpressionColor = "";
 			ItemColorLoad(Player, Item, 1200, 25, 775, 950, true);

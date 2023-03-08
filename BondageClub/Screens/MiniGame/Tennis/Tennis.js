@@ -21,8 +21,8 @@ var TennisBallAngle = 0;
  */
 function TennisServe(CharacterLeftServe) {
 	TennisBallSpeed = 120;
-	if (MiniGameDifficulty == "Normal") TennisBallSpeed = 180;
-	if (MiniGameDifficulty == "Hard") TennisBallSpeed = 240;
+	if (MiniGameDifficultyMode == "Normal") TennisBallSpeed = 180;
+	if (MiniGameDifficultyMode == "Hard") TennisBallSpeed = 240;
 	TennisBallAngle = (CharacterLeftServe ? 0 : Math.PI) - (Math.PI * 0.25) + (Math.PI * 0.5 * Math.random());
 	TennisBallX = CharacterLeftServe ? 600 : 1400;
 	TennisBallY = 500;
@@ -55,8 +55,8 @@ function TennisLoad() {
 	TennisCharacterLeftRacket = 500;
 	TennisCharacterRightRacket = 500;
 	MiniGameDifficultyRatio = 100;
-	if (MiniGameDifficulty == "Normal") MiniGameDifficultyRatio = 175;
-	if (MiniGameDifficulty == "Hard") MiniGameDifficultyRatio = 250;
+	if (MiniGameDifficultyMode == "Normal") MiniGameDifficultyRatio = 175;
+	if (MiniGameDifficultyMode == "Hard") MiniGameDifficultyRatio = 250;
 	TennisServe(Math.random() > 0.5);
 }
 

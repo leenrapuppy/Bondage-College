@@ -54,9 +54,9 @@ function MaidDrinksLoad() {
 	MaidDrinksCustomerRight = CharacterLoadNPC("NPC_Customer_Right");
 	CharacterAppearanceFullRandom(MaidDrinksCustomerRight);
 	MaidDrinksGenerateMove(5000);
-	if (MiniGameDifficulty == "Easy") MiniGameDifficultyRatio = 1.0;
-	if (MiniGameDifficulty == "Normal") MiniGameDifficultyRatio = 1.5;
-	if (MiniGameDifficulty == "Hard") MiniGameDifficultyRatio = 2.0;
+	if (MiniGameDifficultyMode == "Easy") MiniGameDifficultyRatio = 1.0;
+	if (MiniGameDifficultyMode == "Normal") MiniGameDifficultyRatio = 1.5;
+	if (MiniGameDifficultyMode == "Hard") MiniGameDifficultyRatio = 2.0;
 }
 
 /**
@@ -177,7 +177,7 @@ function MaidDrinksRun() {
 		}
 		else {
 			DrawText(TextGet("StartsIn") + " " + (5 - Math.floor(MiniGameTimer / 1000)).toString(), 1600, 910, "white");
-			DrawText(TextGet("Difficulty") + " " + TextGet(MiniGameDifficulty), 1600, 955, "white");
+			DrawText(TextGet("Difficulty") + " " + TextGet(MiniGameDifficultyMode), 1600, 955, "white");
 		}
 	}
 	else {
@@ -221,9 +221,9 @@ function MaidDrinksHit() {
  */
 function MaidDrinksMiss() {
 	MiniGamePerfect = false;
-	if (MiniGameDifficulty == "Easy") MiniGameProgress = MiniGameProgress - 2;
-	if (MiniGameDifficulty == "Normal") MiniGameProgress = MiniGameProgress - 3;
-	if (MiniGameDifficulty == "Hard") MiniGameProgress = MiniGameProgress - 4;
+	if (MiniGameDifficultyMode == "Easy") MiniGameProgress = MiniGameProgress - 2;
+	if (MiniGameDifficultyMode == "Normal") MiniGameProgress = MiniGameProgress - 3;
+	if (MiniGameDifficultyMode == "Hard") MiniGameProgress = MiniGameProgress - 4;
 	if (MiniGameProgress <= 0) MaidDrinksEnd(false);
 }
 

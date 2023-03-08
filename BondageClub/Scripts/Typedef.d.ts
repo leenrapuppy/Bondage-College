@@ -723,7 +723,7 @@ interface IChatRoomMessageMetadata {
 	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
 	Automatic?: boolean;
 	/** The group that has been interacted with to trigger the message */
-	FocusGroup?: AssetGroup;
+	FocusGroup?: AssetItemGroup;
 	/** The name of the group that has been interacted with to trigger the message */
 	GroupName?: AssetGroupName;
 	/** The assets referenced in the message */
@@ -911,6 +911,7 @@ interface AssetItemGroup extends AssetGroup {
 	Clothing: false;
 	IsDefault: false;
 	AllowExpression?: undefined;
+	Zone: readonly [number, number, number, number][];
 }
 
 /** An AssetGroup subtype for the `Script` {@link AssetGroup.Category} */
@@ -1372,7 +1373,7 @@ interface Character {
 	Effect: EffectName[];
 	Tints: ResolvedTintDefinition[];
 	Attribute: AssetAttribute[];
-	FocusGroup: AssetGroup | null;
+	FocusGroup: AssetItemGroup | null;
 	Canvas: HTMLCanvasElement | null;
 	CanvasBlink: HTMLCanvasElement | null;
 	MustDraw: boolean;
@@ -2819,10 +2820,17 @@ type DynamicBeforeDrawCallback = (data: DynamicDrawingData) => DynamicBeforeDraw
  */
 type DynamicAfterDrawCallback = (data: DynamicDrawingData) => void;
 
+
+interface DynamicScriptCallbackData {
+	C: Character;
+	Item: Item;
+	PersistentData: () => any;
+}
+
 /**
  * A dynamic ScriptDraw callback
  */
-type DynamicScriptDrawCallback = (data: {C: Character, Item: Item, PersistentData: <T>() => T}) => void;
+type DynamicScriptDrawCallback = (data: DynamicScriptCallbackData) => void;
 
 // #endregion
 

@@ -18,8 +18,8 @@ function TherapyLoad() {
 	TherapyGenerateMoveTimer = CurrentTime + 5000;
 	TherapyStress = 0;
 	MiniGameDifficultyRatio = 2000;
-	if (MiniGameDifficulty == "Normal") MiniGameDifficultyRatio = 1500;
-	if (MiniGameDifficulty == "Hard") MiniGameDifficultyRatio = 1000;
+	if (MiniGameDifficultyMode == "Normal") MiniGameDifficultyRatio = 1500;
+	if (MiniGameDifficultyMode == "Hard") MiniGameDifficultyRatio = 1000;
 	if (CommonIsMobile) MiniGameDifficultyRatio = Math.round(MiniGameDifficultyRatio * 0.75);
 }
 
