@@ -2836,6 +2836,8 @@ type DynamicScriptDrawCallback = (data: DynamicScriptCallbackData) => void;
 
 //#region Infiltration/Pandora
 
+type InfiltrationMissionType = "Rescue" | "Kidnap" | "Retrieve" | "CatBurglar" | "ReverseMaid" | "Steal";
+
 type InfiltrationTargetType = "NPC" | "USBKey" | "BDSMPainting" | "GoldCollar" | "GeneralLedger" | "SilverVibrator" | "DiamondRing" | "SignedPhoto" | "PandoraPadlockKeys";
 
 interface InfiltrationMissionTarget {

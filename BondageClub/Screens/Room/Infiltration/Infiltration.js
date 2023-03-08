@@ -3,8 +3,11 @@ var InfiltrationBackground = "Infiltration";
 /** @type {NPCCharacter} */
 var InfiltrationSupervisor = null;
 var InfiltrationDifficulty = 0;
+/** @type {InfiltrationMissionType | ""} */
 var InfiltrationMission = "";
+/** @type {InfiltrationMissionType[]} */
 var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve", "CatBurglar", "ReverseMaid"];
+/** @type {InfiltrationTargetType[]} */
 var InfiltrationObjectType = ["USBKey", "BDSMPainting", "GoldCollar", "GeneralLedger", "SilverVibrator", "DiamondRing", "SignedPhoto"];
 /** @type {InfiltrationMissionTarget | null} */
 var InfiltrationTarget = null;
@@ -138,7 +141,8 @@ function InfiltrationPrepareMission() {
 		InfiltrationTarget.Name = C.Name;
 		InfiltrationTarget.PrivateRoom = false;
 	} else {
-		InfiltrationTarget.Type = /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(InfiltrationTarget.Type, InfiltrationObjectType));
+		const PreviousTarget = InfiltrationTarget && InfiltrationTarget.Type || "";
+		InfiltrationTarget.Type = /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(PreviousTarget, InfiltrationObjectType));
 		InfiltrationTarget.Name = DialogFind(InfiltrationSupervisor, "Object" + InfiltrationTarget.Type);
 	}
 	InfiltrationTarget.Found = false;
