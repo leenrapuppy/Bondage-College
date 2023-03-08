@@ -4114,6 +4114,11 @@ var AssetFemale3DCGExtended = {
 							{}, // f4 - bridge
 							{}, // f5 - monroe right
 							{}, // f6 - monroe left
+							{}, // f7 - cheeks
+							{}, // f8 - combo 1
+							{}, // f9 - combo 2
+							{}, // f10 - combo 3
+							{}, // f11 - combo 4
 						],
 					},
 				],
