@@ -535,9 +535,10 @@ const CommonCommands = [
 					DialogCurrentExpr = DialogFacialExpressions.find(FE => FE.Group == "Eyes");
 				}
 				DialogCurrentExpr.CurrentExpression = NewExpression;
+
 				// Apply new expression only to eyes that are opened
-				let LeftClosed = InventoryGet(Player, "Eyes").Property.Expression == "Closed";
-				let RightClosed = InventoryGet(Player, "Eyes2").Property.Expression == "Closed";
+				let LeftClosed = InventoryGetItemProperty(InventoryGet(Player, "Eyes"), "Expression") === "Closed";
+				let RightClosed = InventoryGetItemProperty(InventoryGet(Player, "Eyes2"), "Expression") === "Closed";
 				if (!LeftClosed) CharacterSetFacialExpression(Player, "Eyes1", NewExpression);
 				if (!RightClosed) CharacterSetFacialExpression(Player, "Eyes2", NewExpression);
 			}
