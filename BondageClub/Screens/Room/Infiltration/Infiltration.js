@@ -144,9 +144,10 @@ function InfiltrationPrepareMission() {
 		};
 	} else {
 		const PreviousTarget = InfiltrationTarget && InfiltrationTarget.Type || "";
+		const Type = /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(PreviousTarget, InfiltrationObjectType));
 		InfiltrationTarget = {
-			Type: /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(PreviousTarget, InfiltrationObjectType)),
-			Name: DialogFind(InfiltrationSupervisor, "Object" + InfiltrationTarget.Type),
+			Type: Type,
+			Name: DialogFind(InfiltrationSupervisor, "Object" + Type),
 		};
 	}
 	InfiltrationSupervisor.Stage = InfiltrationMission;
