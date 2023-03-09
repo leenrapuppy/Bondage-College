@@ -19,9 +19,9 @@ function InventoryItemDevicesFuturisticCrateDevice1Click() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemDevicesFuturisticCrateDevice1Exit();
+	} else {
+		VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 	}
-
-	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
 // Leaves the extended screen
