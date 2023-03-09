@@ -118,5 +118,5 @@ function WheelFortuneCustomizeExit(Save=false) {
 		Player.OnlineSharedSettings.WheelFortune = WheelFortuneCustomizeList;
 		ServerAccountUpdate.QueueData({ OnlineSharedSettings: Player.OnlineSharedSettings });
 	}
-	CommonSetScreen("Minigame", "WheelFortune");
+	CommonSetScreen("MiniGame", "WheelFortune");
 }
