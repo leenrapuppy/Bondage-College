@@ -829,8 +829,10 @@ ItemFeet,DuctTape,Duct Tape
 ItemFeet,LeatherAnkleCuffs,Leather Ankle Cuffs
 ItemFeet,FloorShackles,Floor Shackles
 ItemFeet,SteelAnkleCuffs,Steel Ankle Cuffs
+ItemFeet,EscortAnkleCuffs,Escort Ankle Cuffs
 ItemFeet,FuturisticAnkleCuffs,Futuristic Ankle Cuffs
 ItemFeet,OrnateAnkleCuffs,Ornate Ankle Cuffs
+ItemFeet,HighStyleSteelAnkleCuffs,HighStyle Steel Ankle Cuffs
 ItemFeet,SpreaderMetal, Metal Leg Spreader
 ItemFeet,BallChain,Ball And Chain
 ItemFeet,AnkleShackles, Ankle Shackles
@@ -1078,6 +1080,7 @@ ItemArms,CeilingShackles,Ceiling Shackles
 ItemArms,SteelCuffs,Steel Cuffs
 ItemArms,FuturisticCuffs,Futuristic Cuffs
 ItemArms,OrnateCuffs,Ornate Cuffs
+ItemArms,HighStyleSteelCuffs,HighStyle Steel Cuffs
 ItemArms,MittenChain1,Mittens Chain
 ItemArms,FourLimbsShackles,Four Limbs Shackles
 ItemArms,Manacles,Manacles
@@ -1228,6 +1231,7 @@ ItemNeck,LeatherCorsetCollar,Leather Corset Collar Gag
 ItemNeck,LatexPostureCollar,Latex Posture Collar Gag
 ItemNeck,HighSecurityCollar,High Security Collar
 ItemNeck,OrnateCollar,Ornate Collar
+ItemNeck,HighStyleSteelCollar,HighStyle Steel Collar
 ItemNeck,SlenderSteelCollar,Slender Steel Collar
 ItemNeck,ShinySteelCollar,Shiny Steel Collar
 ItemNeck,HeartLinkChoker, Heart-Link Choker

@@ -1616,6 +1616,10 @@ SourceCharacter attaches the Ornate cuffs elbow chain behind DestinationCharacte
 SourceCharacter прикрепляет изысканные манжеты на локти за спиной DestinationCharacter .
 SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back.
 SourceCharacter прикрепляет изысканные манжеты на запястья и локти за спиной DestinationCharacter .
+SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel cuffs.
+SourceCharacter отсоединяет цепочку от стильных стальных манжет DestinationCharacter .
+SourceCharacter attaches the HighStyle Steel cuffs wrist chain behind DestinationCharacter back.
+SourceCharacter прикрепляет стильные стальные манжеты на запястье за спиной DestinationCharacter .
 SourceCharacter detaches the chain from DestinationCharacter Ornate leg cuffs.
 SourceCharacter снимает цепочку с изысканных манжет на ногах DestinationCharacter Ornate .
 SourceCharacter attaches the Ornate leg cuffs chain on DestinationCharacter legs.
@@ -1624,6 +1628,10 @@ SourceCharacter detaches the chain from DestinationCharacter Ornate ankle cuffs.
 SourceCharacter отсоединяет цепочку от изысканных манжет DestinationCharacter на щиколотках.
 SourceCharacter attaches the Ornate ankle cuffs chain on DestinationCharacter ankles.
 SourceCharacter прикрепляет изысканные манжеты на щиколотках к лодыжкам DestinationCharacter .
+SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel ankle cuffs.
+SourceCharacter отсоединяет цепочку от стильный стальных манжет DestinationCharacter на щиколотках.
+SourceCharacter attaches the HighStyle Steel ankle cuffs chain on DestinationCharacter ankles.
+SourceCharacter прикрепляет стильные стальные манжеты на щиколотках к лодыжкам DestinationCharacter .
 How tight do you want to strap the jacket?
 Насколько туго вы хотите застегнуть куртку?
 Snug
