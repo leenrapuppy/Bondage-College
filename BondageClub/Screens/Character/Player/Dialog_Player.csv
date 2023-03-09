@@ -824,6 +824,8 @@ ItemArmsOrnateCuffsSetWrist,,,SourceCharacter attaches the Ornate cuffs wrist ch
 ItemArmsOrnateCuffsSetElbow,,,SourceCharacter attaches the Ornate cuffs elbow chain behind DestinationCharacter back.,,
 ItemArmsOrnateCuffsSetBoth,,,SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back.,,
 ItemArmsOrnateCuffsSetHogtie,,,SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back and connects the wrist and ankle cuffs.,,
+ItemArmsHighStyleSteelCuffsNone,,,Detached,,
+ItemArmsHighStyleSteelCuffsWrist,,,Bind wrists,,
 ItemArmsHighStyleSteelCuffsSetNone,,,SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel cuffs.,,
 ItemArmsHighStyleSteelCuffsSetWrist,,,SourceCharacter attaches the HighStyle Steel cuffs wrist chain behind DestinationCharacter back.,,
 ItemLegsOrnateLegCuffsNone,,,Detached,,
