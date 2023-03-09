@@ -7885,25 +7885,6 @@ var AssetFemale3DCGExtended = {
 				}
 			}
 		}, // SteelAnkleCuffs
-		EscortAnkleCuffs: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
-				Options: [
-					{
-						Name: "None",
-						Property: {
-							Type: "Chained", SetPose: [], Effect: ["Slow"], Difficulty: 6, FreezeActivePose: [],
-						}
-					}
-				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemFeetSteelAnkleCuffs",
-					ChatPrefix: "ItemFeetSteelAnkleCuffsSet",
-				}
-			}
-		}, // EscortAnkleCuffs
 		SturdyLeatherBelts: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemArms", AssetName: "SturdyLeatherBelts" },

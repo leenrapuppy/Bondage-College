@@ -216,7 +216,12 @@ type EffectName =
 	"Unlock-MetalPadlock" | "Unlock-OwnerPadlock" | "Unlock-OwnerTimerPadlock" |
 	"Unlock-LoversPadlock" | "Unlock-LoversTimerPadlock" |
 	"Unlock-MistressPadlock" | "Unlock-MistressTimerPadlock" |
-	"Unlock-PandoraPadlock" | "Unlock-MetalCuffs" | "Unlock-" |
+	"Unlock-PandoraPadlock" |
+
+	"Unlock-MetalCuffs" | "Unlock-EscortAnkleCuffs" |
+
+	// XXX: only for lockpicks?
+	"Unlock-" |
 
 	"ProtrudingMouth" | "Wiggling" |
 	""
