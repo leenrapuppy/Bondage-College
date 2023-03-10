@@ -15,7 +15,7 @@
 30,0,0,,Měli bychom zbít|a svázat učitelku.,"(Vrtí hlavou zleva doprava.)|Proboha ne, slečně Mildred nemůžeme ublížit!",40,-1,0,
 30,0,0,,"Pomůžeš mi unést|Mildred, holčičko.",(Vykulí oči a šeptá.)|Cože? Svázat ji před celou třídou?,40,0,1,
 40,4,0,,Můžeš to udělat|z přátelství. (Mrk.),"(Přikývne.) Dobře, z přátelství.|Pomůžu ti, ale začít musíš ty.",50,0,0,AgreeHelp()
-40,0,4,,"Ty to uděláš, subinko.","(Sklání hlavu.) Ano, slečno.|Prosím udělejte první krok a já vám pomůžu.",50,0,0,AgreeHelp()
+40,0,4,,"Ty to uděláš, subinko.","(Sklání hlavu.) Ano, slečno.|Prosím udělej první krok a já ti pomůžu.",50,0,0,AgreeHelp()
 40,0,0,,"Ano, pomůžeš mi?","(Vrtí hlavou, že ne.)|Nemůžu, já mám slečnu Midred ráda.",40,0,0,
 40,0,0,,"Ano, ale nejdřív|si to musím promyslet.","(Pokrčí rameny) Dobře, ale|budeš muset být fakt přesvědčivá.",40,0,0,
 100,0,0,SubdueRemarkReady,"Chtěla bys být|svázaná, jako ona?",Já? (Chichotá se.) An… …ne.|To by se nehodilo.,100,0,1,SubdueRemark()
@@ -34,15 +34,15 @@
 130,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vytahuješ z úst velkou kuličku.)|Děkuji. To bylo dost nepohodlné.,120,0,0,Ungag()
 140,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Lechtáš ji a ona se bláznivě chechtá.)|HahaHAHAha! Prosím, přestaň!",140,0,0,Tickle()
 140,0,0,Common_PlayerNotRestrained,(Rozvaž ji.)ADD_MINUTES:1,(Rozvazuješ uzly a ona se zase obléká.)|Ty to s těmi uzly umíš! (Chichotá se.),100,0,0,Untie()
-140,0,0,BondageHugReady,Chtěla bys Sarah|pomazlit?ADD_MINUTES:1,(Vřele dává Sarah svázané objetí|a něco něžného ji šeptá do ucha.),160,0,0,BondageHug()
+140,0,0,BondageHugReady,Chtěla bys Sáru|pomazlit?ADD_MINUTES:1,(Vřele dává Sáře svázané objetí|a něco něžného ji šeptá do ucha.),160,0,0,BondageHug()
 150,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Chichotá se a něco mumlá nazpátek.),150,0,0,
 150,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Lechtáš ji a ona se bláznivě chechtá|do svého roubíku, pak se červená.)",150,0,0,Tickle()
 150,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a vytahuješ z úst velkou kuličku.)|Děkuji. To bylo dost nepohodlné.,140,0,0,Ungag()
 150,0,0,Common_PlayerNotRestrained,(Rozvaž ji.)ADD_MINUTES:1,(Rozvazuješ uzly a ona se zase obléká.)|(Ukazuje potom na svůj roubík.),110,0,0,Untie()
-150,0,0,BondageHugReady,Chtěla bys Sarah|pomazlit?ADD_MINUTES:1,"(Váhá, ale pomalu se přesouvá za svou|přítelkyní, aby ji dala vřelé svázané objetí.)",170,0,0,BondageHug()
-160,0,0,,Nechceš jí dát pusu? ADD_MINUTES:1,"Sarah, chceš mě políbit?|(Nakloní se a Sarah políbí.)",160,0,0,KissSarah()
+150,0,0,BondageHugReady,Chtěla bys Sáru|pomazlit?ADD_MINUTES:1,"(Váhá, ale pomalu se přesouvá za svou|přítelkyní, aby ji dala vřelé svázané objetí.)",170,0,0,BondageHug()
+160,0,0,,Nechceš jí dát pusu? ADD_MINUTES:1,"Chceš mě políbit, Sáro?|(Nakloní se a Sáru políbí.)",160,0,0,KissSarah()
 160,0,0,,Nejste vy zamilované?,Já… Ehm… No… (Červená se.),160,0,0,
-160,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Šeptá něco Sarah a pak se oddělí.),140,0,0,Separate()
+160,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Šeptá něco Sáře a pak se oddělí.),140,0,0,Separate()
 170,0,0,,Vy jste mi|krásný spoutaný pár.,(Červená se a dívá se na stranu.),170,0,0,
-170,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Podívá se naposledy na Sarah|a vrátí se na svou židli.),150,0,0,Separate()
+170,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Podívá se naposledy na Sáru|a vrátí se na svou židli.),150,0,0,Separate()
 170,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepínáš přezky a roubík jí vyndáváš.)|Děkuji. To bylo dost nepohodlné.,160,0,0,Ungag()

@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,Common_PlayerNotRestrained,"Zdá se, že za plechovkou červené barvy|je ukryt jakýsi růžový předmět.",HiddenEgg.jpg
+0,0,0,Common_PlayerRestrained,"Za červenou barvou je ukryt nějaký růžový předmět.|Spoutaná na něj ale nedosáhneš.",HiddenEgg.jpg
+10,0,0,,Už tady není nic zajímavého.,NoEgg.jpg

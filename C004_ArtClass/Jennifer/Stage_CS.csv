@@ -1,0 +1,54 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Ano, tohle je|můj první den tady.","Doufám, že se ti tu bude líbit, máme skvělou|tělocvičnu. Já jsem Jennifer, ráda tě poznávám.",10,0,0,
+0,0,0,,Jo! Svěží start|na svěží univerzitě.,"Líbí se mi tvůj přístup, myslím, že ti to tu půjde.|Já jsem Jennifer, ráda tě poznávám.",10,1,0,
+0,0,0,,"No, stýská se mi po|staré škole a kamarádech.","Ale no tak. Tady si najdeš nové přátele!|Já jsem Jennifer, ráda tě poznávám.",10,0,-1,
+10,0,0,,Takže ty jsi|umělkyně?,"Já? No, to je dobrý!|Ne, já jsem spíš na sporty.",20,0,0,
+10,0,0,,Pomůžeš mi|s malováním?,"Pomoct ti? Věř mi, určitě jsi lepší než já.|Já nejsem umělec, jsem mnohem lepší ve sportu.",20,0,-1,
+10,0,0,,Nevypadáš|jako malířka.,"Velmi správně, jsem všechno, jen ne umělkyně.|Sport mi jde daleko líp.",20,0,1,
+10,0,0,,Tahle hodina|je na nic.,Nebuď tak zapšklá. Tělocvik by ale byla|větší zábava. Sport mi jde líp.,20,-1,0,
+20,0,0,,Sport? Naše tlustá úča|tohle slovo asi nezná.,"Pšt. Opatrně! Je silnější než vypadá.|A ano, Julie je umělkyně, žádný atlet.",30,-1,0,
+20,0,0,,Na sport jsi|dost vychrtlá.,"Přestaň mě soudit, fyzičku mám dobrou.",30,-1,1,
+20,0,0,,Jo! Tělocviku|se nemůžu dočkat.,(Ukazuje ti palec nahoru.),30,1,0,
+20,0,0,,"Řekla bych, že to|malování bude uklidňující.",Jistě. A Sáru to evidentně baví.,30,0,0,
+30,0,0,,Mohli bychom tu hodinu|trochu zpestřit?,Trochu zpestřit? Co máš na mysli?,40,0,0,
+30,0,0,,To je nuda. (Zív.),"Ale no tak! Není to tak zlé, jak si myslíš.",40,-1,0,
+30,0,0,,Tohle by mohla|být větší zábava!,Větší zábava? Jsem zvědavá.|O čem to vlastně mluvíš.,40,1,0,
+40,0,0,,Naše učitelka by měla|předvést své křivky.,"Své křivky? (Chichotá se.)|Myslíš, že by si měla sundat šaty?",50,1,0,
+40,0,0,,"Bylo by lepší, kdyby|si Julie sundala šaty.",Sexy portrét? No já nevím.,50,0,0,
+40,0,0,,"Pomož mi ji přelstít,|aby si sundala ty šaty.","Ó! To je ďábelské.|Myslíš, že to zvládneme?",50,0,1,
+50,2,0,,"Pomož mi ji přesvědčit,|aby se svlékla, kámoško.",Zamyslím se… Ona zbožňuje italské malíře.|Zkus zmínit „Zrození Venuše“ od Sandra Botticceliho.,60,,0,SandroComment()
+50,0,2,,"Pomůžeš mi ji přesvědčit,|aby se svlékla.",Zamyslím se… Ona zbožňuje italské malíře.|Zkus zmínit „Zrození Venuše“ od Sandra Botticceliho.,60,0,0,SandroComment()
+50,0,0,,"Dokážeš ji přesvědčit,|aby se svlékla?","Já? To ne, tohle pro tebe neudělám.",50,0,0,
+60,0,0,JuliaStrip,Není ta hodina|takhle lepší?,"Určitě se zapíše do dějin, to je fakt.|Netušila jsem, že je Julie tak odvážná.",70,0,0,
+60,0,0,JuliaStrip,"Jo, jsme tým!","(Dává ti high five.) Na týmovou spolupráci.|Netušila jsem, že je Julie tak odvážná.",70,1,0,
+60,0,0,JuliaStrip,Její kozy|jsou monstrózní.,"Nebuď na ni tak přísná, hubnutí není jen tak.|A je fakt odvážná.",70,-1,0,
+80,0,0,CanBegForRelease,"Můžeš mi prosím|pomoct ven, Jennifer.",,80,0,0,BegForRelease()
+80,0,0,Common_PlayerGagged,@Eehmmo ehm ehher!,"Promiň, já ti nerozumím.",80,0,0,
+80,0,0,Common_PlayerGagged,(Fňukej a třes se.),"Věř mi, je mi tě líto. Asi se teď cítíš|ponížená. Později tě rozveselím.",80,0,0,PityComment()
+100,0,0,StunningBeautyReady,"Nestyď se,|jsi překrásná.","Já? Krásná? Ó, ty jsi tak milá a sladká!",100,0,0,StunningBeauty()
+100,0,1,,"Neměla by ses|svléct, jako Julie?ADD_MINUTES:1",Já… Asi bych mohla.|(Pomalu se svléká.),110,0,0,"SetCloth(1, 0, 0)"
+100,0,1,,Sundej si šaty.ADD_MINUTES:1,Já… Ano… Promiň.|(Pomalu se svléká.),110,0,0,"SetCloth(1, 0, 1)"
+100,0,1,,Ukaž nám to své|krásné tělo.ADD_MINUTES:1,"Fakt si myslíš, že jsem hezká?|(Pomalu se svléká.)",110,0,0,"SetCloth(1, 1, 0)"
+110,0,2,,To ti to mám|sundat sama?ADD_MINUTES:1,"NE! Jejda, já jsem nechtěla křičet, udělám to.|(Červená se a svléká si prádlo.)",120,0,0,"SetCloth(2, -1, 1)"
+110,0,2,,Ještě pár kousků|a budeš jako Julie.ADD_MINUTES:1,"Ano, když to zvládla Julie, tak já taky.|(Červená se a svléká si prádlo.)",120,0,0,"SetCloth(2, 0, 0)"
+110,0,2,,"Když se může svléct|Julie, tak ty taky.ADD_MINUTES:1","Ano, když to zvládla Julie, tak já taky.|(Červená se a svléká si prádlo.)",120,0,0,"SetCloth(2, 0, 0)"
+110,0,2,,Předveď nám víc|kůže a kostí.ADD_MINUTES:1,Kostí? Já nejsem tak hubená!|(Červená se a svléká si prádlo.),120,0,0,"SetCloth(2, -1, 0)"
+110,0,0,,Možná by ses|měla zase obléct. ADD_MINUTES:1,"Myslíš? Asi jo, přeci jen jsme ve škole.|(Sbírá si své oblečení a obléká se.)",100,0,0,"SetCloth(0, 0, 0)"
+120,0,0,,Možná by ses|měla zase obléct. ADD_MINUTES:1,"Myslíš? Asi jo, přeci jen jsme ve škole.|(Sbírá si své oblečení a obléká se.)",100,0,0,"SetCloth(0, 0, 0)"
+120,0,0,,Zkus to znova|s prádlem.ADD_MINUTES:1,(Povzdechne si.) Umění nikdy nepochopím.|(Obléká se zpátky do prádla.),110,0,0,"SetCloth(1, 0, 0)"
+130,0,0,,Neboj Jennifer.|Všechno bude fajn.,(Pomalu kývá hlavou.),130,0,0,TrustComment()
+130,0,0,EggInside,"Tohle vajíčko ti|připomene, kdo je tu šéf.",(Klopí hlavu.),130,0,0,EggComment()
+130,2,0,KissReady,(Polib ji.)ADD_MINUTES:1,"Prosím ne. Já na to nejsem.|(Nevypadá to, že by si polibek užívala.)",130,-1,0,Kiss()
+130,0,0,,(Utáhni provazy.)ADD_MINUTES:1,"(Tenhle úvaz je už tak těsný, jak jen může být.)",130,0,0,Tighten()
+130,0,0,,(Polechtej ji.)ADD_MINUTES:1,"(Choulí se studem,|aby se vyhnula tvému lechtání.)",130,0,0,Tickle()
+130,0,0,Common_PlayerNotRestrained,(Rozvaž ji.)ADD_MINUTES:1,(Rozvázala jsi ji a ona na tebe hodila provazy.)|Už si můžu jít sednout?,120,0,0,Untie()
+130,0,0,PaintAvail,(Maluj Jennifer.)|(30 minut),"(Pečlivě ji nakreslíš a ukazuješ jí výsledek.)|Ten obrázek hned po hodině znič, prosím.",130,0,0,Paint()
+140,0,0,,(Utáhni provazy.)ADD_MINUTES:1,"(Tenhle úvaz je už tak těsný, jak jen může být.)",140,0,0,Tighten()
+140,0,0,,(Polechtej ji.)ADD_MINUTES:1,"(Choulí se studem,|aby se vyhnula tvému lechtání.)",140,0,0,Tickle()
+140,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Rozepla jsi jí roubík a vyndala jí ho z úst.)|Můžeš mě teď rozvázat?,130,0,0,Ungag()
+140,0,0,PaintAvail,(Maluj Jennifer.)|(30 minut),(Pečlivě ji nakreslíš a ukazuješ jí výsledek.)|(Dívá se na tvé dílo a fňuká.),140,0,0,Paint()
+150,0,0,,(Utáhni provazy.)ADD_MINUTES:1,"(Tenhle úvaz je už tak těsný, jak jen může být.)",150,0,0,Tighten()
+150,0,0,,(Polechtej ji.)ADD_MINUTES:1,"(Choulí se studem,|aby se vyhnula tvému lechtání.)",150,0,0,Tickle()
+150,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,"(Sundáváš jí pásku z úst.)|Dobře, můžeš mě teď rozvázat?",130,0,0,Ungag()
+150,0,0,PaintAvail,(Maluj Jennifer.)|(30 minut),(Pečlivě ji nakreslíš a ukazuješ jí výsledek.)|(Dívá se na tvé dílo a fňuká.),150,0,0,Paint()
+,,,,

@@ -1,0 +1,58 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Ráda vás|poznávám, Julie.","Ano! A teď mě hezky obejměte, nová žačko.",10,1,0,
+0,0,0,,"Těší mě,|slečno Giuliano.","Ne, ne, ne, ne, říkejte mi Julie.|A teď mě hezky obejměte, nová žačko.",10,0,-1,
+0,0,0,,Kreslení? Ach jo.|(Obrať oči v sloup.),"Umění je oheň! A já jsem plamen!|A teď mě hezky obejměte, nová žačko.",10,-1,1,
+0,0,0,,(Dívej se jinam.),"Sem se dívejte, nová žačko.|Pojďte a hezky mě obejměte.",10,-1,0,
+10,0,0,,"Obejmout?|Jistě, proč ne.",Si! (Pevně tě obejme a málem ti|zamáčkne hlavu mezi svá ňadra.),20,0,0,Hug()
+10,0,0,,Ale jistě!|(Rozevři náruč.),Si! (Pevně tě obejme a mačká ti|hlavu mezi svá ňadra.),20,1,0,Hug()
+10,0,0,,"Ne, díky.","Dobrá, nová žačko, tedy bez objetí pro vás.|Ale doufám, že jste připravená malovat.",30,0,0,
+10,0,0,,Obejmout vás?|Na to zapomeňte.,Takže vy jste ten plamen a vztek.|Tahle hodina malování je pro vás jako stvořená.,30,-1,0,
+20,0,0,,To je ale|vřelé přijetí.,"Si! (Pouští tě.)|Doufám, že jste připravená malovat.",30,0,0,
+20,0,0,,(Zanoř obličej hlouběji|do jejich ňader.),"Ne, ne, ne, ne, tohle nedělejte.|Raději se připravte malovat, nová žačko.",30,-1,1,
+20,0,0,,Nemůžu dýchat!,"(Pouští tě.) Omlouvám se, malá žačko.|Doufám že jste tedy připravena malovat.",30,0,-1,
+30,0,0,,"Mhm, no tak jo.","Budete potřebovat více ohně, než jen tohle!|Protože mě budete malovat jako da Vinci!",40,0,0,
+30,0,0,,Malování?|To bude katastrofa!,Jediná katastrofa je nevěřit si.|Dnes mě budete malovat jako da Vinci.,40,-1,0,
+30,0,0,,Super!|Já miluju malování.,Nádhera! A dnešek je mimořádný.|Budete mě malovat jako da Vinci.,40,1,0,
+30,0,0,,Ale já neumím malovat.,Nesmysl! Každý dokáže malovat.|A dnes mě budete malovat jako da Vinci.,40,0,-1,
+40,0,0,,Malovat vás? To budu|potřebovat větší plátno.,"(Zírá na tebe.) Doufám, že to říkáte|jen kvůli mým tradičním šatům.",50,-1,1,
+40,0,0,,Ó! To budu potřebovat|spousty barev.,Si! Zvláště jestli chcete zachytit|všechny detaily mých tradičních šatů.,50,1,0,
+40,0,0,,To bude na mě|moc složité.,"Na mých tradičních šatech je spousta detailů.|Ale já jsem si jista, že odvedete skvělou práci.",50,0,-1,
+50,0,0,,Tak se na ten|štětec podívejme.,Prima! Předveďte mi tedy své schopnosti|Michelangela. (Zaujímá pózu.),60,0,0,
+50,0,0,,"Já to teda zkusím, no.|(Smutně povzdechni.)","Michelangelo nezkouší, Michelangelo dělá!|Tak taky dělejte! (Zaujímá pózu.)",60,0,-1,
+50,0,0,,Tak jo! Ukažte mi|svou nejlepší pózu!,Báječné! Předveďte mi tedy své schopnosti|Michelangela. (Zaujímá pózu),60,0,1,
+60,2,0,BigHugReady,Můžu dostat ještě|jedno objetí?,Si! (Mačká tvou hlavu pevně mezi svá ňadra.|Skoro nemůžeš dýchat.),60,0,0,BigHug()
+60,0,0,Sandro,Viděla jste Botticelliho|„Zrození Venuše?“,Si! Vy jste měla příležitost vidět|mistrovské dílo Sandra Boticelliho?,70,0,0,
+60,0,0,Sandro,Znáte „Zrození Venuše?“|(Plaše se zasměj.),,70,0,-1,
+70,0,0,,"Vsadím se, že byste|byla úžasná Venuše!",(Usmívá se.) Já?|Úžasná Venuše?,80,1,0,
+70,0,0,,Mohla byste udělat|Venušinu pózu.,Já? Venušinu pózu?|Jako Botticelliho Venuše?,80,0,0,
+80,0,0,,"Ano, ale budete|muset odhalit víc kůže.",Za skvělou Venuši! (Sundává si blůzu|a odhaluje svá prsa.) Chopte se štětců!,100,0,0,RemoveTop()
+80,0,0,,"Ano, předveďte své|křivky, jako Venuše!",Za skvělou Venuši! (Sundává si blůzu|a odhaluje svá prsa.) Chopte se štětců!,100,0,1,RemoveTop()
+110,0,0,,Vypadáte dobře.,Jen dobře? Dobře není skvěle. Dobře není umění!,120,0,0,
+110,0,0,,Magnifico!|Skoro dokonalé.,Si! Ale skoro dokonalé není dokonalé!,120,1,0,
+110,0,0,,Mohlo by to být lepší.,Lepší? Vám se to nelíbí?,120,0,1,
+110,0,0,,Špekovenuše.|(Odkašleš si.),"(Zle se na tebe podívá.)|Vám se to nelíbí, nová žačko?",120,-1,0,
+120,0,0,,Skvělá Venuše|byla nahá celá.,Velmi správně! Tedy za Botticelliho a za Venuši!|(Svléká se do naha.) Chopte se štětců!,130,0,0,Strip()
+120,0,0,,Udělejte Venuši|a svlečte se do naha!,"Si, si, si! Tedy za Botticelliho a za Venuši!|(Svléká se do naha.) Chopte se štětců!",130,0,1,Strip()
+120,0,0,,Můžete se odhalit ještě|více? (Plaše se zasměj.),"Vy plachá žačko, já vám ukážu plamen umělce!|(Svléká se do naha.) Chopte se štětců!",130,0,-1,Strip()
+140,0,0,WorkOfArtReady,Vy jste opravdu|umělecké dílo.,"To je od vás hezké, COMMON_PLAYERNAME.|Jste okouzlující nová žačka.",140,0,0,WorkOfArt()
+140,0,0,,Možná bychom měli|přidat další modelku.,Myslíte? To mě zajímá.|Kdo by měl se mnou pózovat?,150,0,0,QueryNewModel()
+140,0,0,,"Hezčí by bylo, kdybychom|přidali modelku.","Nejsem sama dost hezká? Nesmysl!|Ale jsem zvědavá, kdo by měl se mnou pózovat.",150,-1,0,QueryNewModel()
+150,0,0,,Já vám postojím|modelem.ADD_MINUTES:1,Ó! Velmi odvážné! Jen pojďte!|Žáci! Máme další modelku.,160,0,0,"NewModel(""Player"")"
+150,0,0,,Sára by měla|stát modelem.ADD_MINUTES:1,"Dobrý nápad, předstupte prosím, Sáro.|Čas malovat, vezměte si své štětce!",160,0,0,"NewModel(""Sarah"")"
+150,0,0,,Jennifer by měla|stát modelem.ADD_MINUTES:1,"Zajímavé, Jennifer, prosím předstupte.|Čas malovat, vezměte si své štětce!",160,0,0,"NewModel(""Jennifer"")"
+150,0,0,CanBegForRelease,@HUHIE! MHMHME MM!,"Udržujte pózu, nová žačko.|Nerozumím vám ani slovo.",150,0,0,GaggedSpeach()
+150,0,0,CanBegForRelease,(Fňukej a dělej|štěněčí oči.),,150,0,0,BegForRelease()
+170,0,1,Common_PlayerNotRestrained,Pojďme zase|změnit modelku.,Zase? Kdo by měl se mnou pózovat?,150,0,0,ChangeModel()
+170,0,-1,,"Můžu si jít zase|sednout, prosím?",Ne! Ubohá plachá nová žačko. Musíte nejprve svou|plachost překonat a zažehnout v sobě plamen.,170,0,0,
+170,0,0,CanDoSelfBondage,Předvedu vám na sobě|shibari! (Svaž se.),"(Nahá, před celou třídou zápasíš s provazy|a daří se ti je na sobě omotat a zavázat.)",170,0,0,SelfBondage()
+170,0,0,CanBegForRelease,@HUHIE! MHMHME MM!,"Držte pózu, nová žačko!|Teď není čas na mluvení.",170,0,0,GaggedSpeach()
+170,0,0,CanBegForRelease,(Fňukej a dělej|štěněčí oči.),,170,0,0,BegForRelease()
+170,0,0,AllowUnderwear,Naše oblečení se liší.ADD_MINUTES:1,"Si! Je to divné, že jste oblečená.|(Pomalu si svlékáš šaty.) Teď malujte!",180,0,0,PlayerRemoveOutfit()
+170,0,0,AllowNaked,Pořád jsme jinak|oblečené.ADD_MINUTES:1,Velmi odvážná! Taky byste měla být nahá.|(Pomalu si svlékáš prádlo.) Teď malujte!,180,0,0,PlayerStrip()
+170,0,0,AllowShibari,Slyšela jste někdy|o „shibari“?,"Si! Shibari je tradiční japonské vázání provazem.|Mám tady nějaká lana, můžeme to dnes zkusit.",170,0,0,ShibariStart()
+170,0,1,AllowShibari,"Hej, Julie, už jste|zkoušela „shibari”?","Japonské umění vázání provazem jsem nezkoušela.|Mám tady nějaká lana, můžeme to dnes zkusit.",170,0,1,ShibariStart()
+170,0,0,IsRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Potichu se chichotá a vypadá to, že si to užívá.)",170,0,0,Tickle()
+170,0,0,IsRestrained,(Utáhni provazy.)ADD_MINUTES:1,"Provazy už jsou tak těsné, jak jen mohou být.",170,0,0,Tighten()
+170,0,0,IsRestrained,(Pusť ji.)ADD_MINUTES:1,(Rozvazuješ uzly a pouštíš ji.)|Takže se vám shibari nakonec nelíbí?,170,0,0,Release()
+170,0,0,IsGagged,(Sundej jí roubík.)ADD_MINUTES:1,(Sundáváš jí roubík a ona se usmívá.)|Umění je někdy bláznivé. A teď malujte!,170,0,0,TryUngag()
+170,0,0,PaintAvail,(Namaluj Julii.)|(30 minutes),(Pečlivě ji maluješ a ukazuješ jí svůj výtvor.)|(Prohlíží si tvou kresbu a skáče radostí.),170,0,0,Paint()

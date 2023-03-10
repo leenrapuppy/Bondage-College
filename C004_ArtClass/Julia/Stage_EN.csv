@@ -1,7 +1,7 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,Nice to meet|you Julia.,Yes!  Now give me a big hug new pupil.,10,1,0,
 0,0,0,,Pleased to meet|you Miss Giuliana.,"No, no, no, no, call me Julia.|Now give me a big hug new pupil.",10,0,-1,
-0,0,0,,Art?  Oh my.|(Roll your eyes up.),Art is fire!  And I am the flame.||Now give me a big hug new pupil.,10,-1,1,
+0,0,0,,Art?  Oh my.|(Roll your eyes up.),Art is fire!  And I am the flame.|Now give me a big hug new pupil.,10,-1,1,
 0,0,0,,(Look elsewhere.),Look here new pupil.  Come|closer and give me a big hug.,10,-1,0,
 10,0,0,,"A hug?  Sure, why not.",Si!  (She hugs you close and almost|squeezes your head between her breasts.),20,0,0,Hug()
 10,0,0,,Of course!|(Open your arms.),Si!  (She hugs you really tight and|squeezes your head between her breasts.),20,1,0,Hug()

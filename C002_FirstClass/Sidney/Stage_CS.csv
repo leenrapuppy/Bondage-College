@@ -25,7 +25,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,SubdueRemarkReady,High five!|Tohle je konečně hodina!,High five! Nejlepší matika ever!,100,1,0,SubdueRemark()
 100,0,0,SubdueRemarkReady,Dneska máme|úplně novou hodinu.,Kurva jo! Tohle je mnohem lepší!,100,0,0,SubdueRemark()
 100,0,0,AmandaWhipReady,Chtěla bys našvihat|Amandě?ADD_MINUTES:1,Jasně! (Bere si tvůj bičík|a několikrát s ním Amandu přetáhne.),100,1,0,AmandaWhip()
-100,0,0,SarahWhipReady,Chtěla bys našvihat|Sarah?ADD_MINUTES:1,"Óó, kurva jo! (Bere si tvůj bičík|a několikrát s ním Sarah přetáhne.)",100,1,0,SarahWhip()
+100,0,0,SarahWhipReady,Chtěla bys našvihat|Sáře?ADD_MINUTES:1,"Óó, kurva jo! (Bere si tvůj bičík|a několikrát s ním Sáru přetáhne.)",100,1,0,SarahWhip()
 100,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(Šeptá.) Přestaň rušit.,100,0,0,
 100,0,0,Common_PlayerGagged,(Skousni kuličku roubíku.),"(Šeptá.) Vypadáš jako idiot.",100,0,0,
 100,1,0,Common_PlayerGagged,(Zkus ukázat|na roubík.),(Šeptá) Ztichni.|Po hodině ti pomůžu.,100,0,0,

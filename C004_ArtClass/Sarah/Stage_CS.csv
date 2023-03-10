@@ -1,0 +1,77 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,Malování není|moje silná stránka.,Aha! Ale ty to určitě zvládneš.|Ty nemáš ráda umění a kreslení?,10,0,-1,
+0,0,0,,"Jo, to půjde.","Určitě budeš v pohodě.|Tak co, líbí se ti hodina kreslení a Julie?",10,0,0,
+0,0,0,,Raději bych|malovala tebe.,(Červená se.) To je od tebe milé.|Takže tobě se naše učitelka nelíbí?,10,1,0,
+0,0,0,BondageDone,"Když budeš hodná holka,|tak tě ještě jednou svážu.","(Sklání hlavu.) Ano, slečno.|A jak se ti líbí hodina kreslení a Julie?",10,0,1,
+10,0,0,,Julie je velký|model ke kreslení.,"Nebuď na ni tvrdá. Je možná trošku tlustší,|ale je to dobrá učitelka.",20,-1,0,
+10,0,0,,Na těch jejích|šatech je moc detailů.,Je to výzva! Není to zrovna|snadná předloha k nakreslení.,20,0,0,
+10,0,0,,"Umění je fajn,|ale Julie ne.","Nebuď na ni tvrdá. Sice už je starší,|ale je to dobrá učitelka.",20,-1,0,
+20,0,0,,"Nebylo by lepší,|kdyby byla nahá?",Rozhodně souhlasím. Ale jak ji chceš přesvědčit.,30,1,0,
+20,0,0,,"Přiznej to. Užívala|by sis, kdyby se svlíkla.",(Chichotá se.) To je fakt.|Ale jak ji k tomu chceš přesvědčit.,30,0,1,
+20,0,0,,"Nikdy to nezvládnu,|pokud si ty šaty nesundá.",Sundat ji šaty? To není špatný nápad.|Nejprve ji ale budeš muset nějak přesvědčit.,30,0,-1,
+30,0,0,,Pomož mi ji přesvědčit.,"Nevím, jak ji přesvědčit.|Možná se zkus zeptat Jennifer, ta je chytrá.",30,0,0,
+100,0,0,,"Myslíš, že dokážeme|zvednout laťku?",Zvednout laťku? Co chceš dělat?,110,0,0,
+100,0,0,,Neměli bychom|to trochu opepřit?,Opepřit! Opepřit! Opepřit! Co chceš dělat?,110,1,0,
+110,0,0,,Měli bychom|Julii spoutat.,"Spoutat ji? Ó, ďábelské!|Jak ji chceš přesvědčit?",120,0,0,
+110,0,0,,Julie by byla|ještě lepší svázaná.,"Ano, ano, ano a ano!|Ale jak ji chceš přesvědčit?",120,1,0,
+110,0,0,,Pojďme svázat tu|její tlustou prdel.,"Takhle bych to sice neřekla, ale|ta myšlenka se mi líbí. Jak ji přesvědčíš?",120,-1,1,
+120,0,0,,Přesvědčíme ji|pomocí umění.,"Ó! Je tady něco, co bys mohla zkusit.|Nahoď jí téma „shibari“ – japonské umění svazování.",130,0,0,ShibariComment()
+120,0,0,,Má ráda umění.|Můžeme to použít?,Jo! Buď potichu! Mám perfektní plán.|Nahoď jí téma „shibari“ – japonské umění svazování.,130,0,-1,ShibariComment()
+130,0,0,CanBeTied,"Mohla bys mě|svázat, Sáro?","Raději jsem svázaná sama, ale asi ti můžu pomoct.|(Bere si od tebe provaz a vcelku dobře tě spoutá.)",130,0,0,TiePlayer()
+130,0,0,CanBeBallGagged,"Koukni se do mých věcí,|je tam roubík.","Ó, super! Hezky otevři pusu, nádherná modelko!|(Dává ti roubík do úst a poutá ti ho za hlavou.)",130,0,0,BallGagPlayer()
+130,0,0,Common_PlayerRestrained,"Můžeš mi pomoct, Sáro?",,130,0,0,BegForRelease()
+130,0,0,Common_PlayerGagged,"@Nanghn, uuumng!",(Chichotá se.) Jsi roztomilá s tím roubíkem.,130,0,0,
+130,0,0,Common_PlayerGagged,(Skloň hlavu.),"Jsi krásně submisivní, víš to?",130,0,0,BowHead()
+130,0,0,GetTapeAvail,"Ještě něco, co by|to mohlo zpestřit?ADD_MINUTES:1","Jo! Mám tady něco, co bys mohla použít.|(Odchází a vrací se s nějakou lepící páskou.)",130,0,0,GetTape()
+130,0,0,IsModel,"Neměla by ses svlíct,|jako Julie?ADD_MINUTES:1","(Chichotá se.) No jo, vlastně.|(Svléká se do prádla.)",140,0,0,"SetCloth(1, 0, 0)"
+130,0,0,IsModel,"Ukaž víc kůže,|bloncko!ADD_MINUTES:1",Bloncko? Mhm. Tak jo.|(Svléká se do prádla.),140,0,0,"SetCloth(1, -1, 1)"
+130,0,0,IsModel,Bez těch šatů|budeš roztomilejší. ADD_MINUTES:1,Vážně si to myslíš?|(Svléká se do prádla.),140,0,0,"SetCloth(1, 1, 0)"
+140,0,0,GetTapeAvail,"Ještě něco, co by|to mohlo zpestřit?ADD_MINUTES:1","Jo! Mám tady něco, co bys mohla použít.|(Odchází a vrací se s nějakou lepící páskou.)",140,0,0,GetTape()
+140,0,0,IsModel,Ale holka!|Ty máš na víc!ADD_MINUTES:1,"Já vím, já vím, jenom tak zlobím.|(Rozpustile se svléká z prádla.)",150,0,0,"SetCloth(2, 0, 1)"
+140,0,0,IsModel,"Myslím, že víš,|co teď máš dělat.ADD_MINUTES:1",To rozhodně ano. Za umění!|(Rozpustile se svléká z prádla.),150,0,0,"SetCloth(2, 0, 0)"
+140,0,0,IsModel,Troufneš si do naha?|(Plaše se zasměj.)ADD_MINUTES:1,Cha! To není žádná výzva!|(Rozpustile se svléká z prádla.),150,0,0,"SetCloth(2, 0, -1)"
+140,0,0,IsModel,Ukaž mi tu pózu|ještě v šatech.ADD_MINUTES:1,"Hele, tak se rozmysli!|(Zase se obléká a ohrnuje rty.)",130,0,0,"SetCloth(0, 0, 0)"
+150,0,0,GetTapeAvail,"Ještě něco, co by|to mohlo zpestřit?ADD_MINUTES:1","Jo! Mám tady něco, co bys mohla použít.|(Odchází a vrací se s nějakou lepící páskou.)",150,0,0,GetTape()
+150,0,0,IsModel,Zkus tu pózu|ještě v prádle.ADD_MINUTES:1,Ale to nebude tak sexy!|(Obléká se do prádla a ohrnuje rty.),140,0,0,"SetCloth(1, 0, 0)"
+150,0,0,IsModel,Zkus to ještě|jednou v šatech.ADD_MINUTES:1,Fakt? To nejsem dost hezká?|(Obléká si znovu šaty a ohrnuje rty.),130,0,0,"SetCloth(0, 0, 0)"
+160,0,5,CollarRemarkReady,Jsi dost dobrá|na obojek.,"Opravdu? Děkuji, slečno.|(Červená a usmívá se.)",160,1,1,CollarRemark()
+160,0,0,EggInside,Líbí se ti|to vajíčko Sáro?,Rozhodně! Moc ti děkuju.|To bzučení mi tě vždycky připomene.,160,0,0,
+160,2,0,Common_PlayerNotGagged,(Polib ji.)ADD_MINUTES:1,(Červená se.) Jsi tak pěkná.|Připomínáš mi Amandu.,160,0,0,Kiss()
+160,0,0,,(Utáhni jí provazy.)ADD_MINUTES:1,"Provazy už jsou tak těsné, jak jen mohou být.",160,0,0,Tighten()
+160,0,0,Common_PlayerNotRestrained,(Rozvaž ji.)ADD_MINUTES:1,"Óóó, proč jsi mě rozvázala?|(Vyplazuje jazyk a zaujímá pózu.)",150,0,0,Untie()
+160,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"Jsi vtipná. Ale tohle je to nejlepší, co umíš?|(Chichotá se, ale příliš velký dojem to v ní nevyvolává.)",160,0,0,
+160,0,0,PaintAvail,(Maluj Sáru.)|(30 minut),(Pečlivě ji maluješ a ukazuješ jí výsledek.)|Wow! To je ale hodně zvrhlá kresba. Líbí se mi!,160,0,0,Paint()
+170,0,0,CrotchRopeReady,(Hraj si s jejími|provazy v rozkroku.)ADD_MINUTES:1,"(Hraješ si s ní, ona se chvěje a padá na kolena.|Připravená na ohromný orgasmus.)",200,0,0,OrgasmStart()
+170,0,0,,(Utáhni jí provazy.)ADD_MINUTES:1,"Provazy už jsou tak těsné, jak jen mohou být.",170,0,0,Tighten()
+170,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,(Protahuje si čelist a usmívá se.)|Máš pro mě nějaký větší roubík?,160,0,0,Ungag()
+170,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Chichotá se, ale příliš velký dojem to v ní nevyvolává.)",170,0,0,
+170,0,0,PaintAvail,(Maluj Sáru.)|(30 minut),(Pečlivě ji maluješ a ukazuješ jí výsledek.)|(Dívá se na tvé dílo a šťastně přikyvuje.),170,0,0,Paint()
+180,0,0,CrotchRopeReady,(Hraj si s jejími|provazy v rozkroku.)ADD_MINUTES:1,"(Hraješ si s ní, ona se chvěje a padá na kolena.|Připravená na ohromný orgasmus.)",250,0,0,OrgasmStart()
+180,0,0,,(Utáhni jí provazy.)ADD_MINUTES:1,"Provazy už jsou tak těsné, jak jen mohou být.",180,0,0,Tighten()
+180,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,"(Usmívá se na tebe.) Ta páska|byla nejlepší nápad, co jsem kdy měla.",160,0,0,Ungag()
+180,0,0,Common_PlayerNotRestrained,(Polechtej ji.)ADD_MINUTES:1,"(Chichotá se, ale příliš velký dojem to v ní nevyvolává.)",180,0,0,
+180,0,0,PaintAvail,(Maluj Sáru.)|(30 minut),(Pečlivě ji maluješ a ukazuješ jí výsledek.)|(Dívá se na tvé dílo a šťastně přikyvuje.),180,0,0,Paint()
+200,0,0,,Chtěla bys|vyvrcholení subinko?,"(Pomalu kýve hlavou, zatímco se snaží ovládat.)",210,0,1,
+200,0,0,,Takže tahle čubka|se chce udělat?,"(Třese hlavou zleva doprava a pak nahoru a dolů|zatímco se snaží se ovládat.)",210,-1,0,
+200,0,0,,Vypadá to že|jsi skoro v nebesích.,"(Šťastně přikyvuje, zatímco se snaží ovládat.)",210,1,0,
+200,0,0,,Nebohá holčička.|(Pomož jí vstát.)ADD_MINUTES:1,"(Pomáháš jí postavit se,|zatímco se jí pomalu vrací kontrola.)",170,0,0,
+210,0,0,,Zasloužíš si to.|(Potěš ji.)ADD_MINUTES:1,"(Hraješ si s provazem v jejím rozkroku,|až má tichý orgasmus. Někteří si všimnou, jiní ne.)",220,1,0,Orgasm()
+210,0,0,,Teď jsi moje.|(Potěš ji.)ADD_MINUTES:1,"(Hraješ si s provazem v jejím rozkroku,|až má tichý orgasmus. Někteří si všimnou, jiní ne.)",220,0,1,Orgasm()
+210,0,0,,Nezasloužíš si to.|(Pomož jí vstát.)ADD_MINUTES:1,(Odpíráš jí orgasmus a pomáháš jí vstát.|Dělá na tebe štěněcí oči.),170,-1,1,
+210,0,0,,Ve třídě ne.|(Pomož jí vstát.)ADD_MINUTES:1,(Odpíráš jí orgasmus a pomáháš jí vstát.|Dělá na tebe štěněcí oči.),170,-1,-1,
+220,0,0,,Hodná holčička!|(Pomož jí vstát.)ADD_MINUTES:1,"(Přikyvuje a celá se třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",170,1,0,
+220,0,0,,Jsi děvka!|(Pomož jí vstát.)ADD_MINUTES:1,"(Mračí se a celá se třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",170,-1,1,
+220,0,0,,Příště budu svázaná já!|(Pomož jí vstát.)ADD_MINUTES:1,"(Chichotá se a celá se třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",170,0,-1,
+220,0,0,,(Zůstaň potichu|a pomož jí vstát.)ADD_MINUTES:1,"(Stále se celá třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",170,0,0,
+250,0,0,,Chtěla bys|vyvrcholení subinko?,"(Pomalu kýve hlavou, zatímco se snaží ovládat.)",260,0,1,
+250,0,0,,Takže tahle čubka|se chce udělat?,"(Třese hlavou zleva doprava a pak nahoru a dolů|zatímco se snaží se ovládat.)",260,-1,0,
+250,0,0,,Vypadá to že|jsi skoro v nebesích.,"(Šťastně přikyvuje, zatímco se snaží ovládat.)",260,1,0,
+250,0,0,,Nebohá holčička.|(Pomož jí vstát.)ADD_MINUTES:1,"(Pomáháš jí postavit se,|zatímco se jí pomalu vrací kontrola.)",180,0,0,
+260,0,0,,Zasloužíš si to.|(Potěš ji.)ADD_MINUTES:1,"(Hraješ si s provazem v jejím rozkroku,|až má tichý orgasmus. Někteří si všimnou, jiní ne.)",270,1,0,Orgasm()
+260,0,0,,Teď jsi moje.|(Potěš ji.)ADD_MINUTES:1,"(Hraješ si s provazem v jejím rozkroku,|až má tichý orgasmus. Někteří si všimnou, jiní ne.)",270,0,1,Orgasm()
+260,0,0,,Nezasloužíš si to.|(Pomož jí vstát.)ADD_MINUTES:1,(Odpíráš jí orgasmus a pomáháš jí vstát.|Dělá na tebe štěněcí oči.),180,-1,1,
+260,0,0,,Ve třídě ne.|(Pomož jí vstát.)ADD_MINUTES:1,(Odpíráš jí orgasmus a pomáháš jí vstát.|Dělá na tebe štěněcí oči.),180,-1,-1,
+270,0,0,,Hodná holčička!|(Pomož jí vstát.)ADD_MINUTES:1,"(Přikyvuje a celá se třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",180,1,0,
+270,0,0,,Jsi děvka!|(Pomož jí vstát.)ADD_MINUTES:1,"(Mračí se a celá se třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",180,-1,1,
+270,0,0,,Příště budu svázaná já!|(Pomož jí vstát.)ADD_MINUTES:1,"(Chichotá se a celá se třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",180,0,-1,
+270,0,0,,(Zůstaň potichu|a pomož jí vstát.)ADD_MINUTES:1,"(Stále se celá třese,|zatímco ji zvedáš a a stavíš ji na nohy.)",180,0,0,

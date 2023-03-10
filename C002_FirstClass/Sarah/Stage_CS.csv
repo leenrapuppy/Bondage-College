@@ -1,6 +1,6 @@
 Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
-0,0,0,Common_PlayerGagged,@Uumph lnug mmph!,"(Směje se.) Nedá se ti rozumět.|Já jsem Sarah, ráda tě poznávám.",10,1,0,
-0,0,0,Common_PlayerGagged,(Vesele přikývni.),"(Chichotá se.) Šťastná subinka!|Já jsem Sarah, ráda tě poznávám.",10,1,0,
+0,0,0,Common_PlayerGagged,@Uumph lnug mmph!,"(Směje se.) Nedá se ti rozumět.|Já jsem Sára, ráda tě poznávám.",10,1,0,
+0,0,0,Common_PlayerGagged,(Vesele přikývni.),"(Chichotá se.) Šťastná subinka!|Já jsem Sára, ráda tě poznávám.",10,1,0,
 0,0,0,Common_PlayerGagged,(Naštvaně se|na ni podívej.),S tebou není žádná legrace!|(Vyplazuje na tebe jazyk.),10,-1,0,
 10,0,0,Common_PlayerGagged,@Uumph nug mmph!,(Směje se.) Já ti nerozumím.,10,0,0,
 10,0,0,Common_PlayerGagged,(Vesele přikývni.),(Chichotá se.) Šťastná subinka!,10,0,0,
@@ -39,9 +39,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 50,0,2,SubdueNotDone,Pojď to toho!|Bude to boží!.,Tak jo! Pomůžu ti. Ale začít musíš ty.,60,0,0,AgreeHelp()
 50,0,0,SubdueNotDone,Pomůžeš mi?,"Byla by to psina, ale asi by mi to dost přitížilo.",50,0,0,
 50,0,0,SubdueNotDone,Nejdřív si to promyslím.,"(Přikyvuje.) Jistě, taky si to promyslím.",50,0,0,
-0,0,0,SubdueSuccess,Není takhle|ta hodina lepší?,"Lepší? To je nejlepší matika na světě!|Já jsem Sarah, ráda tě poznávám.",10,1,0,
-0,0,0,SubdueSuccess,Líbí se ti takhle|naše učitelka?,"Je kouzelná jen tak v prádle. (Usmívá se.)|Já jsem Sarah, ráda tě poznávám.",10,1,0,
-0,0,0,SubdueSuccess,"Dostala,|co si zasloužila.","Tohle si zasloužila? Možná jo.|Já jsem Sarah, ráda tě poznávám.",10,0,0,
+0,0,0,SubdueSuccess,Není takhle|ta hodina lepší?,"Lepší? To je nejlepší matika na světě!|Já jsem Sára, ráda tě poznávám.",10,1,0,
+0,0,0,SubdueSuccess,Líbí se ti takhle|naše učitelka?,"Je kouzelná jen tak v prádle. (Usmívá se.)|Já jsem Sára, ráda tě poznávám.",10,1,0,
+0,0,0,SubdueSuccess,"Dostala,|co si zasloužila.","Tohle si zasloužila? Možná jo.|Já jsem Sára, ráda tě poznávám.",10,0,0,
 10,0,0,SubdueSuccess,(Uvolni se|a pozoruj výjev.),(Ona si taky prohlíží Mildred.)|To je ale krásný pohled.,20,0,0,
 10,0,0,SubdueSuccess,Teď tomu šéfuju já.,"To je fakt, máme novou učitelku.",20,0,1,
 10,0,0,SubdueSuccess,Za takovou šou|budeš muset zaplatit.,Já... Já ti ale peníze nedám.,20,-1,0,
@@ -76,9 +76,9 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 170,0,0,,Vy jste mi|krásný spoutaný pár.,(Nadšeně kývá hlavou.),170,0,0,BondageDuo()
 170,0,0,Common_PlayerNotRestrained,(Odděl je.)ADD_MINUTES:1,(Neochotně se vrací na svou židli.),150,0,0,Separate()
 170,0,0,Common_PlayerNotRestrained,(Sundej jí roubík.)ADD_MINUTES:1,"(Rozepínáš přezky a vyndáváš jí kuličku z úst.)|Není to vzrušující, Amando?",160,0,0,Ungag()
-200,0,0,,"@Uuumph, mmph!","(Směje se.) Já ti vůbec nerozumím!|Jsem Sarah, potěšení je na mé straně.",210,0,0,
-200,0,0,,(Pomalu přikývni.),"(Chichotá se.) Takhle vypadáš skvěle.|Já jsem Sarah, potěšení je na mé straně.",210,0,-1,
-200,0,0,,(Zkus ukázat|na Mildred.),"Ona tě svázala? No, pěkně!|Já jsem Sarah, ráda tě poznávám.",210,0,0,
+200,0,0,,"@Uuumph, mmph!","(Směje se.) Já ti vůbec nerozumím!|Jsem Sára, potěšení je na mé straně.",210,0,0,
+200,0,0,,(Pomalu přikývni.),"(Chichotá se.) Takhle vypadáš skvěle.|Já jsem Sára, potěšení je na mé straně.",210,0,-1,
+200,0,0,,(Zkus ukázat|na Mildred.),"Ona tě svázala? No, pěkně!|Já jsem Sára, ráda tě poznávám.",210,0,0,
 210,0,0,,(Zkus jí potřást rukou.),(Přitáhne se blíž a potřese ti spoutanou rukou.)|Ale to je psina! Co se to tady odehrálo?,220,1,0,
 210,0,0,,@Mmhgnm!,"Ráda tě poznávám, „Mmhgnm“.|(Směje se.) Co se to tady odehrálo?",220,0,0,
 220,0,0,,@Jh kmyd mo knmdn|Snnghn Mmdeng.,Nerozumím ti ani slovo.|Ale spoutaná vypadáš rozkošně.,230,0,0,
