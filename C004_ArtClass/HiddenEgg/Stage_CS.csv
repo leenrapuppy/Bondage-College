@@ -1,0 +1,2 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,Common_PlayerNotRestrained,(Vezmi ho.),"Ujistíš se, že se nikdo nedívá|a růžový předmět si vezmeš.",10,0,0,TakeEgg()

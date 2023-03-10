@@ -25,7 +25,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 80,0,0,CanBegForRelease,"Please Jennifer, can|you help me out?",,80,0,0,BegForRelease()
 80,0,0,Common_PlayerGagged,@Eehmmo ehm ehher!,"I'm sorry, I cannot understand.",80,0,0,
 80,0,0,Common_PlayerGagged,(Whimper and tremble.),"Trust me, I feel for you.  You must be|humiliated now.  I'll cheer you up later.",80,0,0,PityComment()
-100,0,0,StunningBeautyReady,"Don't be shy, you're|a stunning beauty.","Me?  A beauty?  On my,|you're so kind and sweet.",100,0,0,StunningBeauty()
+100,0,0,StunningBeautyReady,"Don't be shy, you're|a stunning beauty.","Me?  A beauty?  Oh my,|you're so kind and sweet.",100,0,0,StunningBeauty()
 100,0,1,,Shouldn't you undress|like Julia?ADD_MINUTES:1,I... I guess I can.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 0)"
 100,0,1,,Take your clothes|off.ADD_MINUTES:1,I... Yes... Sorry.|(She slowly undresses.),110,0,0,"SetCloth(1, 0, 1)"
 100,0,1,,You should show your|pretty body. ADD_MINUTES:1,You really think I'm pretty?|(She slowly undresses.),110,0,0,"SetCloth(1, 1, 0)"

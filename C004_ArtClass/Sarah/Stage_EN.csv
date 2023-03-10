@@ -20,7 +20,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 130,0,0,CanBeTied,"Sarah, can you|tie me up?","I prefer to be tied up, but maybe I can help.|(She takes your rope and restrains you pretty well.)",130,0,0,TiePlayer()
 130,0,0,CanBeBallGagged,"Check in my stuff,|there's a ballgag.",Oh nice!  Open wide pretty model.|(She straps the ballgag in your mouth.),130,0,0,BallGagPlayer()
 130,0,0,Common_PlayerRestrained,"Sarah, can you help me?",,130,0,0,BegForRelease()
-130,0,0,Common_PlayerGagged,"@Nanghn, uuumng!",(She giggles)  You're so cute with that gag.,130,0,0,
+130,0,0,Common_PlayerGagged,"@Nanghn, uuumng!",(She giggles.)  You're so cute with that gag.,130,0,0,
 130,0,0,Common_PlayerGagged,(Bow your head.),You're a nice submissive you know?,130,0,0,BowHead()
 130,0,0,GetTapeAvail,Anything else to spice|things up? ADD_MINUTES:1,Yes!  I have something you can use here.|(She walks around and returns with some tape.),130,0,0,GetTape()
 130,0,0,IsModel,Shouldn't you undress|like Julia?ADD_MINUTES:1,(She giggles.)  Indeed.|(She strips to her underwear.),140,0,0,"SetCloth(1, 0, 0)"
@@ -43,7 +43,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 160,0,0,PaintAvail,(Paint Sarah.)|(30 minutes),(You carefully paint her and show the result.)|Wow!  This is such a kinky painting.  I love it!,160,0,0,Paint()
 170,0,0,CrotchRopeReady,(Play with the crotch|rope.) ADD_MINUTES:1,(You play while she trembles and falls on|her knees.  Ready to have a huge orgasm.),200,0,0,OrgasmStart()
 170,0,0,,(Tighten the ropes.)ADD_MINUTES:1,The ropes are as tight as they can be.,170,0,0,Tighten()
-170,0,0,Common_PlayerNotRestrained,(Ungag her.)ADD_MINUTES:1,(She stretches her jaw and smiles)|Do you have a bigger gag coming up?,160,0,0,Ungag()
+170,0,0,Common_PlayerNotRestrained,(Ungag her.)ADD_MINUTES:1,(She stretches her jaw and smiles.)|Do you have a bigger gag coming up?,160,0,0,Ungag()
 170,0,0,Common_PlayerNotRestrained,(Tickle her.)ADD_MINUTES:1,(She giggles but isn't impressed by your tickling.),170,0,0,
 170,0,0,PaintAvail,(Paint Sarah.)|(30 minutes),(You carefully paint her and show the result.)|(She looks at your work of art and nods happily.),170,0,0,Paint()
 180,0,0,CrotchRopeReady,(Play with the crotch|rope.) ADD_MINUTES:1,(You play while she trembles and falls on|her knees.  Ready to have a huge orgasm.),250,0,0,OrgasmStart()
