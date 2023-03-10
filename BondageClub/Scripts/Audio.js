@@ -529,7 +529,7 @@ function AudioGetSoundFromChatMessage(data, metadata) {
 
 		return [soundEffect, 0];
 	} else if (data.Type === "Action") {
-		const NextAsset = metadata.Assets.NextAsset;
+		const NextAsset = metadata.Assets && metadata.Assets.NextAsset;
 		if (!NextAsset) return;
 
 		return AudioGetSoundFromAsset(sender, NextAsset.Group.Name, NextAsset.Name);
