@@ -378,7 +378,7 @@ function CharacterAppearanceSortLayers(C) {
 					if (item.Property) {
 						if (typeof item.Property.OverridePriority === "number")
 							drawLayer.Priority = item.Property.OverridePriority;
-						else if (typeof item.Property.OverridePriority === "object" && typeof item.Property.OverridePriority[layer.Name] === "number") {
+						else if (CommonIsObject(item.Property.OverridePriority) && typeof item.Property.OverridePriority[layer.Name] === "number") {
 							drawLayer.Priority = item.Property.OverridePriority[layer.Name];
 						}
 					}
