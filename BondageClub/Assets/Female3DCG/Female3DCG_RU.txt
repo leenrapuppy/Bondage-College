@@ -1323,10 +1323,14 @@ Floor Shackles
 Напольные кандалы
 Steel Ankle Cuffs
 Стальные манжеты на щиколотки
+Escort Ankle Cuffs
+Конвойные манжеты на щиколотки
 Futuristic Ankle Cuffs
 Футуристические манжеты на щиколотки
 Ornate Ankle Cuffs
 Богато украшенные манжеты на щиколотки
+HighStyle Steel Ankle Cuffs
+Стильные стальные манжеты на щиколотки
 Metal Leg Spreader
 Металическая распорка
 Ball And Chain
@@ -1705,6 +1709,8 @@ Futuristic Cuffs
 Футуристические манжеты
 Ornate Cuffs
 Изысканные манжеты
+HighStyle Steel Cuffs
+Стильные стальные манжеты
 Mittens Chain
 Цепочка для варежек
 Four Limbs Shackles
@@ -1973,6 +1979,8 @@ High Security Collar
 Ошейник повышенной надежности
 Ornate Collar
 Богато украшенный ошейник
+HighStyle Steel Collar
+Стильный стальной ошейник
 Slender Steel Collar
 Тонкий стальной ошейник
 Shiny Steel Collar

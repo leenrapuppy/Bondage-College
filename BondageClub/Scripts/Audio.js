@@ -223,7 +223,8 @@ var AudioActions = [
 	{
 		IsAction: (data) => [
 			"ShacklesRestrain",
-			"Ornate"
+			"Ornate",
+			"HighStyleSteel"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "CuffsMetal"
 	},

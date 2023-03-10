@@ -354,9 +354,13 @@ TailStrapsTentaclesOuter,Outer
 TailStrapsTentaclesSucker,Suckers
 ItemFeetSteelAnkleCuffsCuffs,Cuffs
 ItemFeetSteelAnkleCuffsChain,Chain
+ItemFeetEscortAnkleCuffsCuffs,Cuffs
 ItemFeetOrnateAnkleCuffsCuffs,Cuffs
 ItemFeetOrnateAnkleCuffsGems,Gems
 ItemFeetOrnateAnkleCuffsChain,Chain
+ItemFeetHighStyleSteelAnkleCuffsCuffs,Cuffs
+ItemFeetHighStyleSteelAnkleCuffsPanel,Panel
+ItemFeetHighStyleSteelAnkleCuffsChain,Chain
 ItemFeetFloorShacklesChain,Chain
 ItemFeetFloorShacklesCuffs,Cuffs
 ItemFeetFuturisticAnkleCuffsChain,Chain
@@ -496,6 +500,8 @@ ItemArmsLeatherCuffsCuffs,Cuffs
 ItemArmsLeatherCuffsRings,Rings
 ItemArmsOrnateCuffsCuffs,Cuffs
 ItemArmsOrnateCuffsGems,Gems
+ItemArmsHighStyleSteelCuffsCuffs,Cuffs
+ItemArmsHighStyleSteelCuffsPanel,Panel
 ItemArmsStraitLeotardLower,Lower Half
 ItemArmsStraitLeotardGloves,Gloves
 ItemArmsStraitLeotardUpper,Upper Half
@@ -612,6 +618,8 @@ ItemNeckFuturisticCollarDisplay,Display
 ItemNeckFuturisticCollarLock,Lock
 ItemNeckOrnateCollarCollar,Collar
 ItemNeckOrnateCollarGem,Gems
+ItemNeckHighStyleSteelCollarCollar,Collar
+ItemNeckHighStyleSteelCollarPanel,Panel
 ItemNeckShinySteelCollarCollar,Collar
 ItemNeckShinySteelCollarRing,Ring
 ItemNeckGothicCollarCollar,Collar
