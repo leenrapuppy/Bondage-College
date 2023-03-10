@@ -7483,8 +7483,8 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					}, {
 						Name: "CutOut",
-						Prerequisite: ["NoClothLower", "Garters"],
-						Property: { Type: "CutOut", Hide: ["ClothLower"], Difficulty: 6 }
+						Prerequisite: ["NoClothLower"],
+						Property: { Type: "CutOut", Hide: ["ClothLower", "Garters"], Difficulty: 6 }
 					}
 				],
 				Dialog: {
