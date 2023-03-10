@@ -448,7 +448,7 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
  * Used for:
  *  1. Removing the cache from memory
  *  2. Calling item-appropriate `Exit` functions
- *  3. Setting {@link DialogFocusItem} back to `null`
+ *  3. Setting {@link DialogFocusItem} and {@link ExtendedItemSubscreen} back to `null`
  * @returns {void} - Nothing
  */
 function ExtendedItemExit() {
@@ -465,6 +465,7 @@ function ExtendedItemExit() {
 	CommonCallFunctionByName(FuncName);
 	DialogFocusItem = null;
 	DialogExtendedMessage = "";
+	ExtendedItemSubscreen = null;
 }
 
 /**

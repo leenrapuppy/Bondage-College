@@ -362,7 +362,7 @@ function VibratorModeClick(Options, Y) {
 	let C = CharacterGetCurrent();
 
 	// Exit Button
-	if (MouseIn(1885, 25, 90, 85)) {
+	if (MouseIn(1885, 25, 90, 90)) {
 		ExtendedItemExit();
 		return;
 	}
