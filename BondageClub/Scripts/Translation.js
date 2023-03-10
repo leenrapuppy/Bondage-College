@@ -931,6 +931,17 @@ function TranslationAsset(Family) {
 }
 
 /**
+ * Returns the translated language name for the given code.
+ * @param {string} code - The language code to get the human-readable name of.
+ * @param {boolean} [english] - Get the english name of it.
+ */
+function TranslationGetLanguageName(code, english=false) {
+	const data = TranslationDictionary.find(d => d.LanguageCode === code);
+	if (!data) return "";
+	return english ? data.EnglishName : data.LanguageName;
+}
+
+/**
  * Changes the current language and save the new selected language to local storage
  * @returns {void} - Nothing
  */
