@@ -160,14 +160,20 @@
 ###_PLAYER
 (Accept DialogCharacterObject proposal and become DialogCharacterPossessive wife.)
 (接受她的求婚并成为她的新娘)
-(Back)
-(返回)
 (Release DialogCharacterObject from the slave bond.)
 (放弃与她的主奴关系)
 ###_NPC
 (Are you sure you want to release DialogCharacterObject? THIS ACTION IS NOT REVERSIBLE!)
 (你确定要释放她吗？这个行动【无法取消】)
 ###_PLAYER
+(Tell DialogCharacterObject you want to break up).
+(告诉DialogCharacterObject你想要分手).
+###_NPC
+(Are you sure you want to break up with DialogCharacterObject? THIS ACTION IS NOT REVERSIBLE!)
+(你确定想要和DialogCharacterObject分手？此操作无法撤销！)
+###_PLAYER
+(Back)
+(返回)
 (Yes, I want to permanently break the ownership!)
 (是的，我想永久解除主奴关系)
 ###_NPC
@@ -181,6 +187,12 @@
 ###_NPC
 (Main menu)
 (主菜单)
+###_PLAYER
+(Yes, I want to break up with DialogCharacterObject.)
+(是的，我想要和DialogCharacterObject分手。)
+###_NPC
+(Your love relation is now over.)
+(你们的爱人关系现在结束了。)
 ###_PLAYER
 (Pay $100 for the collaring ceremony.)
 (支付$100进行项圈佩戴典礼)

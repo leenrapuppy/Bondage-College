@@ -345,6 +345,8 @@ The use of remotes is forbidden by your owner
 你的主人禁止你使用遥控器
 Cannot be used over the applied gags.
 不能在已穿戴的口塞上使用
+Requires a closed gag.
+选择一个封闭的口塞。
 Cannot be used over the applied mask.
 不能在已穿戴的口罩上使用
 Cannot be used over the applied hood.
@@ -375,6 +377,8 @@ View next page
 查看下一页
 View previous page
 查看上一页
+Tighten / Loosen
+绑紧/解松
 Remove the item
 移除该物品
 Use this item
@@ -475,6 +479,8 @@ Using none of your skill...
 不使用你的技巧...
 Impossible to escape!
 不可能逃脱!
+Try to loosen the item
+尝试解松该物品
 Use brute force
 使用蛮力
 Try to squeeze out
@@ -501,6 +507,10 @@ You cannot access your items
 你无法使用你的物品
 You have no items in this category
 这个分类下没有物品
+You can struggle to loosen this restraint
+你可以通过挣扎来解松此束缚
+Click or press space when the circles are aligned
+当圆圈对齐的时候，点击或者按下空格
 Click when the player reaches the buckle to progress
 角色碰到搭扣前按下鼠标来获得进度
 Click the ropes before they hit the ground to progress
@@ -509,8 +519,8 @@ Click here to speed up the progress
 点击这里来加速
 Alternate keys A and S to speed up
 反复点按A和S键加速
-Alternate keys A and S or X and Y on a Controller to speed up
-反复点按A和S键或手柄上的X和Y来加速
+Alternate keys A and S or X and Y on a controller
+反复点按A和S键，或者手柄上的X和Y键
 Select inflation level
 选择充气程度
 Select hood style
@@ -615,6 +625,12 @@ Heads
 正面
 Tails
 反面
+she
+她
+he
+他
+they
+TA
 her
 她
 him
@@ -1261,10 +1277,16 @@ SourceCharacter picks the lock on DestinationCharacter PrevAsset.
 SourceCharacter撬开了DestinationCharacterPrevAsset上的锁。
 SourceCharacter unlocks and removes the PrevAsset from DestinationCharacter FocusAssetGroup.
 SourceCharacter打开并移除了DestinationCharacterFocusAssetGroup上的PrevAsset.
-SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter收紧了位于DestinationCharacter的FocusAssetGroup上的PrevAsset。
-SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter解松了位于DestinationCharacter的FocusAssetGroup上的PrevAsset。
+SourceCharacter tightens a little the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter稍微绑紧了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
+SourceCharacter tightens a lot the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter用力绑紧了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
+SourceCharacter loosens a little the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter稍微解松了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
+SourceCharacter loosens a lot the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter将位于DestinationCharacterFocusAssetGroup上的PrevAsset解松了很多。
+SourceCharacter struggles and loosens the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter挣扎着解松了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
 SourceCharacter rolls DiceType. The result is: DiceResult.
 SourceCharacter丢了DiceType.结果是: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
@@ -1299,8 +1321,8 @@ SourceCharacter stops heading for the door.
 SourceCharacter 停止向房门走去。
 SourceCharacter was stopped from leaving.
 SourceCharacter 被阻止离开房间。
-SourceCharacter gets in the way of TargetCharacter
-SourceCharacter 阻挡了 TargetCharacter
+SourceCharacter gets in the way of TargetCharacter, preventing TargetPronounObject from leaving.
+SourceCharacter阻挡了TargetCharacter，让TargetPronounObject无法离开。
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter 试图帮助 TargetCharacter 摆脱束缚。
 SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounSelf with.
@@ -2249,16 +2271,6 @@ Show chat message
 显示聊天消息
 Trigger Inflation
 触发膨胀
-SourceCharacter configures DestinationCharacter gag to not punish TargetPronounObject for speaking.
-SourceCharacter将DestinationCharacter口塞配置为停止惩罚她的说话行为。
-SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for shouting.
-SourceCharacter将DestinationCharacter口塞配置为惩罚她的尖叫行为。
-SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for saying long sentences.
-SourceCharacter将DestinationCharacter口塞配置为惩罚她的说复杂句子行为。
-SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for speaking.
-SourceCharacter将DestinationCharacter口塞配置为惩罚她的说话行为。
-DestinationCharacterName gag inflates into a large dildo that forces its way down TargetPronounPossessive throat.
-DestinationCharacterName口塞充气变为大号的假阳具，强行深入她的喉咙。
 SourceCharacter plugs up DestinationCharacter mouth with the dildo plug.
 SourceCharacter使用假阳具塞子塞住了DestinationCharacter嘴。
 SourceCharacter pulls out DestinationCharacter dildo plug from TargetPronounPossessive gag.
@@ -4811,12 +4823,22 @@ SourceCharacter gives TargetCharacter a cute Pony teddy.
 SourceCharacter给了TargetCharacter一只可爱的小马泰迪。
 Page
 页
-Tightness
-松紧度
-Tighten
-收紧
-Loosen
-解松
+Tightness:
+松紧度：
+Maximum:
+最大：
+Minimum:
+最小：
+You can tighten or loosen this item
+你可以绑紧或解松此武林
+Tigthen a little
+稍微绑紧
+Tigthen a lot
+用力绑紧
+Loosen a little
+稍微解松
+Loosen a lot
+解松很多
 Set the height
 设置高度
 % of full height:
@@ -5217,6 +5239,32 @@ Dots Left
 左侧圆点
 Dots Right
 右侧圆点
+Choose Lipstick Marks
+选择唇印
+Left Cheek?
+左脸颊？
+Right Cheek?
+右脸颊？
+Forehead?
+额头？
+Neck Right?
+右侧脖子？
+Neck Left?
+左侧脖子？
+Left Cheek
+左脸颊
+Right Cheek
+右脸颊
+Forehead
+额头
+Neck Right
+右侧脖子
+Neck Left
+左侧脖子
+No
+没有
+Yes
+有
 Select Zipper State.
 选择拉链状态。
 Eyes Closed
@@ -5399,10 +5447,18 @@ SourceCharacter detaches the ears from DestinationCharacter cat mask harness.
 SourceCharacter从DestinationCharacter的猫猫面具束带上移除了耳朵。
 Select Eyebrow Options
 选择眉毛选项
+Select Eyebrow Style
+选择眉毛样式
+Select Left Eyebrow Piercing
+选择左侧眉毛穿刺
+Select Right Eyebrow Piercing
+选择右侧眉毛穿刺
 Style
 样式
-Piercings
-穿刺
+Left Piercing
+左侧穿刺
+Right Piercing
+右侧穿刺
 Eyebrows2
 眉毛2
 Eyebrows3
@@ -5413,18 +5469,14 @@ Eyebrows5
 眉毛5
 Eyebrows6
 眉毛6
-Bar Right
-右侧条纹
-Bar Left
-左侧条纹
-Bar Both Sides
-两侧条纹
-Ring Right
-右侧环
-Ring Left
-左侧环
-Ring Both Sides
-两侧环
+Single Bar
+单条纹
+Double Bar
+双条纹
+Single Ring
+单环
+Double Ring
+双环
 Select Piercing Options
 选择穿刺选项
 Select Lip Piercings
@@ -5463,18 +5515,32 @@ Right Stud
 右侧钉
 Left Stud
 左侧钉
-Select Ear Piercings
-选择耳朵穿刺
-Studs
+Select Left Ear Piercings
+选择左耳穿刺
+Left Ear
+左耳
+Stud
 耳钉
-Rings
-耳环
-Hoops
+Hoop
 大耳环
-Right Hoop
-右侧大耳环
-Left Hoop
-左侧大耳环
+Large Stud
+大耳钉
+Two Studs
+双耳钉
+Three Studs
+三耳钉
+Two Rings
+双耳环
+Three Rings
+三耳环
+Cartilage
+软骨耳环
+Industrial Mix
+穿耳耳环
+Select Right Ear Piercings
+选择右耳穿刺
+Right Ear
+右侧耳朵
 Select Facial Piercings
 选择面部穿刺
 Face
@@ -5487,6 +5553,10 @@ Left Dermals
 左侧真皮钉
 Bridge Piercing
 鼻梁钉
+Right Monroe
+右侧美人钉
+Left Monroe
+左侧美人钉
 Select Hoodie Options
 选择连帽衫选项
 Select Hood Position and Shape
@@ -6395,3 +6465,5 @@ SourceCharacter folds DestinationCharacter folding screen.
 SourceCharacter折起了DestinationCharacter折叠屏风。
 SourceCharacter unfolds DestinationCharacter folding screen.
 SourceCharacter展开了DestinationCharacter折叠屏风。
+Change Text:
+改变文字：
