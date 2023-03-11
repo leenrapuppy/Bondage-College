@@ -2,24 +2,35 @@
 var PreferenceBackground = "Sheet";
 var PreferenceMessage = "";
 var PreferenceSafewordConfirm = false;
+/** @type {"InputCharacterLabelColor" | ""} */
 var PreferenceColorPick = "";
+/** @type {PreferenceSubscreenName | ""} */
 var PreferenceSubscreen = "";
+/** @type {PreferenceSubscreenName[]} */
 var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "CensoredWords", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications", "Gender", "Scripts"];
 var PreferencePageCurrent = 1;
+/** @type {ChatColorThemeType[]} */
 var PreferenceChatColorThemeList = ["Light", "Dark", "Light2", "Dark2"];
 var PreferenceChatColorThemeIndex = 0;
+/** @type {ChatEnterLeaveType[]} */
 var PreferenceChatEnterLeaveList = ["Normal", "Smaller", "Hidden"];
 var PreferenceChatEnterLeaveIndex = 0;
+/** @type {ChatMemberNumbersType[]} */
 var PreferenceChatMemberNumbersList = ["Always", "Never", "OnMouseover"];
 var PreferenceChatMemberNumbersIndex = 0;
+/** @type {ChatFontSizeType[]} */
 var PreferenceChatFontSizeList = ["Small", "Medium", "Large"];
 var PreferenceChatFontSizeIndex = 1;
+/** @type {SettingsSensDepName[]} */
 var PreferenceSettingsSensDepList = ["SensDepLight", "Normal", "SensDepNames", "SensDepTotal", "SensDepExtreme"];
 var PreferenceSettingsSensDepIndex = 0;
+/** @type {SettingsVFXName[]} */
 var PreferenceSettingsVFXList = ["VFXInactive", "VFXSolid", "VFXAnimatedTemp", "VFXAnimated"];
 var PreferenceSettingsVFXIndex = 0;
+/** @type {SettingsVFXVibratorName[]} */
 var PreferenceSettingsVFXVibratorList = ["VFXVibratorInactive", "VFXVibratorSolid", "VFXVibratorAnimated"];
 var PreferenceSettingsVFXVibratorIndex = 0;
+/** @type {SettingsVFXFilterName[]} */
 var PreferenceSettingsVFXFilterList = ["VFXFilterLight", "VFXFilterMedium", "VFXFilterHeavy"];
 var PreferenceSettingsVFXFilterIndex = 0;
 var PreferenceSettingsVolumeList = [1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
@@ -28,21 +39,28 @@ var PreferenceSettingsDeadZoneList = [0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.0
 var PreferenceSettingsVolumeIndex = 0;
 var PreferenceSettingsSensitivityIndex = 13;
 var PreferenceSettingsDeadZoneIndex = 1;
+/** @type {ArousalActiveName[]} */
 var PreferenceArousalActiveList = ["Inactive", "NoMeter", "Manual", "Hybrid", "Automatic"];
 var PreferenceArousalActiveIndex = 0;
+/** @type {ArousalVisibleName[]} */
 var PreferenceArousalVisibleList = ["All", "Access", "Self"];
 var PreferenceArousalVisibleIndex = 0;
+/** @type {ArousalAffectStutterName[]} */
 var PreferenceArousalAffectStutterList = ["None", "Arousal", "Vibration", "All"];
 var PreferenceArousalAffectStutterIndex = 0;
-/** @type {null | string[]} */
+/** @type {null | ActivityName[]} */
 var PreferenceArousalActivityList = null;
 var PreferenceArousalActivityIndex = 0;
+/** @type {ArousalFactor} */
 var PreferenceArousalActivityFactorSelf = 0;
+/** @type {ArousalFactor} */
 var PreferenceArousalActivityFactorOther = 0;
+/** @type {ArousalFactor} */
 var PreferenceArousalZoneFactor = 0;
-/** @type {null | string[]} */
+/** @type {null | FetishName[]} */
 var PreferenceArousalFetishList = null;
 var PreferenceArousalFetishIndex = 0;
+/** @type {ArousalFactor} */
 var PreferenceArousalFetishFactor = 0;
 var PreferenceVisibilityGroupList = [];
 var PreferenceVisibilityGroupIndex = 0;
@@ -60,6 +78,7 @@ var PreferenceVisibilityResetClicked = false;
 /** @type {null | number} */
 var PreferenceDifficultyLevel = null;
 var PreferenceDifficultyAccept = false;
+/** @type {GraphicsFontName[]} */
 var PreferenceGraphicsFontList = ["Arial", "TimesNewRoman", "Papyrus", "ComicSans", "Impact", "HelveticaNeue", "Verdana", "CenturyGothic", "Georgia", "CourierNew", "Copperplate"];
 /** @type {WebGLPowerPreference[]} */
 var PreferenceGraphicsPowerModes = ["low-power", "default", "high-performance"];
@@ -116,7 +135,7 @@ const maxScriptPermission = Object.values(ScriptPermissionBits)
 /**
  * Compares the arousal preference level and returns TRUE if that level is met, or an higher level is met
  * @param {Character} C - The player who performs the sexual activity
- * @param {string} Level - The name of the level ("Inactive", "NoMeter", "Manual", "Hybrid", "Automatic")
+ * @param {ArousalActiveName} Level - The name of the level ("Inactive", "NoMeter", "Manual", "Hybrid", "Automatic")
  * @returns {boolean} - Returns TRUE if the level is met or more
  */
 function PreferenceArousalAtLeast(C, Level) {
@@ -134,11 +153,12 @@ function PreferenceArousalAtLeast(C, Level) {
 /**
  * Gets the effect of a sexual activity on the player
  * @param {Character} C - The player who performs the sexual activity
- * @param {string} Type - The type of the activity that is performed
+ * @param {ActivityName} Type - The type of the activity that is performed
  * @param {boolean} Self - Determines, if the current player is giving (false) or receiving (true)
- * @returns {number} - Returns the love factor of the activity for the character (0 is horrible, 2 is normal, 4 is great)
+ * @returns {ArousalFactor} - Returns the love factor of the activity for the character (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceGetActivityFactor(C, Type, Self) {
+	/** @type {ArousalFactor} */
 	var Factor = 2;
 	if ((C.ArousalSettings != null) && (C.ArousalSettings.Activity != null))
 		for (let P = 0; P < C.ArousalSettings.Activity.length; P++)
@@ -151,10 +171,11 @@ function PreferenceGetActivityFactor(C, Type, Self) {
 /**
  * Gets the factor of a fetish for the player
  * @param {Character} C - The character to query
- * @param {string} Type - The name of the fetish
- * @returns {number} - Returns the love factor of the fetish for the character (0 is horrible, 2 is normal, 4 is great)
+ * @param {FetishName} Type - The name of the fetish
+ * @returns {ArousalFactor} - Returns the love factor of the fetish for the character (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceGetFetishFactor(C, Type) {
+	/** @type {ArousalFactor} */
 	var Factor = 2;
 	if ((C.ArousalSettings != null) && (C.ArousalSettings.Fetish != null))
 		for (let F = 0; F < C.ArousalSettings.Fetish.length; F++)
@@ -167,9 +188,9 @@ function PreferenceGetFetishFactor(C, Type) {
 /**
  * Sets the love factor of a sexual activity for the character
  * @param {Character} C - The character for whom the activity factor should be set
- * @param {string} Type - The type of the activity that is performed
+ * @param {ActivityName} Type - The type of the activity that is performed
  * @param {boolean} Self - Determines, if the current player is giving (false) or receiving (true)
- * @param {number} Factor - The factor of the sexual activity (0 is horrible, 2 is normal, 4 is great)
+ * @param {ArousalFactor} Factor - The factor of the sexual activity (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceSetActivityFactor(C, Type, Self, Factor) {
 	if ((C.ArousalSettings != null) && (C.ArousalSettings.Activity != null))
@@ -184,8 +205,8 @@ function PreferenceSetActivityFactor(C, Type, Self, Factor) {
  * returns the arousal zone definition for the mirrored group).
  * @param {Character} C - The character for whom to get the arousal zone
  * @param {AssetGroupName} ZoneName - The name of the zone to get
- * @returns {Character["ArousalSettings"]["Zone"][0]|null} - Returns the arousal zone preference object, or null if a corresponding zone definition could
- * not be found.
+ * @returns {null | ArousalZone} - Returns the arousal zone preference object,
+ * or null if a corresponding zone definition could not be found.
  */
 function PreferenceGetArousalZone(C, ZoneName) {
 	if (!C.ArousalSettings || !C.ArousalSettings.Zone) {
@@ -197,16 +218,17 @@ function PreferenceGetArousalZone(C, ZoneName) {
 			return Z.Name === Group.MirrorActivitiesFrom;
 		}
 		return Z.Name === ZoneName;
-	});
+	}) || null;
 }
 
 /**
  * Gets the love factor of a zone for the character
  * @param {Character} C - The character for whom the love factor of a particular zone should be gotten
  * @param {AssetGroupName} ZoneName - The name of the zone to get the love factor for
- * @returns {number} - Returns the love factor of a zone for the character (0 is horrible, 2 is normal, 4 is great)
+ * @returns {ArousalFactor} - Returns the love factor of a zone for the character (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceGetZoneFactor(C, ZoneName) {
+	/** @type {ArousalFactor} */
 	let Factor = 2;
 	const Zone = PreferenceGetArousalZone(C, ZoneName);
 	if (Zone) {
@@ -220,7 +242,7 @@ function PreferenceGetZoneFactor(C, ZoneName) {
  * Sets the love factor for a specific body zone on the player
  * @param {Character} C - The character, for whom the love factor of a particular zone should be set
  * @param {string} Zone - The name of the zone, the factor should be set for
- * @param {number} Factor - The factor of the zone (0 is horrible, 2 is normal, 4 is great)
+ * @param {ArousalFactor} Factor - The factor of the zone (0 is horrible, 2 is normal, 4 is great)
  * @returns {void} - Nothing
  */
 function PreferenceSetZoneFactor(C, Zone, Factor) {
@@ -2031,8 +2053,8 @@ function PreferenceSubscreenArousalClick() {
 
 		// Fetish love control
 		if (MouseIn(1455, 513, 450, 64)) {
-			if (MouseX <= 1680) PreferenceArousalFetishFactor = (5 + PreferenceArousalFetishFactor - 1) % 5;
-			else PreferenceArousalFetishFactor = (PreferenceArousalFetishFactor + 1) % 5;
+			if (MouseX <= 1680) PreferenceArousalFetishFactor = PreferenceDecrementArousalFactor(PreferenceArousalFetishFactor);
+			else PreferenceArousalFetishFactor = PreferenceIncrementArousalFactor(PreferenceArousalFetishFactor);
 			for (let F = 0; F < Player.ArousalSettings.Fetish.length; F++)
 				if (Player.ArousalSettings.Fetish[F].Name == PreferenceArousalFetishList[PreferenceArousalFetishIndex])
 					Player.ArousalSettings.Fetish[F].Factor = PreferenceArousalFetishFactor;
@@ -2047,22 +2069,22 @@ function PreferenceSubscreenArousalClick() {
 
 		// Arousal activity love on self control
 		if (MouseIn(900, 683, 300, 64)) {
-			if (MouseX <= 1050) PreferenceArousalActivityFactorSelf = (5 + PreferenceArousalActivityFactorSelf - 1) % 5;
-			else PreferenceArousalActivityFactorSelf = (PreferenceArousalActivityFactorSelf + 1) % 5;
+			if (MouseX <= 1050) PreferenceArousalActivityFactorSelf = PreferenceDecrementArousalFactor(PreferenceArousalActivityFactorSelf);
+			else PreferenceArousalActivityFactorSelf = PreferenceIncrementArousalFactor(PreferenceArousalActivityFactorSelf);
 			PreferenceSetActivityFactor(Player, PreferenceArousalActivityList[PreferenceArousalActivityIndex], true, PreferenceArousalActivityFactorSelf);
 		}
 
 		// Arousal activity love on other control
 		if (MouseIn(1605, 683, 300, 64)) {
-			if (MouseX <= 1755) PreferenceArousalActivityFactorOther = (5 + PreferenceArousalActivityFactorOther - 1) % 5;
-			else PreferenceArousalActivityFactorOther = (PreferenceArousalActivityFactorOther + 1) % 5;
+			if (MouseX <= 1755) PreferenceArousalActivityFactorOther = PreferenceDecrementArousalFactor(PreferenceArousalActivityFactorOther);
+			else PreferenceArousalActivityFactorOther = PreferenceIncrementArousalFactor(PreferenceArousalActivityFactorOther);
 			PreferenceSetActivityFactor(Player, PreferenceArousalActivityList[PreferenceArousalActivityIndex], false, PreferenceArousalActivityFactorOther);
 		}
 
 		// Arousal zone love control
 		if ((Player.FocusGroup != null) && MouseIn(550, 853, 600, 64)) {
-			if (MouseX <= 850) PreferenceArousalZoneFactor = (5 + PreferenceArousalZoneFactor - 1) % 5;
-			else PreferenceArousalZoneFactor = (PreferenceArousalZoneFactor + 1) % 5;
+			if (MouseX <= 850) PreferenceArousalZoneFactor = PreferenceDecrementArousalFactor(PreferenceArousalZoneFactor);
+			else PreferenceArousalZoneFactor = PreferenceIncrementArousalFactor(PreferenceArousalZoneFactor);
 			PreferenceSetZoneFactor(Player, Player.FocusGroup.Name, PreferenceArousalZoneFactor);
 		}
 
@@ -2083,6 +2105,24 @@ function PreferenceSubscreenArousalClick() {
 
 	}
 
+}
+
+/**
+ * Increment the passed arousal factor.
+ * @param {ArousalFactor} factor
+ * @returns {ArousalFactor}
+ */
+function PreferenceIncrementArousalFactor(factor) {
+	return /** @type {ArousalFactor} */((factor + 1) % 5);
+}
+
+/**
+ * Decrement the passed arousal factor.
+ * @param {ArousalFactor} factor
+ * @returns {ArousalFactor}
+ */
+function PreferenceDecrementArousalFactor(factor) {
+	return /** @type {ArousalFactor} */((5 + factor - 1) % 5);
 }
 
 /**
@@ -2376,7 +2416,7 @@ function PreferenceVisibilityBlockChange() {
 
 /**
  * Adds or removes the current item to/from the list based on the new state of the corresponding checkbox
- * @param {Array} List - The list to add or remove the item from
+ * @param {ItemBundle[]} List - The list to add or remove the item from
  * @param {boolean} CheckSetting - The new true/false setting of the checkbox
  */
 function PreferenceVisibilityCheckboxChanged(List, CheckSetting) {
@@ -2764,7 +2804,7 @@ function PreferencePageChangeClick(Left, Top, TotalPages) {
  * @param {number} Top - The top offset of the button
  * @param {number} Width - The width of the button
  * @param {number} Height - The height of the button
- * @param {any[]} List - The preference list that the button should be associated with
+ * @param {readonly string[]} List - The preference list that the button should be associated with
  * @param {number} Index - The current preference index for the given preference list
  * @returns {void} - Nothing
  */
@@ -2777,7 +2817,7 @@ function PreferenceDrawBackNextButton(Left, Top, Width, Height, List, Index) {
 
 /**
  * Returns the index of the previous preference list item (and wraps back to the end of the list if currently at 0)
- * @param {any[]} List - The preference list
+ * @param {readonly unknown[]} List - The preference list
  * @param {number} Index - The current preference index for the given list
  * @returns {number} - The index of the previous item in the array, or the last item in the array if currently at 0
  */
@@ -2787,7 +2827,7 @@ function PreferenceGetPreviousIndex(List, Index) {
 
 /**
  * Returns the index of the next preference list item (and wraps back to the start of the list if currently at the end)
- * @param {any[]} List - The preference list
+ * @param {readonly unknown[]} List - The preference list
  * @param {number} Index - The current preference index for the given list
  * @returns {number} - The index of the next item in the array, or 0 if the array is currently at the last item
  */

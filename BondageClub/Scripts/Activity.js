@@ -946,7 +946,7 @@ function ActivityArousalItem(Source, Target, Asset) {
 /**
  * Checks if the character is wearing an item tagged with the fetish type name and returns the love factor for it
  * @param {Character} C - The character to validate
- * @param {string} Type - The fetish type name
+ * @param {FetishName} Type - The fetish type name
  * @return {number} - From -2 (hate it) to 2 (adore it) based on the player preferences
  */
 function ActivityFetishItemFactor(C, Type) {

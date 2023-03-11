@@ -227,7 +227,7 @@ interface AssetDefinition {
 	/** A list of categories. Used to prevent the asset to be used, per chatroom settings */
 	Category?: string[];
 
-	Fetish?: string[];
+	Fetish?: FetishName[];
 	ArousalZone?: AssetGroupItemName;
 	IsRestraint?: boolean;
 	BodyCosplay?: boolean;
