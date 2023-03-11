@@ -84,6 +84,10 @@ Panties
 内裤
 Socks
 袜子
+Right Sock
+右侧袜子
+Left Sock
+左侧袜子
 Right Anklet
 右踝绳
 Left Anklet
@@ -110,6 +114,8 @@ Bracelet
 手镯
 Glasses
 眼镜
+Jewelry
+Jewelry
 Mask
 面具
 Tail Strap

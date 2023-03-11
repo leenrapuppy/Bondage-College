@@ -136,6 +136,8 @@ Slave Rags
 奴隶破布
 Cropped Hoodie
 齐胸兜帽衫
+Cheerleader Top
+啦啦队上衣
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -174,6 +176,10 @@ Poncho
 庞乔斗篷
 Piercing Set
 穿刺套装
+Smoochy Lipstick
+浪漫唇膏
+Lipstick Marks
+唇印
 Necklace
 项链
 Fancy Necklace
@@ -306,6 +312,8 @@ Ruffled Skirt
 荷叶裙
 Cross Skirt
 十字装饰裙
+Cheerleader Skirt
+啦啦队短裙
 Suit Lower
 套装(下身)
  Catsuit Panties
@@ -792,6 +800,8 @@ Harem Gloves
 后宫手套
 Biker Gloves
 单车手套
+Pom Poms
+绒球
 Left Hand
 左手
 Rings
@@ -1694,6 +1704,8 @@ Polished Steel Mittens
 马蹄手套
 Short Smooth Leather Mittens
 短平滑皮革无指手套
+Pom Pom Mitts
+绒球无指手套
 Crop
 硬鞭
 Flogger

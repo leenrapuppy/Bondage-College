@@ -60,6 +60,14 @@ Upper Gradient
 上部渐变
 Lower Gradient
 下部渐变
+Inner Trim
+内侧边饰
+Text
+文字
+Text Inner
+内侧文字
+Text Outer
+外侧文字
 Holder
 包装
 Flowers
@@ -70,8 +78,6 @@ Back
 后部
 Bib
 围嘴
-Text
-文字
 Base
 打底
 Stains
@@ -490,6 +496,8 @@ Mattress
 床垫
 Headboard
 床头板
+Bed Frame
+床框架
 Bench
 长椅
 Velvet
