@@ -895,9 +895,10 @@ function CommonDeepEqual(obj1, obj2) {
 
 /**
  * Adds all items from the source array to the destination array if they aren't already included
- * @param {*[]} dest - The destination array
- * @param {readonly *[]} src - The source array
- * @returns {*[]} - The destination array
+ * @template T
+ * @param {T[]} dest - The destination array
+ * @param {readonly T[]} src - The source array
+ * @returns {T[]} - The destination array
  */
 function CommonArrayConcatDedupe(dest, src) {
 	if (Array.isArray(src) && Array.isArray(dest)) {

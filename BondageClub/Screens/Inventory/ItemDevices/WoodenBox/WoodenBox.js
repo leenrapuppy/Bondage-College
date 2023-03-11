@@ -33,6 +33,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 	// Apply extra opacity-specific effects
 	const Property = DialogFocusItem.Property;
 	const Transparent = Property.Opacity < 0.15;
+	/** @type {EffectName[]} */
 	const ExtraEffects = ["BlindNormal", "GagLight"];
 	if (Transparent) {
 		Property.Effect = Property.Effect.filter((e) => !ExtraEffects.includes(e));
