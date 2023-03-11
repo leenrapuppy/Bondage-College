@@ -1,4 +1,6 @@
 "use strict";
+
+/** @type {string | null} */
 var InventoryItemHandsPaddedMittensMsg = null;
 
 // Loads the item extension properties
