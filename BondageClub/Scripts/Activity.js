@@ -950,12 +950,17 @@ function ActivityArousalItem(Source, Target, Asset) {
  * @return {number} - From -2 (hate it) to 2 (adore it) based on the player preferences
  */
 function ActivityFetishItemFactor(C, Type) {
-	var Factor = (PreferenceGetFetishFactor(C, Type) - 2);
-	if (Factor != 0)
-		for (let A = 0; A < C.Appearance.length; A++)
-			if ((C.Appearance[A].Asset != null) && (C.Appearance[A].Asset.Fetish != null))
-				if (C.Appearance[A].Asset.Fetish.indexOf(Type) >= 0)
-					return Factor;
+	const Factor = (PreferenceGetFetishFactor(C, Type) - 2);
+	if (Factor === 0) {
+		return Factor;
+	}
+
+	for (const item of C.Appearance) {
+		const fetish = InventoryGetItemProperty(item, "Fetish") || [];
+		if (fetish.includes(Type)) {
+			return Factor;
+		}
+	}
 	return 0;
 }
 

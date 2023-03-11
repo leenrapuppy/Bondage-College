@@ -2024,6 +2024,12 @@ interface AssetDefinitionProperties {
 	 * @see {@link Asset.CustomBlindBackground}
 	 */
 	CustomBlindBackground?: string;
+
+	/**
+	 * A list of fetishes affected by the item
+	 * @see {@link Asset.Fetish}
+	 */
+	Fetish?: FetishName[];
 }
 
 /**
