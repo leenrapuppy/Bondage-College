@@ -70,7 +70,9 @@ function ColorPickerRemoveEventListener() {
  * @returns {event is TouchEvent}
  */
 function isTouchEvent(event) {
-	return event instanceof TouchEvent;
+	// Disabled for desktop Safari has no need for touch events
+	// eslint-disable-next-line
+	return window.TouchEvent && event instanceof TouchEvent;
 }
 
 /**
