@@ -1277,13 +1277,13 @@ SourceCharacter picks the lock on DestinationCharacter PrevAsset.
 SourceCharacter撬开了DestinationCharacterPrevAsset上的锁。
 SourceCharacter unlocks and removes the PrevAsset from DestinationCharacter FocusAssetGroup.
 SourceCharacter打开并移除了DestinationCharacterFocusAssetGroup上的PrevAsset.
-SourceCharacter tightens a little the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup a little.
 SourceCharacter稍微绑紧了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
-SourceCharacter tightens a lot the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup a lot.
 SourceCharacter用力绑紧了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
-SourceCharacter loosens a little the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup a little.
 SourceCharacter稍微解松了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
-SourceCharacter loosens a lot the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup a lot.
 SourceCharacter将位于DestinationCharacterFocusAssetGroup上的PrevAsset解松了很多。
 SourceCharacter struggles and loosens the PrevAsset on DestinationCharacter FocusAssetGroup.
 SourceCharacter挣扎着解松了位于DestinationCharacterFocusAssetGroup上的PrevAsset。
