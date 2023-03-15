@@ -5047,12 +5047,12 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone", "ForceKneel"],
 				Block: ["ItemHands", "ItemHandheld"],
 				SelfUnlock: false,
-				DefaultColor: ["#888888", "Default"],
+				DefaultColor: ["#888888"],
 				Layer:[
 					{ Name: "Arms", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, ParentGroup: "BodyUpper", },
 					{ Name: "Legs", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], CopyLayerColor: "Arms", ParentGroup: "BodyLower", },
-					{ Name: "ArmsLock", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, HideColoring: true, LockLayer: true, },
-					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], CopyLayerColor: "ArmsLock", LockLayer: true, ParentGroup: null, }
+					{ Name: "ArmsLock", AllowPose: ["BackElbowTouch", "AllFours"], LockLayer: true, AllowColorize: false, },
+					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], LockLayer: true, AllowColorize: false, ParentGroup: null, }
 				]
 			},
 			{
