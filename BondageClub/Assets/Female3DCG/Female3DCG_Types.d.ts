@@ -514,8 +514,9 @@ type DynamicPropertyCallback = (property: ItemProperties) => void;
  * @param {OptionType} previousOption - The previously selected type option
  * @param {OptionType} newOption - The newly selected type option
  * @param {number} previousIndex - The index of the previously selected type option in the item's options
- * config
- * @param {number} newIndex - The index of the newly selected type option in the item's options config
+ * config or, depending on the archetype, -1 no such item option config exists.
+ * @param {number} newIndex - The index of the newly selected type option in the item's options config or,
+ * depending on the archetype, -1 no such item option config exists.
  * @template OptionType
  */
 interface ExtendedItemChatData<OptionType> {
@@ -641,7 +642,7 @@ interface TypedItemConfig {
 	/**
 	 * Contains custom dictionary entries in the event that the base ones do not suffice.
 	 */
-	Dictionary?: TypedItemDictionaryCallback[];
+	Dictionary?: ExtendedItemDictionaryCallback<ExtendedItemOption>[];
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
@@ -699,8 +700,8 @@ interface TypedItemDialogConfig {
  * @param {number} chatData.newIndex - The index of the newly selected type option in the item's options config
  * @returns {[{ Tag: string, Text: string }]} - The dictionary entry to append to the dictionary.
  */
-type TypedItemDictionaryCallback = (
-	chatData: ExtendedItemChatData<ExtendedItemOption>
+type ExtendedItemDictionaryCallback<OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption> = (
+	chatData: ExtendedItemChatData<OptionType>
 ) => ChatMessageDictionaryEntry;
 
 //#endregion
@@ -866,6 +867,10 @@ interface ModularItemOptionBase {
 	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
 	 */
 	DynamicProperty?: DynamicPropertyCallback;
+	/** The option's (automatically assigned) parent module name */
+	ModuleName?: string;
+	/** The option's (automatically assigned) index within the parent module */
+	Index?: number;
 }
 
 /** An object describing a single option within a module for a modular item. */
@@ -874,6 +879,10 @@ interface ModularItemOption extends ModularItemOptionBase {
 	Name: string;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType: "ModularItemOption";
+	/** The option's (automatically assigned) parent module name */
+	ModuleName: string;
+	/** The option's (automatically assigned) index within the parent module */
+	Index: number;
 }
 
 //#endregion
@@ -925,9 +934,9 @@ interface VariableHeightConfig {
 	 */
 	ChatTags?: CommonChatTags[];
 	/** The function that handles finding the current variable height setting */
-	GetHeightFunction?: Function;
+	GetHeightFunction?: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
-	SetHeightFunction?: Function;
+	SetHeightFunction?: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
 	/** The default properties for the item, if not provided from an extended item option */
 	Property?: ItemProperties;
 }

@@ -20,8 +20,8 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
 		DrawText(DialogFindPlayer("AutoPunish"), 1500, 625, "White", "Gray");
 		DrawText(DialogFindPlayer("ShockCount"), 1500, 700, "White", "Gray");
 		MainCanvas.textAlign = "left";
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${ShockLevel}`), 1510, 550, "White", "Gray");
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${AutoPunish}`), 1510, 625, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${ShockLevel}`), 1510, 550, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${AutoPunish}`), 1510, 625, "White", "Gray");
 		DrawText(`${DialogFocusItem.Property.TriggerCount}`, 1510, 700, "White", "Gray");
 		MainCanvas.textAlign = "center";
 

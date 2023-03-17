@@ -746,7 +746,7 @@ function ExtendedItemSetOffset(Offset) {
  * @param {Character} C - The target character
  * @param {Asset} asset - The asset for the typed item
  * @param {CommonChatTags} tag - The tag to map to a dictionary entry
- * @returns {object} - The constructed dictionary entry for the tag
+ * @returns {ChatMessageDictionaryEntry} - The constructed dictionary entry for the tag
  */
 function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
 	switch (tag) {

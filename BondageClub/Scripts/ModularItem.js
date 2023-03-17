@@ -107,7 +107,7 @@ function ModularItemInit(Item, C, Refresh=true) {
 	}
 
 	const currentModuleValues = ModularItemParseCurrent(Data, null);
-	Item.Property = ModularItemMergeModuleValues(Data, currentModuleValues, Data.BaselineProperty);
+	Item.Property = ModularItemMergeModuleValues(Data, currentModuleValues, Data.baselineProperty);
 
 	if (Refresh) {
 		CharacterRefresh(C);
@@ -123,7 +123,7 @@ function ModularItemInit(Item, C, Refresh=true) {
 function ModularItemCreateLoadFunction(data) {
 	const loadFunctionName = `${data.functionPrefix}Load`;
 	const loadFunction = function () {
-		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${data.currentModule}`);
+		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${data.currentModule}`);
 	};
 	if (data.scriptHooks && data.scriptHooks.load) {
 		window[loadFunctionName] = function () {
@@ -198,6 +198,8 @@ function ModularItemUpdateModules(Modules, ChangeWhenLocked) {
 			if (typeof ChangeWhenLocked === "boolean" && typeof option.ChangeWhenLocked !== "boolean") {
 				option.ChangeWhenLocked = ChangeWhenLocked;
 			}
+			option.ModuleName = mod.Name;
+			option.Index = i;
 		});
 	}
 	return /** @type {ModularItemModule[]} */(Modules);
@@ -234,10 +236,12 @@ function ModularItemCreateModularData(asset, {
 		key,
 		typeCount: 1,
 		functionPrefix: `Inventory${key}`,
-		dialogSelectPrefix: Dialog.Select || `${key}Select`,
-		dialogModulePrefix: Dialog.ModulePrefix || `${key}Module`,
-		dialogOptionPrefix: Dialog.OptionPrefix || `${key}Option`,
-		chatMessagePrefix: Dialog.ChatPrefix || `${key}Set`,
+		dialogPrefix: {
+			header: Dialog.Select || `${key}Select`,
+			module: Dialog.ModulePrefix || `${key}Module`,
+			option: Dialog.OptionPrefix || `${key}Option`,
+			chat: Dialog.ChatPrefix || `${key}Set`,
+		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,
 			CommonChatTags.DEST_CHAR,
@@ -255,8 +259,9 @@ function ModularItemCreateModularData(asset, {
 		},
 		drawFunctions: {},
 		clickFunctions: {},
-		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
+		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 		drawImages: BaseDrawImages,
+		dictionary: [],
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
@@ -310,7 +315,7 @@ function ModularItemCreateDrawBaseFunction(data) {
 		const buttonDefinitions = data.modules.map((module, i) => {
 			const currentValues = ModularItemParseCurrent(data);
 			const currentOption = module.Options[currentValues[i]];
-			return [module, currentOption, data.dialogModulePrefix];
+			return [module, currentOption, data.dialogPrefix.module];
 		});
 		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
 	};
@@ -324,9 +329,9 @@ function ModularItemCreateDrawBaseFunction(data) {
  * @param {number} currentOptionIndex - The currently selected option index for the module
  * @returns {ModularItemButtonDefinition} - A button definition array representing the provided option
  */
-function ModularItemMapOptionToButtonDefinition(option, module, { dialogOptionPrefix }, currentOptionIndex) {
+function ModularItemMapOptionToButtonDefinition(option, module, { dialogPrefix }, currentOptionIndex) {
 	const currentOption = module.Options[currentOptionIndex];
-	return [option, currentOption, dialogOptionPrefix];
+	return [option, currentOption, dialogPrefix.option];
 }
 
 /**
@@ -510,7 +515,7 @@ function ModularItemChangePage(moduleName, delta, data) {
  */
 function ModularItemModuleTransition(newModule, data) {
 	data.currentModule = newModule;
-	DialogExtendedMessage = DialogFindPlayer(data.dialogSelectPrefix + newModule);
+	DialogExtendedMessage = DialogFindPlayer(data.dialogPrefix.header + newModule);
 }
 
 /**
@@ -759,9 +764,9 @@ function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, da
  * @param {ModularItemData} data - The modular item's data
  * @returns {void} - Nothing
  */
-function ModularItemChatRoomMessage(module, previousIndex, index, { asset, chatSetting, chatTags, chatMessagePrefix }) {
+function ModularItemChatRoomMessage(module, previousIndex, index, { asset, chatSetting, chatTags, dialogPrefix }) {
 	const C = CharacterGetCurrent();
-	let msg = chatMessagePrefix;
+	let msg = dialogPrefix.chat;
 	if (typeof msg === "function") {
 		/** @type ExtendedItemChatData<ModularItemOption> */
 		const chatData = {
@@ -962,14 +967,14 @@ function ModularItemHideElement(ID, Module) {
 }
 
 /**
- * Return {@link ModularItemData.chatMessagePrefix} if it's a string or call it using chat data based on a fictional modular item option.
+ * Return {@link ModularItemData.dialog.chat} if it's a string or call it using chat data based on a fictional modular item option.
  * @param {string} Name - The name of the pseudo-type
  * @param {ModularItemData} Data - The extended item data
  * @returns {string} The dialogue prefix for the custom chatroom messages
  */
 function ModularItemCustomChatPrefix(Name, Data) {
-	if (typeof Data.chatMessagePrefix === "function") {
-		return Data.chatMessagePrefix({
+	if (typeof Data.dialog.chat === "function") {
+		return Data.dialog.chat({
 			C: CharacterGetCurrent(),
 			previousOption: { OptionType: "ModularItemOption", Name: Name },
 			newOption: { OptionType: "ModularItemOption", Name: Name },
@@ -977,6 +982,6 @@ function ModularItemCustomChatPrefix(Name, Data) {
 			newIndex: 0,
 		});
 	} else {
-		return Data.chatMessagePrefix;
+		return Data.dialog.chat;
 	}
 }

@@ -47,7 +47,7 @@ function InventoryItemBreastFuturisticBraDraw(OriginalFunction) {
 	if (Data == null) {
 		return;
 	}
-	const Prefix = Data.dialog.typePrefix;
+	const Prefix = Data.dialogPrefix.option;
 	const C = CharacterGetCurrent();
 	const {bpm, breathing, temp} = InventoryItemBreastFuturisticBraUpdate(C);
 

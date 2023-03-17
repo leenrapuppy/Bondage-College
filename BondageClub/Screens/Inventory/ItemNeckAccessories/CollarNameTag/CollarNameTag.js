@@ -15,7 +15,7 @@ function InventoryItemNeckAccessoriesCollarNameTagDraw(OriginalFunction) {
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
-	ExtendedItemDraw(Data.options, Data.dialog.typePrefix, Data.options.length, Data.drawImages, XYCoords);
+	ExtendedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
 }
 
 /**

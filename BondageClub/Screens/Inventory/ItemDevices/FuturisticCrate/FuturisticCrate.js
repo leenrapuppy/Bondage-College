@@ -7,7 +7,7 @@ function InventoryItemDevicesFuturisticCrateDevice1Init(Item, C, Refresh) {
 
 function InventoryItemDevicesFuturisticCrateDevice1Load() {
 	InventoryItemDevicesFuturisticCrateDevice1Init(DialogFocusItem, CharacterGetCurrent(), false);
-	VibratorModeLoad(true);
+	VibratorModeLoad("Intensity", true);
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Draw() {

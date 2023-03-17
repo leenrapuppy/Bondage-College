@@ -61,7 +61,7 @@ function TypedItemRegister(asset, config) {
 		TypedItemCreateExitFunction(data);
 		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
 		TypedItemCreatePublishFunction(data);
-		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
+		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
 		TypedItemCreatePublishActionFunction(data);
 	}
 
@@ -103,11 +103,11 @@ function TypedItemCreateTypedItemData(asset, {
 		options: Options,
 		key,
 		functionPrefix: `Inventory${key}`,
-		dialog: {
-			load: Dialog.Load || `${key}Select`,
-			typePrefix: Dialog.TypePrefix || key,
-			chatPrefix: Dialog.ChatPrefix || `${key}Set`,
-			npcPrefix: Dialog.NpcPrefix || key,
+		dialogPrefix: {
+			header: Dialog.Load || `${key}Select`,
+			option: Dialog.TypePrefix || key,
+			chat: Dialog.ChatPrefix || `${key}Set`,
+			npc: Dialog.NpcPrefix || key,
 		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,
@@ -124,7 +124,7 @@ function TypedItemCreateTypedItemData(asset, {
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
-		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
+		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 	};
 }
 
@@ -133,9 +133,9 @@ function TypedItemCreateTypedItemData(asset, {
  * @param {TypedItemData} data - The typed item data for the asset
  * @returns {void} - Nothing
  */
-function TypedItemCreateLoadFunction({ options, functionPrefix, dialog, scriptHooks, BaselineProperty }) {
+function TypedItemCreateLoadFunction({ functionPrefix, dialogPrefix, scriptHooks }) {
 	const loadFunctionName = `${functionPrefix}Load`;
-	const loadFunction = () => ExtendedItemLoad(dialog.load);
+	const loadFunction = () => ExtendedItemLoad(dialogPrefix.header);
 	if (scriptHooks && scriptHooks.load) {
 		window[loadFunctionName] = function () {
 			scriptHooks.load(loadFunction);
@@ -148,10 +148,10 @@ function TypedItemCreateLoadFunction({ options, functionPrefix, dialog, scriptHo
  * @param {TypedItemData} data - The typed item data for the asset
  * @returns {void} - Nothing
  */
-function TypedItemCreateDrawFunction({ options, functionPrefix, dialog, drawImages, scriptHooks }) {
+function TypedItemCreateDrawFunction({ options, functionPrefix, dialogPrefix, drawImages, scriptHooks }) {
 	const drawFunctionName = `${functionPrefix}Draw`;
 	const drawFunction = function () {
-		ExtendedItemDraw(options, dialog.typePrefix, null, drawImages);
+		ExtendedItemDraw(options, dialogPrefix.option, null, drawImages);
 	};
 	if (scriptHooks && scriptHooks.draw) {
 		window[drawFunctionName] = function () {
@@ -197,7 +197,7 @@ function TypedItemCreateExitFunction({ functionPrefix, scriptHooks}) {
  * @returns {void} - Nothing
  */
 function TypedItemCreatePublishFunction(typedItemData) {
-	const { options, functionPrefix, dialog, chatSetting } = typedItemData;
+	const { options, functionPrefix, dialogPrefix, chatSetting } = typedItemData;
 	if (chatSetting === TypedItemChatSetting.SILENT) return;
 	const publishFunctionName = `${functionPrefix}PublishAction`;
 	window[publishFunctionName] = function (C, newOption, previousOption) {
@@ -210,7 +210,7 @@ function TypedItemCreatePublishFunction(typedItemData) {
 			newIndex:  options.indexOf(newOption),
 		};
 
-		let msg = dialog.chatPrefix;
+		let msg = dialogPrefix.chat;
 		if (typeof msg === "function") {
 			msg = msg(chatData);
 		}
@@ -569,14 +569,14 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 }
 
 /**
- * Return {@link TypedItemData.dialog.chatPrefix} if it's a string or call it using chat data based on a fictional extended item option.
+ * Return {@link TypedItemData.dialog.chat} if it's a string or call it using chat data based on a fictional extended item option.
  * @param {string} Name - The name of the pseudo-type
  * @param {TypedItemData} Data - The extended item data
  * @returns {string} The dialogue prefix for the custom chatroom messages
  */
 function TypedItemCustomChatPrefix(Name, Data) {
-	if (typeof Data.dialog.chatPrefix === "function") {
-		return Data.dialog.chatPrefix({
+	if (typeof Data.dialog.chat === "function") {
+		return Data.dialog.chat({
 			C: CharacterGetCurrent(),
 			previousOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
 			newOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
@@ -584,7 +584,7 @@ function TypedItemCustomChatPrefix(Name, Data) {
 			newIndex: 0,
 		});
 	} else {
-		return Data.dialog.chatPrefix;
+		return Data.dialog.chat;
 	}
 }
 
@@ -616,8 +616,8 @@ function TypedItemInit(Item, C, Refresh=true) {
 	}
 
 	// If there is an initial and/or baseline property, set it and update the character
-	if (InitialProperty || Data.BaselineProperty) {
-		Item.Property = (Data.BaselineProperty != null) ? JSON.parse(JSON.stringify(Data.BaselineProperty)) : {};
+	if (InitialProperty || Data.baselineProperty) {
+		Item.Property = (Data.baselineProperty != null) ? JSON.parse(JSON.stringify(Data.baselineProperty)) : {};
 		Item.Property = Object.assign(
 			Item.Property,
 			(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
