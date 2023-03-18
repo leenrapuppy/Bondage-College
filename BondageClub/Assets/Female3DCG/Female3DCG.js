@@ -8014,6 +8014,7 @@ var AssetFemale3DCG = [
 				AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
 				DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310,
 				FixedPosition: true, TextMaxLength: { Text: 14, Text2: 14, Text3: 14 },
+				TextFont: "sans-serif",
 				Layer: [
 					//Pole Base
 					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
