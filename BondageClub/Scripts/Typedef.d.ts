@@ -318,6 +318,8 @@ type CraftingStatusType = 0 | 1 | 2;
 
 type ItemColorMode = "Default" | "ColorPicker";
 
+type CharacterHook = "BeforeSortLayers" | "AfterLoadCanvas";
+
 //#endregion
 
 //#region index.html
@@ -1471,10 +1473,10 @@ interface Character {
 	DrawPose?: AssetPoseName[];
 	DrawAppearance?: Item[];
 	AppearanceLayers?: AssetLayer[];
-	Hooks: Map<string, Map<string, () => void>> | null;
-	RegisterHook: (hookName: string, hookInstance: string, callback: () => void) => boolean | any;
-	UnregisterHook: (hookName: string, hookInstance: string) => boolean;
-	RunHooks: (hookName: string) => void;
+	Hooks: Map<CharacterHook, Map<string, () => void>> | null;
+	RegisterHook: (hookName: CharacterHook, hookInstance: string, callback: () => void) => boolean | any;
+	UnregisterHook: (hookName: CharacterHook, hookInstance: string) => boolean;
+	RunHooks: (hookName: CharacterHook) => void;
 	HeightRatioProportion?: number;
 	GetGenders: () => string[];
 	HasPenis: () => boolean;

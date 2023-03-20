@@ -1092,7 +1092,7 @@ function CharacterLoadCanvas(C) {
 	C.DrawPose = C.Pose.slice(); // Deep copy of pose array
 
 	// Run BeforeSortLayers hook
-	C.RunHooks("BeforeSortLayer");
+	C.RunHooks("BeforeSortLayers");
 
 	// Generates a layer array from the character's appearance array, sorted by drawing order
 	C.AppearanceLayers = CharacterAppearanceSortLayers(C);
