@@ -69,7 +69,7 @@ function TightenLoosenItemClick() {
 	const C = CharacterGetCurrent();
 	let Action = "";
 
-	// Tigthen a little
+	// Tighten a little
 	if (MouseIn(1150, 650, 300, 65) && (DialogTightenLoosenItem.Difficulty < TightenLoosenItemMaximumDifficulty)) {
 		DialogTightenLoosenItem.Difficulty = DialogTightenLoosenItem.Difficulty + 2;
 		if (DialogTightenLoosenItem.Difficulty > TightenLoosenItemMaximumDifficulty) DialogTightenLoosenItem.Difficulty = TightenLoosenItemMaximumDifficulty;
@@ -77,7 +77,7 @@ function TightenLoosenItemClick() {
 		Action = "TightenLittle";
 	}
 
-	// Tigthen a lot
+	// Tighten a lot
 	if (MouseIn(1150, 800, 300, 65) && (DialogTightenLoosenItem.Difficulty < TightenLoosenItemMaximumDifficulty - 2)) {
 		DialogTightenLoosenItem.Difficulty = DialogTightenLoosenItem.Difficulty + 4;
 		if (DialogTightenLoosenItem.Difficulty > TightenLoosenItemMaximumDifficulty) DialogTightenLoosenItem.Difficulty = TightenLoosenItemMaximumDifficulty;

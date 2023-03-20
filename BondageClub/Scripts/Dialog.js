@@ -1544,7 +1544,7 @@ function DialogMenuButtonClick() {
 				return;
 			}
 
-			// Tigthen/Loosen Icon - Opens the sub menu
+			// Tighten/Loosen Icon - Opens the sub menu
 			else if (((DialogMenuButton[I] == "TightenLoosen")) && (Item != null)) {
 				DialogSetTightenLoosenItem(Item);
 				return;
