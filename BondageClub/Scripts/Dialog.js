@@ -656,7 +656,7 @@ function DialogRemove() {
 
 /**
  * Generic dialog function to remove any dialog from a specific group
- * @param {AssetGroupName} GroupName - All dialog options are removed from this group
+ * @param {string} GroupName - All dialog options are removed from this group
  * @returns {void} - Nothing
  */
 function DialogRemoveGroup(GroupName) {
