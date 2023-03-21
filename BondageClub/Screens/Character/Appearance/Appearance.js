@@ -235,7 +235,7 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 						SelectedColor = eye.Color;
 					}
 				}
-				if (SelectedColor == "Default" && SelectedAsset.DefaultColor != null) SelectedColor = SelectedAsset.DefaultColor;
+				if (SelectedColor == "Default") SelectedColor = [...SelectedAsset.DefaultColor];
 				/** @type {Item} */
 				var NA = {
 					Asset: SelectedAsset,

@@ -660,7 +660,7 @@ function InventoryWearCraft(Item, C, Craft) {
 function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft, Refresh=true) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
-	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
+	CharacterAppearanceSetItem(C, AssetGroup, A, (ItemColor == null || ItemColor == "Default") ? [...A.DefaultColor] : ItemColor, Difficulty, MemberNumber, false);
 	let Item = InventoryGet(C, AssetGroup);
 
 	/**

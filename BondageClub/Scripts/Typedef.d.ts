@@ -1109,7 +1109,7 @@ interface Asset {
 	AllowHideItem?: readonly string[];
 	AllowType?: readonly string[];
 	AllowTighten?: boolean;
-	DefaultColor?: ItemColor;
+	DefaultColor: readonly string[];
 	Opacity: number;
 	MinOpacity: number;
 	MaxOpacity: number;

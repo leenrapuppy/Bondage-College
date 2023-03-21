@@ -164,7 +164,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		AllowType: AssetDef.AllowType,
 		AllowHide: AssetDef.AllowHide,
 		AllowHideItem: AssetDef.AllowHideItem,
-		DefaultColor: AssetDef.DefaultColor,
+		DefaultColor: [],
 		Opacity: AssetParseOpacity(AssetDef.Opacity),
 		MinOpacity: typeof AssetDef.MinOpacity === "number" ? AssetParseOpacity(AssetDef.MinOpacity) : 1,
 		MaxOpacity: typeof AssetDef.MaxOpacity === "number" ? AssetParseOpacity(AssetDef.MaxOpacity) : 1,
@@ -227,6 +227,8 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 
 	A.Layer = AssetBuildLayer(AssetDef, A);
 	AssetAssignColorIndices(A);
+	A.DefaultColor = AssetParseDefaultColor(A.ColorableLayerCount, AssetDef.DefaultColor);
+
 	// Unwearable assets are not visible but can be overwritten
 	if (!A.Wear && AssetDef.Visible != true) A.Visible = false;
 	// @ts-ignore: ignore `readonly` while still building the group properties
@@ -685,4 +687,21 @@ function AssetLayerSort(layers) {
 		// fallback.
 		return l1.Asset.Name.localeCompare(l2.Asset.Name);
 	});
+}
+
+/**
+ * Convert {@link AssetDefinition} default color into a {@link Asset} default color list
+ * @param {number} colorableLayerCount The number of colorable layers
+ * @param {string | readonly string[]} [color] See {@link AssetDefinition.DefaultColor}
+ * @returns {string[]} See {@link Asset.DefaultColor}
+ */
+function AssetParseDefaultColor(colorableLayerCount, color) {
+	/** @type {string[]} */
+	const defaultColor = Array(colorableLayerCount).fill("Default");
+	if (typeof color === "string") {
+		defaultColor.fill(color);
+	} else if (CommonIsArray(color)) {
+		color.slice(0, colorableLayerCount).forEach((c, i) => defaultColor[i] = c);
+	}
+	return defaultColor;
 }

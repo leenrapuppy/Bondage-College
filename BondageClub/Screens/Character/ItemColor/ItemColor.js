@@ -712,16 +712,11 @@ function ItemColorReset() {
  */
 function ItemColorIsDefault(Item) {
 	const Color = Item.Color;
-	let AssetDefault = Item.Asset.DefaultColor;
-	if (typeof Color === "string") return (Color === "Default" || (typeof AssetDefault === "string" && Color === AssetDefault));
-	if (Array.isArray(Color)) {
-		if (!AssetDefault) {
-			return Color.every(c => c === "Default");
-		}
-		if (!Array.isArray(AssetDefault)) {
-			AssetDefault = [AssetDefault];
-		}
-		return Color.slice(0, Math.min(Color.length, AssetDefault.length)).every((c, i) => c === "Default" || c === AssetDefault[i]);
+	const AssetDefault = Item.Asset.DefaultColor;
+	if (typeof Color === "string") {
+		return (Color === "Default" || (AssetDefault.length === 1 && Color === AssetDefault[0]));
+	} else if (Array.isArray(Color)) {
+		return Color.slice(0, AssetDefault.length).every((c, i) => c === "Default" || c === AssetDefault[i]);
 	}
 	return true;
 }

@@ -241,7 +241,7 @@ function CommonDrawAppearanceBuild(C, {
 
 		// Make any required changes to the color
 		if (Color === "Default" && A.DefaultColor) {
-			Color = Array.isArray(A.DefaultColor) ? A.DefaultColor[Layer.ColorIndex] : A.DefaultColor;
+			Color = A.DefaultColor[Layer.ColorIndex];
 		}
 		if (!ColorInherited && !CommonDrawColorValid(Color, AG)) {
 			Color = "Default";

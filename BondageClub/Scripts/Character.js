@@ -1758,8 +1758,8 @@ function CharacterGetTints(C) {
 			}
 		}
 		if (Color === "Default") {
-			if (Item.Asset.DefaultColor) {
-				Color = Array.isArray(Item.Asset.DefaultColor) ? Item.Asset.DefaultColor[colorIndex] : Item.Asset.DefaultColor;
+			if (!Item.Asset.DefaultColor.every(i => i === "Default")) {
+				Color = Item.Asset.DefaultColor[colorIndex];
 			} else if (typeof DefaultColor === "string") {
 				Color = DefaultColor;
 			} else if (typeof Item.Asset.DefaultTint === "string") {
