@@ -1037,3 +1037,12 @@ function CommonIsNonNegativeInteger(value) {
 function IsBrowser() {
 	return typeof window !== "undefined" && typeof window.document !== "undefined";
 }
+
+/**
+ * A version of {@link Array.isArray} more friendly towards readonly arrays.
+ * @param {unknown} arg - The to-be validated object
+ * @returns {arg is readonly unknown[]} Whether the passed object is a (potentially readonly) array
+ */
+function CommonIsArray(arg) {
+	return Array.isArray(arg);
+}
