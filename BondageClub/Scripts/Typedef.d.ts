@@ -408,7 +408,7 @@ interface IChatRoomSyncExpressionMessage {
 
 interface IChatRoomSyncPoseMessage {
 	MemberNumber: number;
-	Pose: string[] | string;
+	Pose: AssetPoseName[];
 }
 
 interface IChatRoomSyncArousalMessage {

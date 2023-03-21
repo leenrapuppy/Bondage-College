@@ -669,7 +669,7 @@ function CharacterLoadSimple(AccName) {
 function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Title == null))) Char.Title = data.Title;
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Nickname == null))) Char.Nickname = data.Nickname;
-	Char.ActivePose = data.ActivePose;
+	Char.ActivePose = Array.isArray(data.ActivePose) ? data.ActivePose.filter(i => typeof i === "string") : [];
 	Char.LabelColor = data.LabelColor;
 	Char.Creation = data.Creation;
 	Char.Description = data.Description;
@@ -1456,13 +1456,13 @@ function CharacterFullRandomRestrain(C, Ratio, Refresh) {
 /**
  * Sets a new pose for the character
  * @param {Character} C - Character for which to set the pose
- * @param {AssetPoseName} NewPose - Name of the pose to set as active
+ * @param {null | AssetPoseName} NewPose - Name of the pose to set as active or `null` to return to the default pose
  * @param {boolean} [ForceChange=false] - TRUE if the set pose(s) should overwrite current active pose(s)
  * @returns {void} - Nothing
  */
 function CharacterSetActivePose(C, NewPose, ForceChange = false) {
 	if (NewPose == null || ForceChange || C.ActivePose == null) {
-		C.ActivePose = [NewPose];
+		C.ActivePose = (NewPose == null) ? [] : [NewPose];
 		CharacterRefresh(C, false);
 		return;
 	}
@@ -1482,7 +1482,7 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
 	}
 
 	// If we reset to base, we remove the poses
-	if (C.ActivePose.filter(P => P !== "BaseUpper" && P !== "BaseLower").length == 0) C.ActivePose = null;
+	if (C.ActivePose.filter(P => P !== "BaseUpper" && P !== "BaseLower").length == 0) C.ActivePose = [];
 
 	CharacterRefresh(C, false);
 }

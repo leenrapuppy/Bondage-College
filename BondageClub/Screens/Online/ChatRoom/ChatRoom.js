@@ -3604,7 +3604,7 @@ function ChatRoomSyncPose(data) {
 	if (!character) return;
 
 	// Sets the active pose
-	character.ActivePose = /** @type {AssetPoseName[]} */(data.Pose);
+	character.ActivePose = data.Pose;
 	CharacterRefresh(character, false);
 
 	// Update the cached copy in the chatroom
