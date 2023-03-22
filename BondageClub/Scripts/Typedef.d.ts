@@ -1056,7 +1056,7 @@ interface Asset {
 	AllowActivity?: readonly ActivityName[];
 	ActivityAudio?: readonly string[];
 	ActivityExpression: Partial<Record<ActivityName, readonly ExpressionTrigger[]>>;
-	AllowActivityOn?: AssetGroupItemName[];
+	AllowActivityOn?: readonly AssetGroupItemName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: readonly string[];
 	Effect?: readonly EffectName[];
@@ -1066,7 +1066,7 @@ interface Asset {
 	Hide?: readonly AssetGroupName[];
 	HideItem?: readonly string[];
 	HideItemExclude: readonly string[];
-	HideItemAttribute: AssetAttribute[];
+	HideItemAttribute: readonly AssetAttribute[];
 	Require: readonly AssetGroupBodyName[];
 	SetPose?: readonly AssetPoseName[];
 	AllowPose: readonly AssetPoseName[] | null;
@@ -1148,7 +1148,7 @@ interface Asset {
 	Layer: readonly AssetLayer[];
 	ColorableLayerCount: number;
 	Archetype?: ExtendedArchetype;
-	Attribute: AssetAttribute[];
+	Attribute: readonly AssetAttribute[];
 	PreviewIcons: readonly InventoryIcon[];
 	Tint: readonly TintDefinition[];
 	AllowTint: boolean;

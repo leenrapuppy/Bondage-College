@@ -1046,7 +1046,7 @@ function InventoryItemIsPickable(Item) {
  * @param {Name} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
- * @returns {(ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
+ * @returns {undefined | (ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
  * item itself does not exist.
  */
 function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
