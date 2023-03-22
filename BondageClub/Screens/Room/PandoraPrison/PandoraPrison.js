@@ -106,7 +106,7 @@ function PandoraPrisonGuardNewActivity() {
  * @returns {void} - Nothing
  */
 function PandoraPrisonClick() {
-	if (MouseIn(1885, 25, 90, 90) && Player.CanKneel()) CharacterSetActivePose(Player, (Player.ActivePose == null) ? "Kneel" : null, true);
+	if (MouseIn(1885, 25, 90, 90) && Player.CanKneel()) CharacterSetActivePose(Player, (Player.ActivePose.length === 0) ? "Kneel" : null, true);
 	if ((PandoraPrisonCharacter == null) && MouseIn(750, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if ((PandoraPrisonCharacter != null) && MouseIn(1000, 0, 500, 1000)) {
 		if (PandoraPrisonGuard.Stage == "RANDOM") PandoraPrisonGuardNewActivity();

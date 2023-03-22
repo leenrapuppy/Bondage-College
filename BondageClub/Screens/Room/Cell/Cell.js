@@ -43,7 +43,7 @@ function CellRun() {
  * @returns {void} - Nothing
  */
 function CellClick() {
-	if (MouseIn(1885, 25, 90, 90) && Player.CanKneel() && (CellOpenTimer > CurrentTime)) CharacterSetActivePose(Player, ((Player.ActivePose == null) || (Player.ActivePose.length == 0) || (Player.ActivePose[0] == null)) ? "Kneel" : null, true);
+	if (MouseIn(1885, 25, 90, 90) && Player.CanKneel() && (CellOpenTimer > CurrentTime)) CharacterSetActivePose(Player, (Player.ActivePose.length === 0) ? "Kneel" : null, true);
 	if (MouseIn(750, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if (MouseIn(1885, 145, 90, 90)) InformationSheetLoadCharacter(Player);
 	if (CellOpenTimer < CurrentTime) {
