@@ -613,6 +613,9 @@ function sanitizeVMOutput(input) {
 			}
 
 			if (Array.isArray(Asset.Layer)) {
+				if (Asset.Layer.length === 0) {
+					error(`${Group.Group}:${Asset.Name}: Asset must contain at least one layer when explicitly specified`);
+				}
 				for (const layerDef of Asset.Layer) {
 					// Check for conflicting layer properties
 					if (Array.isArray(layerDef.HideForAttribute) && Array.isArray(layerDef.ShowForAttribute)) {
