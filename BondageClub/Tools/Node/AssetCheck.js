@@ -358,28 +358,42 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 
 /**
  * Check that all expected color-group entries are present in the .csv file
- * @param {TestingMissingStruct[]} missingGroups A list of all missing color groups
+ * @param {TestingStruct<string>[]} missingGroups A list of all missing color groups
  */
 function testColorGroups(missingGroups) {
 	if (!Array.isArray(missingGroups)) {
 		error("MISSING_COLOR_GROUPS not found");
 	}
-	for (const { Group, Name, Missing } of missingGroups) {
-		error(`${Group}:${Name}: Missing color group "${Missing}"`);
+	for (const { Group, Name, Invalid } of missingGroups) {
+		error(`${Group}:${Name}: Missing color group "${Invalid}"`);
 	}
 }
 
 /**
  * Check that all expected color-layer entries are present in the .csv file
- * @param {TestingMissingStruct[]} missingLayers A list of all missing color layers
+ * @param {TestingStruct<string>[]} missingLayers A list of all missing color layers
  */
 function testColorLayers(missingLayers) {
 	if (!Array.isArray(missingLayers)) {
 		error("MISSING_COLOR_LAYERS not found");
 		return;
 	}
-	for (const { Group, Name, Missing } of missingLayers) {
-		error(`${Group}:${Name}: Missing color layer "${Missing}"`);
+	for (const { Group, Name, Invalid } of missingLayers) {
+		error(`${Group}:${Name}: Missing color layer "${Invalid}"`);
+	}
+}
+
+/**
+ * Test whether all asset default colors are valid.
+ * @param {TestingStruct<string[]>[]} invalidDefaults A list of all missing color layers
+ */
+function testDefaultColor(invalidDefaults) {
+	if (!Array.isArray(invalidDefaults)) {
+		error("TestingInvalidDefaultColor not found");
+		return;
+	}
+	for (const { Group, Name, Invalid } of invalidDefaults) {
+		error(`${Group}:${Name}: ${Invalid.length} invalid color defaults "${Invalid}"`);
 	}
 }
 
@@ -523,10 +537,12 @@ function sanitizeVMOutput(input) {
 	const AssetFemale3DCG = sanitizeVMOutput(context.AssetFemale3DCG);
 	/** @type {ExtendedItemConfig} */
 	const AssetFemale3DCGExtended = sanitizeVMOutput(context.AssetFemale3DCGExtended);
-	/** @type {TestingMissingStruct[]} */
+	/** @type {TestingStruct<string>[]} */
 	const missingColorLayers = sanitizeVMOutput(context.TestingMisingColorLayers);
-	/** @type {TestingMissingStruct[]} */
+	/** @type {TestingStruct<string>[]} */
 	const missingColorGroups = sanitizeVMOutput(context.TestingMisingColorGroups);
+	/** @type {TestingStruct<string[]>[]} */
+	const invalidColorDefaults = sanitizeVMOutput(context.TestingInvalidDefaultColor);
 
 	if (!Array.isArray(AssetFemale3DCG)) {
 		error("AssetFemale3DCG not found");
@@ -722,4 +738,5 @@ function sanitizeVMOutput(input) {
 	testColorGroups(missingColorGroups);
 	testColorLayers(missingColorLayers);
 	testModuleOptionLength(AssetFemale3DCGExtended);
+	testDefaultColor(invalidColorDefaults);
 })();

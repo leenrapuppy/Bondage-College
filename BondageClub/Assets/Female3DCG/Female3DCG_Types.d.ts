@@ -936,14 +936,14 @@ interface VariableHeightDialogConfig {
 
 // #region Testing
 
-/** An interface representing missing data for a given (simplified) asset */
-interface TestingMissingStruct {
+/** An interface representing missing or invalid data for a given (simplified) asset */
+interface TestingStruct<T> {
 	/** The asset's group */
 	readonly Group: AssetGroupName;
 	/** The asset's name */
 	readonly Name: string;
-	/** The name of the asset's missing data */
-	readonly Missing: string;
+	/** A representation of the asset's missing or invalid data */
+	readonly Invalid: T;
 }
 
 // #endregion

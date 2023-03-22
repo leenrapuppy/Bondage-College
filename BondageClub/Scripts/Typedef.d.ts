@@ -1109,6 +1109,9 @@ interface Asset {
 	AllowHideItem?: readonly string[];
 	AllowType?: readonly string[];
 	AllowTighten?: boolean;
+	/**
+	 * The default color of the item: an array of length {@link Asset.ColorableLayerCount} consisting of `"Default"` and/or valid color hex codes.
+	 */
 	DefaultColor: readonly string[];
 	Opacity: number;
 	MinOpacity: number;
@@ -1146,6 +1149,7 @@ interface Asset {
 	MirrorExpression?: AssetGroupName;
 	FixedPosition: boolean;
 	Layer: readonly AssetLayer[];
+	/** The number of colorable layers. Guaranteed to be >= 1 */
 	ColorableLayerCount: number;
 	Archetype?: ExtendedArchetype;
 	Attribute: readonly AssetAttribute[];
