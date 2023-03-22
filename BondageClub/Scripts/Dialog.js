@@ -1032,7 +1032,12 @@ function DialogMenuButtonBuild(C) {
 					C, Item.Asset) && !IsGroupBlocked)) {
 				DialogMenuButton.push("Unlock");
 			}
-			if (InventoryAllow(C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item) && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf))) {
+			if (
+				!IsGroupBlocked
+				&& !InventoryGroupIsBlocked(Player, "ItemHands")
+				&& InventoryItemIsPickable(Item)
+				&& (C.IsPlayer() || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf))
+			) {
 				if (DialogLentLockpicks)
 					DialogMenuButton.push("PickLock");
 				else if (CanAccessLockpicks)
