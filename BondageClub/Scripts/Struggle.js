@@ -1480,7 +1480,7 @@ function StruggleLockPickSetup(C, Item) {
 
 		// More of less tries if the item is crafted with specific properties
 		StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
-		if (InventoryCraftPropertyIs(Item, "Puzzling")) StruggleLockPickProgressMaxTries = StruggleLockPickProgressMaxTries - 1;
+		if (InventoryCraftPropertyIs(Item, "Puzzling")) StruggleLockPickProgressMaxTries = Math.max(1, StruggleLockPickProgressMaxTries - 1);
 		if (InventoryCraftPropertyIs(Item, "Simple")) StruggleLockPickProgressMaxTries = StruggleLockPickProgressMaxTries + 2;
 
 	}
