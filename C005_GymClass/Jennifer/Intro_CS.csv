@@ -1,0 +1,30 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,To jsi ty! Ta růžová věcička je pořád ve mně|a vibruje jak šílená. Jak se vyndává?,Jennifer.jpg
+5,0,0,,Nazdárek! Spolu na další hodině!|Chtěla bys cvičit judo se mnou?,Jennifer.jpg
+5,-2,0,,(Odfrkne si.) Ach jo. To jsi zase ty?|Vypadá to že budeme muset cvičit společně.,Jennifer.jpg
+5,2,0,,To je prima! Taková náhoda!|To bude prima cvičit spolu judo.,Jennifer.jpg
+10,0,0,,Už jsi judo někdy zkoušela?,Jennifer.jpg
+20,0,0,,"Říká se, že cvičení dělá mistra.|Chceš potrénovat, nebo si dáme skutečný zápas?",Jennifer.jpg
+100,0,0,,Jsi dobrá bojovnice! Další sebeobranný krok|je spoutání protivníka. Nebudu ti to ulehčovat.,JenniferLosing.jpg
+110,0,0,!Turnabout,"Dalším sebeobranným krokem je,|že mě svlečeš a svážeš mě provazem.",JenniferLosing.jpg
+110,0,0,Turnabout,"A kruci! Karty se obrátily!|Tak mě zkus svázat, ale nebudeš to mít lehké.",JenniferLosing.jpg
+200,0,0,,"Jelikož jsem vyhrála, mým dalším|sebeobranným krokem bude tvé svázání.",JenniferWinning.jpg
+210,0,0,!Turnabout,"Abych sebeobranu dokončila,|musím tě svlést a svázat tě provazem.",JenniferWinning.jpg
+210,0,0,Turnabout,"Říká se, že otočka je fair play.|Teď jsem s tvým poutáním na řadě já.",JenniferWinning.jpg
+400,0,0,!DefeatedHardMode,Jsi fakt dobrá ale příště budu bojovat líp.|Líbil se ti tenhle nácvik juda a sebeobrany?,JenniferDefeat.jpg
+400,0,0,DefeatedHardMode,To bylo skvělé! Bojuješ fakt dobře.|Na to abych tě dohnala budu muset hodně trénovat.,JenniferDefeat.jpg
+400,0,0,DefeatedHardModePerfect,To bylo neuvěřitelné! Jsi skvělá bojovnice.|Na svůj závěrečný tah si vezmi roubík z mé tašky.,JenniferDefeat.jpg
+410,0,0,,"Svázala jsi mě fakt dobře.|Zda se mi, že o sebeobraně už něco víš.",JenniferDefeat.jpg
+420,0,0,,"(Kňourá a dívá se na tebe.|Vypadá to, že už by chtěla pustit.)",JenniferDefeatBallGag.jpg
+430,0,0,,"(Kňourá a dívá se na tebe.|Vypadá to, že už by chtěla pustit.)",JenniferDefeatTapeGag.jpg
+450,0,0,,(Červená se a snaží se dívat jinam.),JenniferDefeatClimax.jpg
+460,0,0,,(Červená se a snaží se dívat jinam.),JenniferDefeatClimaxBallGag.jpg
+470,0,0,,(Červená se a snaží se dívat jinam.),JenniferDefeatClimaxTapeGag.jpg
+500,0,0,,Krásný malý balíček!|Nejsou judo a sebeobrana skvělé?,JenniferVictory.jpg
+510,0,0,,"Doufám, že jsi se během zápasu pár triků naučila.|Další tvoje výzva bude dostat se z těch provazů.",JenniferVictory.jpg
+520,0,0,,"Doufám, že jsi se během zápasu pár triků naučila.|Další tvoje výzva bude dostat se z těch provazů.",JenniferVictoryBallGag.jpg
+530,0,0,,"Doufám, že jsi se během zápasu pár triků naučila.|Další tvoje výzva bude dostat se z těch provazů.",JenniferVictoryTapeGag.jpg
+550,0,0,,Jsi v pohodě? Pořádně se třeseš.,JenniferVictoryClimax.jpg
+560,0,0,,Kývni jestli jsi v pohodě. Pořádně se třeseš.,JenniferVictoryClimaxBallGag.jpg
+570,0,0,,Kývni jestli jsi v pohodě. Pořádně se třeseš.,JenniferVictoryClimaxTapeGag.jpg
+600,0,0,,"Ještě trochu potrénujeme, než půjdeme na oběd?",Jennifer.jpg
