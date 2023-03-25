@@ -9249,7 +9249,7 @@ var ActivityFemale3DCG = [
 	{
 		Name: "Inject",
 		MaxProgress: 20,
-		Prerequisite: ["ZoneAccessible", "UseHands", "Needs-InjectItem"],
+		Prerequisite: ["ZoneAccessible", "UseHands", "Needs-Inject"],
 		Target: ["ItemNeck", "ItemBreast", "ItemArms", "ItemButt", "ItemVulvaPiercings", "ItemLegs", "ItemFeet"],
 		TargetSelf: true,
 	},
