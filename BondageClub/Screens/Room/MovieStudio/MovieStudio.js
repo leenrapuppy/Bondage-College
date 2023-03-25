@@ -18,6 +18,7 @@ var MovieStudioActivity = [];
 var MovieStudioMoney = 0;
 /** @type {null | Item[]} */
 var MovieStudioOriginalClothes = null;
+var MovieStudioDailyMovie = "";
 
 /**
  * The player can play in a movie if she doesn't have any locked restraints
@@ -42,6 +43,13 @@ function MovieStudioCanGetGavel() { return (!InventoryAvailable(Player, "Gavel",
  * @returns {boolean} - TRUE if the player can get the item
  */
 function MovieStudioCanGetLongDuster() { return (!InventoryAvailable(Player, "LongDuster", "ItemHandheld") && (MovieStudioCurrentRole == "Maid") && (MovieStudioActor1.CanGetLongDuster)); }
+
+/**
+ * Returns TRUE if the daily movie is of the current type
+ * @param {string} Type - The daily movie type
+ * @returns {boolean} - TRUE if the daily movie matches
+ */
+function MovieStudioDailyMovieIs(Type) { return MovieStudioDailyMovie == Type; }
 
 /**
  * When the player fails the movie, we jump back to the director
@@ -132,6 +140,8 @@ function MovieStudioProcessDecay() {
  * @returns {void} - Nothing
  */
 function MovieStudioLoad() {
+	let Day = Math.floor(CurrentTime / (24 * 60 * 60 * 1000));
+	MovieStudioDailyMovie = (Day % 2 == 0) ? "Interview" : "OpenHouse";
 	if (MovieStudioOriginalClothes == null) MovieStudioOriginalClothes = Player.Appearance.slice(0);
 	if (MovieStudioDirector == null) {
 		MovieStudioDirector = CharacterLoadNPC("NPC_MovieStudio_Director");
@@ -176,6 +186,12 @@ function MovieStudioRun() {
 		DrawCharacter(MovieStudioActor2, 1250, 0, 1);
 	}
 
+	// In the open house first scene, we draw both the wife and new girlfriend
+	if ((MovieStudioCurrentMovie == "OpenHouse") && (MovieStudioCurrentScene == "1")) {
+		DrawCharacter(Player, 500, 0, 1);
+		DrawCharacter(MovieStudioActor1, 1000, 0, 1);
+	}
+
 	// If there's a movie, we draw the progress meter on the right and the wait button
 	if (MovieStudioCurrentMovie != "") {
 		MovieStudioProcessDecay();
@@ -206,6 +222,7 @@ function MovieStudioClick() {
 	if ((MovieStudioCurrentMovie == "Interview") && (MovieStudioCurrentScene == "2") && (MovieStudioCurrentRole == "Maid") && MouseIn(1250, 0, 500, 1000)) CharacterSetCurrent(MovieStudioActor2);
 	if ((MovieStudioCurrentMovie == "Interview") && (MovieStudioCurrentScene == "3") && MouseIn(250, 0, 500, 1000)) CharacterSetCurrent(MovieStudioActor1);
 	if ((MovieStudioCurrentMovie == "Interview") && (MovieStudioCurrentScene == "3") && MouseIn(1250, 0, 500, 1000)) CharacterSetCurrent(MovieStudioActor2);
+	if ((MovieStudioCurrentMovie == "OpenHouse") && (MovieStudioCurrentScene == "1") && MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(MovieStudioActor1);
 	if ((MovieStudioCurrentMovie != "") && MouseIn(1855, 25, 90, 90)) { MovieStudioChangeMeter(-20); MovieStudioTimer = MovieStudioTimer - 60000; }
 }
 
@@ -223,32 +240,43 @@ function MovieStudioPlayerDressBack() {
  * @param {string} Cloth - The clothes to wear
  * @returns {void} - Nothing
  */
-function MovieStudioChange(Cloth) {
+function MovieStudioChange(Cloth, C) {
+	if (C == null) C = Player;
 	if (Cloth == "Journalist") {
-		CharacterNaked(Player);
-		InventoryWear(Player, "Camera1", "ClothAccessory", "Default");
-		InventoryWear(Player, "TeacherOutfit1", "Cloth", "Default");
-		InventoryWear(Player, "Glasses1", "Glasses", "#333333");
-		InventoryWear(Player, "Socks5", "Socks", "#444458");
-		InventoryWear(Player, "Shoes2", "Shoes", "#111111");
+		CharacterNaked(C);
+		InventoryWear(C, "Camera1", "ClothAccessory", "Default");
+		InventoryWear(C, "TeacherOutfit1", "Cloth", "Default");
+		InventoryWear(C, "Glasses1", "Glasses", "#333333");
+		InventoryWear(C, "Socks5", "Socks", "#444458");
+		InventoryWear(C, "Shoes2", "Shoes", "#111111");
 	}
-	if (Cloth == "Mistress") CharacterArchetypeClothes(Player, "Mistress");
+	if (Cloth == "Mistress") CharacterArchetypeClothes(C, "Mistress");
 	if ((Cloth == "Maid") || (Cloth == "MaidSkimpy")) {
-		CharacterNaked(Player);
-		if (Cloth == "MaidSkimpy") InventoryWear(Player, "MaidOutfit2", "Cloth", "Default");
-		else InventoryWear(Player, "MaidOutfit1", "Cloth", "Default");
-		InventoryWear(Player, "MaidHairband1", "Hat", "Default");
-		InventoryWear(Player, "Socks3", "Socks", "#DDDDDD");
-		InventoryWear(Player, "Shoes2", "Shoes", "Default");
+		CharacterNaked(C);
+		if (Cloth == "MaidSkimpy") InventoryWear(C, "MaidOutfit2", "Cloth", "Default");
+		else InventoryWear(C, "MaidOutfit1", "Cloth", "Default");
+		InventoryWear(C, "MaidHairband1", "Hat", "Default");
+		InventoryWear(C, "Socks3", "Socks", "#DDDDDD");
+		InventoryWear(C, "Shoes2", "Shoes", "Default");
 	}
-	InventoryRemove(Player, "ItemMouth");
-	InventoryRemove(Player, "ItemHead");
-	InventoryRemove(Player, "ItemArms");
-	InventoryRemove(Player, "ItemHands");
-	InventoryRemove(Player, "ItemHandheld");
-	InventoryRemove(Player, "ItemLegs");
-	InventoryRemove(Player, "ItemFeet");
-	InventoryRemove(Player, "ItemBoots");
+	if (Cloth == "Random") {
+		CharacterNaked(C);
+		CharacterAppearanceFullRandom(C, true);
+	}
+	if (Cloth == "HouseVendor") {
+		CharacterNaked(C);
+		InventoryWear(C, "TeacherOutfit1", "Cloth", "#B36868");
+		InventoryWear(C, "Socks5", "Socks", "#C07070");
+		InventoryWear(C, "Shoes2", "Shoes", "#C07070");
+	}
+	InventoryRemove(C, "ItemMouth");
+	InventoryRemove(C, "ItemHead");
+	InventoryRemove(C, "ItemArms");
+	InventoryRemove(C, "ItemHands");
+	InventoryRemove(C, "ItemHandheld");
+	InventoryRemove(C, "ItemLegs");
+	InventoryRemove(C, "ItemFeet");
+	InventoryRemove(C, "ItemBoots");
 }
 
 /**
@@ -337,6 +365,16 @@ function MovieStudioProgress(Movie, Scene, Role) {
 			Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
 			CharacterSetActivePose((Maid ? MovieStudioActor1 : MovieStudioActor2), "Kneel", true);
 		}
+	}
+	if ((Movie == "OpenHouse") && (Scene == "1")) {
+		MovieStudioMoney = 15;
+		MovieStudioBackground = CommonRandomItemFromList("", ["HouseInterior1", "HouseInterior2", "HouseInterior3"]);
+		MovieStudioActor1 = CharacterLoadNPC("NPC_MovieStudio_OpenHouse_" + ((Role == "Wife") ? "Girlfriend" : "Wife"));
+		MovieStudioActor1.Stage = "0";
+		MovieStudioActor1.AllowItem = false;
+		CharacterRelease(MovieStudioActor1);
+		CharacterSetActivePose(MovieStudioActor1, null, true);
+		MovieStudioChange("HouseVendor", MovieStudioActor1);
 	}
 	if (CurrentCharacter != null) DialogLeave();
 }
@@ -751,6 +789,16 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Closed", 8);
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 8);
 	}
+	if (Activity == "OpenHouseShoveActor1") {
+		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 8);
+	}
+	if (Activity == "OpenHouseShovePlayer") {
+		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Closed", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 8);
+	}
 
 	// Check for decay
 	MovieStudioProcessDecay();
@@ -759,14 +807,51 @@ function MovieStudioDoActivity(Activity) {
 
 /**
  * Changes a parameter for an actor
+ * @param {string} Name - The name of the actor
  * @param {string} Param - The parameter to change
+ * @param {string} Value - The value to alter
  * @returns {void} - Nothing
  */
 function MovieStudioChangeParameter(Name, Param, Value) {
 	let Actor = null;
 	if (Name == "Actor1") Actor = MovieStudioActor1;
+	if (Name == "Actor2") Actor = MovieStudioActor2;
 	if (Actor == null) return;
 	if (Param == "Friendship") Actor.Friendship = Value;
+}
+
+/**
+ * Add a parameter for an actor
+ * @param {string} Name - The name of the actor
+ * @param {string} Param - The parameter to change
+ * @param {string} Value - The value to alter
+ * @returns {void} - Nothing
+ */
+function MovieStudioAlterParameter(Name, Param, Value) {
+	let Actor = null;
+	if (Name == "Actor1") Actor = MovieStudioActor1;
+	if (Name == "Actor2") Actor = MovieStudioActor2;
+	if (Actor == null) return;
+	if ((Param == "Domination") && (Actor.Domination == null)) Actor.Domination = 0;
+	if (Param == "Domination") Actor.Domination = Actor.Domination + parseInt(Value);
+	if ((Param == "Love") && (Actor.Love == null)) Actor.Love = 0;
+	if (Param == "Love") Actor.Love = Actor.Love + parseInt(Value);
+}
+
+/**
+ * Returns TRUE if a parameter value for an actor is greater or equal than a given value
+ * @param {string} Name - The name of the actor
+ * @param {string} Param - The parameter to get
+ * @param {string} Compare - The value to compare
+ * @returns {Boolean} - TRUE if greater or equal
+ */
+function MovieStudioParameterValueGreater(Name, Param, Compare) {
+	let Actor = null;
+	if (Name == "Actor1") Actor = MovieStudioActor1;
+	let Value = 0;
+	if ((Param == "Domination") && (Actor != null) && (Actor.Domination != null)) Value = Actor.Domination;
+	if ((Param == "Love") && (Actor != null) && (Actor.Love != null)) Value = Actor.Love;
+	return (parseInt(Value) >= parseInt(Compare));
 }
 
 /**

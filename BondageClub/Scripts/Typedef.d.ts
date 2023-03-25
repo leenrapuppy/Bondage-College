@@ -1571,6 +1571,7 @@ interface NPCCharacter extends Character {
 	Trait?: NPCTrait[];
 	Event?: NPCTrait[];
 	Love?: number;
+	Domination?: number;
 }
 
 /** College */

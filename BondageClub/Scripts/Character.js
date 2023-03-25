@@ -1507,7 +1507,7 @@ function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer, Color) {
 	if (AssetGroup == "Eyes1") AssetGroup = "Eyes";
 
 	var Ex = InventoryGet(C, AssetGroup);
-	if ((Timer != null) && (Ex != null) && (Ex.Property != null) && (!Ex.Property.Expression)) return;
+	if ((Timer != null) && (Ex != null) && (Ex.Property != null) && (Ex.Property.Expression != null)) return;
 	for (let A = 0; A < C.Appearance.length; A++) {
 		if ((C.Appearance[A].Asset.Group.Name == AssetGroup) && (C.Appearance[A].Asset.Group.AllowExpression)) {
 			if ((Expression == null) || (C.Appearance[A].Asset.Group.AllowExpression.indexOf(Expression) >= 0)) {
