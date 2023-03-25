@@ -401,8 +401,8 @@ interface IChatRoomGameResponse {
 
 interface IChatRoomSyncExpressionMessage {
 	MemberNumber: number;
-	Group: string;
-	Name?: string;
+	Group: ExpressionGroupName;
+	Name?: ExpressionName;
 }
 
 

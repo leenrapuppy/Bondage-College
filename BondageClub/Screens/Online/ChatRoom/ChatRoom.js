@@ -3572,7 +3572,12 @@ function ChatRoomSyncSingle(data) {
  * @returns {void} - Nothing.
  */
 function ChatRoomSyncExpression(data) {
-	if (data === null || typeof data !== "object" || typeof data.Group !== "string" || typeof data.Name !== "string") return;
+	if (
+		!CommonIsObject(data)
+		|| typeof data.Group !== "string"
+		|| (typeof data.Name !== "string" && data.Name != null)
+	) return;
+
 	const character = ChatRoomCharacter.find(c => c.MemberNumber === data.MemberNumber);
 	if (!character) return;
 
