@@ -1,0 +1,105 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,To já nevím. Taky mám|jedno v sobě zaseklé.,"Chudinko. No, to je asi fér, řekla bych.|A asi teď budeme muset cvičit spolu.",5,0,-1,
+0,0,0,,To se nevyndává.|Toho si užíváš.,To není žádná legrace a vůbec si ho neužívám!|(Vzdechne.) Vypadá to že budeme muset cvičit spolu.,5,-1,0,
+0,0,0,,"Nejsem si jista,|budu to muset nastudovat.","Ale ne! Dej mi vědět co nejdříve.|A tipuju, že teď budeme muset cvičit spolu.",5,0,0,
+0,0,0,,To se nedá vyndat.|Zůstane tam navždy.,Doufám že nebudu muset do nemocnice.|(Vzdechne.) Vypadá to že budeme muset cvičit spolu.,5,-1,0,
+0,0,0,,"Neboj,|později ti pomůžu.","Tak dobře, věřím ti.|Chtěla bys teď trénovat se mnou?",5,1,0,
+0,0,0,,"Pokud budeš hodná|holčička, pomůžu ti.","Hodná holčička? Hmm, tak jo.|A teď budeme cvičit spolu?",5,0,1,
+5,0,0,,"Vypadá to, že|budeme cvičit spolu.",Dobrá. Už jsi judo někdy zkoušela?,10,0,0,
+5,0,0,,"Jaktože všichni, kromě|tebe už partnera mají?",Já… já nevím. Už jsi judo někdy zkoušela?,10,-1,0,
+5,0,0,,Super! Bude prima|mít tě v týmu.,Tak se mi to líbí!|Už jsi judo někdy zkoušela?,10,1,0,
+10,0,0,,Bude to moje poprvé.,"Tak fajn, tohle učení tě bude bavit. Chceš nejdříve|pocvičit nebo si dáme rovnou skutečný zápas?",20,0,0,
+10,0,0,,"Nikdy jsem to nezkoušela,|musíš na mě opatrně.","Neboj se, neublížím ti! Chceš nejdříve|pocvičit nebo si dáme rovnou skutečný zápas?",20,0,-1,
+10,0,0,,"Už jsem to zkoušela,|bude to psina.",Super! Určitě si uděláme prima hodinu. Chceš|nejdříve pocvičit nebo si dáme rovnou zápas?,20,0,0,
+10,0,0,,Judo umím|a nakopu ti prdel.,Á! Tak to se teprve uvidí. Chceš nejdříve|pocvičit nebo si dáme rovnou skutečný zápas?,20,0,1,
+20,0,0,,"Vysvětli mi,|jak se bojuje.","Důležité je správné načasování a využívání šancí.|(Zmáčkni A, S, K nebo L, když ikona dorazí na čáru.)",20,0,0,ExplainMobile()
+20,0,0,,Dáme si trénink.|(Zahaj trénink.),,20,0,0,StartPractice()
+20,0,0,,Dáme si skutečný zápas!|(Začni souboj.),,20,0,0,StartFight()
+100,0,0,,Jak tě mám spoutat?,Musíš mi sundat kimono a použít tenhle provaz.|Já se naopak budu snažit přemoct tebe.,110,0,0,GetRope()
+100,0,0,,Spoutané ti|to bude slušet.,"Já, já, …asi ano. Teď mě musíš svléct a spoutat|tímhle provazem. Já se ti budu snažit bránit.",110,1,0,GetRope()
+100,0,0,,"Příliš snadné,|bojuješ mizerně.",Příště se budu snažit víc!|Teď mě musíš svléct a použít tenhle provaz.,110,-1,1,GetRope()
+100,0,0,,To je boží!|Teď jsi celá moje!,Ještě ne! Budu se ti snažit bránit.|Teď mě musíš svléct a použít tenhle provaz.,110,0,1,GetRope()
+110,0,0,,Dáme si přátelák.|(Začni souboj.),,110,0,0,StartWinFight(true)
+110,0,0,,Rozdrtím tě!|(Začni souboj.),,110,0,0,StartWinFight(false)
+200,0,0,,Jak mě chceš svázat?,Musím ti sundat kimono a použít na tebe provaz.,210,0,0,
+200,0,0,,Jsi hodně dobrá!|Ale musíš mě svázat?,"Díky! Ano, můj další sebeobranný tah je|svléct tě z kimona a použít na tebe provaz.",210,1,0,
+200,0,0,,Neublížíš mi?,"To víš, že ne. Můj další sebeobranný tah je|svléct tě z kimona a použít na tebe provaz.",210,0,-1,
+200,0,0,,Ty mě svážeš?|Super!,Soustřeď se. Můj další sebeobranný tah je|svléct tě z kimona a použít na tebe provaz.,210,0,-1,
+210,0,0,,"Prosím, šetři mě!|(Začni souboj.)",,210,0,0,StartLoseFight(true)
+210,0,0,,Tentokrát neprohraju!|(Začni souboj.),,210,0,0,StartLoseFight(false)
+400,0,0,,To mě bavilo.|Užíváš si své spoutání?,"(Červená se.) To ale nemá být erotické,|tohle je sebeobrana!",410,0,1,
+400,0,0,,To byl bezva souboj.|Máš v sobě potenciál.,"Díky! Ale budu muset víc trénovat,|pokud se ti chci vyrovnat.",410,1,0,
+400,0,0,,Bojovat moc neumíš.|Potřebuješ mou ochranu.,Tvoji ochranu? Myslíš? No teda.|Určitě ale musím častěji trénovat.,410,-1,1,
+410,0,0,,"Víš, že takhle|vypadáš roztomile?",(Červená se a odvrací se.),410,0,0,AdorableComment()
+410,0,0,EggInside,Nevzrušuje tě|to vajíčko?,Kdepak! Mohla bys ho prosím vyndat?,410,0,0,EggComment()
+410,0,0,EggInside,(Pohrej si s|provazem v rozkroku.)ADD_MINUTES:1,"(Něžně si pohráváš s provazem v jejím rozkroku.|Velmi potichu sténá, aby ji nikdo neslyšel.)",410,0,0,CrotchRope()
+410,0,0,,(Polechtej ji.)ADD_MINUTES:1,"(Zmítá se v provazech, aby se ti vyhnula.)|(Lechtání na veřejnosti se jí zřejmě nelíbí.)",410,0,0,Tickle()
+410,0,0,,(Naplácej jí.)ADD_MINUTES:1,"Au! Ale proč?|(Zmítá se, zatímco jí pořádně nakládáš na zadek.)",410,0,0,Spank()
+410,0,0,,(Pusť ji.)ADD_MINUTES:1,"(Rozvazuješ jí pouta a ona se obléká.)|Díky moc! Ještě potrénujeme, než půjdeme na oběd?",600,1,0,Release()
+410,0,0,,"To stačí, jdeme jíst.|(Odejdi z tělocvičny.)",,410,0,0,EndChapter()
+420,0,0,EggInside,(Pohrej si s|provazem v rozkroku.)ADD_MINUTES:1,"(Něžně si pohráváš s provazem v jejím rozkroku.|Velmi potichu sténá, aby ji nikdo neslyšel.)",420,0,0,CrotchRope()
+420,0,0,,(Polechtej ji.)ADD_MINUTES:1,"(Zmítá se v provazech, aby se ti vyhnula.)|(Lechtání na veřejnosti se jí zřejmě nelíbí.)",420,0,0,Tickle()
+420,0,0,,(Naplácej jí.)ADD_MINUTES:1,"(Bojuje v provazech,|zatímco jí pořádně nakládáš na zadek.)",420,0,0,Spank()
+420,0,0,,(Sundej jí roubík.)ADD_MINUTES:1,"(Strháváš jí pásku z obličeje a ona si povzdychne.)|Tobě se sebeobrana fakt líbí, že?",410,0,0,Ungag()
+420,0,0,,(Pusť ji.)ADD_MINUTES:1,"(Rozvazuješ jí pouta a ona se obléká.)|Díky moc! Ještě potrénujeme, než půjdeme na oběd?",600,1,0,Release()
+420,0,0,,"To stačí, jdeme jíst.|(Odejdi z tělocvičny.)",,420,0,0,EndChapter()
+430,0,0,EggInside,(Pohrej si s|provazem v rozkroku.)ADD_MINUTES:1,"(Něžně si pohráváš s provazem v jejím rozkroku.|Velmi potichu sténá, aby ji nikdo neslyšel.)",430,0,0,CrotchRope()
+430,0,0,,(Polechtej ji.)ADD_MINUTES:1,"(Zmítá se v provazech, aby se ti vyhnula.)|(Lechtání na veřejnosti se jí zřejmě nelíbí.)",430,0,0,Tickle()
+430,0,0,,(Naplácej jí.)ADD_MINUTES:1,"(Bojuje v provazech,|zatímco jí pořádně nakládáš na zadek.)",430,0,0,Spank()
+430,0,0,,(Sundej jí roubík.)ADD_MINUTES:1,"(Strháváš jí pásku z obličeje a ona si povzdychne.)|Tobě se sebeobrana fakt líbí, že?",410,0,0,Ungag()
+430,0,0,,(Pusť ji.)ADD_MINUTES:1,"(Rozvazuješ jí pouta a ona se obléká.)|Díky moc! Ještě potrénujeme, než půjdeme na oběd?",600,1,0,Release()
+430,0,0,,"To stačí, jdeme jíst.|(Odejdi z tělocvičny.)",,430,0,0,EndChapter()
+450,5,0,,"Uvolni se, bude to pěkné.|(Potěš ji.)ADD_MINUTES:1",(Důvěřuje ti a vzdává se tvým něžným dotekům.|Dostává zpocený a tichý orgasmus.),410,1,0,Orgasm()
+450,0,0,,Už tam skoro jsi?|(Potěš ji.)ADD_MINUTES:1,"(Snažíš se jí udělat za pomocí vajíčka a provazu.|Je velmi blízko, ale udělat se nedokáže.)",410,0,0,
+450,0,0,,Hodná holčička.|(Potěš ji.)ADD_MINUTES:1,"(Snažíš se jí udělat za pomocí vajíčka a provazu.|Je velmi blízko, ale udělat se nedokáže.)",410,0,1,
+450,0,0,,"Teď ne, možná později.|(Pusť provaz v rozkroku.)",Bože díky. To by mohlo být tak trapné.,410,1,0,
+450,0,0,,To si coury nezaslouží.|(Pusť provaz v rozkroku.),"Já a coura? Ale, ale, ale…|(Nedokáže zakrýt pár slziček.)",410,-1,1,
+450,2,0,,(Pomazli se s ní.)ADD_MINUTES:1,(Dáváš jí vřelé objetí|a ona se ve tvém náruči uvolňuje.),450,0,0,Cuddle()
+460,5,0,,"Uvolni se, bude to pěkné.|(Potěš ji.)ADD_MINUTES:1",(Důvěřuje ti a vzdává se tvým něžným dotekům.|Dostává zpocený a tichý orgasmus.),420,1,0,Orgasm()
+460,0,0,,Už tam skoro jsi?|(Potěš ji.)ADD_MINUTES:1,"(Snažíš se jí udělat za pomocí vajíčka a provazu.|Je velmi blízko, ale udělat se nedokáže.)",420,0,0,
+460,0,0,,Hodná holčička.|(Potěš ji.)ADD_MINUTES:1,"(Snažíš se jí udělat za pomocí vajíčka a provazu.|Je velmi blízko, ale udělat se nedokáže.)",420,0,1,
+460,0,0,,"Teď ne, možná později.|(Pusť provaz v rozkroku.)",(Pomalu přikyvuje|a znovu nad sebou získává kontrolu.),420,1,0,
+460,0,0,,To si coury nezaslouží.|(Pusť provaz v rozkroku.),(Zostuzená se dívá stranou|a pomalu nad sebou získává kontrolu.),420,-1,1,
+460,2,0,,(Pomazli se s ní.)ADD_MINUTES:1,(Dáváš jí vřelé objetí|a ona se ve tvém náruči uvolňuje.),460,0,0,Cuddle()
+470,5,0,,"Uvolni se, bude to pěkné.|(Potěš ji.)ADD_MINUTES:1",(Důvěřuje ti a vzdává se tvým něžným dotekům.|Dostává zpocený a tichý orgasmus.),430,1,0,Orgasm()
+470,0,0,,Už tam skoro jsi?|(Potěš ji.)ADD_MINUTES:1,"(Snažíš se jí udělat za pomocí vajíčka a provazu.|Je velmi blízko, ale udělat se nedokáže.)",430,0,0,
+470,0,0,,Hodná holčička.|(Potěš ji.)ADD_MINUTES:1,"(Snažíš se jí udělat za pomocí vajíčka a provazu.|Je velmi blízko, ale udělat se nedokáže.)",430,0,1,
+470,0,0,,"Teď ne, možná později.|(Pusť provaz v rozkroku.)",(Pomalu přikyvuje|a znovu nad sebou získává kontrolu.),430,1,0,
+470,0,0,,To si coury nezaslouží.|(Pusť provaz v rozkroku.),(Zostuzená se dívá stranou|a pomalu nad sebou získává kontrolu.),430,-1,1,
+470,2,0,,(Pomazli se s ní.)ADD_MINUTES:1,(Dáváš jí vřelé objetí|a ona se ve tvém náruči uvolňuje.),470,0,0,Cuddle()
+500,0,0,,"To bylo fajn a ty provazy|jsou třešínka na dortu.","Ty si umíš užívat porážku, to se mi na tobě líbí.",510,0,-1,
+500,0,0,,"Nechápu, že jsi vyhrála.|Musíš být fakt dobrá.","Díky, cením si toho.|Možná se moje techniky někdy naučíš.",510,1,0,
+500,0,0,,Kurva! Ty jsi|určitě podváděla!,Musíš se naučit prohrávat.|(Kontroluje ti uzly a dotahuje je.),510,-1,0,
+500,0,0,,"Myslím, že|se mi judo nelíbí.",Bojové umění není pro každého.|Ale sebeobrana je cenná lekce.,510,0,-1,
+510,0,0,,Mohla bys mi zkontrolovat|provaz v rozkroku.ADD_MINUTES:1,"Co je s ním? Bolí to?|(Hraje si s provazem, čímž tě hezky vzrušuje.)",510,0,0,CrotchRopePlayer()
+510,0,0,PlayerHasBallGag,Neměla bys mi dát roubík?|Jeden mám ve věcech.,Nasadit soupeři v sebeobraně roubík asi můžeš.|(Nasadí a zapne ti na hlavě kuličkový roubík.),520,0,0,BallGagPlayer()
+510,0,0,PlayerHasTapeGag,Neměla bys mi dát roubík?|Ve věcech mám pásku.,Nasadit soupeři v sebeobraně roubík asi můžeš.|(Přelepí ti pusu páskou.),530,0,0,TapeGagPlayer()
+510,0,0,,Mohla bys mě rozvázat?,"Mmmm, ne. Myslím že ne.|Takhle se mi líbíš více.",510,0,0,CheckReleasePlayer()
+510,0,0,,(Hravě se zazmítej.)ADD_MINUTES:1,"Ale, ale! Tobě se to líbí?!",510,0,0,
+510,0,0,,(Vyčkej konec hodiny.),,510,0,0,EndChapter()
+520,0,0,,@Uugnmph nump!,"Párkrát jsem už Sáru v roubíku slyšela,|ale musím se přiznat, že jí nikdy nerozumím.",520,0,0,
+520,0,0,,(Naznačuj k|provazu v rozkroku.) ADD_MINUTES:1,"Něco s tím provazem není v pořádku?|(Hraje si s provazem, čímž tě hezky vzrušuje.)",520,0,0,CrotchRopePlayer()
+520,0,0,,(Fňukej o milost.)ADD_MINUTES:1,"Ne. Myslím, že takhle se mi líbíš více.",520,0,0,UngagPlayer()
+520,0,0,,(Hravě se zazmítej.)ADD_MINUTES:1,"Ale, ale! Tobě se to líbí?!",520,0,0,
+520,0,0,,(Vyčkej konec hodiny.),,520,0,0,EndChapter()
+530,0,0,,@Uugnmph nump!,"Párkrát jsem už Sáru v roubíku slyšela,|ale musím se přiznat, že jí nikdy nerozumím.",530,0,0,
+530,0,0,,(Naznačuj k|provazu v rozkroku.) ADD_MINUTES:1,"Něco s tím provazem není v pořádku?|(Hraje si s provazem, čímž tě hezky vzrušuje.)",530,0,0,CrotchRopePlayer()
+530,0,0,,(Fňukej o milost.)ADD_MINUTES:1,"Ne. Myslím, že takhle se mi líbíš více.",530,0,0,UngagPlayer()
+530,0,0,,(Hravě se zazmítej.)ADD_MINUTES:1,"Ale, ale! Tobě se to líbí?!",530,0,0,
+530,0,0,,(Vyčkej konec hodiny.),,530,0,0,EndChapter()
+550,0,0,,"Ano, ano, jsem v pořádku.|Díky za optání.","Dobře, ale třásla jsi se jako list.|Chvíli jsem se o tebe bála.",510,0,-1,
+550,0,0,,Víc než v pohodě!|A to díky tobě.,(Usmívá se.) Tak jo!|Ale tím bláznivým otřásáním jsi mě vyplašila.,510,1,0,
+550,2,0,,Můžu zůstat|ve tvém náručí?ADD_MINUTES:1,"Samozřejmě, zůstaň jak dlouho budeš potřebovat.",550,0,0,Cuddle()
+550,0,0,,Já moc nevím.|Rozvážeš mě prosím?,"Nebohá holčičko. Pojď, pomůžu ti.|(Šetrně tě rozvazuje a nechává tě se obléct.)",600,0,-1,ReleasePlayer()
+560,0,0,,(Pomalu přikývni|a začervenej se.)ADD_MINUTES:1,"Dobře, ale třásla jsi se jako list.|Chvíli jsem se o tebe bála.",520,0,-1,
+560,0,0,,(Šťastně přikývni.)ADD_MINUTES:1,(Usmívá se.) Tak jo!|Ale tím bláznivým otřásáním jsi mě vyplašila.,520,1,0,
+560,2,0,,(Stul se jí v náručí.)ADD_MINUTES:1,"Zůstaň tak, jak dlouho budeš potřebovat.|Jen mi dej vědět, že jsi v pořádku.",560,0,0,Cuddle()
+560,0,0,,(Zpanikařele|zavrť hlavou.)ADD_MINUTES:1,"Nebohá holčičko. Pojď, pomůžu ti.|(Šetrně tě rozvazuje a nechává tě se obléct.)",600,0,-1,ReleasePlayer()
+570,0,0,,(Pomalu přikývni|a začervenej se.)ADD_MINUTES:1,"Dobře, ale třásla jsi se jako list.|Chvíli jsem se o tebe bála.",530,0,-1,
+570,0,0,,(Šťastně přikývni.)ADD_MINUTES:1,(Usmívá se.) Tak jo!|Ale tím bláznivým otřásáním jsi mě vyplašila.,530,1,0,
+570,2,0,,(Stul se jí v náručí.)ADD_MINUTES:1,"Zůstaň tak, jak dlouho budeš potřebovat.|Jen mi dej vědět, že jsi v pořádku.",570,0,0,Cuddle()
+570,0,0,,(Zpanikařele|zavrť hlavou.)ADD_MINUTES:1,"Nebohá holčičko. Pojď, pomůžu ti.|(Šetrně tě rozvazuje a nechává tě se obléct.)",600,0,-1,ReleasePlayer()
+600,0,0,,"Tak jo, jdeme na to.|(Zahaj trénink.)",,600,0,0,StartPractice()
+600,0,0,TrainingReady,(Trénujte zápas.)|(30 minutes),,600,0,0,TrainFighting()
+600,0,0,,(Prohledej tělocvičnu.)ADD_MINUTES:1,"(Prohledáváš tělocvičnu,|ale nic zajímavého nenacházíš.)",600,0,0,Search()
+600,0,0,,"To stačí, jdeme jíst.|(Odejdi z tělocvičny.)",,600,0,0,EndChapter()
