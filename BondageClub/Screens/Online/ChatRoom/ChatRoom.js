@@ -2564,12 +2564,9 @@ var ChatRoomMessageHandlers = [
 				&& Player.GetDeafLevel() >= 4
 				&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(sender));
 
-			// When the player is in total sensory deprivation, hide messages if the player is not involved
+			// When the player is in total sensory deprivation, hide non-whisper messages if the player is not involved
 			const IsPlayerMentioned = ChatRoomMessageMentionsCharacter(Player, msg);
-			if (IsPlayerInSensoryDep && !IsPlayerInvolved && !IsPlayerMentioned)
-				return true;
-
-			return false;
+			return (IsPlayerInSensoryDep && !IsPlayerInvolved && !IsPlayerMentioned && data.Type !== "Whisper");
 		}
 	},
 	{
