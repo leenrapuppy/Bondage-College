@@ -1603,7 +1603,7 @@ function CharacterDecompressWardrobe(Wardrobe) {
 /**
  * Checks if the character is wearing an item that has a specific attribute
  * @param {Character} C - The character to test for
- * @param {string} Attribute - The name of the attribute that must be allowed
+ * @param {AssetAttribute} Attribute - The name of the attribute that must be allowed
  * @returns {boolean} - TRUE if at least one item has that attribute
  */
 function CharacterHasItemWithAttribute(C, Attribute) {

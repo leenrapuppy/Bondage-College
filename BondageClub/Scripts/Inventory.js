@@ -463,6 +463,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 	let Item = InventoryGet(Target, GroupName);
 	if ((Item == null) || !CraftingValidate(Craft, Item.Asset, CraftWarn)) return;
 	if (Item.Craft == null) Item.Craft = Craft;
+	if (Item.Property == null) Item.Property = {};
 
 	// Applies the color schema, separated by commas
 	if (ApplyColor) {
@@ -479,11 +480,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 
 	// Set the item priority
 	if (Craft.OverridePriority != null) {
-		if (Item.Property == null) {
-			Item.Property = {OverridePriority: Craft.OverridePriority};
-		} else {
-			Item.Property.OverridePriority = Craft.OverridePriority;
-		}
+		Item.Property.OverridePriority = Craft.OverridePriority;
 	}
 
 	// The properties are only applied on self or NPCs to prevent duplicating the effect
@@ -513,6 +510,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 				CharacterSetFacialExpression(Target, "Eyes", "Angry", 10);
 				CharacterSetFacialExpression(Target, "Eyes2", "Angry", 10);
 				CharacterSetFacialExpression(Target, "Eyebrows", "Angry", 10);
+				Item.Property.Fetish = CommonArrayConcatDedupe(Item.Property.Fetish || [], ["Masochism"]);
 			}
 
 			// The comfy property triggers an expression change

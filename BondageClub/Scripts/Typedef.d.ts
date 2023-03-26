@@ -320,6 +320,37 @@ type ItemColorMode = "Default" | "ColorPicker";
 
 type CharacterHook = "BeforeSortLayers" | "AfterLoadCanvas";
 
+type ChatColorThemeType = "Light" | "Dark" | "Light2" | "Dark2";
+type ChatEnterLeaveType = "Normal" | "Smaller" | "Hidden";
+type ChatMemberNumbersType = "Always" | "Never" | "OnMouseover";
+type ChatFontSizeType = "Small" | "Medium" | "Large";
+
+type ArousalActiveName = "Inactive" | "NoMeter" | "Manual" | "Hybrid" | "Automatic";
+type ArousalVisibleName = "All" | "Access" | "Self";
+type ArousalAffectStutterName = "None" | "Arousal" | "Vibration" | "All";
+
+type SettingsSensDepName = "SensDepLight" | "Normal" | "SensDepNames" | "SensDepTotal" | "SensDepExtreme";
+type SettingsVFXName = "VFXInactive" | "VFXSolid" | "VFXAnimatedTemp" | "VFXAnimated";
+type SettingsVFXVibratorName = "VFXVibratorInactive" | "VFXVibratorSolid" | "VFXVibratorAnimated";
+type SettingsVFXFilterName = "VFXFilterLight" | "VFXFilterMedium" | "VFXFilterHeavy";
+
+type GraphicsFontName =
+	"Arial" | "TimesNewRoman" | "Papyrus" | "ComicSans" | "Impact" | "HelveticaNeue" | "Verdana" |
+	"CenturyGothic" | "Georgia" | "CourierNew" | "Copperplate"
+	;
+
+type PreferenceSubscreenName =
+	"General" | "Difficulty" | "Restriction" | "Chat" | "CensoredWords" | "Audio" | "Arousal" |
+	"Security" | "Online" | "Visibility" | "Immersion" | "Graphics" | "Controller" | "Notifications" |
+	"Gender" | "Scripts"
+	;
+
+type FetishName =
+	"Bondage" | "Gagged" | "Blindness" | "Deafness" | "Chastity" | "Exhibitionist" | "Masochism" |
+	"Sadism" | "Rope" | "Latex" | "Leather" | "Metal" | "Tape" | "Nylon" | "Lingerie" | "Pet" |
+	"Pony" | "ABDL" | "Forniphilia"
+	;
+
 //#endregion
 
 //#region index.html
@@ -1115,7 +1146,7 @@ interface Asset {
 	MaxOpacity: number;
 	Audio?: string;
 	Category?: readonly string[];
-	Fetish?: readonly string[];
+	Fetish?: readonly FetishName[];
 	CustomBlindBackground?: string;
 	ArousalZone: AssetGroupItemName;
 	IsRestraint: boolean;
@@ -1483,27 +1514,7 @@ interface Character {
 	HasVagina: () => boolean;
 	IsFlatChested: () => boolean;
 	// Properties created in other places
-	ArousalSettings?: {
-		Active: string;
-		Visible: string;
-		ShowOtherMeter: boolean;
-		AffectExpression: boolean;
-		AffectStutter: string;
-		VFX: string;
-		VFXVibrator: string;
-		VFXFilter: string;
-		Progress: number;
-		ProgressTimer: number;
-		VibratorLevel: number;
-		ChangeTime: number;
-		Activity: { Name: ActivityName, Self: number, Other: number }[];
-		Zone: { Name: AssetGroupItemName, Factor: number, Orgasm: boolean }[];
-		Fetish: { Name: string, Factor: number }[];
-		OrgasmTimer?: number;
-		OrgasmStage?: number;
-		OrgasmCount?: number;
-		DisableAdvancedVibes: boolean;
-	};
+	ArousalSettings?: ArousalSettingsType;
 	AppearanceFull?: Item[];
 	// Online character properties
 	Title?: string;
@@ -1666,11 +1677,11 @@ interface PlayerCharacter extends Character {
 		ColorActivities: boolean;
 		ColorEmotes: boolean;
 		ColorNames: boolean;
-		ColorTheme: string;
+		ColorTheme: ChatColorThemeType;
 		DisplayTimestamps: boolean;
-		EnterLeave: string;
-		FontSize: string;
-		MemberNumbers: string;
+		EnterLeave: ChatEnterLeaveType;
+		FontSize: ChatFontSizeType;
+		MemberNumbers: ChatMemberNumbersType;
 		MuStylePoses: boolean;
 		ShowActivities: boolean;
 		ShowAutomaticMessages: boolean;
@@ -1724,7 +1735,7 @@ interface PlayerCharacter extends Character {
 		ControllerActive: boolean;
 	};
 	GameplaySettings?: {
-		SensDepChatLog: string;
+		SensDepChatLog: SettingsSensDepName;
 		BlindDisableExamine: boolean;
 		DisableAutoRemoveLogin: boolean;
 		ImmersionLockSetting: boolean;
@@ -1760,7 +1771,7 @@ interface PlayerCharacter extends Character {
 	};
 	OnlineSettings?: PlayerOnlineSettings;
 	GraphicsSettings?: {
-		Font: string;
+		Font: GraphicsFontName;
 		InvertRoom: boolean;
 		StimulationFlashes: boolean;
 		DoBlindFlash: boolean;
@@ -2014,6 +2025,12 @@ interface AssetDefinitionProperties {
 	 * @see {@link Asset.CustomBlindBackground}
 	 */
 	CustomBlindBackground?: string;
+
+	/**
+	 * A list of fetishes affected by the item
+	 * @see {@link Asset.Fetish}
+	 */
+	Fetish?: FetishName[];
 }
 
 /**
@@ -3188,6 +3205,60 @@ interface NotificationData {
 	memberNumber?: number,
 	characterName?: string,
 	chatRoomName?: string,
+}
+
+// #end region
+
+// #region preference
+
+interface ActivityEnjoyment {
+	/** The relevant activity type */
+	Name: ActivityName,
+	/** The arousal factor for when the activity is performed on the player character */
+	Self: ArousalFactor,
+	/** The arousal factor for when the activity is performed on someone else */
+	Other: ArousalFactor,
+}
+
+interface ArousalZone {
+	/** The relevant zone */
+	Name: AssetGroupName,
+	/** The arousal factor associated with the zone */
+	Factor: ArousalFactor,
+	/** Whether one can orgasm from stimulating the zone */
+	Orgasm: boolean,
+}
+
+interface ArousalFetish {
+	/** The name of the fetish */
+	Name: FetishName,
+	/** The arousal factor associated with the fetish */
+	Factor: ArousalFactor,
+}
+
+/** The factor of the sexual activity (0 is horrible, 2 is normal, 4 is great) */
+type ArousalFactor = 0 | 1 | 2 | 3 | 4;
+
+interface ArousalSettingsType {
+	Active: ArousalActiveName;
+	Visible: ArousalVisibleName;
+	ShowOtherMeter: boolean;
+	AffectExpression: boolean;
+	AffectStutter: ArousalAffectStutterName;
+	VFX: SettingsVFXName;
+	VFXVibrator: SettingsVFXVibratorName;
+	VFXFilter: SettingsVFXFilterName;
+	Progress: number;
+	ProgressTimer: number;
+	VibratorLevel: number;
+	ChangeTime: number;
+	Activity: ActivityEnjoyment[];
+	Zone: ArousalZone[];
+	Fetish: ArousalFetish[];
+	OrgasmTimer?: number;
+	OrgasmStage?: number;
+	OrgasmCount?: number;
+	DisableAdvancedVibes: boolean;
 }
 
 // #end region
