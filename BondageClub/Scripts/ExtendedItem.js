@@ -163,10 +163,12 @@ function ExtendedItemInitNoArch(Item, C, Properties, Refresh=true) {
  * Loads the item's extended item menu
  * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
  *     type
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(DialogKey) {
-	if (ExtendedItemSubscreen) {
+function ExtendedItemLoad(DialogKey, IgnoreSubscreen=false) {
+	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
 		return;
 	}
@@ -178,18 +180,20 @@ function ExtendedItemLoad(DialogKey) {
 
 /**
  * Draws the extended item type selection screen
- * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly (ExtendedItemOption | VibratingItemOption)[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
  *     The full dialog key will be <Prefix><Option.Name>
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images should be shown for the specific item
  * @param {readonly [number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} Nothing
  */
-function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null) {
+function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
 	// If an option's subscreen is open, it overrides the standard screen
-	if (ExtendedItemSubscreen) {
+	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
 		return;
 	}
@@ -213,8 +217,10 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 
 	// Draw the header and item
 	ExtendedItemDrawHeader();
+	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
-	const CurrentOption = Options.find(O => O.Property.Type === DialogFocusItem.Property.Type);
+	const typeField = (Options.length && Options[0].OptionType === "VibratingItemOption") ? "Mode" : "Type";
+	const CurrentOption = Options.find(O => O.Property[typeField] === DialogFocusItem.Property[typeField]);
 
 	// Draw the possible variants and their requirements, arranged based on the number per page
 	for (let I = ItemOptionsOffset; I < Options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
@@ -241,8 +247,8 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 
 /**
  * Draw a single button in the extended item type selection screen.
- * @param {ExtendedItemOption | ModularItemOption | ModularItemModule} Option - The new extended item option
- * @param {ExtendedItemOption | ModularItemOption} CurrentOption - The current extended item option
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption | ModularItemModule} Option - The new extended item option
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption} CurrentOption - The current extended item option
  * @param {number} X - The X coordinate of the button
  * @param {number} Y - The Y coordinate of the button
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
@@ -275,15 +281,19 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 				IsSelected = (ExtendedItemPermissionMode && Type.includes("0")) ? true : Item.Property.Type.includes(Type);
 			}
 			break;
-		default:  // Assume we're dealing with `ExtendedItemOption` at this point
-			Type = (Option.Property && Option.Property.Type) || null;
+		case "VibratingItemOption":
+		case "ExtendedItemOption":
+		default: {
+			const typeField = (Option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
+			Type = (Option.Property && Option.Property[typeField]) || null;
 			Effect = Option.Property && Option.Property.Effect || null;
 			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
-				IsSelected = (ExtendedItemPermissionMode && Type == null) ? true : Item.Property.Type === Type;
+				IsSelected = (ExtendedItemPermissionMode && Type == null) ? true : Item.Property[typeField] === Type;
 			}
 			break;
+		}
 	}
 
 	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
@@ -303,8 +313,8 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 /**
  * Determine the background color for the item option's button
  * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption | ModularItemOption | ModularItemModule} Option - A type for the extended item
- * @param {ExtendedItemOption | ModularItemOption} CurrentOption - The currently selected option for the item
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption | ModularItemModule} Option - A type for the extended item
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption} CurrentOption - The currently selected option for the item
  * @param {boolean} Hover - TRUE if the mouse cursor is on the button
  * @param {boolean} IsSelected - TRUE if the item's current type matches Option
  * @param {Item} Item - The item in question; defaults to {@link DialogFocusItem}
@@ -321,6 +331,12 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 		case "ModularItemOption":
 			Type = Option.Name;
 			IsFirst = Type.includes("0");
+			HasSubscreen = Option.HasSubscreen || false;
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
+			break;
+		case "VibratingItemOption":
+			Type = Option.Name;
+			IsFirst = Option.Name === VibratorModeOff.Name;
 			HasSubscreen = Option.HasSubscreen || false;
 			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
 			break;
@@ -370,18 +386,20 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 
 /**
  * Handles clicks on the extended item type selection screen
- * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly (ExtendedItemOption | VibratingItemOption)[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes whether images are shown for the specific item
  * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
+ * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
+ * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} Nothing
  */
-function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=null) {
+function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
 	const C = CharacterGetCurrent();
 
 	// If an option's subscreen is open, pass the click into it
-	if (ExtendedItemSubscreen) {
+	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click", C, Options);
 		return;
 	}
@@ -439,7 +457,6 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 		DialogTightenLoosenItem = DialogFocusItem;
 		TightenLoosenItemLoad();
 	}
-
 }
 
 /**
@@ -470,17 +487,19 @@ function ExtendedItemExit() {
 
 /**
  * Handler function for setting the type of an extended item
+ * @template {ExtendedItemOption | VibratingItemOption} T
  * @param {Character} C - The character wearing the item
- * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly (T)[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
- * @param {ExtendedItemOption} Option - The selected type definition
+ * @param {T} Option - The selected type definition
  * @returns {void} Nothing
  */
 function ExtendedItemSetType(C, Options, Option) {
+	const typeField = (Option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
 	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 	const FunctionPrefix = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "");
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options);
+	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options, typeField);
 
 	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth); // Do not sync appearance while in the wardrobe
 
@@ -516,9 +535,11 @@ function ExtendedItemSetType(C, Options, Option) {
  * @param {ItemProperties} newProperty - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
+ * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false) {
+function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
 	// Delete properties added by the previous option
 	const Property = Object.assign({}, item.Property);
 	for (const key of Object.keys(previousProperty)) {
@@ -540,29 +561,35 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 		ValidationDeleteLock(item.Property, false);
 	}
 
+	if (dynamicProperty != null) {
+		dynamicProperty(item);
+	}
 	CharacterRefresh(C, push);
 }
 
 /**
  * Handler function called when an option on the type selection screen is clicked
+ * @template {ExtendedItemOption | VibratingItemOption} T
  * @param {Character} C - The character wearing the item
- * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
+ * @param {readonly (T)[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
- * @param {ExtendedItemOption} Option - The selected type definition
+ * @param {T} Option - The selected type definition
  * @returns {void} Nothing
  */
 function ExtendedItemHandleOptionClick(C, Options, Option) {
+	const IsVibeArch = Option.OptionType === "VibratingItemOption";
+	const typeField = IsVibeArch ? "Mode" : "Type";
 	if (ExtendedItemPermissionMode) {
-		const IsFirst = (Option.Property.Type == null);
-		const Worn = C.ID == 0 && DialogFocusItem.Property.Type == Option.Property.Type;
-		InventoryTogglePermission(DialogFocusItem, Option.Property.Type, Worn || IsFirst);
+		const IsFirst = IsVibeArch ? Option.Property.Mode == VibratorModeOff.Property.Mode : Option.Property.Type == null;
+		const Worn = C.IsPlayer() && DialogFocusItem.Property[typeField] == Option.Property[typeField];
+		InventoryTogglePermission(DialogFocusItem, Option.Property[typeField], Worn || IsFirst);
 	} else {
-		if (DialogFocusItem.Property.Type === Option.Property.Type && !Option.HasSubscreen) {
+		if (DialogFocusItem.Property[typeField] === Option.Property[typeField] && !Option.HasSubscreen) {
 			return;
 		}
 
-		const CurrentType = DialogFocusItem.Property.Type || null;
-		const CurrentOption = Options.find(O => O.Property.Type === CurrentType);
+		const CurrentType = DialogFocusItem.Property[typeField] || (IsVibeArch ? VibratorModeOff.Property.Mode : null);
+		const CurrentOption = Options.find(O => O.Property[typeField] === CurrentType);
 		// use the unmemoized function to ensure we make a final check to the requirements
 		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
 		if (RequirementMessage) {
@@ -570,7 +597,7 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 		} else if (Option.HasSubscreen) {
 			ExtendedItemSubscreen = Option.Name;
 			if (Option.Archetype) {
-				const Type = (Option.Property && Option.Property.Type) ? Option.Property.Type : "";
+				const Type = (Option.Property && Option.Property[typeField]) ? Option.Property[typeField] : null;
 				ExtendedItemInit(DialogFocusItem, C, true, Option.Archetype, Type);
 			}
 			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
@@ -583,10 +610,11 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 /**
  * Checks whether the character meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
+ * @template {ExtendedItemOption | VibratingItemOption | ModularItemOption} T
  * @param {Item} item - The item in question
  * @param {Character} C - The character in question
- * @param {ExtendedItemOption|ModularItemOption} Option - The selected type definition
- * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The current type definition
+ * @param {T} Option - The selected type definition
+ * @param {T} CurrentOption - The current type definition
  * @returns {string|null} null if the player meets the option requirements. Otherwise a string message informing them
  * of the requirements they do not meet
  */
@@ -601,7 +629,7 @@ function ExtendedItemRequirementCheckMessage(item, C, Option, CurrentOption) {
  * Checks whether the player is able to select an option based on it's self-selection criteria (whether or not the
  * wearer may select the option)
  * @param {Character} C - The character on whom the bondage is applied
- * @param {ExtendedItemOption | ModularItemOption} Option - The option whose requirements should be checked against
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption} Option - The option whose requirements should be checked against
  * @returns {string | undefined} - undefined if the
  */
 function ExtendedItemCheckSelfSelect(C, Option) {
@@ -614,7 +642,7 @@ function ExtendedItemCheckSelfSelect(C, Option) {
  * Checks whether the player meets an option's self-bondage/bondage skill level requirements
  * @param {Character} C - The character on whom the bondage is applied
  * @param {Item} Item - The item whose options are being checked
- * @param {ExtendedItemOption|ModularItemOption} Option - The option whose requirements should be checked against
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption} Option - The option whose requirements should be checked against
  * @returns {string|undefined} - undefined if the player meets the option's skill level requirements. Otherwise returns
  * a string message informing them of the requirements they do not meet.
  */
@@ -636,7 +664,7 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
 
 /**
  * Checks whether the character meets an option's required bought items
- * @param {ExtendedItemOption|ModularItemOption} Option - The option being checked
+ * @param {ExtendedItemOption | VibratingItemOption | ModularItemOption} Option - The option being checked
  * @returns {string|undefined} undefined if the requirement is met, otherwise the error message
  */
 function ExtendedItemCheckBuyGroups(Option) {
@@ -650,10 +678,11 @@ function ExtendedItemCheckBuyGroups(Option) {
 
 /**
  * Checks whether a change from the given current option to the newly selected option is valid.
+ * @template {ExtendedItemOption | VibratingItemOption | ModularItemOption} T
  * @param {Character} C - The character wearing the item
  * @param {Item} Item - The extended item to validate
- * @param {ExtendedItemOption|ModularItemOption} Option - The selected option
- * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The currently applied option on the item
+ * @param {T} Option - The selected option
+ * @param {T} CurrentOption - The currently applied option on the item
  * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
  */
 function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {

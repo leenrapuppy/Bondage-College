@@ -2463,6 +2463,7 @@ interface VibratingItemData {
 		click?: (next: () => void) => void;
 		draw?: (next: () => void) => void;
 		exit?: () => void;
+		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>;
 	};
 }
 
