@@ -654,7 +654,7 @@ function InventoryWearCraft(Item, C, Craft) {
 function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft, Refresh=true) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
-	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
+	CharacterAppearanceSetItem(C, AssetGroup, A, (ItemColor == null || ItemColor == "Default") ? [...A.DefaultColor] : ItemColor, Difficulty, MemberNumber, false);
 	let Item = InventoryGet(C, AssetGroup);
 
 	/**
@@ -1040,7 +1040,7 @@ function InventoryItemIsPickable(Item) {
  * @param {Name} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
- * @returns {(ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
+ * @returns {undefined | (ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
  * item itself does not exist.
  */
 function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {

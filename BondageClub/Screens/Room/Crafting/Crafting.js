@@ -599,6 +599,7 @@ function CraftingClick() {
 				// @ts-ignore
 				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				CraftingSelectedItem.Lock = null;
+				CraftingSelectedItem.Color = CraftingSelectedItem.Asset.DefaultColor.join(",");
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
 			}
@@ -673,7 +674,7 @@ function CraftingClick() {
 			ItemColorLoad(CraftingPreview, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((c, i) => {
 				CraftingModeSet("Name");
-				CraftingSelectedItem.Color = Array.isArray(i.Color) ? i.Color.join(",") : i.Color || "";
+				CraftingSelectedItem.Color = Array.isArray(i.Color) ? i.Color.join(",") : i.Color || "Default";
 				ElementValue("InputColor", CraftingSelectedItem.Color);
 				CraftingUpdatePreview();
 			});
@@ -859,7 +860,7 @@ const CraftingValidationRecord = {
 				return "";
 			} else {
 				const Colors = craft.Color.replace(" ", "").split(",");
-				const ColorsNew = Colors.map((c) => CommonIsColor(c) ? c : "Default");
+				const ColorsNew = Colors.map((c, i) => CommonIsColor(c) ? c : asset.DefaultColor[i] || "Default");
 				return ColorsNew.join(",");
 			}
 		},

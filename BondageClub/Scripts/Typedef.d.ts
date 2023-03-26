@@ -1087,7 +1087,7 @@ interface Asset {
 	AllowActivity?: readonly ActivityName[];
 	ActivityAudio?: readonly string[];
 	ActivityExpression: Partial<Record<ActivityName, readonly ExpressionTrigger[]>>;
-	AllowActivityOn?: AssetGroupItemName[];
+	AllowActivityOn?: readonly AssetGroupItemName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: readonly string[];
 	Effect?: readonly EffectName[];
@@ -1097,7 +1097,7 @@ interface Asset {
 	Hide?: readonly AssetGroupName[];
 	HideItem?: readonly string[];
 	HideItemExclude: readonly string[];
-	HideItemAttribute: AssetAttribute[];
+	HideItemAttribute: readonly AssetAttribute[];
 	Require: readonly AssetGroupBodyName[];
 	SetPose?: readonly AssetPoseName[];
 	AllowPose: readonly AssetPoseName[] | null;
@@ -1140,7 +1140,10 @@ interface Asset {
 	AllowHideItem?: readonly string[];
 	AllowType?: readonly string[];
 	AllowTighten?: boolean;
-	DefaultColor?: ItemColor;
+	/**
+	 * The default color of the item: an array of length {@link Asset.ColorableLayerCount} consisting of `"Default"` and/or valid color hex codes.
+	 */
+	DefaultColor: readonly string[];
 	Opacity: number;
 	MinOpacity: number;
 	MaxOpacity: number;
@@ -1177,9 +1180,10 @@ interface Asset {
 	MirrorExpression?: AssetGroupName;
 	FixedPosition: boolean;
 	Layer: readonly AssetLayer[];
+	/** The number of colorable layers. Guaranteed to be >= 1 */
 	ColorableLayerCount: number;
 	Archetype?: ExtendedArchetype;
-	Attribute: AssetAttribute[];
+	Attribute: readonly AssetAttribute[];
 	PreviewIcons: readonly InventoryIcon[];
 	Tint: readonly TintDefinition[];
 	AllowTint: boolean;
