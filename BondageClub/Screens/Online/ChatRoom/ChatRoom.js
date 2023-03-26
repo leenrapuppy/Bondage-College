@@ -3579,7 +3579,11 @@ function ChatRoomSyncExpression(data) {
 	if (!character) return;
 
 	// Changes the facial expression if the group exists and allows it
-	const item = character.Appearance.find(i => i.Asset.Group.Name === data.Group && i.Asset.Group.AllowExpression && i.Asset.Group.AllowExpression.includes(data.Name));
+	const item = character.Appearance.find(i => (
+		i.Asset.Group.Name === data.Group
+		&& i.Asset.Group.AllowExpression
+		&& (data.Name == null || i.Asset.Group.AllowExpression.includes(data.Name))
+	));
 	if (!item) return;
 
 	if (!item.Property) item.Property = {};
