@@ -966,22 +966,3 @@ function ModularItemHideElement(ID, Module) {
 	}
 }
 
-/**
- * Return {@link ModularItemData.dialog.chat} if it's a string or call it using chat data based on a fictional modular item option.
- * @param {string} Name - The name of the pseudo-type
- * @param {ModularItemData} Data - The extended item data
- * @returns {string} The dialogue prefix for the custom chatroom messages
- */
-function ModularItemCustomChatPrefix(Name, Data) {
-	if (typeof Data.dialog.chat === "function") {
-		return Data.dialog.chat({
-			C: CharacterGetCurrent(),
-			previousOption: { OptionType: "ModularItemOption", Name: Name },
-			newOption: { OptionType: "ModularItemOption", Name: Name },
-			previousIndex: 0,
-			newIndex: 0,
-		});
-	} else {
-		return Data.dialog.chat;
-	}
-}

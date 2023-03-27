@@ -553,26 +553,6 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 }
 
 /**
- * Return {@link TypedItemData.dialog.chat} if it's a string or call it using chat data based on a fictional extended item option.
- * @param {string} Name - The name of the pseudo-type
- * @param {TypedItemData} Data - The extended item data
- * @returns {string} The dialogue prefix for the custom chatroom messages
- */
-function TypedItemCustomChatPrefix(Name, Data) {
-	if (typeof Data.dialog.chat === "function") {
-		return Data.dialog.chat({
-			C: CharacterGetCurrent(),
-			previousOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
-			newOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
-			previousIndex: 0,
-			newIndex: 0,
-		});
-	} else {
-		return Data.dialog.chat;
-	}
-}
-
-/**
  * Initialize the typed item properties
  * @type {ExtendedItemInitCallback}
  * @see {@link ExtendedItemInit}

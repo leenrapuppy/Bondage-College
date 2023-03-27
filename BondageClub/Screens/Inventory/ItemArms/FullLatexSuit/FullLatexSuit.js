@@ -56,7 +56,7 @@ function InventoryItemArmsFullLatexSuitSetWand(C) {
 	CharacterRefresh(C);
 
 	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
-	const Prefix = (Data == null) ? "" : TypedItemCustomChatPrefix("Wand", Data);
+	const Prefix = (Data == null) ? "" : ExtendedItemCustomChatPrefix("Wand", Data);
 	const Dictionary = [
 		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},

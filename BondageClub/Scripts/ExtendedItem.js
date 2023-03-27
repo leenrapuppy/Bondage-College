@@ -995,3 +995,24 @@ function ExtendedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dic
 
 	return BuiltDictionary;
 }
+
+/**
+ * Return {@link ExtendedItemDialog.chat} if it's a string or call it using chat data based on a fictional extended item option.
+ * Generally used for getting a chat prefix for extended item buttons with custom functionality.
+ * @param {string} Name - The name of the pseudo-type
+ * @param {ExtendedItemData} Data - The extended item data
+ * @returns {string} The dialogue prefix for the custom chatroom messages
+ */
+function ExtendedItemCustomChatPrefix(Name, Data) {
+	if (typeof Data.dialogPrefix.chat === "function") {
+		return Data.dialogPrefix.chat({
+			C: CharacterGetCurrent(),
+			previousOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
+			newOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
+			previousIndex: -1,
+			newIndex: -1,
+		});
+	} else {
+		return Data.dialogPrefix.chat;
+	}
+}
