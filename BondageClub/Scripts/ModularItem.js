@@ -216,8 +216,9 @@ function ModularItemCreateModularData(asset, {
 	ChatSetting,
 	ChatTags,
 	ChangeWhenLocked,
-	Dialog,
+	DialogPrefix,
 	ScriptHooks,
+	Dictionary,
 	BaselineProperty=null,
 	DrawImages=null,
 }) {
@@ -228,7 +229,7 @@ function ModularItemCreateModularData(asset, {
 	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 
 	const key = `${asset.Group.Name}${asset.Name}`;
-	Dialog = Dialog || {};
+	DialogPrefix = DialogPrefix || {};
 	/** @type {ModularItemData} */
 	const data = ModularItemDataLookup[key] = {
 		asset,
@@ -237,10 +238,10 @@ function ModularItemCreateModularData(asset, {
 		typeCount: 1,
 		functionPrefix: `Inventory${key}`,
 		dialogPrefix: {
-			header: Dialog.Select || `${key}Select`,
-			module: Dialog.ModulePrefix || `${key}Module`,
-			option: Dialog.OptionPrefix || `${key}Option`,
-			chat: Dialog.ChatPrefix || `${key}Set`,
+			header: DialogPrefix.Header || `${key}Select`,
+			module: DialogPrefix.Module || `${key}Module`,
+			option: DialogPrefix.Option || `${key}Option`,
+			chat: DialogPrefix.Chat || `${key}Set`,
 		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,
@@ -261,7 +262,7 @@ function ModularItemCreateModularData(asset, {
 		clickFunctions: {},
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 		drawImages: BaseDrawImages,
-		dictionary: [],
+		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
@@ -959,4 +960,3 @@ function ModularItemHideElement(ID, Module) {
 		return false;
 	}
 }
-

@@ -415,7 +415,7 @@ type ExtendedArchetype = "modular" | "typed" | "vibrating" | "variableheight";
  * An object containing extended item configurations keyed by group name.
  * @see {@link ExtendedItemAssetConfig}
  */
-type ExtendedItemConfig = Record<string, ExtendedItemGroupConfig>;
+type ExtendedItemMainConfig = Record<string, ExtendedItemGroupConfig>;
 
 /**
  * An object containing extended item definitions for a group.
@@ -433,13 +433,40 @@ type AssetArchetypeConfig = TypedItemAssetConfig | ModularItemAssetConfig | Vibr
  * An object containing the extended item definition for an asset.
  * @template Archetype, Config
  */
-interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config> {
+interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config extends ExtendedItemConfig<any>> {
 	/** The extended item archetype that this asset uses. */
 	Archetype: Archetype;
 	/** The specific configuration for the item (type will vary based on the item's archetype) */
 	Config?: Config;
 	/** The group name and asset name of a configuration to copy - useful if multiple items share the same config */
 	CopyConfig?: { GroupName?: AssetGroupName, AssetName: string };
+}
+
+interface ExtendedItemConfig<OptionType extends ExtendedItemOption | VibratingItemOption | ModularItemOption> {
+	/**
+	 * The chat message setting for the item. This can be provided to allow
+	 * finer-grained chatroom message keys for the item.
+	 */
+	ChatSetting?: string;
+	/** A record containing various dialog keys used by the extended item screen */
+	DialogPrefix?: ExtendedItemCapsDialog<OptionType>;
+	/**
+	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
+	 */
+	ScriptHooks?: ExtendedItemScriptHooks;
+	/** An array of the chat message tags that should be included in the item's chatroom messages. */
+	ChatTags?: CommonChatTags[];
+	/** Contains custom dictionary entries in the event that the base ones do not suffice. */
+	Dictionary?: ExtendedItemDictionaryCallback<OptionType>[];
+	/**
+	 * To-be initialized properties independent of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemConfig.ScriptHooks} functions.
+	 */
+	BaselineProperty?: ItemProperties;
+	/** A boolean indicating whether or not images should be drawn for the option and/or module selection screen. */
+	DrawImages?: boolean;
 }
 
 /** Defines a single extended item option */
@@ -617,33 +644,30 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
 
 /** An object defining all of the required configuration for registering a typed item */
-interface TypedItemConfig {
+interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	/** The list of extended item options available for the item */
 	Options?: ExtendedItemOption[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
-	Dialog?: TypedItemDialogConfig;
-	/**
-	 * An optional array of chat tags that should be included in the dictionary of
-	 * the chatroom message when the item's type is changed.
-	 * Defaults to {@link CommonChatTags.SOURCE_CHAR} and {@link CommonChatTags.DEST_CHAR}
-	 */
-	ChatTags?: CommonChatTags[];
+	DialogPrefix?: {
+		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
+		Header?: string;
+		/** The dialogue prefix for the name of each option */
+		Option?: string;
+		/** The dialogue prefix that will be used for each of the item's chatroom messages */
+		Chat?: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
+		Npc?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
+	};
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item. Defaults to {@link TypedItemChatSetting.TO_ONLY}
 	 */
 	ChatSetting?: TypedItemChatSetting;
-	/** A boolean indicating whether or not images should be drawn in this item's extended item menu. Defaults to `true` */
-	DrawImages?: boolean;
 	/**
 	 * A boolean indicating whether or not the item's type can be changed while the
 	 * item is locked (if set to `false`, the player must be able to unlock the item to change its type). Defaults to `true`
 	 */
 	ChangeWhenLocked?: boolean;
-	/**
-	 * Contains custom dictionary entries in the event that the base ones do not suffice.
-	 */
-	Dictionary?: ExtendedItemDictionaryCallback<ExtendedItemOption>[];
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
@@ -657,38 +681,6 @@ interface TypedItemConfig {
 		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
 		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
-	/**
-	 * To-be initialized properties independent of the selected item module(s).
-	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemConfig.ScriptHooks} functions.
-	 */
-	BaselineProperty?: ItemProperties;
-}
-
-interface TypedItemDialogConfig {
-	/**
-	 * The key for the text that will be displayed at the top of the extended item screen
-	 * (usually a prompt for the player to select a type). Defaults to `"<groupName><assetName>Select"`
-	 */
-	Load?: string;
-	/**
-	 * A prefix for text keys for the display names of the item's individual types. This
-	 * will be suffixed with the option name to get the final key (i.e. `"<typePrefix><optionName>"`). Defaults to
-	 * `"<groupName><assetName>"`
-	 */
-	TypePrefix?: string;
-	/**
-	 * A prefix for text keys for chat messages triggered by the item. Chat message keys
-	 * will include the name of the new option, and depending on the chat setting, the name of the previous option:
-	 * - For chat setting `FROM_TO`: `<chatPrefix><oldOptionName>To<newOptionName>`
-	 * - For chat setting `TO_ONLY`: `<chatPrefix><newOptionName>`
-	 * Defaults to `"<GroupName><AssetName>Set"`
-	 */
-	ChatPrefix?: string | ExtendedItemChatCallback<ExtendedItemOption>;
-	/**
-	 * A prefix for text keys for NPC dialog. This will be suffixed with the option name
-	 * to get the final NPC dialogue key (i.e. `"<npcPrefix><optionName>"`. Defaults to `"<groupName><assetName>"`
-	 */
-	NpcPrefix?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 }
 
 /**
@@ -713,7 +705,7 @@ type ExtendedItemDictionaryCallback<OptionType extends ExtendedItemOption | Modu
 type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConfig>;
 
 /** An object defining all of the required configuration for registering a modular item */
-interface ModularItemConfig {
+interface ModularItemConfig extends ExtendedItemConfig<ModularItemOption> {
 	/** The module definitions for the item */
 	Modules?: ModularItemModuleBase[];
 	/**
@@ -722,19 +714,22 @@ interface ModularItemConfig {
 	 */
 	ChatSetting?: ModularItemChatSetting;
 	/**
-	 * An optional array of chat tags that should be included in the dictionary of
-	 * the chatroom message when the item's type is changed.
-	 * Defaults to {@link CommonChatTags.SOURCE_CHAR} and {@link CommonChatTags.DEST_CHAR}
-	 */
-	ChatTags?: CommonChatTags[];
-	/**
 	 * A boolean indicating whether or not the item's type can be changed while the
 	 * item is locked (if set to false, the player must be able to unlock the item to change its type). Defaults to `true`.
 	 * Note that {@link ModularItemOption.ChangeWhenLocked} takes priority over this value if specified.
 	 */
 	ChangeWhenLocked?: boolean;
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
-	Dialog?: ModularItemDialogConfig;
+	DialogPrefix?: {
+		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
+		Header?: string;
+		/** The dialogue prefix for the name of each module */
+		Module?: string;
+		/** The dialogue prefix for the name of each option */
+		Option?: string;
+		/** The dialogue prefix that will be used for each of the item's chatroom messages */
+		Chat?: string | ExtendedItemChatCallback<ModularItemOption>;
+	};
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
 	 * and parameters passed on to them. If undefined, these are ignored.
@@ -747,36 +742,6 @@ interface ModularItemConfig {
 		Exit?: () => void;
 		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
 	};
-	/**
-	 * To-be initialized properties independent of the selected item module(s).
-	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
-	 */
-	BaselineProperty?: ItemProperties;
-	/** A boolean indicating whether or not images should be drawn for the module selection screen. */
-	DrawImages?: boolean;
-}
-
-interface ModularItemDialogConfig {
-	/**
-	 * The key for the text that will be displayed on the base modular item screen (usually a prompt for the player to
-	 * configure modules). Defaults to `"<groupName><assetName>Select"`
-	 */
-	Select?: string;
-	/**
-	 * A prefix for text keys for the display names of the item's modules. This will be suffixed with the module name to
-	 * get the final key (i.e. `"<modulePrefix><moduleName>"`). Defaults to `"<groupName><assetName>Module"`.
-	 */
-	ModulePrefix?: string;
-	/**
-	 * A prefix for text keys for the display names of the item's options. This will be suffixed with the option key
-	 * (i.e. `"<optionPrefix><optionKey>"`. The option key is the module key followed by the option's index within its
-	 * parent module (e.g. `"a3"`). Defaults to `"<groupName><assetName>Option"`.
-	 */
-	OptionPrefix?: string;
-	/**
-	 * A prefix for text keys for chat messages triggered
-	 */
-	ChatPrefix?: string | ExtendedItemChatCallback<ModularItemOption>;
 }
 
 type ModularItemChatSetting = "perModule" | "perOption";
@@ -894,7 +859,7 @@ interface ModularItemOption extends ModularItemOptionBase {
 type VibratingItemAssetConfig = ExtendedItemAssetConfig<"vibrating", VibratingItemConfig>;
 
 /** An object defining all of the required configuration for registering a vibrator item */
-interface VibratingItemConfig {
+interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
 	/** The list of vibrator mode sets that are available on this item */
 	Options?: VibratorModeSet[];
 	/**
@@ -907,8 +872,17 @@ interface VibratingItemConfig {
 		Click?: (next: () => void) => void;
 		Draw?: (next: () => void) => void;
 		Exit?: () => void;
-		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>;
+		Validate?: ExtendedItemValidateScriptHookCallback<VibratingItemOption>;
 	};
+	/** The optional text configuration for the item. Custom text keys can be configured within this object */
+	DialogPrefix?: {
+		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
+		Header?: string;
+		/** The dialogue prefix that will be used for each of the item's chatroom messages */
+		Chat?: string | ExtendedItemChatCallback<VibratingItemOption>;
+	};
+	DrawImages?: false;
+	ChatSetting?: "default";
 }
 
 type VibratorModeSet = "Standard" | "Advanced";
@@ -920,7 +894,7 @@ type VibratorModeSet = "Standard" | "Advanced";
 /** An object containing the extended item definition for a variable height asset. */
 type VariableHeightAssetConfig = ExtendedItemAssetConfig<"variableheight", VariableHeightConfig>;
 
-interface VariableHeightConfig {
+interface VariableHeightConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	/** The highest Y co-ordinate that can be set  */
 	MaxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
@@ -928,18 +902,20 @@ interface VariableHeightConfig {
 	/** Settings for the range input element the user can use to change the height */
 	Slider: VariableHeightSliderConfig;
 	/** A record containing various dialog keys used by the extended item screen */
-	Dialog: VariableHeightDialogConfig;
-	/**
-	 * An array of the chat message tags that should be included in the item's
-	 * chatroom messages. Defaults to [{@link CommonChatTags.SOURCE_CHAR}, {@link CommonChatTags.DEST_CHAR}]
-	 */
-	ChatTags?: CommonChatTags[];
+	DialogPrefix: {
+		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
+		Header?: string;
+		/** The dialogue prefix that will be used for each of the item's chatroom messages */
+		Chat?: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
+		Npc?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
+	};
 	/** The function that handles finding the current variable height setting */
 	GetHeightFunction?: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
 	SetHeightFunction?: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
-	/** The default properties for the item, if not provided from an extended item option */
-	Property?: ItemProperties;
+	DrawImages?: false;
+	ChatSetting?: "default";
 }
 
 interface VariableHeightSliderConfig {
@@ -949,22 +925,6 @@ interface VariableHeightSliderConfig {
 	Top: number;
 	/** The height in pixels of the slider */
 	Height: number;
-}
-
-interface VariableHeightDialogConfig {
-	/**
-	 * A prefix for text keys for chat messages triggered by the item. Chat message keys
-	 * will include the name of the new option, and depending on the chat setting, the name of the previous option:
-	 * - For chat setting `FROM_TO`: `<chatPrefix><oldOptionName>To<newOptionName>`
-	 * - For chat setting `TO_ONLY`: `<chatPrefix><newOptionName>`
-	 * Defaults to `"<GroupName><AssetName>Set"`
-	 */
-	ChatPrefix?: string | ExtendedItemChatCallback<ExtendedItemOption>;
-	/**
-	 * A prefix for text keys for NPC dialog. This will be suffixed with the option name
-	 * to get the final NPC dialogue key (i.e. `"<npcPrefix><optionName>"`. Defaults to `"<groupName><assetName>"`
-	 */
-	NpcPrefix?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 }
 
 //#endregion

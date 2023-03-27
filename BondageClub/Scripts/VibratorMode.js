@@ -201,9 +201,10 @@ function VibratorModeRegister(asset, config={}) {
  * @param {VibratingItemConfig} config - The item's extended item configuration
  * @returns {VibratingItemData} - The generated vibrating item data for the asset
  */
-function VibratorModeCreateData(asset, { Options, ScriptHooks }) {
+function VibratorModeCreateData(asset, { Options, ScriptHooks, BaselineProperty, Dictionary, DialogPrefix }) {
 	const key = `${asset.Group.Name}${asset.Name}`;
 	const modeSet = Array.isArray(Options) ? Options : Object.values(VibratorModeSet);
+	DialogPrefix = DialogPrefix || {};
 	return VibratorModeDataLookup[key] = {
 		key,
 		asset,
@@ -219,13 +220,13 @@ function VibratorModeCreateData(asset, { Options, ScriptHooks }) {
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 		},
 		dialogPrefix: {
-			header: "Intensity",
-			chat: "VibeMode",
+			header: DialogPrefix.Header || "Intensity",
+			chat: DialogPrefix.Chat || "VibeMode",
 		},
 		chatSetting: "default",
 		drawImages: false,
-		baselineProperty: null,
-		dictionary: [],
+		baselineProperty: CommonIsObject(BaselineProperty) ? BaselineProperty : null,
+		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
 		chatTags: [
 			CommonChatTags.SOURCE_CHAR,
 			CommonChatTags.DEST_CHAR,
@@ -328,11 +329,11 @@ function VibratorModeValidate(C, item, option, currentOption) {
  * @returns {void} - Nothing
  */
 function VibratorModeCreateValidateFunction({ functionPrefix, scriptHooks }) {
-	/** @type {ExtendedItemValidateScriptHookCallback<ExtendedItemOption>} */
+	/** @type {ExtendedItemValidateScriptHookCallback<VibratingItemOption>} */
 	let validateCallback;
 	if (typeof scriptHooks.validate === "function") {
 		validateCallback = (next, ...args) => {
-			/** @type {ExtendedItemValidateCallback<ExtendedItemOption>} */
+			/** @type {ExtendedItemValidateCallback<VibratingItemOption>} */
 			const nextWrapper = (...args2) => next(...args2) || VibratorModeValidate(...args2);
 			return scriptHooks.validate(nextWrapper, ...args);
 		};

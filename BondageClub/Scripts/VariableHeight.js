@@ -55,10 +55,11 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
  * @returns {VariableHeightData} - The generated variable height data for the asset
  */
 function VariableHeightCreateData(asset,
-	{ MaxHeight, MinHeight, Slider, Dialog, ChatTags, GetHeightFunction, SetHeightFunction },
+	{ MaxHeight, MinHeight, Slider, DialogPrefix, ChatTags, Dictionary, GetHeightFunction, SetHeightFunction },
 	property, parentOptions)
 {
 	const key = `${asset.Group.Name}${asset.Name}${property.Type || ""}`;
+	DialogPrefix = DialogPrefix || {};
 	return VariableHeightDataLookup[key] = {
 		key,
 		asset,
@@ -68,9 +69,9 @@ function VariableHeightCreateData(asset,
 		slider: Slider,
 		baselineProperty: property,
 		dialogPrefix: {
-			header: "VariableHeightSelect",
-			chat: Dialog.ChatPrefix || `${key}Set`,
-			npc: Dialog.NpcPrefix || key,
+			header: DialogPrefix.Header || "VariableHeightSelect",
+			chat: DialogPrefix.Chat || `${key}Set`,
+			npc: DialogPrefix.Npc || key,
 		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,
@@ -84,7 +85,7 @@ function VariableHeightCreateData(asset,
 		scriptHooks: {},
 		drawImages: false,
 		chatSetting: "default",
-		dictionary: [],
+		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
 	};
 }
 

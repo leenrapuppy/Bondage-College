@@ -1891,6 +1891,23 @@ interface ExtendedItemDialog<
 	npc?: string | ExtendedItemNPCCallback<OptionType>;
 }
 
+
+/** A record containing various dialog keys used by the extended item screen */
+interface ExtendedItemCapsDialog<
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> {
+	/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
+	Header?: string;
+	/** The dialogue prefix for the name of each module */
+	Module?: string;
+	/** The dialogue prefix for the name of each option */
+	Option?: string;
+	/** The dialogue prefix that will be used for each of the item's chatroom messages */
+	Chat?: string | ExtendedItemChatCallback<OptionType>;
+	/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
+	Npc?: string | ExtendedItemNPCCallback<OptionType>;
+}
+
 // TODO: Make the key- and value-types more specific
 type ExtendedItemScriptHooks = Record<string, (...args: any[]) => any>;
 
@@ -2509,7 +2526,7 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 		click?: (next: () => void) => void;
 		draw?: (next: () => void) => void;
 		exit?: () => void;
-		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>;
+		validate?: ExtendedItemValidateScriptHookCallback<VibratingItemOption>;
 	};
 	chatSetting: "default";
 	drawImages: false;

@@ -83,7 +83,7 @@ function TypedItemRegister(asset, config) {
  */
 function TypedItemCreateTypedItemData(asset, {
 	Options,
-	Dialog,
+	DialogPrefix,
 	ChatTags,
 	Dictionary,
 	ChatSetting,
@@ -96,7 +96,7 @@ function TypedItemCreateTypedItemData(asset, {
 		option.OptionType = "ExtendedItemOption";
 	}
 
-	Dialog = Dialog || {};
+	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
 	return TypedItemDataLookup[key] = {
 		asset,
@@ -104,10 +104,10 @@ function TypedItemCreateTypedItemData(asset, {
 		key,
 		functionPrefix: `Inventory${key}`,
 		dialogPrefix: {
-			header: Dialog.Load || `${key}Select`,
-			option: Dialog.TypePrefix || key,
-			chat: Dialog.ChatPrefix || `${key}Set`,
-			npc: Dialog.NpcPrefix || key,
+			header: DialogPrefix.Header || `${key}Select`,
+			option: DialogPrefix.Option || key,
+			chat: DialogPrefix.Chat || `${key}Set`,
+			npc: DialogPrefix.Npc || key,
 		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,

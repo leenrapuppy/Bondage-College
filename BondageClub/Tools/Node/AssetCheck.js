@@ -155,7 +155,7 @@ function testDynamicGroupName(groupDefinitions) {
 
 /**
  * Checks for the option names of typed items
- * @param {ExtendedItemConfig} config
+ * @param {ExtendedItemMainConfig} config
  */
 function testTypedOptionName(config) {
 	for (const { assetName, groupName, assetConfig } of flattenExtendedConfig(config)) {
@@ -177,7 +177,7 @@ function testTypedOptionName(config) {
 
 /**
  * Flatten and yield all combined Asset/Group configs and names
- * @param {ExtendedItemConfig} extendedItemConfig
+ * @param {ExtendedItemMainConfig} extendedItemConfig
  */
 function* flattenExtendedConfig(extendedItemConfig) {
 	for (const [groupName, groupConfig] of Object.entries(extendedItemConfig)) {
@@ -189,7 +189,7 @@ function* flattenExtendedConfig(extendedItemConfig) {
 
 /**
  * Checks for the option names of typed items
- * @param {ExtendedItemConfig} extendedItemConfig
+ * @param {ExtendedItemMainConfig} extendedItemConfig
  * @param {string[][]} dialogArray
  */
 function testExtendedItemDialog(extendedItemConfig, dialogArray) {
@@ -275,35 +275,35 @@ function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
  */
 function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
 	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
-	if (assetConfig.CopyConfig && !assetConfig.Config?.Dialog) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.DialogPrefix) {
 		return new Set();
 	}
 
 	const chatSetting = assetConfig.Config?.ChatSetting ?? "toOnly";
-	/** @type {Partial<TypedItemDialogConfig>} */
+	/** @type {Partial<TypedItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
-		Load: `${groupName}${assetName}Select`,
-		TypePrefix: `${groupName}${assetName}`,
-		ChatPrefix: `${groupName}${assetName}Set`,
-		...(assetConfig.Config?.Dialog ?? {}),
+		Header: `${groupName}${assetName}Select`,
+		Option: `${groupName}${assetName}`,
+		Chat: `${groupName}${assetName}Set`,
+		...(assetConfig.Config?.DialogPrefix ?? {}),
 	};
 	if (
-		typeof dialogConfig.ChatPrefix === "function"  // Can't validate callables via the CI
+		typeof dialogConfig.Chat === "function"  // Can't validate callables via the CI
 		|| chatSetting === "silent"  // No dialog when silent
 		|| !groupName.includes("Item")  // Type changes of clothing based items never have a chat message
 	) {
-		dialogConfig.ChatPrefix = undefined;
+		dialogConfig.Chat = undefined;
 	}
 
 	/** @type {Set<string>} */
 	const ret = new Set();
 	const optionNames = assetConfig.Config?.Options?.map(o => !o.HasSubscreen ? o.Name : undefined) ?? [];
-	gatherDifference([dialogConfig.TypePrefix], optionNames, dialogSet, ret);
-	gatherDifference([dialogConfig.Load], [""], dialogSet, ret);
+	gatherDifference([dialogConfig.Option], optionNames, dialogSet, ret);
+	gatherDifference([dialogConfig.Header], [""], dialogSet, ret);
 	if (chatSetting === "toOnly") {
-		gatherDifference([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+		gatherDifference([dialogConfig.Chat], optionNames, dialogSet, ret);
 	} else if (chatSetting === "fromTo") {
-		gatherDifferenceFromTo([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+		gatherDifferenceFromTo([dialogConfig.Chat], optionNames, dialogSet, ret);
 	}
 	return ret;
 }
@@ -319,21 +319,21 @@ function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
  */
 function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
-	if (assetConfig.CopyConfig && !assetConfig.Config?.Dialog) {
+	if (assetConfig.CopyConfig && !assetConfig.Config?.DialogPrefix) {
 		return new Set();
 	}
 
 	const chatSetting = assetConfig.Config?.ChatSetting ?? "perOption";
-	/** @type {Partial<ModularItemDialogConfig>} */
+	/** @type {Partial<ModularItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
-		Select: `${groupName}${assetName}Select`,
-		ModulePrefix: `${groupName}${assetName}Module`,
-		OptionPrefix: `${groupName}${assetName}Option`,
-		ChatPrefix: `${groupName}${assetName}Set`,
-		...(assetConfig.Config?.Dialog ?? {}),
+		Header: `${groupName}${assetName}Select`,
+		Module: `${groupName}${assetName}Module`,
+		Option: `${groupName}${assetName}Option`,
+		Chat: `${groupName}${assetName}Set`,
+		...(assetConfig.Config?.DialogPrefix ?? {}),
 	};
-	if (typeof dialogConfig.ChatPrefix === "function" || !groupName.includes("Item")) {
-		dialogConfig.ChatPrefix = undefined;
+	if (typeof dialogConfig.Chat === "function" || !groupName.includes("Item")) {
+		dialogConfig.Chat = undefined;
 	}
 
 	const modulesNames = assetConfig.Config?.Modules?.map(m => m.Name) ?? [];
@@ -345,14 +345,14 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 
 	/** @type {Set<string>} */
 	const ret = new Set();
-	gatherDifference([dialogConfig.Select, dialogConfig.ModulePrefix], modulesNames, dialogSet, ret);
-	gatherDifference([dialogConfig.OptionPrefix], optionNames, dialogSet, ret);
+	gatherDifference([dialogConfig.Header, dialogConfig.Module], modulesNames, dialogSet, ret);
+	gatherDifference([dialogConfig.Option], optionNames, dialogSet, ret);
 	if (chatSetting === "perOption") {
-		gatherDifference([dialogConfig.ChatPrefix], optionNames, dialogSet, ret);
+		gatherDifference([dialogConfig.Chat], optionNames, dialogSet, ret);
 	} else if (chatSetting === "perModule") {
 		// Ignore a module if every single one of its options links to a subscreen
 		const modulesNamesNoSubscreen = assetConfig.Config?.Modules?.map(m => m.Options.every(o => o.HasSubscreen) ? undefined : m.Name) ?? [];
-		gatherDifference([dialogConfig.ChatPrefix], modulesNamesNoSubscreen, dialogSet, ret);
+		gatherDifference([dialogConfig.Chat], modulesNamesNoSubscreen, dialogSet, ret);
 	}
 	return ret;
 }
@@ -426,7 +426,7 @@ function gatherDuplicateOptionNames(options) {
 
 /**
  * Check whether all extended item options and modules are (at least) of length 1.
- * @param {ExtendedItemConfig} config
+ * @param {ExtendedItemMainConfig} config
  */
 function testModuleOptionLength(config) {
 	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(config)) {
@@ -536,7 +536,7 @@ function sanitizeVMOutput(input) {
 
 	/** @type {AssetGroupDefinition[]} */
 	const AssetFemale3DCG = sanitizeVMOutput(context.AssetFemale3DCG);
-	/** @type {ExtendedItemConfig} */
+	/** @type {ExtendedItemMainConfig} */
 	const AssetFemale3DCGExtended = sanitizeVMOutput(context.AssetFemale3DCGExtended);
 	/** @type {TestingStruct<string>[]} */
 	const missingColorLayers = sanitizeVMOutput(context.TestingMisingColorLayers);
