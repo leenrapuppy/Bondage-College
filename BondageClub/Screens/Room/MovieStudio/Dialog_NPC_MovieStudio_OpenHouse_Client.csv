@@ -1,0 +1,4 @@
+PlayerGagged,,,You're not going to sell anything with that gag.  (She giggles.),
+1000,,,(A customer enters the place and stares at you two.)  Errrrr...  I'm here for the open house.  What is going on here?,
+1000,,TO DO,TO DO,
+1000,,(Look around.),,DialogLeave()

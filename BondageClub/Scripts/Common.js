@@ -356,6 +356,7 @@ function CommonDynamicFunctionParams(FunctionName) {
 		if (ParamCount == 1) Result = window[FunctionName](Params[0]);
 		if (ParamCount == 2) Result = window[FunctionName](Params[0], Params[1]);
 		if (ParamCount == 3) Result = window[FunctionName](Params[0], Params[1], Params[2]);
+		if (ParamCount == 4) Result = window[FunctionName](Params[0], Params[1], Params[2], Params[3]);
 		if (Reverse) return !Result;
 		else return Result;
 

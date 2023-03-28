@@ -1585,7 +1585,7 @@ interface NPCCharacter extends Character {
 	Archetype?: NPCArchetype;
 	Trait?: NPCTrait[];
 	Event?: NPCTrait[];
-	Love?: number;
+	Affection?: number;
 	Domination?: number;
 }
 
@@ -1604,6 +1604,9 @@ interface NPCCharacter {
 	TrialDone?: boolean;
 	CanGetLongDuster?: boolean;
 	OweFavor?: boolean;
+	KissCount?: number;
+	MasturbateCount?: number;
+	ClothesTaken?: boolean;
 }
 
 /** Sarah */
