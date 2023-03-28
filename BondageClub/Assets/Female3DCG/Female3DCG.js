@@ -1827,7 +1827,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true,
+				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true, BuyGroup: "SwimCap",
 				Layer:[
 					{Name:"Cap", HasType: false},
 					{Name:"Stripes1", HasType: false, AllowModuleTypes: ["p1"]},
@@ -2616,6 +2616,17 @@ var AssetFemale3DCG = [
 					{ Name: "Rneck", HasType: false, CopyLayerColor: "Rfhead", AllowModuleTypes: ["n1"] }
 				]
 			}, // Kissmark
+			{
+				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true, BuyGroup: "SwimCap",
+				Layer:[
+					{Name:"Cap", HasType: false},
+					{Name:"Stripes1", HasType: false, AllowModuleTypes: ["p1"]},
+					{Name:"Stripes2", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p2"]},
+					{Name:"Triangle", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p3"]},
+					{Name:"Cowprint", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p4"]},
+					{Name:"Tigerprint", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p5"]},
+				]
+			},// SwimCap
 		],
 		Color: ["Default", "#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},
@@ -7927,6 +7938,16 @@ var AssetFemale3DCG = [
 					{ Name: "EyeRight", ColorGroup: "Eyes" },
 				]
 			},
+			{
+				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, Hide: ["HairFront", "HairBack", "Ears"], DefaultColor: ["#777777","#BDBDBD","#1A1A1A"],
+				Layer: [
+					{Name: "Base", HasType: false, Alpha: [{ Masks: [[0, 160, 400, 200]], Group: ["Head"] }],},
+					{Name: "Metal", HasType: false},
+					{Name: "Lens", HasType: false, AllowModuleTypes: ["l2"]},
+					{Name: "LensTransparent", HasType: false, CopyLayerColor: "Lens", AllowModuleTypes: ["l1"]},
+					{Name: "LensTrim", HasType: false, CopyLayerColor: "Metal", AllowModuleTypes: ["l1","l2"],},
+				],
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

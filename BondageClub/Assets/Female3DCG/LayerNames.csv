@@ -338,6 +338,8 @@ RightHandRingsHonorBase,Honor Ring
 RightHandRingsHonorJewels,Honor Ring Jewels
 MaskFaceVeilFabric,Fabric
 MaskFaceVeilString,String
+MaskSwimCapCap,Cap
+MaskSwimCapStripes1,Pattern
 TailStrapsTailStrapTail,Tail
 TailStrapsTailStrapRibbon,Ribbon
 TailStrapsTailStrapBell,Bell
@@ -840,6 +842,9 @@ ItemHoodDroneMaskShine,Shine
 ItemHoodDroneMaskEyeRegular,Eyes
 ItemHoodDroneMaskMouthOnahole,Mouth
 ItemHoodDroneMaskBarcode,Pattern
+ItemHoodInflatableGagMaskBase,Hood
+ItemHoodInflatableGagMaskMetal,Metal
+ItemHoodInflatableGagMaskLens,Lenses
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body

@@ -4075,6 +4075,39 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			}
 		}, // HarnessCatMask
+		InflatableGagMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules:[
+					{
+						Name: "Lenses", Key: "l",
+						Options:[
+							{
+								Property:{ Effect: [] }
+							},
+							{
+								Property:{
+								Effect: ["BlindLight"],
+								Tint: [{Color: 2, Strength: 0.2}],
+								}
+							},
+							{
+								Property:{ Effect: ["BlindHeavy"] }
+							},
+						]
+					},
+					{
+						Name: "GagLevel", Key: "g", DrawImages: false,
+						Options:[
+							{Property: {Effect: ["BlockMouth"] }},
+							{Property: {Effect: ["BlockMouth","GagLight"]}},
+							{Property: {Effect: ["BlockMouth","GagMedium"]}},
+							{Property: {Effect: ["BlockMouth","GagVeryHeavy"]}},
+						]
+					},
+				]
+			}
+		},
 	}, // ItemHood
 	Jewelry: {
 		JewelrySet: {
@@ -7483,6 +7516,10 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, //KissMark
+		SwimCap: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "Hat", AssetName: "SwimCap" },
+		},
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {
