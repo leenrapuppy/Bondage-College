@@ -1826,6 +1826,17 @@ var AssetFemale3DCG = [
 					{ Name: "PrintShort", CopyLayerColor: "Print", AllowTypes: ["BCLogo", "BDSM", "BG", "Chain", "Gag", "Knot", "Monogram", "Rock", "Smile", "Sun", "Tick"], AllowColorize: true, ParentGroup: null, ShowForAttribute: ["ShortHair"], Top: 60 },
 				],
 			},
+			{
+				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true,
+				Layer:[
+					{Name:"Cap", HasType: false},
+					{Name:"Stripes1", HasType: false, AllowModuleTypes: ["p1"]},
+					{Name:"Stripes2", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p2"]},
+					{Name:"Triangle", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p3"]},
+					{Name:"Cowprint", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p4"]},
+					{Name:"Tigerprint", HasType: false, CopyLayerColor: "Stripes1", AllowModuleTypes: ["p5"]},
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

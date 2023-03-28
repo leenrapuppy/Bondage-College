@@ -196,6 +196,28 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //BallCapFront
+		SwimCap: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Pattern", Key: "p",
+						Options: [{},{},{},{},{},{},] //None, Stripes 1, Stripes 2, Tirangle, Cowprint, Tigerprint
+					},
+					{
+						Name: "Hair", Key: "h",
+						Options:[
+							{
+								Property: {Hide: ["HairFront", "HairBack"]}
+							}, // No Hair Openings
+							{
+								Property: {Hide: ["HairFront",]}
+							}, // Hair Openings
+						]
+					},
+				]
+			}
+		}, // SwimCap
 	},
 	LeftHand: {
 		Rings: {
