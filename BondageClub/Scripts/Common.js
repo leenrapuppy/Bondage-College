@@ -507,17 +507,46 @@ function CommonEmailIsValid(Email) {
 }
 
 /**
+ * Remove item from list on given index and returns it
+ * @template T
+ * @param {T[]} list
+ * @param {number} index
+ * @returns {undefined|T}
+ */
+function CommonRemoveItemFromList(list, index) {
+	if(index > list.length || index < 0) return undefined;
+	return list.splice(index, 1)[0];
+}
+
+/**
+ * Removes random item from list and returns it
+ * @template T
+ * @param {T[]} list
+ * @returns {T}
+ */
+function CommonRemoveRandomItemFromList(list) {
+	return CommonRemoveItemFromList(list, Math.floor(Math.random() * list.length));
+}
+
+/**
  * Get a random item from a list while making sure not to pick the previous one.
+ * Function expects unique values in the list. If there are multiple instances of ItemPrevious, it may still return it.
  * @template T
  * @param {T} ItemPrevious - Previously selected item from the given list
  * @param {readonly T[]} ItemList - List for which to pick a random item from
  * @returns {T} - The randomly selected item from the list
  */
 function CommonRandomItemFromList(ItemPrevious, ItemList) {
-	var NewItem = ItemPrevious;
-	while (NewItem == ItemPrevious)
-		NewItem = ItemList[Math.floor(Math.random() * ItemList.length)];
-	return NewItem;
+	let previousIndex = ItemList.indexOf(ItemPrevious);
+	let maxRandom = ItemList.length;
+	if(previousIndex > -1){
+		maxRandom--;
+	}
+	if(maxRandom > 0){
+		let randomIndex = Math.floor(Math.random() * maxRandom);
+		if( previousIndex > -1 && randomIndex >= previousIndex) randomIndex++;
+		return ItemList[randomIndex];
+	} else return undefined;
 }
 
 /**
