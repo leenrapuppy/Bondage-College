@@ -8,4 +8,4 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,0,,@Slot 7,Pozice 7 byla uložena.,0,0,0,SaveGame(7)
 0,0,0,,@Slot 8,Pozice 8 byla uložena.,0,0,0,SaveGame(8)
 0,0,0,,@Slot 9,Pozice 9 byla uložena.,0,0,0,SaveGame(9)
-0,0,0,,@Continue,,0,0,0,Continue()
+0,0,0,,@Pokračovat,,0,0,0,Continue()

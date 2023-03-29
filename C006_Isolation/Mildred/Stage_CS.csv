@@ -1,0 +1,87 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,"Jo! A fakt se|mi to povedlo!","Doufejme, že samotka ten váš přístup napraví.|Stydíte se za to aspoň trochu?",10,-1,1,
+0,0,0,,Ale mě do toho|navedla Sidney!,A budete za to patřičně potrestána.|Stydíte se za to aspoň trochu?,10,0,0,
+0,0,0,,(Zůstaň potichu.),"Měla byste mluvit, dokud ještě můžete.|Stydíte se aspoň za to co jste provedla?",10,0,0,
+0,0,0,,Omlouvám se|slečno Mildred.,To je lepší. Ale stejně si zasloužíte potrestat.|Stydíte se za to aspoň trochu?,10,1,-1,
+10,0,0,,(Skloň hlavu.),Mnohem lepší. A teď mi dejte tu tašku.|(Zabavuje tvou školní tašku.),20,0,-1,StealItems()
+10,0,0,,(Zůstaň potichu.),Dobře. Jen mlčte a dejte mi tu tašku.|(Zabavuje tvou školní tašku.),20,0,0,StealItems()
+10,0,0,,"Ano, já vím,|nebylo to moc chytré.",Velmi správně. A teď mi dejte tu tašku.|(Zabavuje tvou školní tašku.),20,1,0,StealItems()
+10,0,0,,Stydět se? To byla|ta nejlepší hodina ever.,(Vypadá naštvaně.) Dejte mi tu tašku!|(Zabavuje tvou školní tašku.),20,-1,0,StealItems()
+10,0,0,,"Moc jste se|nevzpouzela, Mildred.",Nesmysl! A teď mi dejte tu tašku.|(Zabavuje tvou školní tašku.),20,0,1,StealItems()
+20,0,0,,Hej! To nemůžete!,"Můžu, a můžu dokonce víc než to.|Sundejte si svou unifirmu, mladá dámo.",30,0,0,
+20,0,0,,Vrátíte mi moji tašku?,"Teprve až skončí váš trest.|A teď si sundejte svou uniformu, mladá dámo.",30,0,0,
+30,0,0,,Jste perverzní! Nikdy|se před vámi nesvleču!,"Pokud to neuděláte sama, udělám to za vás.|Okamžitě se svlečte nebo to bude bolet!",40,0,1,
+30,0,0,,Sundat si uniformu?|Vždyť tu skoro mrzne!,A vaším stěžováním se nezahřeje.|Okamžitě se svlečte nebo to bude bolet!,40,0,0,
+30,0,0,,"Ano, slečno Mildred.|(Svleč se.) ADD_MINUTES:1",Velmi dobře. Na svůj trest dostanete tohle.|(Ukazuje ti kožený obojek.),60,1,-1,
+30,0,0,,(Beze slova se svleč.)ADD_MINUTES:1,Hodná holka. Na svůj trest dostanete tohle.|(Ukazuje ti kožený obojek.),60,1,0,
+40,0,0,,Nasrat!,"(Dotáhne tě a připoutá na mučidlo.) Máme tady|způsoby, jak vás přimět spolupracovat, slečínko.",50,-1,0,
+40,0,0,,Na to zapomeňte.|Já se nesvlíkám.,"(Dotáhne tě a připoutá na mučidlo.) Máme tady|způsoby, jak vás přimět spolupracovat, slečínko.",50,0,0,
+40,0,0,,"Ano, slečno|(Svleč se.)ADD_MINUTES:1",Velmi dobře. Na svůj trest dostanete tohle.|(Ukazuje ti kožený obojek.),60,1,-1,
+40,0,0,,(Beze slova se svleč.)ADD_MINUTES:1,Hodná holka. Na svůj trest dostanete tohle.|(Ukazuje ti kožený obojek.),60,1,0,
+50,0,0,,Pusťte mě!,(Svleče tě a přinese kožený obojek.)|Na svůj trest dostanete tohle.,70,0,0,
+50,0,0,,POMOC! POLICIE!,(Svleče tě a přinese kožený obojek.)|Na svůj trest dostanete tohle.,70,0,-1,
+50,0,0,,(Dívej se na ni vztekle.),(Svleče tě a přinese kožený obojek.)|Na svůj trest dostanete tohle.,70,0,1,
+60,0,0,,Co to je?,Tohle je obojek k vašemu potrestání.|(Obojek ti poutá na krk.),100,0,0,AddCollar()
+60,0,0,,Obojek? Vypadám|snad jako pes?,"Přestaňte si stěžovat, mladá dámo.|(Obojek ti poutá na krk.)",100,0,1,AddCollar()
+60,0,0,,Jste úchylná!|Tohle si nevezmu.,"Přestaňte si stěžovat, mladá dámo.|(Obojek ti poutá na krk.)",100,-1,0,AddCollar()
+60,0,-3,,"Nasadíte mi|obojek, slečno?",Jenom na váš trest.|(Obojek ti poutá na krk.),100,0,-1,AddCollar()
+70,0,0,,Co to je?,"To je obojek v vašemu potrestání, mladá dámo.|(Na krk ti nasadí obojek a odpoutá tě.)",100,0,0,AddCollar()
+70,0,0,,Obojek?|Copak jsem pes?,"Nejste zrovna v pozici, kdy byste mohla vyjednávat,|mladá dámo. (Na krk ti nasadí obojek a odpoutá tě.)",100,0,1,AddCollar()
+70,0,0,,Jste úchylná!|Tohle si nevezmu.,"Nejste zrovna v pozici, kdy byste mohla vyjednávat,|mladá dámo. (Na krk ti nasadí obojek a odpoutá tě.)",100,-1,0,AddCollar()
+70,0,-3,,"Nasadíte mi|obojek, slečno?","Jenom na váš trest, mladá dámo.|(Na krk ti nasadí obojek a odpoutá tě.)",100,0,-1,AddCollar()
+100,0,0,,O co tady jde?,"To je prosté, slečínko. Budete spoutaná provazy|na samotce po celou příští hodinu.",110,0,0,
+100,0,0,,"Omlouvám se, slečno.|Prosím, nechte mě jít.","Na to už je pozdě, slečínko. Budete spoutaná|provazy na samotce po celou příští hodinu.",110,1,-1,
+100,0,0,,Ten obojek je sexy!,"Soustřeďte se, slečínko. Budete spoutaná|provazy na samotce po celou příští hodinu.",110,0,0,
+100,0,0,,Obojek by slušel|spíš vám.,(Zírá na tebe.) Budete spoutaná provazy|na samotce po celou příští hodinu.,110,0,1,
+110,0,0,,Spoutaná?|To je asi fér.,Rozhodně. (Bere si provazy a váže ti je kolem těla.),120,1,0,AddRope()
+110,0,0,,(Otoč se a nastav ruce.),"(Usmívá se, bere si provazy a váže ti je kolem těla.)",120,0,-1,AddRope()
+110,0,0,,To ne!|Vázat mě nebudete!,"To si pište, že ano. (Popadne tě za paže,|bere si provazy a váže ti je kolem těla.)",120,0,0,AddRope()
+120,0,0,,"Kruci, to je ale těsné!",A bude to ještě těsnější.|(Strká tě do zamřížované cely.),125,-1,0,CheckForCrop()
+120,0,0,,Takhle mě tu|nemůžete nechat!,Můžu daleko více.|(Strká tě do zamřížované cely.),125,0,0,CheckForCrop()
+120,0,0,,"Ó slečno,|to je tak vzrušující!","Přestaňte se chovat jako coura, mladá dámo!|(Strká tě do zamřížované cely.)",125,0,0,CheckForCrop()
+125,0,0,,Už jsem svázaná!|Tak proč ještě mříže?,Přestaňte se hádat a dolů na kolena.|(Srazí tě k zemi a sváže tě do kozelce.),130,0,0,
+125,0,0,,Přestaňte do mě strkat!,Přestaňte se hádat a dolů na kolena.|(Srazí tě k zemi a sváže tě do kozelce.),130,0,0,
+125,0,0,,To jsme ve vězení?,Něco takového. A teď na zem!|(Srazí tě k zemi a sváže tě do kozelce.),130,0,0,
+130,0,0,,"Ó bože! Prosím, slečno,|omlouvám se!","Nemyslíte, že na tohle už je trochu pozdě?|(Zamyká tvůj obojek ke kruhu na podlaze.)",140,1,-1,
+130,0,0,,To už je příliš!,Přijměte svůj trest jako velká holka!|(Zamyká tvůj obojek ke kruhu na podlaze.),140,0,0,
+130,0,0,,Zavolám na vás policajty!,Přijměte svůj trest jako velká holka!|(Zamyká tvůj obojek ke kruhu na podlaze.),140,0,0,
+130,0,0,,"To je vážně|pěkný úvaz, slečno.","Řekněme, že jsem měla dobré učitele.|(Zamyká tvůj obojek ke kruhu na podlaze.)",140,0,-1,
+140,0,0,,Au! Nemůžu|se ani hnout!,"Samozřejmě, že nemůžete. Ještě něco,|než vám dám roubík a nechám vás tu o samotě?",150,0,0,
+140,0,0,,Jednou mi za to zaplatíte!,"Sněte dál, slečno. Ještě něco,|než vám dám roubík a nechám vás tu o samotě?",150,0,1,
+140,0,0,,Obdivuji vaše|schopnosti s provazem.,Už jsem pár studentů před vámi trestala.|Ještě něco než tady zůstanete sama a s roubíkem?,150,1,0,
+150,0,0,,(Zůstaň potichu.),(Nasazuje ti na hlavu roubík.)|Zkuste se z této izolace poučit!,200,0,0,AddGag()
+150,0,0,,Jednou mi zaplatíte!,(Povzdechne si a nasadí ti roubík.)|Zkuste se z této izolace poučit!,200,0,0,AddGag()
+150,0,0,,Slečno Mildred!,(Zatřese hlavou a nasadí ti roubík.)|Zkuste se z této izolace poučit!,200,0,0,AddGag()
+150,5,0,,"Slečno Mildred, já už|dostala za vyučenou!","(Usmívá se na tebe.) Takže slibujete,|že už nebudete dělat potíže?",160,0,0,
+150,1,-5,,"Ó prosím, slečno|Mildred! (Fňukej a plač.)","Nebohá holčičko. Možná je to na vás moc.|Slibujete, že odteď už budete hodná?",160,0,0,
+150,0,6,,"Když mě tu necháte, táta|na vás vysoudí majlant!","Chm. Soudy si dovolit nemůžu. Dobře, mladá dámo,|pustím vás, když mi slíbíte sekat dobrotu.",160,0,0,
+160,0,0,,"Ano, slibuji, že už|budu hodná, slečno.",Tak dobrá. (Pouští tě.)|Teď se oblečte a vyražte na časný oběd.,170,0,0,Release()
+160,0,0,,Nebudu dělat|další potíže.,Dobře. (Pouští tě.)|Teď se oblečte a vyražte na časný oběd.,170,0,0,Release()
+160,0,0,,O vaši lítost nestojím.|Dělejte co umíte!,(Zatřese hlavou a nasadí ti roubík.)|Zkuste se z této izolace poučit!,200,0,1,AddGag()
+160,0,0,,"POLIB MI PRDEL,|KRÁVO!",(Zatřese hlavou a nasadí ti roubík.)|Zkuste se z této izolace poučit!,200,-1,0,AddGag()
+170,0,0,,"Ano, slečno.|(Odejdi ze samotky.)",,170,0,0,LeaveIsolation()
+170,0,0,,(Kývni a usměj se.)|(Odejdi ze samotky.),,170,0,0,LeaveIsolation()
+200,0,0,,UUMPH!  UGN!,(Pomalu odchází pryč.)|Vrátím se o půl dvanácté.,210,0,0,AllowLeave()
+200,0,0,,(Udělej na ni|naštvaný pohled.),(Pomalu odchází pryč.)|Vrátím se o půl dvanácté.,210,0,0,AllowLeave()
+200,0,0,,(Dívej se|na druhou stranu.),(Pomalu odchází pryč.)|Vrátím se o půl dvanácté.,210,0,0,AllowLeave()
+300,0,0,,"Co to je za věc, kurva?","Tohle zařízení vás bude hezky držet|na místě, až vás budu trestat.",310,-1,0,
+300,0,0,,(Pokus se najít|pohodlnější pozici.),"Pochybuji, že se vám na tomhle bičovacím|koni podaří najít nějakou lepší polohu.",310,0,0,
+300,0,0,,Cha! Touhle hračkou|mě nevyděsíte.,"Tahle „hračka“, jak říkáte,|vás hezky přidrží, až vás budu trestat.",310,0,1,
+310,0,0,,"Nemůžete mě bít,|studuju tady!",,320,0,0,DoCrop()
+310,0,0,,Opravdu je to legální?,,320,0,0,DoCrop()
+310,0,0,,"Ano, slečno Mildred,|rozumím.",,320,0,0,DoCrop()
+310,0,0,,Raději se do toho opřete.|Bolest je mé druhé jméno.,,320,0,0,DoCrop()
+320,0,0,,"Au to bolí, kurva!",,320,0,0,DoCrop()
+320,0,0,,"Au! Prosím, slečno!",,320,0,0,DoCrop()
+320,0,0,,Silněji! Rychleji!,,320,0,0,DoCrop()
+320,0,0,,To už mě hůř|pokousali i komáři…,,320,0,0,DoCrop()
+320,0,0,,(Zůstaň potichu a drž.),,320,0,0,DoCrop()
+320,0,0,,"(Tvař se, že to nebolí.)",,320,0,0,DoCrop()
+320,0,0,,(Zkus tomu uhnout.),,320,0,0,DoCrop()
+320,0,0,,(Plač a pros o pomoc.),,320,0,0,DoCrop()
+330,0,0,,Hmmm. Možná….,Tak třeba vás vyškolí samotka!|(Strká tě do zamřížované cely.),125,0,0,
+330,0,0,,"Ano. Utíkat,|když vás uvidím.","Vy jste beznadějný případ, mladá dámo!|(Strká tě do zamřížované cely.)",125,0,0,
+330,0,0,,"Myslím, že ano.|Děkuji… Asi…","To je velmi dobře, mladá dámo.|(Strká tě do zamřížované cely.)",125,1,0,
+330,0,0,,"Ano, slečno Mildred.|(Skloň hlavu.)",Tenhle bičík je skvělá učební pomůcka.|(Strká tě do zamřížované cely.),125,0,-1,
+330,0,0,,Au! Jak jeden|den nesedět?,"Vy jste beznadějný případ, mladá dámo!|(Strká tě do zamřížované cely.)",125,0,0,
+330,0,0,,Příště zbičuju já vás!,(Udeří tě naposledy přes obličej|a strčí tě do zamřížované cely.),125,-1,1,

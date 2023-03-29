@@ -1,0 +1,3 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,Nejspíš se na něj dá někdo připoutat.|Mezi jeho deskami jsou otvory na protažení popruhů.,0,0,0,
+10,0,0,,(Rozřež si pouta.)ADD_MINUTES:1,,0,0,0,CutRope()
