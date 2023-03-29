@@ -198,7 +198,9 @@ var AssetFemale3DCGExtended = {
 		}, //BallCapFront
 		SwimCap: {
 			Archetype: ExtendedArchetype.MODULAR,
+
 			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules: [
 					{
 						Name: "Pattern", Key: "p",
@@ -4078,6 +4080,7 @@ var AssetFemale3DCGExtended = {
 		InflatableGagMask: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules:[
 					{
 						Name: "Lenses", Key: "l",
@@ -4097,7 +4100,7 @@ var AssetFemale3DCGExtended = {
 						]
 					},
 					{
-						Name: "GagLevel", Key: "g", DrawImages: false,
+						Name: "GagLevel", Key: "g",
 						Options:[
 							{Property: {Effect: ["BlockMouth"] }},
 							{Property: {Effect: ["BlockMouth","GagLight"]}},
