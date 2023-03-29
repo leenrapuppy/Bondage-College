@@ -1270,7 +1270,7 @@ function CharacterIsNaked(C) {
 /**
  * Checks if a character is in underwear
  * @param {Character} C - Character to inspect the appearance of
- * @returns {boolean} - Returns TRUE if the given character is in underwear
+ * @returns {boolean} - Returns TRUE if the given character is at most in underwear (can be naked)
  */
 function CharacterIsInUnderwear(C) {
 	for (let A = 0; A < C.Appearance.length; A++)
