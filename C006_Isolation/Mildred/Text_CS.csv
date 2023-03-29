@@ -1,0 +1,22 @@
+Tag,Content
+CropStartHate,"Pokud by vás nevyškolila samotka, tak můj bič ano.|(Tlačí tě k dřevěné trojúhelníkové konstrukci.)"
+CropStartSub,Před samotkou by měla subinka jako vy pocítit bolest.|(Tlačí tě k dřevěné trojúhelníkové konstrukci.)
+CropEvent0,(Rychle tě švihne přes záda zleva doprava.)
+CropEvent1,(Jednu pořádnou ránu ti uštědří přímo na zadek.)
+CropEvent2,"(Lehce tě udeří na prsou, bradavku téměř nezasáhne.)"
+CropEvent3,"(Uhodí tě přes tvé svázané paže,|až se zazmítáš.)"
+CropEvent4,(Švihne tě přímo na břicho.|Na chvíli ztrácíš dech.)
+CropEvent5,"(Tvrdě tě přetáhne přes stehno, až to mlaskne.)"
+Count1,Jedna
+Count2,Dvě
+Count3,Tři
+Count4,Čtyři
+Count5,Pět
+Count6,Šest
+Count7,Sedm
+Count8,Osm
+Count9,Devět
+Count10,Deset
+Count11,Jedenáct
+Count12,Dvanáct
+CropStop,"To by stačilo! (Přestane.)|Tak co, naučilo vás to něco?"

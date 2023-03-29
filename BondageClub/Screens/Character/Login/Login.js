@@ -138,10 +138,12 @@ function LoginRun() {
 	DrawText(TextGet("Password"), 1000, 350, "White", "Black");
 	ElementPosition("InputPassword", 1000, 410, 500);
 	DrawButton(775, 500, 200, 60, TextGet("Login"), CanLogin ? "White" : "Grey", "");
-	DrawButton(1025, 500, 200, 60, TextGet("Language"), "White", "");
+	DrawButton(1025, 500, 200, 60, TranslationGetLanguageName(TranslationLanguage), "White");
+	DrawImage(`Icons/Languages/${TranslationLanguage}.png`, 1027, 502);
 	DrawText(TextGet("CreateNewCharacter"), 1000, 670, "White", "Black");
-	DrawButton(825, 740, 350, 60, TextGet("NewCharacter"), CanLogin ? "White" : "Grey", "");
-	DrawButton(825, 870, 350, 60, TextGet(CheatAllow ? "Cheats" : "PasswordReset"), CheatAllow || CanLogin ? "White" : "Grey", "");
+	DrawButton(825, 710, 350, 60, TextGet("NewCharacter"), CanLogin ? "White" : "Grey", "");
+	if (CheatAllow) DrawButton(825, 800, 350, 60, TextGet("Cheats"), "White", "");
+	DrawButton(825, 890, 350, 60, TextGet("PasswordReset"), CanLogin ? "White" : "Grey", "");
 
 	// Draw the character and thank you bubble
 	DrawCharacter(LoginCharacter, 1400, 100, 0.9);
@@ -839,21 +841,21 @@ function LoginResponse(C) {
 function LoginClick() {
 
 	// Opens the cheat panel
-	if (CheatAllow && MouseIn(825, 870, 350, 60)) {
+	if (CheatAllow && MouseIn(825, 800, 350, 60)) {
 		ElementRemove("InputName");
 		ElementRemove("InputPassword");
 		CommonSetScreen("Character", "Cheat");
 	}
 
 	// Opens the password reset screen
-	if (!CheatAllow && ServerIsConnected && MouseIn(825, 870, 350, 60)) {
+	if (ServerIsConnected && MouseIn(825, 890, 350, 60)) {
 		ElementRemove("InputName");
 		ElementRemove("InputPassword");
 		CommonSetScreen("Character", "PasswordReset");
 	}
 
 	// If we must create a new character
-	if (ServerIsConnected && MouseIn(825, 740, 350, 60)) {
+	if (ServerIsConnected && MouseIn(825, 710, 350, 60)) {
 		ElementRemove("InputName");
 		ElementRemove("InputPassword");
 		CommonSetScreen("Character", "Disclaimer");

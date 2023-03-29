@@ -1,0 +1,9 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,!BoltUndone,(Prozkoumej konstrukci.)ADD_MINUTES:1,Tenhle „kůň“ se používá k bičování ze všech stran.|Na zadní straně je starý rezavý šroub.,0,0,0,AllowBolt()
+0,0,0,BoltUndone,(Prozkoumej konstrukci.)ADD_MINUTES:1,"Tenhle „kůň“ se používá k bičování ze všech stran.|Když jsi odstranila šroub, odpadl z něj kus plechu.",0,0,0,
+0,0,0,BoltSeen,(Odstraň šroub.)ADD_MINUTES:1,Starý šroub nejde holýma rukama pořádně uchopit.|Budeš potřebovat něco k lepšímu úchytu.,0,0,0,
+0,0,0,MetalAvail,(Zvedni kus plechu.),Zvedla jsi kus plechu.,0,0,0,TakeMetal()
+0,0,0,,(Nasedni na koně.)ADD_MINUTES:1,Sedáš si obkročmo na koně.|Horní hrana se ti nemilosrdně zarývá do rozkroku.,10,0,0,
+10,0,0,,(Zkus se dráždit.)ADD_MINUTES:1,Zkoušíš se třít o horní hranu koně|a je to i do jisté míry příjemné.,10,0,0,
+10,0,0,,(Sesedni.)ADD_MINUTES:1,Sesedáš a poodstupuješ od konstrukce.,0,0,0,
+,,,,,

@@ -109,6 +109,7 @@ Ready,0,I've changed my mind.,I'm sorry to hear that.  Come another time then.,,
 Start,End,(Go to Pandora's Box.),,StartMission(),
 End,,,Welcome back comrade.  Is your mission complete?,,
 End,Success,The mission was a success.,Congratulation comrade DialogPlayerName!  (She salutes you.)  The Bondage Club is proud of you.,CompleteMission(),CanSuccess()
+End,Success,I've trashed the place.,Congratulation comrade DialogPlayerName!  I'll remember not to hire you when I renovate my place.,CompleteMission(),ReverseMaidCanComplete()
 End,,I'm going back right now.,,ReturnMission(),CanGoBack()
 End,,I'd like another disguise.,(You pick new random clothes to blend better into Pandora's Box.)  A true chameleon!,RandomClothes(),CanGoBack()
 End,0,"Sorry, I've failed.","Don't be ashamed, I'm sure you've tried your best.  We'll send someone else.  You can pick another mission if you want.","DialogChangeReputation(""Dominant"", -1)",CanFail()

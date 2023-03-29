@@ -1,0 +1,4 @@
+Stage,LoveReq,SubReq,VarReq,IntroText,Image
+0,0,0,,V místnosti stojí pranýř.,Pillory.jpg
+10,0,0,,Chceš do něj zkusit prostrčit hlavu?,PilloryHead.jpg
+20,0,0,,,PilloryLocked.jpg

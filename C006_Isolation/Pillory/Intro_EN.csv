@@ -1,4 +1,4 @@
 Stage,LoveReq,SubReq,VarReq,IntroText,Image
-0,0,0,,A pillory is stranding in the room.,Pillory.jpg
+0,0,0,,A pillory is standing in the room.,Pillory.jpg
 10,0,0,,Do you want to try to squeeze your head in?,PilloryHead.jpg
 20,0,0,,,PilloryLocked.jpg
