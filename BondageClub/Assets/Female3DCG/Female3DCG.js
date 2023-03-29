@@ -5325,6 +5325,10 @@ var AssetFemale3DCG = [
 				AllowActivity: ["SpankItem"], Bonus: "KidnapBruteForce",
 			},
 			{
+				Name: "ForSaleSign", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+			},
+			{
 				Name: "RainbowWand", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 				ActivityExpression: { "SpankItem": [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }] }

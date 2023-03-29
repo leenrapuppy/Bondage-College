@@ -207,6 +207,7 @@ let LoginInventoryFixups = [
 	{ Old: { Group: "ItemHands", Name: "SpankingToysSword" }, New: { Group: "ItemHandheld", Name: "Sword"} },
 	{ Old: { Group: "ItemHands", Name: "SpankingToysTapeRoll" }, New: { Group: "ItemHandheld", Name: "TapeRoll"} },
 	{ Old: { Group: "ItemHands", Name: "SpankingToysTennisRacket" }, New: { Group: "ItemHandheld", Name: "TennisRacket"} },
+	{ Old: { Group: "ItemHands", Name: "SpankingToysForSaleSign" }, New: { Group: "ItemHandheld", Name: "ForSaleSign"} },
 	{ Old: { Group: "ItemHands", Name: "SpankingToysToothbrush" }, New: { Group: "ItemHandheld", Name: "Toothbrush"} },
 	{ Old: { Group: "ItemHands", Name: "SpankingToysTowel" }, New: { Group: "ItemHandheld", Name: "Towel"} },
 	{ Old: { Group: "ItemHands", Name: "SpankingToysVibeRemote" }, New: { Group: "ItemHandheld", Name: "VibeRemote"} },

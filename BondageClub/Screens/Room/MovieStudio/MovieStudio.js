@@ -152,7 +152,7 @@ function MovieStudioProcessDecay() {
  */
 function MovieStudioLoad() {
 	let Day = Math.floor(CurrentTime / (24 * 60 * 60 * 1000));
-	MovieStudioDailyMovie = (Day % 2 == 1) ? "Interview" : "OpenHouse";
+	MovieStudioDailyMovie = (Day % 2 == 2) ? "Interview" : "OpenHouse"; // Change to == 0 on release
 	if (MovieStudioOriginalClothes == null) MovieStudioOriginalClothes = Player.Appearance.slice(0);
 	if (MovieStudioDirector == null) {
 		MovieStudioDirector = CharacterLoadNPC("NPC_MovieStudio_Director");
@@ -283,12 +283,6 @@ function MovieStudioChange(Cloth, C) {
 		CharacterNaked(C);
 		CharacterAppearanceFullRandom(C, true);
 	}
-	if (Cloth == "HouseVendor") {
-		CharacterNaked(C);
-		InventoryWear(C, "TeacherOutfit1", "Cloth", "#B36868");
-		InventoryWear(C, "Socks5", "Socks", "#C07070");
-		InventoryWear(C, "Shoes2", "Shoes", "#C07070");
-	}
 	InventoryRemove(C, "ItemMouth");
 	InventoryRemove(C, "ItemHead");
 	InventoryRemove(C, "ItemArms");
@@ -297,6 +291,13 @@ function MovieStudioChange(Cloth, C) {
 	InventoryRemove(C, "ItemLegs");
 	InventoryRemove(C, "ItemFeet");
 	InventoryRemove(C, "ItemBoots");
+	if (Cloth == "HouseVendor") {
+		CharacterNaked(C);
+		InventoryWear(C, "TeacherOutfit1", "Cloth", "#B36868");
+		InventoryWear(C, "Socks5", "Socks", "#C07070");
+		InventoryWear(C, "Shoes2", "Shoes", "#C07070");
+		InventoryWear(C, "ForSaleSign", "ItemHandheld");
+	}
 }
 
 /**
@@ -559,9 +560,7 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(Player, "Eyes2", "Lewd", 10);
 	}
 	if (Activity == "InterviewMistressPunishPlayer") {
-		let PunishmentList = Player.IsVulvaChaste() ? ["ClubSlave", "Bondage"] : ["ClubSlave", "Bondage", "Chastity"];
-		let Punishment = CommonRandomItemFromList("", PunishmentList);
-		Punishment = "ClubSlave"; // TO REMOVE
+		let Punishment = "ClubSlave";
 		MovieStudioActor2.Stage = "Punishment" + Punishment;
 		MovieStudioActor2.CurrentDialog = DialogFind(MovieStudioActor2, "PunishmentIntro" + Punishment);
 	}
@@ -814,28 +813,28 @@ function MovieStudioDoActivity(Activity) {
 	}
 	if ((Activity == "OpenHouseShoveActor1") || (Activity == "OpenHouseShoveTie") || (Activity == "OpenHouseStealKiss") || (Activity == "OpenHouseStripActor1") || (Activity == "OpenHouseStripBoth")) {
 		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 8);
-		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 8);
-		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 5);
 	}
 	if ((Activity == "OpenHouseShovePlayer") || (Activity == "OpenHouseShoveTie") || (Activity == "OpenHouseStealKiss") || (Activity == "OpenHouseStripPlayer") || (Activity == "OpenHouseStripBoth")) {
 		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
-		CharacterSetFacialExpression(Player, "Eyes", "Closed", 8);
-		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 5);
 	}
 	if ((Activity == "OpenHouseStripPlayer") || (Activity == "OpenHouseStripBoth")) CharacterNaked(Player);
-	if ((Activity == "OpenHouseStripActor1") || (Activity == "OpenHouseStripBoth")) CharacterNaked(MovieStudioActor1);
+	if ((Activity == "OpenHouseStripActor1") || (Activity == "OpenHouseStripBoth")) { CharacterNaked(MovieStudioActor1); InventoryRemove(MovieStudioActor1, "ItemHandheld"); }
 	if (Activity == "OpenHouseWrestlePlayer") {
 		CharacterNaked(Player);
 		CharacterSetFacialExpression(Player, "Blush", "High", 8);
-		CharacterSetFacialExpression(Player, "Eyes", "Closed", 8);
-		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 5);
 		CharacterSetActivePose(Player, "Kneel", true);
 	}
 	if (Activity == "OpenHouseWrestleActor1") {
 		CharacterNaked(MovieStudioActor1);
 		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "High", 8);
-		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 8);
-		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 5);
 		CharacterSetActivePose(MovieStudioActor1, "Kneel", true);
 	}
 	if (Activity == "OpenHouseWearVendorClothes") {
@@ -878,12 +877,71 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Angry", 8);
 		MovieStudioAlterParameter("Actor1", "Affection", "-1");
 	}
-	if (Activity == "OpenHouseSlapActor1") {
+	if (Activity == "OpenHousePaddleActor1") {
 		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "High", 8);
-		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 8);
-		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Surprised", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Surprised", 8);
 		MovieStudioAlterParameter("Actor1", "Affection", "-1");
 	}
+	if (Activity == "OpenHouseSlapActor1") {
+		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "High", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 5);
+		MovieStudioAlterParameter("Actor1", "Affection", "-1");
+	}
+	if (Activity == "OpenHouseWearDogCollar") {
+		CharacterSetFacialExpression(Player, "Blush", "Low", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Sad", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Sad", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Mouth", "Smirk", 8);
+		InventoryWear(Player, "LeatherCollar", "ItemNeck");
+	}
+	if (Activity == "OpenHouseWearDogLeash") {
+		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Sad", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Sad", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Mouth", "Smirk", 8);
+		InventoryWear(Player, "ChainLeash", "ItemNeckRestraints");
+	}
+	if (Activity == "OpenHouseWearDogCrawler") {
+		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Angry", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Angry", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Mouth", "Smirk", 8);
+		InventoryWear(Player, "PetCrawler", "ItemArms");
+	}
+	if (Activity == "OpenHouseWearDogMuzzle") {
+		CharacterSetFacialExpression(Player, "Blush", "High", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Angry", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Angry", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Mouth", "Smirk", 8);
+		InventoryWear(Player, "MuzzleGag", "ItemMouth");
+	}	
+	if (Activity == "OpenHouseDogMasturbate") {
+		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Lewd", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Lewd", 8);
+		if (MovieStudioActor1.MasturbateCount == null) MovieStudioActor1.MasturbateCount = 0;
+		MovieStudioActor1.MasturbateCount++;
+		if (MovieStudioActor1.MasturbateCount <= 2) MovieStudioAlterParameter("Actor1", "Affection", "1");
+		if (MovieStudioActor1.MasturbateCount == 3) {
+			MovieStudioActor1.Stage = "410";
+			MovieStudioActor1.CurrentDialog = DialogFind(MovieStudioActor1, "OrgasmPuppyAct1");
+			MovieStudioChangeMeter(25);
+		}
+	}
+	if ((Activity == "OpenHouseDogGrumble") || (Activity == "OpenHouseDogPresentButt") || (Activity == "OpenHouseDogWalk")) {
+		CharacterSetFacialExpression(Player, "Blush", "High", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Angry", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Angry", 8);
+	}
+	if ((Activity == "OpenHouseDogSniff") || (Activity == "OpenHouseDogRoll") || (Activity == "OpenHouseDogWhimper") || (Activity == "OpenHouseDogStand")) {
+		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Sad", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Sad", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Mouth", "Smirk", 8);
+	}
+	if (Activity == "OpenHouseReWearVendorClothes") MovieStudioChange("HouseVendor", MovieStudioActor1);
 
 	// Check for decay
 	MovieStudioProcessDecay();
@@ -987,6 +1045,7 @@ function MovieStudioCanDoActivity(Activity) {
 	if (Activity == "InterviewMaidReleaseJournalist") return (!MovieStudioActor2.CanInteract());
 	if (Activity == "InterviewMaidReturnFavor") return (MovieStudioActor2.OweFavor);
 	if (Activity == "OpenHouseWearVendorClothes") return (!MovieStudioActor1.ClothesTaken);
+	if (Activity == "OpenHouseWearDogCollar") return (InventoryGet(Player, "ItemNeck") == null);
 	return false;
 }
 
