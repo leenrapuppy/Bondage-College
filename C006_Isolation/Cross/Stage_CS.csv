@@ -1,0 +1,12 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,K tomuto dřevěnému kříži je připevněno čtvero pout.|Kdokoliv na tomto kříži bude velmi zranitelný.,0,0,0,
+0,0,0,,(Připoutej si zápěstí.),"Zkoušíš dosáhnout na horní pouta, abys tam|dala zápěstí, ale ve svém stavu na ně nedosáhneš.",0,0,0,
+0,0,0,,(Připoutej si kotník.),Nejspíš si svůj kotník dokážeš zamknout.|Opravdu to chceš udělat?,10,0,0,
+10,0,0,,(Připoutej si kotník.)ADD_MINUTES:1,"Opřela ses zády o kříž a hraješ si s pouty,|dokud na tobě nezaklaply.",20,0,0,Trap()
+10,0,0,,(Nedělej to.),Poodstoupila jsi zpátky od zařízení.,0,0,0,
+20,0,0,,(Zatahej za pouta.)ADD_MINUTES:1,"Taháš za pouta, ale jsou pevně přichycena ke kříži.",20,0,0,
+20,0,0,,(Pokus se vysmeknout.)ADD_MINUTES:1,"Snažíš se vysmeknout kotník z pout,|ale tvá noha je v nich pevně uvězněna.",20,0,0,
+20,0,0,,(Připoutej si|i druhý kotník.)ADD_MINUTES:1,Pohráváš si nohou s druhými pouty dokud|taky nezaklapnou. Drží tě doširoka roztaženou.,30,0,0,
+30,0,0,,(Zatahej za pouta.)ADD_MINUTES:1,"Taháš za pouta, ale jsou pevně přichycena ke kříži.",30,0,0,
+30,0,0,,(Pokus se vysmeknout.)ADD_MINUTES:1,Snažíš se vysmeknout některý z kotníků z pout|ale tvé nohy jsou pevně uvězněny.,30,0,0,
+30,0,0,,@UUUMNNC!,"Není tady nikdo, kdo by tě slyšel.",30,0,0,

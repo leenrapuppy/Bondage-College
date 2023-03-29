@@ -1,0 +1,6 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Vyraž dveře.)ADD_MINUTES:1,"Zkoušíš dveře vyrazit, ale ve svém|aktuálním stavu nemáš nejmenší šanci.",0,0,0,
+0,0,0,,(Prohlédni si zámek.)ADD_MINUTES:1,Zámek je pěkně starý a poměrně jednoduchý.|Na otevření je třeba velký kulatý klíč.,0,0,0,
+0,0,0,,@UUUUMMP!,Nikdo tě neslyší.,0,0,0,
+10,0,0,,(Zkus vypáčit zámek.),,0,0,0,PickLock()
+10,0,0,,(Vyraž dveře.)ADD_MINUTES:1,"Zkoušíš dveře vyrazit, ale ve svém|aktuálním stavu nemáš nejmenší šanci.",10,0,0,

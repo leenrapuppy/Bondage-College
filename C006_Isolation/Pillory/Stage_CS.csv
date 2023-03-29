@@ -1,0 +1,10 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,,(Prozkoumej ho.)ADD_MINUTES:1,"Tenhle dřevěný pranýř je jistě mnoho desítek let starý.|Je pootevřený, takže tam možná zvládneš strčit hlavu.",0,0,0,
+0,0,0,,(Rozevři ho.)ADD_MINUTES:1,"Zkoušíš kládu chytit, ale s takhle|svázanými pažemi ji nedokážeš rozevřít.",0,0,0,
+0,0,0,,(Prostrč hlavu dovnitř.),"Možná se ti podaří hlavu prostrčit dovnitř.|Jsi si ale jista, že to opravdu chceš?",10,0,0,
+10,0,0,,(Prostrč hlavu dovnitř.)ADD_MINUTES:1,Po chvíli námahy se ti konečně daří|prostrčit hlavu největším otvorem v pranýři.,20,0,0,Trap()
+10,0,0,,(Nedělej to.),Poodstupuješ od zařízení.,0,0,0,
+20,0,0,,(Otevři kládu.)ADD_MINUTES:1,"Zkoušíš uchopit kládu a otevřít ji,|ale svýma svázanýma rukama na ni nedosáhneš.",20,0,0,
+20,0,0,,(Pokus se vysmeknout.)ADD_MINUTES:1,"Zkoušíš se vysmeknout ven,|ale nedaří se ti protáhnout otvorem bradu.",20,0,0,
+20,0,0,,(Kopni do rámu.)ADD_MINUTES:1,"Vztekle kopeš do rámu pranýře,|ale jediné, čeho dosáhneš, je bolavá noha.",20,0,0,
+20,0,0,,@UUUMNNC!,"Není tady nikdo, kdo by tě slyšel.",20,0,0,

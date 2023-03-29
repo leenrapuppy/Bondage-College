@@ -1,0 +1,5 @@
+Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
+0,0,0,RopeAvail,(Zvedni provaz.),Zvedla jsi ze země provaz.,0,0,0,TakeRope()
+0,0,0,CollarAvail,(Zvedni obojek.),Zvedla jsi ze země obojek.,0,0,0,TakeCollar()
+0,0,0,,(Zvedni řetěz.),"Zvedla jsi ze země konec řetězu,|ale druhý konec je pevně připevněn k podlaze.",0,0,0,
+0,0,0,HookAvail,(Zvedni háček.),Zvedla jsi starý kovový háček.,0,0,0,TakeHook()
