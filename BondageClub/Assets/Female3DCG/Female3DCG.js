@@ -7208,6 +7208,18 @@ var AssetFemale3DCG = [
 				RemoveTime: 5, DefaultColor: "#B42340", Block: [], IsRestraint: true, Effect: [], Prerequisite: ["BlockedMouth"],
 				DynamicGroupName: "ItemMouth3",
 			},
+			{
+				Name: "PaddedFaceMask", Value: 20, Extended: true, Time: 2, Left: 188, Top: 141, DefaultColor: ["#EEEEEE","#222222","#FF59B5"], Hide: ["ItemMouth","ItemMouth2"], Effect: ["BlockMouth"],
+				Layer:[
+					{Name: "TrimThin", HasType: false, AllowModuleTypes: ["t0"]},
+					{Name: "TrimThick", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "TrimThin"},
+					{Name: "BaseThin", HasType: false, AllowModuleTypes: ["t0"]},
+					{Name: "BaseThick", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "BaseThin"},
+					{Name: "Heart", HasType: false, AllowModuleTypes: ["p2"]},
+					{Name: "Lips", HasType: false, AllowModuleTypes: ["p1"], CopyLayerColor: "Heart"},
+				],
+				DynamicGroupName: "ItemMouth3",
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -7939,7 +7951,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, Hide: ["HairFront", "HairBack", "Ears"], DefaultColor: ["#777777","#BDBDBD","#1A1A1A"],
+				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"], DefaultColor: ["#777777","#BDBDBD","#1A1A1A"],
 				Layer: [
 					{Name: "Base", HasType: false, Alpha: [{ Masks: [[0, 160, 400, 200]], Group: ["Head"] }],},
 					{Name: "Metal", HasType: false},

@@ -4108,6 +4108,13 @@ var AssetFemale3DCGExtended = {
 							{Property: {Effect: ["BlockMouth","GagVeryHeavy"]}},
 						]
 					},
+					{
+						Name: "Hair", Key: "h",
+						Options: [
+							{Property: {Hide: ["HairBack"]}},
+							{Property: {Hide: []}},
+						]
+					},
 				]
 			}
 		},
@@ -7362,6 +7369,29 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, //LatexRespirator
+		PaddedFaceMask:{
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "Thickness", Key: "t",
+						Options:[
+							{
+								Property: {Effect: ["BlockMouth"]}
+							},
+							{
+								Property: {Effect: ["BlockMouth", "GagLight"]}
+							},
+						]
+					},
+					{
+						Name: "Pattern", Key: "p",
+						Options:[{},{},{}] //None, Lips, Heart
+					},
+				]
+			}
+		}, //PaddedFaceMask
 	}, // ItemMouth3
 	Mask: {
 		BunnyMask1: {
