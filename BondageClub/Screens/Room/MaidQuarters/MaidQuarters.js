@@ -260,9 +260,10 @@ function MaidQuartersRun() {
 	MaidQuartersIsHeadMaid = LogQuery("LeadSorority", "Maid");
 	if (!DailyJobSubSearchIsActive()) DrawCharacter(Player, 500, 0, 1);
 	if (!DailyJobSubSearchIsActive()) DrawCharacter(MaidQuartersMaid, 1000, 0, 1);
-	if (Player.CanWalk()) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
-	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png");
-	if (Player.CanChangeOwnClothes()) DrawButton(1885, 270, 90, 90, "", "White", "Icons/Dress.png");
+	if (Player.CanWalk()) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
+	if (Player.CanChangeOwnClothes()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Dress.png", TextGet("Change"));
+	if (Player.CanChangeOwnClothes()) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Wardrobe.png", TextGet("Dress"));
 	DailyJobSubSearchRun();
 }
 
@@ -291,7 +292,19 @@ function MaidQuartersClick() {
 	}
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 25) && (MouseY < 115) && Player.CanWalk()) CommonSetScreen("Room", "MainHall");
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235)) InformationSheetLoadCharacter(Player);
-	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 270) && (MouseY < 360) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
+	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 265) && (MouseY < 355) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
+	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && Player.CanChangeOwnClothes()) {
+		if (!MaidQuartersPlayerInMaidUniform()) {
+			MaidQuartersWearMaidUniform();
+		} else {
+			switch (CharacterAppearanceGetCurrentValue(Player, "Cloth", "Name")){
+				case "MaidOutfit1": InventoryWear(Player,"MaidOutfit2","Cloth"); break;
+				case "MaidOutfit2": InventoryWear(Player,"MaidApron1","Cloth"); break;
+				case "MaidApron1": InventoryWear(Player,"MaidApron2","Cloth"); break;
+				case "MaidApron2": InventoryWear(Player,"MaidOutfit1","Cloth"); break;
+			}
+		}
+	}
 	DailyJobSubSearchClick();
 }
 
