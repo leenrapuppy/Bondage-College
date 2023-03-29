@@ -263,7 +263,7 @@ function MaidQuartersRun() {
 	if (Player.CanWalk()) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
 	if (Player.CanChangeOwnClothes()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Dress.png", TextGet("Change"));
-	if (Player.CanChangeOwnClothes()) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Wardrobe.png", TextGet("Dress"));
+	if (Player.CanChangeOwnClothes() && LogQuery("JoinedSorority", "Maid")) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Wardrobe.png", TextGet("Dress"));
 	DailyJobSubSearchRun();
 }
 
@@ -293,7 +293,7 @@ function MaidQuartersClick() {
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 25) && (MouseY < 115) && Player.CanWalk()) CommonSetScreen("Room", "MainHall");
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235)) InformationSheetLoadCharacter(Player);
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 265) && (MouseY < 355) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
-	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && Player.CanChangeOwnClothes()) {
+	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && Player.CanChangeOwnClothes() && LogQuery("JoinedSorority", "Maid")) {
 		if (!MaidQuartersPlayerInMaidUniform()) {
 			MaidQuartersWearMaidUniform();
 		} else {
@@ -491,7 +491,6 @@ function MaidQuartersBecomMaid() {
 	LogAdd("JoinedSorority", "Maid");
 	LoginMaidItems();
 	ServerPlayerInventorySync();
-
 	InventoryWear(Player, "MaidOutfit1", "Cloth", "Default");
 	InventoryWear(Player, "MaidHairband1", "Hat", "Default");
 	ReputationProgress("Dominant", MaidQuartersDominantRep);
