@@ -32,6 +32,7 @@ const NEEDED_FILES = [
 	"Screens/Inventory/ItemArms/PrisonLockdownSuit/PrisonLockdownSuit.js",
 	"Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js",
 	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
+	"Screens/Inventory/ItemButt/AnalBeads2/AnalBeads2.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js",
 	"Scripts/Translation.js",

@@ -200,7 +200,8 @@ function TypedItemCreatePublishFunction(typedItemData) {
 	const { options, functionPrefix, dialogPrefix, chatSetting } = typedItemData;
 	if (chatSetting === TypedItemChatSetting.SILENT) return;
 	const publishFunctionName = `${functionPrefix}PublishAction`;
-	window[publishFunctionName] = function (C, newOption, previousOption) {
+	/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
+	window[publishFunctionName] = function (C, item, newOption, previousOption) {
 		/** @type ExtendedItemChatData<ExtendedItemOption> */
 		const chatData = {
 			C,
@@ -231,8 +232,9 @@ function TypedItemCreatePublishFunction(typedItemData) {
 function TypedItemCreatePublishActionFunction({ scriptHooks, functionPrefix }) {
 	const publishFunctionName = `${functionPrefix}PublishAction`;
 	if (scriptHooks && scriptHooks.publishAction) {
-		window[publishFunctionName] = function (C, CurrentOption, PreviousOption) {
-			scriptHooks.publishAction(C, CurrentOption, PreviousOption);
+		/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
+		window[publishFunctionName] = function (C, item, newOption, previousOption) {
+			scriptHooks.publishAction(C, item, newOption, previousOption);
 		};
 	}
 }

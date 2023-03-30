@@ -357,47 +357,42 @@ function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
  * @param {VibratingItemData} data
  * @returns {void}
  */
-function VibratorModeCreatePublishFunction({ asset, functionPrefix }) {
+function VibratorModeCreatePublishFunction(data) {
 	/** @type {ExtendedItemPublishActionCallback<VibratingItemOption>} */
-	window[`${functionPrefix}PublishAction`] = (...args) => VibratorModePublishAction(...args, asset);
+	window[`${data.functionPrefix}PublishAction`] = (...args) => VibratorModePublishAction(data, ...args);
 }
 
 /**
  * Publish a vibrator action and exit the dialog of applicable
+ * @param {VibratingItemData} data
  * @param {Character} C - The character wearing the item
+ * @param {Item} item - The item in question
  * @param {VibratingItemOption} newOption - The newly selected option
  * @param {VibratingItemOption} previousOption - The currently selected option
- * @param {Asset} asset - The asset in question
  */
-function VibratorModePublishAction(C, newOption, previousOption, asset) {
-	const oldIntensity = previousOption.Property.Intensity;
-	const dictionary = new DictionaryBuilder()
-		.sourceCharacter(Player)
-		.destinationCharacterName(C)
-		.asset(asset)
-		.build();
+function VibratorModePublishAction(data, C, item, newOption, previousOption) {
+	const [newProperty, prevProperty, chatPrefix] = [newOption.Property, previousOption.Property, data.dialogPrefix.chat];
+	const chatData = {
+		C,
+		previousOption,
+		newOption,
+		previousIndex: data.options.indexOf(previousOption),
+		newIndex: data.options.indexOf(newOption),
+	};
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
 
-	/** @type {string} */
-	let message;
-	if (
-		newOption.Property.Intensity !== previousOption.Property.Intensity
-		&& !VibratorModesAdvanced.includes(newOption.Name)
-		&& (!VibratorModesAdvanced.includes(previousOption.Name) || newOption.Name === VibratorModeOff.Name)
-	) {
-		const direction = newOption.Property.Intensity > oldIntensity ? "Increase" : "Decrease";
-		message = `Vibe${direction}To${newOption.Property.Intensity}`;
-	} else if (VibratorModesAdvanced.includes(newOption.Name)) {
-		message = `VibeMode${newOption.Name}`;
-	} else {
-		message = "VibeModeChange";
+	const newIsAdvanced = VibratorModesAdvanced.includes(newOption.Name);
+	const prevIsAdvanced = VibratorModesAdvanced.includes(previousOption.Name);
+	let message = (typeof chatPrefix === "function") ? chatPrefix(chatData) : chatPrefix;
+	if (!newIsAdvanced && !prevIsAdvanced) { // standard -> standard
+		const direction = newProperty.Intensity > prevProperty.Intensity ? "Increase" : "Decrease";
+		message += `${direction}To${newProperty.Intensity}`;
+	} else if (newIsAdvanced) { // standard/advanced -> advanced
+		message += newOption.Name;
+	} else { // advanced -> standard
+		message += `IncreaseTo${newProperty.Intensity}`;
 	}
-
-	const showText = (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.ShowText);
-	if (showText === true || showText === undefined) {
-		ChatRoomPublishCustomAction(message, false, dictionary);
-	} else {
-		ChatRoomMessage({ Content: message, Type: "Action", Sender: Player.MemberNumber, Dictionary: dictionary });
-	}
+	ChatRoomPublishCustomAction(message, false, dictionary);
 }
 
 /**
@@ -778,7 +773,8 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 		.build();
 
 	if (CurrentScreen == "ChatRoom") {
-		ServerSend("ChatRoomChat", { Content: "Vibe" + Direction + "To" + Intensity, Type: "Action", Dictionary });
+		// TODO: Use `VibratingItemData.dialogPrefix.chat` rather than hard-coding "VibeMode"
+		ServerSend("ChatRoomChat", { Content: `VibeMode${Direction}To${Intensity}`, Type: "Action", Dictionary });
 		CharacterLoadEffect(C);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 		ActivityChatRoomArousalSync(C);

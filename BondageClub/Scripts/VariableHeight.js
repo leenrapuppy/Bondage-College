@@ -150,30 +150,37 @@ function VariableHeightCreateDrawFunction({ functionPrefix, slider, dialogPrefix
  * @param {VariableHeightData} data - The variable height data for the asset
  * @returns {void} - Nothing
  */
-function VariableHeightCreateClickFunction({ parentOptions, functionPrefix, dialogPrefix, asset, chatTags, getHeight }) {
-	const clickFunctionName = `${functionPrefix}Click`;
+function VariableHeightCreateClickFunction(data) {
+	const clickFunctionName = `${data.functionPrefix}Click`;
 	window[clickFunctionName] = function () {
 		// Exit the screen
 		if (MouseIn(1885, 25, 90, 90)) {
 			VariableHeightExit();
-			if (!parentOptions) {
+			if (!data.parentOptions) {
 				DialogFocusItem = null;
 			}
 		}
 
 		// Confirm button
 		if (MouseIn(1350, 700, 300, 64)) {
+			const C = CharacterGetCurrent();
 			if (VariableHeightPreviousProperty) {
 				VariableHeightPreviousProperty.Revert = false;
 			}
-			if (parentOptions) {
-				let option = Object.assign({}, parentOptions.find(o => o.Property.Type == DialogFocusItem.Property.Type));
+			if (data.parentOptions) {
+				let option = Object.assign({}, data.parentOptions.find(o => o.Property.Type == DialogFocusItem.Property.Type));
 				option.Property = DialogFocusItem.Property;
-				const C = CharacterGetCurrent();
-				ExtendedItemSetType(C, parentOptions, option);
+				ExtendedItemSetType(C, data.parentOptions, option);
 			} else {
 				if (CurrentScreen == "ChatRoom") {
-					VariableHeightPublish(dialogPrefix, asset, chatTags, getHeight);
+					/** @type {Parameters<ExtendedItemPublishActionCallback<ExtendedItemOption>>} */
+					const args = [
+						C,
+						DialogFocusItem,
+						{ OptionType: "ExtendedItemOption", Name: "newOption", Property: DialogFocusItem.Property },
+						{ OptionType: "ExtendedItemOption", Name: "previousOption", Property: VariableHeightPreviousProperty },
+					];
+					CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 				}
 			}
 		}
@@ -195,11 +202,10 @@ function VariableHeightCreateExitFunction({ functionPrefix }) {
  * @param {VariableHeightData} data - The variable height data for the asset
  * @returns {void} - Nothing
  */
-function VariableHeightCreatePublishFunction({ functionPrefix, dialogPrefix, asset, chatTags, getHeight }) {
-	const loadFunctionName = `${functionPrefix}PublishAction`;
-	window[loadFunctionName] = function () {
-		VariableHeightPublish(dialogPrefix, asset, chatTags, getHeight);
-	};
+function VariableHeightCreatePublishFunction(data) {
+	const functionName = `${data.functionPrefix}PublishAction`;
+	/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
+	window[functionName] = (...args) => VariableHeightPublishAction(data, ...args);
 }
 
 /**
@@ -255,24 +261,29 @@ function VariableHeightExit() {
 
 /**
  * Publishes a custom action to the chat for the height change
- * @param {VariableHeightData["dialogPrefix"]} dialog - The keywords for the dialog entries to look up
- * @param {Asset} asset - The asset for the variable height item
- * @param {readonly CommonChatTags[]} chatTags - The tags to map to a dictionary entry
- * @param {Function} getHeight - Function to find the current setting from a property
- * @returns {void} - Nothing
+ * @param {VariableHeightData} data
+ * @param {Character} C
+ * @param {Item} item
+ * @param {ExtendedItemOption} newOption
+ * @param {ExtendedItemOption} previousOption
  */
-function VariableHeightPublish(dialog, asset, chatTags, getHeight) {
-	const newHeight = getHeight(DialogFocusItem.Property);
-	const prevHeight = getHeight(VariableHeightPreviousProperty);
-	const msgType = prevHeight !== null && VariableHeightPreviousProperty.Type == DialogFocusItem.Property.Type
+function VariableHeightPublishAction(data, C, item, newOption, previousOption) {
+	const chatData = {
+		C,
+		previousOption,
+		newOption,
+		previousIndex: -1,
+		newIndex: -1,
+	};
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
+
+	const newHeight = data.getHeight(newOption.Property);
+	const prevHeight = data.getHeight(previousOption.Property);
+	const msgType = prevHeight !== null && previousOption.Property.Type == newOption.Property.Type
 		? prevHeight < newHeight ? "Raise" : "Lower"
 		: "";
-
-	const C = CharacterGetCurrent();
-	const msg = dialog.chat + msgType;
-	const dictionary = chatTags
-		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag))
-		.filter(Boolean);
+	let msg = (typeof data.dialogPrefix.chat === "function") ? data.dialogPrefix.chat(chatData) : data.dialogPrefix.chat;
+	msg += msgType;
 	ChatRoomPublishCustomAction(msg, true, dictionary);
 }
 

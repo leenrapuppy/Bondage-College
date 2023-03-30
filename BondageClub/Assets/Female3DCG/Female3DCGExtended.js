@@ -2650,7 +2650,7 @@ var AssetFemale3DCGExtended = {
 				ScriptHooks: {
 					Draw: InventoryItemNeckAccessoriesCollarNameTagDraw,
 					Click: InventoryItemNeckAccessoriesCollarNameTagClick,
-					PublishAction: InventoryItemNeckAccessoriesCollarNameTagPublishAction,
+					PublishAction: InventoryItemNeckAccessoriesCollarNameTagPublishActionHook,
 				},
 				DrawImages: false,
 				ChangeWhenLocked: false,
@@ -5682,6 +5682,11 @@ var AssetFemale3DCGExtended = {
 		AnalBeads2: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
 				Options: [
 					{ Name: "_1in", Property: { Type: null, InsertedBeads: 1 } },
 					{ Name: "_2in", Property: { Type: "_2in", InsertedBeads: 2 } },
@@ -5691,6 +5696,9 @@ var AssetFemale3DCGExtended = {
 				],
 				DrawImages: false,
 				ChatSetting: TypedItemChatSetting.SILENT,
+				ScriptHooks: {
+					PublishAction: InventoryItemButtAnalBeads2PublishActionHook,
+				}
 			},
 		}, // AnalBeads2
 		InflVibeButtPlug: {

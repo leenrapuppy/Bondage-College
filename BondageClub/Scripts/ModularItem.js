@@ -719,7 +719,7 @@ function ModularItemSetType(module, index, data) {
 			ChatRoomCharacterItemUpdate(C, groupName);
 
 			if (ServerPlayerIsInChatRoom()) {
-				ModularItemChatRoomMessage(module, currentModuleValues[moduleIndex], index, data);
+				ModularItemPublishAction(data, C, DialogFocusItem, option, currentOption);
 			} else if (C.ID === 0) {
 				DialogMenuButtonBuild(C);
 			} else {
@@ -758,38 +758,32 @@ function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, da
 
 /**
  * Publishes the chatroom message for a modular item when one of its modules has changed.
- * @param {ModularItemModule} module - The module that changed
- * @param {number} previousIndex - The index of the previously selected option within the module
- * @param {number} index - The index of the newly chosen option within the module
- * @param {ModularItemData} data - The modular item's data
+ * @param {ModularItemData} data
+ * @param {Character} C
+ * @param {Item} item
+ * @param {ModularItemOption} newOption
+ * @param {ModularItemOption} previousOption
  * @returns {void} - Nothing
  */
-function ModularItemChatRoomMessage(module, previousIndex, index, { asset, chatSetting, chatTags, dialogPrefix }) {
-	const C = CharacterGetCurrent();
-	let msg = dialogPrefix.chat;
-	if (typeof msg === "function") {
-		/** @type ExtendedItemChatData<ModularItemOption> */
-		const chatData = {
-			C,
-			previousOption: module.Options[previousIndex],
-			newOption: module.Options[index],
-			previousIndex,
-			newIndex: index,
-		};
-		msg = msg(chatData);
-	}
-	switch (chatSetting) {
+function ModularItemPublishAction(data, C, item, newOption, previousOption) {
+	const chatData = {
+		C,
+		newOption,
+		previousOption,
+		newIndex: newOption.Index,
+		previousIndex: previousOption.Index,
+	};
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
+
+	let msg = (typeof data.dialogPrefix.chat === "function") ? data.dialogPrefix.chat(chatData) : data.dialogPrefix.chat;
+	switch (data.chatSetting) {
 		case ModularItemChatSetting.PER_OPTION:
-			msg += `${module.Key}${index}`;
+			msg += newOption.Name;
 			break;
 		case ModularItemChatSetting.PER_MODULE:
-			msg += module.Name;
+			msg += newOption.ModuleName;
 			break;
 	}
-
-	const dictionary = chatTags
-		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag))
-		.filter(Boolean);
 	ChatRoomPublishCustomAction(msg, false, dictionary);
 }
 

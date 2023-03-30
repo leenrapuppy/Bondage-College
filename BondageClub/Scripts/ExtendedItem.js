@@ -512,7 +512,9 @@ function ExtendedItemSetType(C, Options, Option) {
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
-			CommonCallFunctionByName(FunctionPrefix + "PublishAction", C, Option, previousOption);
+			/** @type {Parameters<ExtendedItemPublishActionCallback<T>>} */
+			const args = [C, DialogFocusItem, Option, previousOption];
+			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
 		} else {
 			ExtendedItemExit();
 			if (C.ID === 0) {

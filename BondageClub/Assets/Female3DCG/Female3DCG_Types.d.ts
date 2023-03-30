@@ -582,16 +582,17 @@ type ExtendedItemValidateScriptHookCallback<OptionType> = (
 ) => string;
 
 /**
- * @param {Character} C - The character wearing the item
- * @param {OptionType} Option - The newly selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @return {void} - Nothing
- * @template OptionType
+ * Callback for extended item `...PublishAction` script hooks.
+ * @param C - The character wearing the item
+ * @param item - The item in question
+ * @param newOption - The newly selected option
+ * @param previousOption - The currently selected option
  */
  type ExtendedItemPublishActionCallback<OptionType> = (
 	C: Character,
-	CurrentOption: OptionType,
-	PreviousOption: OptionType,
+	item: Item,
+	newOption: OptionType,
+	previousOption: OptionType,
 ) => void;
 
 /**

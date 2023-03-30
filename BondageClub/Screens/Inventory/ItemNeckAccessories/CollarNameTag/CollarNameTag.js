@@ -56,27 +56,28 @@ function InventoryItemNeckAccessoriesCollarNameTagGetXY(Count, X=1000, Y=400) {
 	return XYCoords;
 }
 
-/**
- * Custom publish action function
- * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption} Option - The currently selected item option
- * @param {ExtendedItemOption} PreviousOption - The previously selected item option
- * @return {void} - Nothing
- */
-function InventoryItemNeckAccessoriesCollarNameTagPublishAction(C, Option, PreviousOption) {
-	if (!DialogFocusItem) {
+/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
+function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(C, item, newOption, previousOption) {
+	const data = ExtendedItemGetData(item, ExtendedArchetype.TYPED);
+	if (data === null) {
 		return;
 	}
 
-	const builder = new DictionaryBuilder()
-		.sourceCharacter(Player)
-		.destinationCharacter(C);
+	/** @type {ExtendedItemChatData<ExtendedItemOption>} */
+	const chatData = {
+		C,
+		previousOption,
+		newOption,
+		previousIndex: data.options.indexOf(previousOption),
+		newIndex: data.options.indexOf(newOption),
+	};
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
+	const prefix = (typeof data.dialogPrefix.chat === "function") ? data.dialogPrefix.chat(chatData) : data.dialogPrefix.chat;
 
-	const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
-	if (Option.Name === "Blank") {
-		builder.text("NameTagType", "blank");
+	if (newOption.Name === "Blank") {
+		dictionary.push({ Tag: "NameTagType", Text: "blank" });
 	} else {
-		builder.textLookup("NameTagType", `${Prefix}${Option.Name}`);
+		dictionary.push({ Tag: "NameTagType", TextToLookUp: `${prefix}${newOption.Name}` });
 	}
-	ChatRoomPublishCustomAction(`${Prefix}Set`, true, builder.build());
+	ChatRoomPublishCustomAction(prefix, true, dictionary);
 }
