@@ -727,7 +727,8 @@ interface ModularItemConfig {
 	ChatTags?: CommonChatTags[];
 	/**
 	 * A boolean indicating whether or not the item's type can be changed while the
-	 * item is locked (if set to false, the player must be able to unlock the item to change its type). Defaults to `true`
+	 * item is locked (if set to false, the player must be able to unlock the item to change its type). Defaults to `true`.
+	 * Note that {@link ModularItemOption.ChangeWhenLocked} takes priority over this value if specified.
 	 */
 	ChangeWhenLocked?: boolean;
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
