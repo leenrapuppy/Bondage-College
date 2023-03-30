@@ -218,7 +218,7 @@ function TypedItemCreatePublishFunction(typedItemData) {
 		if (chatSetting === TypedItemChatSetting.FROM_TO) msg += `${previousOption.Name}To`;
 		msg += newOption.Name;
 
-		const dictionary = TypedItemBuildChatMessageDictionary(chatData, typedItemData);
+		const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, typedItemData);
 		ChatRoomPublishCustomAction(msg, true, dictionary);
 	};
 }
@@ -362,22 +362,6 @@ function TypedItemRegisterSubscreens(asset, config) {
 					break;
 			}
 		});
-}
-
-/**
- * Constructs the chat message dictionary for the typed item based on the items configuration data.
- * @param {ExtendedItemChatData<ExtendedItemOption>} ChatData - The chat data that triggered the message.
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {object[]} - The dictionary for the item based on its required chat tags
- */
-function TypedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictionary }) {
-	const BuiltDictionary = chatTags
-		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
-		.filter(Boolean);
-
-	dictionary.forEach(entry => BuiltDictionary.push(entry(ChatData)));
-
-	return BuiltDictionary;
 }
 
 /**

@@ -978,3 +978,20 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 		return Data;
 	}
 }
+
+/**
+ * Constructs the chat message dictionary for the extended item based on the items configuration data.
+ * @template {ExtendedItemOption | ModularItemOption | VibratingItemOption} OptionType
+ * @param {ExtendedItemChatData<OptionType>} ChatData - The chat data that triggered the message.
+ * @param {ExtendedItemData<OptionType>} data - The extended item data for the asset
+ * @returns {ChatMessageDictionary} - The dictionary for the item based on its required chat tags
+ */
+function ExtendedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictionary }) {
+	const BuiltDictionary = chatTags
+		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
+		.filter(Boolean);
+
+	dictionary.forEach(entry => BuiltDictionary.push(entry(ChatData)));
+
+	return BuiltDictionary;
+}
