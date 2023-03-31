@@ -1,28 +1,18 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryClothCheerleaderTopInit(Item, C, Refresh) {
+	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+}
+
 function InventoryClothCheerleaderTopLoad() {
-	let mustRefresh = false;
-
-	/** @type {ItemProperties} */
-	const property = (DialogFocusItem.Property = DialogFocusItem.Property || {});
-	if (typeof property.Text !== "string") {
-		property.Text = "";
-		mustRefresh = true;
-	}
-
-	if (mustRefresh) {
-		const C = CharacterGetCurrent();
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-
 	PropertyTextLoad();
+	DialogExtendedMessage = DialogFindPlayer("ClothCheerleaderTopTextLabel");
 }
 
 function InventoryClothCheerleaderTopDraw() {
 	ExtendedItemDrawHeader();
-	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "#808080");
-	DrawText(DialogFindPlayer("ClothCheerleaderTopTextLabel"), 1505, 530, "#fff", "#000");
+	DrawText(DialogExtendedMessage, 1505, 530, "#fff", "#000");
 	PropertyTextDraw();
 }
 
