@@ -5347,6 +5347,10 @@ var AssetFemale3DCG = [
 				AllowActivity: ["SpankItem"], Bonus: "KidnapBruteForce",
 			},
 			{
+				Name: "ForSaleSign", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+			},
+			{
 				Name: "RainbowWand", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 				ActivityExpression: { "SpankItem": [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }] }
@@ -6427,7 +6431,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
-			{ Name: "FurScarf", Value: 40, Top: 0, Left: 0, Difficulty: 3, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
+			{ Name: "FurScarf", Value: 40, Top: 0, Left: 0, Difficulty: 3, Random: false, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6798,7 +6802,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
-			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
+			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, Random: false, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
 
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -7166,7 +7170,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
-			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
+			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, Random: false, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
 			{
 				Name: "LatexRespirator", Value: 50, Difficulty: 2, Time: 10, DefaultColor: ["#333333","#222222","#CCCCCC","#222222","#CCCCCC","#37E21D"], Extended: true, Priority: 47, Top: 20,
 				Block: ["ItemNose", "ItemMouth", "ItemMouth2"],
@@ -7394,7 +7398,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Effect: ["BlindLight", "Prone", "BlurNormal"], Tint: [{Color: 0, Strength: 0.4}]
 			},
-			{ Name: "FurScarf", BuyGroup: "FurScarf", Value: 40, Difficulty: 3, AllowTighten: true, Effect: ["BlindLight", "Prone"] },
+			{ Name: "FurScarf", BuyGroup: "FurScarf", Value: 40, Difficulty: 3, Random: false, AllowTighten: true, Effect: ["BlindLight", "Prone"] },
 			{
 				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 8.5, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, DefaultColor: ["#3f3c3a", "#3f3c3a"], Effect: [], Top:145, Extended: true, AlwaysExtend: true,
 				AllowExpression: ["Angry", "Closed", "Daydream", "Dazed", "Dizzy", "Heart", "HeartPink", "Horny", "Lewd", "LewdHeart", "LewdHeartPink", "Sad", "Scared", "Scared", "Shy", "ShylyHappy", "Surprised", "VeryLewd"],

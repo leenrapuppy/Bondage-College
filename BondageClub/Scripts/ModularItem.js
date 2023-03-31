@@ -185,15 +185,19 @@ function ModularItemCreateExitFunction(data) {
 /**
  * Parse and convert the passed item modules inplace. Returns the originally passed object.
  * @param {readonly ModularItemModuleBase[]} Modules - An object describing a single module for a modular item.
+ * @param {boolean | undefined} [ChangeWhenLocked] - See {@link ModularItemConfig.ChangeWhenLocked}
  * @returns {ModularItemModule[]} - The updated modules; same object as `Modules`.
  */
-function ModularItemUpdateModules(Modules) {
+function ModularItemUpdateModules(Modules, ChangeWhenLocked) {
 	for (const mod of Modules) {
 		mod.OptionType = "ModularItemModule";
 		mod.DrawImages = typeof mod.DrawImages === "boolean" ? mod.DrawImages : true;
 		mod.Options.forEach((option, i) => {
 			option.Name = `${mod.Key}${i}`;
 			option.OptionType = "ModularItemOption";
+			if (typeof ChangeWhenLocked === "boolean" && typeof option.ChangeWhenLocked !== "boolean") {
+				option.ChangeWhenLocked = ChangeWhenLocked;
+			}
 		});
 	}
 	return /** @type {ModularItemModule[]} */(Modules);
@@ -217,7 +221,7 @@ function ModularItemCreateModularData(asset, {
 }) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
-	const ModulesParsed = ModularItemUpdateModules(Modules);
+	const ModulesParsed = ModularItemUpdateModules(Modules, ChangeWhenLocked);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
 	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 

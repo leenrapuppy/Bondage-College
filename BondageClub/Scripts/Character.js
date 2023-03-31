@@ -1827,9 +1827,9 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 				C.AppearanceLayers = C.AppearanceLayers.filter((Layer) => (
 					!Layer.Visibility ||
 					(Layer.Visibility == "Player" && C.IsPlayer()) ||
-					(Layer.Visibility == "AllExceptPlayerDialog" && !inDialog && C.IsPlayer()) ||
+					(Layer.Visibility == "AllExceptPlayerDialog" && !(inDialog && C.IsPlayer())) ||
 					(Layer.Visibility == "Others" && !C.IsPlayer()) ||
-					(Layer.Visibility == "OthersExceptDialog" && !inDialog && !C.IsPlayer()) ||
+					(Layer.Visibility == "OthersExceptDialog" && !(inDialog && !C.IsPlayer())) ||
 					(Layer.Visibility == "Owner" && C.IsOwnedByPlayer()) ||
 					(Layer.Visibility == "Lovers" && C.IsLoverOfPlayer()) ||
 					(Layer.Visibility == "Mistresses" && LogQuery("ClubMistress", "Management"))
