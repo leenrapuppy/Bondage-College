@@ -41,7 +41,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 		Property.Effect = CommonArrayConcatDedupe(Property.Effect, ExtraEffects);
 	}
 
-	CharacterRefresh(C);
+	CharacterRefresh(C, true, false);
 	ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 
 	ElementRemove(PropertyGetID("Opacity"));

@@ -119,7 +119,7 @@ function PropertyOpacityExit(Refresh=true) {
 	// Remove the element after calling `CharacterRefresh`
 	// The latter will call `Load`, which would otherwise restore the slider again
 	if (Refresh) {
-		CharacterRefresh(C);
+		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 	ElementRemove(ID);
@@ -442,7 +442,7 @@ function PropertyTextExit(Refresh=true, TextChange="TextChange", TextRemove="Tex
 		// Remove the element after calling `CharacterRefresh`
 		// The latter will call `Load`, which would otherwise restore the slider again
 		if (Refresh) {
-			CharacterRefresh(C);
+			CharacterRefresh(C, true, false);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		}
 	}

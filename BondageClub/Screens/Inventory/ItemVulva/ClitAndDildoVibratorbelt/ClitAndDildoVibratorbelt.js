@@ -41,6 +41,6 @@ function InventoryItemVulvaClitAndDildoVibratorbeltExit() {
 
 	const GroupName = Data.asset.Group.Name;
 	const C = CharacterGetCurrent();
-	CharacterRefresh(C);
+	CharacterRefresh(C, true, false);
 	ChatRoomCharacterItemUpdate(C, GroupName);
 }
