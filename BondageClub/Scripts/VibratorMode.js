@@ -797,7 +797,7 @@ function VibratorModeInit(Item, C, Refresh=true, configSets=null) {
 	TypedItemSetOption(C, Item, Options, FirstOption, false);
 
 	if (Refresh) {
-		CharacterRefresh(C);
+		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
 }

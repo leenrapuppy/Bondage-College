@@ -625,7 +625,7 @@ function TypedItemInit(Item, C, Refresh=true) {
 	}
 
 	if (Refresh) {
-		CharacterRefresh(C, true);
+		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
 }
