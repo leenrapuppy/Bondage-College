@@ -4117,7 +4117,35 @@ var AssetFemale3DCGExtended = {
 					},
 				]
 			}
+		}, //Inflatable Gag Mask
+		OpenMouthPlugHood: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+						Name: "FakeMouth", Key: "m",
+						Options: [
+							{Property: {Effect: [] }},
+							{Property: {Effect: ["BlockMouth"] }},
+						], //None, Fake Mouth
+					},
+					{
+						Name: "Thickness", Key: "t",
+						Options: [{},{}]
+					}, // Thick, Thin
+				]
+			}
 		},
+		LatexDogHood: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config:{
+				Options: [
+					{ Name: "Thick", Property: { Type: "Thick" } },
+					{ Name: "Thin", Property: { Type: "Thin" } },
+				],
+			}
+		}
 	}, // ItemHood
 	Jewelry: {
 		JewelrySet: {

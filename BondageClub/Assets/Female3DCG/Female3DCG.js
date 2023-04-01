@@ -7616,7 +7616,13 @@ var AssetFemale3DCG = [
 				Tint: [{Color: 1, Strength: 0.1}],
 				DefaultTint: "#ccc",
 			},
-			{ Name: "OpenFaceHood", Fetish: ["Latex"], Value: 35, Priority: 40, Difficulty: 5, Time: 15, AllowLock: false, AllowTighten: true, DefaultColor: "#404040", BuyGroup: "OpenFace", Block: ["ItemEars"], Hide: ["HairFront"], HideItem: ["HatFurHeadband"] , Extended: true, HasType: false },
+			{ 
+				Name: "OpenFaceHood", Fetish: ["Latex"], Value: 35, Priority: 40, Difficulty: 5, Time: 15, AllowLock: false, AllowTighten: true, DefaultColor: "#404040", BuyGroup: "OpenFace", Block: ["ItemEars"], Hide: ["HairFront"], HideItem: ["HatFurHeadband"] , Extended: true, HasType: false,
+				Layer: [
+					{ Name: "ThickHood"},
+					{ Name: "ThinHood" }
+				]
+			},
 			{
 				Name: "GwenHood", Fetish: ["Leather"], Value: 35, Difficulty: 5, Time: 15, AllowLock: true, AllowTighten: true, DefaultColor: "#404040", Extended: true, HasType: false,
 				Prerequisite: ["NotProtrudingFromMouth"],
@@ -7750,21 +7756,30 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: -5, Left: 113, AllowLock: true, AllowTighten: true,
+				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: 19, Left:150, AllowLock: true, AllowTighten: true, Extended: true,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+				Layer: [
+					{Name: "", HasType: false, AllowTypes: ["Thick"]},
+					{Name: "Thin", HasType: false, CopyLayerColor: "", AllowTypes: ["Thin"], Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }]},
+					{Name: "Lock", LockLayer: true},
+
+				],
 			},
 			{
-				Name: "OpenMouthPlugHood", Fetish: ["Latex"], Random: false, Value: 40, Difficulty: 3, Top: 0, DrawLocks: false, AllowLock: true, AllowTighten: true,
+				Name: "OpenMouthPlugHood", Fetish: ["Latex"], Random: false, Value: 40, Difficulty: 3, Top: 52, DrawLocks: false, AllowLock: true, AllowTighten: true, Extended: true,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 				Layer: [
-					{ Name: "FakeMouth", AllowColorize: false },
-					{ Name: "Lenses" },
-					{ Name: "Hood" },
-					{ Name: "Plug" }
-				]
-
+					{ Name: "FakeMouth", HasType: false, AllowColorize: false, AllowModuleTypes: ["t0m1"] },
+					{ Name: "FakeMouthThin", HasType: false, AllowColorize: false, AllowModuleTypes: ["t1m1"] },
+					{ Name: "Lenses", HasType: false, AllowModuleTypes: ["t0"] },
+					{ Name: "LensesThin", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "Lenses", },
+					{ Name: "Hood", HasType: false, AllowModuleTypes: ["t0"], },
+					{ Name: "HoodThin", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "Hood", Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }], },
+					{ Name: "Plug", HasType: false, AllowModuleTypes: ["t0"] },
+					{ Name: "PlugThin", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "Plug" },
+				],
 			},
 			{
 				Name: "DroneMask", Category: ["SciFi"], Fetish: ["Latex"], Value: -1, Difficulty: 5, DefaultColor: ["#222222", "#CCCCCC", "#7F7F7F", "#00F4FD", "#E700CA", ], Time: 10, AllowLock: true, DrawLocks: false, Extended: true, DynamicAfterDraw: true,
