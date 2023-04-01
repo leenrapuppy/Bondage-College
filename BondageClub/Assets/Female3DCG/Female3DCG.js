@@ -7665,12 +7665,16 @@ var AssetFemale3DCG = [
 					{ Name: "Lamp" },
 				],
 			},
-			{ Name: "AccentHood", Fetish: ["Latex"], Top: 25, Left: 149, Value: 30, Time: 15, AllowLock: true, AllowTighten: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"] },
+			{ 
+				Name: "AccentHood", Fetish: ["Latex"], Top: 20, Left: 149, Value: 30, Time: 15, AllowLock: true, AllowTighten: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], 
+				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }], 
+			},
 			{
-				Name: "CollarHood", Fetish: ["Latex"], Top: 23, Left: 150, Value: 50, AllowLock: true, AllowTighten: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Layer: [
+				Name: "CollarHood", Fetish: ["Latex"], Top: 21, Left: 150, Value: 50, AllowLock: true, AllowTighten: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Layer: [
 					{ Name: "Hood" },
-					{ Name: "Collar" }
-				]
+					{ Name: "Collar" },
+				],
+				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }]
 			},
 			{
 				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, AllowTighten: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
@@ -7678,6 +7682,7 @@ var AssetFemale3DCG = [
 					{ Name: ""},
 					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false},
 				],
+				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }]
 			},
 			{
 				Name: "LatexHabit", Fetish: ["Latex"], BuyGroup: "LatexHabit", Top: 23, Left: 85, Value: 30, Time: 5, AllowLock: true, AllowTighten: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront","FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3",], Block: ["ItemEars"],
