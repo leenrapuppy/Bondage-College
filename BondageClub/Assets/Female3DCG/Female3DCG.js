@@ -1785,11 +1785,16 @@ var AssetFemale3DCG = [
 			{
 				Name: "LatexHabit", Fetish: ["Latex"], BuyGroup: "LatexHabit", Top: 23, Left: 85, Value: 30, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3",], Block: ["ItemEars"], DynamicGroupName:"ItemHood",
 				Layer:[
-					{Name: "Cape"},
-					{Name: "Collar"},
-					{Name: "Base"},
-					{Name: "Cowl"},
-					{Name: "Back", Priority: 5, CopyLayerColor: "Base"}
+					{Name: "Cape", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "CapeThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Base", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "BaseThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Collar", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "CollarThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Cowl", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "CowlThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Back", Priority: 5, CopyLayerColor: "Base", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "BackThin", Priority: 5, CopyLayerColor: "Base", HasType: false, AllowTypes: ["Tight"]},
 				],
 			},
 			{
@@ -7693,11 +7698,16 @@ var AssetFemale3DCG = [
 			{
 				Name: "LatexHabit", Fetish: ["Latex"], BuyGroup: "LatexHabit", Top: 23, Left: 85, Value: 30, Time: 5, AllowLock: true, AllowTighten: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront","FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3",], Block: ["ItemEars"],
 				Layer:[
-					{ Name: "Cape"},
-					{ Name: "Collar"},
-					{ Name: "Base"},
-					{ Name: "Cowl"},
-					{ Name: "Back", Priority: 5, CopyLayerColor: "Base"}
+					{Name: "Cape", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "CapeThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Base", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "BaseThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Collar", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "CollarThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Cowl", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "CowlThin", HasType: false, AllowTypes: ["Tight"]},
+					{Name: "Back", Priority: 5, CopyLayerColor: "Base", HasType: false, AllowTypes: ["Loose"]},
+					{Name: "BackThin", Priority: 5, CopyLayerColor: "Base", HasType: false, AllowTypes: ["Tight"]},
 				],
 			},
 			{

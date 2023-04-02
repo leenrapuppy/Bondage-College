@@ -220,6 +220,21 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // SwimCap
+		LatexHabit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Loose", 
+						Property: {Type: "Loose"},
+					},
+					{
+						Name: "Tight",
+						Property: {Type: "Tight"},
+					},
+				]
+			}
+		},//LatexHabit
 	},
 	LeftHand: {
 		Rings: {
@@ -4136,7 +4151,7 @@ var AssetFemale3DCGExtended = {
 					}, // Thick, Thin
 				]
 			}
-		},
+		}, // Inflatable Gag Mask
 		LatexDogHood: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config:{
@@ -4145,7 +4160,11 @@ var AssetFemale3DCGExtended = {
 					{ Name: "Thin", Property: { Type: "Thin" } },
 				],
 			}
-		}
+		}, //Latex Dog Hood
+		LatexHabit: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "Hat", AssetName: "LatexHabit" },
+		}, // Latex Habit
 	}, // ItemHood
 	Jewelry: {
 		JewelrySet: {
