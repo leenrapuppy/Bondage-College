@@ -917,7 +917,7 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(Player, "Eyes2", "Angry", 8);
 		CharacterSetFacialExpression(MovieStudioActor1, "Mouth", "Smirk", 8);
 		InventoryWear(Player, "MuzzleGag", "ItemMouth3");
-	}	
+	}
 	if (Activity == "OpenHouseDogMasturbate") {
 		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 8);
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Lewd", 8);
@@ -992,7 +992,7 @@ function MovieStudioDoActivity(Activity) {
 		if (InventoryGet(Player, "ItemNeck") == null) InventoryWear(Player, "LeatherCollar", "ItemNeck");
 		InventoryWear(Player, "CeilingChain", "ItemAddon");
 		if (InventoryGet(MovieStudioActor1, "ItemNeck") == null) InventoryWear(MovieStudioActor1, "LeatherCollar", "ItemNeck");
-		InventoryWear(MovieStudioActor1, "CeilingChain", "ItemAddon");		
+		InventoryWear(MovieStudioActor1, "CeilingChain", "ItemAddon");
 		CharacterSetFacialExpression(Player, "Blush", "High", 8);
 		CharacterSetFacialExpression(Player, "Eyes", "Dazed", 8);
 		CharacterSetFacialExpression(Player, "Eyes2", "Dazed", 8);
