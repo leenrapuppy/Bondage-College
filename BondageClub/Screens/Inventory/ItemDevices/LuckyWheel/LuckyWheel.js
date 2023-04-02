@@ -145,8 +145,9 @@ function InventoryItemDevicesLuckyWheelGame0Exit() {
 		ElementRemove(`LuckyWheelText${num}`);
 	}
 
-	ChatRoomCharacterItemUpdate(CharacterGetCurrent());
-	CharacterRefresh(CharacterGetCurrent(), true);
+	const C = CharacterGetCurrent();
+	ChatRoomCharacterItemUpdate(C);
+	CharacterRefresh(C, true, false);
 
 	ExtendedItemSubscreen = null;
 }
