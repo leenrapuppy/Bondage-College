@@ -3280,10 +3280,14 @@ var AssetFemale3DCGExtended = {
 							{}, // e1 - OwO
 							{}, // e2 - UwU
 						]
-					}
+					},
+					{
+						Name: "Tightness", Key: "t",
+						Options: [{},{}], // t0 - Loose, t1 - Tight
+					},
 				]
 			}
-		},
+		}, //KittyHood
 		DroneMask: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemHead", AssetName: "DroneMask" },
