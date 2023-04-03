@@ -94,12 +94,12 @@ var InventoryItemNeckSlaveCollarTypes = [
 	}
 ];
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemNeckSlaveCollarInit(C, Item, Refresh) {
 	return ExtendedItemInitNoArch(C, Item, { Type: null, Effect: [], Block: [] }, Refresh);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemNeckSlaveCollarLoad() {
 	InventoryItemNeckSlaveCollarColorMode = false;
 	var C = CharacterGetCurrent();
@@ -115,7 +115,7 @@ function InventoryItemNeckSlaveCollarLoad() {
 	else if (C && C.IsOwnedByPlayer && !C.IsLoverOfPlayer() && SC) { InventoryItemNeckSlaveCollarTypes.splice(InventoryItemNeckSlaveCollarTypes.indexOf(SC,1)); }
 }
 
-// Draw the item extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemNeckSlaveCollarDraw() {
 
 	// Only the character owner can use the controls in that screen
@@ -149,7 +149,7 @@ function InventoryItemNeckSlaveCollarDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemNeckSlaveCollarClick() {
 
 	// When the user exits the screen

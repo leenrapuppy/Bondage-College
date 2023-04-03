@@ -173,7 +173,7 @@ function VariableHeightClick(data) {
 			ExtendedItemSetType(C, data.parentOptions, option);
 		} else {
 			if (CurrentScreen == "ChatRoom") {
-				/** @type {Parameters<ExtendedItemCallbackStruct<ExtendedItemOption>["publishAction"]>} */
+				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ExtendedItemOption>>} */
 				const args = [
 					C,
 					DialogFocusItem,

@@ -1,11 +1,11 @@
 "use strict";
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticPanelGagPersistentData>} */
 function AssetsItemMouthFuturisticHarnessBallGagScriptDraw(data) {
 	AssetsItemMouthFuturisticPanelGagScriptDraw(data);
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+/** @type {ExtendedItemCallbacks.BeforeDraw<FuturisticPanelGagPersistentData>} */
 function AssetsItemMouthFuturisticHarnessBallGagBeforeDraw(data) {
 	return AssetsItemMouthFuturisticPanelGagBeforeDraw(data);
 }

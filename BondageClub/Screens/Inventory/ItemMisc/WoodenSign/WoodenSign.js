@@ -1,35 +1,35 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemMiscWoodenSignInit(C, Item, Refresh=true) {
 	return ExtendedItemInitNoArch(C, Item, { Text: "", Text2: "" }, Refresh);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscWoodenSignLoad() {
 	PropertyTextLoad();
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscWoodenSignDraw() {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 	PropertyTextDraw();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscWoodenSignClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		ExtendedItemExit();
 	}
 }
 
-// Leaves the extended screen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscWoodenSignExit() {
 	PropertyTextExit();
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemMiscWoodenSignAfterDraw({
 	C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color
 }) {

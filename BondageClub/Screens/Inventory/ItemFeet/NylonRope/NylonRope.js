@@ -1,6 +1,6 @@
 "use strict";
 
-/** @type {DynamicBeforeDrawCallback} */
+/** @type {ExtendedItemCallbacks.BeforeDraw} */
 function AssetsItemFeetNylonRopeBeforeDraw(data) {
 	if (data.Property && data.Property.Type === "BedSpreadEagle") {
 		return {

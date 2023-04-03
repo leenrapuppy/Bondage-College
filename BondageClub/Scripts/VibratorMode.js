@@ -265,7 +265,7 @@ function VibratorModeLoad(prefix, IgnoreSubscreen=false) {
 	ExtendedItemLoad(`${prefix}${intensity}`, IgnoreSubscreen);
 }
 
-/** @type {ExtendedItemValidateCallback<ExtendedItemOption | VibratingItemOption | ModularItemOption>} */
+/** @type {ExtendedItemCallbacks.Validate<ExtendedItemOption | VibratingItemOption | ModularItemOption>} */
 function VibratorModeValidate(C, item, option, currentOption) {
 	if (
 		option.Property
@@ -420,12 +420,15 @@ function VibratorModeGetOption(ModeName) {
 	return options.find(o => o.Name === ModeName) || VibratorModeOff;
 }
 
+/**
+ * @typedef {{ Mode?: VibratorMode, ChangeTime?: number, LastChange?: number }} VibratorModePersistentData
+ */
 
 /**
  * Common dynamic script draw function for vibrators. This function is called every frame. TO make use of dynamic script draw on vibrators,
  * ensure your item has a `Assets<AssetGroup><AssetName>ScriptDraw` function defined that calls this function, and that your asset
  * definition in Female3DCG.js has `DynamicScriptDraw: true` set. See the Heart Piercings for examples.
- * @type {DynamicScriptDrawCallback}
+ * @type {ExtendedItemCallbacks.ScriptDraw<VibratorModePersistentData>}
  */
 function VibratorModeScriptDraw(Data) {
 	var C = Data.C;
@@ -452,7 +455,7 @@ function VibratorModeScriptDraw(Data) {
  * Vibrator update function for the Random mode
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
- * @param {object} PersistentData - Persistent animation data for the item
+ * @param {VibratorModePersistentData} PersistentData - Persistent animation data for the item
  * @returns {void} - Nothing
  */
 function VibratorModeUpdateRandom(Item, C, PersistentData) {
@@ -472,7 +475,7 @@ function VibratorModeUpdateRandom(Item, C, PersistentData) {
  * Vibrator update function for the Escalate mode
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
- * @param {object} PersistentData - Persistent animation data for the item
+ * @param {VibratorModePersistentData} PersistentData - Persistent animation data for the item
  * @returns {void} - Nothing
  */
 function VibratorModeUpdateEscalate(Item, C, PersistentData) {
@@ -490,7 +493,7 @@ function VibratorModeUpdateEscalate(Item, C, PersistentData) {
  * Vibrator update function for the Tease mode
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
- * @param {object} PersistentData - Persistent animation data for the item
+ * @param {VibratorModePersistentData} PersistentData - Persistent animation data for the item
  * @returns {void} - Nothing
  */
 function VibratorModeUpdateTease(Item, C, PersistentData) {
@@ -502,7 +505,7 @@ function VibratorModeUpdateTease(Item, C, PersistentData) {
  * Vibrator update function for the Deny mode
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
- * @param {object} PersistentData - Persistent animation data for the item
+ * @param {VibratorModePersistentData} PersistentData - Persistent animation data for the item
  * @returns {void} - Nothing
  */
 function VibratorModeUpdateDeny(Item, C, PersistentData) {
@@ -514,7 +517,7 @@ function VibratorModeUpdateDeny(Item, C, PersistentData) {
  * Vibrator update function for the Edge mode
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
- * @param {object} PersistentData - Persistent animation data for the item
+ * @param {VibratorModePersistentData} PersistentData - Persistent animation data for the item
  * @returns {void} - Nothing
  */
 function VibratorModeUpdateEdge(Item, C, PersistentData) {
@@ -536,7 +539,7 @@ function VibratorModeUpdateEdge(Item, C, PersistentData) {
  * Vibrator update function for vibrator state machine modes
  * @param {Item} Item - The item that is being updated
  * @param {Character} C - The character that the item is equipped on
- * @param {object} PersistentData - Persistent animation data for the item
+ * @param {VibratorModePersistentData} PersistentData - Persistent animation data for the item
  * @param {readonly VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
  * the default state
  * @returns {void} - Nothing

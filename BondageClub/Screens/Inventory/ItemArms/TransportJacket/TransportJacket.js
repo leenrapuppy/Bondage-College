@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Draw handler for the item's extended item screen
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemArmsTransportJacketDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemArmsTransportJacketDrawHook(Data, OriginalFunction) {
 	OriginalFunction();
 	const Prefix = Data.dialogPrefix.option;
 
@@ -16,7 +11,7 @@ function InventoryItemArmsTransportJacketDraw(Data, OriginalFunction) {
 	MainCanvas.textAlign = "center";
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemArmsTransportJacketAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
 	if (L === "_Text") {
 		const width = 150;

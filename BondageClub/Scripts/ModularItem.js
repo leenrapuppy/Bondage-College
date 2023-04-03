@@ -587,6 +587,8 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.PunishOrgasm === "boolean") mergedProperty.PunishOrgasm = Property.PunishOrgasm;
 	if (typeof Property.PunishStandup === "boolean") mergedProperty.PunishStandup = Property.PunishStandup;
 	if (typeof Property.NextShockTime === "number") mergedProperty.NextShockTime = Property.NextShockTime;
+	if (typeof Property.TargetAngle === "number") mergedProperty.TargetAngle = Property.TargetAngle;
+	if (Array.isArray(Property.Texts)) mergedProperty.Texts = Property.Texts;
 	return mergedProperty;
 }
 
@@ -682,7 +684,7 @@ function ModularItemSetType(module, index, data) {
 			ChatRoomCharacterItemUpdate(C, groupName);
 
 			if (ServerPlayerIsInChatRoom()) {
-				/** @type {Parameters<ExtendedItemCallbackStruct<ModularItemOption>["publishAction"]>} */
+				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ModularItemOption>>} */
 				const args = [C, DialogFocusItem, option, currentOption];
 				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 			} else if (C.ID === 0) {

@@ -33,13 +33,8 @@ function InventoryItemBreastFuturisticBraUpdate(C) {
 	return { bpm: current_bpm, breathing: current_breathing, temp: current_temp };
 }
 
-/**
- * Custom draw function for adding the `Shock` menu.
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemBreastFuturisticBraDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemBreastFuturisticBraDrawHook(Data, OriginalFunction) {
 	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
@@ -63,7 +58,11 @@ function InventoryItemBreastFuturisticBraDraw(Data, OriginalFunction) {
 	MainCanvas.textAlign = "center";
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ UpdateTime?: number, ShowHeart?: boolean }} FuturisticBraPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<FuturisticBraPersistentData>} */
 function AssetsItemBreastFuturisticBraBeforeDraw(data) {
 	if (data.L === "_Text") {
 		const ShowHeart = data.PersistentData().ShowHeart;
@@ -71,7 +70,7 @@ function AssetsItemBreastFuturisticBraBeforeDraw(data) {
 	}
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw<FuturisticBraPersistentData>} */
 function AssetsItemBreastFuturisticBraAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, G, Color
 }) {
@@ -109,7 +108,7 @@ function AssetsItemBreastFuturisticBraAfterDraw({
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticBraPersistentData>} */
 function AssetsItemBreastFuturisticBraScriptDraw(data) {
 	/** @type {{UpdateTime?: number, ShowHeart?: boolean}} */
 	const persistentData = data.PersistentData();

@@ -3,7 +3,7 @@
 const PasswordTimerChooseList = [5, 10, 15, 30, 60, 120, 180, 240, -180, -120, -60, -30, -15];
 let PasswordTimerChooseIndex = 0;
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemMiscTimerPasswordPadlockInit(C, Item) {
 	const Property = {
 		Password: "PASSWORD",
@@ -17,7 +17,7 @@ function InventoryItemMiscTimerPasswordPadlockInit(C, Item) {
 	return ExtendedItemInitNoArch(C, Item, Property, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscTimerPasswordPadlockLoad() {
 	if (!DialogFocusSourceItem) return;
 
@@ -49,7 +49,7 @@ function InventoryItemMiscTimerPasswordPadlockLoad() {
 	}
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscTimerPasswordPadlockDraw() {
 	if (
 		!DialogFocusItem ||
@@ -143,7 +143,7 @@ function InventoryItemMiscTimerPasswordPadlockDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscTimerPasswordPadlockClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
@@ -252,6 +252,7 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 	InventoryItemMiscTimerPasswordPadlockExit();
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscTimerPasswordPadlockExit() {
 	InventoryItemMiscPasswordPadlockExit();
 }

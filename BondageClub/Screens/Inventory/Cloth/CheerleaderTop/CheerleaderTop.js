@@ -1,27 +1,31 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryClothCheerleaderTopInit(C, Item, Refresh) {
 	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
 }
 
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryClothCheerleaderTopLoad() {
 	PropertyTextLoad();
 	DialogExtendedMessage = DialogFindPlayer("ClothCheerleaderTopTextLabel");
 }
 
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryClothCheerleaderTopDraw() {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1505, 530, "#fff", "#000");
 	PropertyTextDraw();
 }
 
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryClothCheerleaderTopClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		ExtendedItemExit();
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryClothCheerleaderTopExit() {
 	PropertyTextExit();
 }

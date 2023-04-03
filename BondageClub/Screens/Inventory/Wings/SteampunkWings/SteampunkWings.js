@@ -1,6 +1,10 @@
 'use strict';
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ State?: number, StateGears?: number, Modifier?: number, ModifierGears?: number, ChangeTime?: number, FrameTime?: number, DrawRequested?: boolean }} SteampunkWingsPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<SteampunkWingsPersistentData>} */
 function AssetsWingsSteampunkWingsBeforeDraw({ PersistentData, L, LayerType: lt }) {
 	const MaxFrame = 8;
 	const MaxFrameGears = 2;
@@ -12,7 +16,7 @@ function AssetsWingsSteampunkWingsBeforeDraw({ PersistentData, L, LayerType: lt 
 
 	// Gears
 	if (L.includes("Gears")) {
-		return { LayerType: Data.StateGears === 0 ? '' : Data.StateGears};
+		return { LayerType: Data.StateGears === 0 ? '' : Data.StateGears.toString() };
 	}
 
 	// Others
@@ -35,11 +39,11 @@ function AssetsWingsSteampunkWingsBeforeDraw({ PersistentData, L, LayerType: lt 
 	}
 
 	Data.DrawRequested = false;
-	const LayerType = Data.State === 0 ? '' : Data.State;
+	const LayerType = Data.State === 0 ? '' : Data.State.toString();
 	return { LayerType };
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<SteampunkWingsPersistentData>} */
 function AssetsWingsSteampunkWingsScriptDraw({ C, Item, PersistentData }) {
 	const Type = (Item.Property || {}).Type;
 	if (Type !== "On") return;

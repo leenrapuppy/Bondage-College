@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Draw handler the extended item screen
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemDevicesVacBedDeluxeDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemDevicesVacBedDeluxeDrawHook(Data, OriginalFunction) {
 	// Hide the Opacity slider while not in the base kmodule
 	const ID = PropertyGetID("Opacity");
 	if (ModularItemHideElement(Data, ID, ModularItemBase)) {

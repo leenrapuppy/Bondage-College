@@ -1,6 +1,6 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemDevicesFuturisticCrateDevice1Init(C, Item, Refresh) {
 	return VibratorModeInit([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], C, Item, Refresh);
 }
@@ -31,8 +31,11 @@ function InventoryItemDevicesFuturisticCrateDevice1Exit() {
 	ExtendedItemSubscreen = null;
 }
 
+/**
+ * @typedef {FuckMachinePersistentData} FuturisticCratePersistentData
+ */
 
-/** @type {DynamicBeforeDrawCallback} */
+/** @type {ExtendedItemCallbacks.BeforeDraw<FuturisticCratePersistentData>} */
 function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, Property }) {
 	const Data = PersistentData();
 	if (typeof Data.DildoState !== "number") Data.DildoState = 0;
@@ -64,7 +67,7 @@ function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, P
 	return { Y: Y + FuckLength * (-Math.cos(Data.DildoState * 2 * Math.PI)) };
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticCratePersistentData>} */
 function AssetsItemDevicesFuturisticCrateScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 

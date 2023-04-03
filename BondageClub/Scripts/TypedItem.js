@@ -355,7 +355,9 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 	}
 
 	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}Validate`;
-	const validationMessage = CommonCallFunctionByName(validationFunctionName, C, item, option, previousOption);
+	/** @type {Parameters<ExtendedItemCallbacks.Validate<T>>} */
+	const args = [C, item, option, previousOption];
+	const validationMessage = CommonCallFunctionByName(validationFunctionName, ...args);
 	if (typeof validationMessage === "string") {
 		return validationMessage;
 	} else {

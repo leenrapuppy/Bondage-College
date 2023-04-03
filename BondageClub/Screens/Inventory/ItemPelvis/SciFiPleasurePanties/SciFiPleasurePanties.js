@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Custom draw function for adding the `Shock` menu.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemPelvisSciFiPleasurePantiesDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemPelvisSciFiPleasurePantiesDrawHook(Data, OriginalFunction) {
 	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
@@ -34,13 +29,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(Data, OriginalFunction) {
 	}
 }
 
-/**
- * Custom click function for adding the `Shock` menu.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @param {boolean} Futuristic - Whether this concerns a futuristic item or not
- * @returns {void} - Nothing
- */
+/** @type {ExtendedItemScriptHookCallback<ModularItemData, [Futuristic?: boolean]>} */
 function InventoryItemPelvisSciFiPleasurePantiesClickHook(Data, OriginalFunction, Futuristic=true) {
 	if (!Futuristic) {
 		OriginalFunction();

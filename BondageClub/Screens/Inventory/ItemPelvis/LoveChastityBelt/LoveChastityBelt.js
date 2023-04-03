@@ -12,12 +12,7 @@ const InventoryItemPelvisLoveChastityBeltCrotchShield = new Map([
 	["f3b1", "c3"],
 ]);
 
-/**
- * Draw the item extension screen.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
 function InventoryItemPelvisLoveChastityBeltDraw(Data, OriginalFunction) {
 	OriginalFunction();
 	if (Data.currentModule === ModularItemBase) {
@@ -45,12 +40,7 @@ function InventoryItemPelvisLoveChastityBeltDraw(Data, OriginalFunction) {
 	}
 }
 
-/**
- * Catches the item extension clicks
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
+/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
 function InventoryItemPelvisLoveChastityBeltClick(Data, OriginalFunction) {
 	// Disable the vibrator when the front shield is removed
 	if (!ExtendedItemPermissionMode && Data.currentModule === "FrontShield") {

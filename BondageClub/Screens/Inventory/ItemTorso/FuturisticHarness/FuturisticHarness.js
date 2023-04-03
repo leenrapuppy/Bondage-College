@@ -1,25 +1,15 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemTorsoFuturisticHarnessDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemTorsoFuturisticHarnessDrawHook(Data, OriginalFunction) {
 	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
 	ExtendedItemCustomDraw("FuturisticCollarColor", 1385, 800, false, !InventoryItemTorsoFuturisticHarnessIsColorable());
 }
 
-/**
- * Catches the item extension clicks
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemTorsoFuturisticHarnessClick(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<TypedItemData>} */
+function InventoryItemTorsoFuturisticHarnessClickHook(Data, OriginalFunction) {
 	if (!FuturisticAccessClick(Data, OriginalFunction)) {
 		return;
 	}

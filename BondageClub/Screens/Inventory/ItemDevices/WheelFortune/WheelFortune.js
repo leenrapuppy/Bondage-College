@@ -1,8 +1,11 @@
 "use strict";
 
-/**
- * Wheel of Fortune Game loader
- */
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemDevicesWheelFortuneInit(C, item, refresh) {
+	return ExtendedItemInitNoArch(C, item, {}, refresh);
+}
+
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemDevicesWheelFortuneLoad() {
 	WheelFortuneEntryModule = CurrentModule;
 	WheelFortuneEntryScreen = CurrentScreen;
@@ -13,20 +16,14 @@ function InventoryItemDevicesWheelFortuneLoad() {
 	CommonSetScreen("MiniGame", "WheelFortune");
 }
 
-/**
- * Wheel of Fortune Game draw engine
- */
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemDevicesWheelFortuneDraw() {
 }
 
-/**
- * Wheel of Fortune Game clicks
- */
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemDevicesWheelFortuneClick() {
 }
 
-/**
- * Wheel of Fortune Game clicks
- */
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemDevicesWheelFortuneExit() {
 }

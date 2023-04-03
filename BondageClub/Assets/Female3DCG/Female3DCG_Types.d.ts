@@ -576,61 +576,6 @@ type ExtendedItemNPCCallback<OptionType> = (
 	PreviousOption: OptionType,
 ) => string;
 
-/**
- * @param {Character} C - A reference to the character wearing the item
- * @param {Item} Item - The equipped item
- * @param {OptionType} Option - The newly selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
- * @template OptionType
- */
-type ExtendedItemValidateCallback<OptionType> = (
-	C: Character,
-	Item: Item,
-	Option: OptionType,
-	CurrentOption: OptionType,
-) => string;
-
-/**
- * @param {ExtendedItemValidateCallback<OptionType>} - The hooked validate function
- * @param {Character} C - A reference to the character wearing the item
- * @param {Item} Item - The equipped item
- * @param {OptionType} Option - The newly selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
- * @template OptionType
- */
-type ExtendedItemValidateScriptHookCallback<OptionType> = (
-	next: ExtendedItemValidateCallback<OptionType>,
-	C: Character,
-	Item: Item,
-	Option: OptionType,
-	CurrentOption: OptionType,
-) => string;
-
-/**
- * Callback for extended item `...PublishAction` script hooks.
- * @param C - The character wearing the item
- * @param item - The item in question
- * @param newOption - The newly selected option
- * @param previousOption - The currently selected option
- */
- type ExtendedItemPublishActionCallback<OptionType> = (
-	C: Character,
-	item: Item,
-	newOption: OptionType,
-	previousOption: OptionType,
-) => void;
-
-/**
- * Callback for extended item `Init` functions
- * @param Item The item in question
- * @param C The character that has the item equiped
- * @param Refresh Whether the character and relevant item should be refreshed and pushed to the server
- * @returns Whether properties were updated or not
- */
-type ExtendedItemInitCallback = ExtendedItemCallbackStruct<any>["init"];
-
 //#endregion
 
 //#region Typed items

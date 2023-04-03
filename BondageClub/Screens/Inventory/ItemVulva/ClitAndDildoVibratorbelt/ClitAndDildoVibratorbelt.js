@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Draw the item extension screen.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemVulvaClitAndDildoVibratorbeltDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemVulvaClitAndDildoVibratorbeltDrawHook(Data, OriginalFunction) {
 	OriginalFunction();
 	if (Data.currentModule === ModularItemBase) {
 		const [DildoIntensity, EggIntensity] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
@@ -22,12 +17,8 @@ function InventoryItemVulvaClitAndDildoVibratorbeltDraw(Data, OriginalFunction) 
 	}
 }
 
-/**
- * Exit the extended item screen.
- * @param {ModularItemData}  Data - The items extended item data
- * @returns {void} Nothing
- */
-function InventoryItemVulvaClitAndDildoVibratorbeltExit(Data) {
+/** @type {ExtendedItemScriptHookCallbacks.Exit<ModularItemData>} */
+function InventoryItemVulvaClitAndDildoVibratorbeltExitHook(Data) {
 	// Ensure that the vibrator intensity is set to the maximum of the egg and dildo intensity
 	const CurrentModuleValues = ModularItemParseCurrent(Data);
 	const Intensities = Data.modules.map((m, i) => m.Options[CurrentModuleValues[i]].Property.Intensity);

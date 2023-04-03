@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Draw the item extension screen.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemButtInflVibeButtPlugDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemButtInflVibeButtPlugDrawHook(Data, OriginalFunction) {
 	OriginalFunction();
 
 	if (Data.currentModule === ModularItemBase) {

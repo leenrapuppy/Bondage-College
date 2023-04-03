@@ -1,12 +1,12 @@
 "use strict";
 var InventoryItemHandsPawMittensMsg = null;
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemHandsPawMittensLoad() {
 	InventoryItemHandsPawMittensMsg = null;
 }
 
-// Draw the item extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemHandsPawMittensDraw() {
 	// Draw the header and item
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
@@ -25,7 +25,7 @@ function InventoryItemHandsPawMittensDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemHandsPawMittensClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 	if ((MouseX >= 1250) && (MouseX <= 1475) && (MouseY >= 550) && (MouseY <= 775)) InventoryItemHandsPawMittensChain();

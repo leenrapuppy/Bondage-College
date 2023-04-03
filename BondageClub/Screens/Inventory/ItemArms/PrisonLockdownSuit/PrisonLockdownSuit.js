@@ -1,28 +1,18 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemArmsPrisonLockdownSuitDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemArmsPrisonLockdownSuitDrawHook(Data, OriginalFunction) {
 	if (Data.currentModule === "ShockModule") {
-		InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(Data, OriginalFunction);
+		InventoryItemNeckAccessoriesCollarShockUnitDrawHook(Data, OriginalFunction);
 	} else {
 		OriginalFunction();
 	}
 }
 
-/**
- * Catches the item extension clicks
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemArmsPrisonLockdownSuitClick(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
+function InventoryItemArmsPrisonLockdownSuitClickHook(Data, OriginalFunction) {
 	if (Data.currentModule === "ShockModule") {
-		InventoryItemNeckAccessoriesCollarShockUnitClickFunc(Data, OriginalFunction);
+		InventoryItemNeckAccessoriesCollarShockUnitClickHook(Data, OriginalFunction);
 	} else {
 		OriginalFunction();
 	}

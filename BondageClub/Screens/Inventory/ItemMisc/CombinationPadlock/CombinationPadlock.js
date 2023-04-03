@@ -5,12 +5,12 @@ let CombinationPadlockCombinationLastValue = "";
 let CombinationPadlockNewCombinationLastValue = "";
 let CombinationPadlockLoaded = false;
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemMiscCombinationPadlockInit(C, Item) {
 	return ExtendedItemInitNoArch(C, Item, { CombinationNumber: "0000" }, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscCombinationPadlockLoad() {
 	CombinationPadlockPlayerIsBlind = Player.IsBlind();
 	// Only update on initial load, not update loads
@@ -92,7 +92,7 @@ function InventoryItemMiscCombinationPadlockModifyInput(e) {
 	CombinationPadlockCombinationLastValue = e.target.value;
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscCombinationPadlockDraw() {
 	var C = CharacterGetCurrent();
 	DrawAssetPreview(1387, 25, DialogFocusItem.Asset);
@@ -151,7 +151,7 @@ function InventoryItemMiscCombinationPadlockUnlock(C, Item) {
 		DialogLeave();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscCombinationPadlockClick() {
 	var C = CharacterGetCurrent();
 
@@ -222,6 +222,7 @@ function InventoryItemMiscCombinationPadlockClick() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscCombinationPadlockExit() {
 	CombinationPadlockLoaded = false;
 	ElementRemove("CombinationNumber");

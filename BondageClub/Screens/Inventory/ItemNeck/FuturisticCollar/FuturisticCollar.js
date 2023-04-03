@@ -4,7 +4,8 @@
 var FuturisticCollarPage = 0;
 var FuturisticCollarMaxPage = 2;
 
-function InventoryItemNeckFuturisticCollarInit(Item, C, Refresh) {
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemNeckFuturisticCollarInit(C, Item, Refresh) {
 	const Property = {
 		OpenPermission: false,
 		OpenPermissionChastity: false,
@@ -12,10 +13,10 @@ function InventoryItemNeckFuturisticCollarInit(Item, C, Refresh) {
 		OpenPermissionLeg: false,
 		BlockRemotes: false,
 	};
-	ExtendedItemInitNoArch(Item, C, Property, Refresh);
+	return ExtendedItemInitNoArch(C, Item, Property, Refresh);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemNeckFuturisticCollarLoad() {
 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
@@ -26,7 +27,7 @@ function InventoryItemNeckFuturisticCollarLoad() {
 	}
 }
 
-// Draw the item extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemNeckFuturisticCollarDraw() {
 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
@@ -128,13 +129,14 @@ function InventoryItemNeckFuturisticCollarDraw() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemNeckFuturisticCollarExit() {
 	ElementRemove("FutureCollarPasswordField");
 	ElementRemove("FutureCollarTimeField");
 	InventoryItemFuturisticExitAccessDenied();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemNeckFuturisticCollarClick() {
 
 	var C = CharacterGetCurrent();
@@ -276,11 +278,7 @@ function InventoryItemNeckFuturisticCollarGetItems(C, OnlyUnlockable) {
 	return ItemList;
 }
 
-/**
- * @param {Character} C
- * @param {Item} Item
- * @returns {string}
- */
+/** @type {ExtendedItemCallbacks.Validate<any>} */
 function InventoryItemNeckFuturisticCollarValidate(C, Item) {
 	return InventoryItemFuturisticValidate(C, Item);
 }
@@ -341,7 +339,7 @@ function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
  * @param {Character} C
  * @param {Item} Item
  * @param {Item} LockItem
- * @param {*} Attempt
+ * @param {boolean} Attempt
  * @returns {boolean}
  */
 function InventoryItemNeckFuturisticCollarCanUnlock(C, Item, LockItem, Attempt) {

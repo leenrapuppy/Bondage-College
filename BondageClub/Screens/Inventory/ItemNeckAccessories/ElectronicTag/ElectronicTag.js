@@ -1,11 +1,11 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemNeckAccessoriesElectronicTagInit(C, Item, Refresh) {
 	return ExtendedItemInitNoArch(C, Item, { Text: "Tag" }, Refresh);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemNeckAccessoriesElectronicTagLoad() {
 	// Only create the inputs if the item isn't locked
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
@@ -13,7 +13,7 @@ function InventoryItemNeckAccessoriesElectronicTagLoad() {
 	}
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemNeckAccessoriesElectronicTagDraw() {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
@@ -22,19 +22,19 @@ function InventoryItemNeckAccessoriesElectronicTagDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemNeckAccessoriesElectronicTagClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		ExtendedItemExit();
 	}
 }
 
-// Leaves the extended screen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemNeckAccessoriesElectronicTagExit() {
 	PropertyTextExit();
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemNeckAccessoriesElectronicTagAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

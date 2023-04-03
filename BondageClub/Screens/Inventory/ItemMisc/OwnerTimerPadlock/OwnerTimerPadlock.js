@@ -3,7 +3,7 @@
 const OwnerTimerChooseList = [1, 2, 4, 8, 16, 24, 48, 72, 96, 120, 144, 168, -144, -72, -48, -24, -8, -4];
 let OwnerTimerChooseIndex = 0;
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemMiscOwnerTimerPadlockInit(C, Item) {
 	const PropRecord = {
 		RemoveItem: false,
@@ -14,11 +14,11 @@ function InventoryItemMiscOwnerTimerPadlockInit(C, Item) {
 	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscOwnerTimerPadlockLoad() {
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscOwnerTimerPadlockDraw() {
 	const property = DialogFocusSourceItem.Property;
 
@@ -75,7 +75,7 @@ function InventoryItemMiscOwnerTimerPadlockDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscOwnerTimerPadlockClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemMiscOwnerTimerPadlockExit();
@@ -154,7 +154,7 @@ function InventoryItemMiscOwnerTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToLi
 	InventoryItemMiscOwnerTimerPadlockExit();
 }
 
-// Exits the extended menu
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscOwnerTimerPadlockExit() {
 	DialogFocusItem = null;
 	if (DialogInventory != null) {

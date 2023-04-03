@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemNeckAccessoriesCollarNameTagDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemNeckAccessoriesCollarNameTagDrawHook(Data, OriginalFunction) {
 	if (!DialogFocusItem) {
 		return;
 	}
@@ -14,13 +9,8 @@ function InventoryItemNeckAccessoriesCollarNameTagDraw(Data, OriginalFunction) {
 	ExtendedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
 }
 
-/**
- * Catches the item extension clicks
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemNeckAccessoriesCollarNameTagClick(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<TypedItemData>} */
+function InventoryItemNeckAccessoriesCollarNameTagClickHook(Data, OriginalFunction) {
 	if (!DialogFocusItem) {
 		return;
 	}
@@ -48,7 +38,7 @@ function InventoryItemNeckAccessoriesCollarNameTagGetXY(Count, X=1000, Y=400) {
 	return XYCoords;
 }
 
-/** @type {ExtendedItemScriptHookStruct<TypedItemData, ExtendedItemOption>["publishAction"]} */
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, ExtendedItemOption>} */
 function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(data, OriginalFunction, C, item, newOption, previousOption) {
 	/** @type {ExtendedItemChatData<ExtendedItemOption>} */
 	const chatData = {

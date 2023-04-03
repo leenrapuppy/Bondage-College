@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Custom draw function.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemMouthFuturisticPanelGagDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemMouthFuturisticPanelGagDrawHook(Data, OriginalFunction) {
 	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
@@ -32,13 +27,8 @@ function InventoryItemMouthFuturisticPanelGagDraw(Data, OriginalFunction) {
 	}
 }
 
-/**
- * Custom click function.
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemMouthFuturisticPanelGagClick(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
+function InventoryItemMouthFuturisticPanelGagClickHook(Data, OriginalFunction) {
 	const GagBefore = ModularItemParseCurrent(Data)[0];
 	if (!FuturisticAccessClick(Data, OriginalFunction) || !DialogFocusItem) {
 		return;
@@ -185,8 +175,11 @@ function InventoryItemMouthFuturisticPanelGagTrigger(C, Item, Deflate) {
 	ChatRoomCharacterUpdate(C);
 }
 
+/**
+ * @typedef {{ LastMessageLen?: number, UpdateTime?: number, ChangeTime?: number }} FuturisticPanelGagPersistentData
+ */
 
-/**  @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticPanelGagPersistentData>} */
 function AssetsItemMouthFuturisticPanelGagScriptUpdatePlayer(data) {
 	const Item = data.Item;
 	const LastMessages = data.PersistentData().LastMessageLen;
@@ -199,7 +192,7 @@ function AssetsItemMouthFuturisticPanelGagScriptUpdatePlayer(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticPanelGagPersistentData>} */
 function AssetsItemMouthFuturisticPanelGagScriptDraw(data) {
 	const persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
@@ -226,7 +219,7 @@ function AssetsItemMouthFuturisticPanelGagScriptDraw(data) {
 	}
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+/** @type {ExtendedItemCallbacks.BeforeDraw<FuturisticPanelGagPersistentData>} */
 function AssetsItemMouthFuturisticPanelGagBeforeDraw(data) {
 	if (data.L === "_Light" && data.Property && data.Property.AutoPunish > 0) {
 		const Opacity = (data.Property.BlinkState) ? 1 : 0;

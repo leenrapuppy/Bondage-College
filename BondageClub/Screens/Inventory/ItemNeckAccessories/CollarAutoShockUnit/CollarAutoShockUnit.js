@@ -1,11 +1,6 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
 function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(Data, OriginalFunction) {
 	OriginalFunction();
 	if (Data.currentModule === ModularItemBase) {
@@ -30,12 +25,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(Data, OriginalFunct
 	}
 }
 
-/**
- * Catches the item extension clicks
- * @param {ModularItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
+/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
 function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(Data, OriginalFunction) {
 	OriginalFunction();
 	if (DialogFocusItem && Data.currentModule === ModularItemBase) {
@@ -49,7 +39,11 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(Data, OriginalFunc
 	}
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ ChangeTime?: number, LastMessageLen?: number }} AutoShockUnitPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<AutoShockUnitPersistentData>} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
 		const property = data.Property || {};
@@ -57,9 +51,8 @@ function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<AutoShockUnitPersistentData>} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitScriptDraw(data) {
-	/** @type {{ChangeTime?: number, LastMessageLen?: number}} */
 	const persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
 	const property = (data.Item.Property = data.Item.Property || {});

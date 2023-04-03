@@ -153,7 +153,7 @@ function ExtendedItemInit(C, Item, Refresh=true) {
 	}
 
 	const functionName = `Inventory${Item.Asset.Group.Name}${Item.Asset.Name}Init`;
-	/** @type {Parameters<ExtendedItemInitCallback>} */
+	/** @type {Parameters<ExtendedItemCallbacks.Init>} */
 	const args = [C, Item, Refresh];
 	return CommonCallFunctionByNameWarn(functionName, ...args);
 }
@@ -542,7 +542,7 @@ function ExtendedItemSetType(C, Options, Option) {
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
-			/** @type {Parameters<ExtendedItemPublishActionCallback<T>>} */
+			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<T>>} */
 			const args = [C, DialogFocusItem, Option, previousOption];
 			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
 		} else {
@@ -629,7 +629,7 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 		} else if (Option.HasSubscreen) {
 			ExtendedItemSubscreen = Option.Name;
 			if (Option.Archetype) {
-				/** @type {Parameters<ExtendedItemInitCallback>} */
+				/** @type {Parameters<ExtendedItemCallbacks.Init>} */
 				const args = [C, DialogFocusItem, true];
 				CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Init`, ...args);
 			}

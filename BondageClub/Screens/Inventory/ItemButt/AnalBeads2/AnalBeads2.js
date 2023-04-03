@@ -1,6 +1,6 @@
 "use strict";
 
-/** @type {ExtendedItemScriptHookStruct<TypedItemData, ExtendedItemOption>["publishAction"]} */
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, ExtendedItemOption>} */
 function InventoryItemButtAnalBeads2PublishActionHook(data, originalFunction, C, item, newOption, previousOption) {
 	const beadsOld = previousOption.Property.InsertedBeads || 1;
 	const beadsNew = newOption.Property.InsertedBeads || 1;

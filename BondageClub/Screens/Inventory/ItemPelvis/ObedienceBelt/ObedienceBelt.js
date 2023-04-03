@@ -1,9 +1,11 @@
 "use strict";
 
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemPelvisObedienceBeltEngraving0Load() {
 	PropertyTextLoad();
 }
 
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemPelvisObedienceBeltEngraving0Draw() {
 	// Draw the header and item
 	ExtendedItemDrawHeader();
@@ -11,6 +13,7 @@ function InventoryItemPelvisObedienceBeltEngraving0Draw() {
 	PropertyTextDraw();
 }
 
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemPelvisObedienceBeltEngraving0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemPelvisObedienceBeltEngraving0Exit();
@@ -18,14 +21,17 @@ function InventoryItemPelvisObedienceBeltEngraving0Click() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemPelvisObedienceBeltEngraving0Exit() {
 	PropertyTextExit(null, null, true, "ObedienceBeltEngravingUpdated", "ObedienceBeltEngravingErased");
 	ExtendedItemSubscreen = null;
 }
 
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemPelvisObedienceBeltShockModule1Load() {
 }
 
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemPelvisObedienceBeltShockModule1Draw() {
 	// Draw the header and item
 	ExtendedItemDrawHeader(1387, 125);
@@ -39,6 +45,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Draw() {
 	DrawButton(1387, 800, 225, 55, DialogFindPlayer("TriggerShock"), "White");
 }
 
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemPelvisObedienceBeltShockModule1Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemPelvisObedienceBeltShockModule1Exit();
@@ -70,6 +77,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemPelvisObedienceBeltShockModule1Exit() {
 	ExtendedItemSubscreen = null;
 }
@@ -92,6 +100,10 @@ function InventoryObedienceBeltCheckPunish(Item) {
 	return "";
 }
 
+/**
+ * @param {DynamicScriptCallbackData<ObedienceBeltPersistentData>} data
+ * @param {number} LastTime
+ */
 function AssetsItemPelvisObedienceBeltUpdate(data, LastTime) {
 	let Item = data.Item;
 	let C = data.C;
@@ -111,7 +123,11 @@ function AssetsItemPelvisObedienceBeltUpdate(data, LastTime) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/**
+ * @typedef {{ UpdateTime?: number, LastMessageLen?: number, CheckTime?: number }} ObedienceBeltPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.ScriptDraw<ObedienceBeltPersistentData>} */
 function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	const persistentData = data.PersistentData();
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
@@ -139,7 +155,7 @@ function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	}
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw<ObedienceBeltPersistentData>} */
 function AssetsItemPelvisObedienceBeltAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

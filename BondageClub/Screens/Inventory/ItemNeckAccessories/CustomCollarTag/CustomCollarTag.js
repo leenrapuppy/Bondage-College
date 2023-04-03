@@ -1,30 +1,30 @@
 "use strict";
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Load() {
 	PropertyTextLoad();
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Draw() {
 	ExtendedItemDrawHeader(1387, 125);
 	PropertyTextDraw();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemNeckAccessoriesCustomCollarTagTxt0Exit();
 	}
 }
 
-// Leaves the extended screen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Exit() {
 	PropertyTextExit();
 	ExtendedItemSubscreen = null;
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

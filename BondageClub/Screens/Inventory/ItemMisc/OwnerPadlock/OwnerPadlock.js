@@ -1,10 +1,10 @@
 "use strict";
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscOwnerPadlockLoad() {
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscOwnerPadlockDraw() {
 	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
 	DrawText(DialogFindPlayer(DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Intro"), 1500, 600, "white", "gray");
@@ -17,7 +17,7 @@ function InventoryItemMiscOwnerPadlockDraw() {
 	DrawText(msg, 1500, 800, "white", "gray");
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscOwnerPadlockClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 }

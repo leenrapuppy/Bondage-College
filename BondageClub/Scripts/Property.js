@@ -133,14 +133,7 @@ function PropertyOpacityExit(Data=null, OriginalFunction=null, Refresh=true) {
 
 /**
  * Validation function for items with opacity sliders.
- * @template {ExtendedItemOption | ModularItemOption} OptionType
- * @param {null | ExtendedItemData} Data - The items extended item data
- * @param {ExtendedItemValidateCallback<OptionType>} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @param {Character} C - The character to validate the option
- * @param {Item} Item - The equipped item
- * @param {OptionType} Option - The selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @returns {string} - Set and returns {@link DialogExtendedMessage} if the chosen option is not possible.
+ * @type {ExtendedItemScriptHookCallbacks.Validate<ExtendedItemData<any>, any>}
  */
 function PropertyOpacityValidate(Data, OriginalFunction, C, Item, Option, CurrentOption) {
 	if (Item && Item.Property) {

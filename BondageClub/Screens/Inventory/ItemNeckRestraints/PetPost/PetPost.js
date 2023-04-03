@@ -1,30 +1,30 @@
 "use strict";
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemNeckRestraintsPetPostTxt0Load() {
 	PropertyTextLoad();
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemNeckRestraintsPetPostTxt0Draw() {
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 	PropertyTextDraw();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemNeckRestraintsPetPostTxt0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemNeckRestraintsPetPostTxt0Exit();
 	}
 }
 
-// Leaves the extended screen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemNeckRestraintsPetPostTxt0Exit() {
 	PropertyTextExit();
 	ExtendedItemSubscreen = null;
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemNeckRestraintsPetPostAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
@@ -63,28 +63,27 @@ function AssetsItemNeckRestraintsPetPostAfterDraw({
 	}
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscPetPostTxt0Load() {
 	InventoryItemNeckRestraintsPetPostTxt0Load();
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscPetPostTxt0Draw() {
 	InventoryItemNeckRestraintsPetPostTxt0Draw();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscPetPostTxt0Click() {
 	InventoryItemNeckRestraintsPetPostTxt0Click();
 }
 
-// Leaves the extended screen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscPetPostTxt0Exit() {
 	InventoryItemNeckRestraintsPetPostTxt0Exit();
 }
 
-// Item Misc
-// Drawing function for the text on the sign
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemMiscPetPostAfterDraw(data) {
 	AssetsItemNeckRestraintsPetPostAfterDraw(data);
 }

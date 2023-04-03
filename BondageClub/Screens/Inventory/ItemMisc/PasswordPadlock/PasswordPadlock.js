@@ -2,7 +2,7 @@
 
 const InventoryItemMiscPasswordPadlockPasswordRegex = /^[A-Z]+$/;
 
-/** @type {ExtendedItemInitCallback} */
+/** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemMiscPasswordPadlockInit(C, Item) {
 	const PropRecord = {
 		Password: "PASSWORD",
@@ -13,7 +13,7 @@ function InventoryItemMiscPasswordPadlockInit(C, Item) {
 	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscPasswordPadlockLoad() {
 	if (!DialogFocusSourceItem) return;
 	const Property = DialogFocusSourceItem.Property;
@@ -43,7 +43,7 @@ function InventoryItemMiscPasswordPadlockLoad() {
 	}
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscPasswordPadlockDraw() {
 	if (!DialogFocusItem || !DialogFocusSourceItem) return InventoryItemMiscPasswordPadlockExit();
 	const Property = DialogFocusSourceItem.Property;
@@ -97,7 +97,7 @@ function InventoryItemMiscPasswordPadlockDrawControls() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscPasswordPadlockClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
@@ -184,6 +184,7 @@ function InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback) {
 	} else { PreferenceMessage = "PasswordPadlockErrorInput"; }
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscPasswordPadlockExit() {
 	ElementRemove("Password");
 	ElementRemove("SetPassword");

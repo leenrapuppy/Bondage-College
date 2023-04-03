@@ -100,14 +100,7 @@ function FuturisticAccessExit() {
 
 /**
  * Hook script for injecting futuristic features into a typed or modular item
- * @param {null | ExtendedItemData<any>} Data - The extended item data (if any)
- * @param {ExtendedItemValidateCallback<OptionType>} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @param {Character} C - The character to validate the option
- * @param {Item} Item - The equipped item
- * @param {OptionType} Option - The selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @returns {string} - Returns false and sets DialogExtendedMessage, if the chosen option is not possible.
- * @template OptionType
+ * @type {ExtendedItemScriptHookCallbacks.Validate<ExtendedItemData<any>, any>}
  */
 function FuturisticAccessValidate(Data, OriginalFunction, C, Item, Option, CurrentOption) {
 	let futureString = InventoryItemFuturisticValidate(C, Item);

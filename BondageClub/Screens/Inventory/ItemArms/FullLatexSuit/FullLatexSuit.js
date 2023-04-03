@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * Draw the item extension screen.
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemArmsFullLatexSuitDraw(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemArmsFullLatexSuitDrawHook(Data, OriginalFunction) {
 	if (!DialogFocusItem) {
 		return;
 	}
@@ -20,13 +15,8 @@ function InventoryItemArmsFullLatexSuitDraw(Data, OriginalFunction) {
 	ExtendedItemCustomDraw(`${Data.dialogPrefix.option}Wand`, ...ExtendedXY[6][4], true, !CanEquip);
 }
 
-/**
- * Catches the item extension clicks.
- * @param {TypedItemData} Data - The items extended item data
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemArmsFullLatexSuitClick(Data, OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<TypedItemData>} */
+function InventoryItemArmsFullLatexSuitClickHook(Data, OriginalFunction) {
 	if (!DialogFocusItem) {
 		return;
 	}
