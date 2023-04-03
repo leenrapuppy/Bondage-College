@@ -7631,10 +7631,7 @@ var AssetFemale3DCG = [
 			},
 			{ 
 				Name: "OpenFaceHood", Fetish: ["Latex"], Value: 35, Priority: 40, Difficulty: 5, Time: 15, AllowLock: false, AllowTighten: true, DefaultColor: "#404040", BuyGroup: "OpenFace", Block: ["ItemEars"], Hide: ["HairFront"], HideItem: ["HatFurHeadband"] , Extended: true, HasType: false,
-				Layer: [
-					{ Name: "ThickHood"},
-					{ Name: "ThinHood" }
-				]
+
 			},
 			{
 				Name: "GwenHood", Fetish: ["Leather"], Value: 35, Difficulty: 5, Time: 15, AllowLock: true, AllowTighten: true, DefaultColor: "#404040", Extended: true, HasType: false,
