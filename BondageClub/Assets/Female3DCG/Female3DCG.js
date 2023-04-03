@@ -5965,10 +5965,12 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CupholderGag", Fetish: ["Leather"], Priority: 42, Value: 30, Difficulty: 4, Time: 20, Random: false, AllowLock: true, AllowTighten: true, BuyGroup: "CupholderGag", Hide: ["Mouth"], Extended: true, AlwaysExtend: true, AlwaysInteract: true, Effect: ["BlockMouth", "GagEasy", "ProtrudingMouth"], Block: ["ItemMouth2", "ItemMouth3"],
+				HasType: false,
 				Layer: [
-					{ Name: "Gag", HasType: false, AllowTypes: ["", "Cup"] },
-					{ Name: "Holder", HasType: false, AllowTypes: ["", "Cup"] },
-					{ Name: "Cup", HasType: false, AllowTypes: ["Cup"] }
+					{ Name: "Gag", AllowTypes: ["", "Tip", "Cup"] },
+					{ Name: "Holder", AllowTypes: ["", "Tip", "Cup"] },
+					{ Name: "Cup", AllowTypes: ["Cup"] },
+					{ Name: "Lock", LockLayer: true, AllowColorize: false, }
 				]
 			},
 			{
@@ -6509,10 +6511,12 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CupholderGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, AllowTighten: true, BuyGroup: "CupholderGag", Hide: ["Mouth"], Extended: true, AlwaysExtend: true, AlwaysInteract: true, Effect: ["BlockMouth", "GagEasy", "ProtrudingMouth"], Block: ["ItemMouth", "ItemMouth3"],
+				HasType: false,
 				Layer: [
-					{ Name: "Gag", HasType: false, AllowTypes: ["", "Cup"] },
-					{ Name: "Holder", HasType: false, AllowTypes: ["", "Cup"] },
-					{ Name: "Cup", HasType: false, AllowTypes: ["Cup"] }
+					{ Name: "Gag", AllowTypes: ["", "Tip", "Cup"] },
+					{ Name: "Holder", AllowTypes: ["", "Tip", "Cup"] },
+					{ Name: "Cup", AllowTypes: ["Cup"] },
+					{ Name: "Lock", LockLayer: true, AllowColorize: false, }
 				]
 			},
 			{
@@ -6879,10 +6883,12 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CupholderGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, AllowTighten: true, BuyGroup: "CupholderGag", Hide: ["Mouth"], Extended: true, AlwaysExtend: true, AlwaysInteract: true, Effect: ["BlockMouth", "GagEasy", "ProtrudingMouth"],
+				HasType: false,
 				Layer: [
-					{ Name: "Gag", HasType: false, AllowTypes: ["", "Cup"] },
-					{ Name: "Holder", HasType: false, AllowTypes: ["", "Cup"] },
-					{ Name: "Cup", HasType: false, AllowTypes: ["Cup"] }
+					{ Name: "Gag", AllowTypes: ["", "Tip", "Cup"] },
+					{ Name: "Holder", AllowTypes: ["", "Tip", "Cup"] },
+					{ Name: "Cup", AllowTypes: ["Cup"] },
+					{ Name: "Lock", LockLayer: true, AllowColorize: false, }
 				]
 			},
 			{

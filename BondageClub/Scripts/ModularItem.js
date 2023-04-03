@@ -110,7 +110,7 @@ function ModularItemInit(Item, C, Refresh=true) {
 	Item.Property = ModularItemMergeModuleValues(Data, currentModuleValues, Data.BaselineProperty);
 
 	if (Refresh) {
-		CharacterRefresh(C);
+		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Data.asset.Group.Name);
 	}
 }

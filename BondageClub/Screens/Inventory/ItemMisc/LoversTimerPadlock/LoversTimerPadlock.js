@@ -4,7 +4,7 @@ const LoverTimerChooseList = [1, 2, 4, 8, 16, 24, 48, 72, 96, 120, 144, 168, -14
 let LoverTimerChooseIndex = 0;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscLoversTimerPadlocInit(Item, C) {
+function InventoryItemMiscLoversTimerPadlockInit(Item, C) {
 	const PropRecord = {
 		RemoveItem: false,
 		ShowTimer: true,
