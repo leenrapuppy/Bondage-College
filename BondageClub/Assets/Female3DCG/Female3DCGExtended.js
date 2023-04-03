@@ -4157,7 +4157,7 @@ var AssetFemale3DCGExtended = {
 					}, // Thick, Thin
 				]
 			}
-		}, // Inflatable Gag Mask
+		}, // Open Mouth Plug Hood
 		LatexDogHood: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config:{
