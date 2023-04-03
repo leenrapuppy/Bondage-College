@@ -627,12 +627,9 @@ type ExtendedItemValidateScriptHookCallback<OptionType> = (
  * @param Item The item in question
  * @param C The character that has the item equiped
  * @param Refresh Whether the character and relevant item should be refreshed and pushed to the server
+ * @returns Whether properties were updated or not
  */
-type ExtendedItemInitCallback = (
-	Item: Item,
-	C: Character,
-	Refresh?: boolean,
-) => void;
+type ExtendedItemInitCallback = ExtendedItemCallbackStruct<any>["init"];
 
 //#endregion
 

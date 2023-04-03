@@ -6,9 +6,9 @@ var HighSecurityPadlockConfigLover = true;
 var HighSecurityPadlockConfigWhitelist = false;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscHighSecurityPadlockInit(Item, C) {
+function InventoryItemMiscHighSecurityPadlockInit(C, Item) {
 	const MemberNumberListKeys = (Item.Property.LockMemberNumber) ? `${Item.Property.LockMemberNumber}` : "";
-	ExtendedItemInitNoArch(Item, C, { MemberNumberListKeys: MemberNumberListKeys }, false);
+	return ExtendedItemInitNoArch(C, Item, { MemberNumberListKeys: MemberNumberListKeys }, false);
 }
 
 // Loads the item extension properties

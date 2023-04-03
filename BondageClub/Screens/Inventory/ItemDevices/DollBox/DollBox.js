@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemDevicesDollBoxInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Text: "", Text2: "" }, Refresh);
+function InventoryItemDevicesDollBoxInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "", Text2: "" }, Refresh);
 }
 
 // Loads the item extension properties

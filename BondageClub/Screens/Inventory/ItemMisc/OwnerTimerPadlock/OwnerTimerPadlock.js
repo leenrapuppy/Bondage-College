@@ -4,14 +4,14 @@ const OwnerTimerChooseList = [1, 2, 4, 8, 16, 24, 48, 72, 96, 120, 144, 168, -14
 let OwnerTimerChooseIndex = 0;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscOwnerTimerPadlockInit(Item, C) {
+function InventoryItemMiscOwnerTimerPadlockInit(C, Item) {
 	const PropRecord = {
 		RemoveItem: false,
 		ShowTimer: true,
 		EnableRandomInput: false,
 		MemberNumberList: [],
 	};
-	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
 // Loads the item extension properties

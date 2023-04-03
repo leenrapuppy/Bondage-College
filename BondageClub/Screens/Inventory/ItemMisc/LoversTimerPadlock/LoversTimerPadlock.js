@@ -4,14 +4,14 @@ const LoverTimerChooseList = [1, 2, 4, 8, 16, 24, 48, 72, 96, 120, 144, 168, -14
 let LoverTimerChooseIndex = 0;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscLoversTimerPadlockInit(Item, C) {
+function InventoryItemMiscLoversTimerPadlockInit(C, Item) {
 	const PropRecord = {
 		RemoveItem: false,
 		ShowTimer: true,
 		EnableRandomInput: false,
 		MemberNumberList: [],
 	};
-	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
 // Loads the item extension properties

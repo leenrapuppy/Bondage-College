@@ -4,7 +4,7 @@ const PasswordTimerChooseList = [5, 10, 15, 30, 60, 120, 180, 240, -180, -120, -
 let PasswordTimerChooseIndex = 0;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscTimerPasswordPadlockInit(Item, C) {
+function InventoryItemMiscTimerPasswordPadlockInit(C, Item) {
 	const Property = {
 		Password: "PASSWORD",
 		Hint: "Take a guess...",
@@ -14,7 +14,7 @@ function InventoryItemMiscTimerPasswordPadlockInit(Item, C) {
 		EnableRandomInput: false,
 		MemberNumberList: [],
 	};
-	ExtendedItemInitNoArch(Item, C, Property, false);
+	return ExtendedItemInitNoArch(C, Item, Property, false);
 }
 
 // Loads the item extension properties

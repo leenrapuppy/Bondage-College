@@ -35,7 +35,7 @@ var FuturisticTrainingBeltPage = 0;
 var FuturisticTrainingBeltMaxPage = 1;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemPelvisFuturisticTrainingBeltInit(Item, C, Refresh) {
+function InventoryItemPelvisFuturisticTrainingBeltInit(C, Item, Refresh) {
 	/** @type {ItemProperties} */
 	const Property = {
 		Intensity: -1,
@@ -59,7 +59,7 @@ function InventoryItemPelvisFuturisticTrainingBeltInit(Item, C, Refresh) {
 		//DeviceStateTimer: 0, // Timer for the end of the current state
 		//DeviceVibeMode: VibratorMode.OFF, // Timer for the end of the current state
 	};
-	ExtendedItemInitNoArch(Item, C, Property, Refresh);
+	return ExtendedItemInitNoArch(C, Item, Property, Refresh);
 }
 
 function InventoryItemPelvisFuturisticTrainingBeltLoad() {

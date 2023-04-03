@@ -3,14 +3,14 @@
 const InventoryItemMiscPasswordPadlockPasswordRegex = /^[A-Z]+$/;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscPasswordPadlockInit(Item, C) {
+function InventoryItemMiscPasswordPadlockInit(C, Item) {
 	const PropRecord = {
 		Password: "PASSWORD",
 		Hint: "Take a guess...",
 		LockSet: false,
 		RemoveOnUnlock: false,
 	};
-	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
 // Loads the item extension properties

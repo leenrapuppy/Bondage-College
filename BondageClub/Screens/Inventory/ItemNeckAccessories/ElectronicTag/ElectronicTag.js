@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemNeckAccessoriesElectronicTagInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Text: "Tag" }, Refresh);
+function InventoryItemNeckAccessoriesElectronicTagInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "Tag" }, Refresh);
 }
 
 // Loads the item extension properties

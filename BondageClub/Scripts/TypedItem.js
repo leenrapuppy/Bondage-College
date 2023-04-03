@@ -62,6 +62,7 @@ function TypedItemRegister(asset, config) {
 			draw: () => ExtendedItemDraw(data.options, data.dialogPrefix.option, null, data.drawImages),
 			validate: ExtendedItemValidate,
 			publishAction: (...args) => TypedItemPublishAction(data, ...args),
+			init: (...args) => TypedItemInit(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
@@ -122,6 +123,7 @@ function TypedItemCreateTypedItemData(asset, {
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+			init: ScriptHooks ? ScriptHooks.Init : undefined,
 		},
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
@@ -477,18 +479,16 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 
 /**
  * Initialize the typed item properties
- * @type {ExtendedItemInitCallback}
- * @see {@link ExtendedItemInit}
+ * @param {TypedItemData} Data - The item's extended item data
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
+ * @returns {boolean} Whether properties were initialized or not
  */
-function TypedItemInit(Item, C, Refresh=true) {
-	const Data = ExtendedItemGetData(Item, ExtendedArchetype.TYPED);
-	if (Data === null) {
-		return;
-	}
-
+function TypedItemInit(Data, C, Item, Refresh=true) {
 	const AllowType = [null, ...Item.Asset.AllowType];
 	if (Item.Property && AllowType.includes(Item.Property.Type)) {
-		return;
+		return false;
 	}
 
 	// Default to the first option if no property is set
@@ -515,4 +515,5 @@ function TypedItemInit(Item, C, Refresh=true) {
 		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
+	return true;
 }

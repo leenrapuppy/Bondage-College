@@ -88,6 +88,7 @@ function ModularItemRegister(asset, config) {
 			draw: () => ModularItemDraw(data),
 			validate: ExtendedItemValidate,
 			publishAction: (...args) => ModularItemPublishAction(data, ...args),
+			init: (...args) => ModularItemInit(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
@@ -96,18 +97,16 @@ function ModularItemRegister(asset, config) {
 
 /**
  * Initialize the modular item properties
- * @type {ExtendedItemInitCallback}
- * @see {@link ExtendedItemInit}
+ * @param {ModularItemData} Data - The item's extended item data
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
+ * @returns {boolean} Whether properties were initialized or not
  */
-function ModularItemInit(Item, C, Refresh=true) {
-	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
-	if (Data === null) {
-		return;
-	}
-
+function ModularItemInit(Data, C, Item, Refresh=true) {
 	const AllowType = Data.asset.AllowType;
 	if (Item.Property && AllowType.includes(Item.Property.Type)) {
-		return;
+		return false;
 	}
 
 	const currentModuleValues = ModularItemParseCurrent(Data, null);
@@ -117,6 +116,7 @@ function ModularItemInit(Item, C, Refresh=true) {
 		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Data.asset.Group.Name);
 	}
+	return true;
 }
 
 /**
@@ -218,6 +218,7 @@ function ModularItemCreateModularData(asset, {
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+			init: ScriptHooks ? ScriptHooks.Init : undefined,
 		},
 		drawFunctions: {},
 		clickFunctions: {},

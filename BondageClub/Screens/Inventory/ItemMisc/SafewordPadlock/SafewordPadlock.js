@@ -1,14 +1,14 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscSafewordPadlockInit(Item, C) {
+function InventoryItemMiscSafewordPadlockInit(C, Item) {
 	const PropRecord = {
 		Password: "PLEASE",
 		Hint: "Say the magic word...",
 		LockSet: false,
 		RemoveOnUnlock: false,
 	};
-	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
 // Loads the item extension properties

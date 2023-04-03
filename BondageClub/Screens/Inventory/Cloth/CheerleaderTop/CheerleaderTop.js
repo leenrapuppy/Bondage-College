@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryClothCheerleaderTopInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+function InventoryClothCheerleaderTopInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
 }
 
 function InventoryClothCheerleaderTopLoad() {

@@ -1930,6 +1930,7 @@ type ExtendedItemScriptHookStruct<
 	exit?: ExtendedItemScriptHookCallback<DataType, []>,
 	validate?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>,
 	publishAction?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>,
+	init?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>,
 };
 
 type ExtendedItemCapsScriptHooksStruct<
@@ -1942,6 +1943,7 @@ type ExtendedItemCapsScriptHooksStruct<
 	Exit?: ExtendedItemScriptHookCallback<DataType, []>,
 	Validate?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>,
 	PublishAction?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>,
+	Init?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>,
 };
 
 type ExtendedItemCallbackStruct<
@@ -1953,6 +1955,7 @@ type ExtendedItemCallbackStruct<
 	exit?: ExtendedItemCallback<[]>,
 	validate?: ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>,
 	publishAction?: ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>,
+	init?: ExtendedItemCallback<[C: Character, item: Item, refresh: boolean], boolean>,
 };
 
 /**

@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscWoodenSignInit(Item, C, Refresh=true) {
-	ExtendedItemInitNoArch(Item, C, { Text: "", Text2: "" }, Refresh);
+function InventoryItemMiscWoodenSignInit(C, Item, Refresh=true) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "", Text2: "" }, Refresh);
 }
 
 // Loads the item extension properties

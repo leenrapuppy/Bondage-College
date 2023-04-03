@@ -95,8 +95,8 @@ var InventoryItemNeckSlaveCollarTypes = [
 ];
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemNeckSlaveCollarInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Type: null, Effect: [], Block: [] }, Refresh);
+function InventoryItemNeckSlaveCollarInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Type: null, Effect: [], Block: [] }, Refresh);
 }
 
 // Loads the item extension properties

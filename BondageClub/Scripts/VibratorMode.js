@@ -191,6 +191,7 @@ function VibratorModeRegister(asset, config={}) {
 			draw: () => VibratorModeDraw(data.modeSet),
 			validate: VibratorModeValidate,
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
+			init: (...args) => VibratorModeInit(data.modeSet, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		VibratorModeCreateScriptDrawFunction(data);
@@ -222,6 +223,7 @@ function VibratorModeCreateData(asset, { Options, ScriptHooks, BaselineProperty,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+			init: ScriptHooks ? ScriptHooks.Init : undefined,
 		},
 		dialogPrefix: {
 			header: DialogPrefix.Header || "Intensity",
@@ -707,25 +709,16 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 
 /**
  * Initialize the vibrating item properties
+ * @param {VibratorModeSet[]} modeSet optional list with the names of all supported configuration sets.
  * @param {Item} Item - The item in question
  * @param {Character} C - The character that has the item equiped
  * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
- * @param {null | VibratorModeSet[]} modeSet - An optional list with the names of all supported configuration sets.
- * Defaults to {@link VibratingItemData.modeSet} if not specified.
- * @see {@link ExtendedItemInit}
+ * @returns {boolean} Whether properties were initialized or not
  */
-function VibratorModeInit(Item, C, Refresh=true, modeSet=null) {
-	if (modeSet == null) {
-		const Data = ExtendedItemGetData(Item, ExtendedArchetype.VIBRATING);
-		if (Data === null) {
-			return;
-		}
-		modeSet = (Data.modeSet && Data.modeSet.length) ? Data.modeSet : [VibratorModeSet.STANDARD];
-	}
-
+function VibratorModeInit(modeSet, C, Item, Refresh=true) {
 	const AllowType = Item.Asset.AllowType;
 	if (Item.Property && AllowType.includes(Item.Property.Mode)) {
-		return;
+		return false;
 	}
 
 	const Options = VibratorModeGetOptions(modeSet);
@@ -736,4 +729,5 @@ function VibratorModeInit(Item, C, Refresh=true, modeSet=null) {
 		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
+	return true;
 }

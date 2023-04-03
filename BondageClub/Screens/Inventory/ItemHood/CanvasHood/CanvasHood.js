@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemHoodCanvasHoodInit(Item, C, Refresh=true) {
-	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+function InventoryItemHoodCanvasHoodInit(C, Item, Refresh=true) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
 }
 
 /**

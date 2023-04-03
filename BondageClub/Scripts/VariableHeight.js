@@ -44,6 +44,7 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
 			draw: () => VariableHeightDraw(data),
 			exit: VariableHeightExit,
 			publishAction: (...args) => VariableHeightPublishAction(data, ...args),
+			init: (...args) => VariableHeightInit(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
@@ -92,6 +93,7 @@ function VariableHeightCreateData(asset,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
 			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+			init: ScriptHooks ? ScriptHooks.Init : undefined,
 		},
 		drawImages: false,
 		chatSetting: "default",
@@ -303,34 +305,32 @@ function VariableHeightSetOverrideHeight(property, height, maxHeight, minHeight)
 
 /**
  * Initialize the variable height item properties
+ * @param {VariableHeightData} Data
  * @param {Item} Item - The item in question
  * @param {Character} C - The character that has the item equiped
- * @param {string} Type - The item's type
  * @param {boolean} Refresh -  Whether the character and relevant item should be refreshed and pushed to the server
- * @see {@link ExtendedItemInit}
+ * @returns {boolean} Whether properties were initialized or not
  */
-function VariableHeightInit(Item, C, Type, Refresh=true) {
-	const Data = ExtendedItemGetData(Item, ExtendedArchetype.VARIABLEHEIGHT, Type);
-	if (Data === null) {
-		return;
-	}
-
+function VariableHeightInit(Data, C, Item, Refresh) {
 	// Get the item/option's current height setting, initialising it if not set or invalid
 	let currentHeight = Item.Property && Item.Property.Type == Data.baselineProperty.Type ? Data.getHeight(Item.Property) : null;
-	if (currentHeight == null) {
-		const lockProperties = Item.Property ? InventoryExtractLockProperties(Item.Property) : undefined;
-		Item.Property = Object.assign(JSON.parse(JSON.stringify(Data.baselineProperty)), lockProperties);
-
-		if (Item.Property.LockedBy && !(Item.Property.Effect || []).includes("Lock")) {
-			Item.Property.Effect = (Item.Property.Effect || []);
-			Item.Property.Effect.push("Lock");
-		}
-
-		currentHeight = Data.getHeight(Item.Property);
-		Data.setHeight(Item.Property, currentHeight, Data.maxHeight, Data.minHeight);
+	if (currentHeight != null) {
+		return false;
 	}
+
+	const lockProperties = Item.Property ? InventoryExtractLockProperties(Item.Property) : undefined;
+	Item.Property = Object.assign(JSON.parse(JSON.stringify(Data.baselineProperty)), lockProperties);
+
+	if (Item.Property.LockedBy && !(Item.Property.Effect || []).includes("Lock")) {
+		Item.Property.Effect = (Item.Property.Effect || []);
+		Item.Property.Effect.push("Lock");
+	}
+
+	currentHeight = Data.getHeight(Item.Property);
+	Data.setHeight(Item.Property, currentHeight, Data.maxHeight, Data.minHeight);
 	if (Refresh) {
 		// Reload to see the change
 		CharacterRefresh(C, false, false);
 	}
+	return true;
 }

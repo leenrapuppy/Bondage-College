@@ -1,12 +1,12 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemDevicesFuturisticCrateDevice1Init(Item, C, Refresh) {
-	VibratorModeInit(Item, C, Refresh, [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
+function InventoryItemDevicesFuturisticCrateDevice1Init(C, Item, Refresh) {
+	return VibratorModeInit([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], C, Item, Refresh);
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Load() {
-	InventoryItemDevicesFuturisticCrateDevice1Init(DialogFocusItem, CharacterGetCurrent(), false);
+	InventoryItemDevicesFuturisticCrateDevice1Init(CharacterGetCurrent(), DialogFocusItem, false);
 	VibratorModeLoad("Intensity", true);
 }
 

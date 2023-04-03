@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemDevicesPetBowlInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+function InventoryItemDevicesPetBowlInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
 }
 
 /**

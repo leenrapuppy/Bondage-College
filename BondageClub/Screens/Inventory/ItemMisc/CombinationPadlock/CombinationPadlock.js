@@ -6,8 +6,8 @@ let CombinationPadlockNewCombinationLastValue = "";
 let CombinationPadlockLoaded = false;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscCombinationPadlockInit(Item, C) {
-	ExtendedItemInitNoArch(Item, C, { CombinationNumber: "0000" }, false);
+function InventoryItemMiscCombinationPadlockInit(C, Item) {
+	return ExtendedItemInitNoArch(C, Item, { CombinationNumber: "0000" }, false);
 }
 
 // Loads the item extension properties

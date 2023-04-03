@@ -1,8 +1,8 @@
 "use strict";
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscSafewordPadlockInit(Item, C) {
-	ExtendedItemInitNoArch(Item, C, { RemoveItem: false }, false);
+function InventoryItemMiscSafewordPadlockInit(C, Item) {
+	return ExtendedItemInitNoArch(C, Item, { RemoveItem: false }, false);
 }
 
 // Loads the item extension properties

@@ -4,14 +4,14 @@ const MistressTimerChooseList = [5, 10, 15, 30, 60, 120, 180, 240, -180, -120, -
 let MistressTimerChooseIndex = 0;
 
 /** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscMistressTimerPadlockInit(Item, C) {
+function InventoryItemMiscMistressTimerPadlockInit(C, Item) {
 	const PropRecord = {
 		RemoveItem: false,
 		ShowTimer: true,
 		EnableRandomInput: false,
 		MemberNumberList: [],
 	};
-	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
 // Loads the item extension properties
