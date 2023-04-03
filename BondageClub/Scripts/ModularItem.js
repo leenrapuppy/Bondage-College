@@ -890,32 +890,19 @@ function ModularItemGenerateValidationProperties(data) {
 }
 
 /**
- * Check whether a specific module is active for a given modular item.
- * @param {string} Module - The to be compared module
- * @param {Item | null} Item - The item in question; defaults to {@link DialogFocusItem}
- * @returns {boolean} whether the specific module is active
- */
-function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
-	if (Item == null) {
-		return false;
-	}
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	return Data !== undefined ? (Data.currentModule === Module) : false;
-}
-
-/**
  * Hide an HTML element if a given module is not active.
+ * @param {ModularItemData} Data - The modular item data
  * @param {string} ID - The id of the element
  * @param {string} Module - The module that must be active
  * @returns {boolean} Whether the module is active or not
  */
-function ModularItemHideElement(ID, Module) {
+function ModularItemHideElement(Data, ID, Module) {
 	const Element = document.getElementById(ID);
 	if (Element == null) {
-		return ModularItemModuleIsActive(Module);
+		return Data.currentModule === Module;
 	}
 
-	if (ModularItemModuleIsActive(Module)) {
+	if (Data.currentModule === Module) {
 		Element.style.display = "block";
 		return true;
 	} else {

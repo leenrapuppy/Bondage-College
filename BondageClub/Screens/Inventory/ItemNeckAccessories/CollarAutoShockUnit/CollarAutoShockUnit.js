@@ -8,7 +8,7 @@
  */
 function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(Data, OriginalFunction) {
 	OriginalFunction();
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule === ModularItemBase) {
 		const [ShockLevel, AutoPunish] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information
@@ -38,7 +38,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(Data, OriginalFunct
  */
 function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(Data, OriginalFunction) {
 	OriginalFunction();
-	if (DialogFocusItem && ModularItemModuleIsActive(ModularItemBase)) {
+	if (DialogFocusItem && Data.currentModule === ModularItemBase) {
 		if (MouseIn(1175, 768, 64, 64) && !ExtendedItemPermissionMode) {
 			DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 		} else if (MouseIn(1635, 700, 225, 55)) {

@@ -7,7 +7,7 @@
  * @returns {void} Nothing
  */
 function InventoryItemArmsPrisonLockdownSuitDraw(Data, OriginalFunction) {
-	if (ModularItemModuleIsActive("ShockModule")) {
+	if (Data.currentModule === "ShockModule") {
 		InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(Data, OriginalFunction);
 	} else {
 		OriginalFunction();
@@ -21,7 +21,7 @@ function InventoryItemArmsPrisonLockdownSuitDraw(Data, OriginalFunction) {
  * @returns {void} Nothing
  */
 function InventoryItemArmsPrisonLockdownSuitClick(Data, OriginalFunction) {
-	if (ModularItemModuleIsActive("ShockModule")) {
+	if (Data.currentModule === "ShockModule") {
 		InventoryItemNeckAccessoriesCollarShockUnitClickFunc(Data, OriginalFunction);
 	} else {
 		OriginalFunction();

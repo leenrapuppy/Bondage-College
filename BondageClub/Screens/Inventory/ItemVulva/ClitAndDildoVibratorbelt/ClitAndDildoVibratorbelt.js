@@ -8,7 +8,7 @@
  */
 function InventoryItemVulvaClitAndDildoVibratorbeltDraw(Data, OriginalFunction) {
 	OriginalFunction();
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule === ModularItemBase) {
 		const [DildoIntensity, EggIntensity] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information

@@ -10,7 +10,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(Data, OriginalFunction) {
 	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule === ModularItemBase) {
 		const [CrotchShield, Intensity, OrgasmLock, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const IntensitySuffix = (OrgasmLock === "o0") ? "" : ` (${DialogFindPlayer(`${Data.dialogPrefix.option}${OrgasmLock}`)})`;
 
@@ -48,7 +48,7 @@ function InventoryItemPelvisSciFiPleasurePantiesClickHook(Data, OriginalFunction
 		return;
 	}
 
-	if (DialogFocusItem && ModularItemModuleIsActive(ModularItemBase)) {
+	if (DialogFocusItem && Data.currentModule === ModularItemBase) {
 		if (MouseIn(1175, 818, 64, 64) && !ExtendedItemPermissionMode) {
 			const Property = DialogFocusItem.Property;
 			ExtendedItemCustomClick("ShowText", () => Property.ShowText = !Property.ShowText);

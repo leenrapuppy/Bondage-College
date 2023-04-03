@@ -11,7 +11,7 @@ function InventoryItemMouthFuturisticPanelGagDraw(Data, OriginalFunction) {
 		return;
 	}
 
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule === ModularItemBase) {
 		const [Gag, AutoPunish, AutoPunishUndoTimeSetting] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const AutoPunishUndoTime = DialogFocusItem.Property.AutoPunishUndoTime;
 		const UndoTimer =  DialogFindPlayer(`${Data.dialogPrefix.option}${AutoPunishUndoTimeSetting}`);
@@ -50,7 +50,7 @@ function InventoryItemMouthFuturisticPanelGagClick(Data, OriginalFunction) {
 		DialogFocusItem.Property.AutoPunishUndoTime = 0;
 	}
 
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule ===ModularItemBase) {
 		if (MouseIn(1637, 750, 225, 50)) {
 			const C = CharacterGetCurrent();
 			ExtendedItemCustomClick(

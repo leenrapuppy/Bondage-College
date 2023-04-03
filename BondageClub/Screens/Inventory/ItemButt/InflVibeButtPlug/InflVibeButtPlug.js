@@ -9,7 +9,7 @@
 function InventoryItemButtInflVibeButtPlugDraw(Data, OriginalFunction) {
 	OriginalFunction();
 
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule === ModularItemBase) {
 		const [InflateLevel, Intensity] = ModularItemParseCurrent(Data);
 
 		// Display option information

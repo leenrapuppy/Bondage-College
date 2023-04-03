@@ -20,7 +20,7 @@ const InventoryItemPelvisLoveChastityBeltCrotchShield = new Map([
  */
 function InventoryItemPelvisLoveChastityBeltDraw(Data, OriginalFunction) {
 	OriginalFunction();
-	if (ModularItemModuleIsActive(ModularItemBase)) {
+	if (Data.currentModule === ModularItemBase) {
 		const [FrontShield, BackShield, Intensity, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const CrotchShield = InventoryItemPelvisLoveChastityBeltCrotchShield.get(`${FrontShield}${BackShield}`);
 		const ShieldSuffix = (["f2", "f3"].includes(FrontShield)) ? "" : ` (${DialogFindPlayer(`${Data.dialogPrefix.option}${FrontShield}`)})`;
@@ -53,7 +53,7 @@ function InventoryItemPelvisLoveChastityBeltDraw(Data, OriginalFunction) {
  */
 function InventoryItemPelvisLoveChastityBeltClick(Data, OriginalFunction) {
 	// Disable the vibrator when the front shield is removed
-	if (!ExtendedItemPermissionMode && ModularItemModuleIsActive("FrontShield")) {
+	if (!ExtendedItemPermissionMode && Data.currentModule === "FrontShield") {
 		const Module = Data.modules.find((m) => m.Name === "FrontShield");
 		const Positions = Data.drawData.FrontShield.positions;
 		for (const [i, [x, y]] of Positions.entries()) {
