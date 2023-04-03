@@ -717,7 +717,7 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
  */
 function VibratorModeInit(modeSet, C, Item, Refresh=true) {
 	const AllowType = Item.Asset.AllowType;
-	if (Item.Property && AllowType.includes(Item.Property.Mode)) {
+	if (CommonIsObject(Item.Property) && CommonIncludes(AllowType, Item.Property.Mode)) {
 		return false;
 	}
 

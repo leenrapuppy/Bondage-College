@@ -487,7 +487,7 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
  */
 function TypedItemInit(Data, C, Item, Refresh=true) {
 	const AllowType = [null, ...Item.Asset.AllowType];
-	if (Item.Property && AllowType.includes(Item.Property.Type)) {
+	if (CommonIsObject(Item.Property) && CommonIncludes(AllowType, Item.Property.Type)) {
 		return false;
 	}
 

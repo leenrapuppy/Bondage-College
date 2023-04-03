@@ -314,7 +314,7 @@ function VariableHeightSetOverrideHeight(property, height, maxHeight, minHeight)
 function VariableHeightInit(Data, C, Item, Refresh) {
 	// Get the item/option's current height setting, initialising it if not set or invalid
 	let currentHeight = Item.Property && Item.Property.Type == Data.baselineProperty.Type ? Data.getHeight(Item.Property) : null;
-	if (currentHeight != null) {
+	if (typeof currentHeight === "number") {
 		return false;
 	}
 

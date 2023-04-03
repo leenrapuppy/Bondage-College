@@ -105,7 +105,7 @@ function ModularItemRegister(asset, config) {
  */
 function ModularItemInit(Data, C, Item, Refresh=true) {
 	const AllowType = Data.asset.AllowType;
-	if (Item.Property && AllowType.includes(Item.Property.Type)) {
+	if (CommonIsObject(Item.Property) && CommonIncludes(AllowType, Item.Property.Type)) {
 		return false;
 	}
 

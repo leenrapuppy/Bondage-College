@@ -169,7 +169,7 @@ function ExtendedItemInit(C, Item, Refresh=true) {
  * @returns {boolean} Whether properties were updated or not
  */
 function ExtendedItemInitNoArch(C, Item, Properties, Refresh=true) {
-	if (!Item.Property) {
+	if (!CommonIsObject(Item.Property)) {
 		Item.Property = {};
 	}
 

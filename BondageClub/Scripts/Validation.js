@@ -641,6 +641,15 @@ function ValidationSanitizeProperties(C, item) {
 	// If the character is an NPC, no validation is needed
 	if (C.IsNpc()) return false;
 
+	const asset = item.Asset;
+
+	// Ensure that extended items always have properties set
+	let changed = false;
+	if (ExtendedItemInit(C, item, true)) {
+		console.warn(`Initializing one or more missing extended item properties from ${asset.Group.Name}:${asset.Name}`);
+		changed = true;
+	}
+
 	const property = item.Property;
 
 	// If the item doesn't have a property, no validation is needed
@@ -654,14 +663,12 @@ function ValidationSanitizeProperties(C, item) {
 	}
 
 	// Sanitize various properties
-	let changed = ValidationSanitizeEffects(C, item);
+	changed = ValidationSanitizeEffects(C, item);
 	changed = ValidationSanitizeAllowedPropertyArray(C, item, "Block", "AllowBlock") || changed;
 	changed = ValidationSanitizeAllowedPropertyArray(C, item, "Hide", "AllowHide") || changed;
 	changed = ValidationSanitizeAllowedPropertyArray(C, item, "HideItem", "AllowHideItem") || changed;
 	changed = ValidationSanitizeSetPose(C, item) || changed;
 	changed = ValidationSanitizeStringArray(property, "Hide") || changed;
-
-	const asset = item.Asset;
 
 	// If the property has a type, it needs to be in the asset's AllowType array
 	const allowType = asset.AllowType || [];
