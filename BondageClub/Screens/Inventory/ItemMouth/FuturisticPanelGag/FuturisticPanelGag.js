@@ -2,16 +2,16 @@
 
 /**
  * Custom draw function.
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemMouthFuturisticPanelGagDraw(OriginalFunction) {
-	if (!FuturisticAccessDraw(OriginalFunction)) {
+function InventoryItemMouthFuturisticPanelGagDraw(Data, OriginalFunction) {
+	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
 
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-	if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
+	if (ModularItemModuleIsActive(ModularItemBase)) {
 		const [Gag, AutoPunish, AutoPunishUndoTimeSetting] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const AutoPunishUndoTime = DialogFocusItem.Property.AutoPunishUndoTime;
 		const UndoTimer =  DialogFindPlayer(`${Data.dialogPrefix.option}${AutoPunishUndoTimeSetting}`);
@@ -34,17 +34,13 @@ function InventoryItemMouthFuturisticPanelGagDraw(OriginalFunction) {
 
 /**
  * Custom click function.
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemMouthFuturisticPanelGagClick(OriginalFunction) {
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-	if (Data == null) {
-		return;
-	}
-
+function InventoryItemMouthFuturisticPanelGagClick(Data, OriginalFunction) {
 	const GagBefore = ModularItemParseCurrent(Data)[0];
-	if (!FuturisticAccessClick(OriginalFunction) || !DialogFocusItem) {
+	if (!FuturisticAccessClick(Data, OriginalFunction) || !DialogFocusItem) {
 		return;
 	}
 	const GagAfter = ModularItemParseCurrent(Data)[0];

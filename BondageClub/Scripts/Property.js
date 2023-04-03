@@ -38,11 +38,12 @@ const PropertyOpacityChange = CommonLimitFunction((C, Item, Opacity) => {
 
 /**
  * Load function for items with opacity sliders. Constructs the opacity slider.
+ * @param {null | ExtendedItemData<any>} Data - The items extended item data
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {string} thumbIcon The icon to use for the range input's "thumb" (handle).
  * @returns {HTMLInputElement} - The new or pre-existing range input element of the opacity slider
  */
-function PropertyOpacityLoad(OriginalFunction=null, thumbIcon="blindfold") {
+function PropertyOpacityLoad(Data=null, OriginalFunction=null, thumbIcon="blindfold") {
 	if (OriginalFunction != null) {
 		OriginalFunction();
 	}
@@ -72,13 +73,14 @@ function PropertyOpacityLoad(OriginalFunction=null, thumbIcon="blindfold") {
 
 /**
  * Draw function for items with opacity sliders. Draws the opacity slider and further opacity-related information.
+ * @param {null | ExtendedItemData<any>} Data - The items extended item data
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {number} XOffset - An offset for all text and slider X coordinates
  * @param {number} YOffset - An offset for all text and slider Y coordinates
  * @param {string} LabelKeyword - The keyword of the opacity label
  * @returns {void} Nothing
  */
-function PropertyOpacityDraw(OriginalFunction=null, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
+function PropertyOpacityDraw(Data=null, OriginalFunction=null, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
 	if (OriginalFunction != null) {
 		OriginalFunction();
 	}
@@ -99,10 +101,12 @@ function PropertyOpacityDraw(OriginalFunction=null, XOffset=0, YOffset=0, LabelK
 
 /**
  * Exit function for items with opacity sliders. Updates the items opacity, deletes the slider and (optionally) refreshes the character and item.
+ * @param {null | ExtendedItemData<any>} Data - The items extended item data
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {boolean} Refresh - Whether character parameters and the respective item should be refreshed or not
  * @returns {boolean} Whether the opacity was updated or not
  */
-function PropertyOpacityExit(Refresh=true) {
+function PropertyOpacityExit(Data=null, OriginalFunction=null, Refresh=true) {
 	const Asset = DialogFocusItem.Asset;
 	const ID = PropertyGetID("Opacity");
 	const C = CharacterGetCurrent();
@@ -130,6 +134,7 @@ function PropertyOpacityExit(Refresh=true) {
 /**
  * Validation function for items with opacity sliders.
  * @template {ExtendedItemOption | ModularItemOption} OptionType
+ * @param {null | ExtendedItemData} Data - The items extended item data
  * @param {ExtendedItemValidateCallback<OptionType>} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @param {Character} C - The character to validate the option
  * @param {Item} Item - The equipped item
@@ -137,7 +142,7 @@ function PropertyOpacityExit(Refresh=true) {
  * @param {OptionType} CurrentOption - The currently selected option
  * @returns {string} - Set and returns {@link DialogExtendedMessage} if the chosen option is not possible.
  */
-function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOption) {
+function PropertyOpacityValidate(Data, OriginalFunction, C, Item, Option, CurrentOption) {
 	if (Item && Item.Property) {
 		const Asset = Item.Asset;
 		if (!(Item.Property.Opacity <= Asset.MaxOpacity && Item.Property.Opacity >= Asset.MinOpacity)) {
@@ -345,11 +350,12 @@ const PropertyTextChangeNoCanvas = CommonLimitFunction((C, Item, PropName, Text)
 
 /**
  * Load function for items with text input fields.
+ * @param {null | ExtendedItemData<any>} Data - The items extended item data
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {PropertyTextEventListenerRecord} EventListeners - A record with custom event listeners for one or more input fields.
  * @returns {HTMLInputElement[]} An array with the new or pre-existing text input elements
  */
-function PropertyTextLoad(OriginalFunction=null, EventListeners={}) {
+function PropertyTextLoad(Data=null, OriginalFunction=null, EventListeners={}) {
 	if (!PropertyTextValidate(OriginalFunction)) {
 		return;
 	}
@@ -385,13 +391,14 @@ function PropertyTextLoad(OriginalFunction=null, EventListeners={}) {
 
 /**
  * Draw handler for extended item screens with text input fields.
+ * @param {null | ExtendedItemData<any>} Data - The items extended item data
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {number} X - Center point of the text input field(s) on the X axis
  * @param {number} Y - Center point of the first text input field on the Y axis
  * @param {number} YSpacing - The spacing of Y coordinates between multiple input fields
  * @returns {HTMLInputElement[]} An array with all text input elements
  */
-function PropertyTextDraw(OriginalFunction=null, X=1505, Y=600, YSpacing=80) {
+function PropertyTextDraw(Data=null, OriginalFunction=null, X=1505, Y=600, YSpacing=80) {
 	if (!PropertyTextValidate(OriginalFunction)) {
 		return;
 	}
@@ -413,12 +420,14 @@ function PropertyTextDraw(OriginalFunction=null, X=1505, Y=600, YSpacing=80) {
 
 /**
  * Exit function for items with text input fields.
+ * @param {null | ExtendedItemData<any>} Data - The items extended item data
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {boolean} Refresh - Whether character parameters and the respective item should be refreshed or not
  * @param {string} TextChange - The action tag for changing (but not removing) the text
  * @param {string} TextRemove - The action tag for the complete removal of the text
  * @returns {void} Nothing
  */
-function PropertyTextExit(Refresh=true, TextChange="TextChange", TextRemove="TextRemove") {
+function PropertyTextExit(Data=null, OriginalFunction=null, Refresh=true, TextChange="TextChange", TextRemove="TextRemove") {
 	const PropNames = Object.keys(DialogFocusItem.Asset.TextMaxLength);
 	const IDs = PropNames.map((p) => PropertyGetID(p, DialogFocusItem));
 	const C = CharacterGetCurrent();

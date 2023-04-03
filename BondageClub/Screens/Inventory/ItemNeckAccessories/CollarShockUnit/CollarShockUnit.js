@@ -2,10 +2,11 @@
 
 /**
  * Draw the item extension screen
+ * @param {ExtendedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction) {
+function InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(Data, OriginalFunction) {
 	OriginalFunction();
 
 	MainCanvas.textAlign = "right";
@@ -22,10 +23,11 @@ function InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction) {
 
 /**
  * Catches the item extension clicks
+ * @param {ExtendedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemNeckAccessoriesCollarShockUnitClickFunc(OriginalFunction) {
+function InventoryItemNeckAccessoriesCollarShockUnitClickFunc(Data, OriginalFunction) {
 	OriginalFunction();
 
 	if (!DialogFocusItem) {

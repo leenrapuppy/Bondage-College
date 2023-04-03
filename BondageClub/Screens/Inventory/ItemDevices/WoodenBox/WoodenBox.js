@@ -2,22 +2,24 @@
 
 /**
  * Loads the wooden box's extended item properties
+ * @param {TypedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemDevicesWoodenBoxLoad(OriginalFunction) {
-	PropertyTextLoad(OriginalFunction);
+function InventoryItemDevicesWoodenBoxLoad(Data, OriginalFunction) {
+	PropertyTextLoad(Data, OriginalFunction);
 	PropertyOpacityLoad();
 }
 
 /**
  * Draw handler for the wooden box's extended item screen
+ * @param {TypedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemDevicesWoodenBoxDraw(OriginalFunction) {
-	PropertyOpacityDraw(OriginalFunction);
-	PropertyTextDraw(null, 1505, 850);
+function InventoryItemDevicesWoodenBoxDraw(Data, OriginalFunction) {
+	PropertyOpacityDraw(Data, OriginalFunction);
+	PropertyTextDraw(Data, null, 1505, 850);
 }
 
 /**
@@ -27,8 +29,8 @@ function InventoryItemDevicesWoodenBoxDraw(OriginalFunction) {
 function InventoryItemDevicesWoodenBoxExit() {
 	const C = CharacterGetCurrent();
 
-	PropertyOpacityExit(false);
-	PropertyTextExit(false);
+	PropertyOpacityExit(null, null, false);
+	PropertyTextExit(null, null, false);
 
 	// Apply extra opacity-specific effects
 	const Property = DialogFocusItem.Property;

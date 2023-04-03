@@ -2,14 +2,14 @@
 
 /**
  * Draw the item extension screen.
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemButtInflVibeButtPlugDraw(OriginalFunction) {
+function InventoryItemButtInflVibeButtPlugDraw(Data, OriginalFunction) {
 	OriginalFunction();
 
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-	if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
+	if (ModularItemModuleIsActive(ModularItemBase)) {
 		const [InflateLevel, Intensity] = ModularItemParseCurrent(Data);
 
 		// Display option information

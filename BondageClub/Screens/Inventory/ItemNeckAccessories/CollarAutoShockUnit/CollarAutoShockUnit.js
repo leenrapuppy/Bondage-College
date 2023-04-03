@@ -2,16 +2,13 @@
 
 /**
  * Draw the item extension screen
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
+function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(Data, OriginalFunction) {
 	OriginalFunction();
 	if (ModularItemModuleIsActive(ModularItemBase)) {
-		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-		if (Data == null) {
-			return;
-		}
 		const [ShockLevel, AutoPunish] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information
@@ -35,10 +32,11 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
 
 /**
  * Catches the item extension clicks
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(OriginalFunction) {
+function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(Data, OriginalFunction) {
 	OriginalFunction();
 	if (DialogFocusItem && ModularItemModuleIsActive(ModularItemBase)) {
 		if (MouseIn(1175, 768, 64, 64) && !ExtendedItemPermissionMode) {

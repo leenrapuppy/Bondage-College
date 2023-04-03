@@ -35,18 +35,15 @@ function InventoryItemBreastFuturisticBraUpdate(C) {
 
 /**
  * Custom draw function for adding the `Shock` menu.
+ * @param {TypedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemBreastFuturisticBraDraw(OriginalFunction) {
-	if (!FuturisticAccessDraw(OriginalFunction)) {
+function InventoryItemBreastFuturisticBraDraw(Data, OriginalFunction) {
+	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
 
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
-	if (Data == null) {
-		return;
-	}
 	const Prefix = Data.dialogPrefix.option;
 	const C = CharacterGetCurrent();
 	const {bpm, breathing, temp} = InventoryItemBreastFuturisticBraUpdate(C);

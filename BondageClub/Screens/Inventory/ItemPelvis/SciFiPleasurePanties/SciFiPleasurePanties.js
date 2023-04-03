@@ -2,18 +2,15 @@
 
 /**
  * Custom draw function for adding the `Shock` menu.
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
-	if (!FuturisticAccessDraw(OriginalFunction)) {
+function InventoryItemPelvisSciFiPleasurePantiesDraw(Data, OriginalFunction) {
+	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
 	if (ModularItemModuleIsActive(ModularItemBase)) {
-		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-		if (Data == null) {
-			return;
-		}
 		const [CrotchShield, Intensity, OrgasmLock, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const IntensitySuffix = (OrgasmLock === "o0") ? "" : ` (${DialogFindPlayer(`${Data.dialogPrefix.option}${OrgasmLock}`)})`;
 
@@ -39,14 +36,15 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
 
 /**
  * Custom click function for adding the `Shock` menu.
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @param {boolean} Futuristic - Whether this concerns a futuristic item or not
  * @returns {void} - Nothing
  */
-function InventoryItemPelvisSciFiPleasurePantiesClickHook(OriginalFunction, Futuristic=true) {
+function InventoryItemPelvisSciFiPleasurePantiesClickHook(Data, OriginalFunction, Futuristic=true) {
 	if (!Futuristic) {
 		OriginalFunction();
-	} else if (!FuturisticAccessClick(OriginalFunction)) {
+	} else if (!FuturisticAccessClick(Data, OriginalFunction)) {
 		return;
 	}
 

@@ -62,28 +62,31 @@ function FuturisticAccess(OriginalFunction, DeniedFunction) {
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
+ * @param {null | ExtendedItemData<any>} Data - The extended item data (if any)
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessLoad(OriginalFunction=null) {
+function FuturisticAccessLoad(Data=null, OriginalFunction=null) {
 	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticLoadAccessDenied);
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
+ * @param {null | ExtendedItemData<any>} Data - The extended item data (if any)
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessClick(OriginalFunction=null) {
+function FuturisticAccessClick(Data=null, OriginalFunction=null) {
 	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticClickAccessDenied);
 }
 
 /**
  * Hook script for injecting futuristic features into an archetypical item
+ * @param {null | ExtendedItemData<any>} Data - The extended item data (if any)
  * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @returns {boolean} - Whether the validation was successful or not.
  */
-function FuturisticAccessDraw(OriginalFunction=null) {
+function FuturisticAccessDraw(Data=null, OriginalFunction=null) {
 	return FuturisticAccess(OriginalFunction, InventoryItemFuturisticDrawAccessDenied);
 }
 
@@ -97,6 +100,7 @@ function FuturisticAccessExit() {
 
 /**
  * Hook script for injecting futuristic features into a typed or modular item
+ * @param {null | ExtendedItemData<any>} Data - The extended item data (if any)
  * @param {ExtendedItemValidateCallback<OptionType>} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @param {Character} C - The character to validate the option
  * @param {Item} Item - The equipped item
@@ -105,13 +109,11 @@ function FuturisticAccessExit() {
  * @returns {string} - Returns false and sets DialogExtendedMessage, if the chosen option is not possible.
  * @template OptionType
  */
-function FuturisticAccessValidate(OriginalFunction, C, Item, Option, CurrentOption) {
+function FuturisticAccessValidate(Data, OriginalFunction, C, Item, Option, CurrentOption) {
 	let futureString = InventoryItemFuturisticValidate(C, Item);
 	if (futureString) return futureString;
 	else return OriginalFunction(C, Item, Option, CurrentOption);
 }
-
-
 
 // Load the futuristic item ACCESS DENIED screen
 function InventoryItemFuturisticLoadAccessDenied() {

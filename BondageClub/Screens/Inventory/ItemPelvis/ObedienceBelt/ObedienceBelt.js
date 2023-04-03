@@ -19,7 +19,7 @@ function InventoryItemPelvisObedienceBeltEngraving0Click() {
 }
 
 function InventoryItemPelvisObedienceBeltEngraving0Exit() {
-	PropertyTextExit(true, "ObedienceBeltEngravingUpdated", "ObedienceBeltEngravingErased");
+	PropertyTextExit(null, null, true, "ObedienceBeltEngravingUpdated", "ObedienceBeltEngravingErased");
 	ExtendedItemSubscreen = null;
 }
 

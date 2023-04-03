@@ -2,11 +2,12 @@
 
 /**
  * Draw the item extension screen
+ * @param {TypedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemTorsoFuturisticHarnessDraw(OriginalFunction) {
-	if (!FuturisticAccessDraw(OriginalFunction)) {
+function InventoryItemTorsoFuturisticHarnessDraw(Data, OriginalFunction) {
+	if (!FuturisticAccessDraw(Data, OriginalFunction)) {
 		return;
 	}
 	ExtendedItemCustomDraw("FuturisticCollarColor", 1385, 800, false, !InventoryItemTorsoFuturisticHarnessIsColorable());
@@ -14,11 +15,12 @@ function InventoryItemTorsoFuturisticHarnessDraw(OriginalFunction) {
 
 /**
  * Catches the item extension clicks
+ * @param {TypedItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemTorsoFuturisticHarnessClick(OriginalFunction) {
-	if (!FuturisticAccessClick(OriginalFunction)) {
+function InventoryItemTorsoFuturisticHarnessClick(Data, OriginalFunction) {
+	if (!FuturisticAccessClick(Data, OriginalFunction)) {
 		return;
 	}
 	if (MouseIn(1385, 800, 225, 55)) {

@@ -14,16 +14,13 @@ const InventoryItemPelvisLoveChastityBeltCrotchShield = new Map([
 
 /**
  * Draw the item extension screen.
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemPelvisLoveChastityBeltDraw(OriginalFunction) {
+function InventoryItemPelvisLoveChastityBeltDraw(Data, OriginalFunction) {
 	OriginalFunction();
 	if (ModularItemModuleIsActive(ModularItemBase)) {
-		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-		if (Data == null) {
-			return;
-		}
 		const [FrontShield, BackShield, Intensity, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const CrotchShield = InventoryItemPelvisLoveChastityBeltCrotchShield.get(`${FrontShield}${BackShield}`);
 		const ShieldSuffix = (["f2", "f3"].includes(FrontShield)) ? "" : ` (${DialogFindPlayer(`${Data.dialogPrefix.option}${FrontShield}`)})`;
@@ -50,17 +47,13 @@ function InventoryItemPelvisLoveChastityBeltDraw(OriginalFunction) {
 
 /**
  * Catches the item extension clicks
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemPelvisLoveChastityBeltClick(OriginalFunction) {
+function InventoryItemPelvisLoveChastityBeltClick(Data, OriginalFunction) {
 	// Disable the vibrator when the front shield is removed
 	if (!ExtendedItemPermissionMode && ModularItemModuleIsActive("FrontShield")) {
-		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-		if (Data == null) {
-			return;
-		}
-
 		const Module = Data.modules.find((m) => m.Name === "FrontShield");
 		const Positions = Data.drawData.FrontShield.positions;
 		for (const [i, [x, y]] of Positions.entries()) {
@@ -69,7 +62,7 @@ function InventoryItemPelvisLoveChastityBeltClick(OriginalFunction) {
 			}
 		}
 	}
-	InventoryItemPelvisSciFiPleasurePantiesClickHook(OriginalFunction, false);
+	InventoryItemPelvisSciFiPleasurePantiesClickHook(Data, OriginalFunction, false);
 }
 
 /**
@@ -105,13 +98,8 @@ function InventoryItemPelvisLoveChastityBeltSetType(module, index, data) {
 	ExtendedItemRequirementCheckMessageMemo.clearCache();
 }
 
-/** @type {ExtendedItemValidateScriptHookCallback<ModularItemOption>} */
-function InventoryItemPelvisLoveChastityBeltValidate(OriginalFunction, C, Item, Option, CurrentOption) {
-	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
-	if (Data == null) {
-		return OriginalFunction(C, Item, Option, CurrentOption);
-	}
-
+/** @type {ExtendedItemScriptHookStruct<ModularItemData, ModularItemOption>["validate"]} */
+function InventoryItemPelvisLoveChastityBeltValidate(Data, OriginalFunction, C, Item, Option, CurrentOption) {
 	const Prefix = `${Item.Asset.Group.Name}${Item.Asset.Name}`;
 	const Module = Data.modules.find((m) => m.Key === Option.Name[0]) || { Name: null };
 	const FrontShield = ModularItemParseCurrent(Data)[0];

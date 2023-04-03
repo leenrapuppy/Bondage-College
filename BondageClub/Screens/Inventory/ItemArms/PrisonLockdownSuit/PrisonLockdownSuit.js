@@ -2,12 +2,13 @@
 
 /**
  * Draw the item extension screen
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemArmsPrisonLockdownSuitDraw(OriginalFunction) {
+function InventoryItemArmsPrisonLockdownSuitDraw(Data, OriginalFunction) {
 	if (ModularItemModuleIsActive("ShockModule")) {
-		InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction);
+		InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(Data, OriginalFunction);
 	} else {
 		OriginalFunction();
 	}
@@ -15,12 +16,13 @@ function InventoryItemArmsPrisonLockdownSuitDraw(OriginalFunction) {
 
 /**
  * Catches the item extension clicks
+ * @param {ModularItemData} Data - The items extended item data
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} Nothing
  */
-function InventoryItemArmsPrisonLockdownSuitClick(OriginalFunction) {
+function InventoryItemArmsPrisonLockdownSuitClick(Data, OriginalFunction) {
 	if (ModularItemModuleIsActive("ShockModule")) {
-		InventoryItemNeckAccessoriesCollarShockUnitClickFunc(OriginalFunction);
+		InventoryItemNeckAccessoriesCollarShockUnitClickFunc(Data, OriginalFunction);
 	} else {
 		OriginalFunction();
 	}

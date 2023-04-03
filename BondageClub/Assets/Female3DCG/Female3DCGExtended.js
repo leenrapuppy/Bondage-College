@@ -4525,8 +4525,8 @@ var AssetFemale3DCGExtended = {
 					Click: FuturisticAccessClick,
 					Draw: FuturisticAccessDraw,
 					Exit: FuturisticAccessExit,
-					Validate: (next, ...args) => {
-						return FuturisticAccessValidate(next, ...args) || VibratorModeValidate(...args);
+					Validate: (data, next, ...args) => {
+						return FuturisticAccessValidate(data, next, ...args) || VibratorModeValidate(...args);
 					},
 				}
 			},
@@ -6428,8 +6428,8 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Load: (next) => PropertyOpacityLoad(next, "lightbulb"),
-					Draw: (next) => PropertyOpacityDraw(next, 0, -50, "Brightness"),
+					Load: (...args) => PropertyOpacityLoad(...args, "lightbulb"),
+					Draw: (...args) => PropertyOpacityDraw(...args, 0, -50, "Brightness"),
 					Exit: PropertyOpacityExit,
 					Validate: PropertyOpacityValidate,
 				},
