@@ -455,7 +455,7 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption | VibratingIt
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: ExtendedItemScriptHooks;
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<any, OptionType>;
 	/** An array of the chat message tags that should be included in the item's chatroom messages. */
 	ChatTags?: CommonChatTags[];
 	/** Contains custom dictionary entries in the event that the base ones do not suffice. */
@@ -673,14 +673,7 @@ interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: {
-		Load?: (next: () => void) => void,
-		Click?: (next: () => void) => void,
-		Draw?: (next: () => void) => void,
-		Exit?: () => void,
-		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
-		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
-	};
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<TypedItemData, ExtendedItemOption>;
 }
 
 /**
@@ -735,13 +728,7 @@ interface ModularItemConfig extends ExtendedItemConfig<ModularItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: {
-		Load?: (next: () => void) => void;
-		Click?: (next: () => void) => void;
-		Draw?: (next: () => void) => void;
-		Exit?: () => void;
-		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
-	};
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<ModularItemData, ModularItemOption>;
 }
 
 type ModularItemChatSetting = "perModule" | "perOption";
@@ -867,13 +854,7 @@ interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: {
-		Load?: (next: () => void) => void;
-		Click?: (next: () => void) => void;
-		Draw?: (next: () => void) => void;
-		Exit?: () => void;
-		Validate?: ExtendedItemValidateScriptHookCallback<VibratingItemOption>;
-	};
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VibratingItemData, VibratingItemOption>;
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	DialogPrefix?: {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
@@ -916,6 +897,7 @@ interface VariableHeightConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	SetHeightFunction?: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
 	DrawImages?: false;
 	ChatSetting?: "default";
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VariableHeightData, ExtendedItemOption>;
 }
 
 interface VariableHeightSliderConfig {

@@ -81,11 +81,15 @@ function ModularItemRegister(asset, config) {
 	const data = ModularItemCreateModularData(asset, config);
 
 	if (IsBrowser()) {
-		ModularItemCreateLoadFunction(data);
-		ModularItemCreateDrawFunction(data);
-		ModularItemCreateClickFunction(data);
-		ModularItemCreateExitFunction(data);
-		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
+		/** @type {ExtendedItemCallbackStruct<ModularItemOption>} */
+		const defaultCallbacks = {
+			load: () => ModularItemLoad(data),
+			click: () => ModularItemClick(data),
+			draw: () => ModularItemDraw(data),
+			validate: ExtendedItemValidate,
+			publishAction: (...args) => ModularItemPublishAction(data, ...args),
+		};
+		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
 	ModularItemGenerateValidationProperties(data);
 }
@@ -116,70 +120,26 @@ function ModularItemInit(Item, C, Refresh=true) {
 }
 
 /**
- * Creates an asset's extended item load function
- * @param {ModularItemData} data - The modular item data for the asset
- * @returns {void} - Nothing
+ * @param {ModularItemData} data
  */
-function ModularItemCreateLoadFunction(data) {
-	const loadFunctionName = `${data.functionPrefix}Load`;
-	const loadFunction = function () {
-		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${data.currentModule}`);
-	};
-	if (data.scriptHooks && data.scriptHooks.load) {
-		window[loadFunctionName] = function () {
-			data.scriptHooks.load(loadFunction);
-		};
-	} else window[loadFunctionName] = loadFunction;
+function ModularItemLoad(data) {
+	DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${data.currentModule}`);
 }
 
 /**
- * Creates an asset's extended item draw function
- * @param {ModularItemData} data - The modular item data for the asset
- * @returns {void} - Nothing
+ * @param {ModularItemData} data
  */
-function ModularItemCreateDrawFunction(data) {
-	const drawFunctionName = `${data.functionPrefix}Draw`;
-	const drawFunction = function () {
-		const currentModule = data.currentModule || ModularItemBase;
-		return data.drawFunctions[currentModule]();
-	};
-	if (data.scriptHooks && data.scriptHooks.draw) {
-		window[drawFunctionName] = function () {
-			data.scriptHooks.draw(drawFunction);
-		};
-	} else window[drawFunctionName] = drawFunction;
+function ModularItemClick(data) {
+	const currentModule = data.currentModule || ModularItemBase;
+	return data.clickFunctions[currentModule]();
 }
 
 /**
- * Creates an asset's extended item click function
- * @param {ModularItemData} data - The modular item data for the asset
- * @returns {void} - Nothing
+ * @param {ModularItemData} data
  */
-function ModularItemCreateClickFunction(data) {
-	const clickFunctionName = `${data.functionPrefix}Click`;
-	const clickFunction = function () {
-		const currentModule = data.currentModule || ModularItemBase;
-		return data.clickFunctions[currentModule]();
-	};
-	if (data.scriptHooks && data.scriptHooks.click) {
-		window[clickFunctionName] = function () {
-			data.scriptHooks.click(clickFunction);
-		};
-	} else window[clickFunctionName] = clickFunction;
-}
-
-/**
- * Creates an asset's extended item exit function
- * @param {ModularItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function ModularItemCreateExitFunction(data) {
-	const exitFunctionName = `${data.functionPrefix}Exit`;
-	if (data.scriptHooks && data.scriptHooks.exit) {
-		window[exitFunctionName] = function () {
-			data.scriptHooks.exit();
-		};
-	}
+function ModularItemDraw(data) {
+	const currentModule = data.currentModule || ModularItemBase;
+	return data.drawFunctions[currentModule]();
 }
 
 /**
@@ -257,6 +217,7 @@ function ModularItemCreateModularData(asset, {
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
+			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
 		},
 		drawFunctions: {},
 		clickFunctions: {},
@@ -720,7 +681,9 @@ function ModularItemSetType(module, index, data) {
 			ChatRoomCharacterItemUpdate(C, groupName);
 
 			if (ServerPlayerIsInChatRoom()) {
-				ModularItemPublishAction(data, C, DialogFocusItem, option, currentOption);
+				/** @type {Parameters<ExtendedItemCallbackStruct<ModularItemOption>["publishAction"]>} */
+				const args = [C, DialogFocusItem, option, currentOption];
+				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 			} else if (C.ID === 0) {
 				DialogMenuButtonBuild(C);
 			} else {

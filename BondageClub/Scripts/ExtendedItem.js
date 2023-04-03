@@ -97,6 +97,49 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
 }
 
 /**
+ * @template {any[]} T
+ * @template RT
+ * @param {ExtendedItemData<any>} data
+ * @param {string} name
+ * @param {null | ExtendedItemCallback<T, RT>} originalFunction
+ */
+function ExtendedItemCreateCallback(data, name, originalFunction) {
+	const nameCaps = `${name[0].toUpperCase()}${name.slice(1)}`;
+	const funcName = `${data.functionPrefix}${nameCaps}`;
+	const scriptHook = /** @type {ExtendedItemScriptHookCallback<any, T, RT>} */(data.scriptHooks[name]);
+	if (scriptHook != null) {
+		/** @type {ExtendedItemCallback<T, RT>} */
+		window[funcName] = (...args) => scriptHook(data, originalFunction, ...args);
+	} else if (originalFunction != null) {
+		window[funcName] = originalFunction;
+	}
+}
+
+/**
+ * @template {ExtendedItemOption | ModularItemOption | VibratingItemOption} T
+ * @param {ExtendedItemData<T>} data
+ * @param {ExtendedItemCallbackStruct<T>} defaults
+ */
+function ExtendedItemCreateCallbacks(data, defaults) {
+	/** @type {(keyof Required<ExtendedItemCallbackStruct<T>>)[]} */
+	const ExtendedItemCreate = [
+		"load",
+		"click",
+		"draw",
+		"exit",
+		"validate",
+		"publishAction",
+	];
+
+	const extraKeys = CommonKeys(defaults).filter(i => !ExtendedItemCreate.includes(i));
+	if (extraKeys.length !== 0) {
+		console.warn(`Found ${extraKeys.length} non-existent script hooks in the passed ${data.asset.Name} extended item data`);
+	}
+
+	ExtendedItemCreate.forEach(k => ExtendedItemCreateCallback(data, k, /** @type {ExtendedItemCallback<any[], any>} */(defaults[k])));
+}
+
+/**
  * Initialize the extended item properties
  * @param {Item} Item - The item in question
  * @param {Character} C - The character that has the item equiped
@@ -820,29 +863,6 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
 		window[npcDialogFunctionName] = function (C, Option, PreviousOption) {
 			C.CurrentDialog = DialogFind(C, `${NpcPrefix}${Option.Name}`, Asset.Group.Name);
 		};
-	}
-}
-
-/**
- * Creates an asset's extended item validation function.
- * @param {string} functionPrefix - The prefix of the new `Validate` function
- * @param {null | ExtendedItemValidateScriptHookCallback<any>} ValidationCallback - A custom validation callback
- * @returns {void} Nothing
- */
-function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback) {
-	const validateFunctionName = `${functionPrefix}Validate`;
-
-	/** @type {ExtendedItemValidateCallback<ModularItemOption | ExtendedItemOption>} */
-	const validateFunction = function (C, item, option, currentOption) {
-		return ExtendedItemValidate(C, item, option, currentOption);
-	};
-
-	if (ValidationCallback) {
-		window[validateFunctionName] = function (C, item, option, currentOption) {
-			return ValidationCallback(validateFunction, C, item, option, currentOption);
-		};
-	} else {
-		window[validateFunctionName] = validateFunction;
 	}
 }
 

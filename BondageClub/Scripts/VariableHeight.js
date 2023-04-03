@@ -37,11 +37,15 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
 	const data = VariableHeightCreateData(asset, config, property, parentOptions);
 
 	if (IsBrowser()) {
-		VariableHeightCreateLoadFunction(data);
-		VariableHeightCreateDrawFunction(data);
-		VariableHeightCreateClickFunction(data);
-		VariableHeightCreateExitFunction(data);
-		VariableHeightCreatePublishFunction(data);
+		/** @type {ExtendedItemCallbackStruct<ExtendedItemOption>} */
+		const defaultCallbacks = {
+			load: () => VariableHeightLoad(data),
+			click: () => VariableHeightClick(data),
+			draw: () => VariableHeightDraw(data),
+			exit: VariableHeightExit,
+			publishAction: (...args) => VariableHeightPublishAction(data, ...args),
+		};
+		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
 	}
 }
@@ -55,7 +59,7 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
  * @returns {VariableHeightData} - The generated variable height data for the asset
  */
 function VariableHeightCreateData(asset,
-	{ MaxHeight, MinHeight, Slider, DialogPrefix, ChatTags, Dictionary, GetHeightFunction, SetHeightFunction },
+	{ MaxHeight, MinHeight, Slider, DialogPrefix, ChatTags, Dictionary, GetHeightFunction, SetHeightFunction, ScriptHooks },
 	property, parentOptions)
 {
 	const key = `${asset.Group.Name}${asset.Name}${property.Type || ""}`;
@@ -82,7 +86,13 @@ function VariableHeightCreateData(asset,
 		getHeight: GetHeightFunction || VariableHeightGetOverrideHeight,
 		setHeight: SetHeightFunction || VariableHeightSetOverrideHeight,
 		parentOptions: parentOptions,
-		scriptHooks: {},
+		scriptHooks: {
+			load: ScriptHooks ? ScriptHooks.Load : undefined,
+			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
+			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+			click: ScriptHooks ? ScriptHooks.Click : undefined,
+			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+		},
 		drawImages: false,
 		chatSetting: "default",
 		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
@@ -90,123 +100,88 @@ function VariableHeightCreateData(asset,
 }
 
 /**
- * Creates an asset's extended item load function
  * @param {VariableHeightData} data - The variable height data for the asset
- * @returns {void} - Nothing
  */
-function VariableHeightCreateLoadFunction({ maxHeight, minHeight, slider, functionPrefix, getHeight, setHeight, dialogPrefix }) {
-	// Create the load function
-	const loadFunctionName = `${functionPrefix}Load`;
-	window[loadFunctionName] = function () {
-		DialogExtendedMessage = DialogFindPlayer(dialogPrefix.header);
+function VariableHeightLoad({ maxHeight, minHeight, slider, getHeight, setHeight, dialogPrefix }) {
+	DialogExtendedMessage = DialogFindPlayer(dialogPrefix.header);
 
-		// Record the previously set properties, reverting back to them on exiting unless otherwise instructed
-		if ((!VariableHeightPreviousProperty || VariableHeightPreviousProperty.Revert) && DialogFocusItem.Property) {
-			VariableHeightPreviousProperty = JSON.parse(JSON.stringify(DialogFocusItem.Property));
-			VariableHeightPreviousProperty.Revert = true;
-		}
+	// Record the previously set properties, reverting back to them on exiting unless otherwise instructed
+	if ((!VariableHeightPreviousProperty || VariableHeightPreviousProperty.Revert) && DialogFocusItem.Property) {
+		VariableHeightPreviousProperty = JSON.parse(JSON.stringify(DialogFocusItem.Property));
+		VariableHeightPreviousProperty.Revert = true;
+	}
 
-		// Create the function to apply the user's setting changes
-		const changeHeight = function (heightValue, elementId) {
-			VariableHeightChange(heightValue, maxHeight, minHeight, setHeight, elementId);
-		};
-
-		// Create the controls and listeners
-		const currentHeight = getHeight(DialogFocusItem.Property);
-		const heightSlider = ElementCreateRangeInput(VariableHeightSliderId, currentHeight, 0, 1, 0.01, slider.Icon, true);
-		if (heightSlider) {
-			heightSlider.addEventListener("input", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value), VariableHeightSliderId));
-		}
-		const heightNumber = ElementCreateInput(VariableHeightNumerId, "number", String(Math.round(currentHeight * 100)), "");
-		if (heightNumber) {
-			heightNumber.setAttribute("min", "0");
-			heightNumber.setAttribute("max", "100");
-			heightNumber.addEventListener("change", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value) / 100, VariableHeightNumerId));
-		}
+	// Create the function to apply the user's setting changes
+	const changeHeight = function (heightValue, elementId) {
+		VariableHeightChange(heightValue, maxHeight, minHeight, setHeight, elementId);
 	};
+
+	// Create the controls and listeners
+	const currentHeight = getHeight(DialogFocusItem.Property);
+	const heightSlider = ElementCreateRangeInput(VariableHeightSliderId, currentHeight, 0, 1, 0.01, slider.Icon, true);
+	if (heightSlider) {
+		heightSlider.addEventListener("input", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value), VariableHeightSliderId));
+	}
+	const heightNumber = ElementCreateInput(VariableHeightNumerId, "number", String(Math.round(currentHeight * 100)), "");
+	if (heightNumber) {
+		heightNumber.setAttribute("min", "0");
+		heightNumber.setAttribute("max", "100");
+		heightNumber.addEventListener("change", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value) / 100, VariableHeightNumerId));
+	}
 }
 
 /**
- * Creates an asset's extended item draw function
  * @param {VariableHeightData} data - The variable height data for the asset
  * @returns {void} - Nothing
  */
-function VariableHeightCreateDrawFunction({ functionPrefix, slider, dialogPrefix }) {
-	const drawFunctionName = `${functionPrefix}Draw`;
-	window[drawFunctionName] = function () {
-		ExtendedItemDrawHeader();
-		DrawText(DialogExtendedMessage, 1500, 375, "white", "gray");
+function VariableHeightDraw({ slider }) {
+	ExtendedItemDrawHeader();
+	DrawText(DialogExtendedMessage, 1500, 375, "white", "gray");
 
-		ElementPosition(VariableHeightSliderId, 1140, slider.Top + slider.Height / 2, 100, slider.Height);
+	ElementPosition(VariableHeightSliderId, 1140, slider.Top + slider.Height / 2, 100, slider.Height);
 
-		DrawTextFit(DialogFindPlayer("VariableHeightPercent"), 1405, 555, 250, "white", "gray");
-		ElementPosition(VariableHeightNumerId, 1640, 550, 175);
+	DrawTextFit(DialogFindPlayer("VariableHeightPercent"), 1405, 555, 250, "white", "gray");
+	ElementPosition(VariableHeightNumerId, 1640, 550, 175);
 
-		DrawButton(1350, 700, 300, 64, DialogFind(Player, "VariableHeightConfirm"), "White", "");
-	};
+	DrawButton(1350, 700, 300, 64, DialogFind(Player, "VariableHeightConfirm"), "White", "");
 }
 
 /**
- * Creates an asset's extended item click function
  * @param {VariableHeightData} data - The variable height data for the asset
  * @returns {void} - Nothing
  */
-function VariableHeightCreateClickFunction(data) {
-	const clickFunctionName = `${data.functionPrefix}Click`;
-	window[clickFunctionName] = function () {
-		// Exit the screen
-		if (MouseIn(1885, 25, 90, 90)) {
-			VariableHeightExit();
-			if (!data.parentOptions) {
-				DialogFocusItem = null;
+function VariableHeightClick(data) {
+	// Exit the screen
+	if (MouseIn(1885, 25, 90, 90)) {
+		VariableHeightExit();
+		if (!data.parentOptions) {
+			DialogFocusItem = null;
+		}
+	}
+
+	// Confirm button
+	if (MouseIn(1350, 700, 300, 64)) {
+		const C = CharacterGetCurrent();
+		if (VariableHeightPreviousProperty) {
+			VariableHeightPreviousProperty.Revert = false;
+		}
+		if (data.parentOptions) {
+			let option = Object.assign({}, data.parentOptions.find(o => o.Property.Type == DialogFocusItem.Property.Type));
+			option.Property = DialogFocusItem.Property;
+			ExtendedItemSetType(C, data.parentOptions, option);
+		} else {
+			if (CurrentScreen == "ChatRoom") {
+				/** @type {Parameters<ExtendedItemCallbackStruct<ExtendedItemOption>["publishAction"]>} */
+				const args = [
+					C,
+					DialogFocusItem,
+					{ OptionType: "ExtendedItemOption", Name: "newOption", Property: DialogFocusItem.Property },
+					{ OptionType: "ExtendedItemOption", Name: "previousOption", Property: VariableHeightPreviousProperty },
+				];
+				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 			}
 		}
-
-		// Confirm button
-		if (MouseIn(1350, 700, 300, 64)) {
-			const C = CharacterGetCurrent();
-			if (VariableHeightPreviousProperty) {
-				VariableHeightPreviousProperty.Revert = false;
-			}
-			if (data.parentOptions) {
-				let option = Object.assign({}, data.parentOptions.find(o => o.Property.Type == DialogFocusItem.Property.Type));
-				option.Property = DialogFocusItem.Property;
-				ExtendedItemSetType(C, data.parentOptions, option);
-			} else {
-				if (CurrentScreen == "ChatRoom") {
-					/** @type {Parameters<ExtendedItemPublishActionCallback<ExtendedItemOption>>} */
-					const args = [
-						C,
-						DialogFocusItem,
-						{ OptionType: "ExtendedItemOption", Name: "newOption", Property: DialogFocusItem.Property },
-						{ OptionType: "ExtendedItemOption", Name: "previousOption", Property: VariableHeightPreviousProperty },
-					];
-					CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
-				}
-			}
-		}
-	};
-}
-
-/**
- * Creates an asset's extended item exit function
- * @param {VariableHeightData} data - The variable height data for the asset
- * @returns {void} - Nothing
- */
-function VariableHeightCreateExitFunction({ functionPrefix }) {
-	const drawFunctionName = `${functionPrefix}Exit`;
-	window[drawFunctionName] = VariableHeightExit;
-}
-
-/**
- * Creates an asset's extended item chatroom message publishing function
- * @param {VariableHeightData} data - The variable height data for the asset
- * @returns {void} - Nothing
- */
-function VariableHeightCreatePublishFunction(data) {
-	const functionName = `${data.functionPrefix}PublishAction`;
-	/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-	window[functionName] = (...args) => VariableHeightPublishAction(data, ...args);
+	}
 }
 
 /**

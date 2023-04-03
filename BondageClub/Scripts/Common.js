@@ -1077,3 +1077,13 @@ function IsBrowser() {
 function CommonIsArray(arg) {
 	return Array.isArray(arg);
 }
+
+/**
+ * A {@link Object.keys} variant annotated to return respect literal key types
+ * @template {string} T
+ * @param {Partial<Record<T, unknown>>} record A record with string-based keys
+ * @returns {T[]} The keys in the passed record
+ */
+function CommonKeys(record) {
+	return /** @type {T[]} */(Object.keys(record));
+}

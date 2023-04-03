@@ -55,14 +55,16 @@ function TypedItemRegister(asset, config) {
 	const data = TypedItemCreateTypedItemData(asset, config);
 
 	if (IsBrowser()) {
-		TypedItemCreateLoadFunction(data);
-		TypedItemCreateDrawFunction(data);
-		TypedItemCreateClickFunction(data);
-		TypedItemCreateExitFunction(data);
-		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
-		TypedItemCreatePublishFunction(data);
+		/** @type {ExtendedItemCallbackStruct<ExtendedItemOption>} */
+		const defaultCallbacks = {
+			load: () => ExtendedItemLoad(data.dialogPrefix.header),
+			click: () => ExtendedItemClick(data.options, null, data.drawImages),
+			draw: () => ExtendedItemDraw(data.options, data.dialogPrefix.option, null, data.drawImages),
+			validate: ExtendedItemValidate,
+			publishAction: (...args) => TypedItemPublishAction(data, ...args),
+		};
+		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
-		TypedItemCreatePublishActionFunction(data);
 	}
 
 	TypedItemGenerateAllowType(data);
@@ -129,114 +131,33 @@ function TypedItemCreateTypedItemData(asset, {
 }
 
 /**
- * Creates an asset's extended item load function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
+ *
+ * @param {TypedItemData} data
+ * @param {Character} C
+ * @param {Item} item
+ * @param {ExtendedItemOption} newOption
+ * @param {ExtendedItemOption} previousOption
  */
-function TypedItemCreateLoadFunction({ functionPrefix, dialogPrefix, scriptHooks }) {
-	const loadFunctionName = `${functionPrefix}Load`;
-	const loadFunction = () => ExtendedItemLoad(dialogPrefix.header);
-	if (scriptHooks && scriptHooks.load) {
-		window[loadFunctionName] = function () {
-			scriptHooks.load(loadFunction);
-		};
-	} else window[loadFunctionName] = loadFunction;
-}
-
-/**
- * Creates an asset's extended item draw function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateDrawFunction({ options, functionPrefix, dialogPrefix, drawImages, scriptHooks }) {
-	const drawFunctionName = `${functionPrefix}Draw`;
-	const drawFunction = function () {
-		ExtendedItemDraw(options, dialogPrefix.option, null, drawImages);
+function TypedItemPublishAction(data, C, item, newOption, previousOption) {
+	/** @type ExtendedItemChatData<ExtendedItemOption> */
+	const chatData = {
+		C,
+		previousOption,
+		newOption,
+		previousIndex: data.options.indexOf(previousOption),
+		newIndex: data.options.indexOf(newOption),
 	};
-	if (scriptHooks && scriptHooks.draw) {
-		window[drawFunctionName] = function () {
-			scriptHooks.draw(drawFunction);
-		};
-	} else window[drawFunctionName] = drawFunction;
-}
 
-/**
- * Creates an asset's extended item click function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateClickFunction({ options, functionPrefix, drawImages, scriptHooks }) {
-	const clickFunctionName = `${functionPrefix}Click`;
-	const clickFunction = function () {
-		ExtendedItemClick(options, null, drawImages);
-	};
-	if (scriptHooks && scriptHooks.click) {
-		window[clickFunctionName] = function () {
-			scriptHooks.click(clickFunction);
-		};
-	} else window[clickFunctionName] = clickFunction;
-}
-
-/**
- * Creates an asset's extended item exit function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateExitFunction({ functionPrefix, scriptHooks}) {
-	const exitFunctionName = `${functionPrefix}Exit`;
-	if (scriptHooks && scriptHooks.exit) {
-		window[exitFunctionName] = function () {
-			scriptHooks.exit();
-		};
+	let msg = data.dialogPrefix.chat;
+	if (typeof msg === "function") {
+		msg = msg(chatData);
 	}
-}
 
-/**
- * Creates an asset's extended item chatroom message publishing function
- * @param {TypedItemData} typedItemData - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreatePublishFunction(typedItemData) {
-	const { options, functionPrefix, dialogPrefix, chatSetting } = typedItemData;
-	if (chatSetting === TypedItemChatSetting.SILENT) return;
-	const publishFunctionName = `${functionPrefix}PublishAction`;
-	/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-	window[publishFunctionName] = function (C, item, newOption, previousOption) {
-		/** @type ExtendedItemChatData<ExtendedItemOption> */
-		const chatData = {
-			C,
-			previousOption,
-			newOption,
-			previousIndex: options.indexOf(previousOption),
-			newIndex:  options.indexOf(newOption),
-		};
+	if (data.chatSetting === TypedItemChatSetting.FROM_TO) msg += `${previousOption.Name}To`;
+	msg += newOption.Name;
 
-		let msg = dialogPrefix.chat;
-		if (typeof msg === "function") {
-			msg = msg(chatData);
-		}
-
-		if (chatSetting === TypedItemChatSetting.FROM_TO) msg += `${previousOption.Name}To`;
-		msg += newOption.Name;
-
-		const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, typedItemData);
-		ChatRoomPublishCustomAction(msg, true, dictionary);
-	};
-}
-
-/**
- * Creates an asset's extended item PublishAction function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreatePublishActionFunction({ scriptHooks, functionPrefix }) {
-	const publishFunctionName = `${functionPrefix}PublishAction`;
-	if (scriptHooks && scriptHooks.publishAction) {
-		/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-		window[publishFunctionName] = function (C, item, newOption, previousOption) {
-			scriptHooks.publishAction(C, item, newOption, previousOption);
-		};
-	}
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
+	ChatRoomPublishCustomAction(msg, true, dictionary);
 }
 
 /**

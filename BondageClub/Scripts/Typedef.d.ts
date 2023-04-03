@@ -1908,8 +1908,52 @@ interface ExtendedItemCapsDialog<
 	Npc?: string | ExtendedItemNPCCallback<OptionType>;
 }
 
-// TODO: Make the key- and value-types more specific
-type ExtendedItemScriptHooks = Record<string, (...args: any[]) => any>;
+/** Basic callback for extended item script hooks */
+type ExtendedItemScriptHookCallback<DataType extends ExtendedItemData, T extends any[], RT=void> = (
+	data: DataType,
+	originalFunction: null | ((...args: T) => RT),
+	...args: T,
+) => RT;
+
+/** Basic callback for extended item functions */
+type ExtendedItemCallback<T extends any[], RT=void> = (
+	...args: T,
+) => RT;
+
+type ExtendedItemScriptHookStruct<
+	DataType extends ExtendedItemData<any>,
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> = {
+	load?: ExtendedItemScriptHookCallback<DataType, []>,
+	draw?: ExtendedItemScriptHookCallback<DataType, []>,
+	click?: ExtendedItemScriptHookCallback<DataType, []>,
+	exit?: ExtendedItemScriptHookCallback<DataType, []>,
+	validate?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>,
+	publishAction?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>,
+};
+
+type ExtendedItemCapsScriptHooksStruct<
+	DataType extends ExtendedItemData<any>,
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> = {
+	Load?: ExtendedItemScriptHookCallback<DataType, []>,
+	Draw?: ExtendedItemScriptHookCallback<DataType, []>,
+	Click?: ExtendedItemScriptHookCallback<DataType, []>,
+	Exit?: ExtendedItemScriptHookCallback<DataType, []>,
+	Validate?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>,
+	PublishAction?: ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>,
+};
+
+type ExtendedItemCallbackStruct<
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> = {
+	load?: ExtendedItemCallback<[]>,
+	draw?: ExtendedItemCallback<[]>,
+	click?: ExtendedItemCallback<[]>,
+	exit?: ExtendedItemCallback<[]>,
+	validate?: ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>,
+	publishAction?: ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>,
+};
 
 /**
  * Abstract extended item data interface that all archetypical item data interfaces must implement.
@@ -1930,7 +1974,7 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption | ModularItemOp
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: ExtendedItemScriptHooks;
+	scriptHooks: ExtendedItemScriptHookStruct<any, OptionType>;
 	/** The asset reference */
 	asset: Asset;
 	/** A key uniquely identifying the asset */
@@ -2365,13 +2409,7 @@ interface ModularItemData extends ExtendedItemData<ModularItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: {
-		load?: (next: () => void) => void,
-		click?: (next: () => void) => void,
-		draw?: (next: () => void) => void,
-		exit?: () => void,
-		validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>,
-	};
+	scriptHooks: ExtendedItemScriptHookStruct<ModularItemData, ModularItemOption>;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
@@ -2423,14 +2461,7 @@ interface TypedItemData extends ExtendedItemData<ExtendedItemOption> {
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: {
-		load?: (next: () => void) => void,
-		click?: (next: () => void) => void,
-		draw?: (next: () => void) => void,
-		exit?: () => void,
-		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
-		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
-	};
+	scriptHooks: ExtendedItemScriptHookStruct<TypedItemData, ExtendedItemOption>;
 }
 
 //#region Validation
@@ -2521,13 +2552,7 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: {
-		load?: (next: () => void) => void;
-		click?: (next: () => void) => void;
-		draw?: (next: () => void) => void;
-		exit?: () => void;
-		validate?: ExtendedItemValidateScriptHookCallback<VibratingItemOption>;
-	};
+	scriptHooks: ExtendedItemScriptHookStruct<VibratingItemData, VibratingItemOption>;
 	chatSetting: "default";
 	drawImages: false;
 }
@@ -2566,7 +2591,7 @@ interface VariableHeightData extends ExtendedItemData<ExtendedItemOption> {
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
 		npc: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 	};
-	scriptHooks: {};
+	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, ExtendedItemOption>;
 	/** The function that handles finding the current variable height setting */
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */

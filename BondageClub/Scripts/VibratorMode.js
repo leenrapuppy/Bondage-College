@@ -184,13 +184,16 @@ function VibratorModeRegister(asset, config={}) {
 	const data = VibratorModeCreateData(asset, config);
 
 	if (IsBrowser()) {
-		VibratorModeCreateLoadFunction(data);
-		VibratorModeCreateDrawFunction(data);
-		VibratorModeCreateClickFunction(data);
-		VibratorModeCreateExitFunction(data);
-		VibratorModeCreateValidateFunction(data);
+		/** @type {ExtendedItemCallbackStruct<VibratingItemOption>} */
+		const defaultCallbacks = {
+			load: () => VibratorModeLoad(data.dialogPrefix.header),
+			click: () => VibratorModeClick(data.modeSet),
+			draw: () => VibratorModeDraw(data.modeSet),
+			validate: VibratorModeValidate,
+			publishAction: (...args) => VibratorModePublishAction(data, ...args),
+		};
+		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		VibratorModeCreateScriptDrawFunction(data);
-		VibratorModeCreatePublishFunction(data);
 	}
 	VibratorModeSetAssetProperties(data);
 }
@@ -218,6 +221,7 @@ function VibratorModeCreateData(asset, { Options, ScriptHooks, BaselineProperty,
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
+			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
 		},
 		dialogPrefix: {
 			header: DialogPrefix.Header || "Intensity",
@@ -249,64 +253,14 @@ function VibratorModeGetOptions(modeSet=Object.values(VibratorModeSet)) {
 }
 
 /**
- * Creates an asset's extended item load function
- * @param {VibratingItemData} data - The vibrating item data for the asset
- * @returns {void} - Nothing
- */
-function VibratorModeCreateLoadFunction({ functionPrefix, scriptHooks, dialogPrefix }) {
-	if (typeof scriptHooks.load === "function") {
-		window[`${functionPrefix}Load`] = () => scriptHooks.load(() => VibratorModeLoad(dialogPrefix.header));
-	} else {
-		window[`${functionPrefix}Load`] = () => VibratorModeLoad(dialogPrefix.header);
-	}
-}
-
-/**
  * Loads the vibrating item's extended item menu.
  * @param {string} prefix
  * @param {boolean} IgnoreSubscreen Whether loading subscreen draw functions should be ignored.
  * Should be set to true to avoid infinite recursions if the the subscreen also calls this function.
  */
-function VibratorModeLoad(prefix ,IgnoreSubscreen=false) {
+function VibratorModeLoad(prefix, IgnoreSubscreen=false) {
 	const intensity = DialogFocusItem.Property.Intensity;
 	ExtendedItemLoad(`${prefix}${intensity}`, IgnoreSubscreen);
-}
-
-/**
- * Creates an asset's extended item draw function
- * @param {VibratingItemData} data - The vibrating item data for the asset
- * @returns {void} - Nothing
- */
-function VibratorModeCreateDrawFunction({ modeSet, functionPrefix, scriptHooks }) {
-	if (typeof scriptHooks.draw === "function") {
-		window[`${functionPrefix}Draw`] = () => scriptHooks.draw(() => VibratorModeDraw(modeSet));
-	} else {
-		window[`${functionPrefix}Draw`] = () => VibratorModeDraw(modeSet);
-	}
-}
-
-/**
- * Creates an asset's extended item click function
- * @param {VibratingItemData} data - The vibrating item data for the asset
- * @returns {void} - Nothing
- */
-function VibratorModeCreateClickFunction({ modeSet, functionPrefix, scriptHooks }) {
-	if (typeof scriptHooks.click === "function") {
-		window[`${functionPrefix}Click`] = () => scriptHooks.click(() => VibratorModeClick(modeSet));
-	} else {
-		window[`${functionPrefix}Click`] = () => VibratorModeClick(modeSet);
-	}
-}
-
-/**
- * Creates an asset's extended item exit function
- * @param {VibratingItemData} data - The vibrating item data for the asset
- * @returns {void} - Nothing
- */
-function VibratorModeCreateExitFunction({ functionPrefix, scriptHooks }) {
-	if (typeof scriptHooks.exit === "function") {
-		window[`${functionPrefix}Exit`] = scriptHooks.exit;
-	}
 }
 
 /** @type {ExtendedItemValidateCallback<ExtendedItemOption | VibratingItemOption | ModularItemOption>} */
@@ -319,30 +273,8 @@ function VibratorModeValidate(C, item, option, currentOption) {
 	) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	} else {
-		return "";
+		return ExtendedItemValidate(C, item, option, currentOption);
 	}
-}
-
-/**
- * Creates an asset's extended item validation function
- * @param {VibratingItemData} data - The vibrating item data for the asset
- * @returns {void} - Nothing
- */
-function VibratorModeCreateValidateFunction({ functionPrefix, scriptHooks }) {
-	/** @type {ExtendedItemValidateScriptHookCallback<VibratingItemOption>} */
-	let validateCallback;
-	if (typeof scriptHooks.validate === "function") {
-		validateCallback = (next, ...args) => {
-			/** @type {ExtendedItemValidateCallback<VibratingItemOption>} */
-			const nextWrapper = (...args2) => next(...args2) || VibratorModeValidate(...args2);
-			return scriptHooks.validate(nextWrapper, ...args);
-		};
-	} else {
-		validateCallback = (next, ...args) => {
-			return next(...args) || VibratorModeValidate(...args);
-		};
-	}
-	return ExtendedItemCreateValidateFunction(functionPrefix, validateCallback);
 }
 
 /**
@@ -352,15 +284,6 @@ function VibratorModeCreateValidateFunction({ functionPrefix, scriptHooks }) {
  */
 function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
 	window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] = VibratorModeScriptDraw;
-}
-
-/**
- * @param {VibratingItemData} data
- * @returns {void}
- */
-function VibratorModeCreatePublishFunction(data) {
-	/** @type {ExtendedItemPublishActionCallback<VibratingItemOption>} */
-	window[`${data.functionPrefix}PublishAction`] = (...args) => VibratorModePublishAction(data, ...args);
 }
 
 /**
