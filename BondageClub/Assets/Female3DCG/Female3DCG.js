@@ -7681,14 +7681,16 @@ var AssetFemale3DCG = [
 				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }], 
 			},
 			{
-				Name: "CollarHood", Fetish: ["Latex"], Top: 21, Left: 150, Value: 50, AllowLock: true, AllowTighten: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Layer: [
+				Name: "CollarHood", Fetish: ["Latex"], Top: 21, Left: 150, Value: 50, AllowLock: true, AllowTighten: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], 
+				Layer: [
 					{ Name: "Hood" },
 					{ Name: "Collar" },
 				],
 				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }]
 			},
 			{
-				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, AllowTighten: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, AllowTighten: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"], 
+				Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Layer:[
 					{ Name: ""},
 					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false},
@@ -7774,7 +7776,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: 19, Left:150, AllowLock: true, AllowTighten: true, Extended: true,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
-				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose",],
 				Layer: [
 					{Name: "", HasType: false, AllowTypes: ["Thick"]},
 					{Name: "Thin", HasType: false, CopyLayerColor: "", AllowTypes: ["Thin"], Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }]},
@@ -7991,7 +7993,9 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"], DefaultColor: ["#777777","#BDBDBD","#1A1A1A"],
+				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, 
+				Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"], DefaultColor: ["#777777","#BDBDBD","#1A1A1A"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose", "ItemEars"],
 				Layer: [
 					{Name: "Base", HasType: false, Alpha: [{ Masks: [[0, 160, 400, 200]], Group: ["Head"] }],},
 					{Name: "Metal", HasType: false},
