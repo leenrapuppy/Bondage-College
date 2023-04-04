@@ -417,6 +417,7 @@ Hat,PoppyCrown,Poppy Crown
 Hat,LatexHabit,Latex Habit
 Hat,BallCapBack,Baseball Cap Back
 Hat,BallCapFront,Baseball Cap Front
+Hat,SwimCap,Swim Cap
 HairAccessory3,,Hair Accessory
 HairAccessory3,Ribbons1,Hair Ribbon 1
 HairAccessory3,Ribbons2,Hair Ribbon 2
@@ -555,6 +556,7 @@ Mask,Glitter,Glitter
 Mask,HeadHarness,Head Harness
 Mask,FestivalFoxMask,Festival Fox Mask
 Mask,Kissmark,Lipstick Marks
+Mask,SwimCap,Swim Cap
 Jewelry,,Jewelry
 Jewelry,JewelrySet,Piercing Set
 TailStraps,,Tail Strap
@@ -1465,6 +1467,7 @@ ItemMouth3,Stitches,Stitches
 ItemMouth3,FurScarf,Fur Scarf
 ItemMouth3,LatexRespirator,Latex Respirator
 ItemMouth3,Kissmark,Lipstick Marks
+ItemMouth3,PaddedFaceMask,Padded Face Mask
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,ScarfBlindfold,Scarf Blindfold
@@ -1546,6 +1549,7 @@ ItemHood,DroneMask,Smooth Latex Mask
 ItemHood,CustomLatexHood,Custom Latex Hood
 ItemHood,HarnessCatMask,Cat Mask Harness
 ItemHood,FestivalFoxMask,Festival Fox Mask
+ItemHood,InflatableGagMask,Inflatable Gag Mask
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs

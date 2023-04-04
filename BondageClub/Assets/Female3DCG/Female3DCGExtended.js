@@ -196,6 +196,45 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //BallCapFront
+		SwimCap: {
+			Archetype: ExtendedArchetype.MODULAR,
+
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "Pattern", Key: "p",
+						Options: [{},{},{},{},{},{},] //None, Stripes 1, Stripes 2, Tirangle, Cowprint, Tigerprint
+					},
+					{
+						Name: "Hair", Key: "h",
+						Options:[
+							{
+								Property: {Hide: ["HairFront", "HairBack"]}
+							}, // No Hair Openings
+							{
+								Property: {Hide: ["HairFront",]}
+							}, // Hair Openings
+						]
+					},
+				]
+			}
+		}, // SwimCap
+		LatexHabit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Loose", 
+						Property: {Type: "Loose"},
+					},
+					{
+						Name: "Tight",
+						Property: {Type: "Tight"},
+					},
+				]
+			}
+		},//LatexHabit
 	},
 	LeftHand: {
 		Rings: {
@@ -3243,10 +3282,14 @@ var AssetFemale3DCGExtended = {
 							{}, // e1 - OwO
 							{}, // e2 - UwU
 						]
-					}
+					},
+					{
+						Name: "Tightness", Key: "t",
+						Options: [{},{}], // t0 - Loose, t1 - Tight
+					},
 				]
 			}
-		},
+		}, //KittyHood
 		DroneMask: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemHead", AssetName: "DroneMask" },
@@ -4055,6 +4098,79 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			}
 		}, // HarnessCatMask
+		InflatableGagMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+						Name: "Lenses", Key: "l",
+						Options:[
+							{
+								Property:{ Effect: [] }
+							},
+							{
+								Property:{
+								Effect: ["BlindLight"],
+								Tint: [{Color: 2, Strength: 0.2}],
+								}
+							},
+							{
+								Property:{ Effect: ["BlindHeavy"] }
+							},
+						]
+					},
+					{
+						Name: "GagLevel", Key: "g",
+						Options:[
+							{Property: {Effect: ["BlockMouth"] }},
+							{Property: {Effect: ["BlockMouth","GagLight"]}},
+							{Property: {Effect: ["BlockMouth","GagMedium"]}},
+							{Property: {Effect: ["BlockMouth","GagVeryHeavy"]}},
+						]
+					},
+					{
+						Name: "Hair", Key: "h",
+						Options: [
+							{Property: {Hide: ["HairBack"]}},
+							{Property: {Hide: []}},
+						]
+					},
+				]
+			}
+		}, //Inflatable Gag Mask
+		OpenMouthPlugHood: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+						Name: "FakeMouth", Key: "m",
+						Options: [
+							{Property: {Effect: [] }},
+							{Property: {Effect: ["BlockMouth"] }},
+						], //None, Fake Mouth
+					},
+					{
+						Name: "Thickness", Key: "t",
+						Options: [{},{}]
+					}, // Thick, Thin
+				]
+			}
+		}, // Open Mouth Plug Hood
+		LatexDogHood: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config:{
+				Options: [
+					{ Name: "Thick", Property: { Type: "Thick" } },
+					{ Name: "Thin", Property: { Type: "Thin" } },
+				],
+			}
+		}, //Latex Dog Hood
+		LatexHabit: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "Hat", AssetName: "LatexHabit" },
+		}, // Latex Habit
 	}, // ItemHood
 	Jewelry: {
 		JewelrySet: {
@@ -7306,6 +7422,29 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, //LatexRespirator
+		PaddedFaceMask:{
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules: [
+					{
+						Name: "Thickness", Key: "t",
+						Options:[
+							{
+								Property: {Effect: ["BlockMouth"]}
+							},
+							{
+								Property: {Effect: ["BlockMouth", "GagLight"]}
+							},
+						]
+					},
+					{
+						Name: "Pattern", Key: "p",
+						Options:[{},{},{}] //None, Lips, Heart
+					},
+				]
+			}
+		}, //PaddedFaceMask
 	}, // ItemMouth3
 	Mask: {
 		BunnyMask1: {
@@ -7463,6 +7602,10 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, //KissMark
+		SwimCap: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "Hat", AssetName: "SwimCap" },
+		},
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {
