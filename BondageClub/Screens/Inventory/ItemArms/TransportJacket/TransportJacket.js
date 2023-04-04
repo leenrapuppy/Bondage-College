@@ -11,7 +11,7 @@ function InventoryItemArmsTransportJacketDraw(OriginalFunction) {
 	if (Data == null) {
 		return;
 	}
-	const Prefix = Data.dialog.typePrefix;
+	const Prefix = Data.dialogPrefix.option;
 
 	MainCanvas.textAlign = "right";
 	DrawTextFit(DialogFindPlayer(`${Prefix}TextLabel`), 1475, 860, 400, "#fff", "#000");

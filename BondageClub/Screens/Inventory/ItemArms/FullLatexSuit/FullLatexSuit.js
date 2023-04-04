@@ -16,11 +16,11 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 		return;
 	}
 	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
-	ExtendedItemDraw(Data.options, Data.dialog.typePrefix, Data.options.length, Data.drawImages, XYCoords);
+	ExtendedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
 
 	const C = CharacterGetCurrent();
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
-	ExtendedItemCustomDraw(`${Data.dialog.typePrefix}Wand`, ...ExtendedXY[6][4], true, !CanEquip);
+	ExtendedItemCustomDraw(`${Data.dialogPrefix.option}Wand`, ...ExtendedXY[6][4], true, !CanEquip);
 }
 
 /**
@@ -56,7 +56,7 @@ function InventoryItemArmsFullLatexSuitSetWand(C) {
 	CharacterRefresh(C);
 
 	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
-	const Prefix = (Data == null) ? "" : TypedItemCustomChatPrefix("Wand", Data);
+	const Prefix = (Data == null) ? "" : ExtendedItemCustomChatPrefix("Wand", Data);
 	const Dictionary = [
 		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},

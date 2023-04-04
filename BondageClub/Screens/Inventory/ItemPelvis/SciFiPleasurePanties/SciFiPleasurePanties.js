@@ -15,7 +15,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
 			return;
 		}
 		const [CrotchShield, Intensity, OrgasmLock, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
-		const IntensitySuffix = (OrgasmLock === "o0") ? "" : ` (${DialogFindPlayer(`${Data.dialogOptionPrefix}${OrgasmLock}`)})`;
+		const IntensitySuffix = (OrgasmLock === "o0") ? "" : ` (${DialogFindPlayer(`${Data.dialogPrefix.option}${OrgasmLock}`)})`;
 
 		// Display option information
 		MainCanvas.textAlign = "right";
@@ -23,9 +23,9 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
 		DrawText(DialogFindPlayer("Intensity"), 1500, 700, "White", "Gray");
 		DrawText(DialogFindPlayer("ShockLevel"), 1500, 775, "White", "Gray");
 		MainCanvas.textAlign = "left";
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${CrotchShield}`), 1510, 625, "White", "Gray");
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${Intensity}`) + IntensitySuffix, 1510, 700, "White", "Gray");
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${ShockLevel}`), 1510, 775, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${CrotchShield}`), 1510, 625, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${Intensity}`) + IntensitySuffix, 1510, 700, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${ShockLevel}`), 1510, 775, "White", "Gray");
 		MainCanvas.textAlign = "center";
 
 		// Display the ShowText checkbox

@@ -512,7 +512,9 @@ function ExtendedItemSetType(C, Options, Option) {
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
-			CommonCallFunctionByName(FunctionPrefix + "PublishAction", C, Option, previousOption);
+			/** @type {Parameters<ExtendedItemPublishActionCallback<T>>} */
+			const args = [C, DialogFocusItem, Option, previousOption];
+			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
 		} else {
 			ExtendedItemExit();
 			if (C.ID === 0) {
@@ -746,7 +748,7 @@ function ExtendedItemSetOffset(Offset) {
  * @param {Character} C - The target character
  * @param {Asset} asset - The asset for the typed item
  * @param {CommonChatTags} tag - The tag to map to a dictionary entry
- * @returns {object} - The constructed dictionary entry for the tag
+ * @returns {ChatMessageDictionaryEntry} - The constructed dictionary entry for the tag
  */
 function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
 	switch (tag) {
@@ -976,5 +978,43 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 	} else {
 		// @ts-ignore It works but I don't know why.
 		return Data;
+	}
+}
+
+/**
+ * Constructs the chat message dictionary for the extended item based on the items configuration data.
+ * @template {ExtendedItemOption | ModularItemOption | VibratingItemOption} OptionType
+ * @param {ExtendedItemChatData<OptionType>} ChatData - The chat data that triggered the message.
+ * @param {ExtendedItemData<OptionType>} data - The extended item data for the asset
+ * @returns {ChatMessageDictionary} - The dictionary for the item based on its required chat tags
+ */
+function ExtendedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictionary }) {
+	const BuiltDictionary = chatTags
+		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
+		.filter(Boolean);
+
+	dictionary.forEach(entry => BuiltDictionary.push(entry(ChatData)));
+
+	return BuiltDictionary;
+}
+
+/**
+ * Return {@link ExtendedItemDialog.chat} if it's a string or call it using chat data based on a fictional extended item option.
+ * Generally used for getting a chat prefix for extended item buttons with custom functionality.
+ * @param {string} Name - The name of the pseudo-type
+ * @param {ExtendedItemData} Data - The extended item data
+ * @returns {string} The dialogue prefix for the custom chatroom messages
+ */
+function ExtendedItemCustomChatPrefix(Name, Data) {
+	if (typeof Data.dialogPrefix.chat === "function") {
+		return Data.dialogPrefix.chat({
+			C: CharacterGetCurrent(),
+			previousOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
+			newOption: { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } },
+			previousIndex: -1,
+			newIndex: -1,
+		});
+	} else {
+		return Data.dialogPrefix.chat;
 	}
 }

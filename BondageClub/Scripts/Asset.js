@@ -95,7 +95,7 @@ function AssetActivityMirrorGroupSet(group) {
  * Adds a new asset to the main list
  * @param {AssetGroup} Group
  * @param {AssetDefinition} AssetDef
- * @param {ExtendedItemConfig} ExtendedConfig
+ * @param {ExtendedItemMainConfig} ExtendedConfig
  * @returns {void} - Nothing
  */
 function AssetAdd(Group, AssetDef, ExtendedConfig) {
@@ -241,7 +241,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 /**
  * Constructs extended item functions for an asset, if extended item configuration exists for the asset.
  * @param {Asset} A - The asset to configure
- * @param {ExtendedItemConfig} ExtendedConfig - The extended item configuration object for the asset's family
+ * @param {ExtendedItemMainConfig} ExtendedConfig - The extended item configuration object for the asset's family
  * @returns {void} - Nothing
  */
 function AssetBuildExtended(A, ExtendedConfig) {
@@ -280,7 +280,7 @@ function AssetBuildExtended(A, ExtendedConfig) {
 			VibratorModeRegister(A, AssetConfig.Config);
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
-			VariableHeightRegister(A, AssetConfig.Config, AssetConfig.Config ? AssetConfig.Config.Property : undefined);
+			VariableHeightRegister(A, AssetConfig.Config, AssetConfig.Config ? AssetConfig.Config.BaselineProperty : undefined);
 			break;
 	}
 	A.Archetype = AssetConfig.Archetype;
@@ -288,7 +288,7 @@ function AssetBuildExtended(A, ExtendedConfig) {
 
 /**
  * Finds the extended item configuration for the provided group and asset name, if any exists
- * @param {ExtendedItemConfig} ExtendedConfig - The full extended item configuration object
+ * @param {ExtendedItemMainConfig} ExtendedConfig - The full extended item configuration object
  * @param {AssetGroupName} GroupName - The name of the asset group to find extended configuration for
  * @param {string} AssetName - The name of the asset to find extended configuration fo
  * @returns {AssetArchetypeConfig | undefined} - The extended asset configuration object for the specified asset, if
@@ -530,7 +530,7 @@ function AssetLoadDescription(Family) {
  * Loads a specific asset file
  * @param {readonly AssetGroupDefinition[]} Groups
  * @param {IAssetFamily} Family
- * @param {ExtendedItemConfig} ExtendedConfig
+ * @param {ExtendedItemMainConfig} ExtendedConfig
  */
 function AssetLoad(Groups, Family, ExtendedConfig) {
 

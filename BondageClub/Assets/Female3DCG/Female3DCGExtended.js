@@ -27,7 +27,7 @@ const ExtendedArchetype = {
 
 /**
  * An object containing all extended item configurations.
- * @type {ExtendedItemConfig}
+ * @type {ExtendedItemMainConfig}
  * @const
  */
 var AssetFemale3DCGExtended = {
@@ -669,11 +669,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Wrap", Difficulty: 2 },
 					},
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
-					TypePrefix: "RibbonsStyle",
-					ChatPrefix: "RibbonsSet",
-					NpcPrefix: "ItemBreastRibbons",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
+					Option: "RibbonsStyle",
+					Chat: "RibbonsSet",
+					Npc: "ItemBreastRibbons",
 				},
 			}
 		}, // Ribbons
@@ -842,11 +842,11 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					},
 				],
-				Dialog: {
-					Load: "WebBondageSelect",
-					TypePrefix: "WebBondage",
-					ChatPrefix: "ArmsWebSet",
-					NpcPrefix: "ItemArmsWeb",
+				DialogPrefix: {
+					Header: "WebBondageSelect",
+					Option: "WebBondage",
+					Chat: "ArmsWebSet",
+					Npc: "ItemArmsWeb",
 				},
 			}
 		}, // Web
@@ -887,11 +887,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectInflationLevel",
-					TypePrefix: "InflationAmount",
-					ChatPrefix: "InflationAmountSet",
-					NpcPrefix: "ItemArmsInflatableStraightLeotard",
+				DialogPrefix: {
+					Header: "SelectInflationLevel",
+					Option: "InflationAmount",
+					Chat: "InflationAmountSet",
+					Npc: "ItemArmsInflatableStraightLeotard",
 				},
 			}
 		}, // InflatableStraightLeotard
@@ -915,11 +915,11 @@ var AssetFemale3DCGExtended = {
 						}
 					}
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "MetalCuffsPose",
-					ChatPrefix: "MetalCuffsRestrain",
-					NpcPrefix: "ItemArmsMetalCuffs",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "MetalCuffsPose",
+					Chat: "MetalCuffsRestrain",
+					Npc: "ItemArmsMetalCuffs",
 				},
 			}
 		}, // MetalCuffs
@@ -994,18 +994,18 @@ var AssetFemale3DCGExtended = {
 								Top: 125,
 								Height: 675,
 							},
-							Dialog: {
-								ChatPrefix: "SuspensionChange",
-								NpcPrefix: "ChainBondage",
+							DialogPrefix: {
+								Chat: "SuspensionChange",
+								Npc: "ChainBondage",
 							},
 						},
 					}
 				],
-				Dialog: {
-					Load: "SelectChainBondage",
-					TypePrefix: "ChainBondage",
-					ChatPrefix: "ArmsChainSet",
-					NpcPrefix: "ChainBondage",
+				DialogPrefix: {
+					Header: "SelectChainBondage",
+					Option: "ChainBondage",
+					Chat: "ArmsChainSet",
+					Npc: "ChainBondage",
 				},
 				ChangeWhenLocked: false,
 			}
@@ -1076,10 +1076,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Polished" },
 					},
 				],
-				Dialog: {
-					Load: "ItemArmsLatexLeotardSelect",
-					TypePrefix: "ItemArmsLatexLeotard",
-					ChatPrefix: "ItemArmsLatexLeotardSet",
+				DialogPrefix: {
+					Header: "ItemArmsLatexLeotardSelect",
+					Option: "ItemArmsLatexLeotard",
+					Chat: "ItemArmsLatexLeotardSet",
 				},
 			},
 		}, // LatexButterflyLeotard
@@ -1111,9 +1111,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					ChatPrefix: ({ C }) => `ItemArmsCeilingShacklesSet${C.Pose.includes("Suspension") ? "Suspension" : ""}`
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Chat: ({ C }) => `ItemArmsCeilingShacklesSet${C.Pose.includes("Suspension") ? "Suspension" : ""}`
 				},
 			},
 		}, // CeilingShackles
@@ -1165,10 +1165,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "WrapStrap", Difficulty: 3 },
 					},
 				],
-				Dialog: {
-					Load: "ItemArmsLeatherArmbinderSelect",
-					TypePrefix: "ItemArmsLeatherArmbinder",
-					ChatPrefix: "ItemArmsLeatherArmbinderSet",
+				DialogPrefix: {
+					Header: "ItemArmsLeatherArmbinderSelect",
+					Option: "ItemArmsLeatherArmbinder",
+					Chat: "ItemArmsLeatherArmbinderSet",
 				},
 			},
 		}, // LeatherArmbinder
@@ -1201,8 +1201,8 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
 				}
 			},
 		}, // WristShackles
@@ -1251,10 +1251,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemArmsCuffs",
-					ChatPrefix: "FuturisticCuffsRestrain",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemArmsCuffs",
+					Chat: "FuturisticCuffsRestrain",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -1278,10 +1278,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Tight", Difficulty: 7 },
 					},
 				],
-				Dialog: {
-					Load: "SelectFuturisticArmbinderType",
-					TypePrefix: "FuturisticArmbinderType",
-					ChatPrefix: "FuturisticArmbinderSet",
+				DialogPrefix: {
+					Header: "SelectFuturisticArmbinderType",
+					Option: "FuturisticArmbinderType",
+					Chat: "FuturisticArmbinderSet",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -1350,9 +1350,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemArmsCuffs",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemArmsCuffs",
 				},
 			},
 		}, // LeatherCuffs
@@ -1417,9 +1417,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "ItemArmsStraitJacketSelect",
-					TypePrefix: "ItemArmsStraitJacket",
+				DialogPrefix: {
+					Header: "ItemArmsStraitJacketSelect",
+					Option: "ItemArmsStraitJacket",
 				},
 			},
 		}, // StraitJacket
@@ -1542,8 +1542,8 @@ var AssetFemale3DCGExtended = {
 						}
 					},
 				],
-				Dialog: {
-					Load: "SelectTapeWrapping",
+				DialogPrefix: {
+					Header: "SelectTapeWrapping",
 				},
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
 			}
@@ -1661,8 +1661,8 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
-				Dialog: {
-					Load: "SelectZipTie",
+				DialogPrefix: {
+					Header: "SelectZipTie",
 				}
 			},
 		}, // Zipties
@@ -1767,10 +1767,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "ItemArmsTightJacketSelect",
-					TypePrefix: "ItemArmsTightJacket",
-					ChatPrefix: "ItemArmsTightJacketSet",
+				DialogPrefix: {
+					Header: "ItemArmsTightJacketSelect",
+					Option: "ItemArmsTightJacket",
+					Chat: "ItemArmsTightJacketSet",
 				},
 			},
 		}, // TightJacket
@@ -1816,8 +1816,8 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Heavy", Difficulty: 2 }
 					},
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
 				},
 			},
 		}, // Ribbons
@@ -1826,10 +1826,10 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
 				ChangeWhenLocked: false,
-				Dialog: {
-					Load: "SturdyLeatherBeltsSelectTightness",
-					TypePrefix: "SturdyLeatherBeltsPose",
-					ChatPrefix: "SturdyLeatherBeltsRestrain",
+				DialogPrefix: {
+					Header: "SturdyLeatherBeltsSelectTightness",
+					Option: "SturdyLeatherBeltsPose",
+					Chat: "SturdyLeatherBeltsRestrain",
 				},
 				Options: [
 					{
@@ -2023,11 +2023,11 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					},
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					ChatPrefix: "ArmsRopeSet",
-					NpcPrefix: "RopeBondage",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Chat: "ArmsRopeSet",
+					Npc: "RopeBondage",
 				},
 			}
 		}, // NylonRope
@@ -2153,9 +2153,9 @@ var AssetFemale3DCGExtended = {
 								Top: 175,
 								Height: 400,
 							},
-							Dialog: {
-								ChatPrefix: "SuspensionChange",
-								NpcPrefix: "RopeBondage",
+							DialogPrefix: {
+								Chat: "SuspensionChange",
+								Npc: "RopeBondage",
 							},
 						},
 					}, {
@@ -2183,9 +2183,9 @@ var AssetFemale3DCGExtended = {
 								Top: 125,
 								Height: 675,
 							},
-							Dialog: {
-								ChatPrefix: "SuspensionChange",
-								NpcPrefix: "RopeBondage",
+							DialogPrefix: {
+								Chat: "SuspensionChange",
+								Npc: "RopeBondage",
 							},
 						},
 					}, {
@@ -2213,9 +2213,9 @@ var AssetFemale3DCGExtended = {
 								Top: 125,
 								Height: 675,
 							},
-							Dialog: {
-								ChatPrefix: "SuspensionChange",
-								NpcPrefix: "RopeBondage",
+							DialogPrefix: {
+								Chat: "SuspensionChange",
+								Npc: "RopeBondage",
 							},
 						},
 					}, {
@@ -2243,9 +2243,9 @@ var AssetFemale3DCGExtended = {
 								Top: 100,
 								Height: 700,
 							},
-							Dialog: {
-								ChatPrefix: "SuspensionChange",
-								NpcPrefix: "RopeBondage",
+							DialogPrefix: {
+								Chat: "SuspensionChange",
+								Npc: "RopeBondage",
 							},
 						},
 					}, {
@@ -2273,18 +2273,18 @@ var AssetFemale3DCGExtended = {
 								Top: 100,
 								Height: 700,
 							},
-							Dialog: {
-								ChatPrefix: "SuspensionChange",
-								NpcPrefix: "RopeBondage",
+							DialogPrefix: {
+								Chat: "SuspensionChange",
+								Npc: "RopeBondage",
 							},
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					ChatPrefix: "ArmsRopeSet",
-					NpcPrefix: "RopeBondage",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Chat: "ArmsRopeSet",
+					Npc: "RopeBondage",
 				},
 			}
 		},
@@ -2359,9 +2359,9 @@ var AssetFemale3DCGExtended = {
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }],
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemArmsWoodenCuffs",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemArmsWoodenCuffs",
 				},
 			},
 		}, // WoodenCuffs
@@ -2605,11 +2605,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
 			Config: {
-				Dialog: {
-					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
-					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
-					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
-					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				DialogPrefix: {
+					Header: "ItemNeckAccessoriesCollarShockUnitSelect",
+					Option: "ItemNeckAccessoriesCollarShockUnit",
+					Chat: "ItemNeckAccessoriesCollarShockUnitSet",
+					Npc: "ItemNeckAccessoriesCollarShockUnit",
 				},
 			},
 		}, // ShockCollar
@@ -2617,11 +2617,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarAutoShockUnit" },
 			Config: {
-				Dialog: {
-					Select: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
-					ModulePrefix: "ItemNeckAccessoriesCollarAutoShockUnitModule",
-					OptionPrefix: "ItemNeckAccessoriesCollarAutoShockUnitOption",
-					ChatPrefix: "ItemNeckAccessoriesCollarAutoShockUnitSet",
+				DialogPrefix: {
+					Header: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
+					Module: "ItemNeckAccessoriesCollarAutoShockUnitModule",
+					Option: "ItemNeckAccessoriesCollarAutoShockUnitOption",
+					Chat: "ItemNeckAccessoriesCollarAutoShockUnitSet",
 				},
 			},
 		}, // AutoShockCollar
@@ -2689,7 +2689,7 @@ var AssetFemale3DCGExtended = {
 				ScriptHooks: {
 					Draw: InventoryItemNeckAccessoriesCollarNameTagDraw,
 					Click: InventoryItemNeckAccessoriesCollarNameTagClick,
-					PublishAction: InventoryItemNeckAccessoriesCollarNameTagPublishAction,
+					PublishAction: InventoryItemNeckAccessoriesCollarNameTagPublishActionHook,
 				},
 				DrawImages: false,
 				ChangeWhenLocked: false,
@@ -2984,10 +2984,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectInflateLevel",
-					TypePrefix: "InflateLevel",
-					ChatPrefix: ({ newIndex, previousIndex }) => `InflatedHood${(newIndex > previousIndex) ? "pumps" : "deflates"}To`,
+				DialogPrefix: {
+					Header: "SelectInflateLevel",
+					Option: "InflateLevel",
+					Chat: ({ newIndex, previousIndex }) => `InflatedHood${(newIndex > previousIndex) ? "pumps" : "deflates"}To`,
 				},
 				DrawImages: false,
 			}
@@ -3087,10 +3087,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "GwenHoodSelectStyle",
-					TypePrefix: "GwenHoodStyle",
-					ChatPrefix: "GwenHoodChangeStyle",
+				DialogPrefix: {
+					Header: "GwenHoodSelectStyle",
+					Option: "GwenHoodStyle",
+					Chat: "GwenHoodChangeStyle",
 				},
 				DrawImages: false,
 			},
@@ -3108,9 +3108,9 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null },
 					},
 				],
-				Dialog: {
-					Load: "SelectOpenFaceHoodStyle",
-					TypePrefix: "OpenFaceHoodStyle",
+				DialogPrefix: {
+					Header: "SelectOpenFaceHoodStyle",
+					Option: "OpenFaceHoodStyle",
 				},
 				DrawImages: false,
 			}
@@ -4598,10 +4598,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "BondageBenchStrapsSelectTightness",
-					TypePrefix: "BondageBenchStrapsPose",
-					ChatPrefix: "BondageBenchStrapsRestrain",
+				DialogPrefix: {
+					Header: "BondageBenchStrapsSelectTightness",
+					Option: "BondageBenchStrapsPose",
+					Chat: "BondageBenchStrapsRestrain",
 				},
 			},
 		}, // BondageBench
@@ -4628,9 +4628,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectCushionStyle",
-					TypePrefix: "CushionType",
+				DialogPrefix: {
+					Header: "SelectCushionStyle",
+					Option: "CushionType",
 				},
 				ChatSetting: TypedItemChatSetting.SILENT,
 			},
@@ -4870,10 +4870,10 @@ var AssetFemale3DCGExtended = {
 					}
 				],
 				ChangeWhenLocked: false,
-				Dialog: {
-					Load: "SelectCryoCapsuleType",
-					TypePrefix: "CryoCapsuleType",
-					ChatPrefix: "CryoCapsuleSet",
+				DialogPrefix: {
+					Header: "SelectCryoCapsuleType",
+					Option: "CryoCapsuleType",
+					Chat: "CryoCapsuleSet",
 				},
 			},
 		}, // CryoCapsule
@@ -4901,10 +4901,10 @@ var AssetFemale3DCGExtended = {
 						}
 					}
 				],
-				Dialog: {
-					Load: "SelectCoffinType",
-					TypePrefix: "CoffinType",
-					ChatPrefix: "CoffinSet",
+				DialogPrefix: {
+					Header: "SelectCoffinType",
+					Option: "CoffinType",
+					Chat: "CoffinSet",
 				},
 			},
 		}, // Coffin
@@ -4945,9 +4945,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemDevicesNet",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemDevicesNet",
 				},
 			},
 		}, // Net
@@ -5130,8 +5130,8 @@ var AssetFemale3DCGExtended = {
 					Exit: PropertyOpacityExit,
 					Validate: PropertyOpacityValidate,
 				},
-				Dialog: {
-					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
+				DialogPrefix: {
+					Npc: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
 				}
 			},
 		}, // Locker
@@ -5139,11 +5139,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemDevices", AssetName: "Locker" },
 			Config: {
-				Dialog: {
-					Load: "ItemDevicesLockerSelect",
-					TypePrefix: "ItemDevicesLocker",
-					ChatPrefix: "ItemDevicesLockerSet",
-					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
+				DialogPrefix: {
+					Header: "ItemDevicesLockerSelect",
+					Option: "ItemDevicesLocker",
+					Chat: "ItemDevicesLockerSet",
+					Npc: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
 				},
 			},
 		}, // SmallLocker
@@ -5208,10 +5208,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemDevices", AssetName: "WoodenBox" },
 			Config: {
-				Dialog: {
-					Load: "ItemDevicesWoodenBoxSelect",
-					TypePrefix: "ItemDevicesWoodenBox",
-					ChatPrefix: "ItemDevicesWoodenBoxSet",
+				DialogPrefix: {
+					Header: "ItemDevicesWoodenBoxSelect",
+					Option: "ItemDevicesWoodenBox",
+					Chat: "ItemDevicesWoodenBoxSet",
 				},
 			},
 		}, // TransportWoodenBox
@@ -5308,11 +5308,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Full", Difficulty: 2 },
 					},
 				],
-				Dialog: {
-					Load: "SelectTapeWrapping",
-					TypePrefix: "ToeTapePose",
-					ChatPrefix: "ToeTapeSet",
-					NpcPrefix: "",
+				DialogPrefix: {
+					Header: "SelectTapeWrapping",
+					Option: "ToeTapePose",
+					Chat: "ToeTapeSet",
+					Npc: "",
 				},
 			},
 		}, // ToeTape
@@ -5413,11 +5413,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectSuctionLevel",
-					TypePrefix: "SuctionLevel",
-					ChatPrefix: ({ newIndex, previousIndex }) => `ClitSuc${(newIndex > previousIndex) ? "tightens" : "loosens"}To`,
-					NpcPrefix: "ItemVulvaClitSuctionCupNPCReaction"
+				DialogPrefix: {
+					Header: "SelectSuctionLevel",
+					Option: "SuctionLevel",
+					Chat: ({ newIndex, previousIndex }) => `ClitSuc${(newIndex > previousIndex) ? "tightens" : "loosens"}To`,
+					Npc: "ItemVulvaClitSuctionCupNPCReaction"
 				},
 				DrawImages: false,
 			},
@@ -5501,11 +5501,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
 			Config: {
-				Dialog: {
-					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
-					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
-					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
-					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				DialogPrefix: {
+					Header: "ItemNeckAccessoriesCollarShockUnitSelect",
+					Option: "ItemNeckAccessoriesCollarShockUnit",
+					Chat: "ItemNeckAccessoriesCollarShockUnitSet",
+					Npc: "ItemNeckAccessoriesCollarShockUnit",
 				},
 			},
 		}, // ShockDildo
@@ -5543,8 +5543,8 @@ var AssetFemale3DCGExtended = {
 					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDraw,
 					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExit,
 				},
-				Dialog: {
-					ChatPrefix: ({previousOption, newOption}) => {
+				DialogPrefix: {
+					Chat: ({previousOption, newOption}) => {
 						if (DialogFocusItem == null) {
 							return "";
 						}
@@ -5588,10 +5588,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectAttachmentState",
-					TypePrefix: "ClitRingPose",
-					ChatPrefix: "ClitRingRestrain",
+				DialogPrefix: {
+					Header: "SelectAttachmentState",
+					Option: "ClitRingPose",
+					Chat: "ClitRingRestrain",
 				},
 			},
 		}, // ClitRing
@@ -5687,11 +5687,11 @@ var AssetFemale3DCGExtended = {
 						}
 					},
 				],
-				Dialog: {
-					Load: "SelectAttachmentState",
-					TypePrefix: "AnalHookPose",
-					ChatPrefix: "AnalHookRestrain",
-					NpcPrefix: "InventoryItemButtAnalHookNPCReaction",
+				DialogPrefix: {
+					Header: "SelectAttachmentState",
+					Option: "AnalHookPose",
+					Chat: "AnalHookRestrain",
+					Npc: "InventoryItemButtAnalHookNPCReaction",
 				},
 			},
 		}, // AnalHook
@@ -5724,11 +5724,11 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					},
 				],
-				Dialog: {
-					Load: "SelectAttachmentState",
-					TypePrefix: "ButtPlugLockPose",
-					ChatPrefix: "ButtPlugLockRestrain",
-					NpcPrefix: "ButtPlugLockSet",
+				DialogPrefix: {
+					Header: "SelectAttachmentState",
+					Option: "ButtPlugLockPose",
+					Chat: "ButtPlugLockRestrain",
+					Npc: "ButtPlugLockSet",
 				},
 			},
 		}, // ButtPlugLock
@@ -5773,11 +5773,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectInflateLevel",
-					TypePrefix: "InflateLevel",
-					ChatPrefix: ({ newIndex, previousIndex }) => `BPumps${(newIndex > previousIndex) ? "pumps" : "deflates"}To`,
-					NpcPrefix: "InventoryItemButtButtPumpNPCReaction",
+				DialogPrefix: {
+					Header: "SelectInflateLevel",
+					Option: "InflateLevel",
+					Chat: ({ newIndex, previousIndex }) => `BPumps${(newIndex > previousIndex) ? "pumps" : "deflates"}To`,
+					Npc: "InventoryItemButtButtPumpNPCReaction",
 				},
 				DrawImages: false,
 			},
@@ -5800,6 +5800,11 @@ var AssetFemale3DCGExtended = {
 		AnalBeads2: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
 				Options: [
 					{ Name: "_1in", Property: { Type: null, InsertedBeads: 1 } },
 					{ Name: "_2in", Property: { Type: "_2in", InsertedBeads: 2 } },
@@ -5809,6 +5814,9 @@ var AssetFemale3DCGExtended = {
 				],
 				DrawImages: false,
 				ChatSetting: TypedItemChatSetting.SILENT,
+				ScriptHooks: {
+					PublishAction: InventoryItemButtAnalBeads2PublishActionHook,
+				}
 			},
 		}, // AnalBeads2
 		InflVibeButtPlug: {
@@ -5849,11 +5857,11 @@ var AssetFemale3DCGExtended = {
 				ScriptHooks: {
 					Draw: InventoryItemButtInflVibeButtPlugDraw,
 				},
-				Dialog: {
-					Select: "ItemButtInflVibeButtPlugSelect",
-					ModulePrefix: "ItemButtInflVibeButtPlugModule",
-					OptionPrefix: "ItemButtInflVibeButtPlugOption",
-					ChatPrefix: ({previousOption, newOption}) => {
+				DialogPrefix: {
+					Header: "ItemButtInflVibeButtPlugSelect",
+					Module: "ItemButtInflVibeButtPlugModule",
+					Option: "ItemButtInflVibeButtPlugOption",
+					Chat: ({previousOption, newOption}) => {
 						const Prefix = "ItemButtInflVibeButtPlug";
 						const Change = Number.parseInt(newOption.Name[1]) - Number.parseInt(previousOption.Name[1]);
 						const StateChange = (Change > 0) ? "Increase" : "Decrease";
@@ -5866,11 +5874,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
 			Config: {
-				Dialog: {
-					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
-					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
-					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
-					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				DialogPrefix: {
+					Header: "ItemNeckAccessoriesCollarShockUnitSelect",
+					Option: "ItemNeckAccessoriesCollarShockUnit",
+					Chat: "ItemNeckAccessoriesCollarShockUnitSet",
+					Npc: "ItemNeckAccessoriesCollarShockUnit",
 				},
 			},
 		}, // ShockPlug
@@ -5924,11 +5932,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectPiercingState",
-					TypePrefix: "RoundPiercingPose",
-					ChatPrefix: "RoundPiercingRestrain",
-					NpcPrefix: "RoundPiercingNPCReaction",
+				DialogPrefix: {
+					Header: "SelectPiercingState",
+					Option: "RoundPiercingPose",
+					Chat: "RoundPiercingRestrain",
+					Npc: "RoundPiercingNPCReaction",
 				},
 			},
 		}, // RoundPiercing
@@ -5955,11 +5963,11 @@ var AssetFemale3DCGExtended = {
 						},
 					}
 				],
-				Dialog: {
-					Load: "SelectChainType",
-					TypePrefix: "ChainClapNipples",
-					ChatPrefix: "ChainClampSet",
-					NpcPrefix: "ItemNipplesChainClamp",
+				DialogPrefix: {
+					Header: "SelectChainType",
+					Option: "ChainClapNipples",
+					Chat: "ChainClampSet",
+					Npc: "ItemNipplesChainClamp",
 				},
 			},
 		},  //ChainClamp
@@ -6004,10 +6012,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "LactationPumpSelectSetting",
-					TypePrefix: "LactationPump",
-					ChatPrefix: ({ newIndex, previousIndex }) => `LactationPumpPower${(newIndex > previousIndex) ? "tightens" : "loosens"}To`,
+				DialogPrefix: {
+					Header: "LactationPumpSelectSetting",
+					Option: "LactationPump",
+					Chat: ({ newIndex, previousIndex }) => `LactationPumpPower${(newIndex > previousIndex) ? "tightens" : "loosens"}To`,
 				},
 				DrawImages: false,
 			},
@@ -6053,10 +6061,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectSuctionLevel",
-					TypePrefix: "SuctionLevel",
-					ChatPrefix: ({ newIndex, previousIndex }) => `NipSuc${(newIndex > previousIndex) ? "tightens" : "loosens"}To`,
+				DialogPrefix: {
+					Header: "SelectSuctionLevel",
+					Option: "SuctionLevel",
+					Chat: ({ newIndex, previousIndex }) => `NipSuc${(newIndex > previousIndex) ? "tightens" : "loosens"}To`,
 				},
 				DrawImages: false,
 			},
@@ -6079,10 +6087,10 @@ var AssetFemale3DCGExtended = {
 						},
 					}
 				],
-				Dialog: {
-					Load: "ItemNipplesPlateClampsSelectTightness",
-					TypePrefix: "ItemNipplesPlateClampsTightnessLevel",
-					ChatPrefix: "ItemNipplesPlateClamps",
+				DialogPrefix: {
+					Header: "ItemNipplesPlateClampsSelectTightness",
+					Option: "ItemNipplesPlateClampsTightnessLevel",
+					Chat: "ItemNipplesPlateClamps",
 				},
 				DrawImages: false,
 			},
@@ -6097,11 +6105,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
 			Config: {
-				Dialog: {
-					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
-					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
-					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
-					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				DialogPrefix: {
+					Header: "ItemNeckAccessoriesCollarShockUnitSelect",
+					Option: "ItemNeckAccessoriesCollarShockUnit",
+					Chat: "ItemNeckAccessoriesCollarShockUnitSet",
+					Npc: "ItemNeckAccessoriesCollarShockUnit",
 				},
 			},
 		}, // ShockClamps
@@ -6120,10 +6128,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Garterless" },
 					},
 				],
-				Dialog: {
-					Load: "LatexCorset1Select",
-					TypePrefix: "LatexCorset1",
-					ChatPrefix: "LatexCorset1Set",
+				DialogPrefix: {
+					Header: "LatexCorset1Select",
+					Option: "LatexCorset1",
+					Chat: "LatexCorset1Set",
 				},
 			},
 		}, // LatexCorset1
@@ -6143,11 +6151,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Straps" },
 					},
 				],
-				Dialog: {
-					Load: "SelectHeavyLatexCorsetType",
-					TypePrefix: "HeavyLatexCorsetType",
-					ChatPrefix: "HeavyLatexCorsetSet",
-					NpcPrefix: "HeavyLatexCorset",
+				DialogPrefix: {
+					Header: "SelectHeavyLatexCorsetType",
+					Option: "HeavyLatexCorsetType",
+					Chat: "HeavyLatexCorsetSet",
+					Npc: "HeavyLatexCorset",
 				},
 			}
 		}, // HeavyLatexCorset
@@ -6169,11 +6177,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Harness2" , Difficulty: 4, Effect: ["CrotchRope"] }
 					}
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
-					TypePrefix: "RibbonsTorso",
-					ChatPrefix: "TorsoRibbonsSet",
-					NpcPrefix: "ItemTorsoRibbons",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
+					Option: "RibbonsTorso",
+					Chat: "TorsoRibbonsSet",
+					Npc: "ItemTorsoRibbons",
 				},
 			}
 		}, // Ribbons
@@ -6195,10 +6203,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "h4" , Difficulty: 10, Effect: ["CrotchRope"] }
 					}
 				],
-				Dialog: {
-					Load: "HighSecurityHarnessType",
-					TypePrefix: "HighSecurityHarnessType",
-					ChatPrefix: "HighSecurityHarnessSet",
+				DialogPrefix: {
+					Header: "HighSecurityHarnessType",
+					Option: "HighSecurityHarnessType",
+					Chat: "HighSecurityHarnessSet",
 				},
 			}
 		}, // HighSecurityHarness
@@ -6245,11 +6253,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Diamond", Difficulty: 3, Effect: ["CrotchRope"] }
 					},
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					ChatPrefix: "RopeHarnessSet",
-					NpcPrefix: "RopeBondage",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Chat: "RopeHarnessSet",
+					Npc: "RopeBondage",
 				},
 			},
 		}, // HempRopeHarness
@@ -6358,10 +6366,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemTorso", AssetName: "FuturisticHarness" },
 			Config: {
-				Dialog: {
-					Load: "ItemTorsoFuturisticHarnessSelect",
-					TypePrefix: "ItemTorsoFuturisticHarness",
-					ChatPrefix: "ItemTorsoFuturisticHarnessSet",
+				DialogPrefix: {
+					Header: "ItemTorsoFuturisticHarnessSelect",
+					Option: "ItemTorsoFuturisticHarness",
+					Chat: "ItemTorsoFuturisticHarnessSet",
 				},
 			}
 		}, // FuturisticHarness
@@ -6395,9 +6403,9 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Behind", OverridePriority: 51 },
 					},
 				],
-				Dialog: {
-					Load: "HairAccessory1ElfEarsSelect",
-					TypePrefix: "HairAccessory1ElfEars",
+				DialogPrefix: {
+					Header: "HairAccessory1ElfEarsSelect",
+					Option: "HairAccessory1ElfEars",
 				},
 			}
 		}, // ElfEars
@@ -6440,11 +6448,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "HairAccessory1", AssetName: "Halo" },
 			Config: {
-				Dialog: {
-					Load: "HairAccessory1HaloSelect",
-					TypePrefix: "HairAccessory1Halo",
-					ChatPrefix: "HairAccessory1HaloSet",
-					NpcPrefix: "HairAccessory1Halo",
+				DialogPrefix: {
+					Header: "HairAccessory1HaloSelect",
+					Option: "HairAccessory1Halo",
+					Chat: "HairAccessory1HaloSet",
+					Npc: "HairAccessory1Halo",
 				},
 			},
 		},
@@ -6490,10 +6498,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "ClothGagType",
-					ChatPrefix: "ClothGagSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "ClothGagType",
+					Chat: "ClothGagSet",
 				},
 			},
 		}, // ClothGag
@@ -6516,10 +6524,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "ScarfGagType",
-					ChatPrefix: "ScarfGagSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "ScarfGagType",
+					Chat: "ScarfGagSet",
 				},
 			}
 		}, // ScarfGag
@@ -6542,10 +6550,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "BallGagMouthType",
-					ChatPrefix: "BallGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "BallGagMouthType",
+					Chat: "BallGagMouthSet",
 				},
 			},
 		}, // WiffleGag
@@ -6575,10 +6583,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "BallGagMouthType",
-					ChatPrefix: "BallGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "BallGagMouthType",
+					Chat: "BallGagMouthSet",
 				},
 			},
 		}, // BallGag
@@ -6601,10 +6609,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "BallGagMouthType",
-					ChatPrefix: "BallGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "BallGagMouthType",
+					Chat: "BallGagMouthSet",
 				},
 			},
 		}, // RopeBallGag
@@ -6652,10 +6660,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "DuctTapeMouthType",
-					ChatPrefix: "DuctTapeMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "DuctTapeMouthType",
+					Chat: "DuctTapeMouthSet",
 				},
 			},
 		}, // DuctTape
@@ -6678,10 +6686,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "BallGagMouthType",
-					ChatPrefix: "BallGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "BallGagMouthType",
+					Chat: "BallGagMouthSet",
 				},
 			},
 		}, // HarnessBallGag1
@@ -6711,10 +6719,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "CupholderGagOptions",
-					TypePrefix: "CupholderGagOptions",
-					ChatPrefix: "CupholderGagSet",
+				DialogPrefix: {
+					Header: "CupholderGagOptions",
+					Option: "CupholderGagOptions",
+					Chat: "CupholderGagSet",
 				},
 				DrawImages: false,
 			},
@@ -6769,10 +6777,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectInflateLevel",
-					TypePrefix: "InflateLevel",
-					ChatPrefix: ({ previousIndex, newIndex }) =>
+				DialogPrefix: {
+					Header: "SelectInflateLevel",
+					Option: "InflateLevel",
+					Chat: ({ previousIndex, newIndex }) =>
 						`PumpGag${newIndex > previousIndex ? "pumps" : "deflates"}To`,
 				},
 				DrawImages: false,
@@ -6797,10 +6805,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "PlugGagMouthType",
-					ChatPrefix: "PlugGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "PlugGagMouthType",
+					Chat: "PlugGagMouthSet",
 				},
 			},
 		}, // PlugGag
@@ -6823,10 +6831,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "PlugGagMouthType",
-					ChatPrefix: "DildoPlugGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "PlugGagMouthType",
+					Chat: "DildoPlugGagMouthSet",
 				},
 			},
 		}, // DildoPlugGag
@@ -6847,10 +6855,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Chug" },
 					},
 				],
-				Dialog: {
-					Load: "SelectMilkBottleState",
-					TypePrefix: "MilkBottle",
-					ChatPrefix: "MilkBottleSet",
+				DialogPrefix: {
+					Header: "SelectMilkBottleState",
+					Option: "MilkBottle",
+					Chat: "MilkBottleSet",
 				},
 			},
 		}, // MilkBottle
@@ -6873,10 +6881,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "FunnelGagMouthType",
-					ChatPrefix: "FunnelGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "FunnelGagMouthType",
+					Chat: "FunnelGagMouthSet",
 				},
 			},
 		}, // FunnelGag
@@ -6899,11 +6907,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "ItemMouthHarnessPonyBitsSelect",
-					TypePrefix: "ItemMouthHarnessPonyBits",
-					ChatPrefix: "ItemMouthHarnessPonyBitsSet",
-					NpcPrefix: "ItemMouthHarnessPonyBits",
+				DialogPrefix: {
+					Header: "ItemMouthHarnessPonyBitsSelect",
+					Option: "ItemMouthHarnessPonyBits",
+					Chat: "ItemMouthHarnessPonyBitsSet",
+					Npc: "ItemMouthHarnessPonyBits",
 				}
 			},
 		}, // PonyBit
@@ -6949,10 +6957,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
-					TypePrefix: "RibbonType",
-					ChatPrefix: "RibbonsGagSet",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
+					Option: "RibbonType",
+					Chat: "RibbonsGagSet",
 				},
 			},
 		}, // Ribbons
@@ -7019,10 +7027,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectGagType",
-					TypePrefix: "PlugGagMouthType",
-					ChatPrefix: "PlugGagMouthSet",
+				DialogPrefix: {
+					Header: "SelectGagType",
+					Option: "PlugGagMouthType",
+					Chat: "PlugGagMouthSet",
 				},
 			},
 		}, // OTNPlugGag
@@ -7101,11 +7109,11 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChangeWhenLocked: false,
-				Dialog: {
-					Select: "ItemMouthPonyGagSelect",
-					ModulePrefix:"ItemMouthPonyGagModule",
-					OptionPrefix: "ItemMouthPonyGagOption",
-					ChatPrefix: "ItemMouthPonyGagSet",
+				DialogPrefix: {
+					Header: "ItemMouthPonyGagSelect",
+					Module: "ItemMouthPonyGagModule",
+					Option: "ItemMouthPonyGagOption",
+					Chat: "ItemMouthPonyGagSet",
 				},
 			},
 		}, // PonyGag
@@ -7179,11 +7187,11 @@ var AssetFemale3DCGExtended = {
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
-				Dialog: {
-					Select: "ItemMouthFuturisticPanelGagSelect",
-					ModulePrefix:"ItemMouthFuturisticPanelGagModule",
-					OptionPrefix: "ItemMouthFuturisticPanelGagOption",
-					ChatPrefix: "ItemMouthFuturisticPanelGagSet",
+				DialogPrefix: {
+					Header: "ItemMouthFuturisticPanelGagSelect",
+					Module: "ItemMouthFuturisticPanelGagModule",
+					Option: "ItemMouthFuturisticPanelGagOption",
+					Chat: "ItemMouthFuturisticPanelGagSet",
 				},
 			},
 		}, // FuturisticPanelGag
@@ -7227,11 +7235,11 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 				],
-				Dialog: {
-					Select: "ItemMouthFuturisticPanelGagSelect",
-					ModulePrefix:"ItemMouthFuturisticPanelGagModule",
-					OptionPrefix: "ItemMouthFuturisticHarnessBallGagOption",
-					ChatPrefix: "ItemMouthFuturisticHarnessBallGagSet",
+				DialogPrefix: {
+					Header: "ItemMouthFuturisticPanelGagSelect",
+					Module: "ItemMouthFuturisticPanelGagModule",
+					Option: "ItemMouthFuturisticHarnessBallGagOption",
+					Chat: "ItemMouthFuturisticHarnessBallGagSet",
 				},
 			},
 		}, // FuturisticHarnessBallGag
@@ -7460,9 +7468,9 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Earless", OverridePriority: 51 },
 					},
 				],
-				Dialog: {
-					Load: "SelectBunnyMaskStyle",
-					TypePrefix: "BunnyMaskType",
+				DialogPrefix: {
+					Header: "SelectBunnyMaskStyle",
+					Option: "BunnyMaskType",
 				},
 			}
 		}, // BunnyMask1
@@ -7479,9 +7487,9 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null },
 					},
 				],
-				Dialog: {
-					Load: "SelectOpenFaceHoodStyle",
-					TypePrefix: "OpenFaceHoodStyle",
+				DialogPrefix: {
+					Header: "SelectOpenFaceHoodStyle",
+					Option: "OpenFaceHoodStyle",
 				},
 				DrawImages: false,
 			}
@@ -7594,11 +7602,11 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			            CopyConfig: { GroupName: "ClothAccessory", AssetName: "Kissmark" },
 			Config: {
-			    Dialog: {
-					Select: "ClothAccessoryKissmarkSelect",
-					ModulePrefix: "ClothAccessoryKissmarkModule",
-					OptionPrefix: "ClothAccessoryKissmarkOption",
-					ChatPrefix: "ClothAccessoryKissmarkSet",
+			    DialogPrefix: {
+					Header: "ClothAccessoryKissmarkSelect",
+					Module: "ClothAccessoryKissmarkModule",
+					Option: "ClothAccessoryKissmarkOption",
+					Chat: "ClothAccessoryKissmarkSet",
 				},
 			},
 		}, //KissMark
@@ -7639,11 +7647,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "CutOut", Hide: ["ClothLower", "Garters"], Difficulty: 6 }
 					}
 				],
-				Dialog: {
-					Load: "SelectTapeWrapping",
-					TypePrefix: "DuctTapePose",
-					ChatPrefix: "DuctTapeRestrain",
-					NpcPrefix: "DuctTapePose",
+				DialogPrefix: {
+					Header: "SelectTapeWrapping",
+					Option: "DuctTapePose",
+					Chat: "DuctTapeRestrain",
+					Npc: "DuctTapePose",
 				},
 			},
 		}, // DuctTape
@@ -7675,11 +7683,11 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					},
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					ChatPrefix: "LegRopeSet",
-					NpcPrefix: "RopeBondage",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Chat: "LegRopeSet",
+					Npc: "RopeBondage",
 				},
 			}
 		}, // NylonRope
@@ -7720,11 +7728,11 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["CanCloseLegs"],
 					}
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					ChatPrefix: "LegRopeSet",
-					NpcPrefix: "RopeBondage",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Chat: "LegRopeSet",
+					Npc: "RopeBondage",
 				},
 			}
 		}, // HempRope
@@ -7743,11 +7751,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Strict", Difficulty: 2 }
 					}
 				],
-				Dialog: {
-					Load: "SelectChainBondage",
-					TypePrefix: "ChainBondage",
-					ChatPrefix: "LegChainSet",
-					NpcPrefix: "ChainBondage",
+				DialogPrefix: {
+					Header: "SelectChainBondage",
+					Option: "ChainBondage",
+					Chat: "LegChainSet",
+					Npc: "ChainBondage",
 				},
 				ChangeWhenLocked: false,
 			}
@@ -7796,10 +7804,10 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotHorse"],
 					}
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemLegsLeatherLegCuffs",
-					ChatPrefix: "FuturisticLegCuffsRestrain",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemLegsLeatherLegCuffs",
+					Chat: "FuturisticLegCuffsRestrain",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -7838,8 +7846,8 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotHorse"],
 					}
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
 				}
 			}
 		}, // LeatherLegCuffs
@@ -7861,8 +7869,8 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Cross", Difficulty: 5 },
 					},
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
 				}
 			}
 		}, // Ribbons
@@ -7891,10 +7899,10 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					}
 				],
-				Dialog: {
-					Load: "SelectZipTie",
-					TypePrefix: "ZipBondage",
-					NpcPrefix: "Zip",
+				DialogPrefix: {
+					Header: "SelectZipTie",
+					Option: "ZipBondage",
+					Npc: "Zip",
 				}
 			}
 		}, // Zipties
@@ -7920,9 +7928,9 @@ var AssetFemale3DCGExtended = {
 						}
 					}
 				],
-				Dialog: {
-					Load: "SelectSpreaderType",
-					TypePrefix: "SpreaderMetalPose",
+				DialogPrefix: {
+					Header: "SelectSpreaderType",
+					Option: "SpreaderMetalPose",
 				},
 				ChatSetting: TypedItemChatSetting.SILENT,
 			}
@@ -7955,11 +7963,11 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					},
 				],
-				Dialog: {
-					Load: "SelectChainBondage",
-					TypePrefix: "ChainBondage",
-					ChatPrefix: "LegChainSet",
-					NpcPrefix: "ChainBondage",
+				DialogPrefix: {
+					Header: "SelectChainBondage",
+					Option: "ChainBondage",
+					Chat: "LegChainSet",
+					Npc: "ChainBondage",
 				},
 				ChangeWhenLocked: false,
 			}
@@ -7988,10 +7996,10 @@ var AssetFemale3DCGExtended = {
 						}
 					}
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemFeetSteelAnkleCuffs",
-					ChatPrefix: "FuturisticAnkleCuffsRestrain",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemFeetSteelAnkleCuffs",
+					Chat: "FuturisticAnkleCuffsRestrain",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -8026,10 +8034,10 @@ var AssetFemale3DCGExtended = {
 						}
 					}
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemFeetSteelAnkleCuffs",
-					ChatPrefix: "ItemFeetSteelAnkleCuffsSet",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemFeetSteelAnkleCuffs",
+					Chat: "ItemFeetSteelAnkleCuffsSet",
 				}
 			}
 		}, // SteelAnkleCuffs
@@ -8090,11 +8098,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectTapeWrapping",
-					ChatPrefix: "DuctTapeRestrain",
-					NpcPrefix: "DuctTapeRestrain",
-					TypePrefix: "DuctTapePose",
+				DialogPrefix: {
+					Header: "SelectTapeWrapping",
+					Chat: "DuctTapeRestrain",
+					Npc: "DuctTapeRestrain",
+					Option: "DuctTapePose",
 				}
 			},
 		}, // DuctTape
@@ -8114,11 +8122,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "ZipFeetFull", SetPose: ["LegsClosed"], Difficulty: 2 }
 					}
 				],
-				Dialog: {
-					Load: "SelectZipTie",
-					ChatPrefix: "ZipFeetSet",
-					NpcPrefix: "ZipFeetSet",
-					TypePrefix: "ZipBondage",
+				DialogPrefix: {
+					Header: "SelectZipTie",
+					Chat: "ZipFeetSet",
+					Npc: "ZipFeetSet",
+					Option: "ZipBondage",
 				},
 			},
 		}, // Zipties
@@ -8180,9 +8188,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBondagePosition",
-					TypePrefix: "ItemFeetWoodenCuffs",
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+					Option: "ItemFeetWoodenCuffs",
 				},
 			},
 		}, // WoodenCuffs
@@ -8217,11 +8225,11 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["OnBed", "NoItemLegs", "LegsOpen"],
 					}
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					NpcPrefix: "RopeBondage",
-					ChatPrefix: "FeetRopeSet",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Npc: "RopeBondage",
+					Chat: "FeetRopeSet",
 				},
 			},
 		}, // NylonRope
@@ -8274,11 +8282,11 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["OnBed", "NoItemLegs", "LegsOpen"],
 					}
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					NpcPrefix: "RopeBondage",
-					ChatPrefix: "LegRopeSet",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Npc: "RopeBondage",
+					Chat: "LegRopeSet",
 				}
 			},
 		},
@@ -8375,8 +8383,8 @@ var AssetFemale3DCGExtended = {
 						Options: [{ HasSubscreen: true }],
 					},
 				],
-				Dialog: {
-					ChatPrefix: "ItemNeckRestraintsPetPostSet",
+				DialogPrefix: {
+					Chat: "ItemNeckRestraintsPetPostSet",
 				}
 			},
 		},//PetPost
@@ -8468,11 +8476,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectBackShield",
-					TypePrefix: "Chastity",
-					NpcPrefix: "Chastity",
-					ChatPrefix: "ChastityBeltBackShield",
+				DialogPrefix: {
+					Header: "SelectBackShield",
+					Option: "Chastity",
+					Npc: "Chastity",
+					Chat: "ChastityBeltBackShield",
 				},
 				ChangeWhenLocked: false,
 			},
@@ -8503,11 +8511,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "CrotchWrapping", Difficulty: 4 },
 					},
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
-					TypePrefix: "RibbonsBelt",
-					NpcPrefix: "ItemPelvisRibbons",
-					ChatPrefix: "PelvisRibbonsSet",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
+					Option: "RibbonsBelt",
+					Npc: "ItemPelvisRibbons",
+					Chat: "PelvisRibbonsSet",
 				}
 			},
 		}, // Ribbons
@@ -8532,11 +8540,11 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "KikkouHip", Difficulty: 5 }
 					}
 				],
-				Dialog: {
-					Load: "SelectRopeBondage",
-					TypePrefix: "RopeBondage",
-					NpcPrefix: "RopeBondage",
-					ChatPrefix: "PelvisRopeSet",
+				DialogPrefix: {
+					Header: "SelectRopeBondage",
+					Option: "RopeBondage",
+					Npc: "RopeBondage",
+					Chat: "PelvisRopeSet",
 				}
 			},
 		}, // HempRope
@@ -8676,8 +8684,8 @@ var AssetFemale3DCGExtended = {
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
-				Dialog: {
-					ChatPrefix: InventoryItemPelvisSciFiPleasurePantiesChatPrefix,
+				DialogPrefix: {
+					Chat: InventoryItemPelvisSciFiPleasurePantiesChatPrefix,
 				},
 			},
 		},
@@ -8760,8 +8768,8 @@ var AssetFemale3DCGExtended = {
 					Draw: InventoryItemPelvisLoveChastityBeltDraw,
 					Validate: InventoryItemPelvisLoveChastityBeltValidate,
 				},
-				Dialog: {
-					ChatPrefix: InventoryItemPelvisSciFiPleasurePantiesChatPrefix,
+				DialogPrefix: {
+					Chat: InventoryItemPelvisSciFiPleasurePantiesChatPrefix,
 				},
 			},
 		}, // LoveChastityBelt
@@ -8801,11 +8809,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "HeadphoneEarPlugsSelectLoudness",
-					TypePrefix: "HeadphoneEarPlugsPose",
-					ChatPrefix: "HeadphoneEarPlugsRestrain",
-					NpcPrefix: "ItemEarsHeadphonePlugs",
+				DialogPrefix: {
+					Header: "HeadphoneEarPlugsSelectLoudness",
+					Option: "HeadphoneEarPlugsPose",
+					Chat: "HeadphoneEarPlugsRestrain",
+					Npc: "ItemEarsHeadphonePlugs",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -8850,11 +8858,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "HeadphoneEarPlugsSelectLoudness",
-					TypePrefix: "HeadphoneEarPlugsPose",
-					ChatPrefix: "HeadphoneEarPlugsRestrain",
-					NpcPrefix: "ItemEarsHeadphonePlugs",
+				DialogPrefix: {
+					Header: "HeadphoneEarPlugsSelectLoudness",
+					Option: "HeadphoneEarPlugsPose",
+					Chat: "HeadphoneEarPlugsRestrain",
+					Npc: "ItemEarsHeadphonePlugs",
 				}
 			},
 		}, // HeadphoneEarPlugs
@@ -8891,9 +8899,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					TypePrefix: "RibbonBraType",
-					Load: "SelectRibbonStyle",
+				DialogPrefix: {
+					Option: "RibbonBraType",
+					Header: "SelectRibbonStyle",
 				}
 			}
 		}, // Ribbons
@@ -8914,9 +8922,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					TypePrefix: "BikiniType",
-					Load: "SelectBikiniType",
+				DialogPrefix: {
+					Option: "BikiniType",
+					Header: "SelectBikiniType",
 				}
 			}
 		}, // SexyBikini1
@@ -9007,9 +9015,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectEyePatchType",
-					TypePrefix: "EyePatchType",
+				DialogPrefix: {
+					Header: "SelectEyePatchType",
+					Option: "EyePatchType",
 				}
 			},
 		}, // EyePatch1
@@ -9032,9 +9040,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "CatGlassesSelectStyle",
-					TypePrefix: "CatGlassesStyle",
+				DialogPrefix: {
+					Header: "CatGlassesSelectStyle",
+					Option: "CatGlassesStyle",
 				},
 				DrawImages: false,
 			},
@@ -9068,9 +9076,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "GradientSunglassesSelectType",
-					TypePrefix: "GradientSunglassesType",
+				DialogPrefix: {
+					Header: "GradientSunglassesSelectType",
+					Option: "GradientSunglassesType",
 				},
 				DrawImages: false,
 			},
@@ -9126,9 +9134,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "BraceletSpikeBandsSelect",
-					TypePrefix: "BraceletSpikeBands",
+				DialogPrefix: {
+					Header: "BraceletSpikeBandsSelect",
+					Option: "BraceletSpikeBands",
 				}
 			},
 		}, // SpikeBands
@@ -9181,9 +9189,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectPriorityType",
-					TypePrefix: "ClothPriorityType",
+				DialogPrefix: {
+					Header: "SelectPriorityType",
+					Option: "ClothPriorityType",
 				}
 			},
 		}, // NecklaceKey
@@ -9256,9 +9264,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
+				DialogPrefix: {
+					Header: "SelectSuitGloves",
+					Option: "SuitGloveType",
 				},
 				DrawImages: false,
 			},
@@ -9295,9 +9303,9 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
+				DialogPrefix: {
+					Header: "SelectSuitGloves",
+					Option: "SuitGloveType",
 				},
 				DrawImages: false,
 			},
@@ -9413,8 +9421,8 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectRibbonType",
+				DialogPrefix: {
+					Header: "SelectRibbonType",
 				},
 			},
 		}, // Ribbons
@@ -9442,8 +9450,8 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
-				Dialog: {
-					Load: "WebBondageSelect",
+				DialogPrefix: {
+					Header: "WebBondageSelect",
 				},
 			},
 		}, // WebBlindfold
@@ -9483,10 +9491,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectVisorType",
-					TypePrefix: "ItemHeadInteractiveVisorType",
-					ChatPrefix: "ItemHeadInteractiveVisorSet",
+				DialogPrefix: {
+					Header: "SelectVisorType",
+					Option: "ItemHeadInteractiveVisorType",
+					Chat: "ItemHeadInteractiveVisorSet",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -9533,10 +9541,10 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectVisorType",
-					TypePrefix: "ItemHeadInteractiveVisorType",
-					ChatPrefix: "ItemHeadInteractiveVisorSet",
+				DialogPrefix: {
+					Header: "SelectVisorType",
+					Option: "ItemHeadInteractiveVisorType",
+					Chat: "ItemHeadInteractiveVisorSet",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -9869,10 +9877,10 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: "Gloves", Difficulty: 0, SelfUnlock: true, Block: [] },
 					},
 				],
-				Dialog: {
-					Load: "SelectFuturisticMittensType",
-					TypePrefix: "FuturisticMittensType",
-					ChatPrefix: "FuturisticMittensSet",
+				DialogPrefix: {
+					Header: "SelectFuturisticMittensType",
+					Option: "FuturisticMittensType",
+					Chat: "FuturisticMittensSet",
 				},
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
@@ -9903,11 +9911,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectCeilingChainState",
-					TypePrefix: "CeilingChainBondage",
-					ChatPrefix: "CeilingChainSet",
-					NpcPrefix: "CeilingChain",
+				DialogPrefix: {
+					Header: "SelectCeilingChainState",
+					Option: "CeilingChainBondage",
+					Chat: "CeilingChainSet",
+					Npc: "CeilingChain",
 				},
 				ChangeWhenLocked: false,
 			}
@@ -9930,11 +9938,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectCeilingRopeState",
-					TypePrefix: "CeilingRopeBondage",
-					ChatPrefix: "CeilingRopeSet",
-					NpcPrefix: "CeilingRope",
+				DialogPrefix: {
+					Header: "SelectCeilingRopeState",
+					Option: "CeilingRopeBondage",
+					Chat: "CeilingRopeSet",
+					Npc: "CeilingRope",
 				},
 			}
 		}, // CeilingRope
@@ -9981,11 +9989,11 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
-				Dialog: {
-					Load: "SelectAttachmentState",
-					TypePrefix: "NoseRingPose",
-					ChatPrefix: "NoseRingRestrain",
-					NpcPrefix: "InventoryItemNoseNoseRingNPCReaction",
+				DialogPrefix: {
+					Header: "SelectAttachmentState",
+					Option: "NoseRingPose",
+					Chat: "NoseRingRestrain",
+					Npc: "InventoryItemNoseNoseRingNPCReaction",
 				},
 			}
 		}, // NoseRing

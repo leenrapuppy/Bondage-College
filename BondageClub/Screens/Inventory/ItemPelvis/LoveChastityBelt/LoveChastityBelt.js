@@ -26,7 +26,7 @@ function InventoryItemPelvisLoveChastityBeltDraw(OriginalFunction) {
 		}
 		const [FrontShield, BackShield, Intensity, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const CrotchShield = InventoryItemPelvisLoveChastityBeltCrotchShield.get(`${FrontShield}${BackShield}`);
-		const ShieldSuffix = (["f2", "f3"].includes(FrontShield)) ? "" : ` (${DialogFindPlayer(`${Data.dialogOptionPrefix}${FrontShield}`)})`;
+		const ShieldSuffix = (["f2", "f3"].includes(FrontShield)) ? "" : ` (${DialogFindPlayer(`${Data.dialogPrefix.option}${FrontShield}`)})`;
 
 		// Display option information
 		MainCanvas.textAlign = "right";
@@ -35,8 +35,8 @@ function InventoryItemPelvisLoveChastityBeltDraw(OriginalFunction) {
 		DrawText(DialogFindPlayer("ShockLevel"), 1500, 775, "White", "Gray");
 		MainCanvas.textAlign = "left";
 		DrawText(DialogFindPlayer(`ItemPelvisSciFiPleasurePantiesOption${CrotchShield}`) + ShieldSuffix, 1510, 625, "White", "Gray");
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${Intensity}`), 1510, 700, "White", "Gray");
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${ShockLevel}`), 1510, 775, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${Intensity}`), 1510, 700, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogPrefix.option}${ShockLevel}`), 1510, 775, "White", "Gray");
 		MainCanvas.textAlign = "center";
 
 		// Display the ShowText checkbox

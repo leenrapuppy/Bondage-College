@@ -422,10 +422,10 @@ function InfiltrationRansomFriend() {
 function InfiltrationStartNPCRescue() {
 	InfiltrationMission = "Rescue";
 	InfiltrationTarget = {
-			Type: "NPC",
-			Name: PrivateRansomCharacter.Name,
-			PrivateRoom: true,
-			Found: false
+		Type: "NPC",
+		Name: PrivateRansomCharacter.Name,
+		PrivateRoom: true,
+		Found: false
 	};
 	InfiltrationDifficulty = 2;
 	InfiltrationRandomClothes();
