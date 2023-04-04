@@ -144,6 +144,16 @@ function MovieStudioProcessDecay() {
 			MovieStudioActor1.Stage = MovieStudioActor2.Stage;
 			return;
 		}
+		if ((MovieStudioCurrentMovie == "OpenHouse") && (MovieStudioCurrentScene == "2")) {
+			MovieStudioMoney = MovieStudioMoney + Math.floor(MovieStudioMeter / 10);
+			MovieStudioDirector.Stage = "1030";
+			CharacterSetCurrent(MovieStudioDirector);
+			MovieStudioDirector.CurrentDialog = TextGet("InterviewDirectorSuccess" + Math.floor(Math.random() * 4).toString());
+			MovieStudioCurrentMovie = "";
+			MovieStudioCurrentScene = "";
+			MovieStudioBackground = "MovieStudio";
+			return;
+		}
 	}
 }
 
@@ -1000,7 +1010,35 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Dazed", 12);
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Dazed", 12);
 	}
-	if (Activity == "OpenHouseActor2Wand") InventoryWear(MovieStudioActor2, "VibratingWand", "ItemHandheld");
+	if (Activity == "OpenHouseActor2Wand") {
+		InventoryWear(MovieStudioActor2, "VibratingWand", "ItemHandheld");
+		MovieStudioActor1.Stage = MovieStudioActor2.Stage;
+	}
+	if ((Activity == "OpenHouseActor2Moan") || (Activity == "OpenHouseActor2Stare") || (Activity == "OpenHouseActor2Wiggle") || (Activity == "OpenHouseActor2Hips")) {
+		MovieStudioActor1.Stage = MovieStudioActor2.Stage;
+		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Lewd", 8);
+		CharacterSetFacialExpression(Player, "Eyes2", "Lewd", 8);
+		if (MovieStudioActor2.MasturbateCount == null) MovieStudioActor2.MasturbateCount = 0;
+		MovieStudioActor2.MasturbateCount++;
+		if (MovieStudioActor2.MasturbateCount == 4) {
+			MovieStudioActor2.Stage = "1210";
+			MovieStudioActor2.CurrentDialog = DialogFind(MovieStudioActor2, "OrgasmWandAct2");
+			MovieStudioChangeMeter(25);
+		}
+	}
+	if ((Activity == "OpenHouseActor1Look") || (Activity == "OpenHouseActor1Moan") || (Activity == "OpenHouseActor1Whimper") || (Activity == "OpenHouseActor1Closer")) {
+		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Lewd", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Lewd", 8);
+		if (MovieStudioActor1.MasturbateCount == null) MovieStudioActor1.MasturbateCount = 0;
+		MovieStudioActor1.MasturbateCount++;
+		if (MovieStudioActor1.MasturbateCount == 4) {
+			MovieStudioActor1.Stage = "1210";
+			MovieStudioActor1.CurrentDialog = DialogFind(MovieStudioActor1, "OrgasmWandAct2");
+			MovieStudioChangeMeter(25);
+		}
+	}
 
 	// Check for decay
 	MovieStudioProcessDecay();

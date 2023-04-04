@@ -1,6 +1,7 @@
 PlayerGagged,,,No gag is big enough for your huge mouth. (She laughs.),,
 OrgasmAct1,,,"(She screams and shivers madly as you give her a wonderful orgasm.  This is a real one, not an act.)",,
 OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shattering orgasm live for the viewers.  It's hard to tell if she faked it or not.),,
+OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vulva, making her thrash and scream from the extasy.)",,
 0,,,"(The new girlfriend is preparing the place for the open house.)  Oh, hello!  You're too early for the tour.",,
 0,10,You don't recognize me?,Why would I?  (She ponders as the camera zooms on her.)  Oh yeah!  You're the crazy ex-wife.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 0,10,Hello homewrecker.  (Grin.),(She takes a step back as the camera zooms on her.)  Oh my god!  You're the crazy ex-wife.,"AlterParameter(""Actor1"", ""Domination"", ""2"")",
@@ -15,16 +16,16 @@ OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shatt
 30,40,I will call my husband.,Call him!  Hahaha!  He already agreed.  (The camera zooms on her evil laugh.),,
 30,40,I will sue you.,Good luck!  Hahaha!  My man has more money than you.  (The camera zooms on her evil laugh.),,
 30,40,Oh yeah?  (Try to push her.),(You push her back against the wall as the camera zooms on the fight.)  Hey!  Stop that!  This isn't funny.,"DoActivity(""OpenHouseShoveActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""2"", ""100"")"
-30,40,Oh yeah?  (Try to push her.),(You try to push her but she's stronger and shoves you back against the wall.)  Ha!  Don't try to be tough.,"DoActivity(""OpenHouseShovePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-2"")"
-30,40,Oh yeah?  (Try to push her.),(You try to push her but she resists and nobody moves.)  You're not stronger than me.,"DoActivity(""OpenHouseShoveTie"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-1"", ""1"")"
+30,40,Oh yeah?  (Try to push her.),"(You try to push her, but she's stronger and shoves you back against the wall.)  Ha!  Don't try to be tough.","DoActivity(""OpenHouseShovePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-2"")"
+30,40,Oh yeah?  (Try to push her.),"(You try to push her, but she resists, and nobody moves.)  You're not stronger than me.","DoActivity(""OpenHouseShoveTie"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-1"", ""1"")"
 40,50,Why did he pick an ugly girl like you?,You mean he traded the ugly one for the pretty one?  This house isn't for you.  I hold the leash now.,"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 40,50,You're a tough but cute cookie.,"(She blushes a little.)  You're not too bad either, but this house isn't for you.  I hold the leash now.","AlterParameter(""Actor1"", ""Affection"", ""1"")",
 50,60,You dominate him?,Damn right!  I'm the house boss.  Now get out!,"AlterParameter(""Actor1"", ""Domination"", ""-2"")",
 50,60,I'll get you on a leash.,(She trembles a little.)  Don't try to intimidate me.  Get out!,"AlterParameter(""Actor1"", ""Domination"", ""2"")",
 50,60,(Try to steal a kiss.),(You kiss each other in front the camera but she pushes you back after a while.)  No!  I'm not a lesbian.  Get out!,"DoActivity(""OpenHouseStealKiss"")","ParameterValueBetween(""Actor1"", ""Affection"", ""3"", ""100"")"
-60,70,Never!  (Try to fight and strip her.),(You wrestle fiercly as the movie director makes a thumbs up.  You're able to strip her down after a while.),"DoActivity(""OpenHouseStripActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""3"", ""100"")"
-60,70,Never!  (Try to fight and strip her.),(You wrestle fiercly as the movie director makes a thumbs up.  She gets the best of you and strips you down.),"DoActivity(""OpenHouseStripPlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-3"")"
-60,70,Never!  (Try to fight and strip her.),(You wrestle fiercly as the movie director makes a thumbs up.  You both end up without clothes after a while.),"DoActivity(""OpenHouseStripBoth"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-2"", ""2"")"
+60,70,Never!  (Try to fight and strip her.),(You wrestle fiercely as the movie director makes a thumbs up.  You're able to strip her down after a while.),"DoActivity(""OpenHouseStripActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""3"", ""100"")"
+60,70,Never!  (Try to fight and strip her.),(You wrestle fiercely as the movie director makes a thumbs up.  She gets the best of you and strips you down.),"DoActivity(""OpenHouseStripPlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-3"")"
+60,70,Never!  (Try to fight and strip her.),(You wrestle fiercely as the movie director makes a thumbs up.  You both end up without clothes after a while.),"DoActivity(""OpenHouseStripBoth"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-2"", ""2"")"
 70,100,(Look at the scene.),,DialogLeave(),
 100,,,(You're both still sweating and catching your breath from the last fight.),,
 100,110,Give me my clothes!,(She shakes her head no.)  You stay naked old witch.,"AlterParameter(""Actor1"", ""Domination"", ""1"")",Player.IsNaked()
@@ -33,15 +34,15 @@ OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shatt
 100,110,You look good like that.,(She blushes and smiles.)  You have good eyes for an old witch.,"AlterParameter(""Actor1"", ""Affection"", ""2"")",CurrentCharacter.IsNaked()
 100,110,What an ugly little bitch.,(She gives you an angry stare.)  You're the ugly old witch!,"AlterParameter(""Actor1"", ""Affection"", ""-2"")",CurrentCharacter.IsNaked()
 100,,(Look around.),,DialogLeave(),
-110,120,Name callers will get in trouble.,(She steps back.)  Punished?  If anyone should be punished it's you.,"AlterParameter(""Actor1"", ""Domination"", ""1"")",
-110,120,Unfair!  I'm not a witch!,(She grins.)  Life isn't fair.  You should be punished for thresspassing.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+110,120,Name callers will get in trouble.,"(She steps back.)  Punished?  If anyone should be punished, it's you.","AlterParameter(""Actor1"", ""Domination"", ""1"")",
+110,120,Unfair!  I'm not a witch!,(She grins.)  Life isn't fair.  You should be punished for trespassing.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 110,120,"If I'm a witch, you're a bitch.",That's your best insult?  You should be punished for this.,"AlterParameter(""Actor1"", ""Affection"", ""-2"")",
 110,120,Is my witch magic working on you?,"(She smiles.)  Kind of, but you should still be punished for this.","AlterParameter(""Actor1"", ""Affection"", ""2"")",
-120,130,Forget it girl.,"(As the camero zooms in, you get closer to each other, ready to wrestle some more.)",,
-120,130,You're not punishing me!,"(As the camero zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""1"")",
-120,130,You can't punish me.,"(As the camero zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
-130,140,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each moves.  You finally pin her to the ground and she submits to you naked.)","DoActivity(""OpenHouseWrestleActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""0"", ""100"")"
-130,150,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each moves.  She gets the upper hand and forces you to submit naked.)","DoActivity(""OpenHouseWrestlePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-1"")"
+120,130,Forget it girl.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)",,
+120,130,You're not punishing me!,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""1"")",
+120,130,You can't punish me.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+130,140,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each move.  You finally pin her to the ground, and she submits to you naked.)","DoActivity(""OpenHouseWrestleActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""0"", ""100"")"
+130,150,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each move.  She gets the upper hand and forces you to submit naked.)","DoActivity(""OpenHouseWrestlePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-1"")"
 140,200,(Look at the scene.),,DialogLeave(),
 150,300,(Look at the scene.),,DialogLeave(),
 200,,,"(She stays silent on her knees, submitting to your strength.)",,
@@ -60,9 +61,9 @@ OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shatt
 230,,(Kiss her.),(She moans slowly as you kiss her slowly and lovingly.),"DoActivity(""OpenHouseKissActor1"")",
 230,,(Slap her.),(She grumbles as you slap her face and breast.  The movie crew seems to enjoy it more than her.),"DoActivity(""OpenHouseSlapActor1"")",
 230,,(Masturbate her.),(She breathes faster and faster as you masturbate her skillfully.),"DoActivity(""OpenHouseMasturbateActor1"")",
-230,,(Restrain her.),(She pick a random restrain from your purse and use it on her.  The director makes a thumbs up.),"DoActivity(""OpenHouseRestrainActor1"")",CurrentCharacter.CanInteract()
+230,,(Restrain her.),(She picks a random restrain from your purse and use it on her.  The director makes a thumbs up.),"DoActivity(""OpenHouseRestrainActor1"")",CurrentCharacter.CanInteract()
 230,,(Release her.),(She stretches happily as you remove her restraints.),"DoActivity(""OpenHouseReleaseActor1"")",!CurrentCharacter.CanInteract()
-230,,(Gag her.),(She pick a random gag from your purse and use it on her.  She mumbles for the camera.),"DoActivity(""OpenHouseGagActor1"")",CurrentCharacter.CanTalk()
+230,,(Gag her.),(She picks a random gag from your purse and use it on her.  She mumbles for the camera.),"DoActivity(""OpenHouseGagActor1"")",CurrentCharacter.CanTalk()
 230,,(Ungag her.),(She stretches her jaw and remain silent as you remove her gag.),"DoActivity(""OpenHouseUngagActor1"")",!CurrentCharacter.CanTalk()
 230,,(Wear her clothes.),(You pick up her clothes from the ground and dress up as a house vendor.),"DoActivity(""OpenHouseWearVendorClothes"")","CanDoActivity(""OpenHouseWearVendorClothes"")"
 230,,(Use the sign as a paddle.),"(You swing her ""For Sale"" sign like a paddle.  Hitting her butt pretty hard.)","DoActivity(""OpenHousePaddleActor1"")","!CanDoActivity(""OpenHouseWearVendorClothes"")"
@@ -78,9 +79,9 @@ OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shatt
 300,310,You're both pretty and strong.,(She smiles at you and ponders.)  I think I have a plan for you.,"AlterParameter(""Actor1"", ""Affection"", ""2"")",
 300,310,Ow!  Were you raised by a Dobermann?,(She grumbles and ponders.)  I think I have a plan for you.,"AlterParameter(""Actor1"", ""Affection"", ""-2"")",
 300,,(Look around.),,DialogLeave(),
-310,320,What plan?,You will help me sell this house.  Every good house has a family dog doesn't it?,,
-310,320,Don't think too much.,(She stares at you.)  You will help me sell this house.  Every good house has a family dog doesn't it?,"AlterParameter(""Actor1"", ""Domination"", ""1"")",
-310,320,(Stay silent.),(She pets your head.)  You will help me sell this house.  Every good house has a family dog doesn't it?,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+310,320,What plan?,"You will help me sell this house.  Every good house has a family dog, doesn't it?",,
+310,320,Don't think too much.,"(She stares at you.)  You will help me sell this house.  Every good house has a family dog, doesn't it?","AlterParameter(""Actor1"", ""Domination"", ""1"")",
+310,320,(Stay silent.),"(She pets your head.)  You will help me sell this house.  Every good house has a family dog, doesn't it?","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 320,330,I don't have any dog.,"Girl, you will be the family dog.  (She fastens a collar around your neck.)","DoActivity(""OpenHouseWearDogCollar"")","CanDoActivity(""OpenHouseWearDogCollar"")"
 320,330,This is ridiculous.,"Not at all, you will be the family dog.  (She fastens a collar around your neck.)","DoActivity(""OpenHouseWearDogCollar"")","CanDoActivity(""OpenHouseWearDogCollar"")"
 320,330,I don't have any dog.,"Girl, you're already wearing a collar, you will be the family dog.",,"!CanDoActivity(""OpenHouseWearDogCollar"")"
@@ -98,13 +99,13 @@ OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shatt
 360,,(Look around.),,DialogLeave(),
 370,380,What now?,"Now you will walk like a dog.  (She straps your arms and legs, forcing you to crawl on the floor on all fours.)","DoActivity(""OpenHouseWearDogCrawler"")",
 370,380,This is enough.,"It's not enough for a dog.  (She straps your arms and legs, forcing you to crawl on the floor on all fours.)","DoActivity(""OpenHouseWearDogCrawler"")",
-380,390,Hey!  This is too tight!,"Sorry puppy, I cannot hear you  (She straps a muzzle gag on your head.)","DoActivity(""OpenHouseWearDogMuzzle"")",
+380,390,Hey!  This is too tight!,"Sorry puppy, I cannot hear you.  (She straps a muzzle gag on your head.)","DoActivity(""OpenHouseWearDogMuzzle"")",
 380,390,(Stay silent and bow your head.),A good puppy needs to be kept quiet.  (She straps a muzzle gag on your head.),"DoActivity(""OpenHouseWearDogMuzzle"")",
 380,390,"Ok, now it's really enough.",I decide when it's enough.  Now shut up.  (She straps a muzzle gag on your head.),"DoActivity(""OpenHouseWearDogMuzzle"")",
 390,400,(Look around.),,DialogLeave(),
 400,,,Who's the good puppy?  You're the good puppy!  You will sell that house with me.  (She pets your head.),,
 400,,(Sniff her crotch.),(She grabs your head and starts to masturbate herself with your muzzle gag.  The movie crew seems to love it.),"DoActivity(""OpenHouseDogMasturbate"")",CurrentCharacter.IsNaked()
-400,,(Sniff her crotch.),(She ruffles your hair.)  Go sniff other dogs you kinky puppy.,"DoActivity(""OpenHouseDogSniff"")",!CurrentCharacter.IsNaked()
+400,,(Sniff her crotch.),"(She ruffles your hair.)  Go sniff other dogs, kinky puppy.","DoActivity(""OpenHouseDogSniff"")",!CurrentCharacter.IsNaked()
 400,,(Roll on the ground.),(She claps her hands and cheers.)  My customers will love you girl!,"DoActivity(""OpenHouseDogRoll"")",
 400,,(Whimper in your gag.),"(She smirks.)  Don't try to make me cry, you're the one that came here to confront me.","DoActivity(""OpenHouseDogWhimper"")",
 400,,(Try to stand up.),(She laughs out loud.)  So cute!  Too bad I didn't bring any dog treats.,"DoActivity(""OpenHouseDogStand"")",
@@ -138,14 +139,30 @@ OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shatt
 1080,,(Look around.),,DialogLeave(),
 1100,,,(She stares at you.),,
 1100,1110,(Laugh at her in your gag.),(She gets mad as you laugh at her in your tight gag.),"DoActivity(""OpenHouseBondageLaugh"")",
-1100,1110,(Bump her in your bondage.),(You bumb your butt playfully against her as you both giggle.),"DoActivity(""OpenHouseBondageBump"")",
+1100,1110,(Bump her in your bondage.),(You bump your butt playfully against her as you both giggle.),"DoActivity(""OpenHouseBondageBump"")",
 1100,1110,(Give her a bondage hug.),(You share a long and warm bondage hug as the movie director makes a thumbs up.),"DoActivity(""OpenHouseBondageHug"")",
 1100,,(Look around.),,DialogLeave(),
 1110,,,(She stares at you.),,
 1110,,(Look around.),,DialogLeave(),
 1130,,,(She stares at the basement and seems to ignore you.),,
-1130,,(Try to catch her attention.),(You mumble and struggle but she stares at the basement and ignores you.),,
+1130,,(Try to catch her attention.),"(You mumble and struggle, but she stares at the basement and ignores you.)",,
 1130,,(Look around.),,DialogLeave(),
+1180,,,(She stares at the customer new toy and shivers.),,
+1180,1190,(Try to help her to get out.),(You try to reach her to release her but cannot do much.  She nods in appreciation.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",
+1180,1190,(Whimper and moan in your gag.),(She whimpers with you as you both sigh.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+1180,1190,(Wink at her and giggle.),(She winks back at you and seems amused.),"AlterParameter(""Actor1"", ""Love"", ""1"")",
+1180,1190,(Stare at her and laugh.),(She grumbles in her gag and tugs on her bondage.),"AlterParameter(""Actor1"", ""Love"", ""-1"")",
+1180,,(Look around.),,DialogLeave(),
+1190,,,(She whimpers and looks at the customer.),,
+1190,,(Look around.),,DialogLeave(),
+1200,,,(She whimpers and looks at the customer.),,
+1200,,(Look at her and stay silent.),(The client slowly masturbates her with the vibrating wand as the camera zooms on her bondage.),"DoActivity(""OpenHouseActor1Look"")",
+1200,,(Moan loudly to motivate her.),(You both moan loudly as she presses the wand firmly on her pussy.),"DoActivity(""OpenHouseActor1Moan"")",
+1200,,(Whimper for attention.),(She masturbates you with her left hand as the vibrating wand keeps working on the new girlfriend.),"DoActivity(""OpenHouseActor1Whimper"")",
+1200,,(Get closer for a bondage hug.),(You get really close to each other as she places the vibrating wand between you two to double the pleasure.),"DoActivity(""OpenHouseActor1Closer"")",
+1200,,(Look around.),,DialogLeave(),
+1210,1200,(Moans in unison with her.),(You both moan as she slowly recovers from her orgasm.  The customer grins and checks the sales contract to see if you're both included in the deal.),,
+1210,1200,(Stay silent and watch her orgasm.),(She moans loudly and slowly recovers from her orgasm.  The customer grins and checks the sales contract to see if you're both included in the deal.),,
 1300,,,(She smiles and looks at the customer.)  Welcome to the open house!,,
 1300,,TO DO,TO DO,,
 1300,,(Look around.),,DialogLeave(),
