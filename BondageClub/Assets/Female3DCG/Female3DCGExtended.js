@@ -8988,6 +8988,31 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "SuitLower", AssetName: "MaleSeamlessCatsuit" },
 		}, // MaleCatsuitPanties - Panties
+		Jockstrap: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "String",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Sidestraps",
+						Property: {
+							Type: "Sidestraps"
+						},
+					},
+					{
+						Name: "Holemesh",
+						Property: {
+							Type: "Holemesh"
+						},
+					},
+				],
+			},
+		}, // Jockstrap			  
 	}, // Panties
 	Glasses: {
 		EyePatch1: {

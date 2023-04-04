@@ -1225,6 +1225,26 @@ var AssetFemale3DCG = [
 					{ Name: "Penis", CopyLayerColor: "Base", HasType: false, AllowTypes: ["SkinTight"] },
 					{ Name: "Lock", HasType: false, AllowTypes: ["Lock"] },
 				]
+			},
+			{
+				Name: "Briefs", Gender: "M", Prerequisite: ["HasPenis"], Value: 20, Hide: ["Pussy", "ItemVulva", "ItemVulvaPiercings"],
+				DefaultColor: ["#00A1EA", "#CDCDCD"],
+				Top: 403, Left: 119,
+				Layer: [
+					{ Name: "Shorts", AllowColorize: true, AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
+					{ Name: "Bands", AllowColorize: true, AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
+				]
+			},
+			{
+				Name: "Jockstrap", Gender: "M", Prerequisite: ["HasPenis"], Value: 30, Hide: ["Pussy", "ItemVulva", "ItemVulvaPiercings"],
+				DefaultColor: ["#222222", "#C01C1C", "#C01C1C", "#C01C1C"], 
+				Top: 413, Left: 120,
+				Layer: [
+					{ Name: "Holemesh", AllowColorize: true, HasType: false, AllowTypes: ["Holemesh"], AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
+					{ Name: "Bulge", AllowColorize: true, HasType: false, AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
+					{ Name: "Sidestraps", AllowColorize: true, HasType: false, AllowTypes: ["Sidestraps", "Holemesh"], AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
+					{ Name: "Waistband", AllowColorize: true, HasType: false, AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
+				]
 			}
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
