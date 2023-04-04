@@ -6360,6 +6360,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Base", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
+					{ Name: "StrapsLong", AllowColorize: true, HasType: false, HideForAttribute: ["ShortHair"], CopyLayerColor: "Straps", },
 					{ Name: "Metal", AllowColorize: false, HasType: false },
 					{ Name: "Tongue", AllowColorize: false, AllowTypes: ["", "Open"]},
 					{ Name: "Plug", AllowColorize: true, AllowTypes: ["Plug"] },
