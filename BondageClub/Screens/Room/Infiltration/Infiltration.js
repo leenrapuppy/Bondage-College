@@ -475,8 +475,8 @@ function InfiltrationPrivatePrisonerBrainwash() {
 	C.Owner = Player.Name;
 	InventoryWear(C, "SlaveCollar", "ItemNeck");
 	CharacterNaked(C);
-	//Move towards submission by 50 + Infiltration skill adjustment (range 100-150)
-	var S = 50 + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
+	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 100-150)
+	var S = Math.floor(Math.random()*10) + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
 	var T = NPCTraitGet(C, "Dominant") - S;
 	if (T < -100) { T = -100 };
 	NPCTraitSet(C, "Dominant", T);
