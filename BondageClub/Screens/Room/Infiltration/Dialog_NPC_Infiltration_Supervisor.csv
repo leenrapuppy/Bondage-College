@@ -12,6 +12,7 @@ PlayerGagged,,,(She frowns at you.)  Go see a maid girl.  I don't have time for 
 0,30,What are the perks?,"You can train some perks to help you, before going into a mission.  Do you need details?",,
 0,40,I'd like to take a mission.,Very good comrade DialogPlayerName!  (She salutes you.)  What kind of challenge are you up to?,,"DialogSkillGreater(""Infiltration"", 3)"
 0,40,I'd like to take a mission.,Very good!  What kind of challenge are you up to?,,"!DialogSkillGreater(""Infiltration"", 3)"
+0,Brainwash0,"Comrade, I've captured an infiltrator from Pandora in my private room.",Very good comrade DialogPlayerName! We can send someone to pick her up for interrogation!,,PrivatePrisonerPresent()
 0,,I need to go.  (Leave her.),,DialogLeave(),
 10,,Pandora's Box?,"Yes, they opened their BDSM club right next to us a few months ago.  At first it was healthy competition, until they started to play dirty.",,
 10,,They play dirty?,"They sell our slaves, attack our Mistresses, jail our members, hack our computers and steal our money.  Is that dirty enough?",,
@@ -141,3 +142,9 @@ Ransom10,End,I don't want anything.,You make us proud comrade.  (She salutes you
 180,190,I'll pay right now.  (Give her $100.),(She takes the money and arranges her liberation.)  Your friend should be back in a few minutes comrade.,RansomFriend(),DialogMoneyGreater(100)
 180,190,I don't know yet.,"Think about it, comrade.  It's a big sum and it might be used to finance more kidnappings.",,
 190,0,Thanks.  Take care.  (Leave her.),,DialogLeave(),
+Brainwash0,,What happens to her?,"We will break her for Pandora's secrets. By the end of it, she will be your willing slave and forget all about Pandora's Box.",,
+Brainwash0,,How long does it take?,We will need to hold her for 3 days to ensure we complete the interrogation.,,
+Brainwash0,,Will I get any reward?,"No. While we would normally reward for any information about Pandora's Box, interrogations do cost us quite a bit.",,
+Brainwash0,Brainwash10,Please proceed comrade.,"Very well, one less infiltrator in the Club's halls.",PrivatePrisonerBrainwash(),
+Brainwash0,0,Let me think about it. (Leave her.),,DialogLeave(),
+Brainwash10,0,Thanks.  Take care.  (Leave her.),,DialogLeave(),
