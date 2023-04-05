@@ -169,8 +169,8 @@ var AssetFemale3DCG = [
 				Name: "ReverseBunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Nylon", "Pet"], DynamicGroupName: "Suit", Value: 100, BuyGroup: "ReverseBunnySuit", Expose: ["ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Suit", AllowColorize: true },
-					{ Name: "Gloves", AllowColorize: true, Priority: 28, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 28, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 28, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 28, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{ Name: "LeatherCropTop", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 60, Hide: ["ItemNipples", "ItemNipplesPiercings"], HideItem: ["NecklaceBodyChainNecklace", "ItemArmsBondageBra"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"] },
@@ -533,16 +533,16 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Base" },
 					{ Name: "Zip" },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{
 				Name: "SeamlessCatsuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Suit", AllowColorize: true },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{
@@ -555,16 +555,16 @@ var AssetFemale3DCG = [
 					{ Name: "Layer2", AllowColorize: true },
 					{ Name: "Layer3", AllowColorize: true },
 					{ Name: "Layer4", AllowColorize: true },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{
 				Name: "SeethroughSuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 100, BuyGroup: "SeethroughSuit", HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Suit", AllowColorize: true },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{
@@ -572,16 +572,16 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Base" },
 					{ Name: "Zip" },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{
 				Name: "ReverseBunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex", "Pet"], Value: 100, BuyGroup: "ReverseBunnySuit", Expose: ["ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Suit", AllowColorize: true },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 			{
@@ -603,8 +603,8 @@ var AssetFemale3DCG = [
 				Name: "MaleSeamlessCatsuit", Gender: "M", Prerequisite: ["HasFlatChest"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Base", AllowColorize: true },
-					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
-					{ Name: "AltGloves", CopyLayerColor: "Gloves", Priority: 27, AllowTypes: ["AltGloves"] },
+					{ Name: "OpaqueGloves", AllowColorize: true, Priority: 27, AllowTypes: ["OpaqueGloves"] },
+					{ Name: "TransparentGloves", CopyLayerColor: "OpaqueGloves", Priority: 27, AllowTypes: ["TransparentGloves"] },
 				]
 			},
 
