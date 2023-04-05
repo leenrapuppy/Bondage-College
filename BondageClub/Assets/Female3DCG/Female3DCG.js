@@ -3330,7 +3330,7 @@ var AssetFemale3DCG = [
 			{ Name: "PussyDark1", Gender: "F" },
 			{ Name: "PussyDark2", Gender: "F" },
 			{ Name: "PussyDark3", Gender: "F" },
-			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper", AllowActivity: ["PenetrateItem"]}
+			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper", AllowActivity: ["PenetrateItem"], Attribute: ["Penis"]}
 		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"],
 		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
@@ -3834,7 +3834,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Difficulty: 50, Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis", "AccessFullPenis"], Difficulty: 50, Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
@@ -3857,7 +3857,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PlasticChastityCage2", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "PlasticChastityCage2", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis", "AccessFullPenis"], Value: 20, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "#404040", "#404040", "#FFBC00"],
@@ -3870,7 +3870,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Category: ["SciFi"], Value: 50, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis", "AccessFullPenis"], Category: ["SciFi"], Value: 50, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "#555555", "#555555", "#FF0000"],
@@ -3883,7 +3883,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "FlatChastityCage", Gender: "M", Fetish: ["Metal"], Prerequisite: ["AccessVulva", "HasPenis"], Value: 25, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "FlatChastityCage", Gender: "M", Fetish: ["Metal"], Prerequisite: ["AccessVulva", "HasPenis", "AccessFullPenis"], Value: 25, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default"],
@@ -5056,7 +5056,7 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld", "ItemVulva", "ItemButt", "ItemVulvaPiercings"],
 			},
-			{ Name: "HighSecurityStraitJacket", Gender: "F", Prerequisite: ["HasBreasts"], Value: 220, Priority: 25, Difficulty: 4, SelfBondage: 2, Time: 45, RemoveTime: 30, Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#333", "#333", "#3e3e3e", "#3e3e3e"],
+			{ Name: "HighSecurityStraitJacket", Prerequisite: ["NoChastityCage"], Value: 220, Priority: 25, Difficulty: 4, SelfBondage: 2, Time: 45, RemoveTime: 30, Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#333", "#333", "#3e3e3e", "#3e3e3e"], AllowExpression: ["Hard"],
 				Hide: ["Cloth", "ItemNipplesPiercings"],
 				HideItem: ["NecklaceBodyChainNecklace"],
 				SetPose: ["BackElbowTouch"],
@@ -5064,17 +5064,22 @@ var AssetFemale3DCG = [
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld"],
 				Extended: true,
 				Layer: [
-					{ Name: "Crotch", ColorGroup: "Canvas", ParentGroup: null, AllowModuleTypes: ["c1"], HasType: false },
+					{ Name: "Crotch", ColorGroup: "Canvas", ParentGroup: null, HideForAttribute: ["Penis"], AllowModuleTypes: ["c1"], HasType: false },
+					{ Name: "CrotchMale", CopyLayerColor: "Crotch", ParentGroup: null, ShowForAttribute: ["Penis"], AllowModuleTypes: ["c1"], HasType: false },
 					{ Name: "JacketLoose", ColorGroup: "Canvas", ParentGroup: null, AllowModuleTypes: ["a0"], HasType: false},
 					{ Name: "JacketFront", CopyLayerColor: "JacketLoose", AllowModuleTypes: ["a1"], HasType: false },
 					{ Name: "JacketBack", CopyLayerColor: "JacketLoose", AllowModuleTypes: ["a2"], HasType: false },
 					{ Name: "StrapsLoose", ColorGroup: "Straps", AllowModuleTypes: ["a0"], HasType: false},
 					{ Name: "StrapsFront", CopyLayerColor: "StrapsLoose", AllowModuleTypes: ["a1"], HasType: false },
 					{ Name: "StrapsBack", CopyLayerColor: "StrapsLoose", AllowModuleTypes: ["a2"], HasType: false },
-					{ Name: "CrotchStrapsSingle", ColorGroup: "Straps", ParentGroup: null, AllowModuleTypes: ["s1"], HasType: false },
-					{ Name: "CrotchStrapsDouble", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, AllowModuleTypes: ["s2"], HasType: false },
-					{ Name: "CrotchStrapsTriple", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, AllowModuleTypes: ["s3"], HasType: false },
-					{ Name: "Lock", AllowColorize: false, ParentGroup: null, AllowModuleTypes: ["s1", "s2", "s3", "a2"], LockLayer: true }
+					{ Name: "CrotchStrapsSingle", ColorGroup: "Straps", ParentGroup: null, HideForAttribute: ["Penis"], AllowModuleTypes: ["s1"], HasType: false },
+					{ Name: "CrotchStrapsSingleMale", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, ShowForAttribute: ["Penis"], AllowModuleTypes: ["s1"], HasType: false },
+					{ Name: "CrotchStrapsDouble", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, HideForAttribute: ["Penis"], AllowModuleTypes: ["s2"], HasType: false },
+					{ Name: "CrotchStrapsDoubleMale", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, ShowForAttribute: ["Penis"], AllowModuleTypes: ["s2"], HasType: false },
+					{ Name: "CrotchStrapsTriple", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, HideForAttribute: ["Penis"], AllowModuleTypes: ["s3"], HasType: false },
+					{ Name: "CrotchStrapsTripleMale", CopyLayerColor: "CrotchStrapsSingle", ParentGroup: null, ShowForAttribute: ["Penis"], AllowModuleTypes: ["s3"], HasType: false },
+					{ Name: "Penis", ShowForAttribute: ["Penis"], ParentGroup: null, AllowModuleTypes: ["c1", "s1", "s2", "s3"], InheritColor: "Pussy", HideColoring: true, MirrorExpression: "Pussy"},
+					{ Name: "Lock", AllowColorize: false, ParentGroup: null, AllowModuleTypes: ["s1", "s2", "s3", "a2"], MirrorExpression: "Pussy", LockLayer: true },
 				],
 				SelfUnlock: false
 			},
