@@ -138,6 +138,8 @@ Slave Rags
 Тряпки раба
 Cropped Hoodie
 Короткая толстовка
+Cheerleader Top
+Топ чирлидерши
 Cloth Accessory
 Аксессуар для верха
 Student Scarf
@@ -174,6 +176,8 @@ Head Harness
 Сбруя для головы
 Festival Fox Mask
 Фестивальная маска лисы
+Lipstick Marks
+Следы помады
 Jewelry
 Ювелирные изделия
 Catsuit Collar
@@ -182,6 +186,8 @@ Poncho
 Пончо
 Piercing Set
 Набор для пирсинга
+Smoochy Lipstick
+Губная помада
 Necklace
 Для шеи
 Fancy Necklace
@@ -318,6 +324,8 @@ Ruffled Skirt
 Юбка с оборками
 Cross Skirt
 Поперечная юбка
+Cheerleader Skirt
+Юбка чирлидерши
 Suit Lower
 Нижний костюм
 Catsuit Panties
@@ -813,6 +821,8 @@ Harem Gloves
 Гаремные перчатки
 Biker Gloves
 Байкерские перчатки
+Pom Poms
+Пом Помы
 Left Hand
 Левая рука
 Right Hand
@@ -1911,6 +1921,8 @@ Hoof Mittens
 Рукавицы-копыта
 Short Smooth Leather Mittens
 Короткие кожаные рукавицы
+Pom Pom Mitts
+Варежки с помпонами
 Scissors
 Ножницы
 Plastic Wrap Roll
@@ -1923,6 +1935,8 @@ Potion Bottle
 Бутылка с зельем
 Medical Injector
 медицинский инъектор
+Mug
+Кружка
 Neck
 Шея
 Leather Collar

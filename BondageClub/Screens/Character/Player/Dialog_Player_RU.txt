@@ -346,11 +346,13 @@ Must have male genitalia.
 The use of remotes is forbidden by your owner
 Использование пультов дистанционного управления запрещено вашим владельцем
 Cannot be used over the applied gags.
-Нельзя использовать поверх нанесенных кляпов.
+Нельзя использовать поверх установленных кляпов.
+Requires a closed gag.
+Требуется закрытый кляп.
 Cannot be used over the applied mask.
-Нельзя использовать поверх нанесенной маски.
+Нельзя использовать поверх установленной маски.
 Cannot be used over the applied hood.
-Нельзя использовать поверх нанесенного капюшона.
+Нельзя использовать поверх установленного капюшона.
 Blocked in this room.
 Заблокирован в этой комнате.
 Cancel
@@ -361,10 +363,30 @@ View next items
 Посмотреть следующий предмет
 View previous items
 Посмотреть предыдущий предмет
+View next expressions
+Посмотреть следующие выражения
+View previous expressions
+Просмотр предыдущие выражения
 View next page
 Посмотреть следующую страницу
 View previous page
 Посмотреть предыдущую страницу
+Maximum:
+Максимум:
+Minimum:
+Минимум:
+Tighten / Loosen
+Затянуть / ослабить
+You can tighten or loosen this item
+Вы можете затянуть или ослабить этот элемент
+Tighten a little
+Немного затянуть
+Tighten a lot
+Сильно затянуть
+Loosen a little
+Немного ослабить
+Loosen a lot
+Сильно ослабить
 Remove the item
 Удалить предмет
 Use this item
@@ -465,6 +487,8 @@ Using none of your skill...
 Не используя свои навыки...
 Impossible to escape!
 Невозможно убежать!
+Try to loosen the item
+Попробуйте ослабить элемент
 Use brute force
 Использовать грубую силу
 Try to squeeze out
@@ -489,6 +513,10 @@ You cannot access your items
 Вы не можете получить доступ к своим предметам
 You have no items in this category
 У вас нет предметов в этой категории
+You can struggle to loosen this restraint
+Вы можете изо всех сил попытаться ослабить этот ограничитель.
+Click or press space when the circles are aligned
+Щелкните или нажмите клавишу «Пробел», когда круги соеденены
 Click when the player reaches the buckle to progress
 Нажмите, когда игрок достигнет пряжки, чтобы прогрессировать
 Click the ropes before they hit the ground to progress
@@ -593,6 +621,12 @@ Heads
 Головы
 Tails
 Хвосты
+she
+она
+he
+он
+they
+они
 her
 ее/ей
 him
@@ -811,7 +845,7 @@ Throne Room
 Dungeon
 Подземелье
 Industrial
-Промышленный
+Индустриальный
 Sun Temple
 Храм Солнца
 Back Alley
@@ -821,15 +855,15 @@ Creepy Basement
 Cellar
 Подвал
 Slum Cellar
-Подвал из трущоб
+Подвал в трущобах
 Bar Restaurant
 Бар Ресторан
 Ruined Dungeon
 Разрушенное подземелье
 Slippery Classroom
-Скользкий Класс
+Безпринципный Класс
 Middletown School
-Миддлтаунская школа
+Средняя городская школа
 School Hospital
 Школьная больница
 Abandoned School
@@ -847,7 +881,7 @@ Ceremony Venue
 Beach Promenade Café
 Кафе на набережной пляжа
 Boutique Shop
-Бутик-магазин
+Бутик
 Shop Dressing Rooms
 Примерочные магазина
 Confessions
@@ -855,7 +889,7 @@ Confessions
 Desolate Village
 Пустынная деревня
 Lost Wages Casino
-Казино потерянной заработной платы
+Казино потерянных денег
 Wedding Room
 Свадебный номер
 Wedding Arch
@@ -871,21 +905,21 @@ Xmas Eve Lounge
 Xmas Day Lounge
 Рождественский зал
 Street Night
-Уличная ночь
+Улица ночью
 Snowy Street
 Снежная улица
 Virtual World
 Виртуальный мир
 Entrance
-Вход
+Фойе
 Meeting
 Совещание
 Therapy
-Терапия
+Терапевтический кабинет
 Padded Cell
-Обитая клетка
+Войлочная палата
 Padded Cell 2
-Обитая клетка 2
+Войлочная палата 2
 GGTS Computer Room
 Компьютерный зал GGTS
 Ranch
@@ -893,11 +927,11 @@ Ranch
 Luxury Pool
 Роскошный бассейн
 Wagon Circle
-Вагонный круг
+Круг из фургонов
 Desert
 Пустыня
 Western Street
-Западная улица
+Улица на диком западе
 Rainy Forest Path Day
 Тропинки в Дождливом Лесу Днём
 Rainy Forest Path Night
@@ -943,7 +977,7 @@ Pool Bottom
 Latex Room
 Латексная комната
 Outside Cells
-Внешние камеры
+Корридор перед камерами
 Infiltration Bunker
 Инфильтрационный бункер
 Movie Studio
@@ -961,7 +995,7 @@ Hotel Bedroom
 Yacht Chill Room
 Комната Отдыха на яхте
 Yacht Main Hall
-Главный зал яхты
+Кают-компания яхты
 Yacht Deck
 Палуба яхты
 Luxury Office
@@ -1126,18 +1160,18 @@ TargetCharacterName was demoted from administration by SourceCharacter.
 TargetCharacterName был отстранен от администрирования SourceCharacter.
 SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter Обновил комнату. Имя: ChatRoomName. Лимит: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
-SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
-SourceCharacter начинает разблокировку чемодана DestinationCharacterName ! Она закончит через 5 минут.
-SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
-SourceCharacter начинает красть больше данных из ноутбука DestinationCharacterName ! Она закончит через 5 минут.
+SourceCharacter starts unlocking DestinationCharacterName suitcase! PronounSubject will finish in 5 minutes.
+SourceCharacter начинает разблокировку чемодана DestinationCharacterName ! PronounSubject закончит через 5 минут.
+SourceCharacter starts stealing more data from DestinationCharacterName laptop! PronounSubject will finish in 5 minutes.
+SourceCharacter начинает красть больше данных из ноутбука DestinationCharacterName ! PronounSubject закончит через 5 минут.
 SourceCharacter's suitcase is safe... for now.
 SourceCharacter's чемодан в безопасности... пока.
 SourceCharacter's data is safe... for now.
 SourceCharacter's данные в безопасности... пока.
-SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
-SourceCharacter's чемодан будет открыт в течение TIMEREMAINING минут. Убедитесь, что до тех пор она в безопасности!
-SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
-SourceCharacter's данные будут готовы в течение TIMEREMAINING минут. Убедитесь, что до тех пор она в безопасности!
+SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure PronounSubject is secure until then!
+SourceCharacter's чемодан будет открыт в течение TIMEREMAINING минут. Убедитесь, что до тех пор PronounSubject в безопасности!
+SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure PronounSubject is secure until then!
+SourceCharacter's данные будут готовы в течение TIMEREMAINING минут. Убедитесь, что до тех пор PronounSubject в безопасности!
 You find confidential club secrets worth MONEYAMOUNT$ on the black market.
 Вы находите конфиденциальные клубные секреты, которые стоят MONEYAMOUNT$ на черном рынке.
 The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them.
@@ -1230,22 +1264,32 @@ SourceCharacter picks the lock on DestinationCharacter PrevAsset.
 SourceCharacter вскрывает замок на DestinationCharacter PrevAsset.
 SourceCharacter unlocks and removes the PrevAsset from DestinationCharacter FocusAssetGroup.
 SourceCharacter разблокирует и удаляет PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup a little.
+SourceCharacter немного затягивает PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup a lot.
+SourceCharacter сильно затягивает PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup a little.
+SourceCharacter немного ослабляет PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup a lot.
+SourceCharacter значительно ослабляет PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter struggles and loosens the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter борется и ослабляет PrevAsset на DestinationCharacter FocusAssetGroup.
 SourceCharacter rolls DiceType. The result is: DiceResult.
 SourceCharacter бросает DiceType. Результат таков: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
 SourceCharacter подбрасывает монетку. Результат таков: CoinResult.
-SourceCharacter used her safeword. Please check for her well-being.
-SourceCharacter использовала свое стоп-слово. Пожалуйста, проверьте ее самочувствие.
-SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
-SourceCharacter использовала свое стоп-слово и хочет, чтобы ее освободили. Ее выводят из комнаты в целях ее безопасности.
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
-TargetCharacterName хватают две служанки и запирают в камере с таймером, следуя командам твоей хозяйки.
-TargetCharacterName gets grabbed by two nurses wearing futuristic gear and locked in the Asylum for GGTS, following her owner's commands.
-TargetCharacterName хватают две медсестры в футуристическом снаряжении и запирают в Лечебнице для GGTS, следуя командам ее хозяйки.
-TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
-TargetCharacterName хватают две горничные и сопровождают в комнату для прислуги, чтобы подать напитки для ее хозяики.
-TargetCharacterName gives a sealed envelope to her owner.
-TargetCharacterName отдает запечатанный конверт своей хозяйке.
+SourceCharacter used PronounPossessive safeword. Please check for PronounPossessive well-being.
+SourceCharacter использовал/а PronounPossessive стоп-слово. Пожалуйста, проверьте PronounPossessive самочувствие.
+SourceCharacter used PronounPossessive safeword and wants to be released. PronounSubject is guided out of the room for PronounPossessive safety.
+SourceCharacter использовал/а PronounPossessive стоп-слово и хочет, чтобы ее освободили. PronounSubject выводят из комнаты в целях PronounPossessive безопасности.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following TargetPronounPossessive owner's commands.
+TargetCharacterName хватают две служанки и запирают в камере с таймером, следуя командам TargetPronounPossessive хозяйки.
+TargetCharacterName gets grabbed by two nurses wearing futuristic gear and locked in the Asylum for GGTS, following TargetPronounPossessive owner's commands.
+TargetCharacterName хватают две медсестры в футуристическом снаряжении и запирают в Лечебнице у GGTS, следуя командам TargetPronounPossessive хозяйки.
+TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for TargetPronounPossessive owner.
+TargetCharacterName хватают две горничные и сопровождают в комнату для прислуги, чтобы подать напитки для TargetPronounPossessive хозяики.
+TargetCharacterName gives a sealed envelope to TargetPronounPossessive owner.
+TargetCharacterName отдает запечатанный конверт TargetPronounPossessive хозяйке.
 SourceCharacter hits DestinationCharacter FocusAssetGroup with a NextAsset.
 SourceCharacter попадает в DestinationCharacter FocusAssetGroup с помощью NextAsset.
 SourceCharacter holds a NextAsset against DestinationCharacter FocusAssetGroup.
@@ -1272,8 +1316,8 @@ SourceCharacter stops heading for the door.
 SourceCharacter перестает идти к двери.
 SourceCharacter was stopped from leaving.
 SourceCharacter был остановлен от попытки выхода.
-SourceCharacter gets in the way of TargetCharacter
-SourceCharacter встаёт на пути TargetCharacter
+SourceCharacter gets in the way of TargetCharacter, preventing TargetPronounObject from leaving.
+SourceCharacter встаёт на пути TargetCharacter, не позволяя TargetPronounObject выйти.
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter пытается помочь TargetCharacter освободится.
 SourceCharacter gives TargetCharacter some lockpicks to help TargetPronounSelf with.
@@ -1301,7 +1345,7 @@ SourceCharacter покупает бокал шампанского у TargetChar
 SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
 SourceCharacter покупает кувшин освежающего лимонада для всех, у TargetCharacter.
 SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
-SourceCharacter покупает партию "стрелялок" для всех, у TargetCharacter.
+SourceCharacter покупает партию шотов для всех, у TargetCharacter.
 SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
 SourceCharacter покупает кувшин "Секса на пляже" для всех, у TargetCharacter.
 SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
@@ -1516,10 +1560,10 @@ In-front of body
 Перед телом
 Behind back
 за спиной
-SourceCharacter cuffs DestinationCharacter hands in-front of their body.
-SourceCharacter запирает DestinationCharacter в наручники перед её телом.
-SourceCharacter cuffs DestinationCharacter hands behind their back.
-SourceCharacter запирает DestinationCharacter в наручники за её спиной.
+SourceCharacter cuffs DestinationCharacter hands in-front of TargetPronounPossessive body.
+SourceCharacter запирает DestinationCharacter в наручники перед TargetPronounPossessive телом.
+SourceCharacter cuffs DestinationCharacter hands behind TargetPronounPossessive back.
+SourceCharacter запирает DestinationCharacter в наручники за TargetPronounPossessive спиной.
 On head level
 На уровне головы
 Over the head
@@ -1543,7 +1587,7 @@ SourceCharacter снимает кольцо с ошейника DestinationChara
 SourceCharacter attaches a ring to DestinationCharacter collar.
 SourceCharacter прикрепляет кольцо к ошейнику DestinationCharacter .
 Detached
-Отдельный
+Отделить
 Bind wrists
 Связать запястья
 Bind elbows
@@ -1766,12 +1810,12 @@ SourceCharacter folds DestinationCharacter arms and wraps duct tape around them.
 SourceCharacter складывает руки DestinationCharacter и обматывает их изолентой.
 Above head
 Над головой
-SourceCharacter shackles DestinationCharacter wrist in-front of their body.
-SourceCharacter сковывает запястье DestinationCharacter перед своим телом.
-SourceCharacter shackles DestinationCharacter wrist behind their back.
-SourceCharacter сковывает запястье DestinationCharacter за спиной.
-SourceCharacter shackles DestinationCharacter wrist above their head.
-SourceCharacter сковывает запястье DestinationCharacter над головой.
+SourceCharacter shackles DestinationCharacter wrist in-front of TargetPronounPossessive body.
+SourceCharacter сковывает запястье DestinationCharacter перед TargetPronounPossessive телом.
+SourceCharacter shackles DestinationCharacter wrist behind TargetPronounPossessive back.
+SourceCharacter сковывает запястье DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter shackles DestinationCharacter wrist above TargetPronounPossessive head.
+SourceCharacter сковывает запястье DestinationCharacter над TargetPronounPossessive головой.
 Select strap type
 Выберите тип ремешка
 Ring Straps
@@ -2196,14 +2240,6 @@ SourceCharacter configures DestinationCharacter gag to deflate 1 hour after trig
 SourceCharacter настраивает кляп DestinationCharacter чтобы он сдувался через 1 час после срабатывания.
 SourceCharacter configures DestinationCharacter gag to deflate 20 hours after triggering.
 SourceCharacter настраивает кляп DestinationCharacter чтобы он сдувался через 20 часов после срабатывания.
-SourceCharacter configures DestinationCharacter gag to not punish her for speaking.
-SourceCharacter настраивает кляп DestinationCharacter, чтобы не наказывать ее за высказывания.
-SourceCharacter configures DestinationCharacter gag to punish her for shouting.
-SourceCharacter настраивает кляп DestinationCharacter, чтобы наказать ее за крик.
-SourceCharacter configures DestinationCharacter gag to punish her for saying long sentences.
-SourceCharacter настраивает кляп DestinationCharacter, чтобы наказать ее за произнесение длинных предложений.
-SourceCharacter configures DestinationCharacter gag to punish her for speaking.
-SourceCharacter настраивает кляп DestinationCharacter, чтобы наказать ее за разговор.
 SourceCharacter plugs up DestinationCharacter mouth with the dildo plug.
 SourceCharacter затыкает рот DestinationCharacter заглушкой для фаллоимитатора.
 SourceCharacter pulls out DestinationCharacter dildo plug from TargetPronounPossessive gag.
@@ -2526,6 +2562,8 @@ SourceCharacter polishes DestinationCharacter bra.
 SourceCharacter полирует бюстгальтер у DestinationCharacter .
 SourceCharacter removes the polish on DestinationCharacter bra.
 SourceCharacter удаляет лак с бюстгальтера у DestinationCharacter .
+Select display options
+Выберите параметры отображения
 Diagnostics for wearer
 Диагностика для владельца
 Current Body Temp:
@@ -2810,8 +2848,8 @@ SourceCharacter uses the rope on TargetCharacter to do a diamond style tie.
 SourceCharacter использует веревку на TargetCharacter чтобы сделать алмазное связывание.
 SourceCharacter uses the rope on TargetCharacter to do a crossed style binding tie.
 SourceCharacter использует веревку на TargetCharacter чтобы связать в перекрестном стиле.
-SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
-SourceCharacter использует веревку на TargetCharacter чтобы привязать ее ноги к столбикам кровати.
+SourceCharacter uses the rope on TargetCharacter to tie TargetPronounPossessive legs to the bedposts.
+SourceCharacter использует веревку на TargetCharacter чтобы привязать TargetPronounPossessive ноги к столбикам кровати.
 SourceCharacter uses rope on TargetCharacter to do a box tie.
 SourceCharacter использует веревку на TargetCharacter чтобы сделать коробочное связывание .
 SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
@@ -3264,7 +3302,7 @@ SourceCharacter detaches DestinationCharacter anal hook.
 SourceCharacter отсоединяет анальный крючок от DestinationCharacter.
 SourceCharacter attaches a chain to DestinationCharacter anal hook.
 SourceCharacter прикрепляет цепочку к анальному крючку у DestinationCharacter.
-SourceCharacter attaches DestinationCharacter anal hook to her hair.
+SourceCharacter attaches DestinationCharacter anal hook to TargetPronounPossessive hair.
 SourceCharacter прикрепляет анальный крючок к волосам DestinationCharacter.
 SourceCharacter inserts a bead in DestinationCharacter butt
 SourceCharacter вставляет бусину в попку DestinationCharacter
@@ -3532,8 +3570,8 @@ removes the chains
 удаляет цепи
 mittens to the baby harness
 варежки к детской шлейке
-She must be wearing a baby harness to chain the mittens.
-Она должна быть одета в детскую шлейку, чтобы пристегнуть варежки.
+TargetPronounSubject must be wearing a baby harness to chain the mittens.
+TargetPronounSubject должнен/а быть одет/а в детскую шлейку, чтобы пристегнуть варежки.
 You must free TargetPronounPossessive arms before attaching mitten chains.
 Вы должны освободить TargetPronounPossessive руки, прежде чем надевать цепи на варежки.
 Facial expression
@@ -3658,8 +3696,8 @@ SourceCharacter zips up DestinationCharacter suit.
 SourceCharacter застегивает костюм DestinationCharacter .
 SourceCharacter unzips DestinationCharacter suit.
 SourceCharacter распаковывает костюм DestinationCharacter .
-SourceCharacter unzips DestinationCharacter suit and fully exposes her breasts and pussy.
-SourceCharacter расстегивает костюм DestinationCharacter и полностью обнажает ее грудь и киску.
+SourceCharacter unzips DestinationCharacter suit and fully exposes TargetPronounPossessive breasts and pussy.
+SourceCharacter расстегивает костюм DestinationCharacter и полностью обнажает TargetPronounPossessive грудь и киску.
 SourceCharacter attaches a wand to DestinationCharacter suit.
 SourceCharacter прикрепляет жезл к костюму DestinationCharacter .
 Configure suit
@@ -3744,6 +3782,42 @@ SourceCharacter locks vibe to DestinationCharacter love chastity belt.
 SourceCharacter приклепляет вибратор к поясу верности DestinationCharacter.
 SourceCharacter locks shock device to DestinationCharacter love chastity belt.
 SourceCharacter приклепляет шокер к поясу верности DestinationCharacter .
+The front and rear chastity shields on DestinationCharacter AssetName open.
+Передние и задние щиты целомудрия на DestinationCharacter AssetName открыты.
+The front chastity shields on DestinationCharacter AssetName closes.
+Передний щит целомудрия на DestinationCharacter AssetName закрыт.
+The read chastity shields on DestinationCharacter AssetName closes.
+Задний щит целомудрия на  DestinationCharacter AssetName закрыт.
+The front and rear chastity shields on DestinationCharacter AssetName close.
+Передние и задние щиты целомудрия на DestinationCharacter AssetName закрыты.
+DestinationCharacterName AssetName activates tease vibe mode.
+На AssetName DestinationCharacterName  активируется дразнящей режим вибрации.
+DestinationCharacterName AssetName builds up to vibration level 1.
+Вибрация на AssetName DestinationCharacterName увиличивается до уровня 1.
+DestinationCharacterName AssetName starts buzzing at vibration level 2!
+Вибрация на AssetName DestinationCharacterName увиличивается до уровня 2!
+DestinationCharacterName AssetName jumps up to vibration level 3!
+Вибрация на AssetName DestinationCharacterName увиличивается до уровня 3!
+DestinationCharacterName AssetName vibration mode is deactivated.
+На AssetName DestinationCharacterName деактивируется режим вибрации.
+DestinationCharacterName AssetName slows down to tease vibe mode.
+AssetName DestinationCharacterName замедляются, до дразнящего режима вибрации.
+DestinationCharacterName AssetName returns to vibration level 1.
+AssetName DestinationCharacterName возвращаются к уровню вибрации 1.
+DestinationCharacterName AssetName slows down to vibration level 2.
+AssetName DestinationCharacterName замедляются до уровня вибрации 2.
+The special mode on DestinationCharacter AssetName deactivates, allowing orgasms again.
+Специальный режим на DestinationCharacter AssetName деактивируется, позволяя снова испытать оргазм.
+The edging mode on DestinationCharacter AssetName activates, preventing orgasms no matter what.
+На AssetName DestinationCharacter активируется режим удержания, предотвращающий оргазм, несмотря ни на что.
+The denial mode on DestinationCharacter AssetName activates, teasing them endlessly.
+Режим запрета на DestinationCharacter AssetName активируется, дразня бесконечно.
+DestinationCharacter AssetName are set to shock level 1.
+DestinationCharacter AssetName настроены на уровень шока 1.
+DestinationCharacter AssetName are set to shock level 2.
+DestinationCharacter AssetName настроены на уровень шока 2.
+DestinationCharacter AssetName are set to shock level 3.
+DestinationCharacter AssetName настроены на уровень шока 3.
 The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties open.
 Передние и задние щиты целомудрия на DestinationCharacter научно-фантастических трусиках открыты.
 The front chastity shields on DestinationCharacter sci-fi pleasure panties closes.
@@ -4406,6 +4480,12 @@ SourceCharacter releases the belts on DestinationCharacter thighs and buckles th
 SourceCharacter отпускает ремни на бедрах DestinationCharacter и застегивает ремни на ее лодыжках.
 SourceCharacter releases the belts on DestinationCharacter ankles and buckles the belts on her thighs
 SourceCharacter отпускает ремни на лодыжках DestinationCharacter и застегивает ремни на бедрах.
+SourceCharacter sets DestinationCharacter shock unit to low intensity.
+SourceCharacter устанавливает DestinationCharacter уровень шока на низкую интенсивность.
+SourceCharacter sets DestinationCharacter shock unit to moderate intensity.
+SourceCharacter устанавливает DestinationCharacter уровень шока на среднию интенсивность.
+SourceCharacter sets DestinationCharacter shock unit to high intensity.
+SourceCharacter устанавливает DestinationCharacter уровень шока на высокую интенсивность.
 Configure straitjacket
 Настроить смирительную рубашку
 Configure crotch panel
@@ -4474,41 +4554,41 @@ Hidden
 Скрытый
 Visible
 Видимый
-DestinationCharacterName clothes are now hidden when wearing their AssetName.
+DestinationCharacterName clothes are now hidden when wearing TargetPronounPossessive AssetName.
 Одежда DestinationCharacterName теперь скрыта при ношении AssetName .
-DestinationCharacterName clothes are now visible when wearing their AssetName.
+DestinationCharacterName clothes are now visible when wearing TargetPronounPossessive AssetName.
 Одежда DestinationCharacterName теперь видна при ношении AssetName .
-DestinationCharacterName torso items are now hidden when wearing their AssetName.
+DestinationCharacterName torso items are now hidden when wearing TargetPronounPossessive AssetName.
 Предметы торса DestinationCharacterName теперь скрыты при ношении AssetName .
-DestinationCharacterName torso items are now visible when wearing their AssetName.
+DestinationCharacterName torso items are now visible when wearing TargetPronounPossessive AssetName.
 Предметы торса DestinationCharacterName теперь видны при ношении их AssetName .
-DestinationCharacterName breast items are now hidden when wearing their AssetName.
+DestinationCharacterName breast items are now hidden when wearing TargetPronounPossessive AssetName.
 Нагрудные предметы DestinationCharacterName теперь скрыты при ношении AssetName .
-DestinationCharacterName breast items are now visible when wearing their AssetName.
+DestinationCharacterName breast items are now visible when wearing TargetPronounPossessive AssetName.
 Нагрудные предметы DestinationCharacterName теперь видны при ношении AssetName .
-DestinationCharacterName pelvis and vulva items are now hidden when wearing their AssetName.
+DestinationCharacterName pelvis and vulva items are now hidden when wearing TargetPronounPossessive AssetName.
 Предметы таза и вульвы DestinationCharacterName теперь скрыты при ношении AssetName .
-DestinationCharacterName pelvis and vulva items are now visible when wearing their AssetName.
+DestinationCharacterName pelvis and vulva items are now visible when wearing TargetPronounPossessive AssetName.
 Предметы таза и вульвы DestinationCharacterName теперь видны при ношении AssetName .
 Choose where the arms are restrained.
 Выберите, где руки ограничены.
 Arms front
 Передние руки
-DestinationCharacter clothes are now hidden when wearing their leotard.
-Одежда DestinationCharacter теперь скрыта, когда она носит купальник.
-DestinationCharacter clothes are now visible when wearing their leotard.
-Одежда DestinationCharacter теперь видна, когда она носит купальник.
-DestinationCharacter torso items is now hidden when wearing their leotard.
+DestinationCharacter clothes are now hidden when wearing TargetPronounPossessive leotard.
+Одежда DestinationCharacter теперь скрыта, когда TargetPronounPossessive носит купальник.
+DestinationCharacter clothes are now visible when wearing TargetPronounPossessive leotard.
+Одежда DestinationCharacter теперь видна, когда TargetPronounPossessive носит купальник.
+DestinationCharacter torso items is now hidden when wearing TargetPronounPossessive leotard.
 Предметы туловища DestinationCharacter назначения теперь скрыты при ношении купальника.
-DestinationCharacter torso items is now visible when wearing their leotard.
-Предметы туловища DestinationCharacter назначения теперь видны, когда он носит купальник.
-DestinationCharacter breast items are now hidden when wearing their leotard.
+DestinationCharacter torso items is now visible when wearing TargetPronounPossessive leotard.
+Предметы туловища DestinationCharacter назначения теперь видны, когда TargetPronounPossessive носит купальник.
+DestinationCharacter breast items are now hidden when wearing TargetPronounPossessive leotard.
 Нагрудные элементы DestinationCharacter теперь скрыты при ношении купальника.
-DestinationCharacter breast items are now visible when wearing their leotard.
+DestinationCharacter breast items are now visible when wearing TargetPronounPossessive leotard.
 Нагрудные элементы DestinationCharacter теперь видны при ношении купальника.
-DestinationCharacter pelvis and vulva items are now hidden when wearing their leotard.
+DestinationCharacter pelvis and vulva items are now hidden when wearing TargetPronounPossessive leotard.
 Таз и вульва DestinationCharacter теперь скрыты при ношении купальника.
-DestinationCharacter pelvis and vulva items are now visible when wearing their leotard.
+DestinationCharacter pelvis and vulva items are now visible when wearing TargetPronounPossessive leotard.
 Таз и вульва DestinationCharacter теперь видны при ношении купальника.
 DestinationCharacter arms are now in front of them.
 Руки DestinationCharacter теперь перед ними.
@@ -4930,6 +5010,12 @@ SourceCharacter gives TargetCharacter a cute Pony teddy.
 SourceCharacter дает TargetCharacter милого плюшевого пони.
 Page
 Страница
+Tightness
+Напряженность
+Tighten
+Затянуть
+Loosen
+Ослабить
 Set the height
 Установите высоту
 % of full height:
@@ -5093,7 +5179,7 @@ Favorite (yours)
 Favorite (theirs & yours)
 Любимый (их и твоё)
 Held
-Held
+Удерживать
 Lovers only
 Только возлюбленные
 Owner only
@@ -5102,6 +5188,26 @@ Automatically locks
 Автоматически запирает
 Allowed Limited Item
 Только ограниченне предметы
+Lightly gags
+Легкое затыкание
+Gags
+Затыкание
+Heavily gags
+Суровое затыкание
+Totally gags
+Максимальное затыкание
+Lightly deafens
+Легкое оглушение
+Deafens
+Оглушение
+Heavily deafens
+Суровое оглушение
+Lightly blinds
+Легкое ослепление
+Blinds
+Ослепление
+Heavily blinds
+Суровое ослепление
 Cannot use this option when wearing the item
 Невозможно использовать эту опцию при ношении предмета
 Configure Collar
@@ -5160,12 +5266,12 @@ SourceCharacter engraved “NewText” on DestinationCharacter obedience belt.
 SourceCharacter выгравирует "NewText" на поясе послушания DestinationCharacter .
 SourceCharacter erases the engraving on DestinationCharacter obedience belt.
 SourceCharacter стирает гравировку с пояа послушания DestinationCharacter .
-The obedience belt on SourceCharacter shocks her.
-Пояс послушания на SourceCharacter шокирует её.
-The obedience belt on SourceCharacter shocks her for having an orgasm.
-Пояс послушания на SourceCharacter шокирует ее за то, что она испытала оргазм.
-The obedience belt on SourceCharacter shocks her for standing up.
-Пояс послушания на SourceCharacter шокирует ее за то, что она попыталась встать.
+The obedience belt on SourceCharacter shocks TargetPronounObject.
+Пояс послушания на SourceCharacter шокирует TargetPronounObject.
+The obedience belt on SourceCharacter shocks TargetPronounObject for having an orgasm.
+Пояс послушания на SourceCharacter шокирует TargetPronounObject за то, что он/а испытал/а оргазм.
+The obedience belt on SourceCharacter shocks TargetPronounObject for standing up.
+Пояс послушания на SourceCharacter шокирует TargetPronounObject за то, что он/а попытался/ась встать.
 Slender
 Тонкий
 Choker
@@ -5298,6 +5404,8 @@ Holes
 Отверстия
 Sculpted
 Скульптурная
+Subtle
+Утонченная
 Concave
 Вогнутый
 SourceCharacter changes the eyes on DestinationCharacter smooth latex mask.
@@ -5350,6 +5458,26 @@ Total Hood
 Тотальный капюшон
 SourceCharacter changes the coverage of DestinationCharacter smooth latex mask.
 SourceCharacter изменяет внешний вид гладкой латексной маски DestinationCharacter .
+Adv. Layering
+Доп. вложения
+Advanced Layering
+Дополнительные вложения
+All Hidden
+Все скрыто
+Right Gag Visible
+Правый кляп виден
+All Gags Visible
+Все кляпы видны
+Blindfold Visible
+Повязки видны
+Blindfold and Right
+Повязки и правый кляп
+All Visible
+Все видно
+SourceCharacter adjusts the visibility of gags on DestinationCharacter smooth latex mask.
+SourceCharacter регулирует видимость кляпов на DestinationCharacter гладкой латексной маске.
+SourceCharacter adjusts the visibility of gags and blindfolds on DestinationCharacter smooth latex mask.
+SourceCharacter регулирует видимость кляпов и повязок на DestinationCharacter гладкой латексной маске.
 Freckles
 Веснушки
 Nose Freckles
@@ -5898,6 +6026,8 @@ Clean
 Чистый
 Sign text
 Текст на знаке
+Hanging
+Подвешивание
 Post It
 Объявление
 No PostIt
@@ -6277,24 +6407,106 @@ Select Mouth Panel
 Выбор панели рта
 Mouth Panel
 Панель рта
+Solid Opaque
+сплошной непрозрачный
+Pinholes Opaque
+дырочки непрозрачное
 No Mouth
 Нет рта
 Pinhole
-Булавочное отверстие
+дырочка
+Pinhole Opaque
+дырочка непрозрачный
 Round Mouth
 Круглый рот
+Round Opaque Open
+круглый непрозрачный открытый
 Shaped Mouth
 Форма рта
+Shaped Opaque Open
+фигурный непрозрачный открытый
+Solid Transparent
+сплошной прозрачный
+Pinholes Transparent
+дырочки прозрачное
+Pinhole Transparent
+дырочка прозрачный
+Round Transparent Open
+круглый прозрачный открытый
+Shaped Transparent Open
+фигурный прозрачный открытый
+Round Opaque Fill
+круглый непрозрачный заливка
+Round Opaque Fill w/ Pinholes
+круглый непрозрачный, заливка+дырочки
+Round Opaque Fill w/ Pinhole
+круглый непрозрачный, заливка+дырочка
+Round Opaque Fill Transparent
+круглый непрозрачный, заливка прозрачная
+Round Opaque Fill Transparent w/ Pinholes
+круглый непрозрачный, заливка прозрачная+дырочки
+Round Opaque Fill Transparent w/ Pinhole
+круглый непрозрачный, заливка прозрачная+дырочка
+Shaped Opaque Fill
+фигурный непрозрачный заливка
+Shaped Opaque Fill w/ Pinholes
+фигурный непрозрачный заливка+дырочки
+Shaped Opaque Fill w/ Pinhole
+фигурный непрозрачный заливка+дырочка
+Shaped Opaque Fill Transparent
+фигурный непрозрачный, заливка прозрачная
+Shaped Opaque Fill Transparent w/ Pinholes
+фигурный непрозрачный, заливка прозрачная+дырочки
+Shaped Opaque Fill Transparent w/ Pinhole
+фигурный непрозрачный, заливка прозрачная+дырочка
+Round Transparent Fill Opaque
+круглый прозрачный, заливка непрозрачная
+Round Transparent Fill Opaque w/ Pinholes
+круглый прозрачный, заливка непрозрачная+дырочки
+Round Transparent Fill Opaque w/ Pinhole
+круглый прозрачный, заливка непрозрачная+дырочка 
+Round Transparent Fill
+круглый прозрачный заливка
+Round Transparent Fill w/ Pinholes
+круглый прозрачный, заливка+дырочки
+Round Transparent Fill w/ Pinhole
+круглый прозрачный, заливка+дырочка 
+Shaped Transparent Fill Opaque
+фигурный прозрачный, заливка непрозрачная
+Shaped Transparent Fill Opaque w/ Pinholes
+фигурный прозрачный, заливка непрозрачная+дырочка
+Shaped Transparent Fill Opaque w/ Pinhole
+фигурный прозрачный, заливка непрозрачная+дырочки
+Shaped Transparent Fill
+фигурный прозрачный заливка
+Shaped Transparent Fill w/ Pinholes
+фигурный прозрачный, заливка+дырочки
+Shaped Transparent Fill w/ Pinhole
+фигурный прозрачный, заливка+дырочка
 No Mouth - Transparent
 Без рта - прозрачный
 Pinhole - Transparent
-Булавочное отверстие - прозрачный
+дырочка - прозрачный
 Round Mouth - Transparent
 Круглый рот - прозрачный
 Shaped Mouth - Transparent
 Форма рта - прозрачный
+Fishnet
+Сеточка
+Circle Opaque
+Кольцо непрозрачное
+Circle Transparent
+Кольцо Прозрачное
+Circle Opaque Fill Opaque
+Кольцо Непрозрачное заливка непрозрачная
+Circle Transparent Fill Opaque
+Кольцо Прозрачное заливка непрозрачная
+Circle Opaque Fill Transparent
+Кольцо Непрозрачное заливка прозрачная
+Circle Transparent Fill Transparent
+Кольцо Прозрачная заливка прозрачная
 SourceCharacter changes the mouth panel on DestinationCharacter latex hood.
-SourceCharacter изменяет панель рта на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет панель рта на DestinationCharacter латексном капюшоне.
 Select Eye Panel
 Выберите панели глаз
 Eye Panel
@@ -6302,7 +6514,7 @@ Eye Panel
 No Eyeholes
 Без отверстий
 Pinholes
-Булавочные отверстия
+дырочки
 Round Eyes
 Круглые глаза
 Shaped Eyes
@@ -6310,39 +6522,51 @@ Shaped Eyes
 No Eyeholes - Transparent
 Без отверстий - прозрачный
 Pinholes - Transparent
-Булавочные отверстия - прозрачные
+дырочки - прозрачные
 Round Eyes - Transparent
 Круглые глаза - прозрачные
 Shaped Eyes - Transparent
 Форма глаз - прозрачные
 SourceCharacter changes the eye panel on DestinationCharacter latex hood.
-SourceCharacter изменяет панель глаз на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет панель глаз на DestinationCharacter латексном капюшоне.
 Select Head Panel
 Выберите панель головы
 Head Panel
 Панель головы
 SourceCharacter changes the head panel on DestinationCharacter latex hood.
-SourceCharacter изменяет панель головы на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет панель головы на DestinationCharacter латексном капюшоне.
 Select Mouth Panel Fill
 Выберите заполнение панели рта
 Mouth Panel Fill
 Заполнение панели рта
 Opaque with Pinhole
-Непрозрачное с булавочным отверстием
+Непрозрачное с дырочками
 Transparent with Pinhole
 Прозрачное с булавочным отверстием
+Circle Opaque Open
+Кольцо непрозрачное открытый
+Circle Transparent Open
+Кольцо Прозрачное открытый
+Circle Opaque Fill
+Кольцо Непрозрачное заливка
+Circle Opaque Fill Transparent
+Кольцо Непрозрачное заливка прозрачная
+Circle Transparent Fill Opaque
+Кольцо Прозрачное заливка непрозрачная
+Circle Transparent Fill
+Кольцо Прозрачное заливка
 SourceCharacter changes the mouth panel fill on DestinationCharacter latex hood.
-SourceCharacter изменяет заполнение панели рта на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет заполнение панели рта на DestinationCharacter латексном капюшоне.
 Select Eye Panel Fill
 Выберите заполнение панели глаз
 Eye Panel Fill
 Заполнение панели глаз
 Opaque with Pinholes
-Непрозрачное с булавочными отверстиями
+Непрозрачное с дырочками
 Transparent with Pinholes
-Прозрачное с булавочными отверстиями
+Прозрачное с дырочками
 SourceCharacter changes the eye panel fill on DestinationCharacter latex hood.
-SourceCharacter изменяет заполнение панели глаз на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет заполнение панели глаз на DestinationCharacter латексном капюшоне.
 Select Hair Options
 Выберите варианты прически
 Hair Options
@@ -6356,7 +6580,7 @@ Show Back Hair Only
 Hide Hair and Accessories
 Скрыть волосы и аксессуары
 SourceCharacter changes the hair opening on DestinationCharacter latex hood.
-SourceCharacter изменяет отверстие для волос на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет отверстие для волос на DestinationCharacter латексном капюшоне.
 Select Hood Cover Options
 Выберите варианты покрытия капюшона
 Hood Cover
@@ -6372,7 +6596,9 @@ Open Transparent Hood Cover
 Closed Transparent Hood Cover
 Закрытое прозрачное покрытие
 SourceCharacter changes the hood cover on DestinationCharacter latex hood.
-SourceCharacter изменяет покрытие капюшона на латексном капюшоне DestinationCharacter.
+SourceCharacter изменяет покрытие капюшона на DestinationCharacter латексном капюшоне.
+Select ears
+Выберите уши
 Configure the game
 Настройте игру
 Configure
@@ -6433,3 +6659,237 @@ SourceCharacter grabs DestinationCharacter lucky wheel and spins it!
 SourceCharacter хватается за колесо удачи DestinationCharacter и крутит его!
 SourceCharacter's lucky wheel clicked wildly until it finally stopped on “SectionName”.
 SourceCharacter's колесо удачи бешено щелкало, пока, наконец, не остановилось на “SectionName”.
+Select Hoodie Options
+Выберите варианты толстовки
+Select Hood Position and Shape
+Выберите положение и форму капюшона
+Hood Down
+Капюшон опущен
+Hood Up - Regular
+Капюшон - поднят
+Hood Up - Pet Ears
+Капюшон поднят (с ушками)
+SourceCharacter adjusts the hood of DestinationCharacter hoodie
+SourceCharacter поправляет капюшон худи на DestinationCharacter
+Select Hoodie Length
+Выберите длину худи
+Length
+Длина
+Cropped
+по живот
+Bolero
+по груди
+SourceCharacter adjusts the length of DestinationCharacter hoodie.
+SourceCharacter регулирует длину худи на DestinationCharacter.
+Hands in or out of the Pouch?
+Руки в карманах или нет?
+Pouch
+Карманы
+Hands Out
+Руки наружу
+Hands In
+Руки внутри
+SourceCharacter takes DestinationCharacter hands out of the hoodie's pouch.
+SourceCharacter достает руки  DestinationCharacter из карманов толстовки.
+SourceCharacter puts DestinationCharacter hands into the hoodie's pouch.
+SourceCharacter засовывает руки DestinationCharacter  в карманы толстовки.
+Change Text:
+Изменить текст:
+Choose Lipstick Marks
+Выберите след помады
+Left Cheek?
+Левая щека?
+Right Cheek?
+Правая щека?
+Forehead?
+Лоб?
+Neck Right?
+Справа на шее?
+Neck Left?
+Слева на шее?
+Left Cheek
+Левая щека
+Right Cheek
+Правая щека
+Forehead
+Лоб
+Neck Right
+Справа на шее
+Neck Left
+Слева на шее
+No
+Нет
+Yes
+Да
+Select Piercings
+Выберите пирсинг
+Right Ear
+Правое ухо
+Left Ear
+Левое ухо
+Face
+Лицо
+Select Right Ear Piercings
+Выберите пирсинг на правом ухе
+Select Left Ear Piercings
+Выберите пирсинг на левом ухе
+Select Nose Piercings
+Выберите пирсинг носа
+Select Facial Piercings
+Выберите пирсинг лица
+Stud
+Штиф
+Hoop
+Обруч
+Large Stud
+Большой штиф
+Two Studs
+Два штифа
+Three Studs
+Три штифа
+Two Rings
+Два кольца
+Three Rings
+Три кольца
+Cartilage
+Хрящ
+Industrial Mix
+Индустриальный микс
+Septum Ring
+Кольцо в перегородке
+Left Stud
+Левый штиф
+Right Stud
+Правый штиф
+Left Ring
+Кольцо слева
+Right Ring
+Кольцо справа
+Double Dermals
+Два века
+Left Dermals
+Левое веко
+Right Dermals
+Правое веко
+Bridge Piercing
+Пирсинг переносицы
+Left Monroe
+Монро слева
+Right Monroe
+Монро справа
+Cheek Studs
+Штифы в щеки
+Cheeks and Bridge
+Щеки и переносица
+Bridge and Dermals
+Переносица и веки
+Dermals and Cheeks
+Веки и щеки
+Cheeks Bridge and Dermals
+Щеки, веки и переносица 
+Customise Navel Bar.
+Настройте пирсинг пупка.
+Choose Chain Option.
+Выберите вариант цепочки.
+Choose Jewel Option.
+Выберите вариант драгоценности.
+Single Chain
+Одиночная цепь
+Waist Chain
+Цепочка на талию
+SourceCharacter removes the chain from DestinationCharacter navel bar.
+SourceCharacter удаляет цепочку из DestinationCharacter пирсинга пупка.
+SourceCharacter adds a single chain to DestinationCharacter navel bar.
+SourceCharacter добавляет одну цепочку к DestinationCharacter пирсингу пупка.
+SourceCharacter adds a waist chain to DestinationCharacter navel bar.
+SourceCharacter добавляет поясную цепочку к DestinationCharacter пирсингу пупка.
+SourceCharacter removes the jewel from DestinationCharacter navel bar.
+SourceCharacter удаляет драгоценный камень из DestinationCharacter пирсинга пупка.
+SourceCharacter adds a jewel to DestinationCharacter navel bar.
+SourceCharacter добавляет драгоценный камень на DestinationCharacter пирсинг пупка.
+Select Piercing Options
+Выберите параметры пирсинга
+Select Lip Piercings
+Выбирите пирсинг губ
+Lips
+Губы
+Middle Ring
+Кольцо посредине
+Left Ring
+Кольцо слева
+Right Ring
+Кольцо справа
+Rings Both Sides
+Кольца с обеих сторон
+Triple Rings
+Три кольца
+Labret
+Штиф
+Labret and Rings
+Штиф и кольца
+Select Tongue Piercings
+Выбирите пирсинг языка
+Tongue
+Язык
+Single Stud
+Одиночный штиф
+Double Studs
+Двойной штиф
+SourceCharacter tightens the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter затягивает PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter loosens the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter ослабляет PrevAsset на DestinationCharacter FocusAssetGroup.
+SourceCharacter slips out of TargetPronounPossessive PrevAsset.
+SourceCharacter выскальзывает из TargetPronounPossessive PrevAsset.
+SourceCharacter hops off the PrevAsset.
+SourceCharacter спрыгивает с PrevAsset.
+SourceCharacter escapes from the PrevAsset.
+SourceCharacter высвобождается PrevAsset.
+Weight
+Груз
+Bell
+Колокольчик
+Harem Chains
+Гаремная цепь
+SourceCharacter removes addons from DestinationCharacter clit piercing.
+SourceCharacter удаляет вложения из DestinationCharacter пирсинга клитора.
+SourceCharacter adds a small weight onto DestinationCharacter clit piercing.
+SourceCharacter добавляет небольшой вес к DestinationCharacter пирсингу клитора.
+SourceCharacter adds a small bell onto DestinationCharacter clit piercing.
+SourceCharacter добавляет небольшой колокольчик к DestinationCharacter пирсингу клитора.
+SourceCharacter links DestinationCharacter clit piercing to TargetPronounPossessive nipple rings with a chain.
+SourceCharacter связывает DestinationCharacter пирсинг клитора с TargetPronounPossessive кольцами для сосков с цепочкой.
+SourceCharacter links DestinationCharacter clit piercing to TargetPronounPossessive nipple rings with a small veiled chain.
+SourceCharacter связывает DestinationCharacter пирсинг клитора с кольцами сосков TargetPronounPossessive с небольшой вуальной цепочкой.
+Select Eyebrow Options
+Выберите варианты бровей
+Style
+Стиль
+Right Piercing
+Пирсинг справа
+Left Piercing
+Пирсинг слева
+Select Eyebrow Style
+Выберите стиль бровей
+Select Right Eyebrow Piercing
+Выберите пирсинг правой брови
+Select Left Eyebrow Piercing
+Выберите пирсинг левой брови
+Eyebrows2
+Брови 2
+Eyebrows3
+Брови 3
+Eyebrows4
+Брови 4
+Eyebrows5
+Брови 5
+Eyebrows6
+Брови 6
+Single Bar
+Одинарный стержень
+Double Bar
+Двойной стержень
+Single Ring
+Одинарное кольцо
+Double Ring
+Двойное кольцо
