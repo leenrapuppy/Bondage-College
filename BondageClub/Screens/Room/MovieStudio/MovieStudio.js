@@ -1012,6 +1012,7 @@ function MovieStudioDoActivity(Activity) {
 	}
 	if (Activity == "OpenHouseActor2Wand") {
 		InventoryWear(MovieStudioActor2, "VibratingWand", "ItemHandheld");
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 4);
 		MovieStudioActor1.Stage = MovieStudioActor2.Stage;
 	}
 	if ((Activity == "OpenHouseActor2Moan") || (Activity == "OpenHouseActor2Stare") || (Activity == "OpenHouseActor2Wiggle") || (Activity == "OpenHouseActor2Hips")) {
@@ -1038,6 +1039,18 @@ function MovieStudioDoActivity(Activity) {
 			MovieStudioActor1.CurrentDialog = DialogFind(MovieStudioActor1, "OrgasmWandAct2");
 			MovieStudioChangeMeter(25);
 		}
+	}
+	if (Activity == "OpenHouseStartGirlfriendNaked") {
+		MovieStudioActor1.Stage = "1340";
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 4);
+	}
+	if (Activity == "OpenHouseConvinceNaked") {
+		MovieStudioActor2.Stage = "1350";
+		CharacterNaked(MovieStudioActor1);
+		InventoryRemove(MovieStudioActor1, "ItemHandheld");
+		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 5);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 5);
 	}
 
 	// Check for decay
