@@ -225,7 +225,7 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Options: [
 					{
-						Name: "Loose", 
+						Name: "Loose",
 						Property: {Type: "Loose"},
 					},
 					{
@@ -9276,16 +9276,16 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Gloves",
+						Name: "OpaqueGloves",
 						Property: {
-							Type: "Gloves",
+							Type: "OpaqueGloves",
 							Hide: ["Hands"],
 						},
 					},
 					{
-						Name: "AltGloves",
+						Name: "TransparentGloves",
 						Property: {
-							Type: "AltGloves",
+							Type: "TransparentGloves",
 						},
 					},
 				],
@@ -9315,15 +9315,15 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
-						Name: "Gloves",
+						Name: "TransparentGloves",
 						Property: {
-							Type: "Gloves",
+							Type: "TransparentGloves",
 						},
 					},
 					{
-						Name: "AltGloves",
+						Name: "OpaqueGloves",
 						Property: {
-							Type: "AltGloves",
+							Type: "OpaqueGloves",
 							Hide: ["Hands"],
 						},
 					},
