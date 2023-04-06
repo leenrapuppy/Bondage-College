@@ -14,6 +14,8 @@ var InfiltrationTarget = null;
 var InfiltrationCollectRansom = false;
 /** @type {NPCCharacter} */
 var InfiltrationKidnapper = null;
+/** @type {NPCCharacter} */
+var InfiltrationPrivatePandoraInfiltrator = null;
 
 /**
  * Returns TRUE if the mission can complete as a success
@@ -58,6 +60,13 @@ function InfiltrationCatBurglarHasMoney() { return (PandoraMoney > 0); }
 function InfiltrationReverseMaidCanComplete() { return (PandoraReverseMaidDone * 2 >= PandoraReverseMaidTotal); }
 
 /**
+ * Returns TRUE if the player has captured at least 1 infiltrator from Pandora and has reached 5 infiltration
+ * @returns (boolean) - TRUE if successful
+ */
+function InfiltrationPrivatePrisonerPresent() { return InfiltrationPrivatePandoraInfiltrator != null && SkillGetLevel(Player, "Infiltration") >= 5;}
+
+
+/**
  * Loads the infiltration screen by generating the supervisor.
  * @returns {void} - Nothing
  */
@@ -89,6 +98,13 @@ function InfiltrationLoad() {
 	// Make sure the infiltration data is setup
 	if (Player.Infiltration == null) Player.Infiltration = {};
 	if (Player.Infiltration.Perks == null) Player.Infiltration.Perks = "";
+	
+	// If there's a private room character from Pandora captured while attempting to kidnap player, set the character. Sets right most character.
+	for (let i=1;i<PrivateCharacter.length;i++) {
+		if (PrivateCharacter[i].FromPandora) {
+			InfiltrationPrivatePandoraInfiltrator = PrivateCharacter[i];
+		}
+	}
 
 }
 
@@ -440,4 +456,31 @@ function InfiltrationDressMaid(Rep) {
 	PandoraDress(Player, "Maid");
 	if (Rep != "0") ReputationProgress("Dominant", parseInt(Rep));
 	PandoraClothes = "Maid";
+}
+
+/**
+ * Takes captured infiltrator for brainwashing.
+ * @returns {void} - Nothing
+ */
+
+function InfiltrationPrivatePrisonerBrainwash() {
+	var C = InfiltrationPrivatePandoraInfiltrator;
+	//Hide character for 3 days
+	NPCEventAdd(C, "NPCBrainwashing", CurrentTime + 259200000);
+	//Remove Pandora flag
+	C.FromPandora = false;
+	//Enslave to player
+	NPCEventDelete(C, "EndSubTrial");
+	NPCEventAdd(C, "NPCCollaring", CurrentTime);
+	C.Owner = Player.Name;
+	InventoryWear(C, "SlaveCollar", "ItemNeck");
+	CharacterNaked(C);
+	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 100-150)
+	var S = Math.floor(Math.random()*10) + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
+	var T = NPCTraitGet(C, "Dominant") - S;
+	if (T < -100) { T = -100 };
+	NPCTraitSet(C, "Dominant", T);
+	//Neutralize love
+	C.Love = 0;
+	ServerPrivateCharacterSync();
 }

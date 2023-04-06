@@ -576,20 +576,28 @@ function PrivateDrawCharacter() {
 				// If the character is sent to the asylum, she won't show in the room but her slot is still taken
 				if (NPCEventGet(PrivateCharacter[C], "AsylumSent") <= CurrentTime) {
 
-					// If the character is kidnapped by Pandora's Box, a ransom note will be shown
-					if (NPCEventGet(PrivateCharacter[C], "Kidnap") <= CurrentTime) {
+					// If the character is being brainwashed by the Infiltration team, she wont' show in the room but her slot is still taken
+					if (NPCEventGet(PrivateCharacter[C], "NPCBrainwashing") <= CurrentTime) {
+						// If the character is kidnapped by Pandora's Box, a ransom note will be shown
+						if (NPCEventGet(PrivateCharacter[C], "Kidnap") <= CurrentTime) {
 
-						// Draw the NPC and the cage if needed
-						if (PrivateCharacter[C].Cage != null) DrawImage("Screens/Room/Private/CageBack.png", X + (C - PrivateCharacterOffset) * 470, 0);
-						DrawCharacter(PrivateCharacter[C], X + (C - PrivateCharacterOffset) * 470, 0, 1);
-						if (PrivateCharacter[C].Cage != null) DrawImage("Screens/Room/Private/CageFront.png", X + (C - PrivateCharacterOffset) * 470, 0);
-						if (LogQuery("Cage", "PrivateRoom") && !LogQuery("BlockCage", "Rule"))
-							if ((!Player.Cage) || (C == 0))
-								if (!PrivateCharacter[C].IsOwner())
-									DrawButton(X + 205 + (C - PrivateCharacterOffset) * 470, 900, 90, 90, "", "White", "Icons/Cage.png");
+							// Draw the NPC and the cage if needed
+							if (PrivateCharacter[C].Cage != null) DrawImage("Screens/Room/Private/CageBack.png", X + (C - PrivateCharacterOffset) * 470, 0);
+							DrawCharacter(PrivateCharacter[C], X + (C - PrivateCharacterOffset) * 470, 0, 1);
+							if (PrivateCharacter[C].Cage != null) DrawImage("Screens/Room/Private/CageFront.png", X + (C - PrivateCharacterOffset) * 470, 0);
+							if (LogQuery("Cage", "PrivateRoom") && !LogQuery("BlockCage", "Rule"))
+								if ((!Player.Cage) || (C == 0))
+									if (!PrivateCharacter[C].IsOwner())
+										DrawButton(X + 205 + (C - PrivateCharacterOffset) * 470, 900, 90, 90, "", "White", "Icons/Cage.png");
 
-					} else DrawImage("Screens/Room/PrivateRansom/RansomNote.png", X + 160 + (C - PrivateCharacterOffset) * 470, 375);
+						} else DrawImage("Screens/Room/PrivateRansom/RansomNote.png", X + 160 + (C - PrivateCharacterOffset) * 470, 375);
+					} else {
 
+						// Draw the "X being interrogated" text
+						DrawText(PrivateCharacter[C].Name, X + 235 + (C - PrivateCharacterOffset) * 470, 420, "White", "Black");
+						DrawText(TextGet("Brainwash3Day"), X + 235 + (C - PrivateCharacterOffset) * 470, 500, "White", "Black");
+
+					}
 				} else {
 
 					// Draw the "X in the asylum for a day" text
@@ -707,7 +715,7 @@ function PrivateClickCharacterButton() {
 
 		// The cage is only available on certain conditions
 		if ((MouseX >= X + 205 + (C - PrivateCharacterOffset) * 470) && (MouseX <= X + 295 + (C - PrivateCharacterOffset) * 470) && !PrivateCharacter[C].PrivateBed)
-			if ((NPCEventGet(PrivateCharacter[C], "SlaveMarketRent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "AsylumSent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "Kidnap") <= CurrentTime))
+			if ((NPCEventGet(PrivateCharacter[C], "SlaveMarketRent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "AsylumSent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "NPCBrainwashing") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "Kidnap") <= CurrentTime))
 				if (LogQuery("Cage", "PrivateRoom") && !LogQuery("BlockCage", "Rule"))
 					if ((!Player.Cage) || (C == 0))
 						if (!PrivateCharacter[C].IsOwner()) {
@@ -746,7 +754,7 @@ function PrivateClickCharacter() {
 	// For each character, we find the one that was clicked and open it's dialog
 	for (let C = PrivateCharacterOffset; (C < PrivateCharacter.length && C < PrivateCharacterOffset + 4); C++)
 		if ((MouseX >= X + (C - PrivateCharacterOffset) * 470) && (MouseX <= X + 470 + (C - PrivateCharacterOffset) * 470))
-			if ((NPCEventGet(PrivateCharacter[C], "SlaveMarketRent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "AsylumSent") <= CurrentTime) && !PrivateCharacter[C].PrivateBed) {
+			if ((NPCEventGet(PrivateCharacter[C], "SlaveMarketRent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "AsylumSent") <= CurrentTime) && (NPCEventGet(PrivateCharacter[C], "NPCBrainwashing") <= CurrentTime) && !PrivateCharacter[C].PrivateBed) {
 
 				// If a kidnapping is in progress, we show the ransom note
 				if (NPCEventGet(PrivateCharacter[C], "Kidnap") >= CurrentTime) {
@@ -1902,9 +1910,11 @@ function PrivateRandomBed() {
 	if (!PrivateEntryEvent) return; // Only when the player enters from the main hall
 	if (!PrivateBedActive()) return; // Only if the bed is purchased
 	for (let C of PrivateCharacter)
-		if (C.IsNpc() && (!C.Cage) && (Math.random() < 0.2) && (PrivateBedCount() <= 3) && (NPCTraitGet(C, "Horny") > 0) && (NPCEventGet(C, "NextBed") < CurrentTime)) {
-			CurrentCharacter = C;
-			PrivateEnterBed();
-			CurrentCharacter = null;
+		if ((NPCEventGet(C, "SlaveMarketRent") <= CurrentTime) && (NPCEventGet(C, "AsylumSent") <= CurrentTime) && (NPCEventGet(C, "NPCBrainwashing") <= CurrentTime) && (NPCEventGet(C, "Kidnap") <= CurrentTime)) { // Only if not already occupied
+			if (C.IsNpc() && (!C.Cage) && (Math.random() < 0.2) && (PrivateBedCount() <= 3) && (NPCTraitGet(C, "Horny") > 0) && (NPCEventGet(C, "NextBed") < CurrentTime)) {
+				CurrentCharacter = C;
+				PrivateEnterBed();
+				CurrentCharacter = null;
+			}
 		}
 }
