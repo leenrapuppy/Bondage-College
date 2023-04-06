@@ -312,7 +312,7 @@ type AssetAttribute =
 	"Skirt" |
 	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens" |
-	"PenisLayer"
+	"PenisLayer" | "PenisCover"
 	;
 
 type CraftingStatusType = 0 | 1 | 2;
