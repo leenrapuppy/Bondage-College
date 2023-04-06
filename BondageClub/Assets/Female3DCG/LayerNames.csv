@@ -845,6 +845,14 @@ ItemHoodDroneMaskBarcode,Pattern
 ItemHoodInflatableGagMaskBase,Hood
 ItemHoodInflatableGagMaskMetal,Metal
 ItemHoodInflatableGagMaskLens,Lenses
+ItemHoodLatexDogMaskCollarBand,Collar Band
+ItemHoodLatexDogMaskCollarMetal,Collar Link
+ItemHoodLatexDogMaskBase, Hood
+ItemHoodLatexDogMaskDogMouth, Mouth
+ItemHoodLatexDogMaskLenses, Lenses
+ItemHoodLatexDogMaskLining, Lining
+ItemHoodLatexDogMaskMouthHole, Holes
+ItemHoodLatexDogMaskMuzzleBase, Muzzle
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
