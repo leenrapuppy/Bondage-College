@@ -8049,9 +8049,29 @@ var AssetFemale3DCG = [
 					{Name: "LensTransparent", CopyLayerColor: "Lens", AllowModuleTypes: ["l1"]},
 					{Name: "LensTrim", CopyLayerColor: "Metal", AllowModuleTypes: ["l1","l2"],},
 				],
-			}
+			},
+
+			
+			{
+                Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true,
+                Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+                Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
+                DefaultColor: [],
+                Layer: [
+                    { Name: "CollarBand", Top: 185, Left: 214, HasType: false, AllowModuleTypes: ["c1"]}, 
+                    { Name: "CollarMetal",Top: 143, Left: 172, HasType: false, AllowModuleTypes: ["c1"]},
+					{ Name: "Base", HasType: false, Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [287, 0, 205, 260]] }]},
+                    { Name: "DogMouth", Top: 102, Left: 147, HasType: false, },
+                    { Name: "Lenses", Top: 118, Left: 181, HasType: false, AllowModuleTypes: ["l1"]}, 
+                    { Name: "Lining", Top: 118, Left: 160, HasType: false, },
+                    { Name: "MouthHole", Top: 172, Left: 221, HasType: false, },
+                    { Name: "MuzzleBase", Top: 121, Left: 162, HasType: false, AllowModuleTypes: ["m1"]}, 
+                                     
+				],
+            },
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
+					
 	},
 	{
 		Group: "ItemEars",
