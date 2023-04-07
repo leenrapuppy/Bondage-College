@@ -1022,7 +1022,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Difficulty: 1,
 									Block: ["ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["ItemVulva", "ItemVulvaPiercings"],
+									Hide: ["ItemVulva", "ItemVulvaPiercings", "Pussy"],
 									HideItem: ["ItemButtAnalBeads2"],
 								},
 							},
@@ -1044,16 +1044,16 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Difficulty: 1,
 									Block: ["ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["ItemVulvaPiercings"],
+									Hide: ["ItemVulvaPiercings", "Pussy"],
 									HideItem: ["ItemButtAnalBeads2"],
 								},
 							},
-							{ Property: { Difficulty: 2, Block: ["ItemPelvis"] } }, // s2 - Two crotch straps
+							{ Property: { Difficulty: 2, Block: ["ItemPelvis"], Hide: ["Pussy"], } }, // s2 - Two crotch straps
 							{ // s3 - Three crotch straps
 								Property: {
 									Difficulty: 2,
 									Block: ["ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["ItemVulvaPiercings"],
+									Hide: ["ItemVulvaPiercings", "Pussy"],
 									HideItem: ["ItemButtAnalBeads2"],
 								},
 							},
