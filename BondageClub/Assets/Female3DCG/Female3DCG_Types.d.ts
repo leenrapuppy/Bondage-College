@@ -442,7 +442,7 @@ interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config ex
 	CopyConfig?: { GroupName?: AssetGroupName, AssetName: string };
 }
 
-interface ExtendedItemConfig<OptionType extends ExtendedItemOption | VibratingItemOption | ModularItemOption> {
+interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
@@ -499,22 +499,17 @@ interface ExtendedItemOption {
 	Expression?: ExpressionTrigger[];
 	/** Whether or not the option should open a subscreen in the extended item menu */
 	HasSubscreen?: boolean;
-	/** Whether or not this option can be selected randomly */
-	Random?: boolean;
 	/** Whether or not this option can be selected by the wearer */
 	AllowSelfSelect?: boolean;
-	/** If the option has a subscreen, this can set a particular archetype to use */
-	Archetype?: ExtendedArchetype;
-	/** If the option has an archetype, sets the config to use */
-	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
 	/** A buy group to check for that option to be available */
 	PrerequisiteBuyGroup?: string;
 	/**
-	 * A unique (automatically assigned) identifier of the struct type
-	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
-	 * more extended items have been assigned an arhcetype
+	 * A unique identifier of the struct type.
+	 * Its value must be automatically assigned if it's an archetypical extended item option.
+	 * If it's not, *e.g.* for a custom script hook button that does not alter the item's state,
+	 * then its value must be set `"ExtendedItemOption"`.
 	 */
-	OptionType?: "ExtendedItemOption";
+	OptionType: "ExtendedItemOption" | "TypedItemOption" | "VariableHeightOption" | "ModularItemOption" | "VibratingItemOption";
 	/**
 	 * A callback for dynamically assigning item properties.
 	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
@@ -522,11 +517,38 @@ interface ExtendedItemOption {
 	DynamicProperty?: DynamicPropertyCallback;
 }
 
+/** Extended item option subtype for typed items */
+interface TypedItemOptionBase extends Omit<ExtendedItemOption, "OptionType"> {
+	Property: ItemProperties & Pick<Required<ItemProperties>, "Type">;
+	/** A unique (automatically assigned) identifier of the struct type */
+	OptionType?: "TypedItemOption";
+	/** If the option has a subscreen, this can set a particular archetype to use */
+	Archetype?: ExtendedArchetype;
+	/** If the option has an archetype, sets the config to use */
+	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	/** Whether or not this option can be selected randomly */
+	Random?: boolean;
+}
+
+/** Extended item option subtype for typed items */
+interface TypedItemOption extends TypedItemOptionBase {
+	OptionType: "TypedItemOption";
+}
+
 /** Extended item option subtype for vibrating items */
-interface VibratingItemOption extends Omit<ExtendedItemOption, "OptionType"> {
+interface VibratingItemOption extends ExtendedItemOption {
 	OptionType: "VibratingItemOption";
 	Name: VibratorMode;
 	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity" | "Effect">;
+	/** If the option has a subscreen, this can set a particular archetype to use */
+	Archetype?: ExtendedArchetype;
+	/** If the option has an archetype, sets the config to use */
+	ArchetypeConfig?: ExtendedItemConfig<any>;
+}
+
+/** Extended item option subtype for vibrating items */
+interface VariableHeightOption extends ExtendedItemOption {
+	OptionType: "VariableHeightOption";
 }
 
 /**
@@ -546,7 +568,7 @@ type DynamicPropertyCallback = (property: ItemProperties) => void;
  * depending on the archetype, -1 no such item option config exists.
  * @template OptionType
  */
-interface ExtendedItemChatData<OptionType> {
+interface ExtendedItemChatData<OptionType extends ExtendedItemOption> {
 	C: Character;
 	previousOption: OptionType;
 	newOption: OptionType;
@@ -559,7 +581,7 @@ interface ExtendedItemChatData<OptionType> {
  * @returns {string} - The chat prefix that should be used for this type change
  * @template OptionType
  */
-type ExtendedItemChatCallback<OptionType> = (
+type ExtendedItemChatCallback<OptionType extends ExtendedItemOption> = (
 	chatData: ExtendedItemChatData<OptionType>,
 ) => string;
 
@@ -570,7 +592,7 @@ type ExtendedItemChatCallback<OptionType> = (
  * @returns {string} - The chat prefix that should be used for this type change
  * @template OptionType
  */
-type ExtendedItemNPCCallback<OptionType> = (
+type ExtendedItemNPCCallback<OptionType extends ExtendedItemOption> = (
 	C: Character,
 	Option: OptionType,
 	PreviousOption: OptionType,
@@ -586,9 +608,9 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
 
 /** An object defining all of the required configuration for registering a typed item */
-interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
+interface TypedItemConfig extends ExtendedItemConfig<TypedItemOption> {
 	/** The list of extended item options available for the item */
-	Options?: ExtendedItemOption[];
+	Options?: TypedItemOptionBase[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	DialogPrefix?: {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
@@ -596,9 +618,9 @@ interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
 		/** The dialogue prefix for the name of each option */
 		Option?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
-		Chat?: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		Chat?: string | ExtendedItemChatCallback<TypedItemOption>;
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		Npc?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
+		Npc?: string | ExtendedItemNPCCallback<TypedItemOption>;
 	};
 	/**
 	 * The chat message setting for the item. This can be provided to allow
@@ -615,7 +637,7 @@ interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<TypedItemData, ExtendedItemOption>;
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<TypedItemData, TypedItemOption>;
 }
 
 /**
@@ -628,7 +650,7 @@ interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
  * @param {number} chatData.newIndex - The index of the newly selected type option in the item's options config
  * @returns {[{ Tag: string, Text: string }]} - The dictionary entry to append to the dictionary.
  */
-type ExtendedItemDictionaryCallback<OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption> = (
+type ExtendedItemDictionaryCallback<OptionType extends ExtendedItemOption> = (
 	chatData: ExtendedItemChatData<OptionType>
 ) => ChatMessageDictionaryEntry;
 
@@ -708,39 +730,17 @@ interface ModularItemModule extends ModularItemModuleBase {
 }
 
 /** A (partially parsed) object describing a single option within a module for a modular item. */
-interface ModularItemOptionBase {
+interface ModularItemOptionBase extends Omit<ExtendedItemOption, "OptionType" | "Name"> {
 	/** The additional difficulty associated with this option - defaults to 0 */
 	Difficulty?: number;
-	/** The required bondage skill level for this option */
-	BondageLevel?: number;
-	/** The required self-bondage skill level for this option when using it on oneself */
-	SelfBondageLevel?: number;
-	/** The required prerequisites that must be met before this option can be selected */
-	Prerequisite?: string | string[];
-	/** A custom background for this option that overrides the default */
-	CustomBlindBackground?: string;
 	/** A list of groups that this option blocks - defaults to [] */
 	Block?: AssetGroupItemName[];
 	/** A list of groups that this option hides - defaults to [] */
 	Hide?: AssetGroupName[];
 	/** A list of items that this option hides */
 	HideItem?: string[];
-	/** The Property object to be applied when this option is used */
-	Property?: ItemProperties;
-	/** Whether the option permits locking - if not set, defaults to the AllowLock property of the parent asset */
-	AllowLock?: boolean;
-	/**
-	 * Whether or not it should be possible to change from this option to another
-	 * option while the item is locked (if set to `false`, the player must be able to unlock the item to change its type) -
-	 * defaults to `true`
-	 */
-	ChangeWhenLocked?: boolean;
-	/** Whether or not the option should open a subscreen in the extended item menu */
-	HasSubscreen?: boolean;
 	/** Override height, uses the highest priority of all modules*/
 	OverrideHeight?: AssetOverrideHeight;
-	/** Whether or not this option can be selected by the wearer */
-	AllowSelfSelect?: boolean;
 	/** Whether that option moves the character up */
 	HeightModifier?: number;
 	/** Whether that option applies effects */
@@ -749,19 +749,10 @@ interface ModularItemOptionBase {
 	SetPose?: AssetPoseName;
 	/** A list of activities enabled by that module */
 	AllowActivity?: ActivityName[];
-	/** A buy group to check for that module to be available */
-	PrerequisiteBuyGroup?: string;
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name?: string;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "ModularItemOption";
-	/** Trigger this expression when changing to this option */
-	Expression?: ExpressionTrigger[];
-	/**
-	 * A callback for dynamically assigning item properties.
-	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
-	 */
-	DynamicProperty?: DynamicPropertyCallback;
 	/** The option's (automatically assigned) parent module name */
 	ModuleName?: string;
 	/** The option's (automatically assigned) index within the parent module */
@@ -769,7 +760,7 @@ interface ModularItemOptionBase {
 }
 
 /** An object describing a single option within a module for a modular item. */
-interface ModularItemOption extends ModularItemOptionBase {
+interface ModularItemOption extends ExtendedItemOption, ModularItemOptionBase {
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name: string;
 	/** A unique (automatically assigned) identifier of the struct type */
@@ -817,7 +808,7 @@ type VibratorModeSet = "Standard" | "Advanced";
 /** An object containing the extended item definition for a variable height asset. */
 type VariableHeightAssetConfig = ExtendedItemAssetConfig<"variableheight", VariableHeightConfig>;
 
-interface VariableHeightConfig extends ExtendedItemConfig<ExtendedItemOption> {
+interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> {
 	/** The highest Y co-ordinate that can be set  */
 	MaxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
@@ -829,9 +820,9 @@ interface VariableHeightConfig extends ExtendedItemConfig<ExtendedItemOption> {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
 		Header?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
-		Chat?: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		Chat?: string | ExtendedItemChatCallback<VariableHeightOption>;
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		Npc?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
+		Npc?: string | ExtendedItemNPCCallback<VariableHeightOption>;
 	};
 	/** The function that handles finding the current variable height setting */
 	GetHeightFunction?: (property: ItemProperties) => number | null;
@@ -839,7 +830,7 @@ interface VariableHeightConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	SetHeightFunction?: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
 	DrawImages?: false;
 	ChatSetting?: "default";
-	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VariableHeightData, ExtendedItemOption>;
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VariableHeightData, VariableHeightOption>;
 }
 
 interface VariableHeightSliderConfig {

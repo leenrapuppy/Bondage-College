@@ -265,7 +265,7 @@ function VibratorModeLoad(prefix, IgnoreSubscreen=false) {
 	ExtendedItemLoad(`${prefix}${intensity}`, IgnoreSubscreen);
 }
 
-/** @type {ExtendedItemCallbacks.Validate<ExtendedItemOption | VibratingItemOption | ModularItemOption>} */
+/** @type {ExtendedItemCallbacks.Validate<ExtendedItemOption>} */
 function VibratorModeValidate(C, item, option, currentOption) {
 	if (
 		option.Property

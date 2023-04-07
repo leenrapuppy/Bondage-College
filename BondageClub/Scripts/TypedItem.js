@@ -55,7 +55,7 @@ function TypedItemRegister(asset, config) {
 	const data = TypedItemCreateTypedItemData(asset, config);
 
 	if (IsBrowser()) {
-		/** @type {ExtendedItemCallbackStruct<ExtendedItemOption>} */
+		/** @type {ExtendedItemCallbackStruct<TypedItemOption>} */
 		const defaultCallbacks = {
 			load: () => ExtendedItemLoad(data.dialogPrefix.header),
 			click: () => ExtendedItemClick(data.options, null, data.drawImages),
@@ -74,7 +74,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowHide(data);
 	TypedItemGenerateAllowTint(data);
 	TypedItemGenerateAllowLockType(data);
-	TypedItemRegisterSubscreens(asset, config);
+	TypedItemRegisterSubscreens(asset, data);
 	asset.Extended = true;
 }
 
@@ -95,15 +95,16 @@ function TypedItemCreateTypedItemData(asset, {
 	ScriptHooks,
 	BaselineProperty=null,
 }) {
-	for (const option of Options) {
-		option.OptionType = "ExtendedItemOption";
-	}
+	/** @type {TypedItemOption[]} */
+	const optionsParsed = Options.map(o => {
+		return { ...o, OptionType: "TypedItemOption" };
+	});
 
 	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
 	return TypedItemDataLookup[key] = {
 		asset,
-		options: Options,
+		options: optionsParsed,
 		key,
 		functionPrefix: `Inventory${key}`,
 		dialogPrefix: {
@@ -137,11 +138,11 @@ function TypedItemCreateTypedItemData(asset, {
  * @param {TypedItemData} data
  * @param {Character} C
  * @param {Item} item
- * @param {ExtendedItemOption} newOption
- * @param {ExtendedItemOption} previousOption
+ * @param {TypedItemOption} newOption
+ * @param {TypedItemOption} previousOption
  */
 function TypedItemPublishAction(data, C, item, newOption, previousOption) {
-	/** @type ExtendedItemChatData<ExtendedItemOption> */
+	/** @type {ExtendedItemChatData<TypedItemOption>} */
 	const chatData = {
 		C,
 		previousOption,
@@ -275,10 +276,10 @@ function TypedItemSetAllowLockType(asset, allowLockType, typeCount) {
 
 /**
  * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {TypedItemConfig} config - The parent item's typed item configuration
+ * @param {TypedItemData} data - The parent item's typed item data
  */
-function TypedItemRegisterSubscreens(asset, config) {
-	return config.Options
+function TypedItemRegisterSubscreens(asset, data) {
+	return data.options
 		.filter(option => option.Archetype !== undefined)
 		.forEach((option, i, options) => {
 			switch (option.Archetype) {
@@ -293,7 +294,7 @@ function TypedItemRegisterSubscreens(asset, config) {
  * Returns the options configuration array for a typed item
  * @param {AssetGroupName} groupName - The name of the asset group
  * @param {string} assetName - The name of the asset
- * @returns {ExtendedItemOption[]|null} - The options array for the item, or null if no typed item data was found
+ * @returns {TypedItemOption[]|null} - The options array for the item, or null if no typed item data was found
  */
 function TypedItemGetOptions(groupName, assetName) {
 	const data = TypedItemDataLookup[`${groupName}${assetName}`];
@@ -317,7 +318,7 @@ function TypedItemGetOptionNames(groupName, assetName) {
  * @param {AssetGroupName} groupName - The name of the asset group
  * @param {string} assetName - The name of the asset
  * @param {string} optionName - The name of the option
- * @returns {ExtendedItemOption|null} - The named option configuration object, or null if none was found
+ * @returns {TypedItemOption|null} - The named option configuration object, or null if none was found
  */
 function TypedItemGetOption(groupName, assetName, optionName) {
 	const options = TypedItemGetOptions(groupName, assetName);
@@ -328,7 +329,7 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * Validates a selected option. A typed item may provide a custom validation function. Returning a non-empty string from
  * the validation function indicates that the new option is not compatible with the character's current state (generally
  * due to prerequisites or other requirements).
- * @template {ExtendedItemOption | VibratingItemOption | ModularItemOption} T
+ * @template {ExtendedItemOption} T
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose options are being validated
  * @param {T} option - The new option
@@ -342,13 +343,16 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 		case "ModularItemOption":
 			PermissionFailure = !option.Name.includes("0") && InventoryBlockedOrLimited(C, item, option.Name);
 			break;
+		case "TypedItemOption":
+			PermissionFailure = option.Property && option.Property.Type && InventoryBlockedOrLimited(C, item, option.Property.Type);
+			break;
 		case "VibratingItemOption":
 		case "ExtendedItemOption":
-		default: {
-			const typeField = (option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
-			PermissionFailure = option.Property && option.Property[typeField] && InventoryBlockedOrLimited(C, item, option.Property[typeField]);
+			PermissionFailure = InventoryBlockedOrLimited(C, item, option.Name);
 			break;
-		}
+		default:
+			console.error(`Unsupported extended item option type: ${option.OptionType}`);
+			return "";
 	}
 	if (PermissionFailure) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
@@ -404,7 +408,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 
 /**
  * Sets a typed item's type and properties to the option provided.
- * @template {ExtendedItemOption | VibratingItemOption} T
+ * @template {TypedItemOption | VibratingItemOption} T
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose type to set
  * @param {readonly T[]} options - The typed item options for the item
@@ -432,7 +436,7 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 
 /**
  * Finds the currently set option on the given typed item
- * @template {ExtendedItemOption | VibratingItemOption} T
+ * @template {TypedItemOption | VibratingItemOption} T
  * @param {Item} item - The equipped item
  * @param {readonly T[]} options - The list of available options for the item
  * @param {"Type" | "Mode"} typeField - The name of the item property field containing the item's type (or equivalent thereof)
@@ -462,13 +466,12 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 		return;
 	}
 
-	/** @type {ExtendedItemOption[]} */
 	const allOptions = TypedItemGetOptions(item.Asset.Group.Name, item.Asset.Name);
 	// Avoid blocked & non-random options
 	const availableOptions = allOptions
 		.filter(o => o.Random !== false && !InventoryBlockedOrLimited(C, item, o.Property.Type));
 
-	/** @type {ExtendedItemOption} */
+	/** @type {TypedItemOption} */
 	let option;
 	if (availableOptions.length === 0) {
 		// If no options are available, use the null type

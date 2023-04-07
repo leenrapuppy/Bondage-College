@@ -38,9 +38,9 @@ function InventoryItemNeckAccessoriesCollarNameTagGetXY(Count, X=1000, Y=400) {
 	return XYCoords;
 }
 
-/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, ExtendedItemOption>} */
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, TypedItemOption>} */
 function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(data, OriginalFunction, C, item, newOption, previousOption) {
-	/** @type {ExtendedItemChatData<ExtendedItemOption>} */
+	/** @type {ExtendedItemChatData<TypedItemOption>} */
 	const chatData = {
 		C,
 		previousOption,

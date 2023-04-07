@@ -1,6 +1,6 @@
 "use strict";
 
-/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, ExtendedItemOption>} */
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, TypedItemOption>} */
 function InventoryItemButtAnalBeads2PublishActionHook(data, originalFunction, C, item, newOption, previousOption) {
 	const beadsOld = previousOption.Property.InsertedBeads || 1;
 	const beadsNew = newOption.Property.InsertedBeads || 1;
@@ -9,7 +9,7 @@ function InventoryItemButtAnalBeads2PublishActionHook(data, originalFunction, C,
 		return;
 	}
 
-	/** @type {ExtendedItemChatData<ExtendedItemOption>} */
+	/** @type {ExtendedItemChatData<TypedItemOption>} */
 	const chatData = {
 		C,
 		previousOption,

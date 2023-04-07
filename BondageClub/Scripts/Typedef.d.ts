@@ -1878,7 +1878,7 @@ interface NPCTrait {
 
 /** A record containing various dialog keys used by the extended item screen */
 interface ExtendedItemDialog<
-	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	OptionType extends ExtendedItemOption
 > {
 	/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
 	header: string;
@@ -1895,7 +1895,7 @@ interface ExtendedItemDialog<
 
 /** A record containing various dialog keys used by the extended item screen */
 interface ExtendedItemCapsDialog<
-	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	OptionType extends ExtendedItemOption
 > {
 	/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
 	Header?: string;
@@ -1924,7 +1924,7 @@ type ExtendedItemCallback<T extends any[], RT=void> = (
 /** An interface-based version of {@link ExtendedItemScriptHookCallbacks} with decapitalized keys */
 interface ExtendedItemScriptHookStruct<
 	DataType extends ExtendedItemData<any>,
-	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	OptionType extends ExtendedItemOption
 > {
 	load?: ExtendedItemScriptHookCallbacks.Load<DataType>,
 	draw?: ExtendedItemScriptHookCallbacks.Draw<DataType>,
@@ -1938,7 +1938,7 @@ interface ExtendedItemScriptHookStruct<
 /** An interface-based version of {@link ExtendedItemScriptHookCallbacks} */
 interface ExtendedItemCapsScriptHooksStruct<
 	DataType extends ExtendedItemData<any>,
-	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	OptionType extends ExtendedItemOption
 > {
 	Load?: ExtendedItemScriptHookCallbacks.Load<DataType>,
 	Draw?: ExtendedItemScriptHookCallbacks.Draw<DataType>,
@@ -1951,7 +1951,7 @@ interface ExtendedItemCapsScriptHooksStruct<
 
 /** An interface-based version of {@link ExtendedItemCallbacks} with decapitalized keys*/
 interface ExtendedItemCallbackStruct<
-	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	OptionType extends ExtendedItemOption
 > {
 	load?: ExtendedItemCallbacks.Load,
 	draw?: ExtendedItemCallbacks.Draw,
@@ -1994,7 +1994,7 @@ declare namespace ExtendedItemCallbacks {
 	 * @returns A non-empty message string if the item failed validation, or an empty string otherwise
 	 */
 	type Validate<
-		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+		OptionType extends ExtendedItemOption
 	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>;
 	/**
 	 * Callback for extended item `PublishAction` functions.
@@ -2005,7 +2005,7 @@ declare namespace ExtendedItemCallbacks {
 	 * @param previousOption The previusly selected extended item option
 	 */
 	type PublishAction<
-		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+		OptionType extends ExtendedItemOption
 	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>;
 	/**
 	 * Callback for extended item `Init` functions.
@@ -2097,7 +2097,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	 */
 	type Validate<
 		DataType extends ExtendedItemData<any>,
-		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+		OptionType extends ExtendedItemOption
 	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>;
 	/**
 	 * Callback for extended item `PublishAction` script hooks.
@@ -2111,7 +2111,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	 */
 	type PublishAction<
 		DataType extends ExtendedItemData<any>,
-		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+		OptionType extends ExtendedItemOption
 	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>;
 	/**
 	 * Callback for extended item `Init` script hooks.
@@ -2133,7 +2133,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
  * Archetypes are free to demand any appropriate subtype for a given property,
  * _e.g._ `drawImages: false` if an archetype does have any images in its UI.
  */
-interface ExtendedItemData<OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption> {
+interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
@@ -2610,9 +2610,9 @@ type TypedItemSetTypeCallback = (NewType: string) => void;
  * An object containing typed item configuration for an asset. Contains all of the necessary information for the item's
  * load, draw & click handlers.
  */
-interface TypedItemData extends ExtendedItemData<ExtendedItemOption> {
+interface TypedItemData extends ExtendedItemData<TypedItemOption> {
 	/** The list of extended item options available for the item */
-	options: ExtendedItemOption[];
+	options: TypedItemOption[];
 	/** A record containing various dialog keys used by the extended item screen */
 	dialogPrefix: {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */
@@ -2620,9 +2620,9 @@ interface TypedItemData extends ExtendedItemData<ExtendedItemOption> {
 		/** The prefix used for dialog keys representing the display names of the item's types */
 		option: string;
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
-		chat: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		chat: string | ExtendedItemChatCallback<TypedItemOption>;
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		npc: string | ExtendedItemNPCCallback<ExtendedItemOption>;
+		npc: string | ExtendedItemNPCCallback<TypedItemOption>;
 	};
 	/**
 	 * The chat message setting for the item. This can be provided to allow
@@ -2634,7 +2634,7 @@ interface TypedItemData extends ExtendedItemData<ExtendedItemOption> {
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: ExtendedItemScriptHookStruct<TypedItemData, ExtendedItemOption>;
+	scriptHooks: ExtendedItemScriptHookStruct<TypedItemData, TypedItemOption>;
 }
 
 //#region Validation
@@ -2748,7 +2748,7 @@ interface StateAndIntensity {
  * An object containing typed item configuration for an asset. Contains all of the necessary information for the item's
  * load, draw & click handlers.
  */
-interface VariableHeightData extends ExtendedItemData<ExtendedItemOption> {
+interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 	/** The highest Y co-ordinate that can be set  */
 	maxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
@@ -2760,17 +2760,17 @@ interface VariableHeightData extends ExtendedItemData<ExtendedItemOption> {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */
 		header: string,
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
-		chat: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		chat: string | ExtendedItemChatCallback<VariableHeightOption>;
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		npc: string | ExtendedItemNPCCallback<ExtendedItemOption>;
+		npc: string | ExtendedItemNPCCallback<VariableHeightOption>;
 	};
-	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, ExtendedItemOption>;
+	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, VariableHeightOption>;
 	/** The function that handles finding the current variable height setting */
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
 	setHeight: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
 	/** The list of extended item options the current option was selected from, if applicable */
-	parentOptions: ExtendedItemOption[];
+	parentOptions: TypedItemOption[];
 	drawImages: false;
 	chatSetting: "default";
 }
