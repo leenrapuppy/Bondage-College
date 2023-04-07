@@ -384,13 +384,31 @@ function CraftingModeSet(NewMode) {
  * @returns {void} - Nothing
  */
 function CraftingKeyUp() {
+	let do_update = false;
+
 	//if (CraftingMode == "Color") CraftingSelectedItem.Color = ElementValue("InputColor");
 	if (document.getElementById("InputName") != null) CraftingSelectedItem.Name = ElementValue("InputName");
 	if (document.getElementById("InputDescription") != null) CraftingSelectedItem.Description = ElementValue("InputDescription");
-	if (document.getElementById("InputColor") != null) CraftingSelectedItem.Color = ElementValue("InputColor");
-	if (document.getElementById("InputType") != null) CraftingSelectedItem.Type = ElementValue("InputType");
-	if (document.getElementById("InputPriority") != null) CraftingSelectedItem.OverridePriority = CraftingParsePriorityElement();
-	CraftingUpdatePreview();
+	if (document.getElementById("InputColor") != null) {
+		const prev = CraftingSelectedItem.Color;
+		CraftingSelectedItem.Color = ElementValue("InputColor");
+		if (CraftingSelectedItem.Color !== prev)
+			do_update = true;
+	}
+	if (document.getElementById("InputType") != null) {
+		const prev = CraftingSelectedItem.Type;
+		CraftingSelectedItem.Type = ElementValue("InputType");
+		if (CraftingSelectedItem.Type !== prev)
+			do_update = true;
+	}
+	if (document.getElementById("InputPriority") != null) {
+		const prev = CraftingSelectedItem.OverridePriority;
+		CraftingSelectedItem.OverridePriority = CraftingParsePriorityElement();
+		if (CraftingSelectedItem.OverridePriority !== prev)
+			do_update = true;
+	}
+	if (do_update)
+		CraftingUpdatePreview();
 }
 
 /**
