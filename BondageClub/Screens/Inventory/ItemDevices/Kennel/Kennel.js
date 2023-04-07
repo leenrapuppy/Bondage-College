@@ -1,6 +1,10 @@
 "use strict";
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ DoorState?: number, DrawRequested?: boolean, MustChange?: boolean, ChangeTime?: number }} KennelPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<KennelPersistentData>} */
 function AssetsItemDevicesKennelBeforeDraw({ PersistentData, L, Property }) {
 	if (L !== "_Door") return;
 
@@ -18,7 +22,7 @@ function AssetsItemDevicesKennelBeforeDraw({ PersistentData, L, Property }) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<KennelPersistentData>} */
 function AssetsItemDevicesKennelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
 	const Properties = Item.Property || {};

@@ -36,6 +36,9 @@ function InventoryFuturisticChastityBeltCheckPunish(Item) {
 	return "";
 }
 
+/**
+ * @param {DynamicScriptCallbackData<FuturisticChastityBeltPersistentData>} data
+ */
 function AssetsItemPelvisFuturisticChastityBeltScriptUpdatePlayer(data) {
 	var Item = data.Item;
 
@@ -96,7 +99,11 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 	InventoryShockExpression(C);
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/**
+ * @typedef {{ UpdateTime?: number, LastMessageLen?: number }} FuturisticChastityBeltPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticChastityBeltPersistentData>} */
 function AssetsItemPelvisFuturisticChastityBeltScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */

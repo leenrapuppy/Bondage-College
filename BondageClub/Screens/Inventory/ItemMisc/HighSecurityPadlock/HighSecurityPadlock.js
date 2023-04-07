@@ -5,13 +5,13 @@ var HighSecurityPadlockConfigOwner = true;
 var HighSecurityPadlockConfigLover = true;
 var HighSecurityPadlockConfigWhitelist = false;
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscHighSecurityPadlockInit(Item, C) {
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemMiscHighSecurityPadlockInit(C, Item) {
 	const MemberNumberListKeys = (Item.Property.LockMemberNumber) ? `${Item.Property.LockMemberNumber}` : "";
-	ExtendedItemInitNoArch(Item, C, { MemberNumberListKeys: MemberNumberListKeys }, false);
+	return ExtendedItemInitNoArch(C, Item, { MemberNumberListKeys: MemberNumberListKeys }, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscHighSecurityPadlockLoad() {
 	var C = CharacterGetCurrent();
 	InventoryItemMiscHighSecurityPadlockPlayerCanUnlock = true;
@@ -50,7 +50,7 @@ function InventoryItemMiscHighSecurityPadlockPlayerHasKeys(C, Item) {
 	return true;
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscHighSecurityPadlockDraw() {
 	var C = CharacterGetCurrent();
 
@@ -78,7 +78,7 @@ function InventoryItemMiscHighSecurityPadlockDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscHighSecurityPadlockClick() {
 	var C = CharacterGetCurrent();
 	if (!InventoryGroupIsBlocked(C, C.FocusGroup.Name)&& (DialogFocusSourceItem != null && ((DialogFocusSourceItem.Property.MemberNumberListKeys && CommonConvertStringToArray("" + DialogFocusSourceItem.Property.MemberNumberListKeys).indexOf(Player.MemberNumber) >= 0)))) {
@@ -144,7 +144,7 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 
 }
 
-
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscHighSecurityPadlockExit() {
 	ElementRemove("MemberNumberList");
 	PreferenceMessage = "";

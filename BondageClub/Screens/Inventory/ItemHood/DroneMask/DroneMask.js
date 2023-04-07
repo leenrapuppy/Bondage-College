@@ -2,27 +2,27 @@
 
 "use strict";
 
-// Load item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemHoodDroneMaskPattern5Load() {
 	InventoryItemHeadDroneMaskPattern5Load();
 }
 
-// Draw extension screen image
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemHoodDroneMaskPattern5Draw() {
 	InventoryItemHeadDroneMaskPattern5Draw();
 }
 
-// Click function
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemHoodDroneMaskPattern5Click() {
 	InventoryItemHeadDroneMaskPattern5Click();
 }
 
-// Exit the subscreen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemHoodDroneMaskPattern5Exit() {
 	InventoryItemHeadDroneMaskPattern5Exit();
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemHoodDroneMaskAfterDraw(data) {
 	AssetsItemHeadDroneMaskAfterDraw(data);
 }

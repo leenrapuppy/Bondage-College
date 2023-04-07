@@ -1908,8 +1908,224 @@ interface ExtendedItemCapsDialog<
 	Npc?: string | ExtendedItemNPCCallback<OptionType>;
 }
 
-// TODO: Make the key- and value-types more specific
-type ExtendedItemScriptHooks = Record<string, (...args: any[]) => any>;
+/** Basic callback for extended item script hooks */
+type ExtendedItemScriptHookCallback<DataType extends ExtendedItemData<any>, T extends any[], RT=void> = (
+	data: DataType,
+	originalFunction: null | ((...args: T) => RT),
+	...args: T,
+) => RT;
+
+/** Basic callback for extended item functions */
+type ExtendedItemCallback<T extends any[], RT=void> = (
+	...args: T,
+) => RT;
+
+/** An interface-based version of {@link ExtendedItemScriptHookCallbacks} with decapitalized keys */
+interface ExtendedItemScriptHookStruct<
+	DataType extends ExtendedItemData<any>,
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> {
+	load?: ExtendedItemScriptHookCallbacks.Load<DataType>,
+	draw?: ExtendedItemScriptHookCallbacks.Draw<DataType>,
+	click?: ExtendedItemScriptHookCallbacks.Click<DataType>,
+	exit?: ExtendedItemScriptHookCallbacks.Exit<DataType>,
+	validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
+	publishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
+	init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+}
+
+/** An interface-based version of {@link ExtendedItemScriptHookCallbacks} */
+interface ExtendedItemCapsScriptHooksStruct<
+	DataType extends ExtendedItemData<any>,
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> {
+	Load?: ExtendedItemScriptHookCallbacks.Load<DataType>,
+	Draw?: ExtendedItemScriptHookCallbacks.Draw<DataType>,
+	Click?: ExtendedItemScriptHookCallbacks.Click<DataType>,
+	Exit?: ExtendedItemScriptHookCallbacks.Exit<DataType>,
+	Validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
+	PublishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
+	Init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+}
+
+/** An interface-based version of {@link ExtendedItemCallbacks} with decapitalized keys*/
+interface ExtendedItemCallbackStruct<
+	OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+> {
+	load?: ExtendedItemCallbacks.Load,
+	draw?: ExtendedItemCallbacks.Draw,
+	click?: ExtendedItemCallbacks.Click,
+	exit?: ExtendedItemCallbacks.Exit,
+	validate?: ExtendedItemCallbacks.Validate<OptionType>,
+	publishAction?: ExtendedItemCallbacks.PublishAction<OptionType>,
+	init?: ExtendedItemCallbacks.Init,
+}
+
+/** Namespace with item-specific functions typically called by extended items. */
+declare namespace ExtendedItemCallbacks {
+	/**
+	 * Callback for extended item `Load` functions.
+	 * `Load` functions are responsible for setting up the UI when initially opening the extended item menu.
+	 */
+	type Load = ExtendedItemCallback<[]>;
+	/**
+	 * Callback for extended item `Draw` functions.
+	 * `Draw` functions are responsible for drawing any UI elements within the extended item menu.
+	 */
+	type Draw = ExtendedItemCallback<[]>;
+	/**
+	 * Callback for extended item `Click` functions.
+	 * `Click` functions are responsible for managing any mouse clicks within the extended item menu.
+	 */
+	type Click = ExtendedItemCallback<[]>;
+	/**
+	 * Callback for extended item `Exit` functions.
+	 * `Exit` functions are responsible for cleaning up any UI elements when closing the extended item menu.
+	 */
+	type Exit = ExtendedItemCallback<[]>;
+	/**
+	 * Callback for extended item `Validate` functions.
+	 * `Validate` functions are responsible for validating any change in an item's properties.
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @returns A non-empty message string if the item failed validation, or an empty string otherwise
+	 */
+	type Validate<
+		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>;
+	/**
+	 * Callback for extended item `PublishAction` functions.
+	 * `PublishAction` functions are responsible for reporting any changes to an item's properties via a chat message.
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 */
+	type PublishAction<
+		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>;
+	/**
+	 * Callback for extended item `Init` functions.
+	 * `Init` functions are responsible for setting the initial properties of an extended item.
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param refresh Whether the character and relevant item should be refreshed and pushed to the server
+	 * @returns Whether the items properties were actually updated or not
+	 */
+	type Init = ExtendedItemCallback<[C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `AfterDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
+	 * @param drawData The dynamic draw data
+	 */
+	type AfterDraw<
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemCallback<[drawData: DynamicDrawingData<PersistentData>]>;
+	/**
+	 * Callback for extended item `BeforeDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicBeforeDraw}.
+	 * @param drawData The dynamic draw data
+	 * @returns A record with any and all to-be overriden draw data
+	 */
+	type BeforeDraw<
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemCallback<[drawData: DynamicDrawingData<PersistentData>], DynamicBeforeDrawOverrides>;
+	/**
+	 * Callback for extended item `ScriptDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicScriptDraw}.
+	 * @param drawData The dynamic draw data
+	 */
+	type ScriptDraw<
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemCallback<[drawData: DynamicScriptCallbackData<PersistentData>]>;
+}
+
+/**
+ * Namespace with item-specific script hooks used for constructing typical extended items functions.
+ * @see {@link ExtendedItemCallbacks}
+ */
+declare namespace ExtendedItemScriptHookCallbacks {
+	/**
+	 * Callback for extended item `Load` script hooks.
+	 * `Load` functions are responsible for setting up the UI when initially opening the extended item menu.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 */
+	type Load<
+		DataType extends ExtendedItemData<any>
+	> = ExtendedItemScriptHookCallback<DataType, []>;
+	/**
+	 * Callback for extended item `Draw` script hooks.
+	 * `Draw` functions are responsible for drawing any UI elements within the extended item menu.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 */
+	type Draw<
+		DataType extends ExtendedItemData<any>
+	> = ExtendedItemScriptHookCallback<DataType, []>;
+	/**
+	 * Callback for extended item `Click` script hooks.
+	 * `Click` functions are responsible for managing any mouse clicks within the extended item menu.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 */
+	type Click<
+		DataType extends ExtendedItemData<any>
+	> = ExtendedItemScriptHookCallback<DataType, []>;
+	/**
+	 * Callback for extended item `Exit` script hooks.
+	 * `Exit` functions are responsible for cleaning up any UI elements when closing the extended item menu.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 */
+	type Exit<
+		DataType extends ExtendedItemData<any>
+	> = ExtendedItemScriptHookCallback<DataType, []>;
+	/**
+	 * Callback for extended item `Validate` script hooks.
+	 * `Validate` functions are responsible for validating any change in an item's properties.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @returns A non-empty message string if the item failed validation, or an empty string otherwise
+	 */
+	type Validate<
+		DataType extends ExtendedItemData<any>,
+		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType], string>;
+	/**
+	 * Callback for extended item `PublishAction` script hooks.
+	 * `PublishAction` functions are responsible for reporting any changes to an item's properties via a chat message.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 */
+	type PublishAction<
+		DataType extends ExtendedItemData<any>,
+		OptionType extends ExtendedItemOption | ModularItemOption | VibratingItemOption
+	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType]>;
+	/**
+	 * Callback for extended item `Init` script hooks.
+	 * `Init` functions are responsible for setting the initial properties of an extended item.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param refresh Whether the character and relevant item should be refreshed and pushed to the server
+	 * @returns Whether the items properties were actually updated or not
+	 */
+	type Init<
+		DataType extends ExtendedItemData<any>
+	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>;
+}
 
 /**
  * Abstract extended item data interface that all archetypical item data interfaces must implement.
@@ -1930,7 +2146,7 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption | ModularItemOp
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: ExtendedItemScriptHooks;
+	scriptHooks: ExtendedItemScriptHookStruct<any, OptionType>;
 	/** The asset reference */
 	asset: Asset;
 	/** A key uniquely identifying the asset */
@@ -2365,13 +2581,7 @@ interface ModularItemData extends ExtendedItemData<ModularItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: {
-		load?: (next: () => void) => void,
-		click?: (next: () => void) => void,
-		draw?: (next: () => void) => void,
-		exit?: () => void,
-		validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>,
-	};
+	scriptHooks: ExtendedItemScriptHookStruct<ModularItemData, ModularItemOption>;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
@@ -2423,14 +2633,7 @@ interface TypedItemData extends ExtendedItemData<ExtendedItemOption> {
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: {
-		load?: (next: () => void) => void,
-		click?: (next: () => void) => void,
-		draw?: (next: () => void) => void,
-		exit?: () => void,
-		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
-		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
-	};
+	scriptHooks: ExtendedItemScriptHookStruct<TypedItemData, ExtendedItemOption>;
 }
 
 //#region Validation
@@ -2521,13 +2724,7 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	scriptHooks: {
-		load?: (next: () => void) => void;
-		click?: (next: () => void) => void;
-		draw?: (next: () => void) => void;
-		exit?: () => void;
-		validate?: ExtendedItemValidateScriptHookCallback<VibratingItemOption>;
-	};
+	scriptHooks: ExtendedItemScriptHookStruct<VibratingItemData, VibratingItemOption>;
 	chatSetting: "default";
 	drawImages: false;
 }
@@ -2566,7 +2763,7 @@ interface VariableHeightData extends ExtendedItemData<ExtendedItemOption> {
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
 		npc: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 	};
-	scriptHooks: {};
+	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, ExtendedItemOption>;
 	/** The function that handles finding the current variable height setting */
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
@@ -2835,7 +3032,7 @@ interface CommonDrawCallbacks {
 	drawImageColorizeBlink: DrawImageColorizeCallback;
 }
 
-interface DynamicDrawingData {
+interface DynamicDrawingData<T extends Record<string, any> = Record<string, unknown>> {
 	C: Character;
 	X: number;
 	Y: number;
@@ -2854,7 +3051,7 @@ interface DynamicDrawingData {
 	drawCanvas: DrawCanvasCallback;
 	drawCanvasBlink: DrawCanvasCallback;
 	AlphaMasks: RectTuple[];
-	PersistentData: <T>() => T;
+	PersistentData: () => T;
 }
 
 /**
@@ -2876,27 +3073,11 @@ interface DynamicBeforeDrawOverrides {
 
 type DynamicDrawTextEffect = "burn";
 
-/**
- * A dynamic BeforeDraw callback
- */
-type DynamicBeforeDrawCallback = (data: DynamicDrawingData) => DynamicBeforeDrawOverrides;
-
-/**
- * A dynamic AfterDraw callback
- */
-type DynamicAfterDrawCallback = (data: DynamicDrawingData) => void;
-
-
-interface DynamicScriptCallbackData {
+interface DynamicScriptCallbackData<T extends Record<string, any> = Record<string, unknown>> {
 	C: Character;
 	Item: Item;
-	PersistentData: () => any;
+	PersistentData: () => T;
 }
-
-/**
- * A dynamic ScriptDraw callback
- */
-type DynamicScriptDrawCallback = (data: DynamicScriptCallbackData) => void;
 
 // #endregion
 

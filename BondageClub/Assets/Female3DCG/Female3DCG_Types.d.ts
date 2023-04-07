@@ -455,7 +455,7 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption | VibratingIt
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: ExtendedItemScriptHooks;
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<any, OptionType>;
 	/** An array of the chat message tags that should be included in the item's chatroom messages. */
 	ChatTags?: CommonChatTags[];
 	/** Contains custom dictionary entries in the event that the base ones do not suffice. */
@@ -576,64 +576,6 @@ type ExtendedItemNPCCallback<OptionType> = (
 	PreviousOption: OptionType,
 ) => string;
 
-/**
- * @param {Character} C - A reference to the character wearing the item
- * @param {Item} Item - The equipped item
- * @param {OptionType} Option - The newly selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
- * @template OptionType
- */
-type ExtendedItemValidateCallback<OptionType> = (
-	C: Character,
-	Item: Item,
-	Option: OptionType,
-	CurrentOption: OptionType,
-) => string;
-
-/**
- * @param {ExtendedItemValidateCallback<OptionType>} - The hooked validate function
- * @param {Character} C - A reference to the character wearing the item
- * @param {Item} Item - The equipped item
- * @param {OptionType} Option - The newly selected option
- * @param {OptionType} CurrentOption - The currently selected option
- * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
- * @template OptionType
- */
-type ExtendedItemValidateScriptHookCallback<OptionType> = (
-	next: ExtendedItemValidateCallback<OptionType>,
-	C: Character,
-	Item: Item,
-	Option: OptionType,
-	CurrentOption: OptionType,
-) => string;
-
-/**
- * Callback for extended item `...PublishAction` script hooks.
- * @param C - The character wearing the item
- * @param item - The item in question
- * @param newOption - The newly selected option
- * @param previousOption - The currently selected option
- */
- type ExtendedItemPublishActionCallback<OptionType> = (
-	C: Character,
-	item: Item,
-	newOption: OptionType,
-	previousOption: OptionType,
-) => void;
-
-/**
- * Callback for extended item `Init` functions
- * @param Item The item in question
- * @param C The character that has the item equiped
- * @param Refresh Whether the character and relevant item should be refreshed and pushed to the server
- */
-type ExtendedItemInitCallback = (
-	Item: Item,
-	C: Character,
-	Refresh?: boolean,
-) => void;
-
 //#endregion
 
 //#region Typed items
@@ -673,14 +615,7 @@ interface TypedItemConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: {
-		Load?: (next: () => void) => void,
-		Click?: (next: () => void) => void,
-		Draw?: (next: () => void) => void,
-		Exit?: () => void,
-		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
-		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
-	};
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<TypedItemData, ExtendedItemOption>;
 }
 
 /**
@@ -735,13 +670,7 @@ interface ModularItemConfig extends ExtendedItemConfig<ModularItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: {
-		Load?: (next: () => void) => void;
-		Click?: (next: () => void) => void;
-		Draw?: (next: () => void) => void;
-		Exit?: () => void;
-		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
-	};
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<ModularItemData, ModularItemOption>;
 }
 
 type ModularItemChatSetting = "perModule" | "perOption";
@@ -867,13 +796,7 @@ interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
 	 * and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
-	ScriptHooks?: {
-		Load?: (next: () => void) => void;
-		Click?: (next: () => void) => void;
-		Draw?: (next: () => void) => void;
-		Exit?: () => void;
-		Validate?: ExtendedItemValidateScriptHookCallback<VibratingItemOption>;
-	};
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VibratingItemData, VibratingItemOption>;
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	DialogPrefix?: {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
@@ -916,6 +839,7 @@ interface VariableHeightConfig extends ExtendedItemConfig<ExtendedItemOption> {
 	SetHeightFunction?: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
 	DrawImages?: false;
 	ChatSetting?: "default";
+	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VariableHeightData, ExtendedItemOption>;
 }
 
 interface VariableHeightSliderConfig {

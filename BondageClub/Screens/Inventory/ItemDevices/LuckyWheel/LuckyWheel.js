@@ -18,20 +18,16 @@ function ItemDevicesLuckyWheelLabelForNum(num) {
 	return DialogFindPlayer("LuckyWheelSectionDefaultLabel").replace("NUM", num.toString());
 }
 
-/**
- * Modular item hook to draw the spin button on every subscreeen
- */
-function InventoryItemDevicesLuckyWheelDrawHook(next) {
-	if (ModularItemDataLookup.ItemDevicesLuckyWheel.currentModule === "Game")
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemDevicesLuckyWheelDrawHook(data, next) {
+	if (data.currentModule === "Game")
 		DrawButton(1370, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
 	next();
 }
 
-/**
- * Modular item hook to handle clicks on the spin button on every subscreeen
- */
-function InventoryItemDevicesLuckyWheelClickHook(next) {
-	if (ModularItemDataLookup.ItemDevicesLuckyWheel.currentModule === "Game") {
+/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
+function InventoryItemDevicesLuckyWheelClickHook(data, next) {
+	if (data.currentModule === "Game") {
 		if (MouseIn(1370, 800, 260, 64)) {
 			InventoryItemDevicesLuckyWheelTrigger();
 			return;
@@ -41,28 +37,17 @@ function InventoryItemDevicesLuckyWheelClickHook(next) {
 	next();
 }
 
-/*
- *
- * @param {Item} Item
- */
-function InventoryItemDevicesLuckyWheelInit(Item) {
-	DynamicDrawLoadFont(ItemDevicesLuckyWheelFont);
-
-	if (!Item.Property) Item.Property = {};
-	if (typeof Item.Property.TargetAngle !== "number") Item.Property.TargetAngle = 0;
-	if (!Array.isArray(Item.Property.Texts)) Item.Property.Texts = [];
-	if (Item.Property.Texts.length > ItemDevicesLuckyWheelMaxTexts)
-		Item.Property.Texts = Item.Property.Texts.splice(0, ItemDevicesLuckyWheelMaxTexts);
-	if (typeof Item.Property.Texts[0] !== "string") Item.Property.Texts[0] = ItemDevicesLuckyWheelLabelForNum(1);
-	if (typeof Item.Property.Texts[1] !== "string") Item.Property.Texts[1] = ItemDevicesLuckyWheelLabelForNum(2);
+/** @type {ExtendedItemScriptHookCallbacks.Init<ModularItemData>} */
+function InventoryItemDevicesLuckyWheelInitHook(data, originalFunction, character, item, refresh) {
+	// NOTE: We can't pass `Texts` to `ModularItemData.BaselineProperty` as `DialogFindPlayer` has yet to be initialized at the time
+	const Texts = [ItemDevicesLuckyWheelLabelForNum(1), ItemDevicesLuckyWheelLabelForNum(2)];
+	let ret = originalFunction(character, item, false);
+	ret = ExtendedItemInitNoArch(character, item, { Texts }, refresh) || ret;
+	return ret;
 }
 
-/**
- * Lucky Wheel Game subscreen load handler
- */
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemDevicesLuckyWheelGame0Load() {
-	InventoryItemDevicesLuckyWheelInit(DialogFocusItem);
-
 	for (let num = 0; num < DialogFocusItem.Property.Texts.length; num++) {
 		const input = ElementCreateInput(`LuckyWheelText${num}`, "input", DialogFocusItem.Property.Texts[num] || "", ItemDevicesLuckyWheelMaxTextLength);
 		if (input) {
@@ -78,6 +63,7 @@ var ItemDevicesLuckyWheelRowLeft = 1380;
 var ItemDevicesLuckyWheelRowHeight = 60;
 var ItemDevicesLuckyWheelRowLength = 350;
 
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemDevicesLuckyWheelGame0Draw() {
 	// Draw the header and item
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
@@ -99,6 +85,7 @@ function InventoryItemDevicesLuckyWheelGame0Draw() {
 
 }
 
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemDevicesLuckyWheelGame0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemDevicesLuckyWheelGame0Exit();
@@ -131,6 +118,7 @@ function InventoryItemDevicesLuckyWheelGame0Click() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemDevicesLuckyWheelGame0Exit() {
 	if (!DialogFocusItem) return;
 
@@ -190,14 +178,16 @@ function InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, Angle) {
 	ChatRoomPublishCustomAction("LuckyWheelStoppedTurning", true, Dictionary);
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/**
+ * @typedef {{ AnimationAngleState?: number, AnimationSpeed?: number, ChangeTime?: number, LightStep?: number }} LuckyWheelPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.ScriptDraw<LuckyWheelPersistentData>} */
 function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
 	const Properties = Item.Property || {};
 	const TargetAngle = Math.min(Math.max(Properties.TargetAngle || 0, 0), 360);
 	const FrameTime = ItemDevicesLuckyWheelAnimationFrameTime;
-
-	InventoryItemDevicesLuckyWheelInit(Item);
 
 	// Initialized to a non-spinning value (aka target value), to avoid "misfires" on asset load
 	if (typeof Data.AnimationAngleState !== "number") Data.AnimationAngleState = TargetAngle;
@@ -221,7 +211,7 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	}
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw<LuckyWheelPersistentData>} */
 function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
 	const height = 500;
 	const width = 500;

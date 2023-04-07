@@ -1,34 +1,23 @@
 "use strict";
 
-/**
- * Loads the wooden box's extended item properties
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemDevicesWoodenBoxLoad(OriginalFunction) {
-	PropertyTextLoad(OriginalFunction);
+/** @type {ExtendedItemScriptHookCallbacks.Load<TypedItemData>} */
+function InventoryItemDevicesWoodenBoxLoadHook(Data, OriginalFunction) {
+	PropertyTextLoad(Data, OriginalFunction);
 	PropertyOpacityLoad();
 }
 
-/**
- * Draw handler for the wooden box's extended item screen
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemDevicesWoodenBoxDraw(OriginalFunction) {
-	PropertyOpacityDraw(OriginalFunction);
-	PropertyTextDraw(null, 1505, 850);
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemDevicesWoodenBoxDrawHook(Data, OriginalFunction) {
+	PropertyOpacityDraw(Data, OriginalFunction);
+	PropertyTextDraw(Data, null, 1505, 850);
 }
 
-/**
- * Exits the wooden box's extended item screen, sends a chatroom message if appropriate, and cleans up inputs and text
- * @returns {void} - Nothing
- */
-function InventoryItemDevicesWoodenBoxExit() {
+/** @type {ExtendedItemScriptHookCallbacks.Exit<TypedItemData>} */
+function InventoryItemDevicesWoodenBoxExitHook() {
 	const C = CharacterGetCurrent();
 
-	PropertyOpacityExit(false);
-	PropertyTextExit(false);
+	PropertyOpacityExit(null, null, false);
+	PropertyTextExit(null, null, false);
 
 	// Apply extra opacity-specific effects
 	const Property = DialogFocusItem.Property;
@@ -50,7 +39,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 
 /**
  * Dynamic AfterDraw function. Draws text onto the box.
- * @type {DynamicAfterDrawCallback}
+ * @type {ExtendedItemCallbacks.AfterDraw}
  */
 function AssetsItemDevicesWoodenBoxAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
 	if (L === "_Text") {

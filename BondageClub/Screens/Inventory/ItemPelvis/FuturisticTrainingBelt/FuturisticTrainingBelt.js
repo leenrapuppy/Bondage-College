@@ -34,8 +34,8 @@ var FuturisticTrainingBeltConfigure = false;
 var FuturisticTrainingBeltPage = 0;
 var FuturisticTrainingBeltMaxPage = 1;
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemPelvisFuturisticTrainingBeltInit(Item, C, Refresh) {
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemPelvisFuturisticTrainingBeltInit(C, Item, Refresh) {
 	/** @type {ItemProperties} */
 	const Property = {
 		Intensity: -1,
@@ -59,9 +59,10 @@ function InventoryItemPelvisFuturisticTrainingBeltInit(Item, C, Refresh) {
 		//DeviceStateTimer: 0, // Timer for the end of the current state
 		//DeviceVibeMode: VibratorMode.OFF, // Timer for the end of the current state
 	};
-	ExtendedItemInitNoArch(Item, C, Property, Refresh);
+	return ExtendedItemInitNoArch(C, Item, Property, Refresh);
 }
 
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 	if (!FuturisticAccessLoad()) {
 		InventoryItemFuturisticLoadAccessDenied();
@@ -76,6 +77,7 @@ function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 		FuturisticTrainingBeltSetMode = DialogFocusItem.Property.PublicModeCurrent;
 }
 
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemPelvisFuturisticTrainingBeltDraw() {
 	const Item = DialogFocusItem;
 	let canViewMode = false;
@@ -161,6 +163,7 @@ function InventoryItemPelvisFuturisticTrainingBeltDraw() {
 
 }
 
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemPelvisFuturisticTrainingBeltClick() {
 	const Item = DialogFocusItem;
 	let canViewMode = false;
@@ -247,6 +250,7 @@ function InventoryItemPelvisFuturisticTrainingBeltClick() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemPelvisFuturisticTrainingBeltExit() {
 	if (FuturisticTrainingBeltConfigure) {
 		FuturisticTrainingBeltConfigure = false;
@@ -271,14 +275,9 @@ function InventoryItemPelvisFuturisticTrainingBeltExit() {
 	ElementRemove("PunishProhibitedSpeechWords");
 }
 
-/**
- * Called by the extended system when setting the type. Not actually used as this is not an extended asset.
- * @param {Character} C
- * @param {ExtendedItemOption} Option
- * @returns
- */
-function InventoryItemPelvisFuturisticTrainingBeltPublishAction(C, Option) {
-	const msg = "FuturisticChastityBeltSet" + Option.Name;
+/** @type {ExtendedItemCallbacks.PublishAction<ExtendedItemOption>} */
+function InventoryItemPelvisFuturisticTrainingBeltPublishAction(C, item, newOption) {
+	const msg = "FuturisticChastityBeltSet" + newOption.Name;
 	InventoryItemPelvisFuturisticTrainingBeltPublishGeneric(C, msg);
 }
 
@@ -351,7 +350,7 @@ function InventoryItemPelvisFuturisticTrainingBeltGetVibeMode(C, State, First) {
  * This function sets the vibration mode, similar to the extended vibrators
  *
  * @param {Character} C
- * @param {any} PersistentData
+ * @param {FuturisticTrainingBeltPersistentData} PersistentData
  * @param {Item} Item
  * @param {boolean} [Force]
  */
@@ -402,7 +401,7 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 	}
 }
 
-/** @type {ExtendedItemValidateCallback<VibratingItemOption>} */
+/** @type {ExtendedItemCallbacks.Validate<VibratingItemOption>} */
 function InventoryItemFuturisticTrainingBeltValidate(...args) {
 	return VibratorModeValidate(...args);
 }
@@ -477,7 +476,7 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 
 /**
  *
- * @param {DynamicScriptCallbackData} data
+ * @param {DynamicScriptCallbackData<FuturisticTrainingBeltPersistentData>} data
  * @param {number} LastTime
  */
 function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime) {
@@ -572,7 +571,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 
 /**
  * Handles the vibrator state machine for the belt
- * @param {DynamicScriptCallbackData} data
+ * @param {DynamicScriptCallbackData<FuturisticTrainingBeltPersistentData>} data
  * @returns
  */
 function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
@@ -744,7 +743,11 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/**
+ * @typedef {{ UpdateTime?: number, LastMessageLen?: number, CheckTime?: number, DeviceState?: number, DeviceStateTimer?: number, DeviceVibeMode?: VibratorMode }} FuturisticTrainingBeltPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticTrainingBeltPersistentData>} */
 function AssetsItemPelvisFuturisticTrainingBeltScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */

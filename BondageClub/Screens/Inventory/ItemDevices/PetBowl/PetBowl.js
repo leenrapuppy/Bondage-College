@@ -1,42 +1,30 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemDevicesPetBowlInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Text: "" }, Refresh);
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemDevicesPetBowlInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
 }
 
-/**
- * Loads the extended item properties
- * @returns {void} - Nothing
- */
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemDevicesPetBowlLoad() {
 	PropertyTextLoad();
 }
 
-/**
- * Draw handler for the extended item screen
- * @returns {void} - Nothing
- */
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemDevicesPetBowlDraw() {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 	PropertyTextDraw();
 }
 
-/**
- * Click handler for the extended item screen
- * @returns {void} - Nothing
- */
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemDevicesPetBowlClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		return ExtendedItemExit();
 	}
 }
 
-/**
- * Exits the extended item screen and cleans up inputs and text
- * @returns {void} - Nothing
- */
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemDevicesPetBowlExit() {
 	PropertyTextExit();
 }
@@ -44,7 +32,7 @@ function InventoryItemDevicesPetBowlExit() {
 /**
  * Post-render drawing function. Draws custom text in a slight arc to mimic the
  * curvature of the bowl.
- * @type {DynamicAfterDrawCallback}
+ * @type {ExtendedItemCallbacks.AfterDraw}
  */
 function AssetsItemDevicesPetBowlAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
 	if (L === "_Text") {

@@ -1,11 +1,7 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ExtendedItemData>} */
+function InventoryItemNeckAccessoriesCollarShockUnitDrawHook(Data, OriginalFunction) {
 	OriginalFunction();
 
 	MainCanvas.textAlign = "right";
@@ -20,12 +16,8 @@ function InventoryItemNeckAccessoriesCollarShockUnitDrawFunc(OriginalFunction) {
 	ExtendedItemCustomDraw("TriggerShock", 1635, 625);
 }
 
-/**
- * Catches the item extension clicks
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemNeckAccessoriesCollarShockUnitClickFunc(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<ExtendedItemData>} */
+function InventoryItemNeckAccessoriesCollarShockUnitClickHook(Data, OriginalFunction) {
 	OriginalFunction();
 
 	if (!DialogFocusItem) {
@@ -55,10 +47,13 @@ function InventoryItemNeckAccessoriesCollarShockUnitResetCount() {
 	}
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ ChangeTime?: number, DisplayCount?: number, LastTriggerCount?: number }} ShockUnitPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<ShockUnitPersistentData>} */
 function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
-		/** @type {{ChangeTime?: number, DisplayCount?: number, LastTriggerCount?: number}} */
 		const persistentData = data.PersistentData();
 		const property = data.Property || {};
 		const Triggered = persistentData.LastTriggerCount < property.TriggerCount;
@@ -73,9 +68,8 @@ function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<ShockUnitPersistentData>} */
 function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
-	/** @type {{ChangeTime?: number, DisplayCount?: number, LastTriggerCount?: number}} */
 	const persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
 	const property = (data.Item.Property = data.Item.Property || {});

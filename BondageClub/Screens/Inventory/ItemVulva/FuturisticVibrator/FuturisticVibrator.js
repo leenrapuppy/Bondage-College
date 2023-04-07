@@ -12,15 +12,18 @@ const ItemVulvaFuturisticVibratorAccessMode = {
 };
 const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturisticVibratorAccessMode);
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemVulvaFuturisticVibratorInit(Item, C, Refresh) {
-	VibratorModeInit(Item, C, false, [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
-	ExtendedItemInitNoArch(Item, C, {
-		AccessMode: "",
-		TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
-	}, Refresh);
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemVulvaFuturisticVibratorInit(C, Item, Refresh) {
+	return (
+		VibratorModeInit([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], C, Item, false)
+		|| ExtendedItemInitNoArch(C, Item, {
+			AccessMode: "",
+			TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
+		}, Refresh)
+	)
 }
 
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemVulvaFuturisticVibratorLoad() {
 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
@@ -36,6 +39,7 @@ function InventoryItemVulvaFuturisticVibratorLoad() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemVulvaFuturisticVibratorDraw() {
 	var C = CharacterGetCurrent();
 	var Item = DialogFocusItem;
@@ -70,6 +74,7 @@ function InventoryItemVulvaFuturisticVibratorNextAccessMode(current) {
 	return ItemVulvaFuturisticVibratorAccessModes[(ItemVulvaFuturisticVibratorAccessModes.indexOf(current) + 1) % ItemVulvaFuturisticVibratorAccessModes.length];
 }
 
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemVulvaFuturisticVibratorClick() {
 	var C = CharacterGetCurrent();
 	var Item = DialogFocusItem;
@@ -113,6 +118,7 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 	}
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemVulvaFuturisticVibratorExit() {
 	InventoryItemFuturisticExitAccessDenied();
 	for (let I = 0; I <= ItemVulvaFuturisticVibratorTriggers.length; I++)
@@ -229,7 +235,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 	}
 }
 
-/** @type {ExtendedItemValidateCallback<VibratingItemOption>} */
+/** @type {ExtendedItemCallbacks.Validate<VibratingItemOption>} */
 function InventoryItemVulvaFuturisticVibratorValidate(...args) {
 	return VibratorModeValidate(...args);
 }
@@ -273,7 +279,11 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/**
+ * @typedef {{ CheckTime?: number, Mode?: VibratorMode, ChangeTime?: number, LastChange?: number }} FuturisticVibratorPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticVibratorPersistentData>} */
 function AssetsItemVulvaFuturisticVibratorScriptDraw(data) {
 	var PersistentData = data.PersistentData();
 	var C = data.C;

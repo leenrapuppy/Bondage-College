@@ -1,25 +1,17 @@
 "use strict";
 
-/**
- * Draw handler for the item's extended item screen
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemArmsTransportJacketDraw(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemArmsTransportJacketDrawHook(Data, OriginalFunction) {
 	OriginalFunction();
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
-	if (Data == null) {
-		return;
-	}
 	const Prefix = Data.dialogPrefix.option;
 
 	MainCanvas.textAlign = "right";
 	DrawTextFit(DialogFindPlayer(`${Prefix}TextLabel`), 1475, 860, 400, "#fff", "#000");
-	PropertyTextDraw(null, 1725, 860);
+	PropertyTextDraw(Data, null, 1725, 860);
 	MainCanvas.textAlign = "center";
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemArmsTransportJacketAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
 	if (L === "_Text") {
 		const width = 150;

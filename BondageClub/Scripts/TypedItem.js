@@ -55,14 +55,17 @@ function TypedItemRegister(asset, config) {
 	const data = TypedItemCreateTypedItemData(asset, config);
 
 	if (IsBrowser()) {
-		TypedItemCreateLoadFunction(data);
-		TypedItemCreateDrawFunction(data);
-		TypedItemCreateClickFunction(data);
-		TypedItemCreateExitFunction(data);
-		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
-		TypedItemCreatePublishFunction(data);
+		/** @type {ExtendedItemCallbackStruct<ExtendedItemOption>} */
+		const defaultCallbacks = {
+			load: () => ExtendedItemLoad(data.dialogPrefix.header),
+			click: () => ExtendedItemClick(data.options, null, data.drawImages),
+			draw: () => ExtendedItemDraw(data.options, data.dialogPrefix.option, null, data.drawImages),
+			validate: ExtendedItemValidate,
+			publishAction: (...args) => TypedItemPublishAction(data, ...args),
+			init: (...args) => TypedItemInit(data, ...args),
+		};
+		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
-		TypedItemCreatePublishActionFunction(data);
 	}
 
 	TypedItemGenerateAllowType(data);
@@ -120,6 +123,7 @@ function TypedItemCreateTypedItemData(asset, {
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+			init: ScriptHooks ? ScriptHooks.Init : undefined,
 		},
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
@@ -129,114 +133,33 @@ function TypedItemCreateTypedItemData(asset, {
 }
 
 /**
- * Creates an asset's extended item load function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
+ *
+ * @param {TypedItemData} data
+ * @param {Character} C
+ * @param {Item} item
+ * @param {ExtendedItemOption} newOption
+ * @param {ExtendedItemOption} previousOption
  */
-function TypedItemCreateLoadFunction({ functionPrefix, dialogPrefix, scriptHooks }) {
-	const loadFunctionName = `${functionPrefix}Load`;
-	const loadFunction = () => ExtendedItemLoad(dialogPrefix.header);
-	if (scriptHooks && scriptHooks.load) {
-		window[loadFunctionName] = function () {
-			scriptHooks.load(loadFunction);
-		};
-	} else window[loadFunctionName] = loadFunction;
-}
-
-/**
- * Creates an asset's extended item draw function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateDrawFunction({ options, functionPrefix, dialogPrefix, drawImages, scriptHooks }) {
-	const drawFunctionName = `${functionPrefix}Draw`;
-	const drawFunction = function () {
-		ExtendedItemDraw(options, dialogPrefix.option, null, drawImages);
+function TypedItemPublishAction(data, C, item, newOption, previousOption) {
+	/** @type ExtendedItemChatData<ExtendedItemOption> */
+	const chatData = {
+		C,
+		previousOption,
+		newOption,
+		previousIndex: data.options.indexOf(previousOption),
+		newIndex: data.options.indexOf(newOption),
 	};
-	if (scriptHooks && scriptHooks.draw) {
-		window[drawFunctionName] = function () {
-			scriptHooks.draw(drawFunction);
-		};
-	} else window[drawFunctionName] = drawFunction;
-}
 
-/**
- * Creates an asset's extended item click function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateClickFunction({ options, functionPrefix, drawImages, scriptHooks }) {
-	const clickFunctionName = `${functionPrefix}Click`;
-	const clickFunction = function () {
-		ExtendedItemClick(options, null, drawImages);
-	};
-	if (scriptHooks && scriptHooks.click) {
-		window[clickFunctionName] = function () {
-			scriptHooks.click(clickFunction);
-		};
-	} else window[clickFunctionName] = clickFunction;
-}
-
-/**
- * Creates an asset's extended item exit function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateExitFunction({ functionPrefix, scriptHooks}) {
-	const exitFunctionName = `${functionPrefix}Exit`;
-	if (scriptHooks && scriptHooks.exit) {
-		window[exitFunctionName] = function () {
-			scriptHooks.exit();
-		};
+	let msg = data.dialogPrefix.chat;
+	if (typeof msg === "function") {
+		msg = msg(chatData);
 	}
-}
 
-/**
- * Creates an asset's extended item chatroom message publishing function
- * @param {TypedItemData} typedItemData - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreatePublishFunction(typedItemData) {
-	const { options, functionPrefix, dialogPrefix, chatSetting } = typedItemData;
-	if (chatSetting === TypedItemChatSetting.SILENT) return;
-	const publishFunctionName = `${functionPrefix}PublishAction`;
-	/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-	window[publishFunctionName] = function (C, item, newOption, previousOption) {
-		/** @type ExtendedItemChatData<ExtendedItemOption> */
-		const chatData = {
-			C,
-			previousOption,
-			newOption,
-			previousIndex: options.indexOf(previousOption),
-			newIndex:  options.indexOf(newOption),
-		};
+	if (data.chatSetting === TypedItemChatSetting.FROM_TO) msg += `${previousOption.Name}To`;
+	msg += newOption.Name;
 
-		let msg = dialogPrefix.chat;
-		if (typeof msg === "function") {
-			msg = msg(chatData);
-		}
-
-		if (chatSetting === TypedItemChatSetting.FROM_TO) msg += `${previousOption.Name}To`;
-		msg += newOption.Name;
-
-		const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, typedItemData);
-		ChatRoomPublishCustomAction(msg, true, dictionary);
-	};
-}
-
-/**
- * Creates an asset's extended item PublishAction function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreatePublishActionFunction({ scriptHooks, functionPrefix }) {
-	const publishFunctionName = `${functionPrefix}PublishAction`;
-	if (scriptHooks && scriptHooks.publishAction) {
-		/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-		window[publishFunctionName] = function (C, item, newOption, previousOption) {
-			scriptHooks.publishAction(C, item, newOption, previousOption);
-		};
-	}
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
+	ChatRoomPublishCustomAction(msg, true, dictionary);
 }
 
 /**
@@ -432,7 +355,9 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 	}
 
 	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}Validate`;
-	const validationMessage = CommonCallFunctionByName(validationFunctionName, C, item, option, previousOption);
+	/** @type {Parameters<ExtendedItemCallbacks.Validate<T>>} */
+	const args = [C, item, option, previousOption];
+	const validationMessage = CommonCallFunctionByName(validationFunctionName, ...args);
 	if (typeof validationMessage === "string") {
 		return validationMessage;
 	} else {
@@ -556,18 +481,16 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 
 /**
  * Initialize the typed item properties
- * @type {ExtendedItemInitCallback}
- * @see {@link ExtendedItemInit}
+ * @param {TypedItemData} Data - The item's extended item data
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
+ * @returns {boolean} Whether properties were initialized or not
  */
-function TypedItemInit(Item, C, Refresh=true) {
-	const Data = ExtendedItemGetData(Item, ExtendedArchetype.TYPED);
-	if (Data === null) {
-		return;
-	}
-
+function TypedItemInit(Data, C, Item, Refresh=true) {
 	const AllowType = [null, ...Item.Asset.AllowType];
-	if (Item.Property && AllowType.includes(Item.Property.Type)) {
-		return;
+	if (CommonIsObject(Item.Property) && CommonIncludes(AllowType, Item.Property.Type)) {
+		return false;
 	}
 
 	// Default to the first option if no property is set
@@ -594,4 +517,5 @@ function TypedItemInit(Item, C, Refresh=true) {
 		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
+	return true;
 }

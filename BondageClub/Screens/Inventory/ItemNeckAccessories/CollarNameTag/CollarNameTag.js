@@ -1,35 +1,17 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemNeckAccessoriesCollarNameTagDraw(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
+function InventoryItemNeckAccessoriesCollarNameTagDrawHook(Data, OriginalFunction) {
 	if (!DialogFocusItem) {
-		return;
-	}
-
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
-	if (Data == null) {
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
 	ExtendedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
 }
 
-/**
- * Catches the item extension clicks
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemNeckAccessoriesCollarNameTagClick(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<TypedItemData>} */
+function InventoryItemNeckAccessoriesCollarNameTagClickHook(Data, OriginalFunction) {
 	if (!DialogFocusItem) {
-		return;
-	}
-
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
-	if (Data == null) {
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
@@ -56,13 +38,8 @@ function InventoryItemNeckAccessoriesCollarNameTagGetXY(Count, X=1000, Y=400) {
 	return XYCoords;
 }
 
-/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(C, item, newOption, previousOption) {
-	const data = ExtendedItemGetData(item, ExtendedArchetype.TYPED);
-	if (data === null) {
-		return;
-	}
-
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, ExtendedItemOption>} */
+function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(data, OriginalFunction, C, item, newOption, previousOption) {
 	/** @type {ExtendedItemChatData<ExtendedItemOption>} */
 	const chatData = {
 		C,

@@ -730,7 +730,7 @@ var AssetFemale3DCGExtended = {
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
 					Click: FuturisticAccessClick,
-					Draw: InventoryItemBreastFuturisticBraDraw,
+					Draw: InventoryItemBreastFuturisticBraDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
@@ -2389,8 +2389,8 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Draw: InventoryItemArmsFullLatexSuitDraw,
-					Click: InventoryItemArmsFullLatexSuitClick,
+					Draw: InventoryItemArmsFullLatexSuitDrawHook,
+					Click: InventoryItemArmsFullLatexSuitClickHook,
 				},
 			},
 		}, // FullLatexSuit
@@ -2443,8 +2443,8 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { TriggerCount: 0, ShowText: true },
 				ScriptHooks: {
-					Click: InventoryItemArmsPrisonLockdownSuitClick,
-					Draw: InventoryItemArmsPrisonLockdownSuitDraw,
+					Click: InventoryItemArmsPrisonLockdownSuitClickHook,
+					Draw: InventoryItemArmsPrisonLockdownSuitDrawHook,
 				},
 				DrawImages: true,
 			},
@@ -2523,7 +2523,7 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: TypedItemChatSetting.FROM_TO,
 				ScriptHooks: {
 					Load: PropertyTextLoad,
-					Draw: InventoryItemArmsTransportJacketDraw,
+					Draw: InventoryItemArmsTransportJacketDrawHook,
 					Exit: PropertyTextExit,
 				}
 			},
@@ -2582,8 +2582,8 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { TriggerCount: 0, ShowText: true },
 				ScriptHooks: {
-					Click: InventoryItemArmsPrisonLockdownSuitClick,
-					Draw: InventoryItemArmsPrisonLockdownSuitDraw,
+					Click: InventoryItemArmsPrisonLockdownSuitClickHook,
+					Draw: InventoryItemArmsPrisonLockdownSuitDrawHook,
 				},
 				DrawImages: true,
 			},
@@ -2687,8 +2687,8 @@ var AssetFemale3DCGExtended = {
 					{ Name: "Whore", Property: { Type: "Whore" } },
 				],
 				ScriptHooks: {
-					Draw: InventoryItemNeckAccessoriesCollarNameTagDraw,
-					Click: InventoryItemNeckAccessoriesCollarNameTagClick,
+					Draw: InventoryItemNeckAccessoriesCollarNameTagDrawHook,
+					Click: InventoryItemNeckAccessoriesCollarNameTagClickHook,
 					PublishAction: InventoryItemNeckAccessoriesCollarNameTagPublishActionHook,
 				},
 				DrawImages: false,
@@ -2808,8 +2808,8 @@ var AssetFemale3DCGExtended = {
 					{ Name: "High", Property: { Type: "High", ShockLevel: 2 } },
 				],
 				ScriptHooks: {
-					Draw: InventoryItemNeckAccessoriesCollarShockUnitDrawFunc,
-					Click: InventoryItemNeckAccessoriesCollarShockUnitClickFunc,
+					Draw: InventoryItemNeckAccessoriesCollarShockUnitDrawHook,
+					Click: InventoryItemNeckAccessoriesCollarShockUnitClickHook,
 				},
 				DrawImages: false,
 				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false },
@@ -4525,8 +4525,8 @@ var AssetFemale3DCGExtended = {
 					Click: FuturisticAccessClick,
 					Draw: FuturisticAccessDraw,
 					Exit: FuturisticAccessExit,
-					Validate: (next, ...args) => {
-						return FuturisticAccessValidate(next, ...args) || VibratorModeValidate(...args);
+					Validate: (data, next, ...args) => {
+						return FuturisticAccessValidate(data, next, ...args) || VibratorModeValidate(...args);
 					},
 				}
 			},
@@ -5176,7 +5176,7 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { Opacity: 1 },
 				ScriptHooks: {
 					Load: PropertyOpacityLoad,
-					Draw: InventoryItemDevicesVacBedDeluxeDraw,
+					Draw: InventoryItemDevicesVacBedDeluxeDrawHook,
 					Exit: PropertyOpacityExit,
 					Validate: PropertyOpacityValidate,
 				},
@@ -5198,9 +5198,9 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 0, Text: "" },
 				ScriptHooks: {
-					Load: InventoryItemDevicesWoodenBoxLoad,
-					Draw: InventoryItemDevicesWoodenBoxDraw,
-					Exit: InventoryItemDevicesWoodenBoxExit,
+					Load: InventoryItemDevicesWoodenBoxLoadHook,
+					Draw: InventoryItemDevicesWoodenBoxDrawHook,
+					Exit: InventoryItemDevicesWoodenBoxExitHook,
 				},
 			},
 		}, // WoodenBox
@@ -5256,9 +5256,11 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Draw: (n) => InventoryItemDevicesLuckyWheelDrawHook(n),
-					Click: (n) => InventoryItemDevicesLuckyWheelClickHook(n),
-				}
+					Draw: InventoryItemDevicesLuckyWheelDrawHook,
+					Click: InventoryItemDevicesLuckyWheelClickHook,
+					Init: InventoryItemDevicesLuckyWheelInitHook,
+				},
+				BaselineProperty: { TargetAngle: 0 },
 			},
 		}, //LuckyWheel
 		FoldingScreen: {
@@ -5540,8 +5542,8 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDraw,
-					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExit,
+					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDrawHook,
+					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExitHook,
 				},
 				DialogPrefix: {
 					Chat: ({previousOption, newOption}) => {
@@ -5855,7 +5857,7 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Draw: InventoryItemButtInflVibeButtPlugDraw,
+					Draw: InventoryItemButtInflVibeButtPlugDrawHook,
 				},
 				DialogPrefix: {
 					Header: "ItemButtInflVibeButtPlugSelect",
@@ -6295,8 +6297,8 @@ var AssetFemale3DCGExtended = {
 				],
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
-					Click: InventoryItemTorsoFuturisticHarnessClick,
-					Draw: InventoryItemTorsoFuturisticHarnessDraw,
+					Click: InventoryItemTorsoFuturisticHarnessClickHook,
+					Draw: InventoryItemTorsoFuturisticHarnessDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
@@ -6428,8 +6430,8 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Load: (next) => PropertyOpacityLoad(next, "lightbulb"),
-					Draw: (next) => PropertyOpacityDraw(next, 0, -50, "Brightness"),
+					Load: (...args) => PropertyOpacityLoad(...args, "lightbulb"),
+					Draw: (...args) => PropertyOpacityDraw(...args, 0, -50, "Brightness"),
 					Exit: PropertyOpacityExit,
 					Validate: PropertyOpacityValidate,
 				},
@@ -7182,8 +7184,8 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { ShowText: true, BlinkState: false, AutoPunishUndoTime: 0 },
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
-					Click: InventoryItemMouthFuturisticPanelGagClick,
-					Draw: InventoryItemMouthFuturisticPanelGagDraw,
+					Click: InventoryItemMouthFuturisticPanelGagClickHook,
+					Draw: InventoryItemMouthFuturisticPanelGagDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
@@ -8680,7 +8682,7 @@ var AssetFemale3DCGExtended = {
 				ScriptHooks: {
 					Load: FuturisticAccessLoad,
 					Click: InventoryItemPelvisSciFiPleasurePantiesClickHook,
-					Draw: InventoryItemPelvisSciFiPleasurePantiesDraw,
+					Draw: InventoryItemPelvisSciFiPleasurePantiesDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
 				},
@@ -9020,7 +9022,7 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 			},
-		}, // Jockstrap			  
+		}, // Jockstrap
 	}, // Panties
 	Glasses: {
 		EyePatch1: {

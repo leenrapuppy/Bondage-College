@@ -1,8 +1,7 @@
 "use strict";
 
-/** @type {ExtendedItemPublishActionCallback<ExtendedItemOption>} */
-function InventoryItemButtAnalBeads2PublishActionHook(C, item, newOption, previousOption) {
-	const data = ExtendedItemGetData(item, ExtendedArchetype.TYPED);
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, ExtendedItemOption>} */
+function InventoryItemButtAnalBeads2PublishActionHook(data, originalFunction, C, item, newOption, previousOption) {
 	const beadsOld = previousOption.Property.InsertedBeads || 1;
 	const beadsNew = newOption.Property.InsertedBeads || 1;
 	const beadsChange = beadsNew - beadsOld;

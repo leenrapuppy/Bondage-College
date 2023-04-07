@@ -97,44 +97,65 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
 }
 
 /**
+ * @template {any[]} T
+ * @template RT
+ * @param {ExtendedItemData<any>} data
+ * @param {string} name
+ * @param {null | ExtendedItemCallback<T, RT>} originalFunction
+ */
+function ExtendedItemCreateCallback(data, name, originalFunction) {
+	const nameCaps = `${name[0].toUpperCase()}${name.slice(1)}`;
+	const funcName = `${data.functionPrefix}${nameCaps}`;
+	const scriptHook = /** @type {ExtendedItemScriptHookCallback<any, T, RT>} */(data.scriptHooks[name]);
+	if (scriptHook != null) {
+		/** @type {ExtendedItemCallback<T, RT>} */
+		window[funcName] = (...args) => scriptHook(data, originalFunction, ...args);
+	} else if (originalFunction != null) {
+		window[funcName] = originalFunction;
+	}
+}
+
+/**
+ * @template {ExtendedItemOption | ModularItemOption | VibratingItemOption} T
+ * @param {ExtendedItemData<T>} data
+ * @param {ExtendedItemCallbackStruct<T>} defaults
+ */
+function ExtendedItemCreateCallbacks(data, defaults) {
+	/** @type {(keyof Required<ExtendedItemCallbackStruct<T>>)[]} */
+	const ExtendedItemCreate = [
+		"load",
+		"click",
+		"draw",
+		"exit",
+		"validate",
+		"publishAction",
+		"init",
+	];
+
+	const extraKeys = CommonKeys(defaults).filter(i => !ExtendedItemCreate.includes(i));
+	if (extraKeys.length !== 0) {
+		console.warn(`Found ${extraKeys.length} non-existent script hooks in the passed ${data.asset.Name} extended item data`);
+	}
+
+	ExtendedItemCreate.forEach(k => ExtendedItemCreateCallback(data, k, /** @type {ExtendedItemCallback<any[], any>} */(defaults[k])));
+}
+
+/**
  * Initialize the extended item properties
  * @param {Item} Item - The item in question
  * @param {Character} C - The character that has the item equiped
  * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
- * @param {null | ExtendedArchetype} Archetype - The item's archetype; defaults to {@link Asset.Archetype}.
- * A value should generally only be provided here if one is initializing an archetypical subscreen.
- * @param {string} Type - The item's type. Only relevant in the case of {@link VariableHeightData}
- * @returns {void} Nothing
+ * @returns {boolean} Whether properties were updated or not
  */
-function ExtendedItemInit(Item, C, Refresh=true, Archetype=null, Type=null) {
+function ExtendedItemInit(C, Item, Refresh=true) {
 	if (Item == null || C == null || !Item.Asset.Extended) {
-		return;
+		return false;
 	}
 
-	Archetype = (Archetype == null) ? Item.Asset.Archetype : Archetype;
-	switch (Archetype) {
-		case ExtendedArchetype.TYPED:
-			return TypedItemInit(Item, C, Refresh);
-		case ExtendedArchetype.MODULAR:
-			return ModularItemInit(Item, C, Refresh);
-		case ExtendedArchetype.VIBRATING:
-			return VibratorModeInit(Item, C, Refresh);
-		case ExtendedArchetype.VARIABLEHEIGHT:
-			if (Type == null) {
-				console.warn(`Cannot initialize ${Item.Asset.Group.Name}${Item.Asset.Name} variable height item data with a null type`);
-			} else {
-				VariableHeightInit(Item, C, Type, Refresh);
-			}
-			return;
-		default: {
-			const initFunctionName = `Inventory${Item.Asset.Group.Name}${Item.Asset.Name}Init`;
-			/** @type {ExtendedItemInitCallback} */
-			const initFunction = window[initFunctionName];
-			if (typeof initFunction === "function") {
-				initFunction(Item, C, Refresh);
-			}
-		}
-	}
+	const functionName = `Inventory${Item.Asset.Group.Name}${Item.Asset.Name}Init`;
+	/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+	const args = [C, Item, Refresh];
+	return CommonCallFunctionByNameWarn(functionName, ...args);
 }
 
 /**
@@ -145,18 +166,27 @@ function ExtendedItemInit(Item, C, Refresh=true, Archetype=null, Type=null) {
  * @param {ItemProperties} Properties - A record that maps property keys to their default value.
  *        The type of each value is used for basic validation.
  * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
- * @returns {void} Nothing
+ * @returns {boolean} Whether properties were updated or not
  */
-function ExtendedItemInitNoArch(Item, C, Properties, Refresh=true) {
-	if (!Item.Property) {
+function ExtendedItemInitNoArch(C, Item, Properties, Refresh=true) {
+	if (!CommonIsObject(Item.Property)) {
 		Item.Property = {};
 	}
-	Object.assign(Item.Property, JSON.parse(JSON.stringify(Properties)));
+
+	let Update = false;
+	const PropertiesCopy = JSON.parse(JSON.stringify(Properties));
+	for (const [name, value] of Object.entries(PropertiesCopy)) {
+		if (Item.Property[name] == null) {
+			Update = true;
+			Item.Property[name] = value;
+		}
+	}
 
 	if (Refresh) {
 		CharacterRefresh(C, true);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
+	return Update;
 }
 
 /**
@@ -512,7 +542,7 @@ function ExtendedItemSetType(C, Options, Option) {
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
-			/** @type {Parameters<ExtendedItemPublishActionCallback<T>>} */
+			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<T>>} */
 			const args = [C, DialogFocusItem, Option, previousOption];
 			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
 		} else {
@@ -599,8 +629,9 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 		} else if (Option.HasSubscreen) {
 			ExtendedItemSubscreen = Option.Name;
 			if (Option.Archetype) {
-				const Type = (Option.Property && Option.Property[typeField]) ? Option.Property[typeField] : null;
-				ExtendedItemInit(DialogFocusItem, C, true, Option.Archetype, Type);
+				/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+				const args = [C, DialogFocusItem, true];
+				CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Init`, ...args);
 			}
 			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
@@ -820,29 +851,6 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
 		window[npcDialogFunctionName] = function (C, Option, PreviousOption) {
 			C.CurrentDialog = DialogFind(C, `${NpcPrefix}${Option.Name}`, Asset.Group.Name);
 		};
-	}
-}
-
-/**
- * Creates an asset's extended item validation function.
- * @param {string} functionPrefix - The prefix of the new `Validate` function
- * @param {null | ExtendedItemValidateScriptHookCallback<any>} ValidationCallback - A custom validation callback
- * @returns {void} Nothing
- */
-function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback) {
-	const validateFunctionName = `${functionPrefix}Validate`;
-
-	/** @type {ExtendedItemValidateCallback<ModularItemOption | ExtendedItemOption>} */
-	const validateFunction = function (C, item, option, currentOption) {
-		return ExtendedItemValidate(C, item, option, currentOption);
-	};
-
-	if (ValidationCallback) {
-		window[validateFunctionName] = function (C, item, option, currentOption) {
-			return ValidationCallback(validateFunction, C, item, option, currentOption);
-		};
-	} else {
-		window[validateFunctionName] = validateFunction;
 	}
 }
 

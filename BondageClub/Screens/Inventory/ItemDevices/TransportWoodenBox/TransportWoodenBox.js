@@ -1,6 +1,6 @@
 "use strict";
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemDevicesTransportWoodenBoxAfterDraw(options) {
 	AssetsItemDevicesWoodenBoxAfterDraw(options);
 }

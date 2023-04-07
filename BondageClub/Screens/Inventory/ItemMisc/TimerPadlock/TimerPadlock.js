@@ -1,15 +1,15 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscSafewordPadlockInit(Item, C) {
-	ExtendedItemInitNoArch(Item, C, { RemoveItem: false }, false);
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemMiscSafewordPadlockInit(C, Item) {
+	return ExtendedItemInitNoArch(C, Item, { RemoveItem: false }, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscTimerPadlockLoad() {
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscTimerPadlockDraw() {
 	if ((DialogFocusItem == null) || (DialogFocusSourceItem.Property.RemoveTimer < CurrentTime)) { InventoryItemMiscTimerPadlockExit(); return; }
 	DrawText(DialogFindPlayer("TimerLeft") + " " + TimerToString(DialogFocusSourceItem.Property.RemoveTimer - CurrentTime), 1500, 150, "white", "gray");
@@ -26,7 +26,7 @@ function InventoryItemMiscTimerPadlockDraw() {
 	if (Player.CanInteract()) DrawButton(1350, 910, 300, 65, DialogFindPlayer("RestartTimer"), "White");
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscTimerPadlockClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) InventoryItemMiscTimerPadlockExit();
 	if ((MouseX >= 1100) && (MouseX <= 1164) && (MouseY >= 836) && (MouseY <= 900) && (Player.MemberNumber == DialogFocusSourceItem.Property.LockMemberNumber) && Player.CanInteract()) {
@@ -52,7 +52,7 @@ function InventoryItemMiscTimerPadlockReset() {
 	InventoryItemMiscTimerPadlockExit();
 }
 
-// Exits the extended menu
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscTimerPadlockExit() {
 	DialogFocusItem = null;
 	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());

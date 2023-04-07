@@ -1,35 +1,35 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemDevicesDollBoxInit(Item, C, Refresh) {
-	ExtendedItemInitNoArch(Item, C, { Text: "", Text2: "" }, Refresh);
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemDevicesDollBoxInit(C, Item, Refresh) {
+	return ExtendedItemInitNoArch(C, Item, { Text: "", Text2: "" }, Refresh);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemDevicesDollBoxLoad() {
 	PropertyTextLoad();
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemDevicesDollBoxDraw() {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 	PropertyTextDraw();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemDevicesDollBoxClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		ExtendedItemExit();
 	}
 }
 
-// Leaves the extended screen
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemDevicesDollBoxExit() {
 	PropertyTextExit();
 }
 
-/** @type {DynamicAfterDrawCallback} */
+/** @type {ExtendedItemCallbacks.AfterDraw} */
 function AssetsItemDevicesDollBoxAfterDraw({C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color}) {
 	if (L === "_Text") {
 		// We set up a canvas

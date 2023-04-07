@@ -1,17 +1,17 @@
 "use strict";
 
-/** @type {ExtendedItemInitCallback} */
-function InventoryItemMiscSafewordPadlockInit(Item, C) {
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemMiscSafewordPadlockInit(C, Item) {
 	const PropRecord = {
 		Password: "PLEASE",
 		Hint: "Say the magic word...",
 		LockSet: false,
 		RemoveOnUnlock: false,
 	};
-	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+	return ExtendedItemInitNoArch(C, Item, PropRecord, false);
 }
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscSafewordPadlockLoad() {
 	if (!DialogFocusItem || !DialogFocusSourceItem) return InventoryItemMiscSafewordPadlockExit();
 	const Property = DialogFocusSourceItem.Property;
@@ -40,7 +40,7 @@ function InventoryItemMiscSafewordPadlockLoad() {
 	}
 }
 
-// Draw the extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscSafewordPadlockDraw() {
 	if (!DialogFocusSourceItem) return;
 	const Property = DialogFocusSourceItem.Property;
@@ -57,7 +57,7 @@ function InventoryItemMiscSafewordPadlockDraw() {
 	InventoryItemMiscPasswordPadlockDrawControls();
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscSafewordPadlockClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
@@ -67,6 +67,7 @@ function InventoryItemMiscSafewordPadlockClick() {
 	InventoryItemMiscPasswordPadlockControlsClick(InventoryItemMiscSafewordPadlockExit);
 }
 
+/** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscSafewordPadlockExit() {
 	InventoryItemMiscPasswordPadlockExit();
 }

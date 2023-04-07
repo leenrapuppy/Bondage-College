@@ -1,17 +1,9 @@
 "use strict";
 
-/**
- * Draw the item extension screen
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(Data, OriginalFunction) {
 	OriginalFunction();
-	if (ModularItemModuleIsActive(ModularItemBase)) {
-		const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-		if (Data == null) {
-			return;
-		}
+	if (Data.currentModule === ModularItemBase) {
 		const [ShockLevel, AutoPunish] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information
@@ -33,14 +25,10 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
 	}
 }
 
-/**
- * Catches the item extension clicks
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} Nothing
- */
-function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
+function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(Data, OriginalFunction) {
 	OriginalFunction();
-	if (DialogFocusItem && ModularItemModuleIsActive(ModularItemBase)) {
+	if (DialogFocusItem && Data.currentModule === ModularItemBase) {
 		if (MouseIn(1175, 768, 64, 64) && !ExtendedItemPermissionMode) {
 			DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 		} else if (MouseIn(1635, 700, 225, 55)) {
@@ -51,7 +39,11 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(OriginalFunction) 
 	}
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ ChangeTime?: number, LastMessageLen?: number }} AutoShockUnitPersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<AutoShockUnitPersistentData>} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
 		const property = data.Property || {};
@@ -59,9 +51,8 @@ function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<AutoShockUnitPersistentData>} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitScriptDraw(data) {
-	/** @type {{ChangeTime?: number, LastMessageLen?: number}} */
 	const persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
 	const property = (data.Item.Property = data.Item.Property || {});

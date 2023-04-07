@@ -3,12 +3,12 @@
 /** @type {string | null} */
 var InventoryItemHandsPaddedMittensMsg = null;
 
-// Loads the item extension properties
+/** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemHandsPaddedMittensLoad() {
 	InventoryItemHandsPaddedMittensMsg = null;
 }
 
-// Draw the item extension screen
+/** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemHandsPaddedMittensDraw() {
 	// Draw the header and item
 	ExtendedItemDrawHeader(1387, 125);
@@ -27,7 +27,7 @@ function InventoryItemHandsPaddedMittensDraw() {
 	}
 }
 
-// Catches the item extension clicks
+/** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemHandsPaddedMittensClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 	if ((MouseX >= 1250) && (MouseX <= 1475) && (MouseY >= 550) && (MouseY <= 775)) InventoryItemHandsPaddedMittensChain();

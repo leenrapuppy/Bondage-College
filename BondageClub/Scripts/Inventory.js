@@ -1217,7 +1217,10 @@ function InventoryLock(C, Item, Lock, MemberNumber, Update = true) {
 		if (!Item.Property.MemberNumberListKeys && Lock.Asset.Name == "HighSecurityPadlock") Item.Property.MemberNumberListKeys = "" + MemberNumber;
 		Item.Property.LockedBy = /** @type AssetLockType */(Lock.Asset.Name);
 		if (MemberNumber != null) Item.Property.LockMemberNumber = MemberNumber;
-		CommonCallFunctionByName(`Inventory${Lock.Asset.Group.Name}${Lock.Asset.Name}Init`, Item, C, false);
+
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, Item, false];
+		CommonCallFunctionByName(`Inventory${Lock.Asset.Group.Name}${Lock.Asset.Name}Init`, ...args);
 		if (Update) {
 			if (Lock.Asset.RemoveTimer > 0) TimerInventoryRemoveSet(C, Item.Asset.Group.Name, Lock.Asset.RemoveTimer);
 			CharacterRefresh(C, true);

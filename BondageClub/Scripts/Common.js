@@ -1077,3 +1077,25 @@ function IsBrowser() {
 function CommonIsArray(arg) {
 	return Array.isArray(arg);
 }
+
+/**
+ * A {@link Object.keys} variant annotated to return respect literal key types
+ * @template {string} T
+ * @param {Partial<Record<T, unknown>>} record A record with string-based keys
+ * @returns {T[]} The keys in the passed record
+ */
+function CommonKeys(record) {
+	return /** @type {T[]} */(Object.keys(record));
+}
+
+/**
+ * A {@link Array.includes} version annotated to return a type guard.
+ * @template T
+ * @param {readonly T[]} array The array in question
+ * @param {unknown} searchElement The value to search for
+ * @param {number} [fromIndex] Zero-based index at which to start searching
+ * @returns {item is T} Whether the array contains the passed element
+ */
+function CommonIncludes(array, searchElement, fromIndex) {
+	return array.includes(/** @type {T} */(searchElement), fromIndex);
+}

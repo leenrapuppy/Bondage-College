@@ -81,29 +81,32 @@ function ModularItemRegister(asset, config) {
 	const data = ModularItemCreateModularData(asset, config);
 
 	if (IsBrowser()) {
-		ModularItemCreateLoadFunction(data);
-		ModularItemCreateDrawFunction(data);
-		ModularItemCreateClickFunction(data);
-		ModularItemCreateExitFunction(data);
-		ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate);
+		/** @type {ExtendedItemCallbackStruct<ModularItemOption>} */
+		const defaultCallbacks = {
+			load: () => ModularItemLoad(data),
+			click: () => ModularItemClick(data),
+			draw: () => ModularItemDraw(data),
+			validate: ExtendedItemValidate,
+			publishAction: (...args) => ModularItemPublishAction(data, ...args),
+			init: (...args) => ModularItemInit(data, ...args),
+		};
+		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
 	ModularItemGenerateValidationProperties(data);
 }
 
 /**
  * Initialize the modular item properties
- * @type {ExtendedItemInitCallback}
- * @see {@link ExtendedItemInit}
+ * @param {ModularItemData} Data - The item's extended item data
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
+ * @returns {boolean} Whether properties were initialized or not
  */
-function ModularItemInit(Item, C, Refresh=true) {
-	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
-	if (Data === null) {
-		return;
-	}
-
+function ModularItemInit(Data, C, Item, Refresh=true) {
 	const AllowType = Data.asset.AllowType;
-	if (Item.Property && AllowType.includes(Item.Property.Type)) {
-		return;
+	if (CommonIsObject(Item.Property) && CommonIncludes(AllowType, Item.Property.Type)) {
+		return false;
 	}
 
 	const currentModuleValues = ModularItemParseCurrent(Data, null);
@@ -113,73 +116,30 @@ function ModularItemInit(Item, C, Refresh=true) {
 		CharacterRefresh(C, true, false);
 		ChatRoomCharacterItemUpdate(C, Data.asset.Group.Name);
 	}
+	return true;
 }
 
 /**
- * Creates an asset's extended item load function
- * @param {ModularItemData} data - The modular item data for the asset
- * @returns {void} - Nothing
+ * @param {ModularItemData} data
  */
-function ModularItemCreateLoadFunction(data) {
-	const loadFunctionName = `${data.functionPrefix}Load`;
-	const loadFunction = function () {
-		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${data.currentModule}`);
-	};
-	if (data.scriptHooks && data.scriptHooks.load) {
-		window[loadFunctionName] = function () {
-			data.scriptHooks.load(loadFunction);
-		};
-	} else window[loadFunctionName] = loadFunction;
+function ModularItemLoad(data) {
+	DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${data.currentModule}`);
 }
 
 /**
- * Creates an asset's extended item draw function
- * @param {ModularItemData} data - The modular item data for the asset
- * @returns {void} - Nothing
+ * @param {ModularItemData} data
  */
-function ModularItemCreateDrawFunction(data) {
-	const drawFunctionName = `${data.functionPrefix}Draw`;
-	const drawFunction = function () {
-		const currentModule = data.currentModule || ModularItemBase;
-		return data.drawFunctions[currentModule]();
-	};
-	if (data.scriptHooks && data.scriptHooks.draw) {
-		window[drawFunctionName] = function () {
-			data.scriptHooks.draw(drawFunction);
-		};
-	} else window[drawFunctionName] = drawFunction;
+function ModularItemClick(data) {
+	const currentModule = data.currentModule || ModularItemBase;
+	return data.clickFunctions[currentModule]();
 }
 
 /**
- * Creates an asset's extended item click function
- * @param {ModularItemData} data - The modular item data for the asset
- * @returns {void} - Nothing
+ * @param {ModularItemData} data
  */
-function ModularItemCreateClickFunction(data) {
-	const clickFunctionName = `${data.functionPrefix}Click`;
-	const clickFunction = function () {
-		const currentModule = data.currentModule || ModularItemBase;
-		return data.clickFunctions[currentModule]();
-	};
-	if (data.scriptHooks && data.scriptHooks.click) {
-		window[clickFunctionName] = function () {
-			data.scriptHooks.click(clickFunction);
-		};
-	} else window[clickFunctionName] = clickFunction;
-}
-
-/**
- * Creates an asset's extended item exit function
- * @param {ModularItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function ModularItemCreateExitFunction(data) {
-	const exitFunctionName = `${data.functionPrefix}Exit`;
-	if (data.scriptHooks && data.scriptHooks.exit) {
-		window[exitFunctionName] = function () {
-			data.scriptHooks.exit();
-		};
-	}
+function ModularItemDraw(data) {
+	const currentModule = data.currentModule || ModularItemBase;
+	return data.drawFunctions[currentModule]();
 }
 
 /**
@@ -257,6 +217,8 @@ function ModularItemCreateModularData(asset, {
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
+			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
+			init: ScriptHooks ? ScriptHooks.Init : undefined,
 		},
 		drawFunctions: {},
 		clickFunctions: {},
@@ -625,6 +587,8 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.PunishOrgasm === "boolean") mergedProperty.PunishOrgasm = Property.PunishOrgasm;
 	if (typeof Property.PunishStandup === "boolean") mergedProperty.PunishStandup = Property.PunishStandup;
 	if (typeof Property.NextShockTime === "number") mergedProperty.NextShockTime = Property.NextShockTime;
+	if (typeof Property.TargetAngle === "number") mergedProperty.TargetAngle = Property.TargetAngle;
+	if (Array.isArray(Property.Texts)) mergedProperty.Texts = Property.Texts;
 	return mergedProperty;
 }
 
@@ -720,7 +684,9 @@ function ModularItemSetType(module, index, data) {
 			ChatRoomCharacterItemUpdate(C, groupName);
 
 			if (ServerPlayerIsInChatRoom()) {
-				ModularItemPublishAction(data, C, DialogFocusItem, option, currentOption);
+				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ModularItemOption>>} */
+				const args = [C, DialogFocusItem, option, currentOption];
+				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 			} else if (C.ID === 0) {
 				DialogMenuButtonBuild(C);
 			} else {
@@ -927,32 +893,19 @@ function ModularItemGenerateValidationProperties(data) {
 }
 
 /**
- * Check whether a specific module is active for a given modular item.
- * @param {string} Module - The to be compared module
- * @param {Item | null} Item - The item in question; defaults to {@link DialogFocusItem}
- * @returns {boolean} whether the specific module is active
- */
-function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
-	if (Item == null) {
-		return false;
-	}
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	return Data !== undefined ? (Data.currentModule === Module) : false;
-}
-
-/**
  * Hide an HTML element if a given module is not active.
+ * @param {ModularItemData} Data - The modular item data
  * @param {string} ID - The id of the element
  * @param {string} Module - The module that must be active
  * @returns {boolean} Whether the module is active or not
  */
-function ModularItemHideElement(ID, Module) {
+function ModularItemHideElement(Data, ID, Module) {
 	const Element = document.getElementById(ID);
 	if (Element == null) {
-		return ModularItemModuleIsActive(Module);
+		return Data.currentModule === Module;
 	}
 
-	if (ModularItemModuleIsActive(Module)) {
+	if (Data.currentModule === Module) {
 		Element.style.display = "block";
 		return true;
 	} else {

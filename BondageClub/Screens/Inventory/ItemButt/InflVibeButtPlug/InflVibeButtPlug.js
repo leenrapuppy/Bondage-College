@@ -1,15 +1,10 @@
 "use strict";
 
-/**
- * Draw the item extension screen.
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
- * @returns {void} - Nothing
- */
-function InventoryItemButtInflVibeButtPlugDraw(OriginalFunction) {
+/** @type {ExtendedItemScriptHookCallbacks.Draw<ModularItemData>} */
+function InventoryItemButtInflVibeButtPlugDrawHook(Data, OriginalFunction) {
 	OriginalFunction();
 
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
-	if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
+	if (Data.currentModule === ModularItemBase) {
 		const [InflateLevel, Intensity] = ModularItemParseCurrent(Data);
 
 		// Display option information

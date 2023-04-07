@@ -1,11 +1,11 @@
 "use strict";
 
-/** @type {DynamicBeforeDrawCallback} */
+/** @type {ExtendedItemCallbacks.BeforeDraw<ShockUnitPersistentData>} */
 function AssetsItemNeckShockCollarBeforeDraw(data) {
 	return AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data);
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<ShockUnitPersistentData>} */
 function AssetsItemNeckShockCollarScriptDraw(data) {
 	AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data);
 }

@@ -1,6 +1,10 @@
 "use strict";
 
-/** @type {DynamicBeforeDrawCallback} */
+/**
+ * @typedef {{ DildoState?: number, Modifier?: number, Speed?: number, FuckChangeTime?: number, Mode?: VibratorMode, ChangeTime?: number, LastChange?: number }} FuckMachinePersistentData
+ */
+
+/** @type {ExtendedItemCallbacks.BeforeDraw<FuckMachinePersistentData>} */
 function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, Y, Property }) {
 	const Data = PersistentData();
 	if (typeof Data.DildoState !== "number") Data.DildoState = 0;
@@ -31,7 +35,7 @@ function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, Y, Property
 	return { Y: Y + Data.DildoState };
 }
 
-/** @type {DynamicScriptDrawCallback} */
+/** @type {ExtendedItemCallbacks.ScriptDraw<FuckMachinePersistentData>} */
 function AssetsItemDevicesFuckMachineScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 	const Data = data.PersistentData();
