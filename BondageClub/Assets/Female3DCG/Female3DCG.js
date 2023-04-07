@@ -1480,6 +1480,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "GarterBelt2", Value: 10 },
+			{ Name: "GarterBelt3", Value: 10, ParentGroup: "BodyUpper", Top: 400 },
 			{
 				Name: "Tentacles", Category: ["Fantasy"], BuyGroup: "Tentacles", Random: false, Left: 0, Value: 250, DefaultColor: "#9221ba",
 				Layer: [
