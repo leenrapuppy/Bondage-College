@@ -393,7 +393,7 @@ function VibratorModeGenerateCoords(modeSet, Y=450) {
 function VibratorModeDraw(modeSet, Y=450, IgnoreSubscreen=false) {
 	const coords = VibratorModeGenerateCoords(modeSet, Y);
 	const actualOptions = VibratorModeGetOptions(modeSet);
-	ExtendedItemDraw(actualOptions, "", 10, false, coords, IgnoreSubscreen);
+	TypedItemDraw(actualOptions, "", 10, false, coords, IgnoreSubscreen);
 }
 
 /**
@@ -407,7 +407,7 @@ function VibratorModeDraw(modeSet, Y=450, IgnoreSubscreen=false) {
 function VibratorModeClick(modeSet, Y=450, IgnoreSubscreen=false) {
 	const coords = VibratorModeGenerateCoords(modeSet, Y);
 	const options = VibratorModeGetOptions(modeSet);
-	ExtendedItemClick(options, 10, false, coords, IgnoreSubscreen);
+	TypedItemClick(options, 10, false, coords, IgnoreSubscreen);
 }
 
 /**

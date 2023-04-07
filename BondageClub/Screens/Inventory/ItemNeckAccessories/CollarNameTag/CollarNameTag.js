@@ -6,7 +6,7 @@ function InventoryItemNeckAccessoriesCollarNameTagDrawHook(Data, OriginalFunctio
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
-	ExtendedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
+	TypedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
 }
 
 /** @type {ExtendedItemScriptHookCallbacks.Click<TypedItemData>} */
@@ -15,7 +15,7 @@ function InventoryItemNeckAccessoriesCollarNameTagClickHook(Data, OriginalFuncti
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
-	ExtendedItemClick(Data.options, Data.options.length, Data.drawImages, XYCoords);
+	TypedItemClick(Data.options, Data.options.length, Data.drawImages, XYCoords);
 }
 
 /**

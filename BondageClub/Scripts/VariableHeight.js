@@ -170,7 +170,7 @@ function VariableHeightClick(data) {
 		if (data.parentOptions) {
 			let option = Object.assign({}, data.parentOptions.find(o => o.Property.Type == DialogFocusItem.Property.Type));
 			option.Property = /** @type {typeof option.Property} */(DialogFocusItem.Property);
-			ExtendedItemSetType(C, data.parentOptions, option);
+			TypedItemSetType(C, data.parentOptions, option);
 		} else {
 			if (CurrentScreen == "ChatRoom") {
 				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<VariableHeightOption>>} */

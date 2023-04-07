@@ -2592,7 +2592,7 @@ function KinkyDungeonAddRestraint(restraint, Tightness, Bypass, Lock, Keep, Link
 					const option = options.find(o => o.Name === restraint.Type);
 					/*
 					KinkyDungeonPlayer.FocusGroup = AssetGroupGet("Female3DCG", AssetGroup);
-					ExtendedItemSetType(KinkyDungeonPlayer, options, option);
+					TypedItemSetType(KinkyDungeonPlayer, options, option);
 					*/
 					if (placedOnPlayer) {
 						const playerItem = InventoryGet(Player, AssetGroup);

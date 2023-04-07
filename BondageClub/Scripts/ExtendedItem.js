@@ -209,73 +209,6 @@ function ExtendedItemLoad(DialogKey, IgnoreSubscreen=false) {
 }
 
 /**
- * Draws the extended item type selection screen
- * @param {readonly (ExtendedItemOption | VibratingItemOption)[]} Options - An Array of type definitions for each allowed extended type. The first item
- *     in the array should be the default option.
- * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
- *     The full dialog key will be <Prefix><Option.Name>
- * @param {number} [OptionsPerPage] - The number of options displayed on each page
- * @param {boolean} [ShowImages=true] - Denotes whether images should be shown for the specific item
- * @param {readonly [number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
- * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
- * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
- * @returns {void} Nothing
- */
-function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
-	// If an option's subscreen is open, it overrides the standard screen
-	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
-		return;
-	}
-
-	const Asset = DialogFocusItem.Asset;
-	const ItemOptionsOffset = ExtendedItemGetOffset();
-	if (XYPositions === null) {
-		const XYPositionsArray = ExtendedItemGetXY(Asset, ShowImages);
-		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
-		XYPositions = XYPositionsArray[OptionsPerPage];
-	} else {
-		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositions.length - 1);
-	}
-
-	// If we have to paginate, draw the back/next button
-	if (Options.length > OptionsPerPage) {
-		const currPage = Math.ceil(ExtendedItemGetOffset() / OptionsPerPage) + 1;
-		const totalPages = Math.ceil(Options.length / OptionsPerPage);
-		DrawBackNextButton(1675, 240, 300, 90, DialogFindPlayer("Page") + " " + currPage.toString() + " / " + totalPages.toString(), "White", "", () => "", () => "");
-	}
-
-	// Draw the header and item
-	ExtendedItemDrawHeader();
-	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
-
-	const typeField = (Options.length && Options[0].OptionType === "VibratingItemOption") ? "Mode" : "Type";
-	const CurrentOption = Options.find(O => O.Property[typeField] === DialogFocusItem.Property[typeField]);
-
-	// Draw the possible variants and their requirements, arranged based on the number per page
-	for (let I = ItemOptionsOffset; I < Options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
-		const PageOffset = I - ItemOptionsOffset;
-		const X = XYPositions[PageOffset][0];
-		const Y = XYPositions[PageOffset][1];
-		ExtendedItemDrawButton(Options[I], CurrentOption, DialogPrefix, X, Y, ShowImages);
-	}
-
-	// Permission mode toggle
-	DrawButton(1775, 25, 90, 90, "", "White",
-		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
-		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"));
-
-	// If the assets allows tightening / loosening
-	if (Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock")) {
-		let Difficulty = DialogFocusItem.Difficulty;
-		if (Difficulty == null) Difficulty = 0;
-		DrawText(DialogFindPlayer("Tightness") + " " + Difficulty.toString(), 1200, 140, "White", "Silver");
-		DrawButton(1050, 220, 300, 65, DialogFindPlayer("AdjustTightness"), "White");
-	}
-
-}
-
-/**
  * Draw a single button in the extended item type selection screen.
  * @param {ExtendedItemOption | ModularItemModule} Option - The new extended item option
  * @param {ExtendedItemOption} CurrentOption - The current extended item option
@@ -424,81 +357,6 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 }
 
 /**
- * Handles clicks on the extended item type selection screen
- * @param {readonly (ExtendedItemOption | VibratingItemOption)[]} Options - An Array of type definitions for each allowed extended type. The first item
- *     in the array should be the default option.
- * @param {number} [OptionsPerPage] - The number of options displayed on each page
- * @param {boolean} [ShowImages=true] - Denotes whether images are shown for the specific item
- * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
- * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
- * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
- * @returns {void} Nothing
- */
-function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
-	const C = CharacterGetCurrent();
-
-	// If an option's subscreen is open, pass the click into it
-	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click", C, Options);
-		return;
-	}
-
-	const ItemOptionsOffset = ExtendedItemGetOffset();
-	const ImageHeight = ShowImages ? 220 : 0;
-	if (XYPositions === null) {
-		const XYPositionsArray = ExtendedItemGetXY(DialogFocusItem.Asset, ShowImages);
-		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
-		XYPositions = XYPositionsArray[OptionsPerPage];
-	} else {
-		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositions.length - 1);
-	}
-
-	// Exit button
-	if (MouseIn(1885, 25, 90, 90)) {
-		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-		ExtendedItemPermissionMode = false;
-		ExtendedItemExit();
-		return;
-	}
-
-	// Permission toggle button
-	if (MouseIn(1775, 25, 90, 90)) {
-		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
-			ChatRoomCharacterUpdate(Player);
-			ExtendedItemRequirementCheckMessageMemo.clearCache();
-		}
-		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
-	}
-
-	// Pagination buttons
-	if (MouseIn(1675, 240, 150, 90) && Options.length > OptionsPerPage) {
-		if (ItemOptionsOffset - OptionsPerPage < 0) ExtendedItemSetOffset(OptionsPerPage * (Math.ceil(Options.length / OptionsPerPage) - 1));
-		else ExtendedItemSetOffset(ItemOptionsOffset - OptionsPerPage);
-	}
-	else if (MouseIn(1825, 240, 150, 90) && Options.length > OptionsPerPage) {
-		if (ItemOptionsOffset + OptionsPerPage >= Options.length) ExtendedItemSetOffset(0);
-		else ExtendedItemSetOffset(ItemOptionsOffset + OptionsPerPage);
-	}
-
-	// Options
-	for (let I = ItemOptionsOffset; I < Options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
-		const PageOffset = I - ItemOptionsOffset;
-		const X = XYPositions[PageOffset][0];
-		const Y = XYPositions[PageOffset][1];
-		const Option = Options[I];
-		if (MouseIn(X, Y, 225, 55 + ImageHeight)) {
-			ExtendedItemHandleOptionClick(C, Options, Option);
-		}
-	}
-
-	// If the assets allows tightening / loosening
-	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock") && MouseIn(1050, 220, 300, 65)) {
-		DialogTightenLoosenItem = DialogFocusItem;
-		TightenLoosenItemLoad();
-	}
-}
-
-/**
  * Exit function for the extended item dialog.
  *
  * Used for:
@@ -522,50 +380,6 @@ function ExtendedItemExit() {
 	DialogFocusItem = null;
 	DialogExtendedMessage = "";
 	ExtendedItemSubscreen = null;
-}
-
-/**
- * Handler function for setting the type of an extended item
- * @template {TypedItemOption | VibratingItemOption} T
- * @param {Character} C - The character wearing the item
- * @param {readonly T[]} Options - An Array of type definitions for each allowed extended type. The first item
- *     in the array should be the default option.
- * @param {T} Option - The selected type definition
- * @returns {void} Nothing
- */
-function ExtendedItemSetType(C, Options, Option) {
-	const typeField = (Option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
-	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-	const FunctionPrefix = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "");
-	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options, typeField);
-
-	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth); // Do not sync appearance while in the wardrobe
-
-	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC
-	if (!IsCloth) {
-		// If the item triggers an expression, start the expression change
-		if (Option.Expression) {
-			InventoryExpressionTriggerApply(C, Option.Expression);
-		}
-		ChatRoomCharacterUpdate(C);
-		if (CurrentScreen === "ChatRoom") {
-			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
-			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<T>>} */
-			const args = [C, DialogFocusItem, Option, previousOption];
-			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
-		} else {
-			ExtendedItemExit();
-			if (C.ID === 0) {
-				// Player is using the item on herself
-				DialogMenuButtonBuild(C);
-			} else {
-				// Otherwise, call the item's NPC dialog function, if one exists
-				CommonCallFunctionByName(FunctionPrefix + "NpcDialog", C, Option, previousOption);
-				C.FocusGroup = null;
-			}
-		}
-	}
 }
 
 /**
@@ -606,47 +420,6 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 		dynamicProperty(item);
 	}
 	CharacterRefresh(C, push);
-}
-
-/**
- * Handler function called when an option on the type selection screen is clicked
- * @template {ExtendedItemOption | VibratingItemOption} T
- * @param {Character} C - The character wearing the item
- * @param {readonly (T)[]} Options - An Array of type definitions for each allowed extended type. The first item
- *     in the array should be the default option.
- * @param {T} Option - The selected type definition
- * @returns {void} Nothing
- */
-function ExtendedItemHandleOptionClick(C, Options, Option) {
-	const IsVibeArch = Option.OptionType === "VibratingItemOption";
-	const typeField = IsVibeArch ? "Mode" : "Type";
-	if (ExtendedItemPermissionMode) {
-		const IsFirst = IsVibeArch ? Option.Property.Mode == VibratorModeOff.Property.Mode : Option.Property.Type == null;
-		const Worn = C.IsPlayer() && DialogFocusItem.Property[typeField] == Option.Property[typeField];
-		InventoryTogglePermission(DialogFocusItem, Option.Property[typeField], Worn || IsFirst);
-	} else {
-		if (DialogFocusItem.Property[typeField] === Option.Property[typeField] && !Option.HasSubscreen) {
-			return;
-		}
-
-		const CurrentType = DialogFocusItem.Property[typeField] || (IsVibeArch ? VibratorModeOff.Property.Mode : null);
-		const CurrentOption = Options.find(O => O.Property[typeField] === CurrentType);
-		// use the unmemoized function to ensure we make a final check to the requirements
-		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
-		if (RequirementMessage) {
-			DialogExtendedMessage = RequirementMessage;
-		} else if (Option.HasSubscreen) {
-			ExtendedItemSubscreen = Option.Name;
-			if (Option.Archetype) {
-				/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-				const args = [C, DialogFocusItem, true];
-				CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Init`, ...args);
-			}
-			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
-		} else {
-			ExtendedItemSetType(C, Options, Option);
-		}
-	}
 }
 
 /**
@@ -921,7 +694,7 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
  * @returns {void} Nothing
  */
 function ExtendedItemCustomExit(Name, C, Dictionary=null) {
-	// The logic below is largely adapted from the exiting functionality within `ExtendedItemSetType`
+	// The logic below is largely adapted from the exiting functionality within `TypedItemSetType`
 	if (ServerPlayerIsInChatRoom()) {
 		if (Dictionary != null) {
 			ChatRoomPublishCustomAction(Name, true, Dictionary);
