@@ -98,7 +98,7 @@ function InfiltrationLoad() {
 	// Make sure the infiltration data is setup
 	if (Player.Infiltration == null) Player.Infiltration = {};
 	if (Player.Infiltration.Perks == null) Player.Infiltration.Perks = "";
-	
+
 	// If there's a private room character from Pandora captured while attempting to kidnap player, set the character. Sets right most character.
 	for (let i=1;i<PrivateCharacter.length;i++) {
 		if (PrivateCharacter[i].FromPandora) {
@@ -478,7 +478,7 @@ function InfiltrationPrivatePrisonerBrainwash() {
 	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 100-150)
 	var S = Math.floor(Math.random()*10) + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
 	var T = NPCTraitGet(C, "Dominant") - S;
-	if (T < -100) { T = -100 };
+	if (T < -100) { T = -100; }
 	NPCTraitSet(C, "Dominant", T);
 	//Neutralize love
 	C.Love = 0;
