@@ -8,6 +8,7 @@ check:
   image: node:16
   script:
     - npm --prefix $NPM_PREFIX ci
-    - npm --prefix $NPM_PREFIX run -s scripts:lint
+    - npm --prefix $NPM_PREFIX run -s assets:lint -- --max-warnings 0
     - npm --prefix $NPM_PREFIX run -s assets:typecheck -- --pretty
     - npm --prefix $NPM_PREFIX run -s assets:check
+    - npm --prefix $NPM_PREFIX run -s scripts:lint
