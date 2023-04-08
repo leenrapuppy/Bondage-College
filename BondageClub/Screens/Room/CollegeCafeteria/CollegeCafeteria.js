@@ -33,6 +33,7 @@ function CollegeCafeteriaLoad() {
 	if (LogQuery("SidneyLover", "NPC-Sidney") && (Player.Lover == "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Lover";
 	if (LogQuery("SidneyLover", "NPC-Sidney") && (Player.Lover != "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "ExLover";
 	if (LogQuery("SidneyCollared", "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Owned";
+	if (LogQuery("SidneyCollaredWithCurfew", "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Curfew";
 	if (LogQuery("SidneyMistress", "NPC-Sidney") && (Player.Owner == "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "Owner";
 	if (LogQuery("SidneyMistress", "NPC-Sidney") && (Player.Owner != "NPC-Sidney")) CollegeCafeteriaSidneyStatus = "ExOwner";
 	if (PrivateCharacter.length > 1)
@@ -64,7 +65,7 @@ function CollegeCafeteriaLoad() {
 			InventoryWear(CollegeCafeteriaSidney, "StringPanties1", "Panties", "#222222");
 			InventoryWear(CollegeCafeteriaSidney, "Boots1", "Shoes", "#222222");
 			InventoryWear(CollegeCafeteriaSidney, "CollegeDunce", "Hat", "#A0A080");
-			if (CollegeCafeteriaSidneyStatus == "Owned") {
+			if ((CollegeCafeteriaSidneyStatus == "Owned") || (CollegeCafeteriaSidneyStatus == "Curfew")) {
 				InventoryWear(CollegeCafeteriaSidney, "SlaveCollar", "ItemNeck");
 				CollegeCafeteriaSidney.Owner = Player.Name;
 			}
@@ -84,6 +85,7 @@ function CollegeCafeteriaLoad() {
 		if (CollegeCafeteriaSidneyStatus == "Lover") CollegeCafeteriaSidneyLove = 5;
 		if (CollegeCafeteriaSidneyStatus == "ExLover") CollegeCafeteriaSidneyLove = -2;
 		if (CollegeCafeteriaSidneyStatus == "Owned") CollegeCafeteriaSidneyLove = 7;
+		if (CollegeCafeteriaSidneyStatus == "Curfew") CollegeCafeteriaSidneyLove = 7;
 		if (CollegeCafeteriaSidneyStatus == "Owner") CollegeCafeteriaSidneyLove = 3;
 		if (CollegeCafeteriaSidneyStatus == "ExOwner") CollegeCafeteriaSidneyLove = -2;
 
