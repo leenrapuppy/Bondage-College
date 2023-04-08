@@ -5,92 +5,113 @@ var InventoryItemNeckSlaveCollarColor = "Default";
 var InventoryItemNeckSlaveCollarOffset = 0;
 
 // Defines all the slave collar models
-/** @type {(ExtendedItemOption & { Image: string })[]} */
+/** @type {(TypedItemOption & { Image: string })[]} */
 var InventoryItemNeckSlaveCollarTypes = [
 	{
 		Name: "",
 		Image: "SlaveCollar",
 		Property: null,
+		OptionType: "TypedItemOption",
 	}, {
 		Name: "SteelPosture",
 		Image: "SteelPostureCollar",
 		Property: { Type: "SteelPosture", Effect: ["FixedHead"], Block: [] },
+		OptionType: "TypedItemOption",
 	}, {
 		Name: "LeatherPosture",
 		Image: "PostureCollar",
 		Property: { Type: "LeatherPosture", Effect: ["FixedHead"], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "PetCollar",
 		Image: "PetCollar",
 		Property: { Type: "PetCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "HighCollar",
 		Image: "HighCollar",
 		Property: { Type: "HighCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "LeatherCollarBell",
 		Image: "LeatherCollarBell",
 		Property: { Type: "LeatherCollarBell", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "LeatherCollarBow",
 		Image: "LeatherCollarBow",
 		Property: { Type: "LeatherCollarBow", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "MaidCollar",
 		Image: "MaidCollar",
 		Property: { Type: "MaidCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "BatCollar",
 		Image: "BatCollar",
 		Property: { Type: "BatCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "HighSecurityCollar",
 		Image: "HighSecurityCollar",
 		Property: { Type: "HighSecurityCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "SpikeCollar",
 		Image: "SpikeCollar",
 		Property: { Type: "SpikeCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "BordelleCollar",
 		Image: "BordelleCollar",
 		Property: { Type: "BordelleCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "LeatherCorsetCollar",
 		Image: "LeatherCorsetCollar",
 		Property: { Type: "LeatherCorsetCollar", Effect: ["GagNormal"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "StrictPostureCollar",
 		Image: "StrictPostureCollar",
 		Property: { Type: "StrictPostureCollar", Effect: ["FixedHead"], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "LatexPostureCollar",
 		Image: "LatexPostureCollar",
 		Property: { Type: "LatexPostureCollar", Effect: ["GagNormal", "FixedHead"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "HeartCollar",
 		Image: "HeartCollar",
 		Property: { Type: "HeartCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "NobleCorsetCollar",
 		Image: "NobleCorsetCollar",
 		Property: { Type: "NobleCorsetCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "OrnateCollar",
 		Image: "OrnateCollar",
 		Property: { Type: "OrnateCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "SlenderSteelCollar",
 		Image: "SlenderSteelCollar",
 		Property: { Type: "SlenderSteelCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "ShinySteelCollar",
 		Image: "ShinySteelCollar",
 		Property: { Type: "ShinySteelCollar", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	},{
 		Name: "HeartLinkChoker",
 		Image: "HeartLinkChoker",
 		Property: { Type: "HeartLinkChoker", Effect: [], Block: [] },
+		OptionType: "TypedItemOption",
 	}
 ];
 
@@ -109,7 +130,7 @@ function InventoryItemNeckSlaveCollarLoad() {
 			Name: "LoveLeatherCollar",
 			Image: "LoveLeatherCollar",
 			Property: {Type: "LoveLeatherCollar", Effect: [], Block: []},
-
+			OptionType: "TypedItemOption",
 		});
 	}
 	else if (C && C.IsOwnedByPlayer && !C.IsLoverOfPlayer() && SC) { InventoryItemNeckSlaveCollarTypes.splice(InventoryItemNeckSlaveCollarTypes.indexOf(SC,1)); }

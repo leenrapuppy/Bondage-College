@@ -30,14 +30,14 @@ const VariableHeightDataLookup = {};
  * @param {Asset} asset - The asset being registered
  * @param {VariableHeightConfig | undefined} config - The variable height configuration
  * @param {ItemProperties | undefined} property - The default properties to use
- * @param {ExtendedItemOption[]} [parentOptions=null] - The variable height configuration of the option's parent item, if any
+ * @param {TypedItemOption[]} [parentOptions=null] - The variable height configuration of the option's parent item, if any
  * @returns {void} - Nothing
  */
 function VariableHeightRegister(asset, config, property, parentOptions = null) {
 	const data = VariableHeightCreateData(asset, config, property, parentOptions);
 
 	if (IsBrowser()) {
-		/** @type {ExtendedItemCallbackStruct<ExtendedItemOption>} */
+		/** @type {ExtendedItemCallbackStruct<VariableHeightOption>} */
 		const defaultCallbacks = {
 			load: () => VariableHeightLoad(data),
 			click: () => VariableHeightClick(data),
@@ -56,7 +56,7 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {VariableHeightConfig} config - The variable height configuration
  * @param {ItemProperties} property
- * @param {ExtendedItemOption[]} parentOptions
+ * @param {TypedItemOption[]} parentOptions
  * @returns {VariableHeightData} - The generated variable height data for the asset
  */
 function VariableHeightCreateData(asset,
@@ -169,16 +169,16 @@ function VariableHeightClick(data) {
 		}
 		if (data.parentOptions) {
 			let option = Object.assign({}, data.parentOptions.find(o => o.Property.Type == DialogFocusItem.Property.Type));
-			option.Property = DialogFocusItem.Property;
-			ExtendedItemSetType(C, data.parentOptions, option);
+			option.Property = /** @type {typeof option.Property} */(DialogFocusItem.Property);
+			TypedItemSetType(C, data.parentOptions, option);
 		} else {
 			if (CurrentScreen == "ChatRoom") {
-				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ExtendedItemOption>>} */
+				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<VariableHeightOption>>} */
 				const args = [
 					C,
 					DialogFocusItem,
-					{ OptionType: "ExtendedItemOption", Name: "newOption", Property: DialogFocusItem.Property },
-					{ OptionType: "ExtendedItemOption", Name: "previousOption", Property: VariableHeightPreviousProperty },
+					{ OptionType: "VariableHeightOption", Name: "newOption", Property: DialogFocusItem.Property },
+					{ OptionType: "VariableHeightOption", Name: "previousOption", Property: VariableHeightPreviousProperty },
 				];
 				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 			}
@@ -242,8 +242,8 @@ function VariableHeightExit() {
  * @param {VariableHeightData} data
  * @param {Character} C
  * @param {Item} item
- * @param {ExtendedItemOption} newOption
- * @param {ExtendedItemOption} previousOption
+ * @param {VariableHeightOption} newOption
+ * @param {VariableHeightOption} previousOption
  */
 function VariableHeightPublishAction(data, C, item, newOption, previousOption) {
 	const chatData = {

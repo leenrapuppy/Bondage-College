@@ -14,13 +14,14 @@ const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturistic
 
 /** @type {ExtendedItemCallbacks.Init} */
 function InventoryItemVulvaFuturisticVibratorInit(C, Item, Refresh) {
-	return (
-		VibratorModeInit([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], C, Item, false)
-		|| ExtendedItemInitNoArch(C, Item, {
-			AccessMode: "",
-			TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
-		}, Refresh)
-	)
+	/** @type {ItemProperties} */
+	const properties = {
+		AccessMode: "",
+		TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
+	};
+	let ret = VibratorModeInit([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], C, Item, false);
+	ret = ExtendedItemInitNoArch(C, Item, properties, Refresh) || ret;
+	return ret;
 }
 
 /** @type {ExtendedItemCallbacks.Load} */

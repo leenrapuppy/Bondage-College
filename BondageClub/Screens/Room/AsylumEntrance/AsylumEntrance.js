@@ -287,7 +287,7 @@ function AsylumEntrancePlayerJacket(Pose) {
 	const Options = TypedItemDataLookup.ItemArmsStraitJacket.options;
 	const Option = Options.find(o => o.Name === Pose);
 	if (Option) {
-		ExtendedItemSetType(Player, Options, Option);
+		TypedItemSetType(Player, Options, Option);
 	}
 	Player.FocusGroup = null;
 }
