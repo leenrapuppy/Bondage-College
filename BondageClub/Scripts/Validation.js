@@ -645,7 +645,7 @@ function ValidationSanitizeProperties(C, item) {
 
 	// Ensure that extended items always have properties set
 	let changed = false;
-	if (ExtendedItemInit(C, item, true)) {
+	if (ExtendedItemInit(C, item, false)) {
 		console.warn(`Initializing one or more missing extended item properties from ${asset.Group.Name}:${asset.Name}`);
 		changed = true;
 	}
