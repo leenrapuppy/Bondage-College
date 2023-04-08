@@ -853,6 +853,11 @@ ItemHoodLatexDogMaskLenses, Lenses
 ItemHoodLatexDogMaskLining, Lining
 ItemHoodLatexDogMaskMouthHole, Holes
 ItemHoodLatexDogMaskMuzzleBase, Muzzle
+ItemHoodLatexBunnyBase, Hood
+ItemHoodLatexBunnyNose, Nose
+ItemHoodLatexBunnyInnerEar, Inner Ear
+ItemHoodLatexBunnyOuterEar, Outer Ear
+ItemHoodLatexBunnyMouth, Mouth
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
