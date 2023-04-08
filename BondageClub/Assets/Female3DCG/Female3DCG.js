@@ -826,7 +826,7 @@ var AssetFemale3DCG = [
 					{ Name: "Cross" },
 					{ Name: "Metal" },
 				],
-			},			
+			},
 			{
 				Name: "CheerleaderSkirt", Value: 30, Left: 100, HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], ParentGroup: null, DefaultColor: ["#c91616", "#e0b51d", "#c91616"], AllowPose: ["KneelingSpread"],
 				Layer: [
@@ -1245,7 +1245,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "Jockstrap", Gender: "M", Prerequisite: ["HasPenis"], Attribute: ["PenisCover"], Value: 30, Hide: ["Pussy", "ItemVulva", "ItemVulvaPiercings"],
-				DefaultColor: ["#222222", "#C01C1C", "#C01C1C", "#C01C1C"], 
+				DefaultColor: ["#222222", "#C01C1C", "#C01C1C", "#C01C1C"],
 				Top: 413, Left: 120,
 				Layer: [
 					{ Name: "Holemesh", AllowColorize: true, HasType: false, AllowTypes: ["Holemesh"], AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"]},
@@ -8059,39 +8059,38 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-                Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true,
-                Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
-                Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
-                DefaultColor: [],
-                Layer: [
-                    { Name: "CollarBand", Top: 185, Left: 214, HasType: false, AllowModuleTypes: ["c1"]}, 
-                    { Name: "CollarMetal",Top: 143, Left: 172, HasType: false, AllowModuleTypes: ["c1"]},
+				Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true,
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
+				DefaultColor: [],
+				Layer: [
+					{ Name: "CollarBand", Top: 185, Left: 214, HasType: false, AllowModuleTypes: ["c1"]},
+					{ Name: "CollarMetal",Top: 143, Left: 172, HasType: false, AllowModuleTypes: ["c1"]},
 					{ Name: "Base", HasType: false, Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [287, 0, 205, 260]] }]},
-                    { Name: "DogMouth", Top: 102, Left: 147, HasType: false, },
-                    { Name: "Lenses", Top: 118, Left: 181, HasType: false, AllowModuleTypes: ["l1"]}, 
-                    { Name: "Lining", Top: 118, Left: 160, HasType: false, },
-                    { Name: "MouthHole", Top: 172, Left: 221, HasType: false, },
-                    { Name: "MuzzleBase", Top: 121, Left: 162, HasType: false, AllowModuleTypes: ["m1"]}, 
-                                     
+					{ Name: "DogMouth", Top: 102, Left: 147, HasType: false, },
+					{ Name: "Lenses", Top: 118, Left: 181, HasType: false, AllowModuleTypes: ["l1"]},
+					{ Name: "Lining", Top: 118, Left: 160, HasType: false, },
+					{ Name: "MouthHole", Top: 172, Left: 221, HasType: false, },
+					{ Name: "MuzzleBase", Top: 121, Left: 162, HasType: false, AllowModuleTypes: ["m1"]},
+
 				],
 			},
 			{
-                Name: "LatexBunny", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 1, Left:134, AllowLock: true, AllowTighten: true,
-                Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", "DeafLight"],
-                Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
-                DefaultColor: [],
-                Layer: [
-                    { Name: "Base", HasType: false, },
-                    { Name: "OuterEar", Top: -1, Left: 132, HasType: false, }, 
-                    { Name: "InnerEar",Top: -1, Left: 132, HasType: false, },
-                    { Name: "Nose", Top: 1, Left: 134, HasType: false, },
-                    { Name: "Mouth", Top: 1, Left: 134, HasType: false, },
+				Name: "LatexBunny", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 1, Left:134, AllowLock: true, AllowTighten: true,
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", "DeafLight"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
+				DefaultColor: [],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "OuterEar", Top: -1, Left: 132, HasType: false, },
+					{ Name: "InnerEar",Top: -1, Left: 132, HasType: false, },
+					{ Name: "Nose", Top: 1, Left: 134, HasType: false, },
+					{ Name: "Mouth", Top: 1, Left: 134, HasType: false, },
 
-                ],
+				],
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
-	
 	},
 	{
 		Group: "ItemEars",
