@@ -28,6 +28,7 @@ function CollegeTennisLoad() {
 	if (LogQuery("JenniferLover", "NPC-Jennifer") && (Player.Lover == "NPC-Jennifer")) CollegeTennisJenniferStatus = "Lover";
 	if (LogQuery("JenniferLover", "NPC-Jennifer") && (Player.Lover != "NPC-Jennifer")) CollegeTennisJenniferStatus = "ExLover";
 	if (LogQuery("JenniferCollared", "NPC-Jennifer")) CollegeTennisJenniferStatus = "Owned";
+	if (LogQuery("JenniferCollaredWithCurfew", "NPC-Jennifer")) CollegeTennisJenniferStatus = "Curfew";
 	if (LogQuery("JenniferMistress", "NPC-Jennifer") && (Player.Owner == "NPC-Jennifer")) CollegeTennisJenniferStatus = "Owner";
 	if (LogQuery("JenniferMistress", "NPC-Jennifer") && (Player.Owner != "NPC-Jennifer")) CollegeTennisJenniferStatus = "ExOwner";
 	if (PrivateCharacter.length > 1)
@@ -58,7 +59,7 @@ function CollegeTennisLoad() {
 			InventoryWear(CollegeTennisJennifer, "Bra1", "Bra", "#CCCCCC");
 			InventoryWear(CollegeTennisJennifer, "Panties1", "Panties", "#CCCCCC");
 			InventoryWear(CollegeTennisJennifer, "Glasses1", "Glasses", "Default");
-			if (CollegeTennisJenniferStatus == "Owned") {
+			if ((CollegeTennisJenniferStatus == "Owned") || (CollegeTennisJenniferStatus == "Curfew")) {
 				InventoryWear(CollegeTennisJennifer, "SlaveCollar", "ItemNeck");
 				CollegeTennisJennifer.Owner = Player.Name;
 			}
@@ -126,7 +127,7 @@ function CollegeTennisGameEnd() {
 	if (CollegeTennisJennifer.Name == "Jennifer") CollegeTennisJennifer.Stage = MiniGameVictory ? "100" : "200";
 	else CollegeTennisJennifer.Stage = MiniGameVictory ? "1100" : "1200";
 	CollegeTennisJennifer.CurrentDialog = DialogFind(CollegeTennisJennifer, MiniGameVictory ? "TennisVictory" : "TennisDefeat");
-	CollegeTennisJenniferWillJoinRoom = ((CollegeTennisJennifer.Name == "Jennifer") && MiniGameVictory && (MiniGameDifficultyMode != "Easy") && (CollegeTennisJenniferStatus != "Lover") && (CollegeTennisJenniferStatus != "Owned") && (CollegeTennisJenniferStatus != "Owner") && LogQuery("RentRoom", "PrivateRoom") && (PrivateCharacter.length < PrivateCharacterMax));
+	CollegeTennisJenniferWillJoinRoom = ((CollegeTennisJennifer.Name == "Jennifer") && MiniGameVictory && (MiniGameDifficultyMode != "Easy") && (CollegeTennisJenniferStatus != "Lover") && (CollegeTennisJenniferStatus != "Owned") && (CollegeTennisJenniferStatus != "Curfew") && (CollegeTennisJenniferStatus != "Owner") && LogQuery("RentRoom", "PrivateRoom") && (PrivateCharacter.length < PrivateCharacterMax));
 }
 
 /**
