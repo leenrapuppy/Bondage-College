@@ -73,21 +73,40 @@ OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, maki
 1300,,(Look around.),,DialogLeave(),
 1310,1320,You do?,"Yes, you're the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
 1310,1320,Let me explain.,"There's no need to explain, you're the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
-1320,1330,That's not the gift.,"Don't deny it.  This is a great tour gift.  So, I can play with you while I visit this house?",,
+1320,1330,I'm not the gift.,"Don't deny it.  This is a great tour gift.  So, I can play with you while I visit this house?",,
 1320,1330,Are you insane?,"(She pretends that she doesn't hear you.)  This is a great tour gift.  So, I can play with you while I visit this house?",,
 1320,1330,You got it!,"(She nods happily.)  This is a great tour gift.  So, I can play with you while I visit this house?",,
 1330,1340,You can actually play with both of us.,(She rubs her hands and winks at you.)  Is that so?  Then your friend needs to strip also.  Tell her to get naked.,"DoActivity(""OpenHouseStartGirlfriendNaked"")",
+1330,1400,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
 1340,,,Do you really want to sell this house?  Tell your friend to get naked for the tour.,,
 1340,,(Look around.),,DialogLeave(),
 1350,,,(She looks at you two and grins.)  This is the best open house in town.,,
-1350,1040,We are ready for the tour.,"Not yet!  First, I think I will restrain your cute friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePrepareActor1Bondage"")",
-1350,1040,How do we look?,"Lovely!  Before the tour, I think I will restrain your cute friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePrepareActor1Bondage"")",
-1350,1040,(Blush and look at her.),"You're so cute!  Before the tour, I think I will restrain your cute friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePrepareActor1Bondage"")",
+1350,1040,We are ready for the tour.,"Not yet!  First, I think I will restrain your cute friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePrepareActor1Bondage"")","CanDoActivity(""OpenHouseClientRestrainActor1"")"
+1350,1040,How do we look?,"Lovely!  Before the tour, I think I will restrain your cute friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePrepareActor1Bondage"")","CanDoActivity(""OpenHouseClientRestrainActor1"")"
+1350,1040,(Blush and look at her.),"You're so cute!  Before the tour, I think I will restrain your cute friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePrepareActor1Bondage"")","CanDoActivity(""OpenHouseClientRestrainActor1"")"
+1350,1070,We are ready for the tour.,"Not yet!  First, you should be restrained like your friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePreparePlayerBondage"")","!CanDoActivity(""OpenHouseClientRestrainActor1"")"
+1350,1070,How do we look?,Almost perfect!  But you should be restrained like your friend.  (She checks in her bag of restraints as the camera zooms on it.),"DoActivity(""OpenHousePreparePlayerBondage"")","!CanDoActivity(""OpenHouseClientRestrainActor1"")"
+1350,1070,(Blush and look at her.),"Before we do the tour, you should be restrained like your friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePreparePlayerBondage"")","!CanDoActivity(""OpenHouseClientRestrainActor1"")"
 1350,,(Look around.),,DialogLeave(),
-1330,1400,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
 1400,,,Do I really have to get naked like you to see the house?,,
 1400,,TO DO,TO DO,,
 1400,,(Look around.),,DialogLeave(),
 1600,,,(The customer stares at her.)  What is going on here?  Why is she naked?,,
-1600,,TO DO,TO DO,,
+1600,1610,You want the short or the long story?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
+1600,1610,This cutie wants a kinky open house.,(She giggles and thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
+1600,1610,This bitch thinks she will sell my house.,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,,(Look around.),,DialogLeave(),
+1610,1620,You do?,"Yes, she's the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
+1610,1620,Let me explain.,"There's no need to explain, she's the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
+1620,1630,She's not the gift.,"Don't deny it.  This is a great tour gift.  So, I can play with her while I visit this house?",,
+1620,1630,Are you insane?,"(She pretends that she doesn't hear you.)  This is a great tour gift.  So, I can play with her while I visit this house?",,
+1620,1630,You got it!,"(She nods happily.)  This is a great tour gift.  So, I can play with her while I visit this house?",,
+1630,1640,You can actually play with both of us.,(She rubs her hands and winks at you.)  Is that so?  Then you should also get naked.,,
+1630,1700,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
+1640,,,Do you really want to sell this house?  Then get naked for the tour.,,
+1640,,Are you serious?,"I'm very serious, get these clothes off girl.",DialogRemove(),
+1640,1350,Very well.  (Strip naked.),(The camera zooms on you as you get naked.  The customer stares at you with a grin.),"DoActivity(""OpenHousePlayerNakedForCustomer"")",
+1640,,(Look around.),,DialogLeave(),
+1700,,,Do I really have to get naked like you to see the house?,,
+1700,,TO DO,TO DO,,
+1700,,(Look around.),,DialogLeave(),

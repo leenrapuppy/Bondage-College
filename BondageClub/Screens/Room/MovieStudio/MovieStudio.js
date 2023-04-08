@@ -1052,6 +1052,14 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Closed", 5);
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Closed", 5);
 	}
+	if (Activity == "OpenHousePlayerNakedForCustomer") {
+		MovieStudioActor2.Stage = "1350";
+		CharacterNaked(Player);
+		InventoryRemove(Player, "ItemHandheld");
+		CharacterSetFacialExpression(Player, "Blush", "Medium", 5);
+		CharacterSetFacialExpression(Player, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 5);
+	}
 
 	// Check for decay
 	MovieStudioProcessDecay();
@@ -1156,7 +1164,7 @@ function MovieStudioCanDoActivity(Activity) {
 	if (Activity == "InterviewMaidReturnFavor") return (MovieStudioActor2.OweFavor);
 	if (Activity == "OpenHouseWearVendorClothes") return (!MovieStudioActor1.ClothesTaken);
 	if (Activity == "OpenHouseWearDogCollar") return (InventoryGet(Player, "ItemNeck") == null);
-	if (Activity == "OpenHouseClientRestrainActor1") return ((InventoryGet(Player, "ItemArms") == null) || (InventoryGet(Player, "ItemMouth3") == null));
+	if (Activity == "OpenHouseClientRestrainActor1") return ((InventoryGet(MovieStudioActor1, "ItemArms") == null) || (InventoryGet(MovieStudioActor1, "ItemMouth3") == null));
 	return false;
 }
 
