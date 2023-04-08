@@ -262,7 +262,7 @@ function VariableHeightPublishAction(data, C, item, newOption, previousOption) {
 		: "";
 	let msg = (typeof data.dialogPrefix.chat === "function") ? data.dialogPrefix.chat(chatData) : data.dialogPrefix.chat;
 	msg += msgType;
-	ChatRoomPublishCustomAction(msg, true, dictionary);
+	ChatRoomPublishCustomAction(msg, true, dictionary.build());
 }
 
 /**

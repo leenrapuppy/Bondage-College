@@ -651,8 +651,9 @@ interface TypedItemConfig extends ExtendedItemConfig<TypedItemOption> {
  * @returns {[{ Tag: string, Text: string }]} - The dictionary entry to append to the dictionary.
  */
 type ExtendedItemDictionaryCallback<OptionType extends ExtendedItemOption> = (
+	dictionary: DictionaryBuilder,
 	chatData: ExtendedItemChatData<OptionType>
-) => ChatMessageDictionaryEntry;
+) => void;
 
 //#endregion
 

@@ -318,7 +318,7 @@ function VibratorModePublishAction(data, C, item, newOption, previousOption) {
 	} else { // advanced -> standard
 		message += `IncreaseTo${newProperty.Intensity}`;
 	}
-	ChatRoomPublishCustomAction(message, false, dictionary);
+	ChatRoomPublishCustomAction(message, false, dictionary.build());
 }
 
 /**

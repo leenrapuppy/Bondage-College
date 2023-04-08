@@ -751,7 +751,7 @@ function ModularItemPublishAction(data, C, item, newOption, previousOption) {
 			msg += newOption.ModuleName;
 			break;
 	}
-	ChatRoomPublishCustomAction(msg, false, dictionary);
+	ChatRoomPublishCustomAction(msg, false, dictionary.build());
 }
 
 /**

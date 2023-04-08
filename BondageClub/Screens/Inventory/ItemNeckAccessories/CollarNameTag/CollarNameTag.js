@@ -52,9 +52,9 @@ function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(data, Origin
 	const prefix = (typeof data.dialogPrefix.chat === "function") ? data.dialogPrefix.chat(chatData) : data.dialogPrefix.chat;
 
 	if (newOption.Name === "Blank") {
-		dictionary.push({ Tag: "NameTagType", Text: "blank" });
+		dictionary.text("NameTagType", "blank");
 	} else {
-		dictionary.push({ Tag: "NameTagType", TextToLookUp: `${prefix}${newOption.Name}` });
+		dictionary.textLookup("NameTagType", `${prefix}${newOption.Name}`);
 	}
-	ChatRoomPublishCustomAction(prefix, true, dictionary);
+	ChatRoomPublishCustomAction(prefix, true, dictionary.build());
 }
