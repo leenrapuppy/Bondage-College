@@ -820,6 +820,14 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
+				Name: "CrossSkirtLight", Value: 60, AllowPose: ["KneelingSpread"], HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], Layer: [
+					{ Name: "Base" },
+					{ Name: "Belt" },
+					{ Name: "Cross" },
+					{ Name: "Metal" },
+				],
+			},			
+			{
 				Name: "CheerleaderSkirt", Value: 30, Left: 100, HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], ParentGroup: null, DefaultColor: ["#c91616", "#e0b51d", "#c91616"], AllowPose: ["KneelingSpread"],
 				Layer: [
 					{ Name: "Base" },
