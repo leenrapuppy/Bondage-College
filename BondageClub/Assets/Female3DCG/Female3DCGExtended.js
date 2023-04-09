@@ -4113,8 +4113,8 @@ var AssetFemale3DCGExtended = {
 							},
 							{
 								Property:{
-								Effect: ["BlindLight"],
-								Tint: [{Color: 2, Strength: 0.2}],
+									Effect: ["BlindLight"],
+									Tint: [{Color: 2, Strength: 0.2}],
 								}
 							},
 							{
@@ -4170,48 +4170,48 @@ var AssetFemale3DCGExtended = {
 			}
 		}, //Latex Dog Hood
 		LatexDogMask: {
-            Archetype: ExtendedArchetype.MODULAR,
-            Config: {
-                Modules: [
-                    {
-                        Name: "Muzzle", Key: "m",
-                        Options:[
-                            { // M0 - None
-                                Property: { Effect: [] }
-                            },
-                            { // M1 - muzzled
-                                Property: { Effect: ["GagMedium","BlockMouth"] }
-                            },
-                        ]
-                    },
-                    {
-                        Name: "Lenses", Key: "l",
-                        Options:[
-                            { // l0 - None
-                                Property: { Effect: [] }
-                            },
-                            { // l1 - Covered
-                                Property: { Effect: ["BlindLight"] }
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Muzzle", Key: "m",
+						Options:[
+							{ // M0 - None
+								Property: { Effect: [] }
+							},
+							{ // M1 - muzzled
+								Property: { Effect: ["GagMedium","BlockMouth"] }
+							},
+						]
+					},
+					{
+						Name: "Lenses", Key: "l",
+						Options:[
+							{ // l0 - None
+								Property: { Effect: [] }
+							},
+							{ // l1 - Covered
+								Property: { Effect: ["BlindLight"] }
 
-                            }
+							}
 
-                        ]
-                    },
-                    {
-                        Name: "Collar", Key: "c",
-                        Options:[
-                            { // M0 - None
-                                Property: { Effect: [] }
-                            },
-                            { // M1 - Collar
-                                Property: { Effect: [] }
+						]
+					},
+					{
+						Name: "Collar", Key: "c",
+						Options:[
+							{ // M0 - None
+								Property: { Effect: [] }
+							},
+							{ // M1 - Collar
+								Property: { Effect: [] }
 
-                            },
-                        ]
-                    },
-                ],
-            },
-        }, //Latex Dog Mask
+							},
+						]
+					},
+				],
+			},
+		}, //Latex Dog Mask
 		LatexHabit: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "Hat", AssetName: "LatexHabit" },
