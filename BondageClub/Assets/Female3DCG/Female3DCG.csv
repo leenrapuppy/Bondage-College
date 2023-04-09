@@ -1555,8 +1555,8 @@ ItemHood,CustomLatexHood,Custom Latex Hood
 ItemHood,HarnessCatMask,Cat Mask Harness
 ItemHood,FestivalFoxMask,Festival Fox Mask
 ItemHood,InflatableGagMask,Inflatable Gag Mask
-itemHood,LatexDogMask, Latex Dog Mask
-Itemhood,LatexBunny,Latex Bunny
+ItemHood,LatexDogMask,Latex Dog Mask
+ItemHood,LatexBunny,Latex Bunny
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
