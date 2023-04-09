@@ -558,24 +558,29 @@ function ExtendedItemSetOffset(Offset) {
 
 /**
  * Maps a chat tag to a dictionary entry for use in item chatroom messages.
+ * @param {DictionaryBuilder} dictionary - The to-be updated dictionary builder
  * @param {Character} C - The target character
  * @param {Asset} asset - The asset for the typed item
  * @param {CommonChatTags} tag - The tag to map to a dictionary entry
- * @returns {ChatMessageDictionaryEntry} - The constructed dictionary entry for the tag
+ * @returns {DictionaryBuilder} - The originally passed dictionary builder, modified inplace
  */
-function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
+function ExtendedItemMapChatTagToDictionaryEntry(dictionary, C, asset, tag) {
 	switch (tag) {
 		case CommonChatTags.SOURCE_CHAR:
-			return { Tag: tag, Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber };
+			return dictionary.sourceCharacter(Player);
 		case CommonChatTags.DEST_CHAR:
+			return dictionary.destinationCharacter(C);
 		case CommonChatTags.DEST_CHAR_NAME:
+			return dictionary.destinationCharacterName(C);
 		case CommonChatTags.TARGET_CHAR:
+			return dictionary.targetCharacter(C);
 		case CommonChatTags.TARGET_CHAR_NAME:
-			return { Tag: tag, Text: CharacterNickname(C), MemberNumber: C.MemberNumber };
+			return dictionary.targetCharacterName(C);
 		case CommonChatTags.ASSET_NAME:
-			return { Tag: tag, AssetName: asset.Name, GroupName: asset.Group.Name };
+			return dictionary.asset(asset);
 		default:
-			return null;
+			console.warn(`Unknown ${asset.Group.Name}:${asset.Name} chat tag "${tag}"`);
+			return dictionary;
 	}
 }
 
@@ -774,18 +779,15 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 /**
  * Constructs the chat message dictionary for the extended item based on the items configuration data.
  * @template {ExtendedItemOption} OptionType
- * @param {ExtendedItemChatData<OptionType>} ChatData - The chat data that triggered the message.
+ * @param {ExtendedItemChatData<OptionType>} chatData - The chat data that triggered the message.
  * @param {ExtendedItemData<OptionType>} data - The extended item data for the asset
- * @returns {ChatMessageDictionary} - The dictionary for the item based on its required chat tags
+ * @returns {DictionaryBuilder} - The dictionary for the item based on its required chat tags
  */
-function ExtendedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictionary }) {
-	const BuiltDictionary = chatTags
-		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
-		.filter(Boolean);
-
-	dictionary.forEach(entry => BuiltDictionary.push(entry(ChatData)));
-
-	return BuiltDictionary;
+function ExtendedItemBuildChatMessageDictionary(chatData, { asset, chatTags, dictionary }) {
+	const dictBuilder = new DictionaryBuilder();
+	chatTags.forEach(tag => ExtendedItemMapChatTagToDictionaryEntry(dictBuilder, chatData.C, asset, tag));
+	dictionary.forEach(entry => entry(dictBuilder, chatData));
+	return dictBuilder;
 }
 
 /**

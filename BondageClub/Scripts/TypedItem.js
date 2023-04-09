@@ -160,7 +160,7 @@ function TypedItemPublishAction(data, C, item, newOption, previousOption) {
 	msg += newOption.Name;
 
 	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
-	ChatRoomPublishCustomAction(msg, true, dictionary);
+	ChatRoomPublishCustomAction(msg, true, dictionary.build());
 }
 
 /**

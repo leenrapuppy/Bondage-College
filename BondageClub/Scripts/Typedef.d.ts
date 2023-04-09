@@ -3329,10 +3329,10 @@ interface LogNameType {
 	Management: "ClubMistress" | "ClubSlave" | "ReleasedFromOwner" | "MistressWasPaid",
 	"NPC-Amanda": "AmandaLover" | "AmandaCollared" | "AmandaCollaredWithCurfew" | "AmandaMistress",
 	"NPC-AmandaSarah": "AmandaSarahLovers",
-	"NPC-Jennifer": "JenniferLover" | "JenniferCollared" | "JenniferMistress",
+	"NPC-Jennifer": "JenniferLover" | "JenniferCollared" | "JenniferMistress" | "JenniferCollaredWithCurfew",
 	"NPC-Sarah": "SarahLover" | "SarahCollared" | "SarahCollaredWithCurfew",
 	"NPC-SarahIntro": "SarahWillBePunished" | "SarahCameWithPlayer",
-	"NPC-Sidney": "SidneyLover" | "SidneyMistress" | "SidneyCollared",
+	"NPC-Sidney": "SidneyLover" | "SidneyMistress" | "SidneyCollared" | "SidneyCollaredWithCurfew",
 	// NOTE: A number of owner rules can have arbitrary suffices, and can thus not be expressed as string literals
 	OwnerRule: (
 		"BlockChange"

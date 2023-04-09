@@ -744,7 +744,9 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
 				Dictionary: [
-					({ newIndex, previousIndex }) => { return  { Tag: "Action", Text: newIndex > previousIndex ? "tightens" : "loosens" };},
+					(dictionary, { newIndex, previousIndex }) => {
+						dictionary.text("Action", newIndex > previousIndex ? "tightens" : "loosens");
+					},
 				],
 				Options: [
 					{

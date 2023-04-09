@@ -18,13 +18,13 @@ function InventoryItemButtAnalBeads2PublishActionHook(data, originalFunction, C,
 		newIndex: data.options.indexOf(newOption),
 	};
 
-	/** @type {ChatMessageDictionary} */
-	const dictionary = [
-		...ExtendedItemBuildChatMessageDictionary(chatData, data),
-		{ FocusGroupName: item.Asset.Group.Name },
+	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data)
+		.focusGroup(item.Asset.Group.Name)
+		.build();
+	dictionary.push(
 		{ ActivityName: "MasturbateItem" },
 		{ ActivityCounter: Math.abs(beadsChange) },
-	];
+	);
 
 	const Prefix = (typeof data.dialogPrefix.chat === "function") ? data.dialogPrefix.chat(chatData) : data.dialogPrefix.chat;
 	const Suffix = beadsChange > 0 ? "Increase" : "Decrease";
