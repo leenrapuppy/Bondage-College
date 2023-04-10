@@ -6148,6 +6148,9 @@ var AssetFemale3DCGExtended = {
 		TapedVibeEggs: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // TapedVibeEggs
+		NippleVibe: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // NippleVibe
 		ShockClamps: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
