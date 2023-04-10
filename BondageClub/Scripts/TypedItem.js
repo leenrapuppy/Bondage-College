@@ -142,6 +142,10 @@ function TypedItemCreateTypedItemData(asset, {
  * @param {TypedItemOption} previousOption
  */
 function TypedItemPublishAction(data, C, item, newOption, previousOption) {
+	if (data.chatSetting === TypedItemChatSetting.SILENT) {
+		return;
+	}
+
 	/** @type {ExtendedItemChatData<TypedItemOption>} */
 	const chatData = {
 		C,
