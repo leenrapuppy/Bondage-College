@@ -4611,12 +4611,12 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Ribbons", Gender: "F", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: ["AccessBreast", "HasBreasts"], },
 			{ Name: "LeatherBreastBinder", Gender: "F", Fetish: ["Leather"], Value: 30, Difficulty: 5, Time: 15, BuyGroup: "BreastBinder", RemoveTime: 10, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessTorso", "HasBreasts"] },
-			{ Name: "TickleBra", Gender: "F", Fetish: ["Latex"], Value: 100, Difficulty: 50, Time: 15, AllowLock: true, Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"], Effect: ["BreastChaste"], Block: ["ItemNipples", "ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], 
+			{ Name: "TickleBra", Gender: "F", Fetish: ["Latex"], Value: 100, Difficulty: 50, Time: 15, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"], Effect: ["BreastChaste"], Block: ["ItemNipples", "ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true,
 				Layer: [
-					{ Name: "Cup", AllowColorize: true , HasType: false,},
-					{ Name: "TickleUnit" , AllowColorize: true, HasType: false,},
-					{ Name: "Lining" , AllowColorize: true , HasType: false,},
-					{ Name: "wire" , AllowColorize: true, HasType: false,},
+					{ Name: "Cup", AllowColorize: true , HasType: false, Left: 150, Top: 20,},
+					{ Name: "TickleUnit" , AllowColorize: true, HasType: false, Left: 150, Top: 230,},
+					{ Name: "Lining" , AllowColorize: true , HasType: false, Left: 150, Top: 230,},
+					{ Name: "Wire" , AllowColorize: true, HasType: false, Left: 150, Top: 230,},
 	
 				]
 			},
