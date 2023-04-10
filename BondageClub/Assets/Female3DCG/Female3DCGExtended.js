@@ -8826,7 +8826,7 @@ var AssetFemale3DCGExtended = {
 	}, // ItemPelvis
 	ChastityBra: {
 		
-	}, // ItemBreast
+	}, // TickleBra
 	ItemEars: {
 		FuturisticEarphones: {
 			Archetype: ExtendedArchetype.TYPED,
