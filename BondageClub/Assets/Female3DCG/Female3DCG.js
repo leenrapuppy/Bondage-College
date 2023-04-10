@@ -7234,7 +7234,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, Random: false, AllowTighten: true, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
 			{
-				Name: "LatexRespirator", Value: 50, Difficulty: 2, Time: 10, DefaultColor: ["#333333","#222222","#CCCCCC","#222222","#CCCCCC","#37E21D"], Extended: true, Priority: 47, Top: 20,
+				Name: "LatexRespirator", Value: 50, Difficulty: 2, Time: 10, DefaultColor: ["#333333","#222222","#CCCCCC","#222222","#CCCCCC","#37E21D"], Extended: true, Random: false, Priority: 47, Top: 20,
 				Block: ["ItemNose", "ItemMouth", "ItemMouth2"],
 				Effect: [],
 				Layer: [ // Color Layers -- Straps, Base, RoundedShine, Filter, FilterFixing
