@@ -197,17 +197,18 @@ const VibratorModeDataLookup = {};
  * Registers a vibrator item. This automatically creates the item's load, draw, click and scriptDraw functions.
  * @param {Asset} asset - The asset being registered
  * @param {VibratingItemConfig | undefined} config - The item's vibrator item configuration
+ * @param {null | ExtendedItemOption} parentOption - The extended item option of the super screen that this archetype was initialized from (if any)
  * @returns {void} - Nothing
  */
-function VibratorModeRegister(asset, config={}) {
-	const data = VibratorModeCreateData(asset, config);
+function VibratorModeRegister(asset, config={}, parentOption=null) {
+	const data = VibratorModeCreateData(asset, config, parentOption);
 
 	if (IsBrowser()) {
 		/** @type {ExtendedItemCallbackStruct<VibratingItemOption>} */
 		const defaultCallbacks = {
 			load: () => VibratorModeLoad(data.dialogPrefix.header),
-			click: () => VibratorModeClick(data.modeSet),
-			draw: () => VibratorModeDraw(data.modeSet),
+			click: () => VibratorModeClick(data.modeSet, 450, data.parentOption != null),
+			draw: () => VibratorModeDraw(data.modeSet, 450, data.parentOption != null),
 			validate: VibratorModeValidate,
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
 			init: (...args) => VibratorModeInit(data.modeSet, ...args),
@@ -224,21 +225,26 @@ function VibratorModeRegister(asset, config={}) {
  * @param {VibratingItemConfig} config - The item's extended item configuration
  * @returns {VibratingItemData} - The generated vibrating item data for the asset
  */
-function VibratorModeCreateData(asset, { Options, ScriptHooks, BaselineProperty, Dictionary, DialogPrefix }) {
-	const key = `${asset.Group.Name}${asset.Name}`;
+function VibratorModeCreateData(asset,
+	{ Options, ScriptHooks, BaselineProperty, Dictionary, DialogPrefix },
+	parentOption=null,
+) {
+	const key = `${asset.Group.Name}${asset.Name}${parentOption ? parentOption.Name : ""}`;
 	const modeSet = Array.isArray(Options) ? Options : Object.values(VibratorModeSet);
 	DialogPrefix = DialogPrefix || {};
 	return VibratorModeDataLookup[key] = {
 		key,
 		asset,
+		parentOption,
 		options: VibratorModeGetOptions(modeSet),
 		modeSet: modeSet,
 		functionPrefix: `Inventory${key}`,
-		dynamicAssetsFunctionPrefix: `Assets${key}`,
+		dynamicAssetsFunctionPrefix: `Assets${asset.Group.Name}${asset.Name}`,
 		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		dialogPrefix: {
 			header: DialogPrefix.Header || "Intensity",
 			chat: DialogPrefix.Chat || "VibeMode",
+			option: DialogPrefix.Option || "",
 		},
 		chatSetting: "default",
 		drawImages: false,
@@ -268,12 +274,13 @@ function VibratorModeGetOptions(modeSet=Object.values(VibratorModeSet)) {
 /**
  * Loads the vibrating item's extended item menu.
  * @param {string} prefix
- * @param {boolean} IgnoreSubscreen Whether loading subscreen draw functions should be ignored.
- * Should be set to true to avoid infinite recursions if the the subscreen also calls this function.
  */
-function VibratorModeLoad(prefix, IgnoreSubscreen=false) {
+function VibratorModeLoad(prefix) {
 	const intensity = DialogFocusItem.Property.Intensity;
-	ExtendedItemLoad(`${prefix}${intensity}`, IgnoreSubscreen);
+	if (ExtendedItemOffsets[ExtendedItemOffsetKey()] == null) {
+		ExtendedItemSetOffset(0);
+	}
+	DialogExtendedMessage = DialogFindPlayer(`${prefix}${intensity}`);
 }
 
 /** @type {ExtendedItemCallbacks.Validate<ExtendedItemOption>} */
@@ -340,10 +347,12 @@ function VibratorModePublishAction(data, C, item, newOption, previousOption) {
 function VibratorModeSetAssetProperties(data) {
 	const { asset } = data;
 	asset.DynamicScriptDraw = true;
-	asset.AllowType = Object.values(VibratorMode);
 	asset.Extended = true;
 	VibratorModeSetAllowEffect(data);
-	VibratorModeSetEffect(data);
+	if (data.parentOption === null) {
+		asset.AllowType = Object.values(VibratorMode);
+		VibratorModeSetEffect(data);
+	}
 }
 
 /**

@@ -400,6 +400,7 @@ function ExtendedItemExit() {
 	DialogFocusItem = null;
 	DialogExtendedMessage = "";
 	ExtendedItemSubscreen = null;
+	ExtendedItemPermissionMode = false;
 }
 
 /**

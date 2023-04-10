@@ -217,6 +217,7 @@ function ModularItemCreateModularData(asset, {
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 		drawImages: BaseDrawImages,
 		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
+		parentOption: null,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);

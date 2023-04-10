@@ -2178,6 +2178,8 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemData.scriptHooks} functions.
 	 */
 	baselineProperty: ItemProperties | null;
+	/** The extended item option of the super screen that this archetype was initialized from (if any) */
+	parentOption: null | ExtendedItemOption;
 }
 
 /** A struct-type that maps archetypes to their respective extended item data.  */
@@ -2596,6 +2598,7 @@ interface ModularItemData extends ExtendedItemData<ModularItemOption> {
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks: ExtendedItemScriptHookStruct<ModularItemData, ModularItemOption>;
+	parentOption: null;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
@@ -2648,6 +2651,7 @@ interface TypedItemData extends ExtendedItemData<TypedItemOption> {
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks: ExtendedItemScriptHookStruct<TypedItemData, TypedItemOption>;
+	parentOption: null;
 }
 
 //#region Validation
@@ -2730,6 +2734,8 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	dialogPrefix: {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */
 		header: string;
+		/** The dialogue prefix for the name of each option */
+		option: string;
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chat: string | ExtendedItemChatCallback<VibratingItemOption>;
 	};
@@ -2780,8 +2786,6 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
 	setHeight: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
-	/** The extended item option of the super screen that this archetype was initialized from (if any) */
-	parentOption: null | ExtendedItemOption;
 	drawImages: false;
 	chatSetting: "default";
 }

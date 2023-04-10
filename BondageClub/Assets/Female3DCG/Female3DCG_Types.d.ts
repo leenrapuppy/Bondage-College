@@ -795,6 +795,8 @@ interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
 	DialogPrefix?: {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
 		Header?: string;
+		/** The dialogue prefix for the name of each option */
+		Option?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
 		Chat?: string | ExtendedItemChatCallback<VibratingItemOption>;
 	};

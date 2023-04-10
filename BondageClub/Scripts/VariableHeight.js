@@ -155,7 +155,7 @@ function VariableHeightClick(data) {
 		/** @type {string} */
 		const isInvalid = CommonCallFunctionByName(`${data.functionPrefix}Validate`, ...args);
 		if (!isInvalid) {
-			DialogFocusItem.Property.Revert = false
+			DialogFocusItem.Property.Revert = false;
 			CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 			DialogLeave();
 		}

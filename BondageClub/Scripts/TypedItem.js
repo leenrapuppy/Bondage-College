@@ -126,6 +126,7 @@ function TypedItemCreateTypedItemData(asset, {
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
+		parentOption: null,
 	};
 }
 
@@ -284,6 +285,9 @@ function TypedItemRegisterSubscreens(asset, options) {
 			case ExtendedArchetype.VARIABLEHEIGHT:
 				VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option);
 				break;
+			case ExtendedArchetype.VIBRATING:
+				VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(option.ArchetypeConfig), option);
+				break;
 		}
 	}
 }
@@ -356,7 +360,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	}
 
-	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}Validate`;
+	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}${ExtendedItemSubscreen || ""}Validate`;
 	/** @type {Parameters<ExtendedItemCallbacks.Validate<T>>} */
 	const args = [C, item, option, previousOption];
 	const validationMessage = CommonCallFunctionByName(validationFunctionName, ...args);
@@ -537,7 +541,7 @@ function TypedItemInit(Data, C, Item, Refresh=true) {
 function TypedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
 	// If an option's subscreen is open, it overrides the standard screen
 	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Draw`);
 		return;
 	}
 
@@ -604,7 +608,7 @@ function TypedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=nu
 
 	// If an option's subscreen is open, pass the click into it
 	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click", C, Options);
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Click`);
 		return;
 	}
 
@@ -621,8 +625,12 @@ function TypedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=nu
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-		ExtendedItemPermissionMode = false;
-		ExtendedItemExit();
+		if (ExtendedItemSubscreen) {
+			CommonCallFunctionByName(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Exit`);
+			ExtendedItemSubscreen = null;
+		} else {
+			ExtendedItemExit();
+		}
 		return;
 	}
 
