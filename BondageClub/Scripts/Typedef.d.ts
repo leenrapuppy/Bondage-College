@@ -2774,16 +2774,14 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 		header: string,
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chat: string | ExtendedItemChatCallback<VariableHeightOption>;
-		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		npc: string | ExtendedItemNPCCallback<VariableHeightOption>;
 	};
 	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, VariableHeightOption>;
 	/** The function that handles finding the current variable height setting */
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
 	setHeight: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
-	/** The list of extended item options the current option was selected from, if applicable */
-	parentOptions: TypedItemOption[];
+	/** The extended item option of the super screen that this archetype was initialized from (if any) */
+	parentOption: null | ExtendedItemOption;
 	drawImages: false;
 	chatSetting: "default";
 }

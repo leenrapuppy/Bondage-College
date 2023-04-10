@@ -74,7 +74,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowHide(data);
 	TypedItemGenerateAllowTint(data);
 	TypedItemGenerateAllowLockType(data);
-	TypedItemRegisterSubscreens(asset, data);
+	TypedItemRegisterSubscreens(asset, data.options);
 	asset.Extended = true;
 }
 
@@ -276,18 +276,16 @@ function TypedItemSetAllowLockType(asset, allowLockType, typeCount) {
 
 /**
  * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {TypedItemData} data - The parent item's typed item data
+ * @param {readonly TypedItemOption[]} options - The parent item's typed item data
  */
-function TypedItemRegisterSubscreens(asset, data) {
-	return data.options
-		.filter(option => option.Archetype !== undefined)
-		.forEach((option, i, options) => {
-			switch (option.Archetype) {
-				case ExtendedArchetype.VARIABLEHEIGHT:
-					VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option.Property, options);
-					break;
-			}
-		});
+function TypedItemRegisterSubscreens(asset, options) {
+	for (const option of options) {
+		switch (option.Archetype) {
+			case ExtendedArchetype.VARIABLEHEIGHT:
+				VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option);
+				break;
+		}
+	}
 }
 
 /**

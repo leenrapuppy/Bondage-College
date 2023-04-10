@@ -549,6 +549,8 @@ interface VibratingItemOption extends ExtendedItemOption {
 /** Extended item option subtype for vibrating items */
 interface VariableHeightOption extends ExtendedItemOption {
 	OptionType: "VariableHeightOption";
+	Property: Pick<Required<ItemProperties>, "OverrideHeight">;
+	Name: "newOption" | "previousOption";
 }
 
 /**
@@ -822,8 +824,6 @@ interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> 
 		Header?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
 		Chat?: string | ExtendedItemChatCallback<VariableHeightOption>;
-		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		Npc?: string | ExtendedItemNPCCallback<VariableHeightOption>;
 	};
 	/** The function that handles finding the current variable height setting */
 	GetHeightFunction?: (property: ItemProperties) => number | null;

@@ -280,7 +280,7 @@ function AssetBuildExtended(A, ExtendedConfig) {
 			VibratorModeRegister(A, AssetConfig.Config);
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
-			VariableHeightRegister(A, AssetConfig.Config, AssetConfig.Config ? AssetConfig.Config.BaselineProperty : undefined);
+			VariableHeightRegister(A, AssetConfig.Config);
 			break;
 	}
 	A.Archetype = AssetConfig.Archetype;
