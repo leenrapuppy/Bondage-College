@@ -14,6 +14,7 @@ const NEEDED_FILES = [
 	"Scripts/VariableHeight.js",
 	"Scripts/VibratorMode.js",
 	"Scripts/Property.js",
+	"Scripts/TextItem.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
@@ -634,9 +635,6 @@ function sanitizeVMOutput(input) {
 					if (assetConfig.Archetype === "typed" && Asset.AllowType !== undefined) {
 						error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowType`);
 					}
-					if (!["modular", "typed", "vibrating"].includes(assetConfig.Archetype)) {
-						error(`Extended asset archetype for ${Group.Group}:${Asset.Name}: Unknown Archetype ${assetConfig.Archetype}`);
-					}
 				}
 			}
 
@@ -658,10 +656,6 @@ function sanitizeVMOutput(input) {
 
 			if (!localError) {
 				GroupAssets.push(Asset);
-			}
-
-			if (Asset.TextFont != null && Asset.DynamicAfterDraw !== true) {
-				error(`Asset ${Group.Group}:${Asset.Name}: Assets should only define "TextFont" if "DynamicAfterDraw" is set to true`);
 			}
 		}
 	}

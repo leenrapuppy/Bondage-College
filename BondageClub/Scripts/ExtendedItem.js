@@ -772,7 +772,7 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 		return null;
 	}
 
-	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
+	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData | TextItemData} */
 	let Data;
 	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}${Type == null ? "" : Type}`;
 	switch (Archetype) {
@@ -787,6 +787,9 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			Data = VariableHeightDataLookup[Key];
+			break;
+		case ExtendedArchetype.TEXT:
+			Data = TextItemDataLookup[Key];
 			break;
 		default:
 			console.warn(`Unsupported archetype: "${Archetype}"`);
@@ -840,9 +843,9 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 /**
  * Register archetypical subscreens for the passed extended item options
  * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {VariableHeightConfig | VibratingItemConfig} config - The subscreens extended item config
+ * @param {VariableHeightConfig | VibratingItemConfig | TextItemConfig} config - The subscreens extended item config
  * @param {TypedItemOption | ModularItemOption} option - The parent item's extended item option
- * @returns {null | VariableHeightData | VibratingItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
+ * @returns {null | VariableHeightData | VibratingItemData | TextItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
  */
 function ExtendedItemRegisterSubscreen(asset, config, option) {
 	switch (option.Archetype) {
@@ -850,6 +853,8 @@ function ExtendedItemRegisterSubscreen(asset, config, option) {
 			return VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(config), option);
 		case ExtendedArchetype.VIBRATING:
 			return VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(config || {}), option);
+		case ExtendedArchetype.TEXT:
+			return TextItemRegister(asset, /** @type {TextItemConfig} */(config), option);
 		default:
 			return null;
 	}
@@ -873,6 +878,13 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
 		}
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			return { OverrideHeight: item.Property.OverrideHeight };
+		case ExtendedArchetype.TEXT: {
+			const textData = /** @type {TextItemData} */(option.ArchetypeData);
+			/** @type {TextItemRecord<string>} */
+			const ret = {};
+			textData.textNames.forEach(i => ret[i] = item.Property[i]);
+			return ret;
+		}
 		default:
 			return {};
 	}

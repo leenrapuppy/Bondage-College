@@ -1207,8 +1207,6 @@ interface Asset {
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
 	ExpressionPrerequisite?: readonly AssetPrerequisite[];
-	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
-	TextFont: null | string;
 
 	FuturisticRecolor?: boolean;
 	FuturisticRecolorDisplay?: boolean;
@@ -2238,6 +2236,7 @@ interface ExtendedDataLookupStruct {
 	[ExtendedArchetype.MODULAR]: ModularItemData;
 	[ExtendedArchetype.VIBRATING]: VibratingItemData;
 	[ExtendedArchetype.VARIABLEHEIGHT]: VariableHeightData;
+	[ExtendedArchetype.TEXT]: TextItemData;
 }
 
 interface AssetOverrideHeight {
@@ -2604,7 +2603,7 @@ interface ModularItemDrawData {
 	/** Whether pagination is required; i.e. if the number of buttons is larger than {@link ModularItemDrawData.itemsPerPage} */
 	paginate: boolean,
 	/** An array with two-tuples of X and Y coordinates for the buttons */
-	positions: [number, number][],
+	positions: [X: number, Y: number][],
 	/** Whether each button should be accompanied by a preview image */
 	drawImages: boolean,
 	/** The number of buttons to be drawn per page */
@@ -2846,6 +2845,64 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 }
 
 //#endregion
+
+// #region TextItem
+
+/** A struct with drawing data for a given module. */
+interface TextItemDrawData extends Omit<ModularItemDrawData, "positions"> {
+	/** An array with tuples of X and Y coordinates for the buttons and, optionally, the buttons width and height */
+	positions: [X: number, Y: number, W?: number, H?: number][],
+	drawImages: false,
+}
+
+interface TextItemData extends ExtendedItemData<TextItemOption> {
+	/** A record with the maximum length for each text-based properties with an input field. */
+	maxLength: TextItemRecord<number>;
+	/** A record containing various dialog keys used by the extended item screen */
+	dialogPrefix: {
+		/** The dialog key for the item's load text (usually a prompt to select the type) */
+		header: string,
+		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
+		chat: string | ExtendedItemChatCallback<TextItemOption>;
+	};
+	scriptHooks: ExtendedItemScriptHookStruct<TextItemData, TextItemOption>;
+	drawImages: false;
+	chatSetting: "default";
+	baselineProperty: ItemPropertiesNoArray;
+	eventListeners: TextItemRecord<TextItemEventListener>;
+	drawData: TextItemDrawData;
+	pushOnPublish: boolean;
+	textNames: TextItemNames[];
+	/**
+	 * The font used for dynamically drawing text.
+	 * Requires {@link AssetDefinition.DynamicAfterDraw} to be set.
+	 */
+	font: null | string;
+}
+
+// NOTE: Use the intersection operator to enforce that the it remains a `keyof ItemProperties` subtype
+/** Property keys of {@link ItemProperties} with text input fields */
+type TextItemNames = keyof ItemProperties & (
+	"Text" | "Text2" | "Text3"
+);
+
+type TextItemRecord<T> = Partial<Record<TextItemNames, T>>;
+
+/**
+ * A callback signature for handling (throttled) text changes.
+ * @param C - The character being modified
+ * @param textRecord
+ * @param name - The property wherein the updated text should be stored
+ * @param text - The new text to be assigned to the item
+ */
+type TextItemEventListener = (
+	C: Character,
+	textRecord: TextItemRecord<string>,
+	name: TextItemNames,
+	text: string,
+) => void;
+
+// #endregion
 
 type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
@@ -3342,34 +3399,6 @@ interface HSVColor {
 type ColorPickerCallbackType = (Color: string) => void;
 
 //#end region
-
-// #region property
-
-// NOTE: Use the intersection operator to enforce that the it remains a `keyof ItemProperties` subtype
-/** Property keys of {@link ItemProperties} with text input fields */
-type PropertyTextNames = keyof ItemProperties & (
-	"Text" | "Text2" | "Text3"
-);
-
-/**
- * A callback signature for handling (throttled) text changes.
- * @param {Character} C - The character being modified
- * @param {Item} item - The item being modified
- * @param {PropertyTextNames} PropName - The property wherein the updated text should be stored
- * @param {string} Text - The new text to be assigned to the item
- * @returns {void} Nothing
- */
-type PropertyTextEventListener = (
-	C: Character,
-	Item: Item,
-	PropName: PropertyTextNames,
-	Text: string,
-) => void;
-
-/** A record type with custom event listeners for one or more text input fields. */
-type PropertyTextEventListenerRecord = Partial<Record<PropertyTextNames, PropertyTextEventListener>>;
-
-// #end region
 
 // #region Log
 

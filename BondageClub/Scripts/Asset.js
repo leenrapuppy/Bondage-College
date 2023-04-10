@@ -218,8 +218,6 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
 		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
 		ExpressionPrerequisite: Array.isArray(AssetDef.ExpressionPrerequisite) ? AssetDef.ExpressionPrerequisite : Group.ExpressionPrerequisite,
-		TextMaxLength: typeof AssetDef.TextMaxLength === "object" ? AssetDef.TextMaxLength : null,
-		TextFont: typeof AssetDef.TextFont === "string" ? AssetDef.TextFont : null,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid
@@ -292,6 +290,9 @@ function AssetBuildExtended(A, ExtendedConfig) {
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			VariableHeightRegister(A, /** @type {VariableHeightConfig} */(AssetConfig.Config));
+			break;
+		case ExtendedArchetype.TEXT:
+			TextItemRegister(A, /** @type {TextItemConfig} */(AssetConfig.Config));
 			break;
 	}
 	A.Archetype = AssetConfig.Archetype;
