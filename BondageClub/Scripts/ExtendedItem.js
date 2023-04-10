@@ -116,12 +116,13 @@ function ExtendedItemCreateCallback(data, name, originalFunction) {
 }
 
 /**
+ * Construct the extended item's archetypical callbacks and place them in the main namespace.
  * @template {ExtendedItemOption} T
- * @param {ExtendedItemData<T>} data
- * @param {ExtendedItemCallbackStruct<T>} defaults
+ * @param {ExtendedItemData<T>} data - The extended item data
+ * @param {ExtendedItemCallbackStruct<T>} defaults - The default archetypical callbacks
  */
 function ExtendedItemCreateCallbacks(data, defaults) {
-	/** @type {(keyof Required<ExtendedItemCallbackStruct<T>>)[]} */
+	/** @type {(keyof ExtendedItemCallbackStruct<T>)[]} */
 	const ExtendedItemCreate = [
 		"load",
 		"click",
@@ -138,6 +139,25 @@ function ExtendedItemCreateCallbacks(data, defaults) {
 	}
 
 	ExtendedItemCreate.forEach(k => ExtendedItemCreateCallback(data, k, /** @type {ExtendedItemCallback<any[], any>} */(defaults[k])));
+}
+
+/**
+ * Convert that passed extended item config script hooks into their item data counterpart.
+ * @template {ExtendedItemData<any>} DataType
+ * @template {ExtendedItemOption} OptionType
+ * @param {ExtendedItemCapsScriptHooksStruct<DataType, OptionType>} scriptHooks - The extended item config script hooks
+ * @returns {ExtendedItemScriptHookStruct<DataType, OptionType>} - The extended item data script hooks
+ */
+function ExtendedItemParseScriptHooks(scriptHooks) {
+	return {
+		load: typeof scriptHooks.Load === "function" ? scriptHooks.Load : null,
+		click: typeof scriptHooks.Click === "function" ? scriptHooks.Click : null,
+		draw: typeof scriptHooks.Draw === "function" ? scriptHooks.Draw : null,
+		exit: typeof scriptHooks.Exit === "function" ? scriptHooks.Exit : null,
+		validate: typeof scriptHooks.Validate === "function" ? scriptHooks.Validate : null,
+		publishAction: typeof scriptHooks.PublishAction === "function" ? scriptHooks.PublishAction : null,
+		init: typeof scriptHooks.Init === "function" ? scriptHooks.Init : null,
+	};
 }
 
 /**

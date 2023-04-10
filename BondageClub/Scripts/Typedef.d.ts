@@ -1939,13 +1939,13 @@ interface ExtendedItemScriptHookStruct<
 	DataType extends ExtendedItemData<any>,
 	OptionType extends ExtendedItemOption
 > {
-	load?: ExtendedItemScriptHookCallbacks.Load<DataType>,
-	draw?: ExtendedItemScriptHookCallbacks.Draw<DataType>,
-	click?: ExtendedItemScriptHookCallbacks.Click<DataType>,
-	exit?: ExtendedItemScriptHookCallbacks.Exit<DataType>,
-	validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
-	publishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
-	init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+	load: null | ExtendedItemScriptHookCallbacks.Load<DataType>,
+	draw: null | ExtendedItemScriptHookCallbacks.Draw<DataType>,
+	click: null | ExtendedItemScriptHookCallbacks.Click<DataType>,
+	exit: null | ExtendedItemScriptHookCallbacks.Exit<DataType>,
+	validate: null | ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
+	publishAction: null | ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
+	init: null | ExtendedItemScriptHookCallbacks.Init<DataType>,
 }
 
 /** An interface-based version of {@link ExtendedItemScriptHookCallbacks} */
