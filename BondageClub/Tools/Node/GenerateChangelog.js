@@ -91,6 +91,19 @@ const CONTRIBUTOR_NAMES = {
 	"Tama-chan": "Tama-chan",
 	"tamachan": "Tama-chan",
 	"zR1OQicz": "zR1OQicz",
+	"Miisha": "Miisha",
+	"KyraObscura": "KyraObscura",
+	"bananarama92": "Rama",
+	"Rama": "Rama",
+	"banarama92": "Rama",
+	"kotax": "kotax",
+	"Sepia Oulomenohn": "Sepia Oulomenohn",
+	"Bluesilv": "Bluesilv",
+	"shion": "shion",
+	"shion11": "shion",
+	"Leo L. Schwab": "ewhac",
+	"Leo Schwab": "ewhac",
+	"tui": "tui",
 };
 
 async function generateChangelogHtml() {

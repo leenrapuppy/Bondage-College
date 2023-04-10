@@ -66,7 +66,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Rama - Fixed a crash by avoid a recursive call when an item was removed by someone while the extended UI for it would be open ([#4059](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4059))
 * Estsanatlehi - Fixed the wedding girls' appearance not getting reset when the ceremony completes ([#4061](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4061), [#4065](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4065))
 * Rama - Fixed the lovers timer padlock `Init` function being broken ([#4062](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4062))
-* Leo Schwab - Changed the key-up handler of the crafting screen to not cause performance issues when typing text ([#4076](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4076))
+* ewhac - Changed the key-up handler of the crafting screen to not cause performance issues when typing text ([#4076](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4076))
 * kotax - Made sure the curfew status for Jennifer and Sidney gets imported correctly from their Bondage College storyline ([#4080](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4080))
 
 ### [Technical]
