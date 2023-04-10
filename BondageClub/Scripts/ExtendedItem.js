@@ -831,3 +831,21 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 		return Data.dialogPrefix.chat;
 	}
 }
+
+/**
+ * Register archetypical subscreens for the passed extended item options
+ * @param {Asset} asset - The asset whose subscreen is being registered
+ * @param {readonly (TypedItemOption | ModularItemOption)[]} options - The parent item's extended item option
+ */
+function ExtendedItemRegisterSubscreens(asset, options) {
+	for (const option of options) {
+		switch (option.Archetype) {
+			case ExtendedArchetype.VARIABLEHEIGHT:
+				VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option);
+				break;
+			case ExtendedArchetype.VIBRATING:
+				VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(option.ArchetypeConfig), option);
+				break;
+		}
+	}
+}

@@ -523,9 +523,9 @@ interface TypedItemOptionBase extends Omit<ExtendedItemOption, "OptionType"> {
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "TypedItemOption";
 	/** If the option has a subscreen, this can set a particular archetype to use */
-	Archetype?: ExtendedArchetype;
+	Archetype?: "vibrating" | "variableheight";
 	/** If the option has an archetype, sets the config to use */
-	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig;
 	/** Whether or not this option can be selected randomly */
 	Random?: boolean;
 }
@@ -760,6 +760,10 @@ interface ModularItemOptionBase extends Omit<ExtendedItemOption, "OptionType" | 
 	ModuleName?: string;
 	/** The option's (automatically assigned) index within the parent module */
 	Index?: number;
+	/** If the option has a subscreen, this can set a particular archetype to use */
+	Archetype?: "vibrating" | "variableheight";
+	/** If the option has an archetype, sets the config to use */
+	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig;
 }
 
 /** An object describing a single option within a module for a modular item. */

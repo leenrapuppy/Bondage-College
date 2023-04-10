@@ -92,6 +92,7 @@ function ModularItemRegister(asset, config) {
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
+	data.modules.forEach(mod => ExtendedItemRegisterSubscreens(asset, mod.Options));
 	ModularItemGenerateValidationProperties(data);
 }
 
