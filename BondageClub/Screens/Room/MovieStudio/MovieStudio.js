@@ -302,6 +302,9 @@ function MovieStudioChange(Cloth, C) {
 	InventoryRemove(C, "ItemLegs");
 	InventoryRemove(C, "ItemFeet");
 	InventoryRemove(C, "ItemBoots");
+	InventoryRemove(C, "ItemBoots");
+	InventoryRemove(C, "ItemDevices");
+	InventoryRemove(C, "Emoticon");
 	if (Cloth == "HouseVendor") {
 		CharacterNaked(C);
 		InventoryWear(C, "TeacherOutfit1", "Cloth", "#B36868");
@@ -1059,6 +1062,29 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(Player, "Blush", "Medium", 5);
 		CharacterSetFacialExpression(Player, "Eyes", "Closed", 5);
 		CharacterSetFacialExpression(Player, "Eyes2", "Closed", 5);
+	}
+	if (Activity == "OpenHouseCustomerNaked") {
+		MovieStudioActor1.Stage = "1720";
+		CharacterNaked(MovieStudioActor2);
+		InventoryRemove(MovieStudioActor2, "ItemHandheld");
+		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "Medium", 5);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 5);
+	}
+	if (Activity == "OpenHouseDoubleRestrainBeforeBasement") {
+		CharacterRelease(MovieStudioActor1);
+		InventoryWearRandom(MovieStudioActor1, "ItemArms");
+		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Dazed", 8);
+		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Dazed", 8);
+		CharacterRelease(MovieStudioActor2);
+		InventoryWearRandom(MovieStudioActor2, "ItemArms");
+		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Dazed", 8);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Dazed", 8);
+	}
+	if (Activity == "OpenHouseBadScene") {
+		MovieStudioChangeMeter(-50);
 	}
 
 	// Check for decay

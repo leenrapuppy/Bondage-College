@@ -3,6 +3,7 @@ OrgasmAct1,,,"(She screams and shivers madly as you give her a wonderful orgasm.
 OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shattering orgasm live for the viewers.  It's hard to tell if she faked it or not.),,
 OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vulva, making her thrash and scream from the extasy.)",,
 0,,,"(The new girlfriend is preparing the place for the open house.)  Oh, hello!  You're too early for the tour.",,
+0,,(Stare at her with blank eyes.),(The movie director gets really angry and waves at you to start the scene.),"DoActivity(""OpenHouseBadScene"")",
 0,10,You don't recognize me?,Why would I?  (She ponders as the camera zooms on her.)  Oh yeah!  You're the crazy ex-wife.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 0,10,Hello homewrecker.  (Grin.),(She takes a step back as the camera zooms on her.)  Oh my god!  You're the crazy ex-wife.,"AlterParameter(""Actor1"", ""Domination"", ""2"")",
 0,10,My timing is perfect.,"No, you're too earl...  (She ponders as the camera zooms on her.)  You're the crazy ex-wife?",,
@@ -18,6 +19,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 30,40,Oh yeah?  (Try to push her.),(You push her back against the wall as the camera zooms on the fight.)  Hey!  Stop that!  This isn't funny.,"DoActivity(""OpenHouseShoveActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""2"", ""100"")"
 30,40,Oh yeah?  (Try to push her.),"(You try to push her, but she's stronger and shoves you back against the wall.)  Ha!  Don't try to be tough.","DoActivity(""OpenHouseShovePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-2"")"
 30,40,Oh yeah?  (Try to push her.),"(You try to push her, but she resists, and nobody moves.)  You're not stronger than me.","DoActivity(""OpenHouseShoveTie"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-1"", ""1"")"
+40,,(Look at the camera cluelessly.),(The movie director bites her nails and waves at you to focus on the scene.),"DoActivity(""OpenHouseBadScene"")",
 40,50,Why did he pick an ugly girl like you?,You mean he traded the ugly one for the pretty one?  This house isn't for you.  I hold the leash now.,"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 40,50,You're a tough but cute cookie.,"(She blushes a little.)  You're not too bad either, but this house isn't for you.  I hold the leash now.","AlterParameter(""Actor1"", ""Affection"", ""1"")",
 50,60,You dominate him?,Damn right!  I'm the house boss.  Now get out!,"AlterParameter(""Actor1"", ""Domination"", ""-2"")",
@@ -26,6 +28,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 60,70,Never!  (Try to fight and strip her.),(You wrestle fiercely as the movie director makes a thumbs up.  You're able to strip her down after a while.),"DoActivity(""OpenHouseStripActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""3"", ""100"")"
 60,70,Never!  (Try to fight and strip her.),(You wrestle fiercely as the movie director makes a thumbs up.  She gets the best of you and strips you down.),"DoActivity(""OpenHouseStripPlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-3"")"
 60,70,Never!  (Try to fight and strip her.),(You wrestle fiercely as the movie director makes a thumbs up.  You both end up without clothes after a while.),"DoActivity(""OpenHouseStripBoth"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-2"", ""2"")"
+60,,(Giggle.),(The movie director gets mad and mimics that you two should fight.),"DoActivity(""OpenHouseBadScene"")",
 70,100,(Look at the scene.),,DialogLeave(),
 100,,,(You're both still sweating and catching your breath from the last fight.),,
 100,110,Give me my clothes!,(She shakes her head no.)  You stay naked old witch.,"AlterParameter(""Actor1"", ""Domination"", ""1"")",Player.IsNaked()
@@ -38,9 +41,11 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 110,120,Unfair!  I'm not a witch!,(She grins.)  Life isn't fair.  You should be punished for trespassing.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 110,120,"If I'm a witch, you're a bitch.",That's your best insult?  You should be punished for this.,"AlterParameter(""Actor1"", ""Affection"", ""-2"")",
 110,120,Is my witch magic working on you?,"(She smiles.)  Kind of, but you should still be punished for this.","AlterParameter(""Actor1"", ""Affection"", ""2"")",
+110,,Are you allowed to call me a witch?,(The movie director screams at you to try another line.),"DoActivity(""OpenHouseBadScene"")",
 120,130,Forget it girl.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)",,
 120,130,You're not punishing me!,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""1"")",
 120,130,You can't punish me.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+130,,(Turn to the movie director.),(The movie director gets mad and mimics that you two should fight.),"DoActivity(""OpenHouseBadScene"")",
 130,140,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each move.  You finally pin her to the ground, and she submits to you naked.)","DoActivity(""OpenHouseWrestleActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""0"", ""100"")"
 130,150,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each move.  She gets the upper hand and forces you to submit naked.)","DoActivity(""OpenHouseWrestlePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-1"")"
 140,200,(Look at the scene.),,DialogLeave(),
@@ -51,6 +56,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 200,210,What a cunt.,(She grumbles and looks down.)  What do you want?,"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 200,,(Look around.),,DialogLeave(),
 210,220,I want you bound and gagged.,Bound and gagged?  But I have a house to sell.,,
+210,,I don't know.,(The movie director gets mad from your answer and waves at you to try again.)  ,"DoActivity(""OpenHouseBadScene"")",
 210,220,I want you to fully submit.,Fully submit?  Now?  But I have a house to sell.,"AlterParameter(""Actor1"", ""Domination"", ""1"")",
 210,220,I want to see your cute body restrained.,(She blushes.)  Now?  But I have a house to sell.,"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 220,230,You're not selling anything.,(She nods and waits for your next move.),,
@@ -76,6 +82,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 300,,,(She grins and stares at you victoriously.),,
 300,310,You're lucky I feel sick today.,(She shakes her head no.)  I can take you any day.  (She ponders.)  I think I have a plan for you.,"AlterParameter(""Actor1"", ""Domination"", ""1"")",
 300,310,Very well.  I submit to you.,Good girl.  (She ponders.)  I think I have a plan for you.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+300,,I don't know what to say.,(The movie director gets mad from your answer and waves at you to try again.)  ,"DoActivity(""OpenHouseBadScene"")",
 300,310,You're both pretty and strong.,(She smiles at you and ponders.)  I think I have a plan for you.,"AlterParameter(""Actor1"", ""Affection"", ""2"")",
 300,310,Ow!  Were you raised by a Dobermann?,(She grumbles and ponders.)  I think I have a plan for you.,"AlterParameter(""Actor1"", ""Affection"", ""-2"")",
 300,,(Look around.),,DialogLeave(),
@@ -88,6 +95,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 320,330,This is ridiculous.,"Not at all, you're already wearing a collar, you will be the family dog.",,"!CanDoActivity(""OpenHouseWearDogCollar"")"
 330,340,This is a stupid idea.,This will also teach you a lesson.  (She gets a leash and grins.),"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 330,340,Are you serious?,Very serious.  (She gets a leash and smirks.),,
+330,,Is that in the script?,(The movie director gets mad from your answer and screams at you to try again.)  ,"DoActivity(""OpenHouseBadScene"")",
 330,340,Will I be a cute puppy?,Will you be the cutest puppy in town.  (She gets a leash and smiles.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 340,350,There's no need to leash me.,"Oh yes, puppy girl.  (The camera zooms in on your collar as she clips the leash on it.)","DoActivity(""OpenHouseWearDogLeash"")",
 340,350,That's enough!,We are only beginning.  (The camera zooms in on your collar as she clips the leash on it.),"DoActivity(""OpenHouseWearDogLeash"")",
@@ -97,6 +105,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 360,370,Woof!,"Such a good puppy, but you still need a few more accessories.","AlterParameter(""Actor1"", ""Affection"", ""1"")",
 360,370,This is stupid.,"What a bad dog, you still need a few more accessories.","AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 360,,(Look around.),,DialogLeave(),
+370,,I don't like that scene.,(The movie director gets angry at you and waves to try again.)  ,"DoActivity(""OpenHouseBadScene"")",
 370,380,What now?,"Now you will walk like a dog.  (She straps your arms and legs, forcing you to crawl on the floor on all fours.)","DoActivity(""OpenHouseWearDogCrawler"")",
 370,380,This is enough.,"It's not enough for a dog.  (She straps your arms and legs, forcing you to crawl on the floor on all fours.)","DoActivity(""OpenHouseWearDogCrawler"")",
 380,390,Hey!  This is too tight!,"Sorry puppy, I cannot hear you.  (She straps a muzzle gag on your head.)","DoActivity(""OpenHouseWearDogMuzzle"")",
@@ -121,6 +130,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1000,1010,(Whisper to her.)  What do we do?,It was your stupid plan to come here and annoy me.  You fix your own mess.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",Player.CanTalk()
 1000,1010,Tell her something!,It was your plan to annoy me!  You tell her something!,"AlterParameter(""Actor1"", ""Domination"", ""1"")",Player.CanTalk()
 1000,1010,(Whimper in your gag.),(She looks at you and shrugs.),,!Player.CanTalk()
+1000,,(Stare at her silently.),(The movie director gets angry and waves at you two to do something.),"DoActivity(""OpenHouseBadScene"")",
 1000,,(Look around.),,DialogLeave(),
 1010,,,(She looks silently at the customer and seems embarrassed.),,
 1010,,(Look around.),,DialogLeave(),
@@ -138,6 +148,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1080,,,(She stares at the customer.),,
 1080,,(Look around.),,DialogLeave(),
 1100,,,(She stares at you.),,
+1100,,(Stare at her silently.),(The movie director gets angry and waves at you two to do something.),"DoActivity(""OpenHouseBadScene"")",
 1100,1110,(Laugh at her in your gag.),(She gets mad as you laugh at her in your tight gag.),"DoActivity(""OpenHouseBondageLaugh"")",
 1100,1110,(Bump her in your bondage.),(You bump your butt playfully against her as you both giggle.),"DoActivity(""OpenHouseBondageBump"")",
 1100,1110,(Give her a bondage hug.),(You share a long and warm bondage hug as the movie director makes a thumbs up.),"DoActivity(""OpenHouseBondageHug"")",
@@ -156,8 +167,9 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1190,,,(She whimpers and looks at the customer.),,
 1190,,(Look around.),,DialogLeave(),
 1200,,,(She whimpers and looks at the customer.),,
-1200,,(Look at her and stay silent.),(The client slowly masturbates her with the vibrating wand as the camera zooms on her bondage.),"DoActivity(""OpenHouseActor1Look"")",
+1200,,(Look at her and stay submissive.),(The client slowly masturbates her with the vibrating wand as the camera zooms on her bondage.),"DoActivity(""OpenHouseActor1Look"")",
 1200,,(Moan loudly to motivate her.),(You both moan loudly as she presses the wand firmly on her pussy.),"DoActivity(""OpenHouseActor1Moan"")",
+1200,,(Stare at the camera.),(The movie director gets angry and waves at you to turn your head.),"DoActivity(""OpenHouseBadScene"")",
 1200,,(Whimper for attention.),(She masturbates you with her left hand as the vibrating wand keeps working on the new girlfriend.),"DoActivity(""OpenHouseActor1Whimper"")",
 1200,,(Get closer for a bondage hug.),(You get really close to each other as she places the vibrating wand between you two to double the pleasure.),"DoActivity(""OpenHouseActor1Closer"")",
 1200,,(Look around.),,DialogLeave(),
@@ -168,6 +180,7 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1300,1310,Can I please have my clothes?,"(She puts her index in front of her mouth and looks at you.)  Shhhh, I'm trying to sell a house.  Stay quiet.  (She turns to back to the customer.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",CurrentCharacter.CanTalk()
 1300,1310,(Grumble and stare at her.),(She looks at you briefly and puts her index in front of her mouth.  She quickly turns back to the customer.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",!CurrentCharacter.CanTalk()
 1300,1310,(Whimper in your gag.),(She looks at you briefly and puts her index in front of her mouth.  She quickly turns back to the customer.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",!CurrentCharacter.CanTalk()
+1300,,(Stare at her silently.),(The movie director gets angry and waves at you to do something.),"DoActivity(""OpenHouseBadScene"")",
 1300,,(Look around.),,DialogLeave(),
 1310,,,(She grins and looks at the customer.)  I'm sure you will love this house and the neighborhood.,,
 1310,,(Look around.),,DialogLeave(),
@@ -186,6 +199,19 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1600,,,"(She blushes and looks down, not saying a word.)",,
 1600,1610,(Pet her head.),(She nods slowly as you pet her head for the viewers.),"AlterParameter(""Actor1"", ""Love"", ""1"")",
 1600,1610,(Laugh at her.),(She grumbles silently as you laugh at her loudly.),"AlterParameter(""Actor1"", ""Love"", ""-1"")",
+1600,,(Stare at her silently.),(The movie director gets angry and waves at you two to do something.),"DoActivity(""OpenHouseBadScene"")",
 1600,,(Look around.),,DialogLeave(),
 1610,,,"(She blushes and looks down, not saying a word.)",,
 1610,,(Look around.),,DialogLeave(),
+1720,,,You got her naked also?  What are you doing?,,CurrentCharacter.CanTalk()
+1720,,,(She looks at the naked customer and stares at you curiously.),,!CurrentCharacter.CanTalk()
+1720,1730,"I don't know, but it will be fun.",You don't even have a plan?  (She grumbles and turns to the naked customer.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",CurrentCharacter.CanTalk()
+1720,1730,You will understand soon enough.,(She bows her head and slowly turns to watch the naked customer.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",CurrentCharacter.CanTalk()
+1720,1730,(Pull your tongue at her and laugh.),(She rolls her eyes up and sighs.  Turning back to the naked customer.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",!CurrentCharacter.CanTalk()
+1720,1730,(Pinch her cheek and smirk.),(She bows her head and slowly turns to watch the naked customer.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",!CurrentCharacter.CanTalk()
+1720,,(Look around.),,DialogLeave(),
+1730,,,(She stays silent and stares at he naked customer.),,
+1730,,(Look around.),,DialogLeave(),
+1800,,,Forget it!  You're not putting me in that cage.  (She stares at the dog kennel in the basement corner.),,
+1800,,TO DO,TO DO,,
+1800,,(Look around.),,DialogLeave(),

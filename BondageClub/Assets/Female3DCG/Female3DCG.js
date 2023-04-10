@@ -7275,7 +7275,7 @@ var AssetFemale3DCG = [
 				DynamicGroupName: "ItemMouth3",
 			},
 			{
-				Name: "PaddedFaceMask", Value: 20, Extended: true, HasType: false, Time: 2, Left: 188, Top: 141, DefaultColor: ["#EEEEEE","#222222","#FF59B5"], Hide: ["ItemMouth","ItemMouth2"], Effect: ["BlockMouth"],
+				Name: "PaddedFaceMask", Value: 20, Extended: true, Random: false, HasType: false, Time: 2, Left: 188, Top: 141, DefaultColor: ["#EEEEEE","#222222","#FF59B5"], Hide: ["ItemMouth","ItemMouth2"], Effect: ["BlockMouth"],
 				Layer:[
 					{Name: "TrimThin", AllowModuleTypes: ["t0"]},
 					{Name: "TrimThick", AllowModuleTypes: ["t1"], CopyLayerColor: "TrimThin"},
