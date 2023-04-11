@@ -4249,11 +4249,11 @@ var AssetFemale3DCG = [
 				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Left: 1, Top: 1, Difficulty: 10, Time: 15, RemoveTime: 20,
 				Extended: true, AllowLock: true,Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Chaste"],
 				Layer: [
-					{ Name: "Base", HasType: false, },
-					{ Name: "Belt", HasType: false, },
-					{ Name: "Valve", HasType: false, },
-					{ Name: "Vibe", HasType: false, },
-					{ Name: "Lock", HasType: false, },
+					{ Name: "Belt", HasType: false,  Left: 160, Top: 400 },
+					{ Name: "Valve", HasType: false,  Left: 160, Top: 400 },
+					{ Name: "Vibe", HasType: false,  Left: 160, Top: 400 },
+					{ Name: "Lock", HasType: false,  Left: 160, Top: 400 },
+					{ Name: "Base", HasType: false,  Left: 160, Top: 400 },
 	
 				],
 			},
