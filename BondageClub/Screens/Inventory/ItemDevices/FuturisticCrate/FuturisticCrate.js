@@ -1,58 +1,5 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Init} */
-function InventoryItemDevicesFuturisticCrateDevice1Init(C, Item, Refresh) {
-	return VibratorModeInit([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], C, Item, Refresh);
-}
-
-function InventoryItemDevicesFuturisticCrateDevice1Load() {
-	InventoryItemDevicesFuturisticCrateDevice1Init(CharacterGetCurrent(), DialogFocusItem, false);
-	VibratorModeLoad("Intensity", true);
-}
-
-function InventoryItemDevicesFuturisticCrateDevice1Draw() {
-	if (DialogFocusItem && DialogFocusItem.Property) {
-		if (DialogFocusItem.Property.Intensity == undefined) DialogFocusItem.Property.Intensity = -1;
-	}
-	VibratorModeDraw([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], 450, true);
-}
-
-function InventoryItemDevicesFuturisticCrateDevice1Click() {
-	// Exits the screen
-	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemDevicesFuturisticCrateDevice1Exit();
-	} else {
-		VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], 450, true);
-	}
-}
-
-/** @type {ExtendedItemCallbacks.PublishAction<VibratingItemOption>} */
-function InventoryItemDevicesFuturisticCrateDevice1PublishAction(C, item, newOption, previousOption) {
-	const [newProperty, prevProperty] = [newOption.Property, previousOption.Property];
-	const dictionary = new DictionaryBuilder()
-		.sourceCharacter(Player)
-		.destinationCharacter(C)
-		.asset(item.Asset);
-
-	const newIsAdvanced = VibratorModesAdvanced.includes(newOption.Name);
-	const prevIsAdvanced = VibratorModesAdvanced.includes(previousOption.Name);
-	let message = "VibeMode";
-	if (!newIsAdvanced && !prevIsAdvanced) { // standard -> standard
-		const direction = newProperty.Intensity > prevProperty.Intensity ? "Increase" : "Decrease";
-		message += `${direction}To${newProperty.Intensity}`;
-	} else if (newIsAdvanced) { // standard/advanced -> advanced
-		message += newOption.Name;
-	} else { // advanced -> standard
-		message += `IncreaseTo${newProperty.Intensity}`;
-	}
-	ChatRoomPublishCustomAction(message, false, dictionary.build());
-}
-
-// Leaves the extended screen
-function InventoryItemDevicesFuturisticCrateDevice1Exit() {
-	ExtendedItemSubscreen = null;
-}
-
 /**
  * @typedef {FuckMachinePersistentData} FuturisticCratePersistentData
  */

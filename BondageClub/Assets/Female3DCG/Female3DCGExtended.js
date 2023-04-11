@@ -4602,9 +4602,11 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
-									Effect: ["Egged", "Prone", "Freeze", "BlockKneel"],
+									Effect: ["Prone", "Freeze", "BlockKneel"],
 									OverrideHeight: { Height: 0, Priority: 60 },
-								}
+								},
+								Archetype: ExtendedArchetype.VIBRATING,
+								ArchetypeConfig: {},
 							},
 						],
 					},
