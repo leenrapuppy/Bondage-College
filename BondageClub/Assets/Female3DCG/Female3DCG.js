@@ -3783,8 +3783,8 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Left: 1, Top: 1, Difficulty: 10, Time: 15, RemoveTime: 20, ExpressionTrigger: [{ Name: "Medium", Group: "Blush",
-				Extended: true, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged",  "UseRemote", "FillVulva"], AllowEffect: ["Chaste"], 
+				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Difficulty: 10, Time: 15, RemoveTime: 20, 
+				Extended: true, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged",  "UseRemote", "FillVulva"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }], 
 				Layer: [
 					{ Name: "Base", HasType: false,  Left: 160, Top: 393 },
 					{ Name: "Belt", HasType: false,  Left: 160, Top: 393 },
