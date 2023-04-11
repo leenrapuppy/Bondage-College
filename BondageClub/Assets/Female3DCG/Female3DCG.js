@@ -4245,6 +4245,20 @@ var AssetFemale3DCG = [
 					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
 				],
 			},
+			{
+				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], ParentGroup: null, Value: 150,
+				Difficulty: 10, Time: 15, RemoveTime: 20,
+				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true,Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Chaste"],
+				AllowBlock: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Belt", HasType: false, },
+					{ Name: "Valve", HasType: false, },
+					{ Name: "Vibe", HasType: false, },
+					{ Name: "Lock", HasType: false, },
+	
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
