@@ -3,6 +3,11 @@
 /** @type {string | null} */
 var InventoryItemHandsPaddedMittensMsg = null;
 
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemHandsPaddedMittensInit(C, item, refresh) {
+	return ExtendedItemInitNoArch(C, item, {}, refresh);
+}
+
 /** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemHandsPaddedMittensLoad() {
 	InventoryItemHandsPaddedMittensMsg = null;

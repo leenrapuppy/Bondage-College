@@ -1,6 +1,11 @@
 "use strict";
 var InventoryItemHandsPawMittensMsg = null;
 
+/** @type {ExtendedItemCallbacks.Init} */
+function InventoryItemHandsPawMittensInit(C, item, refresh) {
+	return ExtendedItemInitNoArch(C, item, {}, refresh);
+}
+
 /** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemHandsPawMittensLoad() {
 	InventoryItemHandsPawMittensMsg = null;
