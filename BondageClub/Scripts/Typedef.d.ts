@@ -312,7 +312,8 @@ type AssetAttribute =
 	"Skirt" |
 	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens" |
-	"PenisLayer" | "PenisCover"
+	"PenisLayer" | "PussyLayer" | "GenitaliaCover" |
+	"CagePlastic2" | "CageTechno" | "CageFlat"
 	;
 
 type CraftingStatusType = 0 | 1 | 2;

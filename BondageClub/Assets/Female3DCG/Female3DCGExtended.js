@@ -1024,7 +1024,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Difficulty: 1,
 									Block: ["ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["ItemVulva", "ItemVulvaPiercings", "Pussy"],
+									Hide: ["ItemVulvaPiercings", "Pussy"],
 									HideItem: ["ItemButtAnalBeads2"],
 								},
 							},
