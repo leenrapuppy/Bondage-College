@@ -5507,7 +5507,7 @@ var AssetFemale3DCGExtended = {
 		VibratingLatexPanties: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // VibratingLatexPanties
-		InflatingVibratingPanties: {
+		InflatableVibratingPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				Modules: [
@@ -5551,7 +5551,7 @@ var AssetFemale3DCGExtended = {
 					},
 				},
 			},
-		}, // InflatingVibratingPanties
+		}, // InflatableVibratingPanties
 		WandBelt: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // WandBelt

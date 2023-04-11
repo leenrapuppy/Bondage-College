@@ -1005,6 +1005,7 @@ var AssetFemale3DCG = [
 			{ Name: "Ribbons", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 30, BuyGroup: "Ribbon", Extended: true, Hide:["ItemNipples"] },
 			{ Name: "LeatherBreastBinder", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 30, BuyGroup: "BreastBinder", AllowPose: [], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "FullLatexBra", Gender: "F", Prerequisite: ["HasBreasts"], BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
+			{ Name: "StrapBra", Gender: "F", Left: 124, Top: 179, Prerequisite: ["HasBreasts"], Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
 			{ Name: "FullLatexBra2", Gender: "F", Prerequisite: ["HasBreasts"], BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: -1, Hide: ["ItemNipples"],
 				Layer:[
 					{ Name: "Bra", AllowColorize: true},
@@ -3783,7 +3784,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Difficulty: 10, Time: 15, RemoveTime: 20, 
+				Name: "InflatableVibratingPanties", Gender: "F", ParentGroup: "BodyLower", Fetish: ["Latex"], Value: 150, Difficulty: 10, Time: 15, RemoveTime: 20, 
 				Extended: true, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["UseRemote", "Egged", "FillVulva", "Wiggling"], AllowEffect: ["Vibrating"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }], 
 				Layer: [
 					{ Name: "Base", HasType: false,  Left: 160, Top: 393 },
