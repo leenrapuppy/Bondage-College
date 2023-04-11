@@ -4246,7 +4246,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], ParentGroup: null, Value: 150, Left: 10, Top: 210, Difficulty: 10, Time: 15, RemoveTime: 20,
+				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Left: 1, Top: 1, Difficulty: 10, Time: 15, RemoveTime: 20,
 				Extended: true, AllowLock: true,Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Chaste"],
 				Layer: [
 					{ Name: "Base", HasType: false, },
