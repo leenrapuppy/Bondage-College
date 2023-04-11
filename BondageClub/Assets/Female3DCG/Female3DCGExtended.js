@@ -5508,8 +5508,49 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // VibratingLatexPanties
 		InflatingVibratingPanties: {
-			Archetype: ExtendedArchetype.VIBRATING,
-			CopyConfig: { GroupName: "ItemButt", AssetName: "InflVibeButtPlug" },
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "InflateLevel",
+						Key: "f",
+						DrawImages: false,
+						Options: [
+							{ Property: { InflateLevel: 0 } }, // f0 - Empty
+							{ Property: { InflateLevel: 1 } }, // f1 - Light
+							{ Property: { InflateLevel: 2 } }, // f2 - Inflated
+							{ Property: { InflateLevel: 3 } }, // f3 - Bloated
+							{ Property: { InflateLevel: 4 } }, // f4 - Maximum
+						],
+					},
+					{
+						Name: "Intensity",
+						Key: "i",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // i0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // i1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // i2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // i3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // i4 - Maximum
+						],
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemButtInflVibeButtPlugDrawHook,
+				},
+				DialogPrefix: {
+					Header: "InflatableVibratingPantiesSelect",
+					Module: "InflatableVibratingPantiesModule",
+					Option: "InflatableVibratingPantiesOption",
+					Chat: ({previousOption, newOption}) => {
+						const Prefix = "InflatableVibratingPanties";
+						const Change = Number.parseInt(newOption.Name[1]) - Number.parseInt(previousOption.Name[1]);
+						const StateChange = (Change > 0) ? "Increase" : "Decrease";
+						return `${Prefix}${StateChange}To`;
+					},
+				},
+			},
 		}, // InflatingVibratingPanties
 		WandBelt: {
 			Archetype: ExtendedArchetype.VIBRATING,
