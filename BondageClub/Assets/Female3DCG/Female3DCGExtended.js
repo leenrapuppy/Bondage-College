@@ -8824,8 +8824,16 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // LoveChastityBelt
 	}, // ItemPelvis
-	ChastityBra: {
-		
+	ItemBra: {
+		TickleBra:{
+			Archetype:ExtendedArchetype.VIBRATING,
+			Config:{
+			Options: [
+				
+				
+			]
+			}
+		}
 	}, // TickleBra
 	ItemEars: {
 		FuturisticEarphones: {
