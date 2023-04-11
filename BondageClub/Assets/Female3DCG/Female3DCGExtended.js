@@ -736,7 +736,11 @@ var AssetFemale3DCGExtended = {
 				},
 				BaselineProperty: { HeartRate: 0, HeartIcon: false },
 			},
+			
 		}, // FuturisticBra
+		TickleBra: {
+            Archetype: ExtendedArchetype.VIBRATING,
+        }, // TickleBra
 	}, // ItemBreast
 	ItemArms: {
 		Web: {
@@ -851,6 +855,7 @@ var AssetFemale3DCGExtended = {
 					Npc: "ItemArmsWeb",
 				},
 			}
+			
 		}, // Web
 		InflatableStraightLeotard: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -8824,17 +8829,7 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // LoveChastityBelt
 	}, // ItemPelvis
-	ItemBra: {
-		TickleBra:{
-			Archetype:ExtendedArchetype.VIBRATING,
-			Config:{
-			Options: [
-				
-				
-			]
-			}
-		}
-	}, // TickleBra
+	
 	ItemEars: {
 		FuturisticEarphones: {
 			Archetype: ExtendedArchetype.TYPED,
