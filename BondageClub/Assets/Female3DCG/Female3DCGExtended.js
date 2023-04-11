@@ -5507,6 +5507,10 @@ var AssetFemale3DCGExtended = {
 		VibratingLatexPanties: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // VibratingLatexPanties
+		InflatingVibratingPanties: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			CopyConfig: { GroupName: "ItemButt", AssetName: "InflVibeButtPlug" },
+		}, // InflatingVibratingPanties
 		WandBelt: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // WandBelt

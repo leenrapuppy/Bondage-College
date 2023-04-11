@@ -3783,6 +3783,19 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
+				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Left: 1, Top: 1, Difficulty: 10, Time: 15, RemoveTime: 20, ExpressionTrigger: [{ Name: "Medium", Group: "Blush",
+				Extended: true, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged",  "UseRemote", "FillVulva"], AllowEffect: ["Chaste"], 
+				Layer: [
+					{ Name: "Base", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Belt", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Valve", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Vibe", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Lock", HasType: false,  Left: 160, Top: 393, LockLayer: true },
+					
+	
+				],
+			},
+			{
 				Name: "ClitoralStimulator", Gender: "F", Priority: 11, Value: 70, Time: 10, DefaultColor: "#8a00d1", Prerequisite: ["AccessVulva","HasVagina"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 				Layer: [
 					{ Name: "Stimulator", AllowColorize: true },
@@ -4243,19 +4256,6 @@ var AssetFemale3DCG = [
 					{ Name: "NegativeWire", HasType: false, AllowModuleTypes: ["s1"], },
 					{ Name: "CrotchLock", HasType: false, LockLayer: true, AllowColorize: false, AllowModuleTypes: ["c1", "c3"], },
 					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
-				],
-			},
-			{
-				Name: "InflatableVibratingPanties", Gender: "F", Fetish: ["Latex"], Value: 150, Left: 1, Top: 1, Difficulty: 10, Time: 15, RemoveTime: 20,
-				Extended: true, AllowLock: true,Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Chaste"],
-				Layer: [
-					{ Name: "Base", HasType: false,  Left: 160, Top: 393 },
-					{ Name: "Belt", HasType: false,  Left: 160, Top: 393 },
-					{ Name: "Valve", HasType: false,  Left: 160, Top: 393 },
-					{ Name: "Vibe", HasType: false,  Left: 160, Top: 393 },
-					{ Name: "Lock", HasType: false,  Left: 160, Top: 393 },
-					
-	
 				],
 			},
 		],
