@@ -104,8 +104,9 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
  * @param {null | ExtendedItemCallback<T, RT>} originalFunction
  */
 function ExtendedItemCreateCallback(data, name, originalFunction) {
-	const nameCaps = `${name[0].toUpperCase()}${name.slice(1)}`;
-	const funcName = `${data.functionPrefix}${nameCaps}`;
+	const suffix = `${name[0].toUpperCase()}${name.slice(1)}`;
+	const prefix = ["afterDraw", "beforeDraw", "scriptDraw"].includes(name) ? data.dynamicAssetsFunctionPrefix : data.functionPrefix;
+	const funcName = `${prefix}${suffix}`;
 	const scriptHook = /** @type {ExtendedItemScriptHookCallback<any, T, RT>} */(data.scriptHooks[name]);
 	if (scriptHook != null) {
 		/** @type {ExtendedItemCallback<T, RT>} */
@@ -131,6 +132,9 @@ function ExtendedItemCreateCallbacks(data, defaults) {
 		"validate",
 		"publishAction",
 		"init",
+		"beforeDraw",
+		"afterDraw",
+		"scriptDraw",
 	];
 
 	const extraKeys = CommonKeys(defaults).filter(i => !ExtendedItemCreate.includes(i));
@@ -157,6 +161,9 @@ function ExtendedItemParseScriptHooks(scriptHooks) {
 		validate: typeof scriptHooks.Validate === "function" ? scriptHooks.Validate : null,
 		publishAction: typeof scriptHooks.PublishAction === "function" ? scriptHooks.PublishAction : null,
 		init: typeof scriptHooks.Init === "function" ? scriptHooks.Init : null,
+		beforeDraw: typeof scriptHooks.BeforeDraw === "function" ? scriptHooks.BeforeDraw : null,
+		afterDraw: typeof scriptHooks.AfterDraw === "function" ? scriptHooks.AfterDraw : null,
+		scriptDraw: typeof scriptHooks.ScriptDraw === "function" ? scriptHooks.ScriptDraw : null,
 	};
 }
 

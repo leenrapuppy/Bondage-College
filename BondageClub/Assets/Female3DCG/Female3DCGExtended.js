@@ -4606,7 +4606,11 @@ var AssetFemale3DCGExtended = {
 									OverrideHeight: { Height: 0, Priority: 60 },
 								},
 								Archetype: ExtendedArchetype.VIBRATING,
-								ArchetypeConfig: {},
+								ArchetypeConfig: {
+									ScriptHooks: {
+										ScriptDraw: AssetsItemDevicesFuturisticCrateScriptDrawHook,
+									},
+								},
 							},
 						],
 					},

@@ -1951,6 +1951,9 @@ interface ExtendedItemScriptHookStruct<
 	validate: null | ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	publishAction: null | ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	init: null | ExtendedItemScriptHookCallbacks.Init<DataType>,
+	beforeDraw: null | ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
+	afterDraw: null | ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
+	scriptDraw: null | ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
 }
 
 /** An interface-based version of {@link ExtendedItemScriptHookCallbacks} */
@@ -1965,6 +1968,9 @@ interface ExtendedItemCapsScriptHooksStruct<
 	Validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	PublishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	Init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+	BeforeDraw?: ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
+	AfterDraw?: ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
+	ScriptDraw?: ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
 }
 
 /** An interface-based version of {@link ExtendedItemCallbacks} with decapitalized keys*/
@@ -1978,6 +1984,9 @@ interface ExtendedItemCallbackStruct<
 	validate?: ExtendedItemCallbacks.Validate<OptionType>,
 	publishAction?: ExtendedItemCallbacks.PublishAction<OptionType>,
 	init?: ExtendedItemCallbacks.Init,
+	beforeDraw?: ExtendedItemCallbacks.BeforeDraw,
+	afterDraw?: ExtendedItemCallbacks.AfterDraw,
+	scriptDraw?: ExtendedItemCallbacks.ScriptDraw,
 }
 
 /** Namespace with item-specific functions typically called by extended items. */
@@ -2144,6 +2153,40 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	type Init<
 		DataType extends ExtendedItemData<any>
 	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `AfterDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param drawData The dynamic draw data
+	 */
+	type AfterDraw<
+		DataType extends ExtendedItemData<any>,
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicDrawingData<PersistentData>]>;
+	/**
+	 * Callback for extended item `BeforeDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicBeforeDraw}.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param drawData The dynamic draw data
+	 * @returns A record with any and all to-be overriden draw data
+	 */
+	type BeforeDraw<
+		DataType extends ExtendedItemData<any>,
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicDrawingData<PersistentData>], DynamicBeforeDrawOverrides>;
+	/**
+	 * Callback for extended item `ScriptDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicScriptDraw}.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param drawData The dynamic draw data
+	 */
+	type ScriptDraw<
+		DataType extends ExtendedItemData<any>,
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicScriptCallbackData<PersistentData>]>;
 }
 
 /**
@@ -2172,6 +2215,8 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	key: string;
 	/** The common prefix used for all extended item functions associated with the asset */
 	functionPrefix: string;
+	/** The common prefix used for all dynamic asset hook functions for the asset */
+	dynamicAssetsFunctionPrefix: string;
 	/** An array of the chat message tags that should be included in the item's chatroom messages. */
 	chatTags: CommonChatTags[];
 	/** Contains custom dictionary entries in the event that the base ones do not suffice. */
@@ -2740,8 +2785,6 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	options: VibratingItemOption[];
 	/** The list with all groups of extended item options available for the item */
 	modeSet: VibratorModeSet[];
-	/** The common prefix used for all dynamic asset hook functions for the asset */
-	dynamicAssetsFunctionPrefix: string;
 	/** A record containing various dialog keys used by the extended item screen */
 	dialogPrefix: {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */

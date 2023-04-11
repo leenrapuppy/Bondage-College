@@ -210,6 +210,7 @@ function ModularItemCreateModularData(asset, {
 		key,
 		typeCount: 1,
 		functionPrefix: `Inventory${key}`,
+		dynamicAssetsFunctionPrefix: `Assets${key}`,
 		dialogPrefix: {
 			header: DialogPrefix.Header || `${key}Select`,
 			module: DialogPrefix.Module || `${key}Module`,
