@@ -174,11 +174,11 @@ function testDynamicGroupName(groupDefinitions) {
  */
 function testTypedOptionName(config) {
 	for (const { assetName, groupName, assetConfig } of flattenExtendedConfig(config)) {
-		if (assetConfig.Archetype !== "typed" || assetConfig.Config?.Options === undefined) {
+		if (assetConfig.Archetype !== "typed" || assetConfig.Options === undefined) {
 			continue;
 		}
 
-		const invalidOptions = assetConfig.Config.Options.filter(o => {
+		const invalidOptions = assetConfig.Options.filter(o => {
 			const type = o?.Property?.Type;
 			return !(o.Name === type || type === null);
 		});
@@ -210,6 +210,12 @@ function* flattenExtendedConfig(extendedItemConfig) {
 function testExtendedItemDialog(extendedItemConfig, dialogArray) {
 	const dialogSet = new Set(dialogArray.map(i => i[0]));
 	for (const { groupName, assetName, assetConfig } of flattenExtendedConfig(extendedItemConfig)) {
+		// Skip if dialog keys if they are set via CopyConfig;
+		// they will be checked when validating the parent item
+		if (assetConfig.CopyConfig && !assetConfig?.DialogPrefix) {
+			continue;
+		}
+
 		/** @type {Set<string>} */
 		let missingDialog = new Set();
 		switch (assetConfig.Archetype) {
@@ -284,18 +290,18 @@ function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
  * Helper function for {@link testExtendedItemDialog}.
  * @param {string} groupName
  * @param {string} assetName
- * @param {TypedItemAssetConfig} assetConfig
+ * @param {TypedItemConfig} config
  * @param {Readonly<Set<string>>} dialogSet
  * @returns {Set<string>}
  */
-function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
-	const chatSetting = assetConfig.Config?.ChatSetting ?? "toOnly";
+function testTypedItemDialog(groupName, assetName, config, dialogSet) {
+	const chatSetting = config.ChatSetting ?? "toOnly";
 	/** @type {Partial<TypedItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
 		Header: `${groupName}${assetName}Select`,
 		Option: `${groupName}${assetName}`,
 		Chat: `${groupName}${assetName}Set`,
-		...(assetConfig.Config?.DialogPrefix ?? {}),
+		...(config.DialogPrefix ?? {}),
 	};
 	if (
 		typeof dialogConfig.Chat === "function"  // Can't validate callables via the CI
@@ -307,7 +313,7 @@ function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
 
 	/** @type {Set<string>} */
 	const ret = new Set();
-	const optionNames = assetConfig.Config?.Options?.map(o => !o.HasSubscreen ? o.Name : undefined) ?? [];
+	const optionNames = config.Options?.map(o => !o.HasSubscreen ? o.Name : undefined) ?? [];
 	gatherDifference([dialogConfig.Option], optionNames, dialogSet, ret);
 	gatherDifference([dialogConfig.Header], [""], dialogSet, ret);
 	if (chatSetting === "toOnly") {
@@ -323,33 +329,28 @@ function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
  * Helper function for {@link testExtendedItemDialog}.
  * @param {string} groupName
  * @param {string} assetName
- * @param {ModularItemAssetConfig} assetConfig
+ * @param {ModularItemConfig} config
  * @param {Readonly<Set<string>>} dialogSet
  * @returns {Set<string>}
  */
-function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
-	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
-	if (assetConfig.CopyConfig && !assetConfig.Config?.DialogPrefix) {
-		return new Set();
-	}
-
-	const chatSetting = assetConfig.Config?.ChatSetting ?? "perOption";
+function testModularItemDialog(groupName, assetName, config, dialogSet) {
+	const chatSetting = config.ChatSetting ?? "perOption";
 	/** @type {Partial<ModularItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
 		Header: `${groupName}${assetName}Select`,
 		Module: `${groupName}${assetName}Module`,
 		Option: `${groupName}${assetName}Option`,
 		Chat: `${groupName}${assetName}Set`,
-		...(assetConfig.Config?.DialogPrefix ?? {}),
+		...(config.DialogPrefix ?? {}),
 	};
 	if (typeof dialogConfig.Chat === "function" || !groupName.includes("Item")) {
 		dialogConfig.Chat = undefined;
 	}
 
-	const modulesNames = assetConfig.Config?.Modules?.map(m => m.Name) ?? [];
+	const modulesNames = config.Modules?.map(m => m.Name) ?? [];
 	/** @type {(string | undefined)[]} */
 	const optionNames = [];
-	for (const module of assetConfig.Config?.Modules ?? []) {
+	for (const module of config.Modules ?? []) {
 		optionNames.push(...(module.Options.map((o, i) => !o.HasSubscreen ? `${module.Key}${i}` : undefined) ?? []));
 	}
 
@@ -361,7 +362,7 @@ function testModularItemDialog(groupName, assetName, assetConfig, dialogSet) {
 		gatherDifference([dialogConfig.Chat], optionNames, dialogSet, ret);
 	} else if (chatSetting === "perModule") {
 		// Ignore a module if every single one of its options links to a subscreen
-		const modulesNamesNoSubscreen = assetConfig.Config?.Modules?.map(m => m.Options.every(o => o.HasSubscreen) ? undefined : m.Name) ?? [];
+		const modulesNamesNoSubscreen = config.Modules?.map(m => m.Options.every(o => o.HasSubscreen) ? undefined : m.Name) ?? [];
 		gatherDifference([dialogConfig.Chat], modulesNamesNoSubscreen, dialogSet, ret);
 	}
 	return ret;
@@ -456,14 +457,14 @@ function testModuleOptionLength(config) {
 /**
  * @param {string} groupName
  * @param {string} assetName
- * @param {TypedItemAssetConfig} assetConfig
+ * @param {TypedItemConfig} config
  */
-function testModuleOptionLengthTyped(groupName, assetName, assetConfig) {
-	if (assetConfig.CopyConfig && !assetConfig.Config?.Options) {
+function testModuleOptionLengthTyped(groupName, assetName, config) {
+	if (config.CopyConfig && !config?.Options) {
 		return;
 	}
 
-	const options = assetConfig.Config?.Options ?? [];
+	const options = config.Options ?? [];
 	if (options.length === 0) {
 		error(`${groupName}:${assetName}: typed item require at least one option`);
 	}
@@ -477,14 +478,14 @@ function testModuleOptionLengthTyped(groupName, assetName, assetConfig) {
 /**
  * @param {string} groupName
  * @param {string} assetName
- * @param {ModularItemAssetConfig} assetConfig
+ * @param {ModularItemConfig} config
  */
-function testModuleOptionLengthModular(groupName, assetName, assetConfig) {
-	if (assetConfig.CopyConfig && !assetConfig.Config?.Modules) {
+function testModuleOptionLengthModular(groupName, assetName, config) {
+	if (config.CopyConfig && !config?.Modules) {
 		return;
 	}
 
-	const modules = assetConfig.Config?.Modules ?? [];
+	const modules = config.Modules ?? [];
 	if (modules.length === 0) {
 		error(`${groupName}:${assetName}: modular item requires at least one option`);
 	}
@@ -595,56 +596,27 @@ function sanitizeVMOutput(input) {
 			// Check any extended item config
 			if (Asset.Extended) {
 				const groupConfig = AssetFemale3DCGExtended[Group.Group] || {};
-				let assetConfig = groupConfig[Asset.Name];
+				const assetConfig = groupConfig[Asset.Name];
 				if (assetConfig) {
-					const visited = new Set([`${Group.Group}${Asset.Name}`]);
-					while (assetConfig.CopyConfig) {
-						const { Config: Overrides, Archetype } = assetConfig;
-						const { GroupName, AssetName } = assetConfig.CopyConfig;
-
-						const key = `${GroupName || Group.Group}${AssetName}`;
-						if (visited.has(key)) {
-							console.error(`Found cyclic CopyConfig reference in ${Group.Group}:${Asset.Name}:`, visited);
-							return;
-						} else {
-							visited.add(key);
-						}
-
-						assetConfig = (AssetFemale3DCGExtended[GroupName || Group.Group] || {} )[AssetName];
-						if (!assetConfig) {
-							error(`Asset ${Group.Group}:${Asset.Name}: CopyConfig target not found!`);
-							assetConfig = groupConfig[Asset.Name];
-						} else if (Archetype !== groupConfig[Asset.Name].Archetype) {
-							error(`Asset for ${Group.Group}:${Asset.Name}: Mismatch in archetypes after CopyConfig`);
-						} else if (Overrides) {
-							const MergedConfig = Object.assign({}, assetConfig.Config, Overrides);
-							assetConfig = Object.assign({}, assetConfig, {Config: MergedConfig});
-						}
-					}
-
-					// Overwrite the config to the fully resolved version. That saves the rest of the checks from having to handle that.
-					AssetFemale3DCGExtended[Group.Group][Asset.Name] = assetConfig;
-
-					if (assetConfig.Config) {
-						if (assetConfig.Archetype === "typed") {
-							const HasSubscreen = !localError && assetConfig.Config.Options?.some(option => !!option.HasSubscreen);
-							if (!HasSubscreen) {
-								if (Asset.AllowEffect !== undefined) {
-									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowEffect (unless they use subscreens)`);
-								}
-								if (Asset.AllowBlock !== undefined) {
-									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowBlock (unless they use subscreens)`);
-								}
-								if (Asset.AllowHide !== undefined) {
-									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHide (unless they use subscreens)`);
-								}
-								if (Asset.AllowHideItem !== undefined) {
-									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHideItem (unless they use subscreens)`);
-								}
+					const archetype = assetConfig.Archetype;
+					if (archetype === "typed") {
+						const HasSubscreen = !localError && assetConfig.Options?.some(option => !!option.HasSubscreen);
+						if (!HasSubscreen) {
+							if (Asset.AllowEffect !== undefined) {
+								error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowEffect (unless they use subscreens)`);
+							}
+							if (Asset.AllowBlock !== undefined) {
+								error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowBlock (unless they use subscreens)`);
+							}
+							if (Asset.AllowHide !== undefined) {
+								error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHide (unless they use subscreens)`);
+							}
+							if (Asset.AllowHideItem !== undefined) {
+								error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHideItem (unless they use subscreens)`);
 							}
 						}
 					}
-					if (assetConfig.Archetype === "typed" && Asset.AllowType !== undefined) {
+					if (archetype === "typed" && Asset.AllowType !== undefined) {
 						error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowType`);
 					}
 				}
@@ -718,7 +690,6 @@ function sanitizeVMOutput(input) {
 	for (const desc of assetDescriptions) {
 		error(`Unused Asset/Group description: ${desc.join(",")}`);
 	}
-
 
 	testDynamicGroupName(AssetFemale3DCG);
 	testTypedOptionName(AssetFemale3DCGExtended);

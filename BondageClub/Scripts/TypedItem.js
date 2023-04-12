@@ -104,7 +104,9 @@ function TypedItemCreateTypedItemData(asset, {
 		}
 		// @ts-expect-error: potentially copied from the protoOption via the spread operator
 		delete ret.ArchetypeConfig;
-		ret.ArchetypeData = ExtendedItemRegisterSubscreen(asset, o.ArchetypeConfig, ret);
+		ret.ArchetypeData = /** @type {TypedItemOption["ArchetypeData"]} */(AssetBuildExtended(
+			asset, o.ArchetypeConfig, AssetFemale3DCGExtended, ret,
+		));
 		return ret;
 	});
 
