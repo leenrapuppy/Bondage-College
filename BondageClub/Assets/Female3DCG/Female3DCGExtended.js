@@ -736,7 +736,11 @@ var AssetFemale3DCGExtended = {
 				},
 				BaselineProperty: { HeartRate: 0, HeartIcon: false },
 			},
+			
 		}, // FuturisticBra
+		TickleBra: {
+            Archetype: ExtendedArchetype.VIBRATING,
+        }, // TickleBra
 	}, // ItemBreast
 	ItemArms: {
 		Web: {
@@ -851,6 +855,7 @@ var AssetFemale3DCGExtended = {
 					Npc: "ItemArmsWeb",
 				},
 			}
+			
 		}, // Web
 		InflatableStraightLeotard: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -5502,6 +5507,51 @@ var AssetFemale3DCGExtended = {
 		VibratingLatexPanties: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // VibratingLatexPanties
+		InflatableVibratingPanties: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "InflateLevel",
+						Key: "f",
+						DrawImages: false,
+						Options: [
+							{ Property: { InflateLevel: 0 } }, // f0 - Empty
+							{ Property: { InflateLevel: 1 } }, // f1 - Light
+							{ Property: { InflateLevel: 2 } }, // f2 - Inflated
+							{ Property: { InflateLevel: 3 } }, // f3 - Bloated
+							{ Property: { InflateLevel: 4 } }, // f4 - Maximum
+						],
+					},
+					{
+						Name: "Intensity",
+						Key: "i",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // i0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // i1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // i2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // i3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // i4 - Maximum
+						],
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemButtInflVibeButtPlugDrawHook,
+				},
+				DialogPrefix: {
+					Header: "InflatableVibratingPantiesSelect",
+					Module: "InflatableVibratingPantiesModule",
+					Option: "InflatableVibratingPantiesOption",
+					Chat: ({previousOption, newOption}) => {
+						const Prefix = "InflatableVibratingPanties";
+						const Change = Number.parseInt(newOption.Name[1]) - Number.parseInt(previousOption.Name[1]);
+						const StateChange = (Change > 0) ? "Increase" : "Decrease";
+						return `${Prefix}${StateChange}To`;
+					},
+				},
+			},
+		}, // InflatableVibratingPanties
 		WandBelt: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // WandBelt
@@ -6148,6 +6198,9 @@ var AssetFemale3DCGExtended = {
 		TapedVibeEggs: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // TapedVibeEggs
+		NippleVibe: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // NippleVibe
 		ShockClamps: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
@@ -8821,6 +8874,7 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // LoveChastityBelt
 	}, // ItemPelvis
+	
 	ItemEars: {
 		FuturisticEarphones: {
 			Archetype: ExtendedArchetype.TYPED,
