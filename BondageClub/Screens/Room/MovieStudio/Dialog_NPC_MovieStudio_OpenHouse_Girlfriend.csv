@@ -1,7 +1,8 @@
 PlayerGagged,,,No gag is big enough for your huge mouth. (She laughs.),,
 OrgasmAct1,,,"(She screams and shivers madly as you give her a wonderful orgasm.  This is a real one, not an act.)",,
 OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shattering orgasm live for the viewers.  It's hard to tell if she faked it or not.),,
-OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vulva, making her thrash and scream from the extasy.)",,
+OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vulva, making her thrash and scream from the ecstasy.)",,
+OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, getting a wonderful orgasm live on screen.)",,
 0,,,"(The new girlfriend is preparing the place for the open house.)  Oh, hello!  You're too early for the tour.",,
 0,,(Stare at her with blank eyes.),(The movie director gets really angry and waves at you to start the scene.),"DoActivity(""OpenHouseBadScene"")",
 0,10,You don't recognize me?,Why would I?  (She ponders as the camera zooms on her.)  Oh yeah!  You're the crazy ex-wife.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
@@ -135,15 +136,15 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1010,,,(She looks silently at the customer and seems embarrassed.),,
 1010,,(Look around.),,DialogLeave(),
 1040,,,Wait!  She wants to tie me up?,,
-1040,1050,This is what you deserve.,You bitch!  Is she a friend of yours?  Did you plan this?  (She turns away and ignores you.),"AlterParameter(""Actor1"", ""Love"", ""-2"")",CurrentCharacter.CanTalk()
-1040,1050,You will be adorable in bondage.,"(She blushes and smiles.)  Thanks, you know how to cheer me up.  (She stares quietly at the customer bag.)","AlterParameter(""Actor1"", ""Love"", ""2"")",CurrentCharacter.CanTalk()
+1040,1050,This is what you deserve.,You bitch!  Is she a friend of yours?  Did you plan this?  (She turns away and ignores you.),"AlterParameter(""Actor1"", ""Affection"", ""-2"")",CurrentCharacter.CanTalk()
+1040,1050,You will be adorable in bondage.,"(She blushes and smiles.)  Thanks, you know how to cheer me up.  (She stares quietly at the customer bag.)","AlterParameter(""Actor1"", ""Affection"", ""2"")",CurrentCharacter.CanTalk()
 1040,,(Look around.),,DialogLeave(),
 1050,,,(She stares at the customer bag and stays silent.),,
 1050,,(Look around.),,DialogLeave(),
 1070,,,(She stares at you and laughs in her gag.),,
 1070,1080,(Sigh and look at her.),(She nods slowly and mumbles in her gag.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 1070,1080,(Spank her butt.),(She wiggles her butt and tries to avoid you.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",
-1070,1080,(Pet her head.),(She nods and struggles happily.),"AlterParameter(""Actor1"", ""Love"", ""1"")",
+1070,1080,(Pet her head.),(She nods and struggles happily.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 1070,,(Look around.),,DialogLeave(),
 1080,,,(She stares at the customer.),,
 1080,,(Look around.),,DialogLeave(),
@@ -161,8 +162,8 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1180,,,(She stares at the customer new toy and shivers.),,
 1180,1190,(Try to help her to get out.),(You try to reach her to release her but cannot do much.  She nods in appreciation.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",
 1180,1190,(Whimper and moan in your gag.),(She whimpers with you as you both sigh.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
-1180,1190,(Wink at her and giggle.),(She winks back at you and seems amused.),"AlterParameter(""Actor1"", ""Love"", ""1"")",
-1180,1190,(Stare at her and laugh.),(She grumbles in her gag and tugs on her bondage.),"AlterParameter(""Actor1"", ""Love"", ""-1"")",
+1180,1190,(Wink at her and giggle.),(She winks back at you and seems amused.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
+1180,1190,(Stare at her and laugh.),(She grumbles in her gag and tugs on her bondage.),"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 1180,,(Look around.),,DialogLeave(),
 1190,,,(She whimpers and looks at the customer.),,
 1190,,(Look around.),,DialogLeave(),
@@ -186,19 +187,19 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1310,,(Look around.),,DialogLeave(),
 1340,,,What kind of deal are you doing?  I'm not getting naked.,,
 1340,1350,Do you want to sell this house or not?,"Yes, I really need to sell this house.  (She ponders.)",,
-1340,1350,"You're wrong, the customer is always right.","(She grumbles and ponders.)  Yeah, the customer is always right...","AlterParameter(""Actor1"", ""Love"", ""-1"")",
-1340,1350,You will be adorable naked like me.,(She giggles and ponders.)  I guess it would be a way to sell the house...,"AlterParameter(""Actor1"", ""Love"", ""1"")",
+1340,1350,"You're wrong, the customer is always right.","(She grumbles and ponders.)  Yeah, the customer is always right...","AlterParameter(""Actor1"", ""Affection"", ""-1"")",
+1340,1350,You will be adorable naked like me.,(She giggles and ponders.)  I guess it would be a way to sell the house...,"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 1340,,(Look around.),,DialogLeave(),
 1350,1360,(Stay silent and let her ponder.),Alright!  I'll do it.  It's crazy what I would do to sell this place.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 1350,1360,Do it girl!,"Fine, fine, fine.  I'll do it.  It's crazy what I would do to sell this place.","AlterParameter(""Actor1"", ""Domination"", ""1"")",
 1360,1370,(Watch her strip.),(She slowly strips down naked as the camera zooms on every releaved parts of her body.)  This might be a mistake.,"DoActivity(""OpenHouseConvinceNaked"")",
-1370,1380,You're so pretty like that.,"(She looks at herself and giggles.)  You're too kind.  Now deal with the customer, it's your kinky plan.","AlterParameter(""Actor1"", ""Love"", ""1"")",
-1370,1380,Follow my plan bitch.,"(She glares at you.)  Shut up and deal with the customer, it's your stupid plan.","AlterParameter(""Actor1"", ""Love"", ""-1"")",
+1370,1380,You're so pretty like that.,"(She looks at herself and giggles.)  You're too kind.  Now deal with the customer, it's your kinky plan.","AlterParameter(""Actor1"", ""Affection"", ""1"")",
+1370,1380,Follow my plan bitch.,"(She glares at you.)  Shut up and deal with the customer, it's your stupid plan.","AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 1370,1380,It will be fine.,"(She looks at you and shrugs.)  You deal with the customer, it's your plan.",,
 1380,1000,(Look around.),,DialogLeave(),
 1600,,,"(She blushes and looks down, not saying a word.)",,
-1600,1610,(Pet her head.),(She nods slowly as you pet her head for the viewers.),"AlterParameter(""Actor1"", ""Love"", ""1"")",
-1600,1610,(Laugh at her.),(She grumbles silently as you laugh at her loudly.),"AlterParameter(""Actor1"", ""Love"", ""-1"")",
+1600,1610,(Pet her head.),(She nods slowly as you pet her head for the viewers.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
+1600,1610,(Laugh at her.),(She grumbles silently as you laugh at her loudly.),"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 1600,,(Stare at her silently.),(The movie director gets angry and waves at you two to do something.),"DoActivity(""OpenHouseBadScene"")",
 1600,,(Look around.),,DialogLeave(),
 1610,,,"(She blushes and looks down, not saying a word.)",,
@@ -213,5 +214,37 @@ OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vu
 1730,,,(She stays silent and stares at he naked customer.),,
 1730,,(Look around.),,DialogLeave(),
 1800,,,Forget it!  You're not putting me in that cage.  (She stares at the dog kennel in the basement corner.),,
-1800,,TO DO,TO DO,,
+1800,1810,Not yet cutie. (Wink at her.),(She blushes and smiles.)  Thank you cutie.,"AlterParameter(""Actor1"", ""Affection"", ""1"")","ParameterValueBetween(""Actor1"", ""Affection"", ""5"", ""100"")"
+1800,1810,Not yet girl. (Smirk.),(She blushes and smiles.)  Yes Miss.,"AlterParameter(""Actor1"", ""Domination"", ""1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""5"", ""100"")"
+1800,1810,Not yet.,(She sighs.)  Alright.,,
 1800,,(Look around.),,DialogLeave(),
+1810,,,"(She sighs and struggles a little, not saying a word.)",,
+1810,,(Look around.),,DialogLeave(),
+1830,,,(She looks at the customer.)  Was that a vibrating egg?,,
+1830,,(Stare at the camerawoman.),(The movie director furiously pulls her hair and waves at you to look away.),"DoActivity(""OpenHouseBadScene"")",
+1830,1840,There's one for you love.,(She giggles and smiles.)  Love?  But... but but but... yes love.,"AlterParameter(""Actor1"", ""Affection"", ""2"")","ParameterValueBetween(""Actor1"", ""Affection"", ""5"", ""100"")"
+1830,1840,There's one for you my submissive.,(She blushes and looks down.)  Your...  Your submissive Miss?,"AlterParameter(""Actor1"", ""Domination"", ""2"")","ParameterValueBetween(""Actor1"", ""Domination"", ""6"", ""100"")"
+1830,1840,There's one for you also.,(She shivers.)  Oh my!  I hope this will help sell the house somehow.,,
+1830,,(Look around.),,DialogLeave(),
+1840,1900,(Slide the egg inside of her.),(You masturbate her a little and slowly slide the vibrating egg inside.),"DoActivity(""OpenHouseSlideEggGirlfriend"")",
+1900,,,(She whimpers and twists her hips.),,
+1900,,(Vibe her slowly.),(She twists her hips sensually as you set the egg vibration to slow speed.),"DoActivity(""OpenHouseGirlfriendEggSlow"")",
+1900,,(Vibe her rapidly.),(She breathes faster and faster as you set the egg vibration to fast speed.),"DoActivity(""OpenHouseGirlfriendEggFast"")",
+1900,,(Vibe her at maximum speed.),(She moans loudly and sweats as you set the egg vibration to maximum speed.),"DoActivity(""OpenHouseGirlfriendEggMax"")",
+1900,,(Stay idle.),(The movie director furiously throws her note in the air and waves at you to do something.),"DoActivity(""OpenHouseBadScene"")",
+1900,,(Put her in a kennel.),(She struggles in vain as you shove her in the dog cage.),"DoActivity(""OpenHouseGirlfriendInKennel"")","CanDoActivity(""OpenHouseGirlfriendInKennel"")"
+1900,,(Release her from the kennel.),(She nods happily as you help her out of the dog cage.),"DoActivity(""OpenHouseGirlfriendOutKennel"")","!CanDoActivity(""OpenHouseGirlfriendInKennel"")"
+1900,,(Gag her.),(She grumbles and protests as you strap the gag on her head.),"DoActivity(""OpenHouseGirlfriendGag"")",CurrentCharacter.CanTalk()
+1900,,(Ungag her.),(She nods happily as you remove the gag from her mouth.),"DoActivity(""OpenHouseGirlfriendUngag"")",!CurrentCharacter.CanTalk()
+1900,1950,I love you so much.,"(She starts to cry and smiles widely.)  Yes, yes, yes!   It's crazy, but I'm also in love with you.",,"CanDoActivity(""OpenHouseGirlfriendStartLove"")"
+1900,,(Look around.),,DialogLeave(),
+1910,1900,Are you my pet now?,(She bows her head slowly while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",CurrentCharacter.CanTalk()
+1910,1900,"This house is mine, whore.",(She takes a long deep breath of anger while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""-2"")",CurrentCharacter.CanTalk()
+1910,1900,You're so kinky and cute.,(She blushes red while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",CurrentCharacter.CanTalk()
+1910,1900,(Pet her hair slowly.),(She purrs while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",!CurrentCharacter.CanTalk()
+1910,1900,(Slap her face.),(She takes a long deep breath of anger while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""-2"")",!CurrentCharacter.CanTalk()
+1950,1960,(Release and kiss her.),(You exchange a long and loving French kiss.)  Let's never fight again honey.,"DoActivity(""OpenHouseGirlfriendStartLoveEnding"")",
+1960,,What about my ex-husband?,We can ditch that loser and his house.  All I want is you.,DialogRemove(),
+1960,,What about our customer here?,She can join our new love life or buy the house.  I don't care.,DialogRemove(),
+1960,1970,"Come with me, let's cherish our new love.","(You both walk away from the house, holding each other hand.  The movie director yells: Cut! The end!)",,
+1970,,(Finish the movie with a romantic ending.),,"DoActivity(""OpenHouseGirlfriendLoveEnding"")",

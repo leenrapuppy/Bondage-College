@@ -1,5 +1,6 @@
 PlayerGagged,,,You're not going to sell anything with that gag.  (She giggles.),,
 OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, making you reach a wonderful orgasm in front of the camera.)",,
+OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and powerful orgasm from the viewers.)",,
 1000,,,(The customer stares at you two.)  What is going on here?  Why are you both naked?,,
 1000,,(Whimper in your gag.),Let's see that muzzle. (She removes your gag slowly.)  What is going on here?,"DoActivity(""OpenHouseUngagPlayer"")",!Player.CanTalk()
 1000,,Uhm... Who are you supposed to be?,(The movie director screams at you that she's the customer.),"DoActivity(""OpenHouseBadScene"")",Player.CanTalk()
@@ -69,15 +70,15 @@ OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, maki
 1210,1200,(Squirm and shiver from the extasy.),(She watches your orgasm with a huge smile.)  I might buy this house after all.  If I can keep you here.,,
 1210,1200,(Moan and make pleading eyes.),(She listens to your moans and grins.)  I might buy this house after all.  If I can keep you here.,,
 1210,1200,(Stay silent and try to catch your breath.),(She pulls the wand away temporarily and laughs.)  I might buy this house after all.  If I can keep you here.,,
-1300,,,(The customer stares at you.)  What is going on here?  Why are you naked?,,
+1300,,,(The client stares at you.)  What is going on here?  Why are you naked?,,
 1300,,(Whimper in your gag.),Let's see that muzzle. (She removes your gag slowly.)  What is going on here?,"DoActivity(""OpenHouseUngagPlayer"")",!Player.CanTalk()
 1300,,Uhm... Who are you supposed to be?,(The movie director screams at you that she's the customer.),"DoActivity(""OpenHouseBadScene"")",Player.CanTalk()
 1300,1310,Well... We are selling this house?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1300,1310,This bitch thinks she owns my house.,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1300,1310,You want the short or the long story?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1300,,(Look around.),,DialogLeave(),
-1310,1320,You do?,"Yes, you're the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
-1310,1320,Let me explain.,"There's no need to explain, you're the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
+1310,1320,You do?,"Yes, you're the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
+1310,1320,Let me explain.,"There's no need to explain, you're the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
 1320,1330,I'm not the gift.,"Don't deny it.  This is a great tour gift.  So, I can play with you while I visit this house?",,
 1320,1330,Are you insane?,"(She pretends that she doesn't hear you.)  This is a great tour gift.  So, I can play with you while I visit this house?",,
 1320,1330,You got it!,"(She nods happily.)  This is a great tour gift.  So, I can play with you while I visit this house?",,
@@ -103,8 +104,8 @@ OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, maki
 1600,1610,This cutie wants a kinky open house.,(She giggles and thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,1610,This bitch thinks she will sell my house.,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,,(Look around.),,DialogLeave(),
-1610,1620,You do?,"Yes, she's the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
-1610,1620,Let me explain.,"There's no need to explain, she's the special gift from the ad.  The paper ad said every serious customer will receive a gift.",,
+1610,1620,You do?,"Yes, she's the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
+1610,1620,Let me explain.,"There's no need to explain, she's the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
 1620,1630,She's not the gift.,"Don't deny it.  This is a great tour gift.  So, I can play with her while I visit this house?",,
 1620,1630,Are you insane?,"(She pretends that she doesn't hear you.)  This is a great tour gift.  So, I can play with her while I visit this house?",,
 1620,1630,You got it!,"(She nods happily.)  This is a great tour gift.  So, I can play with her while I visit this house?",,
@@ -113,7 +114,7 @@ OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, maki
 1630,1700,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
 1640,,,Do you really want to sell this house?  Then get naked for the tour.,,
 1640,,Are you serious?,"I'm very serious, get these clothes off girl.",DialogRemove(),
-1640,1350,Very well.  (Strip naked.),(The camera zooms on you as you get naked.  The customer stares at you with a grin.),"DoActivity(""OpenHousePlayerNakedForCustomer"")",
+1640,1350,Very well.  (Strip naked.),(The camera zooms on you as you get naked.  The customer stares at you with a grin.),"DoActivity(""OpenHousePlayerNakedForClient"")",
 1640,,(Look around.),,DialogLeave(),
 1700,,,Do I really have to get naked like you to see the house?,,
 1700,1710,This is the tour.  Take it or leave it.,"(She grumbles and nods.)  Fine, I'll do it.",,
@@ -121,8 +122,8 @@ OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, maki
 1700,1710,You know you want to do it girl.,"(She bows her head.)  Yes Miss, I will do it.",,
 1700,1710,Common!  It will be fun.,"(She laughs and nods.)  Alright, I will do it.",,
 1700,,(Look around.),,DialogLeave(),
-1710,1720,(Help her to get naked.),(You strip her down as the camerawoman gets closer to her naked body.),"DoActivity(""OpenHouseCustomerNaked"")",
-1710,1720,(Watch her strip.),(She strips down as the camerawoman gets closer to her naked body.),"DoActivity(""OpenHouseCustomerNaked"")",
+1710,1720,(Help her to get naked.),(You strip her down as the camerawoman gets closer to her naked body.),"DoActivity(""OpenHouseClientNaked"")",
+1710,1720,(Watch her strip.),(She strips down as the camerawoman gets closer to her naked body.),"DoActivity(""OpenHouseClientNaked"")",
 1720,,,(She looks at herself and blushes.)  This will be a naughty tour.,,
 1720,1730,You are almost ready for the tour.,Almost ready?  What do you mean?  I want to see this house.,,
 1720,,I don't know.,(The movie director cringes and yells at you to try a better line.),"DoActivity(""OpenHouseBadScene"")",
@@ -145,6 +146,28 @@ OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, maki
 1770,1800,We're going down.  (Drag them to the basement.),(You drag them both to the basement.  It's pretty empty except for a few dog kennels in the corner.),"DoActivity(""OpenHouseEnterBasement"")",
 1770,1800,The basement first.  (Drag them to the basement.),(You drag them both to the basement.  It's pretty empty except for a few dog kennels in the corner.),"DoActivity(""OpenHouseEnterBasement"")",
 1770,1800,(Stay silent and drag them to the basement.),(You drag them both to the basement.  It's pretty empty except for a few dog kennels in the corner.),"DoActivity(""OpenHouseEnterBasement"")",
-1800,,,(She stares at the empty basement and the dog kennels.)  There's not much to see here.,,
-1800,,TO DO,TO DO,,
+1800,,,(She stares at the empty basement and the dog kennels.)  There's not much to see here.  You should not start with the basement.,,
+1800,1810,The basement is the best room.,(She gives you a curious look.)  Why is that?,,
+1800,,What is my line?,(The movie director yells at you to be creative.),"DoActivity(""OpenHouseBadScene"")",
+1800,1810,This is where the kinky fun happens.,(She gives you a curious look.)  It's already kinky enough.,,
 1800,,(Look around.),,DialogLeave(),
+1810,1820,I have some eggs. (Search in your bag.),(Her eyes widen as you get some vibrating eggs and a remote control.)  You're so naughty.,,
+1810,1820,(Search in your bag and grin.),(Her eyes widen as you get some vibrating eggs and a remote control.)  You're so naughty.,,
+1820,,(Look around confused.),(The movie director gets frustrated and waves at you to do something.),"DoActivity(""OpenHouseBadScene"")",
+1820,1830,(Insert the egg and smile.),(You slowly inserts the egg in her vagina as the camera zooms on the scene.)  I hope she will buzz with me.,"DoActivity(""OpenHouseSlideEggClient"")",
+1830,,,(She twists her hips and looks at the new girlfriend.)  I hope she will also get an egg.,,
+1830,,(Look around.),,DialogLeave(),
+1900,,,(She moans and looks at you submissively.),,
+1900,,(Vibe her slowly.),(She makes puppy eyes and moans silently as you set the egg vibration to slow speed.),"DoActivity(""OpenHouseClientEggSlow"")",
+1900,,(Vibe her rapidly.),(She thrashes in her bondage as you set the egg vibration to fast speed.),"DoActivity(""OpenHouseClientEggFast"")",
+1900,,(Vibe her at maximum speed.),(She moans loudly and trembles like a leaf as you set the egg vibration to maximum speed.),"DoActivity(""OpenHouseClientEggMax"")",
+1900,,(Stay idle.),(The movie director furiously throws her note in the air and waves at you to do something.),"DoActivity(""OpenHouseBadScene"")",
+1900,,(Put her in a kennel.),(She tries to stop you but you're able to lock her in dog cage.),"DoActivity(""OpenHouseClientInKennel"")","CanDoActivity(""OpenHouseClientInKennel"")"
+1900,,(Release her from the kennel.),(She whimpers of joy as you help her out of the dog cage.),"DoActivity(""OpenHouseClientOutKennel"")","!CanDoActivity(""OpenHouseClientInKennel"")"
+1900,,(Gag her.),(She bows her head as you gag her tightly.),"DoActivity(""OpenHouseClientGag"")",CurrentCharacter.CanTalk()
+1900,,(Ungag her.),(She smiles as you remove the gag from her mouth.),"DoActivity(""OpenHouseClientUngag"")",!CurrentCharacter.CanTalk()
+1900,,(Look around.),,DialogLeave(),
+1910,1900,You're a customer or a slut?,(She gives you a furious look while recovering from her orgasm.),,CurrentCharacter.CanTalk()
+1910,1900,Is that the best open house ever?,(She nods happily while recovering from her orgasm.),,CurrentCharacter.CanTalk()
+1910,1900,All orgasms are included in the tour.,(She blushes red while recovering from her great orgasm.),,CurrentCharacter.CanTalk()
+1910,1900,(Smile and watch her orgasm.),(She closes her eyes and gets in the sub-space while recovering from her orgasm.),,
