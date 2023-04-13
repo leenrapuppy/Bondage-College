@@ -1005,6 +1005,7 @@ var AssetFemale3DCG = [
 			{ Name: "Ribbons", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 30, BuyGroup: "Ribbon", Extended: true, Hide:["ItemNipples"] },
 			{ Name: "LeatherBreastBinder", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 30, BuyGroup: "BreastBinder", AllowPose: [], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "FullLatexBra", Gender: "F", Prerequisite: ["HasBreasts"], BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
+			{ Name: "StrapBra", Gender: "F", Left: 124, Top: 179, Prerequisite: ["HasBreasts"], Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
 			{ Name: "FullLatexBra2", Gender: "F", Prerequisite: ["HasBreasts"], BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: -1, Hide: ["ItemNipples"],
 				Layer:[
 					{ Name: "Bra", AllowColorize: true},
@@ -3783,6 +3784,19 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
+				Name: "InflatableVibratingPanties", Gender: "F", ParentGroup: "BodyLower", Fetish: ["Latex"], Value: 150, Difficulty: 10, Time: 15, RemoveTime: 20, 
+				Extended: true, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["UseRemote", "Egged", "FillVulva", "Wiggling"], AllowEffect: ["Vibrating"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }], 
+				Layer: [
+					{ Name: "Base", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Belt", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Valve", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Vibe", HasType: false,  Left: 160, Top: 393 },
+					{ Name: "Lock", HasType: false,  Left: 160, Top: 393, LockLayer: true },
+					
+	
+				],
+			},
+			{
 				Name: "ClitoralStimulator", Gender: "F", Priority: 11, Value: 70, Time: 10, DefaultColor: "#8a00d1", Prerequisite: ["AccessVulva","HasVagina"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 				Layer: [
 					{ Name: "Stimulator", AllowColorize: true },
@@ -4483,6 +4497,7 @@ var AssetFemale3DCG = [
 			{ Name: "Clothespins", Fetish: ["Masochism"], Value: 15, Time: 10, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "NippleWeightClamps", Fetish: ["Metal", "Masochism"], Value: 35, Time: 10, Prerequisite: ["AccessBreast"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }] },
 			{ Name: "BellClamps", Fetish: ["Metal", "Masochism"], Value: 20, Time: 10, Prerequisite: ["AccessBreast"], Audio: "BellSmall", Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }] },
+			{ Name: "NippleVibe", Fetish: ["Masochism"], Value: 40, Top: 220, Left: 152, Time: 10,Prerequisite: ["AccessBreast"], Effect: ["Egged", "Wiggling"], ExpressionTrigger: [{ Name: "Horny", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
 			{
 				Name: "LactationPump", Fetish: ["Pet"], Value: 130, Top: 0, Priority: 38, Left: 0, Time: 10, Extended: true, AlwaysExtend: true, HasType: false, DynamicBeforeDraw: true,
 				Prerequisite: ["AccessBreast", "CannotBeSuited"],
@@ -4608,8 +4623,17 @@ var AssetFemale3DCG = [
 					{ Name: "Gems" }
 				]
 			},
-			{ Name: "Ribbons", Gender: "F", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: ["AccessBreast", "HasBreasts"], Extended: true },
+			{ Name: "Ribbons", Gender: "F", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: ["AccessBreast", "HasBreasts"], },
 			{ Name: "LeatherBreastBinder", Gender: "F", Fetish: ["Leather"], Value: 30, Difficulty: 5, Time: 15, BuyGroup: "BreastBinder", RemoveTime: 10, AllowLock: true, AllowTighten: true, Prerequisite: ["AccessTorso", "HasBreasts"] },
+			{ Name: "TickleBra", Gender: "F", Fetish: ["Latex"], Value: 100, Difficulty: 50, Time: 15, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"], Effect: ["BreastChaste", "UseRemote", "Egged"], AllowEffect: ["Vibrating"], Block: ["ItemNipples", "ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true,
+				Layer: [
+					{ Name: "Cup", AllowColorize: true , HasType: false, Left: 150, Top: 230,},
+					{ Name: "TickleUnit" , AllowColorize: true, HasType: false, Left: 150, Top: 230,},
+					{ Name: "Lining" , AllowColorize: true , HasType: false, Left: 150, Top: 230,},
+					{ Name: "Wire" , AllowColorize: true, HasType: false, Left: 150, Top: 230,},
+	
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
