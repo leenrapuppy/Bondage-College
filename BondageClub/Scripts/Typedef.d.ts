@@ -1605,6 +1605,7 @@ interface NPCCharacter {
 interface NPCCharacter {
 	TrialDone?: boolean;
 	CanGetLongDuster?: boolean;
+	CanGetForSaleSign?: boolean;
 	OweFavor?: boolean;
 	KissCount?: number;
 	MasturbateCount?: number;

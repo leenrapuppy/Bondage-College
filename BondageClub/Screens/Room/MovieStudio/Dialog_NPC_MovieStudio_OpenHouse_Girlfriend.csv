@@ -247,4 +247,4 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 1960,,What about my ex-husband?,We can ditch that loser and his house.  All I want is you.,DialogRemove(),
 1960,,What about our customer here?,She can join our new love life or buy the house.  I don't care.,DialogRemove(),
 1960,1970,"Come with me, let's cherish our new love.","(You both walk away from the house, holding each other hand.  The movie director yells: Cut! The end!)",,
-1970,,(Finish the movie with a romantic ending.),,"DoActivity(""OpenHouseGirlfriendLoveEnding"")",
+1970,,(Finish the movie with a romantic ending.),,"DoActivity(""OpenHouseSpecialEnding"")",

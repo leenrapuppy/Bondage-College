@@ -27,22 +27,28 @@ var MovieStudioDailyMovie = "";
 function MovieStudioCanPlayInMovie() { return !InventoryCharacterHasLockedRestraint(Player); }
 
 /**
- * Returns TRUE if the player can receive the camera as a payment
+ * Returns TRUE if the player can receive the camera as payment
  * @returns {boolean} - TRUE if the player can get the item
  */
 function MovieStudioCanGetCamera() { return (!InventoryAvailable(Player, "Camera1", "ClothAccessory") && (MovieStudioCurrentRole == "Journalist")); }
 
 /**
- * Returns TRUE if the player can receive the gavel as a payment
+ * Returns TRUE if the player can receive the gavel as payment
  * @returns {boolean} - TRUE if the player can get the item
  */
 function MovieStudioCanGetGavel() { return (!InventoryAvailable(Player, "Gavel", "ItemHandheld") && (MovieStudioCurrentRole == "Mistress") && (MovieStudioActor1.TrialDone)); }
 
 /**
- * Returns TRUE if the player can receive the long duster as a payment
+ * Returns TRUE if the player can receive the long duster as payment
  * @returns {boolean} - TRUE if the player can get the item
  */
 function MovieStudioCanGetLongDuster() { return (!InventoryAvailable(Player, "LongDuster", "ItemHandheld") && (MovieStudioCurrentRole == "Maid") && (MovieStudioActor1.CanGetLongDuster)); }
+
+/**
+ * Returns TRUE if the player can receive the for sale sign as payment
+ * @returns {boolean} - TRUE if the player can get the item
+ */
+function MovieStudioCanGetForSaleSign() { return (!InventoryAvailable(Player, "ForSaleSign", "ItemHandheld") && MovieStudioActor1.CanGetForSaleSign); }
 
 /**
  * Returns TRUE if the daily movie is of the current type
@@ -147,6 +153,7 @@ function MovieStudioProcessDecay() {
 			return;
 		}
 		if ((MovieStudioCurrentMovie == "OpenHouse") && (MovieStudioCurrentScene == "2")) {
+			MovieStudioActor1.CanGetForSaleSign = (InventoryIsWorn(Player, "ForSaleSign", "ItemHandheld"));
 			MovieStudioMoney = MovieStudioMoney + Math.floor(MovieStudioMeter / 10);
 			MovieStudioDirector.Stage = "1030";
 			CharacterSetCurrent(MovieStudioDirector);
@@ -1027,7 +1034,7 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(Player, "Eyes2", "Lewd", 8);
 		if (MovieStudioActor2.MasturbateCount == null) MovieStudioActor2.MasturbateCount = 0;
 		MovieStudioActor2.MasturbateCount++;
-		if (MovieStudioActor2.MasturbateCount == 4) {
+		if ((MovieStudioActor2.MasturbateCount == 4) && !Player.IsChaste()) {
 			MovieStudioActor2.Stage = "1210";
 			MovieStudioActor2.CurrentDialog = DialogFind(MovieStudioActor2, "OrgasmWandAct2");
 			MovieStudioChangeMeter(25);
@@ -1153,6 +1160,7 @@ function MovieStudioDoActivity(Activity) {
 		}
 	}
 	if (Activity == "OpenHouseGirlfriendStartLoveEnding") {
+		MovieStudioChangeMeter(50);
 		CharacterRelease(Player);
 		CharacterRelease(MovieStudioActor1);
 		CharacterSetFacialExpression(Player, "Blush", "Medium", 8);
@@ -1162,7 +1170,19 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "LewdHeartPink", 8);
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "LewdHeartPink", 8);
 	}
-	if (Activity == "OpenHouseGirlfriendLoveEnding") MovieStudioTimer = CurrentTime;
+	if (Activity == "OpenHouseClientChangeMistress") {
+		MovieStudioChangeMeter(50);
+		CharacterNaked(Player);
+		InventoryRemove(Player, "ItemHandheld");
+		MovieStudioChange("Mistress", Player);
+	}
+	if (Activity == "OpenHouseClientCollar") {
+		InventoryWear(MovieStudioActor2, "LeatherCollar", "ItemNeck");
+		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "Medium", 8);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Closed", 8);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 8);
+	}	
+	if (Activity == "OpenHouseSpecialEnding") MovieStudioTimer = CurrentTime;
 
 	// Check for decay
 	MovieStudioProcessDecay();
@@ -1271,6 +1291,7 @@ function MovieStudioCanDoActivity(Activity) {
 	if (Activity == "OpenHouseGirlfriendInKennel") return (InventoryGet(MovieStudioActor1, "ItemDevices") == null);
 	if (Activity == "OpenHouseClientInKennel") return (InventoryGet(MovieStudioActor2, "ItemDevices") == null);
 	if (Activity == "OpenHouseGirlfriendStartLove") return (MovieStudioParameterValueBetween("Actor1", "Affection", "10", "100") && MovieStudioActor1.CanTalk());
+	if (Activity == "OpenHouseBothStartSlave") return (MovieStudioParameterValueBetween("Actor1", "Domination", "10", "100") && MovieStudioActor2.CanTalk());
 	return false;
 }
 
@@ -1300,6 +1321,16 @@ function MovieStudioGetGavel() {
 function MovieStudioGetLongDuster() {
 	InventoryAdd(Player, "LongDuster", "ItemHandheld");
 	InventoryWear(Player, "LongDuster", "ItemHandheld");
+	CharacterRefresh(Player);
+}
+
+/**
+ * Adds the for sale sign to the player inventory
+ * @returns {void} - Nothing
+ */
+function MovieStudioGetForSaleSign() {
+	InventoryAdd(Player, "ForSaleSign", "ItemHandheld");
+	InventoryWear(Player, "ForSaleSign", "ItemHandheld");
 	CharacterRefresh(Player);
 }
 

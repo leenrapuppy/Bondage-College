@@ -53,19 +53,27 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1150,,(Look at the director.),(The movie director gets angry and waves at you to turn your head.),"DoActivity(""OpenHouseBadScene"")",
 1150,1170,(Shake your head no.),(She uses the collars and chains to lock you both to the ceiling.  The film crew follows the action closely.),"DoActivity(""OpenHouseBasementChains"")",
 1170,,,(She stares at you two and smirks.),,
-1170,1180,(Shiver a little.),Are you cold?  I have some tools to warm you up.  (She gets a vibrating wand from her bag and winks at you.),"DoActivity(""OpenHouseActor2Wand"")",
-1170,1180,(Swing on the chain.),I have something to enhance your fun.  (She gets a vibrating wand from her bag and winks at you.),"DoActivity(""OpenHouseActor2Wand"")",
-1170,1180,(Try to get free.),You're not getting out until I try this on you.  (She gets a vibrating wand from her bag and winks at you.),"DoActivity(""OpenHouseActor2Wand"")",
+1170,1180,(Shiver a little.),Are you cold?  I have some tools to warm you up.  (She gets a vibrating wand from her bag and winks at you.),"DoActivity(""OpenHouseActor2Wand"")",!Player.IsChaste()
+1170,1180,(Swing on the chain.),I have something to enhance your fun.  (She gets a vibrating wand from her bag and winks at you.),"DoActivity(""OpenHouseActor2Wand"")",!Player.IsChaste()
+1170,1180,(Try to get free.),You're not getting out until I try this on you.  (She gets a vibrating wand from her bag and winks at you.),"DoActivity(""OpenHouseActor2Wand"")",!Player.IsChaste()
+1170,1180,(Shiver a little.),"These chaste items are cold, but I have a tool to warm your friend.  (She gets a vibrating wand from her bag.)","DoActivity(""OpenHouseActor2Wand"")",Player.IsChaste()
+1170,1180,(Swing on the chain.),"Too bad you're chaste, but I have something for your friend.  (She gets a vibrating wand from her bag.)","DoActivity(""OpenHouseActor2Wand"")",Player.IsChaste()
+1170,1180,(Try to get free.),"Don't worry, you're too chaste for what I have here.  (She gets a vibrating wand from her bag.)","DoActivity(""OpenHouseActor2Wand"")",Player.IsChaste()
 1170,,(Look around.),,DialogLeave(),
 1180,1190,(Shake your head no.),No?  Maybe your friend here will like it more than you.  (She waves the wand in front of the new girlfriend.),,
 1180,1190,(Nod your head happily.),You two are such naughty saleswomen.  (She waves the wand in front of the new girlfriend.),,
 1190,1200,(Look at the scene.),,DialogLeave(),
 1200,,,(She stares at you two and smirks.),,
-1200,,(Moan in your gag.),(You moan as the camera zooms on your nipples being massaged by the vibrating wand.),"DoActivity(""OpenHouseActor2Moan"")",
-1200,,(Stare at the camera.),(The movie director gets angry and waves at you to turn your head.),"DoActivity(""OpenHouseBadScene"")",
-1200,,(Give her an angry stare.),"(She laughs at you, sliding a finger in your pussy and teasing you for the viewers.)","DoActivity(""OpenHouseActor2Stare"")",
-1200,,(Wiggle your butt.),(She spanks your butt teasingly and massages your clitoris with the wand slowly.),"DoActivity(""OpenHouseActor2Wiggle"")",
-1200,,(Rock your hips forward.),(She presses the vibrating wand firmly against your pussy and stares at your reactions.),"DoActivity(""OpenHouseActor2Hips"")",
+1200,,(Moan in your gag.),(You moan as the camera zooms on your nipples being massaged by the vibrating wand.),"DoActivity(""OpenHouseActor2Moan"")",!Player.IsChaste()
+1200,,(Stare at the camera.),(The movie director gets angry and waves at you to turn your head.),"DoActivity(""OpenHouseBadScene"")",!Player.IsChaste()
+1200,,(Give her an angry stare.),"(She laughs at you, sliding a finger in your pussy and teasing you for the viewers.)","DoActivity(""OpenHouseActor2Stare"")",!Player.IsChaste()
+1200,,(Wiggle your butt.),(She spanks your butt teasingly and massages your clitoris with the wand slowly.),"DoActivity(""OpenHouseActor2Wiggle"")",!Player.IsChaste()
+1200,,(Rock your hips forward.),(She presses the vibrating wand firmly against your pussy and stares at your reactions.),"DoActivity(""OpenHouseActor2Hips"")",!Player.IsChaste()
+1200,,(Moan in your gag.),(You moan as the camera zooms on your bound body.),"DoActivity(""OpenHouseActor2Moan"")",Player.IsChaste()
+1200,,(Stare at the camera.),(The movie director gets angry and waves at you to turn your head.),"DoActivity(""OpenHouseBadScene"")",Player.IsChaste()
+1200,,(Give her an angry stare.),(She laughs at you and taps on your chastity device with her index.),"DoActivity(""OpenHouseActor2Stare"")",Player.IsChaste()
+1200,,(Wiggle your butt.),(She spanks your butt teasingly and wiggles her own butt for the camera.),"DoActivity(""OpenHouseActor2Wiggle"")",Player.IsChaste()
+1200,,(Rock your hips forward.),(She caresses you sensually and exposes your chastity device for the camera.),"DoActivity(""OpenHouseActor2Hips"")",Player.IsChaste()
 1200,,(Look around.),,DialogLeave(),
 1210,1200,(Squirm and shiver from the extasy.),(She watches your orgasm with a huge smile.)  I might buy this house after all.  If I can keep you here.,,
 1210,1200,(Moan and make pleading eyes.),(She listens to your moans and grins.)  I might buy this house after all.  If I can keep you here.,,
@@ -103,6 +111,7 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1600,1610,You want the short or the long story?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,1610,This cutie wants a kinky open house.,(She giggles and thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,1610,This bitch thinks she will sell my house.,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
+1600,1700,"It's naked open house, strip girl.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
 1600,,(Look around.),,DialogLeave(),
 1610,1620,You do?,"Yes, she's the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
 1610,1620,Let me explain.,"There's no need to explain, she's the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
@@ -166,8 +175,17 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1900,,(Release her from the kennel.),(She whimpers of joy as you help her out of the dog cage.),"DoActivity(""OpenHouseClientOutKennel"")","!CanDoActivity(""OpenHouseClientInKennel"")"
 1900,,(Gag her.),(She bows her head as you gag her tightly.),"DoActivity(""OpenHouseClientGag"")",CurrentCharacter.CanTalk()
 1900,,(Ungag her.),(She smiles as you remove the gag from her mouth.),"DoActivity(""OpenHouseClientUngag"")",!CurrentCharacter.CanTalk()
+1900,1950,You will both be my slaves.,"(She shivers and looks at you.)  Your slaves Miss?  What does it mean?",,"CanDoActivity(""OpenHouseBothStartSlave"")"
 1900,,(Look around.),,DialogLeave(),
 1910,1900,You're a customer or a slut?,(She gives you a furious look while recovering from her orgasm.),,CurrentCharacter.CanTalk()
 1910,1900,Is that the best open house ever?,(She nods happily while recovering from her orgasm.),,CurrentCharacter.CanTalk()
 1910,1900,All orgasms are included in the tour.,(She blushes red while recovering from her great orgasm.),,CurrentCharacter.CanTalk()
 1910,1900,(Smile and watch her orgasm.),(She closes her eyes and gets in the sub-space while recovering from her orgasm.),,
+1950,1960,(Wear some Mistress clothes.),(The movie crew pushes a box of Mistress clothes for you to change in front of the camera.),"DoActivity(""OpenHouseClientChangeMistress"")",
+1960,1970,You will crawl and obey my strict rules.,(She gulps and looks down.)  I understand Miss.,,
+1960,1970,I will protect and cherish you like a mother.,(She looks up at you and smiles.)  I understand Miss.,,
+1960,1970,You will collared and bound for kinky fun.,(She giggles and nods rapidly.)  I understand Miss.,,
+1970,1980,Will you two be my slaves?,(Both girls nods slowly as you wrap a collar around there necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you both wear my collar?,(Both girls nods slowly as you wrap a collar around there necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you both surrender?,(Both girls nods slowly as you wrap a collar around there necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1980,,(Finish the movie with an enslavement ending.),,"DoActivity(""OpenHouseSpecialEnding"")",
