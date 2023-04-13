@@ -1863,7 +1863,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true, BuyGroup: "SwimCap", HasType: false,
+				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true, BuyGroup: "SwimCap", HasType: false, Attribute: ["ShortHair"],
 				Layer:[
 					{Name:"Cap",},
 					{Name:"Stripes1", AllowModuleTypes: ["p1"]},
@@ -2653,7 +2653,7 @@ var AssetFemale3DCG = [
 				]
 			}, // Kissmark
 			{
-				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true, BuyGroup: "SwimCap", HasType: false,
+				Name: "SwimCap", Value: 20, Left: 180, Top: 65, DefaultColor: ["#1781A1", "#AAAAAA"], Extended: true, BuyGroup: "SwimCap", HasType: false, Attribute: ["ShortHair"],
 				Layer:[
 					{Name:"Cap", },
 					{Name:"Stripes1", AllowModuleTypes: ["p1"]},

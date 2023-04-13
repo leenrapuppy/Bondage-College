@@ -210,11 +210,17 @@ var AssetFemale3DCGExtended = {
 						Name: "Hair", Key: "h",
 						Options:[
 							{
-								Property: {Hide: ["HairFront", "HairBack"]}
+								Property: {Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2"]}
 							}, // No Hair Openings
 							{
-								Property: {Hide: ["HairFront",]}
+								Property: {Hide: ["HairFront", "HairAccessory1", "HairAccessory2"]}
 							}, // Hair Openings
+							{
+								Property: {Hide: ["HairFront", "HairBack"]}
+							}, // Ear Openings
+							{
+								Property: {Hide: ["HairFront",]}
+							},
 						]
 					},
 				]
