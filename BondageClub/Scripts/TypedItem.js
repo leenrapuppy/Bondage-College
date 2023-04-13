@@ -95,9 +95,13 @@ function TypedItemCreateTypedItemData(asset, {
 	ScriptHooks,
 	BaselineProperty=null,
 }) {
-	/** @type {TypedItemOption[]} */
 	const optionsParsed = Options.map(o => {
-		return { ...o, OptionType: "TypedItemOption" };
+		/** @type {TypedItemOption} */
+		const ret = { ...o, OptionType: "TypedItemOption" };
+		if (typeof ChangeWhenLocked === "boolean" && typeof ret.ChangeWhenLocked !== "boolean") {
+			ret.ChangeWhenLocked = ChangeWhenLocked;
+		}
+		return ret;
 	});
 
 	DialogPrefix = DialogPrefix || {};
