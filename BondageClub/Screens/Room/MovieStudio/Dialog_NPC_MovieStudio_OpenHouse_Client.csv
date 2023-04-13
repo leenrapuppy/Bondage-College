@@ -1,6 +1,6 @@
 PlayerGagged,,,You're not going to sell anything with that gag.  (She giggles.),,
 OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, making you reach a wonderful orgasm in front of the camera.)",,
-OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and powerful orgasm from the viewers.)",,
+OrgasmEggAct2,,,(She screams of ecstasy as the egg drives her to get a long and powerful orgasm from the viewers.),,
 1000,,,(The customer stares at you two.)  What is going on here?  Why are you both naked?,,
 1000,,(Whimper in your gag.),Let's see that muzzle. (She removes your gag slowly.)  What is going on here?,"DoActivity(""OpenHouseUngagPlayer"")",!Player.CanTalk()
 1000,,Uhm... Who are you supposed to be?,(The movie director screams at you that she's the customer.),"DoActivity(""OpenHouseBadScene"")",Player.CanTalk()
@@ -84,6 +84,7 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1300,1310,Well... We are selling this house?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1300,1310,This bitch thinks she owns my house.,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1300,1310,You want the short or the long story?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
+1300,1400,"It's naked open house, strip with me.",(She looks surprised and blushes.)  Are you serious?  I must get naked like you to see the house?,,Player.CanTalk()
 1300,,(Look around.),,DialogLeave(),
 1310,1320,You do?,"Yes, you're the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
 1310,1320,Let me explain.,"There's no need to explain, you're the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
@@ -92,7 +93,7 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1320,1330,You got it!,"(She nods happily.)  This is a great tour gift.  So, I can play with you while I visit this house?",,
 1320,,(Laugh out loud.),(The movie director cringes as you laugh randomly.  She waves at you to be a little more serious.),"DoActivity(""OpenHouseBadScene"")",
 1330,1340,You can actually play with both of us.,(She rubs her hands and winks at you.)  Is that so?  Then your friend needs to strip also.  Tell her to get naked.,"DoActivity(""OpenHouseStartGirlfriendNaked"")",
-1330,1400,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
+1330,1400,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I must get naked like you to see the house?,,
 1340,,,Do you really want to sell this house?  Tell your friend to get naked for the tour.,,
 1340,,(Look around.),,DialogLeave(),
 1350,,,(She looks at you two and grins.)  This is the best open house in town.,,
@@ -104,14 +105,29 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1350,1070,(Blush and look at her.),"Before we do the tour, you should be restrained like your friend.  (She checks in her bag of restraints as the camera zooms on it.)","DoActivity(""OpenHousePreparePlayerBondage"")","!CanDoActivity(""OpenHouseClientRestrainActor1"")"
 1350,,(Look around.),,DialogLeave(),
 1400,,,Do I really have to get naked like you to see the house?,,
-1400,,TO DO,TO DO,,
+1400,1410,This is the tour.  Take it or leave it.,"(She grumbles and nods.)  Fine, I'll do it.",,
+1400,1410,Do you want this house or not?,"(She nods slowly.)  Yes, I do want to see this house.",,
+1400,1410,You know you want to do it girl.,"(She bows her head.)  Yes Miss, I will do it.",,
+1400,1410,Common!  We will be naked together.,"(She laughs and nods.)  Alright, I will do it.",,
 1400,,(Look around.),,DialogLeave(),
+1410,1420,(Watch her strip.),(She strips down as the camerawoman gets closer to her naked body.),"DoActivity(""OpenHouseClientNakedSub"")",
+1420,1430,My bitch will guide you.,(She nods and turns to the new girlfriend.)  Where do we begin this naughty tour?,,
+1420,1430,My friend will lead the tour.,(She nods and turns to the new girlfriend.)  Where do we begin this naughty tour?,,
+1420,1430,My boss will show you around.,(She nods and turns to the new girlfriend.)  Where do we begin this naughty tour?,,
+1430,,,(She looks at the new girlfriend.)  Where do we begin this naughty tour?,,
+1430,,(Look around.),,DialogLeave(),
+1450,,,(She looks around.)  There's not much to see or do down here.,,
+1450,1460,"Yeah, I'm not sure why we got here.","(She shrugs and inspects the basement, pretending to be interested.)",,
+1450,1460,You will understand soon.  (Smirk.),"(She gives you a curious stare and inspects the basement, pretending to be interested.)",,
+1450,,(Look around.),,DialogLeave(),
+1460,,,"(She inspects the basement, pretending to be interested.)",,
+1460,,(Look around.),,DialogLeave(),
 1600,,,(The customer stares at her.)  What is going on here?  Why is she naked?,,
 1600,,Uhm... Who are you supposed to be?,(The movie director screams at you that she's the customer.),"DoActivity(""OpenHouseBadScene"")",Player.CanTalk()
 1600,1610,You want the short or the long story?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,1610,This cutie wants a kinky open house.,(She giggles and thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
 1600,1610,This bitch thinks she will sell my house.,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
-1600,1700,"It's naked open house, strip girl.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
+1600,1700,"It's naked open house, strip girl.",(She looks surprised and blushes.)  Are you serious?  I must get naked like her to see the house?,,
 1600,,(Look around.),,DialogLeave(),
 1610,1620,You do?,"Yes, she's the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
 1610,1620,Let me explain.,"There's no need to explain, she's the special gift from the ad.  The paper ad said every serious client will receive a gift.",,
@@ -120,7 +136,7 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1620,1630,You got it!,"(She nods happily.)  This is a great tour gift.  So, I can play with her while I visit this house?",,
 1620,,(Laugh out loud.),(The movie director cringes as you laugh randomly.  She waves at you to be a little more serious.),"DoActivity(""OpenHouseBadScene"")",
 1630,1640,You can actually play with both of us.,(She rubs her hands and winks at you.)  Is that so?  Then you should also get naked.,,
-1630,1700,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I have to get naked like you to see the house?,,
+1630,1700,"No, it means you should also strip for the tour.",(She looks surprised and blushes.)  Are you serious?  I must get naked like her to see the house?,,
 1640,,,Do you really want to sell this house?  Then get naked for the tour.,,
 1640,,Are you serious?,"I'm very serious, get these clothes off girl.",DialogRemove(),
 1640,1350,Very well.  (Strip naked.),(The camera zooms on you as you get naked.  The customer stares at you with a grin.),"DoActivity(""OpenHousePlayerNakedForClient"")",
@@ -163,7 +179,7 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1810,1820,I have some eggs. (Search in your bag.),(Her eyes widen as you get some vibrating eggs and a remote control.)  You're so naughty.,,
 1810,1820,(Search in your bag and grin.),(Her eyes widen as you get some vibrating eggs and a remote control.)  You're so naughty.,,
 1820,,(Look around confused.),(The movie director gets frustrated and waves at you to do something.),"DoActivity(""OpenHouseBadScene"")",
-1820,1830,(Insert the egg and smile.),(You slowly inserts the egg in her vagina as the camera zooms on the scene.)  I hope she will buzz with me.,"DoActivity(""OpenHouseSlideEggClient"")",
+1820,1830,(Insert the egg and smile.),(You slowly insert the egg in her vagina as the camera zooms on the scene.)  I hope she will buzz with me.,"DoActivity(""OpenHouseSlideEggClient"")",
 1830,,,(She twists her hips and looks at the new girlfriend.)  I hope she will also get an egg.,,
 1830,,(Look around.),,DialogLeave(),
 1900,,,(She moans and looks at you submissively.),,
@@ -175,7 +191,7 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1900,,(Release her from the kennel.),(She whimpers of joy as you help her out of the dog cage.),"DoActivity(""OpenHouseClientOutKennel"")","!CanDoActivity(""OpenHouseClientInKennel"")"
 1900,,(Gag her.),(She bows her head as you gag her tightly.),"DoActivity(""OpenHouseClientGag"")",CurrentCharacter.CanTalk()
 1900,,(Ungag her.),(She smiles as you remove the gag from her mouth.),"DoActivity(""OpenHouseClientUngag"")",!CurrentCharacter.CanTalk()
-1900,1950,You will both be my slaves.,"(She shivers and looks at you.)  Your slaves Miss?  What does it mean?",,"CanDoActivity(""OpenHouseBothStartSlave"")"
+1900,1950,You will both be my slaves.,(She shivers and looks at you.)  Your slaves Miss?  What does it mean?,,"CanDoActivity(""OpenHouseBothStartSlave"")"
 1900,,(Look around.),,DialogLeave(),
 1910,1900,You're a customer or a slut?,(She gives you a furious look while recovering from her orgasm.),,CurrentCharacter.CanTalk()
 1910,1900,Is that the best open house ever?,(She nods happily while recovering from her orgasm.),,CurrentCharacter.CanTalk()
@@ -184,8 +200,8 @@ OrgasmEggAct2,,,"(She screams of ecstasy as the egg drives her to get a long and
 1950,1960,(Wear some Mistress clothes.),(The movie crew pushes a box of Mistress clothes for you to change in front of the camera.),"DoActivity(""OpenHouseClientChangeMistress"")",
 1960,1970,You will crawl and obey my strict rules.,(She gulps and looks down.)  I understand Miss.,,
 1960,1970,I will protect and cherish you like a mother.,(She looks up at you and smiles.)  I understand Miss.,,
-1960,1970,You will collared and bound for kinky fun.,(She giggles and nods rapidly.)  I understand Miss.,,
-1970,1980,Will you two be my slaves?,(Both girls nods slowly as you wrap a collar around there necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
-1970,1980,Will you both wear my collar?,(Both girls nods slowly as you wrap a collar around there necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
-1970,1980,Will you both surrender?,(Both girls nods slowly as you wrap a collar around there necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1960,1970,You will be collared and bound for kinky fun.,(She giggles and nods rapidly.)  I understand Miss.,,
+1970,1980,Will you two be my slaves?,(Both girls nods slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you both wear my collar?,(Both girls nods slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you both surrender?,(Both girls nods slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
 1980,,(Finish the movie with an enslavement ending.),,"DoActivity(""OpenHouseSpecialEnding"")",

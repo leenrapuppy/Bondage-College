@@ -192,11 +192,24 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 1340,,(Look around.),,DialogLeave(),
 1350,1360,(Stay silent and let her ponder.),Alright!  I'll do it.  It's crazy what I would do to sell this place.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 1350,1360,Do it girl!,"Fine, fine, fine.  I'll do it.  It's crazy what I would do to sell this place.","AlterParameter(""Actor1"", ""Domination"", ""1"")",
-1360,1370,(Watch her strip.),(She slowly strips down naked as the camera zooms on every releaved parts of her body.)  This might be a mistake.,"DoActivity(""OpenHouseConvinceNaked"")",
+1360,1370,(Watch her strip.),(She slowly strips down naked as the camera zooms on her breast and butt.)  This might be a mistake.,"DoActivity(""OpenHouseConvinceNaked"")",
 1370,1380,You're so pretty like that.,"(She looks at herself and giggles.)  You're too kind.  Now deal with the customer, it's your kinky plan.","AlterParameter(""Actor1"", ""Affection"", ""1"")",
 1370,1380,Follow my plan bitch.,"(She glares at you.)  Shut up and deal with the customer, it's your stupid plan.","AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 1370,1380,It will be fine.,"(She looks at you and shrugs.)  You deal with the customer, it's your plan.",,
 1380,1000,(Look around.),,DialogLeave(),
+1430,,,(She looks at the naked client.)  This will be the best open house ever.,,
+1430,,(Look at the boom mic.),(The movie director gets furious and yells at you to focus on the scene.),"DoActivity(""OpenHouseBadScene"")",
+1430,1440,She's ready.,You're both ready.  Come with me to the basement girls.,,
+1430,1440,We are both ready Miss.,Indeed.  Come with me to the basement girls.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+1430,1440,See?  I got her naked easily.,Nice work.  Come with me to the basement girls.,"AlterParameter(""Actor1"", ""Domination"", ""1"")",
+1430,,(Look around.),,DialogLeave(),
+1440,1450,Alright!  (Go to the basement with them.),(You get to the basement with them.  It's pretty much empty expect for a few cardboard boxes laying around.),"DoActivity(""OpenHouseEnterBasementSub"")",
+1440,1450,(Sigh and follow her to the basement.),(You get to the basement with them.  It's pretty much empty expect for a few cardboard boxes laying around.),"DoActivity(""OpenHouseEnterBasementSub"")",
+1450,,,(The basement is pretty empty expect for a few cardboard boxes laying around.),,
+1450,,TO DO,TO DO,,
+1450,,TO DO,TO DO,,
+1450,,TO DO,TO DO,,
+1450,,(Look around.),,DialogLeave(),
 1600,,,"(She blushes and looks down, not saying a word.)",,
 1600,1610,(Pet her head.),(She nods slowly as you pet her head for the viewers.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 1600,1610,(Laugh at her.),(She grumbles silently as you laugh at her loudly.),"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
@@ -211,18 +224,18 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 1720,1730,(Pull your tongue at her and laugh.),(She rolls her eyes up and sighs.  Turning back to the naked customer.),"AlterParameter(""Actor1"", ""Domination"", ""-1"")",!CurrentCharacter.CanTalk()
 1720,1730,(Pinch her cheek and smirk.),(She bows her head and slowly turns to watch the naked customer.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",!CurrentCharacter.CanTalk()
 1720,,(Look around.),,DialogLeave(),
-1730,,,(She stays silent and stares at he naked customer.),,
+1730,,,(She stays silent and stares at the naked customer.),,
 1730,,(Look around.),,DialogLeave(),
 1800,,,Forget it!  You're not putting me in that cage.  (She stares at the dog kennel in the basement corner.),,
-1800,1810,Not yet cutie. (Wink at her.),(She blushes and smiles.)  Thank you cutie.,"AlterParameter(""Actor1"", ""Affection"", ""1"")","ParameterValueBetween(""Actor1"", ""Affection"", ""5"", ""100"")"
-1800,1810,Not yet girl. (Smirk.),(She blushes and smiles.)  Yes Miss.,"AlterParameter(""Actor1"", ""Domination"", ""1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""5"", ""100"")"
+1800,1810,Not yet cutie. (Wink at her.),"(She blushes and smiles.)  Thank you, cutie.","AlterParameter(""Actor1"", ""Affection"", ""1"")","ParameterValueBetween(""Actor1"", ""Affection"", ""5"", ""100"")"
+1800,1810,Not yet girl. (Smirk.),"(She blushes and smiles.)  Yes, Miss.","AlterParameter(""Actor1"", ""Domination"", ""1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""5"", ""100"")"
 1800,1810,Not yet.,(She sighs.)  Alright.,,
 1800,,(Look around.),,DialogLeave(),
 1810,,,"(She sighs and struggles a little, not saying a word.)",,
 1810,,(Look around.),,DialogLeave(),
 1830,,,(She looks at the customer.)  Was that a vibrating egg?,,
 1830,,(Stare at the camerawoman.),(The movie director furiously pulls her hair and waves at you to look away.),"DoActivity(""OpenHouseBadScene"")",
-1830,1840,There's one for you love.,(She giggles and smiles.)  Love?  But... but but but... yes love.,"AlterParameter(""Actor1"", ""Affection"", ""2"")","ParameterValueBetween(""Actor1"", ""Affection"", ""5"", ""100"")"
+1830,1840,There's one for you love.,"(She giggles and smiles.)  Love?  But... But, but, but... yes love.","AlterParameter(""Actor1"", ""Affection"", ""2"")","ParameterValueBetween(""Actor1"", ""Affection"", ""5"", ""100"")"
 1830,1840,There's one for you my submissive.,(She blushes and looks down.)  Your...  Your submissive Miss?,"AlterParameter(""Actor1"", ""Domination"", ""2"")","ParameterValueBetween(""Actor1"", ""Domination"", ""6"", ""100"")"
 1830,1840,There's one for you also.,(She shivers.)  Oh my!  I hope this will help sell the house somehow.,,
 1830,,(Look around.),,DialogLeave(),

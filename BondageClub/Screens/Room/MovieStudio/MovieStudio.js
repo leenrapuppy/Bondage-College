@@ -1183,6 +1183,17 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 8);
 	}	
 	if (Activity == "OpenHouseSpecialEnding") MovieStudioTimer = CurrentTime;
+	if (Activity == "OpenHouseClientNakedSub") {
+		MovieStudioActor1.Stage = "1430";
+		CharacterNaked(MovieStudioActor2);
+		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "Medium", 5);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Closed", 5);
+		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 5);
+	}
+	if (Activity == "OpenHouseEnterBasementSub") {
+		MovieStudioBackground = CommonRandomItemFromList("", ["HouseBasement1", "HouseBasement2", "HouseBasement3"]);
+		MovieStudioActor2.Stage = MovieStudioActor1.Stage;
+	}
 
 	// Check for decay
 	MovieStudioProcessDecay();
