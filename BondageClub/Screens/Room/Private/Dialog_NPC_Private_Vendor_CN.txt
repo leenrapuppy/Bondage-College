@@ -1,0 +1,292 @@
+###_NPC
+You've visited some kinky rooms recently?  (She laughs.)
+你最近去过一些色色的房间吗？（她笑起来。）
+(She shakes her head from left to right but you're able to silence her.)
+（她左右摇头，但你还是让她说不出话来。）
+(You remove her gag and she smiles.)  Thanks!  Do you think I should go back to work?
+（你拿开她的嘴，她笑了。）谢谢！你认为我应该回到工作上吗？
+(You push some earplugs into place.) How can I hear the clients now?
+（你把耳塞塞到合适的位置。）我现在怎么能听到客户的声音？
+(You pull the earplugs out.) Thank you, I can hear you clearly again.
+（你把耳塞取出来。）谢谢，我又能听清楚了。
+(She doesn't resist much and allows you to restrain her.)  It will be a fun shift after all.
+（她没怎么反抗，让你绑住她。）最终这次轮班会很有趣啊。
+(You free her arms and she claps her hands.)  Well done!  You know your bondage.
+（你解开她的手臂，她拍手）很好！你很懂束缚嘛。
+(you restrain her hands while she watches you.)  This is going be a very kinky shift.
+（你束缚住她的手，她看着你。）这次轮班看来会很色。
+(You release her hands and she nods a little.)  Thanks, you seem like you know what you're doing.
+（你松开她的手，她点点头。）谢谢，你好像很喜欢自己做的事情。
+(She shakes her butt as you restrain her.)  You went to the shop recently?
+（你束缚住她，她摇了摇屁股。）你最近去过商店吗？
+(You release her legs as she shakes her butt again.)  Shake your booty!
+（你松开她的腿，她摇晃她的屁股。）摇动你的屁股！
+(She tries to keep her balance as you restrain her feet.)  Don't worry, I won't fall.
+（你束缚住她的脚，她试图保持平衡。）别担心，我不会摔倒的。
+(You release her feet and she stands up.)  Any other restraints I could try?
+（你松开她的脚，她站了起来。）我可以尝试其他束缚吗？
+(You fasten the collar around her neck.)  I'm not looking for an owner you know.
+（你把项圈系在她脖子上。）我不是在找主人，你知道的。
+(You remove the collar from her neck.)  Keep that collar, you can bring subs in your room.
+（你从她脖子上取下项圈。）保留那个项圈，你可以把潜艇带进你的房间。
+(You lock the belt on her as she giggles.)  Strangely, not being able to touch is a turn on for me.
+（你把皮带锁在她身上，她咯咯笑起来。）奇怪的是，无法触摸对我来说是一种开启。
+(You unlock the device from her waist.)  Great!  Metal detectors would have been problematic.
+（你解开她腰上的道具。）太棒了！金属探测器会很麻烦的。
+(You strap it on her head as she grumbles.)  I've never been a fan of these.
+（你把这道具绑在她的头上，她抱怨着。）我从来都不喜欢这些。
+(You remove the device as she nods quickly.)  This is much better, thanks!
+（你解开了道具，她迅速点头。）这样好多了，谢谢！
+(She whimpers as you whip her breast.)  Ow!  You won't whip a discount out of me.
+（你鞭打她的胸部，她呜咽着。）噢！你不会给我打折的。
+(You swing the crop on her torso.)  That's pretty unfair, I'm only trying to do my job.
+（你在她的躯干上摆动作物。）这很不公平，我只是想做好我的工作。
+(You whip her butt as she whimpers from the pain.)  Bring subs to your place and whip them, not me!
+（当她因疼痛而呜咽时，你抽打她的屁股。） 把潜艇带到你的地方抽他们，而不是我！
+(You lash the leather crop pretty hard on her.)  Oooow!  I'm glad I'm not your slave.
+（你将硬鞭挥向她的躯干。） 噢！我很高兴我不是你的奴隶。
+(You restrain her feet and suspend her from the ceiling with the hemp rope.)  Hey!  I still have work to do here.
+（你束缚住她的脚，用麻绳把她吊在天花板上。） 哎！我在这里还有工作要做。
+(You release her from the ceiling and release her feet.)  Good!  I do prefer cages.
+（你把她从天花板上放下来，松开她的脚。） 好！我更喜欢笼子。
+Welcome to the Bondage Club private rooms.  Are you looking to rent a room?
+欢迎来到束缚俱乐部私人房间。你要租房子吗？
+Welcome to the Bondage Club private rooms.  Do you want to improve your room?
+欢迎来到束缚俱乐部私人房间。你想改善你的房间吗？
+###_PLAYER
+Hi, I'm DialogPlayerName.
+嗨，我是DialogPlayerName。
+###_NPC
+Nice to meet you, I'm DialogCharacterName.  I manage the private room rentals and improvements.
+很高兴认识你，我是DialogCharacterName。我管理私人房间的出租和改进。
+###_PLAYER
+Can you help me?
+你能帮助我吗？
+###_NPC
+No, I'm not allowed to play with customers.  And I prefer to see you like that.  (She winks.)
+不，我不能和顾客一起玩。我更喜欢看到你那样。（她眨眨眼。）
+###_PLAYER
+I have a few questions.
+我有几个问题。
+###_NPC
+Of course.  What would you like to know?
+当然。你想知道什么？
+###_PLAYER
+I'd like to rent my own room.
+我想租一间自己的房间。
+###_NPC
+The rent is $250.  Do you have enough money?
+租金是$250。你有足够的钱吗？
+###_PLAYER
+I'd like to improve my room.
+我想改进的房间。
+###_NPC
+Excellent!  The club can provide wardrobes, cages, security and expansions for private rooms.  What would you like?
+很好！俱乐部可以为私人房间提供衣柜、笼子、安全和扩展。你要什么？
+###_PLAYER
+Can we play some kinky games?
+我们可以玩一些色情的游戏吗？
+###_NPC
+I don't have much to do and it's a quiet day.  I guess we can play.
+我没有太多事可做，这是平静的一天。我想我们可以玩。
+I'd love to, but I have rooms and items to rent.
+我很乐意，但我有房间和物品要租。
+###_PLAYER
+Let's talk later.  (Leave her.)
+以后再说吧。（离开她。）
+How much is a room?
+一个房间多少钱？
+###_NPC
+The price for a regular room is $250.
+普通房间的价格是$250。
+###_PLAYER
+How long do I have the room for?
+我可以有多久的房间？
+###_NPC
+It's yours as long as you're a club member.
+只要你是俱乐部会员，它就是你的。
+###_PLAYER
+Can I invite friends over?
+我可以邀请朋友过来吗？
+###_NPC
+Of course.  The room isn't huge, but it's big enough for four people.
+当然。房间不大，但足够四个人住。
+###_PLAYER
+Can I make my room bigger?
+我可以把我的房间变大吗？
+###_NPC
+Yes, you can get two room expansions.  Each of them will allow you to receive four more friends.
+是的，你可以最多购买两次房间扩展。每次扩展都可以让你额外接待四个朋友。
+###_PLAYER
+What are the improvements I can get?
+我可以获得哪些改进？
+###_NPC
+Wardrobe, fancy beds, cages, security and expansions for now.  But the club is always improving, you can check again later.
+衣柜、花式床、笼子、安全设施和扩建设施。但是俱乐部一直在进步，你可以稍后再检查。
+###_PLAYER
+That's all the questions I had.
+这就是我所有的问题。
+###_NPC
+Alright.  What can I do for you then?
+好吧。那我能为你做什么？
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+Alright, you can use anything you want on me.  I won't complain too much.
+好吧，你可以对我使用任何你想要的东西。我不会抱怨太多。
+A subbie like you?  No way!  (She grabs your arms and restrains them.)  This is much better.
+像你这样的subbie？决不！（她抓住你的胳膊，不让它们动。）这样好多了。
+###_PLAYER
+Will you tie me up?
+你会绑我吗？
+###_NPC
+Sure!  Give me your hands.  (She restrains your arms.)  Anything else I can do for you?
+当然！给我你的手。（她拉住你的手臂。）还有什么我可以为你做的吗？
+Miss, I cannot tie you up.  I don't want to get in trouble with a Domme.
+小姐，我不能捆绑你。我不想惹上 Domme 的麻烦。
+###_PLAYER
+I've changed my mind.
+我改变主意了。
+Here's the money. (Pay $250)
+这是钱。（支付 250 美元）
+###_NPC
+Marvelous!  Here are your room keys.  (She gives you keys for your own room.)
+奇妙！这是你的房间钥匙。（她给你自己房间的钥匙。）
+###_PLAYER
+I don't have enough money.
+我没有足够的钱。
+###_NPC
+You can get work as a maid or take kidnapping bounties if you need money.
+如果你需要钱，你可以找一份女佣的工作或拿绑架赏金。
+###_PLAYER
+Great!  This room is mine now?
+伟大的！这个房间现在是我的了？
+###_NPC
+Make yourself at home.  You can contact me anytime if you need improvements.
+请随便一点，就像在自己家一样。如果你需要改进，可以随时与我联系。
+###_PLAYER
+Thanks!  (Check your room.)
+谢谢！（检查你的房间。）
+I would like a wardrobe.
+我想要一个衣柜。
+###_NPC
+An excellent choice.  The price is $100.  Can you afford it?
+一个很好的选择。价格是$100。你买得起吗？
+###_PLAYER
+What kind of beds do you have?
+你们有什么样的床？
+###_NPC
+(She opens a catalog and shows you the beds.)  All our beds are $150, which one would you like?
+（她打开目录，给你看床。）我们所有的床都是$150，你喜欢哪一张？
+###_PLAYER
+I want some cages.
+我想要一些笼子。
+###_NPC
+We have a kinky tenant.  (She giggles.)  We can prepare cages for your room for $150, do you have the funds?
+我们有一个古怪的房客。（她咯咯地笑。）我们可以为你的房间准备笼子，费用为$150，你有钱吗？
+###_PLAYER
+I'd like to invite more people.
+我想邀请更多人。
+###_NPC
+Of course, we can double the size of your room for $200, do you have the funds?
+当然，我们可以花$200将你的房间扩大一倍，你有资金吗？
+###_PLAYER
+I'd like even more space.
+我想要更多的空间。
+###_NPC
+(She ponders.)  It could be done, but we'll need to renovate to get you a bigger room.  Can you cover the $400 fees for it?
+（她沉思。）可以做到，但我们需要翻新一下，给你换一个更大的房间。你能支付$400的费用吗？
+###_PLAYER
+Can I get a security service?
+我可以获得安全服务吗？
+###_NPC
+(She nods.)  Since Pandora's Box moved in town, security is a must to protect your friends.  For $200, they will never get kidnapped again.
+（她点点头。）自从潘多拉魔盒搬到城里以来，为了保护你的朋友，安保措施必不可少。只要$200，他们就再也不会被绑架了。
+###_PLAYER
+I want to cancel the security service.
+我想取消安保服务。
+###_NPC
+Are you sure?  The $200 security fee isn't refundable.  And Pandora's Box might strike again.
+你确定吗？$200的安全费不予退还。潘多拉魔盒可能会再次来袭。
+###_PLAYER
+How can I use the wardrobe?
+我该如何使用衣柜？
+###_NPC
+The wardrobe allows you to sort your clothes and items.  To change from one look to another quickly.
+衣柜可让你整理衣服和物品。快速从一种外观转变为另一种外观。
+###_PLAYER
+Here's the money. (Pay $100)
+给你钱。（支付$100）
+###_NPC
+Wonderful!  Give us a few seconds and we'll prepare your wardrobe.
+精彩的！给我们几秒钟，我们将为你准备好衣橱。
+###_PLAYER
+Why do I need cages?
+为什么我需要笼子？
+###_NPC
+To keep your submissives locked down of course.  You don't want to lose your properties.
+当然是为了关好你的顺从者。你不会想失去你的财产。
+###_PLAYER
+Here's the money. (Pay $150)
+给你钱。（支付$150）
+###_NPC
+Wonderful!  We'll move the cages in your room right now.
+精彩的！我们现在就把你房间里的笼子搬走。
+###_PLAYER
+How does it work?
+这是怎么用的？
+###_NPC
+It's easy, just navigate to check on your friends in the expanded part of your room.  Four more friends will be able to join.
+这很简单，四处转转就能查看你房间的扩展部分中的朋友。还有四个朋友可以加入。
+###_PLAYER
+Here's the money. (Pay $200)
+给你钱。（支付$200）
+###_NPC
+Wonderful!  Here are the keys for the expansion doors.  (She gives you the room expansion keys.)
+太好了！这是扩展门的钥匙。（她给了你房间扩展钥匙。）
+###_PLAYER
+Here's the money. (Pay $400)
+给你钱。（支付$400）
+###_NPC
+This is great!  I'll call the maintenance team right now.  (They renovate your room to give you even more space.)
+棒极了！我现在就给维修队打电话。（他们翻新你的房间，给你更多的空间。）
+Wonderful!  Security will start patrolling right away.  Pandora's Box will not annoy you anymore.
+太好了！安保人员将立即开始巡逻。潘多拉魔盒不会再给你添麻烦了。
+###_PLAYER
+Why do I need security?
+为什么我需要安保？
+###_NPC
+Security will patrol around your room and make sure that nobody from Pandora's Box touches your friends.
+安保人员将在你的房间周围巡逻，确保潘多拉魔盒中的任何人都不会碰你的朋友。
+###_PLAYER
+Can I cancel that deal later?
+我可以稍后取消这笔交易吗？
+###_NPC
+(She nods.)  You can, but there's no refund for the $200 fee.
+（她点头。）可以，但是$200的费用不予退还。
+###_PLAYER
+Yes, cancel the security service.
+是的，取消安保服务。
+###_NPC
+Very well, the security team will not patrol around your room anymore.  Beware of Pandora's spies.
+很好，安保小组不会再在你的房间周围巡逻了。当心潘多拉的间谍。
+###_PLAYER
+No, I need to think about it.
+不，我需要考虑一下。
+Can I change my bed later?
+我可以稍后换床吗？
+###_NPC
+Of course, but you will need to pay $150 again.
+当然可以，但是你需要再次支付$150。
+###_PLAYER
+I'll take the white bed. (Pay $150)
+我要买那张白色的床。（支付$150）
+###_NPC
+Great!  We'll deliver your new bed right now.
+棒极了！我们现在就给你送新床。
+###_PLAYER
+I'll take the pink bed. (Pay $150)
+我要买那张粉红色的床。（支付$150）
+I'll take the black bed. (Pay $150)
+我要买那张黑色的床。（支付$150）
