@@ -217,7 +217,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 
 		if (Item.Property.Intensity !== OldIntensity) {
 			var Direction = Item.Property.Intensity > OldIntensity ? "Increase" : "Decrease";
-			Message = "Vibe" + Direction + "To" + Item.Property.Intensity;
+			Message = "VibeMode" + Direction + "To" + Item.Property.Intensity;
 		} else if (!IgnoreSame) {
 			Message = "FuturisticVibratorChange";
 			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
