@@ -113,8 +113,8 @@ Dom声望-1
 Can I become a nurse?
 我可以成为护士吗？
 ###_NPC
-We are not hiring nurses at the moment.  When we do
-我们目前不招聘护士。当我们这样做
+We are not hiring nurses at the moment.  When we do, we only hire club members with good reputations in the nursery and the maid sorority.
+我们目前不招聘护士。我们招聘护士的时候，只会招聘在育婴室和女仆协会有好声望的俱乐部会员。
 ###_PLAYER
 Can I become a matron?
 我可以成为护士长吗？
@@ -233,8 +233,8 @@ Boys also wear dresses in here.  In pre-Victorian nurseries, young boys were unb
 Why dresses?
 为什么要穿裙子？
 ###_NPC
-To look gorgeous of course. And these dresses have high hemlines
-当然是要看起来漂亮。并且这些连衣裙的裙摆很高
+To look gorgeous of course. And these dresses have high hemlines, so it's easier for the nurses to check that there aren't any dirty diapers.
+当然是要看起来漂亮。并且这些连衣裙的裙摆很高，护士们检查尿布脏不脏就很方便。
 ###_PLAYER
 What about long skirts?
 那么长裙呢？
@@ -317,8 +317,8 @@ Sorry to hear that, but we can't run this place for free. Do come back later onc
 Could I provide my own diapers and outfit?
 我可以自己准备尿布和衣服吗？
 ###_NPC
-Yes
-是的
+Yes, you can come in wearing your own diapers. But they must be clean and you can't wear clothes that prevent us from easily checking them.
+是的，你可以穿着自己的尿布进来。但是你的尿布必须是干净的，并且你不能穿让我们检查尿布不方便的衣服。
 ###_PLAYER
 I'm not paying for this.
 我不会为此付钱。
@@ -359,8 +359,8 @@ This place is not cheap to run.  The price for a diaper also covers other runnin
 What is this form for?
 这个表格是干什么用的？
 ###_NPC
-It's just a formal agreement that during your stay we will care for you
-这只是一份正式的协议，在你入住期间我们会照顾你
+It's just a formal agreement that during your stay we will care for you, and in return you will abide by the rules of the nursery.
+这只是一份正式的协议，在你入住期间我们会照顾你，并且你也会遵守育婴室的规则。
 ###_PLAYER
 Do I have to sign this?
 我必须签这个吗？
@@ -556,7 +556,7 @@ Nothing wrong, I just like being bound.
 (She puts a pacifier in your mouth.)  I suppose you like to be gagged as well.  Run along now before I change my mind and get the hair brush.
 （她把奶嘴放在你嘴里。）我想你也喜欢被塞住嘴。在我改变主意去拿梳子之前，快走吧吧。
 ###_PLAYER
-We were all putting our hands in each other's diapers and masturbating each other and it felt so good and....
+We were all putting our hands in each other's diapers and masturbating each other and it felt so good and...
 我们都把手放在对方的尿布里，互相手淫，感觉很好，而且……
 ###_NPC
 YOU WHAT!?  That is highly inappropriate behaviour in a nursery.  (She securely restrains and gags all of the adult babies.)
@@ -629,8 +629,8 @@ This feels kind of weird.
 (Nod to stop drinking.)
 （点头停止喝奶。）
 ###_NPC
-DialogCharacterName puts the bottle down and hugs you.  One hand holding your head over her shoulder
-DialogCharacterName放下瓶子并拥抱你。一只手把你的头放在她的肩膀上
+DialogCharacterName puts the bottle down and hugs you.  One hand holding your head over her shoulder, while her other hand pats you firmly on the back.)
+DialogCharacterName放下瓶子并拥抱你。一只手把你的头放在她的肩膀上，另一只手有力地抚摸你的后背。）
 ###_PLAYER
 (Burp quietly.)
 （小声打嗝。）
@@ -835,8 +835,8 @@ That is good to hear.  (She gives you a hug, then frees you.)  Would you like an
 Maybe.
 也许。
 ###_NPC
-I can always give you more punishments until you are sure.  Now
-在你确定之前，我总是可以给你更多的惩罚。现在
+I can always give you more punishments until you are sure.  Now, are you going to be a good girl?
+在你确定之前，我总是可以给你更多的惩罚。现在，你是否会做一个乖女孩？
 ###_PLAYER
 Nope.
 没有。

@@ -240,6 +240,8 @@ Right Panel
 右面板
 Visor
 面罩
+Cap
+柱子顶盖
 Outer Ear
 耳朵外侧
 Inner Ear
@@ -460,8 +462,6 @@ Tag
 标签
 Plate
 底板
-Cap
-柱子顶盖
 Post
 柱子
 Baseplate
@@ -586,6 +586,10 @@ Hook
 钩子
 Nose
 鼻子
+Mug
+马克杯
+Fluids
+液体
 Hair
 头发
 Hood
@@ -648,6 +652,28 @@ Lenses
 镜片
 Plug
 塞子
+Collar Band
+项圈带子
+Collar Link
+项圈链接
+ Hood
+头套
+ Mouth
+嘴
+ Lenses
+镜片
+ Lining
+边线
+ Holes
+洞
+ Muzzle
+口套
+ Nose
+鼻子
+ Inner Ear
+耳朵内侧
+ Outer Ear
+耳朵外侧
 Boots
 靴子
 Heels
@@ -699,7 +725,7 @@ Shoe
 Lips
 嘴唇
 Muzzle
-口套
+Muzzle
 Icon
 标志
 Light
@@ -844,6 +870,12 @@ Shade
 阴影
 Bar
 穿刺棒
+Holemesh
+Holemesh
+Bulge
+Bulge
+Side Straps
+Side Straps
 Cock Ring
 阴茎环
 Penis

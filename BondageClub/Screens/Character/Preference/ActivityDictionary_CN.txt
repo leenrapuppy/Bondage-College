@@ -502,6 +502,8 @@ Roll over Mouth
 在嘴部滚动
 Rub on Mouth
 在嘴部摩擦
+Take a sip
+喝一口
 Tickle Mouth
 搔挠嘴部
 Take in Ass
@@ -1206,6 +1208,8 @@ SourceCharacter rolls a UsedAsset over TargetCharacter's mouth.
 SourceCharacter用UsedAsset在TargetCharacter的嘴滚动。
 SourceCharacter rubs TargetCharacter's mouth with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset摩擦TargetCharacter的嘴。
+SourceCharacter gives TargetCharacter a sip from PronounPossessive UsedAsset.
+SourceCharacter让TargetCharacter从PronounObject的UsedAsset喝了一口。
 SourceCharacter tickles TargetCharacter's mouth with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠TargetCharacter的嘴。
 SourceCharacter bites TargetCharacter's neck.
@@ -1758,6 +1762,8 @@ SourceCharacter rolls a UsedAsset over PronounPossessive own mouth.
 SourceCharacter用UsedAsset在自己的嘴滚动。
 SourceCharacter rubs PronounPossessive own mouth with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset摩擦自己的嘴。
+SourceCharacter takes a sip from PronounPossessive UsedAsset.
+SourceCharacter从自己的UsedAsset喝了一口。
 SourceCharacter tickles PronounPossessive own mouth with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠自己的嘴。
 SourceCharacter caresses PronounPossessive neck.
