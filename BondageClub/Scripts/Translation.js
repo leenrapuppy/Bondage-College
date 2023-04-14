@@ -790,13 +790,12 @@ function TranslationParseTXT(str) {
  * @returns {string} - The translated string
  */
 function TranslationString(S, T, CharacterName) {
-	if ((S != null) && (S.trim() != "")) {
+	if(S && S.trim()){
 		S = S.trim();
-		for (let P = 0; P < T.length; P++)
-			if (S == T[P].replace("DialogCharacterName", CharacterName).replace("DialogPlayerName", CharacterNickname(Player)))
-				return T[P + 1].replace("DialogCharacterName", CharacterName).replace("DialogPlayerName", CharacterNickname(Player));
+		let r = T.findIndex(_=>_===S)
+		if(r >= 0) return T[r+1]
 	}
-	return S;
+	return S
 }
 
 /**
@@ -810,6 +809,7 @@ function TranslationDialogArray(C, T) {
 		C.Dialog[D].Option = TranslationString(C.Dialog[D].Option, T, C.Name);
 		C.Dialog[D].Result = TranslationString(C.Dialog[D].Result, T, C.Name);
 	}
+	CharacterDialogSubstitution(C)
 }
 
 /**
@@ -853,6 +853,8 @@ function TranslationDialog(C) {
 				}
 			});
 
+	} else {
+		CharacterDialogSubstitution(C)
 	}
 
 }

@@ -457,6 +457,26 @@ function CharacterRandomName(C) {
 }
 
 /**
+ * Substitute name and pronoun fields in dialog.
+ * @param {Character} C - Character for which to build the dialog
+ * @returns {void} - Nothing
+ */
+function CharacterDialogSubstitution(C){
+	/** @type {CommonSubtituteSubstitution[]} */
+	let subst = [
+		["DialogCharacterName", CharacterNickname(C)],
+		["DialogPlayerName", CharacterNickname(Player)],
+	];
+	subst = subst.concat(ChatRoomPronounSubstitutions(C, "DialogCharacter", false));
+	subst = subst.concat(ChatRoomPronounSubstitutions(Player, "DialogPlayer", false));
+
+	C.Dialog.forEach(_=>{
+		if(_.Option) _.Option = CommonStringSubstitute(_.Option, subst); 
+		if(_.Result) _.Result = CommonStringSubstitute(_.Result, subst); 
+	})
+}
+
+/**
  * Builds the dialog objects from the character CSV file
  * @param {Character} C - Character for which to build the dialog
  * @param {readonly string[][]} CSV - Content of the CSV file
@@ -472,14 +492,6 @@ function CharacterBuildDialog(C, CSV) {
 		if (str === "") return null;
 		return (str !== "" ? str : null);
 	}
-
-	/** @type {CommonSubtituteSubstitution[]} */
-	let subst = [
-		["DialogCharacterName", CharacterNickname(C)],
-		["DialogPlayerName", CharacterNickname(Player)],
-	];
-	subst = subst.concat(ChatRoomPronounSubstitutions(C, "DialogCharacter", false));
-	subst = subst.concat(ChatRoomPronounSubstitutions(Player, "DialogPlayer", false));
 
 	// For each lines in the file
 	for (const L of CSV) {
@@ -497,11 +509,6 @@ function CharacterBuildDialog(C, CSV) {
 			Group: parseField(L[6]),
 			Trait: parseField(L[7]),
 		};
-
-		if (D.Option !== null)
-			D.Option = CommonStringSubstitute(D.Option, subst);
-		if (D.Result !== null)
-			D.Result = CommonStringSubstitute(D.Result, subst);
 
 		// Prefix with the current screen unless this is a Dialog function or an online character
 		if (D.Function && D.Function !== "")
@@ -702,8 +709,9 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	let tmp;
 	const oldPronouns = (tmp = currentAppearance.find(item => item.Asset.Group.Name === "Pronouns")) && tmp && tmp.Asset.Name;
 	const newPronouns = (tmp = Char.Appearance.find(item => item.Asset.Group.Name === "Pronouns")) && tmp && tmp.Asset.Name;
-	if (oldPronouns !== newPronouns) {
+	if (oldPronouns !== undefined && oldPronouns !== newPronouns) {
 		// Reload the dialog so the new gender takes effect
+		// Don't reload in initialization (when oldPronouns is undefined), which breaks translation
 		CharacterLoadCSVDialog(Char, "Screens/Online/ChatRoom/Dialog_Online");
 	}
 	CharacterLoadEffect(Char);
