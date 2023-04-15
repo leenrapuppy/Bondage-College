@@ -341,6 +341,10 @@ Must have female genitalia.
 必须有女性生殖器。
 Must have male genitalia.
 必须有男性生殖器。
+Must remove chastity cage first.
+必须先移除贞操笼。
+Must have full penis access first.
+必须能够完全使用阴茎。
 The use of remotes is forbidden by your owner
 你的主人禁止你使用遥控器
 Cannot be used over the applied gags.
@@ -360,9 +364,13 @@ Cancel
 Back to character
 回到角色
 View next items
-查看下一件物品
+查看后续物品
 View previous items
-查看上一件物品
+查看之前物品
+View next expressions
+查看后续表情
+View previous expressions
+查看之前表情
 Crafted properties
 制作特性
 Crafter: MemberName (MemberNumber)
@@ -801,6 +809,18 @@ Rooftop Party
 楼顶派对
 Party Basement
 地下室派对
+Studio Living Room
+工作室客厅
+Wooden Living Room
+木屋客厅
+Appartment Living Room
+公寓客厅
+Empty Basement 1
+空地下室1
+Empty Basement 2
+空地下室2
+Empty Basement 3
+空地下室3
 Cosy Chalet
 舒适的小屋
 Alchemist Office
@@ -1681,6 +1701,10 @@ SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind Destinat
 SourceCharacter将DestinationCharacter手腕和华丽手铐上的锁链从TargetPronounObject的身后连在一起。
 SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back and connects the wrist and ankle cuffs.
 SourceCharacter将DestinationCharacter手腕和手肘的华丽手铐上的锁链从TargetPronounObject的身后连在一起，并将手腕铐和脚踝铐连在一起.
+SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel cuffs.
+SourceCharacter解开了DestinationCharacter高品位钢质手铐上的锁链。
+SourceCharacter attaches the HighStyle Steel cuffs wrist chain behind DestinationCharacter back.
+SourceCharacter将DestinationCharacter手腕的高品位钢质手铐上的锁链从TargetPronounObject的身后连在一起。
 SourceCharacter detaches the chain from DestinationCharacter Ornate leg cuffs.
 SourceCharacter解开了DestinationCharacter华丽腿铐上的锁链。
 SourceCharacter attaches the Ornate leg cuffs chain on DestinationCharacter legs.
@@ -1689,6 +1713,10 @@ SourceCharacter detaches the chain from DestinationCharacter Ornate ankle cuffs.
 SourceCharacter解开了DestinationCharacter华丽脚铐上的锁链。
 SourceCharacter attaches the Ornate ankle cuffs chain on DestinationCharacter ankles.
 SourceCharacter将DestinationCharacter脚踝上的华丽脚铐上的锁链连在一起。
+SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel ankle cuffs.
+SourceCharacter解开了DestinationCharacter高品位钢质腿铐上的锁链。
+SourceCharacter attaches the HighStyle Steel ankle cuffs chain on DestinationCharacter ankles.
+SourceCharacter将DestinationCharacter脚踝上的高品位钢质腿铐上的锁链连在一起。
 How tight do you want to strap the jacket?
 你想把拘束衣拉到多紧？
 Snug
@@ -3491,12 +3519,16 @@ Select gag
 选择口塞
 Select expression
 选择表情
+Adjust Fit
+调整松紧
 Blindfold
 眼罩
 Gag
 口塞
 Expression
 表情
+Fit
+松紧
 Neutral
 中性
 OwO
@@ -3517,6 +3549,10 @@ SourceCharacter draws an OwO face onto DestinationCharacter kitty hood.
 SourceCharacter在DestinationCharacter猫咪头套上画了一个OwO脸。
 SourceCharacter draws an UwU face onto DestinationCharacter kitty hood.
 SourceCharacter在DestinationCharacter猫咪头套上画了一个UwU脸。
+SourceCharacter loosens DestinationCharacter kitty hood.
+SourceCharacter解松了DestinationCharacter猫咪头套。
+SourceCharacter tightens DestinationCharacter kitty hood.
+SourceCharacter绑紧了DestinationCharacter猫咪头套。
 Pumpkin Head
 南瓜头
 Leash
@@ -4479,12 +4515,24 @@ Revealed
 已显示
 Tucked in
 被困
-Detached Gloves
-已脱下手套
-Attached Opaque Gloves
-已穿戴不透明手套
-Attached See-through Gloves
-已穿戴透明手套
+Select the suit's gloves
+选择套装手套
+No Gloves
+无手套
+Opaque Gloves
+不透明手套
+See-through Gloves
+透明手套
+DestinationCharacterName AssetName switches to a random pattern
+DestinationCharacterNameAssetName改为了随机模式
+DestinationCharacterName AssetName switches to a escalating pattern
+DestinationCharacterNameAssetName改为了渐强模式
+DestinationCharacterName AssetName switches to a teasing pattern
+DestinationCharacterNameAssetName改为了玩弄模式
+DestinationCharacterName AssetName switches to a denying pattern
+DestinationCharacterNameAssetName改为了拒绝模式
+DestinationCharacterName AssetName switches to an edging pattern
+DestinationCharacterNameAssetName改为了寸止模式
 SourceCharacter changes the settings on DestinationCharacterName AssetName
 SourceCharacter修改了DestinationCharacterNameAssetName的设置
 DestinationCharacterName owner releases TargetPronounObject from the slave collar.
@@ -4830,11 +4878,11 @@ Maximum:
 Minimum:
 最小：
 You can tighten or loosen this item
-你可以绑紧或解松此武林
-Tigthen a little
+你可以绑紧或解松此物品
+Tighten a little
 稍微绑紧
-Tigthen a lot
-用力绑紧
+Tighten a lot
+绑紧很多
 Loosen a little
 稍微解松
 Loosen a lot
@@ -5353,6 +5401,20 @@ Shaped Transparent Fill
 造型透明填充
 Shaped Transparent Fill w/ Pinhole
 造型透明填充附带针孔
+Fishnet
+渔网
+Circle Opaque
+圆环不透明
+Circle Transparent
+圆环透明
+Circle Opaque Fill Opaque
+圆环不透明填充不透明
+Circle Transparent Fill Opaque
+圆环透明填充不透明
+Circle Opaque Fill Transparent
+圆环不透明填充透明
+Circle Transparent Fill Transparent
+圆环透明填充透明
 SourceCharacter changes the mouth panel on DestinationCharacter latex hood.
 SourceCharacter改变了DestinationCharacter乳胶头套的嘴部遮罩。
 Select Eye Panel
@@ -5379,6 +5441,14 @@ Shaped Transparent Fill Opaque w/ Pinholes
 造型透明填充不透明附带针孔
 Shaped Transparent Fill w/ Pinholes
 造型透明填充附带针孔
+Circle Opaque Open
+圆环不透明打开
+Circle Transparent Open
+圆环透明打开
+Circle Opaque Fill
+圆环不透明填充
+Circle Transparent Fill
+圆环透明填充
 SourceCharacter changes the eye panel on DestinationCharacter latex hood.
 SourceCharacter调整了DestinationCharacter乳胶头套上的眼部遮罩。
 Select Head Panel
@@ -5449,16 +5519,16 @@ Select Eyebrow Options
 选择眉毛选项
 Select Eyebrow Style
 选择眉毛样式
-Select Left Eyebrow Piercing
-选择左侧眉毛穿刺
 Select Right Eyebrow Piercing
 选择右侧眉毛穿刺
+Select Left Eyebrow Piercing
+选择左侧眉毛穿刺
 Style
 样式
-Left Piercing
-左侧穿刺
 Right Piercing
 右侧穿刺
+Left Piercing
+左侧穿刺
 Eyebrows2
 眉毛2
 Eyebrows3
@@ -5511,14 +5581,14 @@ Select Nose Piercings
 选择鼻子穿刺
 Septum Ring
 中隔环
-Right Stud
-右侧钉
 Left Stud
 左侧钉
-Select Left Ear Piercings
-选择左耳穿刺
-Left Ear
-左耳
+Right Stud
+右侧钉
+Select Right Ear Piercings
+选择右耳穿刺
+Right Ear
+右侧耳朵
 Stud
 耳钉
 Hoop
@@ -5537,26 +5607,36 @@ Cartilage
 软骨耳环
 Industrial Mix
 穿耳耳环
-Select Right Ear Piercings
-选择右耳穿刺
-Right Ear
-右侧耳朵
+Select Left Ear Piercings
+选择左耳穿刺
+Left Ear
+左耳
 Select Facial Piercings
 选择面部穿刺
 Face
 面部
 Double Dermals
 双真皮钉
-Right Dermals
-右侧真皮钉
 Left Dermals
 左侧真皮钉
+Right Dermals
+右侧真皮钉
 Bridge Piercing
 鼻梁钉
-Right Monroe
-右侧美人钉
 Left Monroe
 左侧美人钉
+Right Monroe
+右侧美人钉
+Cheek Studs
+面颊钉
+Cheeks and Bridge
+面颊与鼻梁
+Bridge and Dermals
+鼻梁与埋钉
+Dermals and Cheeks
+埋钉与面颊
+Cheeks Bridge and Dermals
+面颊鼻梁与埋钉
 Select Hoodie Options
 选择连帽衫选项
 Select Hood Position and Shape
@@ -6467,3 +6547,107 @@ SourceCharacter unfolds DestinationCharacter folding screen.
 SourceCharacter展开了DestinationCharacter折叠屏风。
 Change Text:
 改变文字：
+Choose Design
+选择设计
+Choose Pattern
+选择样式
+Stripe
+条纹
+Triangle
+三角
+Cowprint
+猫花纹
+Tigerprint
+虎花纹
+SourceCharacter swaps DestinationCharacter swimcap pattern.
+SourceCharacter改变了DestinationCharacter泳帽上的花纹。
+Hair Openings
+头发开口
+Adjust Hair Openings
+调整头发开口
+Hair Out
+头发在外
+Ear Holes
+耳孔
+Mixed Openings
+混合开口
+SourceCharacter adjusts DestinationCharacter swimcap hair openings.
+SourceCharacter改变了DestinationCharacter泳帽开口。
+Back Opening
+后开口
+Choose Restriction
+选择限制
+Choose Lenses
+选择镜片
+SourceCharacter swaps DestinationCharacter mask lenses.
+SourceCharacter改变了DestinationCharacter面罩镜片。
+Choose Inflation Level
+选择充气等级
+SourceCharacter pumps DestinationCharacter inflatable gag.
+SourceCharacter为DestinationCharacter充气口塞里充气。
+SourceCharacter adjusts DestinationCharacter mask hair opening.
+SourceCharacter调整了DestinationCharacter面具头发开口
+Choose Padding Amount
+选择填充数量
+SourceCharacter adjusts the padding of DestinationCharacter face mask.
+SourceCharacter调整了DestinationCharacter面具的填充数量。
+SourceCharacter changes the pattern of DestinationCharacter face mask.
+SourceCharacter改变了DestinationCharacter面具的填充数量。
+Fake Mouth
+假嘴
+Choose Mouth
+选择嘴
+SourceCharacter changes out the mouth of DestinationCharacter hood.
+SourceCharacter改变了DestinationCharacter头套的嘴部。
+Choose Fit
+选择松紧
+SourceCharacter adjusts the fit of DestinationCharacter hood.
+SourceCharacter调整了DestinationCharacter头套的松紧度。
+SourceCharacter tightens DestinationCharacter dog hood.
+SourceCharacter绑紧了DestinationCharacter狗狗头套。
+SourceCharacter loosens DestinationCharacter dog hood.
+SourceCharacter解松了DestinationCharacter狗狗头套。
+SourceCharacter loosens DestinationCharacter latex habit.
+SourceCharacter解松了DestinationCharacter乳胶修女。
+SourceCharacter tightens DestinationCharacter latex habit.
+SourceCharacter绑紧了DestinationCharacter乳胶修女。
+Select Jockstrap Type.
+选择下体护身样式。
+String
+系带
+Side Straps
+两侧束带
+Holemesh
+网格
+Muzzle Options
+口套选项
+No Muzzle
+没有口套
+Dog Muzzle
+狗狗口套
+SourceCharacter removes DestinationCharacter hood's muzzle.
+SourceCharacter从DestinationCharacter头套移除了口套。
+SourceCharacter applies a muzzle to DestinationCharacter hood.
+SourceCharacter在DestinationCharacter头套添加了口套。
+Lens Options
+镜片选项
+No Lenses
+没有镜片
+Transparent Lenses
+透明镜片
+SourceCharacter removes the lenses from DestinationCharacter hood.
+SourceCharacter从DestinationCharacter头套移除了镜片。
+SourceCharacter applies lenses to DestinationCharacter hood.
+SourceCharacter在DestinationCharacter头套添加了镜片。
+Collar
+项圈
+Collar Options
+项圈选项
+No Collar
+没有想去哪
+Banded Collar
+带子项圈
+SourceCharacter fits the hood's collar around DestinationCharacter neck.
+SourceCharacter将头套的项圈系在DestinationCharacter的脖子上。
+SourceCharacter removes the collar from DestinationCharacter hood.
+SourceCharacter从DestinationCharacter头套上移除了项圈。

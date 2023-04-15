@@ -128,7 +128,7 @@ See-through Top
 透视上衣
 Jacket
 夹克
-Male Cloth Tank-Top 
+Male Cloth Tank-Top
 男士背心
 Button Shirt
 纽扣衬衫
@@ -314,6 +314,8 @@ Cross Skirt
 十字装饰裙
 Cheerleader Skirt
 啦啦队短裙
+Cross Skirt (light)
+十字装饰裙（浅色）
 Suit Lower
 套装(下身)
  Catsuit Panties
@@ -524,6 +526,10 @@ Micro Thong
 微型丁字裤
 Boxer Shorts
 四角内裤
+Briefs
+内裤
+Jockstrap
+下体护身
 Socks
 袜子
 Ankle
@@ -578,6 +584,8 @@ Leather Garter Belts
 双皮革吊袜带
 Leather Garter Belt
 皮革吊袜带
+Lace and Satin Garter Belt
+蕾丝缎面吊袜带
 Tentacles
 触手
 Drop Bag
@@ -690,6 +698,8 @@ Baseball Cap Back
 棒球帽后
 Baseball Cap Front
 棒球帽前
+Swim Cap
+游泳帽
 Hair Accessory
 发饰
 Hair Ribbon 1
@@ -1176,9 +1186,9 @@ Penis
 阴茎
 Pronouns
 称谓
-She/Her 
+She/Her
 她
-He/Him 
+He/Him
 他
 Blush
 腮红
@@ -1228,10 +1238,14 @@ Floor Shackles
 地板脚镣
 Steel Ankle Cuffs
 钢质脚铐
+Escort Ankle Cuffs
+押送脚铐
 Futuristic Ankle Cuffs
 未来脚铐
 Ornate Ankle Cuffs
 华丽脚铐
+HighStyle Steel Ankle Cuffs
+高品位钢质脚铐
  Metal Leg Spreader
 金属分腿棍
 Ball And Chain
@@ -1330,8 +1344,10 @@ Plastic Chastity Cage 1
 塑料贞操笼1
 Plastic Chastity Cage 2
 塑料贞操笼3
-Techno Chastity Cage 1
-科技贞操笼1
+Techno Chastity Cage
+科技贞操笼
+Flat Chastity Cage
+平板贞操笼
 Clitoris
 阴蒂
 Straight Clitoris Piercing
@@ -1594,6 +1610,8 @@ Futuristic Cuffs
 未来臂铐
 Ornate Cuffs
 华丽手铐
+HighStyle Steel Cuffs
+高品位钢质手铐
 Mittens Chain
 连指手套链
 Four Limbs Shackles
@@ -1724,6 +1742,8 @@ Cattle Prod
 赶牛棒
 Tennis Racket
 网球拍
+For Sale Sign
+出售标志
 Rainbow Wand
 彩虹魔杖
 Gavel
@@ -1806,6 +1826,8 @@ Potion Bottle
 药剂瓶
 Medical Injector
 医用注射器
+Mug
+马克杯
 Neck
 颈部
 Leather Collar
@@ -1860,6 +1882,8 @@ High Security Collar
 高安全项圈
 Ornate Collar
 华丽项圈
+HighStyle Steel Collar
+高品位钢质项圈
 Slender Steel Collar
 纤细不锈钢项圈
 Shiny Steel Collar
@@ -2078,6 +2102,8 @@ Bridle Gag
 嘴内特征口塞
 Latex Respirator
 乳胶呼吸器
+Padded Face Mask
+加厚面具
 Eyes
 眼睛
 Cloth Blindfold
@@ -2210,6 +2236,12 @@ Custom Latex Hood
 定制乳胶头套
 Cat Mask Harness
 猫猫面具束带
+Inflatable Gag Mask
+充气口塞面具
+Latex Dog Mask
+乳胶狗狗面具
+Latex Bunny
+乳胶兔兔
 Light Duty Ear Plugs
 轻型耳塞
 Heavy Duty Ear Plugs
