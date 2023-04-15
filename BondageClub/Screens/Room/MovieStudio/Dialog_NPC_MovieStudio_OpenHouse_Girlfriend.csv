@@ -3,6 +3,7 @@ OrgasmAct1,,,"(She screams and shivers madly as you give her a wonderful orgasm.
 OrgasmPuppyAct1,,,(She grinds her vulva against your muzzle gag and gets a shattering orgasm live for the viewers.  It's hard to tell if she faked it or not.),,
 OrgasmWandAct2,,,"(The customer presses the vibrating wand firmly against her vulva, making her thrash and scream from the ecstasy.)",,
 OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, getting a wonderful orgasm live on screen.)",,
+OrgasmStraponAct2,,,(You cannot resist any longer and get a shattering orgasm from the strap-on.  The movie crew seems to love it.),,
 0,,,"(The new girlfriend is preparing the place for the open house.)  Oh, hello!  You're too early for the tour.",,
 0,,(Stare at her with blank eyes.),(The movie director gets really angry and waves at you to start the scene.),"DoActivity(""OpenHouseBadScene"")",
 0,10,You don't recognize me?,Why would I?  (She ponders as the camera zooms on her.)  Oh yeah!  You're the crazy ex-wife.,"AlterParameter(""Actor1"", ""Domination"", ""-1"")",
@@ -45,7 +46,7 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 110,,Are you allowed to call me a witch?,(The movie director screams at you to try another line.),"DoActivity(""OpenHouseBadScene"")",
 120,130,Forget it girl.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)",,
 120,130,You're not punishing me!,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""1"")",
-120,130,You can't punish me.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
+120,130,Please!  You can't punish me.,"(As the camera zooms in, you get closer to each other, ready to wrestle some more.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 130,,(Turn to the movie director.),(The movie director gets mad and mimics that you two should fight.),"DoActivity(""OpenHouseBadScene"")",
 130,140,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each move.  You finally pin her to the ground, and she submits to you naked.)","DoActivity(""OpenHouseWrestleActor1"")","ParameterValueBetween(""Actor1"", ""Domination"", ""0"", ""100"")"
 130,150,(Wrestle to make her submit.),"(You both start to wrestle for the viewers, moaning and panting with each move.  She gets the upper hand and forces you to submit naked.)","DoActivity(""OpenHouseWrestlePlayer"")","ParameterValueBetween(""Actor1"", ""Domination"", ""-100"", ""-1"")"
@@ -97,7 +98,7 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 330,340,This is a stupid idea.,This will also teach you a lesson.  (She gets a leash and grins.),"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
 330,340,Are you serious?,Very serious.  (She gets a leash and smirks.),,
 330,,Is that in the script?,(The movie director gets mad from your answer and screams at you to try again.)  ,"DoActivity(""OpenHouseBadScene"")",
-330,340,Will I be a cute puppy?,Will you be the cutest puppy in town.  (She gets a leash and smiles.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
+330,340,Will I be a cute puppy?,You will be the cutest puppy in town.  (She gets a leash and smiles.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 340,350,There's no need to leash me.,"Oh yes, puppy girl.  (The camera zooms in on your collar as she clips the leash on it.)","DoActivity(""OpenHouseWearDogLeash"")",
 340,350,That's enough!,We are only beginning.  (The camera zooms in on your collar as she clips the leash on it.),"DoActivity(""OpenHouseWearDogLeash"")",
 350,360,(Look around.),,DialogLeave(),
@@ -206,10 +207,40 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 1440,1450,Alright!  (Go to the basement with them.),(You get to the basement with them.  It's pretty much empty expect for a few cardboard boxes laying around.),"DoActivity(""OpenHouseEnterBasementSub"")",
 1440,1450,(Sigh and follow her to the basement.),(You get to the basement with them.  It's pretty much empty expect for a few cardboard boxes laying around.),"DoActivity(""OpenHouseEnterBasementSub"")",
 1450,,,(The basement is pretty empty expect for a few cardboard boxes laying around.),,
-1450,,TO DO,TO DO,,
-1450,,TO DO,TO DO,,
-1450,,TO DO,TO DO,,
+1450,1460,You don't want curious neighbors?  (Smirk.),You're right.  (She smiles and starts to search in the boxes.),"AlterParameter(""Actor1"", ""Domination"", ""1"")",
+1450,1460,Why did we go down here?,This is where the fun happens.  (She starts to search in the boxes.),,
+1450,1460,This place is pretty cold.,"Don't worry girl, I will turn up the heat.  (She starts to search in the boxes.)","AlterParameter(""Actor1"", ""Domination"", ""-1"")",
 1450,,(Look around.),,DialogLeave(),
+1460,,Can we take a pee break?,(The movie director becomes red and yells at you to hold it.),"DoActivity(""OpenHouseBadScene"")",
+1460,1470,(Watch her unpack the boxes.),"(She unpacks restraints, gags and a strap-on from the boxes.  She looks at you two and winks.)","DoActivity(""OpenHouseGirlfriendUnpack"")",
+1470,,,"(She unpacks restraints, gags and a strap-on from the boxes.)",,
+1470,1480,This open house is out of control.,"(She laughs out loud.)  Out of control?  I'll show you control, it's time to strap you both.",,
+1470,1480,This will get spicy.,(She giggles and nods.)  Very spicy!  It's time to strap you both.,"AlterParameter(""Actor1"", ""Affection"", ""1"")",
+1470,1480,Don't you dare!,"(She gives you an angry look.)  I'll show you who's in charge, it's time to strap you both.","AlterParameter(""Actor1"", ""Affection"", ""-1"")",
+1470,1480,Making love with you would be a dream.,"(She smiles at you and nods.)  Your... Our dream will come true.  Let's get ready for it, it's time to strap you both.","AlterParameter(""Actor1"", ""Affection"", ""2"")","ParameterValueBetween(""Actor1"", ""Affection"", ""6"", ""100"")"
+1470,,(Look around.),,DialogLeave(),
+1480,1500,Very well.  (Let her strap you both.),"(In a long and sexy scene, you submit as she gets you both restrained securely.  She then gets naked, wearing a corset and a strap-on.)","DoActivity(""OpenHouseGirlfriendWearStrapon"")",
+1480,1500,(Give her some trouble for the camera.),"(In a long and feisty scene, you struggle as she gets you both restrained securely.  She then gets naked, wearing a corset and a strap-on.)","DoActivity(""OpenHouseGirlfriendWearStrapon"")",
+1500,,,(She masturbates her own strap-on while looking at you two.),,
+1500,,(Suck her strap-on.),(You slowly sucks her strap-on as the camera zooms on your face.),"DoActivity(""OpenHousePlayerStraponSuck"")",Player.CanTalk()
+1500,,(Look bored.),(The movie director shakes her fists and yells at you to put more effort.),"DoActivity(""OpenHouseBadScene"")",!Player.CanTalk()
+1500,,(Open your legs.),"(You open your legs gently as she inserts the strap-on in your pussy, trusting in and out for your pleasure.)","DoActivity(""OpenHousePlayerStraponPussy"")",!Player.IsChaste()
+1500,,(Present your butt.),(You present your butt and she grabs it swiftly.  She inserts the strap-on in it and goes in and out for the viewers.),"DoActivity(""OpenHousePlayerStraponButt"")",!Player.IsChaste()
+1500,,"I don't mean to complain, but...",(She gets tired of your complaints and quickly gags you in the middle of your sentence.),"DoActivity(""OpenHousePlayerGag"")",Player.CanTalk()
+1500,,(Whimper in your gag.),(She sighs and slowly removes your gag.),"DoActivity(""OpenHousePlayerUngag"")",!Player.CanTalk()
+1500,1550,"Miss, you would be a great owner.",(She smirks and stares at you.)  And you would be a good submissive.  Would you like to be my girl?,,"CanDoActivity(""OpenHouseGirlfriendStartOwner"")"
+1500,1950,I love you so much.,"(She starts to cry and smiles widely.)  Yes, yes, yes!   It's crazy, but I'm also in love with you.",,"CanDoActivity(""OpenHouseGirlfriendStartLove"")"
+1500,,(Look around.),,DialogLeave(),
+1510,1500,(Scream of pleasure.),(You scream of pleasure for the viewers.  The director doesn't seem to know if you're faking it or not.),,
+1510,1500,(Tremble like a leaf.),"(You tremble for the camera, slowly getting back in control.  The movie director makes a thumbs up.)",,
+1510,1500,(Remain calm and recover.),"(You stay calm and quickly recover from your orgasm, getting ready for more action.)",,
+1550,1560,Yes Miss.  (Bow your head.),"Good girl.  Your life will change a lot, I will find a proper collar for you soon.","DoActivity(""OpenHouseGirlfriendStartSubEnding"")",
+1550,1560,That would be wonderful.,"It will be.  Your life will change a lot, I will find a proper collar for you soon.","DoActivity(""OpenHouseGirlfriendStartSubEnding"")",
+1550,1560,(Nod silently and blush.),"(She pets your head.)  Your life will change a lot, I will find a proper collar for you soon.","DoActivity(""OpenHouseGirlfriendStartSubEnding"")",
+1560,1570,I will try to be a good submissive.,"Yes my girl, and I will take good care of you.  Now let's begin your new submissive life with more bondage.  (She gets more gear as the director applause.)",,
+1560,1570,I will serve and worship you Mistress.,"You better be good, or you will be punished.  Now let's begin your new submissive life with more bondage.  (She gets more gear as the director applause.)",,
+1560,1570,I will wear your collar with pride.,It will be locked securely around your precious neck.  Now let's begin your new submissive life with more bondage.  (She gets more gear as the director applause.),,
+1570,,(Finish the movie with a submissive ending.),,"DoActivity(""OpenHouseSpecialEnding"")",
 1600,,,"(She blushes and looks down, not saying a word.)",,
 1600,1610,(Pet her head.),(She nods slowly as you pet her head for the viewers.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",
 1600,1610,(Laugh at her.),(She grumbles silently as you laugh at her loudly.),"AlterParameter(""Actor1"", ""Affection"", ""-1"")",
@@ -256,8 +287,10 @@ OrgasmEggAct2,,,"(She yells and thrashes in her bondage from left to right, gett
 1910,1900,You're so kinky and cute.,(She blushes red while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",CurrentCharacter.CanTalk()
 1910,1900,(Pet her hair slowly.),(She purrs while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""1"")",!CurrentCharacter.CanTalk()
 1910,1900,(Slap her face.),(She takes a long deep breath of anger while recovering from her orgasm.),"AlterParameter(""Actor1"", ""Affection"", ""-2"")",!CurrentCharacter.CanTalk()
-1950,1960,(Release and kiss her.),(You exchange a long and loving French kiss.)  Let's never fight again honey.,"DoActivity(""OpenHouseGirlfriendStartLoveEnding"")",
-1960,,What about my ex-husband?,We can ditch that loser and his house.  All I want is you.,DialogRemove(),
+1950,1960,(Release and kiss her.),(You release her and exchange a long passionate French kiss.)  Let's never fight again honey.,"DoActivity(""OpenHouseGirlfriendStartLoveEnding"")",!Player.IsRestrained()
+1950,1960,(Kiss her lovingly.),(She releases you and exchanges a long passionate French kiss.)  Let's never fight again honey.,"DoActivity(""OpenHouseGirlfriendStartLoveEnding"")",Player.IsRestrained()
+1960,,What about my ex-husband?,We can ditch that loser.  All I want is you.,DialogRemove(),
+1960,,What about the house?,Who cares about walls and plumbing when we have true love?,DialogRemove(),
 1960,,What about our customer here?,She can join our new love life or buy the house.  I don't care.,DialogRemove(),
 1960,1970,"Come with me, let's cherish our new love.","(You both walk away from the house, holding each other hand.  The movie director yells: Cut! The end!)",,
 1970,,(Finish the movie with a romantic ending.),,"DoActivity(""OpenHouseSpecialEnding"")",

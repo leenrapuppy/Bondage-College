@@ -1,6 +1,7 @@
 PlayerGagged,,,You're not going to sell anything with that gag.  (She giggles.),,
 OrgasmWandAct2,,,"(She smiles and presses the vibrating wand on your vulva, making you reach a wonderful orgasm in front of the camera.)",,
 OrgasmEggAct2,,,(She screams of ecstasy as the egg drives her to get a long and powerful orgasm from the viewers.),,
+OrgasmStraponAct2,,,(The client loses all control of her body and screams while getting a huge orgasm.),,
 1000,,,(The customer stares at you two.)  What is going on here?  Why are you both naked?,,
 1000,,(Whimper in your gag.),Let's see that muzzle. (She removes your gag slowly.)  What is going on here?,"DoActivity(""OpenHouseUngagPlayer"")",!Player.CanTalk()
 1000,,Uhm... Who are you supposed to be?,(The movie director screams at you that she's the customer.),"DoActivity(""OpenHouseBadScene"")",Player.CanTalk()
@@ -122,6 +123,28 @@ OrgasmEggAct2,,,(She screams of ecstasy as the egg drives her to get a long and 
 1450,,(Look around.),,DialogLeave(),
 1460,,,"(She inspects the basement, pretending to be interested.)",,
 1460,,(Look around.),,DialogLeave(),
+1470,,,(She looks at the new girlfriend unpacking her boxes.)  Wow!  So many restraints down here.  Is that a strap-on?,,
+1470,1480,The real trouble is about to begin.,(She nods and looks at the restraints silently.),,
+1470,1480,"Yep, we are fucked.  Literally.",(She shivers and looks at the restraints silently.),,
+1470,1480,You will be cute in bondage.,(She blushes and looks at the restraints silently.),,
+1470,,(Look around.),,DialogLeave(),
+1480,,,(She looks at the restraints silently.),,
+1480,,(Look around.),,DialogLeave(),
+1500,,,(She stares at the new girlfriend with wide eyes.),,
+1500,,You two are adorable together.,(They both nod and exchange a long loving kiss.),"DoActivity(""OpenHouseClientStraponKiss"")",Player.CanTalk()
+1500,,(Moan lovingly.),(They barely look at you and exchange a long loving kiss.),"DoActivity(""OpenHouseClientStraponKiss"")",!Player.CanTalk()
+1500,,Suck it girl.,(She nods and starts to suck on the strap-on.  The camera crew follows every moves closely.),"DoActivity(""OpenHouseClientStraponSuck"")",Player.CanTalk()
+1500,,(Chew on your gag.),(She starts to laugh at you but is quickly gagged by the strap-on.  She sucks on the plastic penis for the camera.),"DoActivity(""OpenHouseClientStraponSuck"")",!Player.CanTalk()
+1500,,We will enjoy heaven together.,(She nods and moans as the new girlfriend inserts the strap-on deep in her pussy.  The director seems to love it.),"DoActivity(""OpenHouseClientStraponPussy"")",Player.CanTalk()
+1500,,(Do trusting motions.),(She nods and moans as the new girlfriend inserts the strap-on deep in her pussy.  The director seems to love it.),"DoActivity(""OpenHouseClientStraponPussy"")",!Player.CanTalk()
+1500,,Can you take it in the butt?,(She looks surprised as the strap-on is inserted swiftly in her butt.  She screams from the pain and pleasure.),"DoActivity(""OpenHouseClientStraponButt"")",Player.CanTalk()
+1500,,(Wiggle your butt.),(She looks surprised as the strap-on is inserted swiftly in her butt.  She screams from the pain and pleasure.),"DoActivity(""OpenHouseClientStraponButt"")",!Player.CanTalk()
+1500,,(Look at the clock.),(The movie director seems furious and yells at you to focus on the scene.),"DoActivity(""OpenHouseBadScene"")",
+1500,,(Look around.),,DialogLeave(),
+1510,1500,That was powerful!,"(She nods and slowly recovers from her orgasm, as the girlfriend looks at the scene with a huge smile.)",,Player.CanTalk()
+1510,1500,You're so adorable.,"(She blushes and slowly recovers from her orgasm, as the girlfriend looks at the scene with a huge smile.)",,Player.CanTalk()
+1510,1500,Welcome to heaven.,"(She giggles and slowly recovers from her orgasm, as the girlfriend looks at the scene with a huge smile.)",,Player.CanTalk()
+1510,1500,(Giggle and watch her.),"(She blushes and slowly recovers from her orgasm, as the girlfriend looks at the scene with a huge smile.)",,!Player.CanTalk()
 1600,,,(The customer stares at her.)  What is going on here?  Why is she naked?,,
 1600,,Uhm... Who are you supposed to be?,(The movie director screams at you that she's the customer.),"DoActivity(""OpenHouseBadScene"")",Player.CanTalk()
 1600,1610,You want the short or the long story?,(She thinks for a little while.)  Oh!  I know what's going on.,,Player.CanTalk()
@@ -162,7 +185,7 @@ OrgasmEggAct2,,,(She screams of ecstasy as the egg drives her to get a long and 
 1740,,(Look around.),,DialogLeave(),
 1750,1760,How does it feel?,"(She tugs on her restraints.)  Nngnn, not too bad I guess.",,
 1750,1760,And it could get tighter.,(She struggles a little and nods.)  This is already tight enough.,,
-1750,1760,Aren't you sexy now.,(She blushes and looks down.)  Thanks... I guess.,,
+1750,1760,Aren't you sexy now?,(She blushes and looks down.)  Thanks... I guess.,,
 1760,,,Can we do the tour now?,,
 1760,,Uh?  What tour?,(The movie director cringes and yells at you to try a better line.),"DoActivity(""OpenHouseBadScene"")",
 1760,1770,We are ready for the tour.,Finally!  In which room do we go first?,,
@@ -201,7 +224,7 @@ OrgasmEggAct2,,,(She screams of ecstasy as the egg drives her to get a long and 
 1960,1970,You will crawl and obey my strict rules.,(She gulps and looks down.)  I understand Miss.,,
 1960,1970,I will protect and cherish you like a mother.,(She looks up at you and smiles.)  I understand Miss.,,
 1960,1970,You will be collared and bound for kinky fun.,(She giggles and nods rapidly.)  I understand Miss.,,
-1970,1980,Will you two be my slaves?,(Both girls nods slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
-1970,1980,Will you both wear my collar?,(Both girls nods slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
-1970,1980,Will you both surrender?,(Both girls nods slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you two be my slaves?,(Both girls nod slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you both wear my collar?,(Both girls nod slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
+1970,1980,Will you both surrender?,(Both girls nod slowly as you wrap a collar around their necks.  The director makes a thumbs up and yells: Cut!  The end!),"DoActivity(""OpenHouseClientCollar"")",
 1980,,(Finish the movie with an enslavement ending.),,"DoActivity(""OpenHouseSpecialEnding"")",
