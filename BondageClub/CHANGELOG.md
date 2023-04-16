@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2023-04-09
-* Last recorded PR: [#4081](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4081)
-* Last recorded commit hash: `13cf5b93aa16e4cdfb0a6154991f2cba67149265`
+* Changelog last updated: 2023-04-16
+* Last recorded PR: [#4097](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4097)
+* Last recorded commit hash: `313c34760354be34b45d5835044a946943103010`
 
 ## [R91]
 
@@ -78,6 +78,20 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Rama - Avoided server pushes when calling `....Init()` inside the property sanitization workflow ([#4077](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4077))
 * Rama - Refactored `ExtendedItemMapChatTagToDictionaryEntry` to use the dictionary builder ([#4082](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4082))
 * Estsanatlehi - Changed the CI config to protect against whitespace issues in the asset definition files ([#4081](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4081))
+
+## [Beta Fixes]
+* Ben987 - Removed the Latex Respirator from the pool of assets used randomly by NPCs (PR not found)
+* Ben987 - Added a new path to the Movie Studio
+* Ben987 - Added 6 new backgrounds
+* Bluesilv - Fixed the missing penis layers for the HighSecurityStraitjacket and made the Pom Pom outfit available to males ([#4085](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4085))
+* Rama - Restored accidentally removed support for `TypedItemChatSetting.SILENT` ([#4087](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4087))
+* Bluesilv - Fixed the HighSecurityStraitJacket layer visibility, and made Jeans work with the new attributes ([#4088](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4088))
+* Rama - Added missing `Init` functions to the padded & paw mittens ([#4089](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4089))
+* Sepia Oulomenohn - Added a couple options to the new swim cap ([4092](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4092))
+* Rama - Made sure that typed items respect the `TypedItemConfig.ChangeWhenLocked` property ([#4093](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4093))
+* Rama - Added a missing dialog for disabling vibrators from advanced mode ([#4094](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4094))
+* Da'Inihlus - Updated the Chinese translation ([#4095](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4095))
+* Rama - Fixed a missing dialog for the futuristic vibrator ([#4097](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4097))
 
 ## [R90]
 
