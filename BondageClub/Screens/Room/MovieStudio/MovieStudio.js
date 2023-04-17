@@ -172,7 +172,7 @@ function MovieStudioProcessDecay() {
  */
 function MovieStudioLoad() {
 	let Day = Math.floor(CurrentTime / (24 * 60 * 60 * 1000));
-	MovieStudioDailyMovie = (Day % 2 == 2) ? "Interview" : "OpenHouse"; // Change to == 0 on release
+	MovieStudioDailyMovie = (Day % 2 == 0) ? "Interview" : "OpenHouse";
 	if (MovieStudioOriginalClothes == null) MovieStudioOriginalClothes = Player.Appearance.slice(0);
 	if (MovieStudioDirector == null) {
 		MovieStudioDirector = CharacterLoadNPC("NPC_MovieStudio_Director");
