@@ -324,7 +324,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "CheerleaderTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, Top: 200, Left: 160, DefaultColor: ["#c91616", "#e0b51d", "#c91616", "#242485", "#f5f5f5"], AllowPose: ["Hogtied", "AllFours"],
-				Extended: true, DynamicAfterDraw: true, TextMaxLength: { Text: 8 }, TextFont: "'Archivo Black', 'Impact', 'Arial Black', 'Franklin Gothic', 'Arial', sans-serif",
+				Extended: true, DynamicAfterDraw: true,
 				Layer: [
 					{ Name: "Base", PoseMapping: { Hogtied: "" } },
 					{ Name: "Straps" },
@@ -390,7 +390,7 @@ var AssetFemale3DCG = [
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
 			{
 				Name: "Bib", Fetish: ["ABDL"], Priority: 34, Value: 5, Left: 179, Top: 220, Extended: true,
-				DynamicAfterDraw: true, TextMaxLength: { Text: 24, Text2: 24 }, TextFont: "Pacifico",
+				DynamicAfterDraw: true,
 				Layer: [
 					{Name: "Base", HasType: false},
 					{Name: "Trim", HasType: false},
@@ -4290,8 +4290,6 @@ var AssetFemale3DCG = [
 				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessVulva", "HasVagina"], AllowEffect: ["Chaste"],
 				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
 				AllowBlock: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-				TextMaxLength: { Text: 13 },
-				TextFont: "Arial, sans-serif",
 				Layer: [
 					{ Name: "Base", HasType: false, ColorGroup: "Metal", },
 					{ Name: "Trim", HasType: false, ColorGroup: "Metal", },
@@ -5914,7 +5912,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false,
 				AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true,
-				Extended: true, DrawLocks: false, TextMaxLength: { Text: 9 }, TextFont: "sans-serif",
+				Extended: true, DrawLocks: false,
 				Layer: [
 					{ Name: "Tag", ModuleType: ["t"], AllowModuleTypes: ["t0", "t1", "t2", "t3", "t4", "t5"] },
 					{ Name: "Text", HasImage: false },
@@ -5924,8 +5922,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "ElectronicTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false,
 				AllowLock: true, DrawLocks: false, DefaultColor: ["#40812C", "Default", "#000000"], Prerequisite: "Collared",
-				DynamicAfterDraw: true, Extended: true, FuturisticRecolor: true, TextMaxLength: { Text: 9 },
-				TextFont: "sansserif",
+				DynamicAfterDraw: true, Extended: true, FuturisticRecolor: true,
 				Layer: [
 					{ Name: "Display" },
 					{ Name: "Tag" },
@@ -6040,8 +6037,6 @@ var AssetFemale3DCG = [
 				AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
 				DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310,
 				FixedPosition: true,
-				TextMaxLength: { Text: 14, Text2: 14, Text3: 14 },
-				TextFont: "sans-serif",
 				Layer: [
 					//Pole Base
 					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
@@ -7532,8 +7527,6 @@ var AssetFemale3DCG = [
 				Block:["ItemNose"],
 				Hide: ["Glasses", "Blush"],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
-				TextMaxLength: { Text: 16 },
-				TextFont: "Impact",
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["h0"] },
 					{ Name: "Shine", HasType: false, AllowModuleTypes: ["h0"] },
@@ -7778,8 +7771,6 @@ var AssetFemale3DCG = [
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose", "ItemHead"], Extended: true,
 				DynamicAfterDraw: true,
 				Prerequisite: ["NotProtrudingFromMouth"],
-				TextMaxLength: { Text: 12 },
-				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
 				Layer: [
 					{ Name: "Hood" },
 					{ Name: "Text" },
@@ -8007,8 +7998,6 @@ var AssetFemale3DCG = [
 				Block:["ItemNose"],
 				Hide: ["Glasses", "Blush"],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
-				TextMaxLength: { Text: 16 },
-				TextFont: "Impact",
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["h0"] },
 					{ Name: "Shine", HasType: false, AllowModuleTypes: ["h0"] },
@@ -8344,8 +8333,6 @@ var AssetFemale3DCG = [
 				Name: "WoodenSign", Value: 90, Top: 0, Left: 0, Priority: 57, Difficulty: 1, Time: 5,
 				Random: false, Prerequisite: ["NoMaidTray"], Hide: ["ItemNipples", "ItemNipplesPiercings"],
 				AllowPose: ["Suspension"], Extended: true, DynamicAfterDraw: true,
-				TextMaxLength: { Text: 12, Text2: 12 },
-				TextFont: "'Calligraffitti', cursive",
 				Layer: [
 					{ Name: "Sign" },
 					{ Name: "Rope" },
@@ -8366,8 +8353,7 @@ var AssetFemale3DCG = [
 				BuyGroup:"PetPost", DrawLocks: false, Prerequisite: ["NotSuspended", "NotMounted"],
 				AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }],
 				DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310,
-				FixedPosition: true, TextMaxLength: { Text: 14, Text2: 14, Text3: 14 },
-				TextFont: "sans-serif",
+				FixedPosition: true,
 				Layer: [
 					//Pole Base
 					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
@@ -8567,8 +8553,6 @@ var AssetFemale3DCG = [
 				Block: ["ItemAddon"], DynamicAfterDraw: true, HasType: false,
 				RemoveAtLogin: true, Extended: true, SetPose: ["BaseLower"],
 				DefaultColor: ["#530E50", "#DD2BD5","#A0A0A0", "#D8D8D8","#854DA5", "#9EDDFA"],
-				TextMaxLength: { Text: 22, Text2: 22 },
-				TextFont: "'Satisfy', cursive",
 				Layer: [
 					{ Name: "Back", Priority: 1, ColorGroup: "Box" },
 					{ Name: "Cover", Priority: 58, ColorGroup: "Box", Alpha: [{ Masks: [[0, 0, 100, 1000], [410, 0, 90, 1000], [0, 880, 500, 140], [0, 0, 500, 70], AssetUpperOverflowAlpha, AssetLowerOverflowAlpha] }] },
@@ -8761,8 +8745,6 @@ var AssetFemale3DCG = [
 				Block: ["ItemAddon"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotLifted"],
 				Effect: ["Prone", "Enclose", "Freeze", "Leash"],
-				TextMaxLength: { Text: 20 },
-				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Panel", CopyLayerColor: "Back", HasType: false },
@@ -8793,8 +8775,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PetBowl", Value: 20, Time: 5, IsRestraint: false, DefaultColor: ["Default", "#000000"],
-				FixedPosition: true, Extended: true, DynamicAfterDraw: true, TextMaxLength: { Text: 12 },
-				TextFont: "'Saira Stencil One', 'Arial', sans-serif",
+				FixedPosition: true, Extended: true, DynamicAfterDraw: true,
 				Layer: [
 					{ Name: "Bowl", Top: 885, Left: 300 },
 					{ Name: "Text", HasImage: false, Top: 905, Left: 335 },
