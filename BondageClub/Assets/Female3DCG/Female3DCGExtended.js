@@ -2570,9 +2570,9 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { Text: "" },
 				ChatSetting: TypedItemChatSetting.FROM_TO,
 				ScriptHooks: {
-					Load: PropertyTextLoad,
+					Load: InventoryItemArmsTransportJacketLoadHook,
 					Draw: InventoryItemArmsTransportJacketDrawHook,
-					Exit: PropertyTextExit,
+					Exit: InventoryItemArmsTransportJacketExitHook,
 				}
 			},
 		}, // TransportJacket
@@ -5341,6 +5341,7 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemDevicesWoodenBoxLoadHook,
 					Draw: InventoryItemDevicesWoodenBoxDrawHook,
 					Exit: InventoryItemDevicesWoodenBoxExitHook,
+					PublishAction: InventoryItemDevicesWoodenBoxPublishActionHook,
 				},
 			},
 		}, // WoodenBox

@@ -22,7 +22,6 @@ const NEEDED_FILES = [
 	"Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js",
 	"Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js",
 	"Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js",
-	"Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js",
 	"Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js",
 	"Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js",

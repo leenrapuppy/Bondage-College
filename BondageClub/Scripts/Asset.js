@@ -572,6 +572,7 @@ function AssetLoadAll() {
 	Asset = [];
 	AssetGroup = [];
 	AssetLoad(AssetFemale3DCG, "Female3DCG", AssetFemale3DCGExtended);
+	ExtendedItemManualRegister();
 	Pose = PoseFemale3DCG;
 	PropertyAutoPunishHandled = new Set(AssetGroup.map((a) => a.Name));
 }

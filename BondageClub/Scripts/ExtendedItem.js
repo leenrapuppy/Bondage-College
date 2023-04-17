@@ -889,3 +889,54 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
 			return {};
 	}
 }
+
+/** A temporary hack for registering extra archetypes for a single screen. */
+function ExtendedItemManualRegister() {
+	/** @type {{ group: AssetGroupName, name: string, config: AssetArchetypeConfig }[]} */
+	const items = [
+		{
+			group: "ItemArms",
+			name: "TransportJacket",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				Config: {
+					MaxLength: { Text: 14 },
+					Font: "'Saira Stencil One', 'Arial', sans-serif",
+					DrawData: {
+						Positions: [[1505, 850]],
+					},
+					DialogPrefix: {
+						Header: "ItemArmsTransportJacketSelect",
+					},
+				},
+			},
+		},
+		{
+			group: "ItemDevices",
+			name: "WoodenBox",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				Config: {
+					MaxLength: { Text: 20 },
+					Font: "'Saira Stencil One', 'Arial', sans-serif",
+					PushOnPublish: false,
+					DrawData: {
+						Positions: [[1505, 850]],
+					},
+					DialogPrefix: {
+						Header: "ItemDevicesWoodenBoxSelect",
+					},
+				},
+			},
+		},
+	];
+
+	for (const { group, name, config } of items) {
+		const asset = AssetGet("Female3DCG", group, name);
+		switch (config.Archetype) {
+			case ExtendedArchetype.TEXT:
+				TextItemRegister(asset, /** @type {TextItemConfig} */(config.Config), null, false);
+				break;
+		}
+	}
+}

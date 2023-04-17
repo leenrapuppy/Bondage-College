@@ -14,11 +14,12 @@ const TextItemDataLookup = {};
  * @param {Asset} asset - The asset being registered
  * @param {TextItemConfig} config - The item's typed item configuration
  * @param {null | ExtendedItemOption} parentOption
+ * @param {boolean} createCallbacks - Whether the archetype-specific callbacks should be created or not
  * @returns {TextItemData} - The generated extended item data for the asset
  */
-function TextItemRegister(asset, config, parentOption=null) {
+function TextItemRegister(asset, config, parentOption=null, createCallbacks=true) {
 	const data = TextItemCreateTextItemData(asset, config, parentOption);
-	if (IsBrowser()) {
+	if (IsBrowser() && createCallbacks) {
 		/** @type {ExtendedItemCallbackStruct<TextItemOption>} */
 		const defaultCallbacks = {
 			load: () => TextItem.Load(data),
