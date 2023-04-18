@@ -549,9 +549,12 @@ function AsylumGGTSSetForcedPoseForItem(Item, AdditionalPoses, Effects) {
 	AdditionalPoses.push("");
 	let Pose = CommonRandomItemFromList(SetPose, AdditionalPoses);
 	if (Pose == "")
-		Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
+		Item.Property = { SetPose: [], Difficulty: 0, Effect: [], Type: null };
 	else
 		Item.Property = { SetPose: /** @type {AssetPoseName[]} */ ([Pose]), Difficulty: 10, Effect: Effects };
+	if (Pose == "BackBoxTie") Item.Property.Type = "Wrist";
+	if (Pose == "BackElbowTouch") Item.Property.Type = "Elbow";
+	if (Pose == "LegsClosed") Item.Property.Type = "Closed"; 
 }
 
 /**
@@ -573,11 +576,11 @@ function AsylumGGTSAutomaticTask() {
 		}
 		Item = InventoryGet(Player, "ItemFeet");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticAnkleCuffs")) {
-			AsylumGGTSSetForcedPoseForItem(Item, ["LegsClosed"], ["Block", "Prone"]);
+			AsylumGGTSSetForcedPoseForItem(Item, ["LegsClosed"], ["Prone"]);
 		}
 		Item = InventoryGet(Player, "ItemLegs");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticLegCuffs")) {
-			AsylumGGTSSetForcedPoseForItem(Item, ["LegsClosed"], ["Prone", "Freeze", "Slow"]);
+			AsylumGGTSSetForcedPoseForItem(Item, ["LegsClosed"], ["Prone", "Slow"]);
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);
@@ -658,7 +661,6 @@ function AsylumGGTSAutomaticTask() {
 		let Item = InventoryGet(Player, "ItemPelvis");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticTrainingBelt")) {
 			if (Item.Property == null) Item.Property = {};
-			Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
 			Item.Property.Effect = ["Vibrating", "Egged", "UseRemote"];
 			let Intensity = Item.Property.Intensity;
 			while ((Item.Property.Intensity == null) || (Item.Property.Intensity == Intensity))
