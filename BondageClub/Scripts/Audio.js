@@ -590,7 +590,7 @@ function AudioVibratorSounds(data, metadata) {
 			break;
 	}
 
-	return [Sound, Level * 3];
+	return [Sound, Level];
 }
 
 /**
@@ -601,5 +601,5 @@ function AudioVibratorSounds(data, metadata) {
 function AudioShockSounds(data) {
 	let Modifier = parseInt(data.Content.slice(-1));
 	if (isNaN(Modifier)) Modifier = 0;
-	return ["Shocks", Modifier * 3];
+	return ["Shocks", Modifier];
 }
