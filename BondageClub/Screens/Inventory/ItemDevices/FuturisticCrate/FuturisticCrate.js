@@ -22,7 +22,7 @@ function InventoryItemDevicesFuturisticCrateDevice1Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemDevicesFuturisticCrateDevice1Exit();
 	} else {
-		VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
+		VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], 450, true);
 	}
 }
 
