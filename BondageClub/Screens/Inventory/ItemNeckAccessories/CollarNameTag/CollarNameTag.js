@@ -54,7 +54,7 @@ function InventoryItemNeckAccessoriesCollarNameTagPublishActionHook(data, Origin
 	if (newOption.Name === "Blank") {
 		dictionary.text("NameTagType", "blank");
 	} else {
-		dictionary.textLookup("NameTagType", `${prefix}${newOption.Name}`);
+		dictionary.textLookup("NameTagType", `${data.dialogPrefix.option}${newOption.Name}`);
 	}
 	ChatRoomPublishCustomAction(prefix, true, dictionary.build());
 }
