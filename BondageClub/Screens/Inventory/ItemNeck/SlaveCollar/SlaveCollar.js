@@ -10,7 +10,7 @@ var InventoryItemNeckSlaveCollarTypes = [
 	{
 		Name: "",
 		Image: "SlaveCollar",
-		Property: null,
+		Property: { Type: null },
 		OptionType: "TypedItemOption",
 	}, {
 		Name: "SteelPosture",
