@@ -171,8 +171,7 @@ function AsylumGGTSSAddItems() {
 function AsylumGGTSStartLevel(Level) {
 	Level = parseInt(Level);
 	if (Player.Game == null) Player.Game = {};
-	if (Player.Game.GGTS == null) Player.Game.GGTS = { Level: Level, Time: 0, Strike: 0, Rule: [] };
-	Player.Game.GGTS.Level = Level;
+	Player.Game.GGTS = { Level: Level, Time: 0, Strike: 0, Rule: [] };
 	AsylumGGTSSAddItems();
 	AsylumGGTSComputerImage(Level);
 	if (Level == 6) CharacterChangeMoney(Player, 1000);
