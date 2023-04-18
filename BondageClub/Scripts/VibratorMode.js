@@ -719,8 +719,8 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
  * @returns {boolean} Whether properties were initialized or not
  */
 function VibratorModeInit(modeSet, C, Item, Refresh=true) {
-	const AllowType = Item.Asset.AllowType;
-	if (CommonIsObject(Item.Property) && CommonIncludes(AllowType, Item.Property.Mode)) {
+	const options = VibratorModeGetOptions(modeSet);
+	if (CommonIsObject(Item.Property) && options.some(o => o.Name === Item.Property.Mode)) {
 		return false;
 	}
 
