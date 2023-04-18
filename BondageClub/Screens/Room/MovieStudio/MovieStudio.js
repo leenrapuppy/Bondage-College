@@ -1126,7 +1126,7 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Angry", 8);
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Angry", 8);
 	}
-	if (Activity == "OpenHouseClientOutKennel") InventoryRemove(MovieStudioActor1, "ItemDevices");
+	if (Activity == "OpenHouseClientOutKennel") InventoryRemove(MovieStudioActor2, "ItemDevices");
 	if (Activity == "OpenHouseGirlfriendGag") InventoryWearRandom(MovieStudioActor1, "ItemMouth3");
 	if (Activity == "OpenHouseGirlfriendUngag") InventoryRemove(MovieStudioActor1, "ItemMouth3");
 	if (Activity == "OpenHouseClientGag") InventoryWearRandom(MovieStudioActor2, "ItemMouth3");
