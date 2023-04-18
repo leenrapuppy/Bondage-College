@@ -540,39 +540,54 @@ function AudioGetSoundFromChatMessage(data, metadata) {
 /**
  * Processes the sound for vibrators
  * @param {IChatRoomMessage} data - Represents the chat message received
+ * @param {IChatRoomMessageMetadata} metadata - The metadata from the recieved message
  * @returns {[string, number]} - The name of the sound to play, followed by the noise modifier
  */
-function AudioVibratorSounds(data) {
+function AudioVibratorSounds(data, metadata) {
 	var Sound = "";
 
 	var Level = parseInt(data.Content.substr(data.Content.length - 1));
 	if (isNaN(Level)) Level = 0;
 
-	var AssetName = data.Content.substring(0, data.Content.length - "IncreaseToX".length);
+	// FIXME: what is going on in here? Assets not an array, and AssetName being an Asset and not a string?
+	if (!metadata || !metadata.Assets || !metadata.Assets.AssetName)
+		return null;
+
+	const AssetName = metadata.Assets.AssetName.Name;
+	// FIXME: that should be moved into a vibrating-item-specific extended property instead of an hardcoded list
 	switch (AssetName) {
-		case "Vibe":
-		case "VibeHeartClitPiercing":
-		case "NippleHeart":
-		case "Nipple":
-		case "NippleEgg":
-		case "TapedClitEgg":
-		case "ClitStimulator":
-		case "ItemVulvaClitAndDildoVibratorbeltIncreaseToe": Sound = "VibrationShort"; break;
-		case "ItemVulvaClitAndDildoVibratorbeltDecreaseToe": Sound = "VibrationShort"; break;
-		case "LoveChastityBeltVibe":
-		case "ItemPelvisSciFiPleasurePantiesVibe":
-		case "Belt":
-		case "Panties": Sound = "VibrationLong1"; break;
-		case "Buttplug":
-		case "ItemButtInflVibeButtPlugDecreaseToi":
-		case "ItemButtInflVibeButtPlugIncreaseToi":
-		case "HempRopeBelt":
-		case "SpreaderVibratingDildoBar":
-		case "BunnyTailVibe":
-		case "EggVibePlugXXL":
-		case "ItemVulvaClitAndDildoVibratorbeltIncreaseTod": Sound = "VibrationLong2"; break;
-		case "ItemVulvaClitAndDildoVibratorbeltDecreaseTod": Sound = "VibrationLong2"; break;
-		case "Sybian": Sound = "Sybian"; break;
+		/* Silent */
+		case 'FuckMachine':
+			break;
+
+		default:
+			Sound = "VibrationShort";
+			break;
+
+		case "WandBelt":
+		case "LoveChastityBelt":
+		case "SciFiPleasurePanties":
+		case "VibratingLatexPanties":
+		case "InflVibeButtPlug":
+			Sound = "VibrationLong1";
+			break;
+
+		/*
+		 * FIXME: commented out 'cause it's supposed to apply this sound to the plug part,
+		 * but there's no way to detect that
+		 */
+		// case "InflVibeButtPlug":
+		case 'BunnyTailVibePlug':
+		case 'EggVibePlugXXL':
+		case 'HempRopeBelt':
+		case 'SpreaderVibratingDildoBar':
+		case 'VibratingButtplug':
+			Sound = "VibrationLong2";
+			break;
+
+		case "Sybian":
+			Sound = "Sybian";
+			break;
 	}
 
 	return [Sound, Level * 3];
