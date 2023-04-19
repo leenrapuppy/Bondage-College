@@ -745,8 +745,8 @@ var AssetFemale3DCGExtended = {
 
 		}, // FuturisticBra
 		TickleBra: {
-            Archetype: ExtendedArchetype.VIBRATING,
-        }, // TickleBra
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // TickleBra
 	}, // ItemBreast
 	ItemArms: {
 		Web: {
