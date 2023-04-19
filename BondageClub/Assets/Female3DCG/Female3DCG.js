@@ -3792,8 +3792,6 @@ var AssetFemale3DCG = [
 					{ Name: "Valve", HasType: false,  Left: 160, Top: 393 },
 					{ Name: "Vibe", HasType: false,  Left: 160, Top: 393 },
 					{ Name: "Lock", HasType: false,  Left: 160, Top: 393, LockLayer: true },
-					
-	
 				],
 			},
 			{
