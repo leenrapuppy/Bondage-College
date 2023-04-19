@@ -8880,7 +8880,6 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // LoveChastityBelt
 	}, // ItemPelvis
-	
 	ItemEars: {
 		FuturisticEarphones: {
 			Archetype: ExtendedArchetype.TYPED,
