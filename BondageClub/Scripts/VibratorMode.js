@@ -445,7 +445,7 @@ function VibratorModeScriptDraw(Data) {
 	if (ModeChanged || typeof PersistentData.LastChange !== "number") PersistentData.LastChange = CommonTime();
 	if (ModeChanged) PersistentData.Mode = Item.Property.Mode;
 
-	if (CommonTime() > PersistentData.ChangeTime) {
+	if (ModeChanged || CommonTime() > PersistentData.ChangeTime) {
 		CommonCallFunctionByName("VibratorModeUpdate" + Item.Property.Mode, Item, C, PersistentData);
 		PersistentData.Mode = Item.Property.Mode;
 	}
@@ -465,7 +465,8 @@ function VibratorModeUpdateRandom(Item, C, PersistentData) {
 	var Intensity = CommonRandomItemFromList(OldIntensity, [-1, 0, 1, 2, 3]);
 	/** @type {EffectName[]} */
 	var Effect = Intensity === -1 ? ["Egged"] : ["Egged", "Vibrating"];
-	ExtendedItemSetOption(C, Item, Item.Property || {}, { Intensity, Effect });
+	const option = VibratorModeGetOptions().find(o => o.Name === PersistentData.Mode);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect });
 	// Next update in 1-3 minutes
 	PersistentData.ChangeTime = Math.floor(CommonTime() + OneMinute + Math.random() * 2 * OneMinute);
 	VibratorModePublish(C, Item, OldIntensity, Intensity);
@@ -484,7 +485,8 @@ function VibratorModeUpdateEscalate(Item, C, PersistentData) {
 	// As intensity increases, time between updates decreases
 	var TimeFactor = Math.pow((5 - Intensity), 1.8);
 	var TimeToNextUpdate = (8000 + Math.random() * 4000) * TimeFactor;
-	ExtendedItemSetOption(C, Item, Item.Property || {}, { Intensity, Effect: ["Egged", "Vibrating"] });
+	const option = VibratorModeGetOptions().find(o => o.Name === PersistentData.Mode);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating"] });
 	PersistentData.ChangeTime = Math.floor(CommonTime() + TimeToNextUpdate);
 	VibratorModePublish(C, Item, OldIntensity, Intensity);
 }
@@ -524,7 +526,8 @@ function VibratorModeUpdateEdge(Item, C, PersistentData) {
 	var OneMinute = 60000;
 	var OldIntensity = Item.Property.Intensity;
 	var Intensity = /** @type {VibratorIntensity} */(Math.min(Item.Property.Intensity + 1, 3));
-	ExtendedItemSetOption(C, Item, Item.Property || {}, { Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
+	const option = VibratorModeGetOptions().find(o => o.Name === PersistentData.Mode);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
 	if (Intensity === 3) {
 		// If we've hit max intensity, no more changes needed
 		PersistentData.ChangeTime = Infinity;
@@ -568,7 +571,8 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
 	var Effect = ["Egged"];
 	if (State === VibratorModeState.DENY || Item.Property.Mode === VibratorMode.DENY) Effect.push("Edged");
 	if (Intensity !== -1) Effect.push("Vibrating");
-	ExtendedItemSetOption(C, Item, Item.Property, { State, Intensity, Effect }, false);
+	const option = VibratorModeGetOptions().find(o => o.Name === PersistentData.Mode);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, State, Intensity, Effect }, false);
 	Object.assign(PersistentData, {
 		ChangeTime: CommonTime() + 5000,
 		LastChange: Intensity !== OldIntensity ? CommonTime() : PersistentData.LastChange,
