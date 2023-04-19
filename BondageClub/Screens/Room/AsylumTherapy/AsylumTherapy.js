@@ -271,6 +271,7 @@ function AsylumTherapyTherapyMiniGameEnd() {
 function AsylumTherapyPatientNew() {
 	CharacterRelease(AsylumTherapyPatient);
 	InventoryRemove(AsylumTherapyPatient, "ItemNeck");
+	InventoryRemove(AsylumTherapyPatient, "ItemNipples");
 	InventoryRemove(Player, "ItemHands");
 	AsylumTherapyPatient = CharacterLoadNPC("NPC_AsylumTherapy_Patient");
 	if (AsylumGGTSGetLevel(Player) >= 5) InventoryWear(AsylumTherapyPatient, "FuturisticCollar", "ItemNeck");
