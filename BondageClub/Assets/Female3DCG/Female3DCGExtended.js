@@ -742,7 +742,7 @@ var AssetFemale3DCGExtended = {
 				},
 				BaselineProperty: { HeartRate: 0, HeartIcon: false },
 			},
-			
+
 		}, // FuturisticBra
 		TickleBra: {
             Archetype: ExtendedArchetype.VIBRATING,
@@ -861,7 +861,6 @@ var AssetFemale3DCGExtended = {
 					Npc: "ItemArmsWeb",
 				},
 			}
-			
 		}, // Web
 		InflatableStraightLeotard: {
 			Archetype: ExtendedArchetype.TYPED,
