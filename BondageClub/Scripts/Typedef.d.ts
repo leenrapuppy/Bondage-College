@@ -316,6 +316,17 @@ type AssetAttribute =
 	"CagePlastic2" | "CageTechno" | "CageFlat"
 	;
 
+type AssetPrerequisite =
+	"AccessBreast" | "AccessBreastSuitZip" | "AccessButt" | "AccessFullPenis" | "AccessMouth" | "AccessTorso" | "AccessVulva" |
+	"AllFours" | "BlockedMouth" | "ButtEmpty" | "CanBeCeilingTethered" | "CanCloseLegs" | "CanKneel" | "CannotBeSuited" | "CannotHaveWand" |
+	"ClitEmpty" | "Collared" | "CuffedArms" | "CuffedArmsOrEmpty" | "CuffedFeet" | "CuffedFeetOrEmpty" | "CuffedLegs" | "CuffedLegsOrEmpty" |
+	"DisplayFrame" | "EyesEmpty" | "GagCorset" | "GagFlat" | "GagUnique" | "GasMask" | "HasBreasts" | "HasFlatChest" | "HasPenis" | "HasVagina" |
+	"HoodEmpty" | "LegsOpen" | "NakedFeet" | "NakedHands" | "NeedsNippleRings" | "NoChastityCage" | "NoClothLower" | "NoFeetSpreader" | "NoItemArms" |
+	"NoItemFeet" | "NoItemHands" | "NoItemLegs" | "NoMaidTray" | "NoOuterClothes" | "NotChained" | "NotChaste" | "NotHogtied" | "NotHorse" | "NotKneeling" |
+	"NotKneelingSpread" | "NotLifted" | "NotMasked" | "NotMounted" | "NotProtrudingFromMouth" | "NotShackled" | "NotSuspended" | "NotYoked" | "OnBed" |
+	"RemotesAllowed" | "VulvaEmpty" | "VulvaNotBlockedByBelt"
+;
+
 type CraftingStatusType = 0 | 1 | 2;
 
 type ItemColorMode = "Default" | "ColorPicker";
@@ -924,7 +935,7 @@ interface AssetGroup {
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
 	ColorSuffix?: Record<string, string>;
-	ExpressionPrerequisite?: readonly string[];
+	ExpressionPrerequisite?: readonly AssetPrerequisite[];
 	HasPreviewImages: boolean;
 	/** Return whether this group belongs to the `Appearance` {@link AssetGroup.Category} */
 	IsAppearance(): this is AssetAppearanceGroup;
@@ -1124,7 +1135,7 @@ interface Asset {
 	HeightModifier: number;
 	ZoomModifier: number;
 	Alpha?: readonly AlphaDefinition[];
-	Prerequisite: readonly string[];
+	Prerequisite: readonly AssetPrerequisite[];
 	Extended: boolean;
 	AlwaysExtend: boolean;
 	AlwaysInteract: boolean;
@@ -1193,7 +1204,7 @@ interface Asset {
 	Gender?: 'F' | 'M';
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
-	ExpressionPrerequisite?: readonly string[];
+	ExpressionPrerequisite?: readonly AssetPrerequisite[];
 	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
 	TextFont: null | string;
 

@@ -38,7 +38,7 @@ interface AssetGroupDefinition {
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: AssetGroupItemName;
 	ColorSuffix?: Record<string, string>;
-	ExpressionPrerequisite?: string[];
+	ExpressionPrerequisite?: AssetPrerequisite[];
 	HasPreviewImages?: boolean;
 }
 
@@ -192,7 +192,7 @@ interface AssetDefinition {
 	Height?: number;
 	Zoom?: number;
 	Alpha?: AlphaDefinition[];
-	Prerequisite?: string | string[];
+	Prerequisite?: AssetPrerequisite | AssetPrerequisite[];
 	Extended?: boolean;
 	AlwaysExtend?: boolean;
 	AlwaysInteract?: boolean;
@@ -317,7 +317,7 @@ interface AssetDefinition {
 	CraftGroup?: string;
 
 	/** A list of prerequisite checks that must pass for the group's expressions to be selectable */
-	ExpressionPrerequisite?: string[];
+	ExpressionPrerequisite?: AssetPrerequisite[];
 
 	/** A record with the maximum length for each text-based properties with an input field. */
 	TextMaxLength?: null | Partial<Record<PropertyTextNames, number>>;
@@ -478,7 +478,7 @@ interface ExtendedItemOption {
 	/** The required self-bondage skill level for this option when using it on oneself */
 	SelfBondageLevel?: number;
 	/** The required prerequisites that must be met before this option can be selected */
-	Prerequisite?: string | string[];
+	Prerequisite?: AssetPrerequisite | AssetPrerequisite[];
 	/** A custom background for this option that overrides the default */
 	CustomBlindBackground?: string;
 	/** Whether the option permits locking - if not set, defaults to the AllowLock property of the parent asset */

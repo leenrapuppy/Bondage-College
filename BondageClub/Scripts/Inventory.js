@@ -174,7 +174,7 @@ function InventoryAvailable(C, InventoryName, InventoryGroup) {
 /**
 * Returns an error message if a prerequisite clashes with the character's items and clothes
 * @param {Character} C - The character on which we check for prerequisites
-* @param {String} Prerequisite - The name of the prerequisite
+* @param {AssetPrerequisite} Prerequisite - The name of the prerequisite
 * @returns {String} - The error tag, can be converted to an error message
 */
 function InventoryPrerequisiteMessage(C, Prerequisite) {
@@ -319,7 +319,7 @@ function InventoryIsItemInList(C, ItemGroup, ItemList) {
  * which has the provided prerequisite.
  * @param {Character} C - The character whose items should be checked
  * @param {AssetGroupName} ItemGroup - The name of the item group to check
- * @param {String} Prerequisite - The name of the prerequisite to look for
+ * @param {AssetPrerequisite} Prerequisite - The name of the prerequisite to look for
  * @returns {boolean} - TRUE if the character has an item equipped in the named slot which has the named prerequisite,
  * FALSE otherwise
  */
@@ -409,7 +409,7 @@ function InventoryPrerequisiteConflictingGags(C, BlockingPrereqs) {
  * @param {Character} C - The character on which we check for prerequisites
  * @param {Asset} asset - The asset for which prerequisites should be checked. Any item equipped in the asset's group
  * will be ignored for the purposes of the prerequisite check.
- * @param {string | readonly string[]} [prerequisites=asset.Prerequisite] - An array of prerequisites or a string for a single
+ * @param {AssetPrerequisite | readonly AssetPrerequisite[]} [prerequisites=asset.Prerequisite] - An array of prerequisites or a string for a single
  * prerequisite. If nothing is provided, the asset's default prerequisites will be used
  * @param {boolean} [setDialog=true] - If TRUE, set the screen dialog message at the same time
  * @returns {boolean} - TRUE if the item can be added to the character
