@@ -15,7 +15,7 @@ var InfiltrationCollectRansom = false;
 /** @type {NPCCharacter} */
 var InfiltrationKidnapper = null;
 /** @type {NPCCharacter} */
-var InfiltrationPrivatePandoraInfiltrator = null;
+var InfiltrationPandoraPrisoner = null;
 
 /**
  * Returns TRUE if the mission can complete as a success
@@ -57,13 +57,13 @@ function InfiltrationCatBurglarHasMoney() { return (PandoraMoney > 0); }
  * Returns TRUE if the player can complete the reverse maid mission, at least 50% of the job must be done
  * @returns {boolean} - TRUE if possible
  */
-function InfiltrationReverseMaidCanComplete() { return (PandoraReverseMaidDone * 2 >= PandoraReverseMaidTotal); }
+function InfiltrationReverseMaidCanComplete() { return ((PandoraReverseMaidDone * 2 >= PandoraReverseMaidTotal) && (InfiltrationMission == "ReverseMaid")); }
 
 /**
  * Returns TRUE if the player has captured at least 1 infiltrator from Pandora and has reached 5 infiltration
  * @returns (boolean) - TRUE if successful
  */
-function InfiltrationPrivatePrisonerPresent() { return InfiltrationPrivatePandoraInfiltrator != null && SkillGetLevel(Player, "Infiltration") >= 5;}
+function InfiltrationPandoraPrisonerPresent() { return InfiltrationPandoraPrisoner != null && SkillGetLevel(Player, "Infiltration") >= 5;}
 
 
 /**
@@ -98,14 +98,9 @@ function InfiltrationLoad() {
 	// Make sure the infiltration data is setup
 	if (Player.Infiltration == null) Player.Infiltration = {};
 	if (Player.Infiltration.Perks == null) Player.Infiltration.Perks = "";
-
-	// If there's a private room character from Pandora captured while attempting to kidnap player, set the character. Sets right most character.
-	for (let i=1;i<PrivateCharacter.length;i++) {
-		if (PrivateCharacter[i].FromPandora) {
-			InfiltrationPrivatePandoraInfiltrator = PrivateCharacter[i];
-		}
-	}
-
+	
+	// If there's a private room character from Pandora, set character at random.
+	InfiltrationSetPandoraPrisoner();
 }
 
 /**
@@ -463,8 +458,8 @@ function InfiltrationDressMaid(Rep) {
  * @returns {void} - Nothing
  */
 
-function InfiltrationPrivatePrisonerBrainwash() {
-	var C = InfiltrationPrivatePandoraInfiltrator;
+function InfiltrationPandoraPrisonerBrainwash() {
+	var C = InfiltrationPandoraPrisoner;
 	//Hide character for 3 days
 	NPCEventAdd(C, "NPCBrainwashing", CurrentTime + 259200000);
 	//Remove Pandora flag
@@ -475,12 +470,29 @@ function InfiltrationPrivatePrisonerBrainwash() {
 	C.Owner = Player.Name;
 	InventoryWear(C, "SlaveCollar", "ItemNeck");
 	CharacterNaked(C);
-	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 100-150)
+	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 60-110)
 	var S = Math.floor(Math.random()*10) + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
 	var T = NPCTraitGet(C, "Dominant") - S;
 	if (T < -100) { T = -100; }
 	NPCTraitSet(C, "Dominant", T);
 	//Neutralize love
 	C.Love = 0;
+	//Reset and recheck for smoother dialog
+	InfiltrationSetPandoraPrisoner();
 	ServerPrivateCharacterSync();
+}
+
+/**
+ * Picks captured infiltrator at random.
+ * @returns {void} - Nothing
+ */
+function InfiltrationSetPandoraPrisoner() {
+	var candidates = PrivateCharacter.filter(c => c.FromPandora);
+	if (candidates.length === 0) {
+		InfiltrationPandoraPrisoner = null;
+	} else if (candidates.length === 1) {
+		InfiltrationPandoraPrisoner = candidates[0];
+	} else {
+		InfiltrationPandoraPrisoner = CommonRandomItemFromList(InfiltrationPandoraPrisoner, candidates);
+	}
 }
