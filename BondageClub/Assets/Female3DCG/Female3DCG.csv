@@ -227,6 +227,7 @@ Bra,Bra10,Style 4
 Bra,CoconutBra,Coconut Bra
 Bra,SleevelessSlimLatexLeotard,Slim Latex Leotard (Sleeveless)
 Bra,DominatrixLeotard,Dominatrix Leotard
+Bra,StrapBra, Strap Bra
 Corset,,Corset
 Corset,Corset1,Corset + Garters
 Corset,Corset2,Corset
@@ -903,6 +904,7 @@ ItemVulva,VibeEggPenisBase,Vibrating Egg
 ItemVulva,PlasticChastityCage2,Plastic Chastity Cage 2
 ItemVulva,TechnoChastityCage,Techno Chastity Cage
 ItemVulva,FlatChastityCage,Flat Chastity Cage
+ItemVulva,InflatableVibratingPanties, Inflatable Vibrating Panties
 ItemVulvaPiercings,,Clitoris
 ItemVulvaPiercings,StraightClitPiercing,Straight Clitoris Piercing
 ItemVulvaPiercings,RoundClitPiercing,Round Clitoris Piercing
@@ -1054,6 +1056,7 @@ ItemNipples,ShockClamps,Shock Clamps
 ItemNipples,PlateClamps, Plate Clamps
 ItemNipples,StretchClovers,Nipple Stretchers
 ItemNipples,NippleClamps2, Nipple Clamps 2
+ItemNipples,NippleVibe, Nipple Vibrator
 ItemNipplesPiercings,,Nipples
 ItemNipplesPiercings,StraightPiercing,Straight Piercings
 ItemNipplesPiercings,RoundPiercing,Round Piercings
@@ -1075,6 +1078,7 @@ ItemBreast,FuturisticBra2,Futuristic Bra
 ItemBreast,OrnateChastityBra,Ornate Chastity Bra
 ItemBreast,Ribbons,Ribbons
 ItemBreast,LeatherBreastBinder,Leather Breast Binder
+ItemBreast,TickleBra, Tickle Bra
 ItemArms,,Arms
 ItemArms,NylonRope,Nylon Rope
 ItemArms,HempRope,Hemp Rope
