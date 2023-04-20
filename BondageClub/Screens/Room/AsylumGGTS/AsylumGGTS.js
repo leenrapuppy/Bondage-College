@@ -11,8 +11,11 @@ var AsylumGGTSTaskTarget = null;
 var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
+/**
+ * The list of available tasks, partitioned by level.
+ */
 var AsylumGGTSTaskList = [
-	[], // Level 0, 1, 2, 3 & 4 tasks
+	[],
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "ActivityNod", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemHandsFuturisticMittens", "ItemPose", "ItemRemoveLimb", "ItemRemoveBody", "ItemRemoveHead", "ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "ItemFuckMachineIntensity", "UnlockRoom", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "ItemBootsFuturisticHeels", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "ItemChangeGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
@@ -21,7 +24,8 @@ var AsylumGGTSTaskList = [
 	["QueryCanFailMaster", "QueryLoveMaster", "QuerySurrenderMaster", "QueryWhoControlMaster", "QueryServeObeyMaster"]
 ];
 var AsylumGGTSLevelTime = [0, 7200000, 10800000, 18000000, 28800000, 46800000, 75600000];
-var AsylumGGTSPreviousPose = "";
+/** The last pose the character had. Used to enforce KeepPose rules */
+var AsylumGGTSPreviousPose = [];
 var AsylumGGTSWordCheck = 0;
 var AsylumGGTSSpeed = 1;
 
@@ -200,7 +204,7 @@ function AsylumGGTSBuildPrivate() {
 	ChatRoomSpace = "Asylum";
 	AsylumGGTSTimer = 0;
 	AsylumGGTSTask = null;
-	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+	AsylumGGTSPreviousPose = [...Player.Pose];
 	ChatCreateBackgroundList = BackgroundsGenerateList([BackgroundsTagAsylum]);
 	ChatSearchReturnToScreen = "AsylumGGTS";
 	ChatCreateLoad();
@@ -554,7 +558,7 @@ function AsylumGGTSSetForcedPoseForItem(Item, AdditionalPoses, Effects) {
 		Item.Property = { SetPose: /** @type {AssetPoseName[]} */ ([Pose]), Difficulty: 10, Effect: Effects };
 	if (Pose == "BackBoxTie") Item.Property.Type = "Wrist";
 	if (Pose == "BackElbowTouch") Item.Property.Type = "Elbow";
-	if (Pose == "LegsClosed") Item.Property.Type = "Closed"; 
+	if (Pose == "LegsClosed") Item.Property.Type = "Closed";
 }
 
 /**
@@ -877,6 +881,8 @@ function AsylumGGTSNewTask() {
 	if (Level <= 0) return;
 	if (ChatRoomSpace !== "Asylum") return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
+
+	// Form a pool of all available tasks which have a level smaller or equal than the player's current level
 	let TaskList = [];
 	for (let L = 0; (L < AsylumGGTSTaskList.length) && (L <= Level); L++)
 		for (let T = 0; T < AsylumGGTSTaskList[L].length; T++)
@@ -889,13 +895,15 @@ function AsylumGGTSNewTask() {
 		Count++;
 	}
 	if ((Count >= 50) || (AsylumGGTSTask == null)) return;
+
+	// A task has been selected, set up timers and publish it as the requested task
 	if (AsylumGGTSTask == "NoTalking") AsylumGGTSTimer = Math.round(CommonTime() + 60000);
 	AsylumGGTSTaskTarget = AsylumGGTSFindTaskTarget(AsylumGGTSTask);
 	AsylumGGTSMessage("Task" + AsylumGGTSTask, AsylumGGTSTaskTarget);
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();
 	AsylumGGTSAutomaticTask();
-	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+	AsylumGGTSPreviousPose = [...Player.Pose];
 }
 
 /**
@@ -928,7 +936,7 @@ function AsylumGGTSEndTaskSave(Fail) {
 	}
 	ChatRoomCharacterUpdate(Player);
 	AsylumGGTSTaskEnd = CommonTime();
-	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+	AsylumGGTSPreviousPose = [...Player.Pose];
 }
 
 /**
@@ -1048,7 +1056,7 @@ function AsylumGGTSProcess() {
 	}
 
 	// Validates that the pose rule isn't broken
-	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("KeepPose") >= 0) && (AsylumGGTSPreviousPose != JSON.stringify(Player.Pose)))
+	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("KeepPose") >= 0) && !CommonArraysEqual(AsylumGGTSPreviousPose, Player.Pose, true))
 		if (!AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
 			AsylumGGTSAddStrike();
 			AsylumGGTSMessage("KeepPoseStrike" + Player.Game.GGTS.Strike.toString());
@@ -1389,5 +1397,5 @@ function AsylumGGTSDrawCharacter(C, X, Y, Zoom) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSReset() {
-	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+	AsylumGGTSPreviousPose = [...Player.Pose];
 }
