@@ -1053,6 +1053,17 @@ function CommonIsObject(value) {
 }
 
 /**
+ * Deep-clones an object
+ * @todo JSON serialization will break things like functions, Sets and Maps.
+ * @template T
+ * @param {T} obj
+ * @returns {T}
+ */
+function CommonCloneDeep(obj) {
+	return JSON.parse(JSON.stringify(obj));
+}
+
+/**
  * Type guard which checks that a value is a non-negative (i.e. positive or zero) integer
  * @param {unknown} value - The value to test
  * @returns {value is number}

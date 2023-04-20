@@ -572,8 +572,9 @@ function TypedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, X
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
-	const typeField = (Options.length && Options[0].OptionType === "VibratingItemOption") ? "Mode" : "Type";
-	const CurrentOption = Options.find(O => O.Property[typeField] === DialogFocusItem.Property[typeField]);
+	const isVibe = (Options.length && Options[0].OptionType === "VibratingItemOption");
+	const typeField = isVibe ? "Mode" : "Type";
+	const CurrentOption = Options.find(O => (isVibe ? O.Name : O.Property[typeField]) === DialogFocusItem.Property[typeField]);
 
 	// Draw the possible variants and their requirements, arranged based on the number per page
 	for (let I = ItemOptionsOffset; I < Options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {

@@ -417,7 +417,7 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 	}
 
 	if (dynamicProperty != null) {
-		dynamicProperty(item);
+		dynamicProperty(item.Property);
 	}
 	CharacterRefresh(C, push);
 }
