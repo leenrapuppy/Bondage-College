@@ -998,8 +998,10 @@ function PandoraPunishmentIntro(FromKidnapper, FixIntro) {
 	if ((FromKidnapper != null) && FromKidnapper) Dominatrix.Stage = "200";
 	CharacterSetCurrent(Dominatrix);
 	CurrentCharacter.CurrentDialog = IntroText;
-	InfiltrationTarget.Fail = true;
-	InfiltrationTarget.Found = false;
+	if (InfiltrationTarget) {
+		InfiltrationTarget.Fail = true;
+		InfiltrationTarget.Found = false;
+	}
 }
 
 /**
