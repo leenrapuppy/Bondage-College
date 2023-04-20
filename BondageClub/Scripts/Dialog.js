@@ -1887,6 +1887,7 @@ function DialogChangeMode(mode) {
 	switch (DialogMenuMode) {
 		case "locking":
 		case "activities":
+		case "color":
 		case "permissions":
 		case "items":
 			DialogInventoryBuild(C, null, DialogMenuMode === "locking");
@@ -1897,6 +1898,17 @@ function DialogChangeMode(mode) {
 		case "dialog":
 			DialogInventory = [];
 			DialogMenuButton = [];
+			break;
+
+		case "extended":
+		case "tighten":
+		case "crafted":
+		case "struggle":
+			DialogMenuButtonBuild(C);
+			break;
+
+		default:
+			console.warn(`Asked to change to mode ${DialogMenuMode}, but setup missing`);
 			break;
 	}
 }
