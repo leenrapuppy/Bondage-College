@@ -79,6 +79,7 @@ ItemArmsWrappedBlanketSetFeetWrapped,,,SourceCharacter wraps TargetCharacter wit
 ItemArmsWrappedBlanketSetFullWrapped,,,SourceCharacter fully wraps TargetCharacter in a blanket.,,
 SelectItem,,,Select an item to use.,,
 SelectItemGroup,,,Select an item to use on the GroupName.,,
+SelectLock,,,Select a lock to use on the GroupName.,,
 SelectActivity,,,Select an activity.,,
 SelectActivityGroup,,,Select an activity to use on the GroupName.,,
 CraftedItemProperties,,,Crafted item properties.,,
