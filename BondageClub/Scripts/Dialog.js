@@ -1885,12 +1885,20 @@ function DialogChangeMode(mode) {
 	}
 
 	switch (DialogMenuMode) {
-		case "locking":
 		case "activities":
 		case "color":
 		case "permissions":
 		case "items":
-			DialogInventoryBuild(C, null, DialogMenuMode === "locking");
+		case "locked":
+			DialogInventoryBuild(C, null);
+			DialogMenuButtonBuild(C);
+			DialogBuildActivities(C);
+			// Ensure we don't leave that set, that's only for "locking" mode
+			DialogFocusSourceItem = null;
+			break;
+
+		case "locking":
+			DialogInventoryBuild(C, null, true);
 			DialogMenuButtonBuild(C);
 			DialogBuildActivities(C);
 			break;
