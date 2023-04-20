@@ -3486,7 +3486,7 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
 				]
-			},			
+			},
 			{
 				Name: "FloorShackles", Fetish: ["Metal"], Priority: 24, Left: 0, Value: 20, Difficulty: 6, Time: 10, AllowLock: true, Prerequisite: ["NoItemLegs", "LegsOpen"], SetPose: ["Spread"], Effect: ["Freeze", "Prone", "BlockKneel"], Block: ["ItemLegs", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemLegs", "ItemBoots"],
 				Layer: [
@@ -3644,7 +3644,7 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
 				]
-			},			
+			},
 			{ Name: "FuturisticLegCuffs",  Category: ["SciFi"], Fetish: ["Metal"], DefaultColor: ["Default", "#40812C", "#707070"], Audio: "FuturisticApply", Priority: 24, Value: 30, Difficulty: 3, Time: 10, Random: false, AllowLock: true, DrawLocks: false,
 				AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"], FuturisticRecolor: true, Effect: ["CuffedLegs"], Extended: true, AllowActivePose: ["Kneel", "KneelingSpread"], FreezeActivePose: [], HasType: false, HideForPose: ["KneelingSpread"],
 				Layer: [
@@ -4746,7 +4746,7 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
 				]
-			},			
+			},
 			{ Name: "CeilingShackles", Fetish: ["Metal"], Value: 100, Left: 0, Top: 0, Difficulty: 6, Audio: "ChainLong", Time: 20, Random: false, AllowLock: true, AllowPose: ["Suspension"], Effect: ["Block", "Prone", "Freeze", "NotSelfPickable"], SetPose: ["Yoked"], Hide: ["Bracelet"], Extended: true,
 				Layer: [
 					{ Name: "Chain", Top: -388, Priority: 6 },

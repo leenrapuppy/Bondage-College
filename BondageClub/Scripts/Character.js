@@ -471,9 +471,9 @@ function CharacterDialogSubstitution(C){
 	subst = subst.concat(ChatRoomPronounSubstitutions(Player, "DialogPlayer", false));
 
 	C.Dialog.forEach(_=>{
-		if(_.Option) _.Option = CommonStringSubstitute(_.Option, subst); 
-		if(_.Result) _.Result = CommonStringSubstitute(_.Result, subst); 
-	})
+		if(_.Option) _.Option = CommonStringSubstitute(_.Option, subst);
+		if(_.Result) _.Result = CommonStringSubstitute(_.Result, subst);
+	});
 }
 
 /**

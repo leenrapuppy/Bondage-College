@@ -32,7 +32,7 @@ function InventoryItemDevicesFuturisticCrateDevice1PublishAction(C, item, newOpt
 	const dictionary = new DictionaryBuilder()
 		.sourceCharacter(Player)
 		.destinationCharacter(C)
-		.asset(item.Asset)
+		.asset(item.Asset);
 
 	const newIsAdvanced = VibratorModesAdvanced.includes(newOption.Name);
 	const prevIsAdvanced = VibratorModesAdvanced.includes(previousOption.Name);
