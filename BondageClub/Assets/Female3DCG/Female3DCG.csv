@@ -834,6 +834,7 @@ ItemFeet,SturdyLeatherBelts,Sturdy Leather Belt
 ItemFeet,Irish8Cuffs,Irish 8 Feet Cuffs
 ItemFeet,DuctTape,Duct Tape
 ItemFeet,LeatherAnkleCuffs,Leather Ankle Cuffs
+ItemFeet,LeatherDeluxeAnkleCuffs,Leather Deluxe Ankle Cuffs
 ItemFeet,FloorShackles,Floor Shackles
 ItemFeet,SteelAnkleCuffs,Steel Ankle Cuffs
 ItemFeet,EscortAnkleCuffs,Escort Ankle Cuffs
@@ -860,6 +861,7 @@ ItemLegs,LeatherBelt,Leather Belt
 ItemLegs,SturdyLeatherBelts,Sturdy Leather Belt
 ItemLegs,DuctTape,Duct Tape
 ItemLegs,LeatherLegCuffs,Leather Leg Cuffs
+ItemLegs,LeatherDeluxeLegCuffs,Leather Deluxe Leg Cuffs
 ItemLegs,FuturisticLegCuffs,Futuristic Leg Cuffs
 ItemLegs,OrnateLegCuffs,Ornate Leg Cuffs
 ItemLegs,LegBinder,Leg Binder
@@ -1087,6 +1089,7 @@ ItemArms,SturdyLeatherBelts,Sturdy Leather Belt
 ItemArms,LeatherArmbinder,Leather Armbinder
 ItemArms,ArmbinderJacket,Armbinder Jacket
 ItemArms,LeatherCuffs,Leather Cuffs
+ItemArms,LeatherDeluxeCuffs,Leather Deluxe Cuffs
 ItemArms,CeilingShackles,Ceiling Shackles
 ItemArms,SteelCuffs,Steel Cuffs
 ItemArms,FuturisticCuffs,Futuristic Cuffs
@@ -1218,6 +1221,7 @@ ItemHandheld,MedicalInjector,Medical Injector
 ItemHandheld,Mug,Mug
 ItemNeck,,Neck
 ItemNeck,LeatherCollar,Leather Collar
+ItemNeck,LeatherDeluxeCollar, Leather Deluxe Collar
 ItemNeck,LeatherCollarBell,Bell Collar
 ItemNeck,LeatherCollarBow,Bow Collar
 ItemNeck,SlaveCollar,Slave Collar

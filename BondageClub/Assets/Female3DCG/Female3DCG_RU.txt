@@ -1329,6 +1329,8 @@ Duct Tape
 клейкая лента
 Leather Ankle Cuffs
 Кожаные Манжеты для щиколоток
+Leather Deluxe Ankle Cuffs
+Делюкс Манжеты для щиколоток
 Floor Shackles
 Напольные кандалы
 Steel Ankle Cuffs
@@ -1369,6 +1371,8 @@ Legs
 Ноги
 Leather Leg Cuffs
 Кожаные наножники
+Leather Deluxe Leg Cuffs
+Делюкс Манжеты на бедра
 Futuristic Leg Cuffs
 Футуристические манжеты для ног
 Ornate Leg Cuffs
@@ -1711,6 +1715,8 @@ Armbinder Jacket
 Куртка-армбиндер
 Leather Cuffs
 Кожаные Манжеты
+Leather Deluxe Cuffs
+Кожаные Манжеты Делюкс
 Ceiling Shackles
 Потолочные кандалы
 Steel Cuffs
@@ -1941,6 +1947,8 @@ Neck
 Шея
 Leather Collar
 кожаный ошейник
+Leather Deluxe Collar
+Кожаный ошейник Делюкс
 Bell Collar
 Ошейник с колокольчиком
 Bow Collar

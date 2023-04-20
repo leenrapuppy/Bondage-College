@@ -1664,6 +1664,10 @@ SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel cuf
 SourceCharacter отсоединяет цепочку от стильных стальных манжет DestinationCharacter .
 SourceCharacter attaches the HighStyle Steel cuffs wrist chain behind DestinationCharacter back.
 SourceCharacter прикрепляет стильные стальные манжеты на запястье за спиной DestinationCharacter .
+SourceCharacter detaches the chain from DestinationCharacter Leather Deluxe cuffs.
+SourceCharacter отсоединяет цепочку от Делюкс манжет DestinationCharacter .
+SourceCharacter attaches the Leather Deluxe cuffs wrist chain behind DestinationCharacter back.
+SourceCharacter прикрепляет Делюкс манжеты на запястье за спиной DestinationCharacter .
 SourceCharacter detaches the chain from DestinationCharacter Ornate leg cuffs.
 SourceCharacter снимает цепочку с изысканных манжет на ногах DestinationCharacter Ornate .
 SourceCharacter attaches the Ornate leg cuffs chain on DestinationCharacter legs.
@@ -1675,7 +1679,13 @@ SourceCharacter прикрепляет изысканные манжеты на 
 SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel ankle cuffs.
 SourceCharacter отсоединяет цепочку от стильный стальных манжет DestinationCharacter на щиколотках.
 SourceCharacter attaches the HighStyle Steel ankle cuffs chain on DestinationCharacter ankles.
-SourceCharacter прикрепляет стильные стальные манжеты на щиколотках к лодыжкам DestinationCharacter .
+SourceCharacter сцепляет стильные стальные манжеты на щиколотках DestinationCharacter .
+SourceCharacter detaches the chain from DestinationCharacter Leather Deluxe ankle cuffs.
+SourceCharacter отсоединяет цепочку от Делюкс манжет DestinationCharacter на щиколотках.
+SourceCharacter attaches the Leather Deluxe ankle cuffs chain on DestinationCharacter ankles.
+SourceCharacter сцепляет Делюкс манжеты на щиколотках DestinationCharacter .
+SourceCharacter attaches the leather cuffs wrist and elbow chains behind ее/ей back and connects the wrist and ankle cuffs.
+SourceCharacter прикрепляет кожаные манжеты на запястье и локоть цепями за ее/ей спиной и соединяет наручные и голеностопные манжеты.
 How tight do you want to strap the jacket?
 Насколько туго вы хотите застегнуть куртку?
 Snug

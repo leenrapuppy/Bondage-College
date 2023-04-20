@@ -1368,6 +1368,10 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LeatherCuffs
+		LeatherDeluxeCuffs: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { AssetName: "LeatherCuffs" },
+		}, // LeatherDeluxeCuffs		
 		OrnateCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "LeatherCuffs" },
@@ -7956,6 +7960,39 @@ var AssetFemale3DCGExtended = {
 				}
 			}
 		}, // LeatherLegCuffs
+		LeatherDeluxeLegCuffs: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "None",
+						Property: { Type: null },
+					},
+					{
+						Name: "Closed",
+						Property: {
+							Type: "Closed",
+							SetPose: ["LegsClosed"],
+							Effect: ["Prone", "KneelFreeze", "Slow"],
+							AllowActivePose: ["Kneel", "LegsClosed"],
+							Difficulty: 6,
+						},
+						Prerequisite: ["CanCloseLegs"],
+					},
+					{
+						Name: "Chained",
+						Property: {
+							Type: "Chained", Effect: ["Slow"],
+						},
+						Prerequisite: ["NotHorse"],
+					}
+				],
+				DialogPrefix: {
+					Header: "SelectBondagePosition",
+				}
+			}
+		}, // LeatherLegCuffs
 		Ribbons: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -8154,6 +8191,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "SteelAnkleCuffs" },
 		}, // LeatherAnkleCuffs
+		LeatherDeluxeAnkleCuffs: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { AssetName: "SteelAnkleCuffs" },
+		}, // LeatherDeluxeAnkleCuffs		
 		OrnateAnkleCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "SteelAnkleCuffs" },
