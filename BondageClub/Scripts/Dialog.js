@@ -1967,6 +1967,8 @@ function DialogChangeFocusToGroup(C, Group) {
 		if (!(DialogMenuMode === "permissions" && C.IsPlayer() || DialogMenuMode === "activities")) {
 			DialogChangeMode("items");
 		}
+		// Set the mode back to itself to trigger a refresh of the state variables.
+		DialogChangeMode(DialogMenuMode);
 	} else {
 		// We don't have a focused group anymore. Switch to dialog mode.
 		DialogChangeMode("dialog");
