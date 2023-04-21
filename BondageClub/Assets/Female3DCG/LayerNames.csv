@@ -877,6 +877,13 @@ ItemHoodLatexBunnyNose, Nose
 ItemHoodLatexBunnyInnerEar, Inner Ear
 ItemHoodLatexBunnyOuterEar, Outer Ear
 ItemHoodLatexBunnyMouth, Mouth
+ItemHoodVacHoodBase, Hood
+ItemHoodVacHoodLenses, Lens
+ItemHoodVacHoodTube, Breathing Tube
+ItemHoodVacHoodPlasticClip, Clip
+ItemHoodVacHoodClipHose, Clipped Hose
+ItemHoodVacHoodHandPump, Pump
+ItemHoodVacHoodRebreather, Rebreather Bag
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
@@ -1572,3 +1579,10 @@ ClothLatexTankTophoodDown, Loose Hood
 ClothLatexTankTophoodFull, Pulled Hood
 ClothLatexTankTophoodHigh, Hoddie Up
 ClothLatexTankTophoodLow, Hoodie Down
+ItemHoodVacHoodBase, hood
+ItemHoodVacHoodLenses, Lens
+ItemHoodVacHoodTube, Breathing Tube
+ItemHoodVacHoodPlasticClip, Clip
+ItemHoodVacHoodClipHose, Clipped Hose
+ItemHoodVacHoodHandPump, Pump
+ItemHoodVacHoodRebreather, Rebreather Bag

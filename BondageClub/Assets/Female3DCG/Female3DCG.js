@@ -8217,6 +8217,22 @@ var AssetFemale3DCG = [
 
 				],
 			},
+			{
+				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true,
+				Hide: ["Head", "HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
+				DefaultColor: [],
+				Layer: [
+					{ Name: "Lenses",Top: 60, Left: 132, HasType: false, },
+					{ Name: "Base", Top: 48, Left: 134, HasType: false, },
+					{ Name: "Tube", Top: 48, Left: 134, HasType: false, },
+					{ Name: "HandPump", Top: 48, Left: 134, HasType: false, AllowModuleTypes: ["hp1"]},
+					{ Name: "PlasticClip", Top: 48, Left: 134, HasType: false, AllowModuleTypes: ["pc1"]},
+					{ Name: "ClipHose", Top: 48, Left: 134, HasType: false,CopyLayerColor: "Tube", AllowModuleTypes: ["pc1"]},
+					{ Name: "Rebreather", Top: 134, Left: 134, HasType: false,CopyLayerColor: "HandPump", AllowModuleTypes: ["r1"]},
+
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
