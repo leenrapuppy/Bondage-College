@@ -1182,7 +1182,7 @@ function MovieStudioDoActivity(Activity) {
 		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "Medium", 8);
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Closed", 8);
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Closed", 8);
-	}	
+	}
 	if (Activity == "OpenHouseSpecialEnding") MovieStudioTimer = CurrentTime;
 	if (Activity == "OpenHouseClientNakedSub") {
 		MovieStudioActor1.Stage = "1430";
@@ -1276,7 +1276,7 @@ function MovieStudioDoActivity(Activity) {
 			MovieStudioChangeMeter(25);
 		}
 	}
-	
+
 	// Check for decay
 	MovieStudioProcessDecay();
 

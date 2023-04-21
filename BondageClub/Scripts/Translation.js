@@ -792,10 +792,10 @@ function TranslationParseTXT(str) {
 function TranslationString(S, T, CharacterName) {
 	if(S && S.trim()){
 		S = S.trim();
-		let r = T.findIndex(_=>_===S)
-		if(r >= 0) return T[r+1]
+		let r = T.findIndex(_=>_===S);
+		if(r >= 0) return T[r+1];
 	}
-	return S
+	return S;
 }
 
 /**
@@ -809,7 +809,7 @@ function TranslationDialogArray(C, T) {
 		C.Dialog[D].Option = TranslationString(C.Dialog[D].Option, T, C.Name);
 		C.Dialog[D].Result = TranslationString(C.Dialog[D].Result, T, C.Name);
 	}
-	CharacterDialogSubstitution(C)
+	CharacterDialogSubstitution(C);
 }
 
 /**
@@ -854,7 +854,7 @@ function TranslationDialog(C) {
 			});
 
 	} else {
-		CharacterDialogSubstitution(C)
+		CharacterDialogSubstitution(C);
 	}
 
 }
