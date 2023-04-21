@@ -1371,7 +1371,7 @@ var AssetFemale3DCGExtended = {
 		LeatherDeluxeCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "LeatherCuffs" },
-		}, // LeatherDeluxeCuffs		
+		}, // LeatherDeluxeCuffs
 		OrnateCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "LeatherCuffs" },
@@ -8194,7 +8194,7 @@ var AssetFemale3DCGExtended = {
 		LeatherDeluxeAnkleCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "SteelAnkleCuffs" },
-		}, // LeatherDeluxeAnkleCuffs		
+		}, // LeatherDeluxeAnkleCuffs
 		OrnateAnkleCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "SteelAnkleCuffs" },
