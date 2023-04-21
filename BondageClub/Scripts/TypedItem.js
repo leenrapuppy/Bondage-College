@@ -96,9 +96,16 @@ function TypedItemCreateTypedItemData(asset, {
 	ScriptHooks,
 	BaselineProperty=null,
 }) {
-	const optionsParsed = Options.map(o => {
+	const optionsParsed = Options.map((o, i) => {
 		/** @type {TypedItemOption} */
-		const ret = { ...o, OptionType: "TypedItemOption" };
+		const ret = {
+			...o,
+			OptionType: "TypedItemOption",
+			Property: {
+				...(o.Property || {}),
+				Type: i === 0 ? null : o.Name,
+			},
+		};
 		if (typeof ChangeWhenLocked === "boolean" && typeof ret.ChangeWhenLocked !== "boolean") {
 			ret.ChangeWhenLocked = ChangeWhenLocked;
 		}

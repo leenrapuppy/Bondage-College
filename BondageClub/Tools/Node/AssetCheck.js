@@ -169,28 +169,6 @@ function testDynamicGroupName(groupDefinitions) {
 }
 
 /**
- * Checks for the option names of typed items
- * @param {ExtendedItemMainConfig} config
- */
-function testTypedOptionName(config) {
-	for (const { assetName, groupName, assetConfig } of flattenExtendedConfig(config)) {
-		if (assetConfig.Archetype !== "typed" || assetConfig.Options === undefined) {
-			continue;
-		}
-
-		const invalidOptions = assetConfig.Options.filter(o => {
-			const type = o?.Property?.Type;
-			return !(o.Name === type || type === null);
-		});
-		if (invalidOptions.length !== 0) {
-			const n = invalidOptions.length;
-			const invalidNames = invalidOptions.map(o => `${o.Name}:${o.Property.Type}`);
-			error(`${groupName}:${assetName}: Found ${n} typed item option name/type mismatches: ${invalidNames}`);
-		}
-	}
-}
-
-/**
  * Flatten and yield all combined Asset/Group configs and names
  * @param {ExtendedItemMainConfig} extendedItemConfig
  */
@@ -692,7 +670,6 @@ function sanitizeVMOutput(input) {
 	}
 
 	testDynamicGroupName(AssetFemale3DCG);
-	testTypedOptionName(AssetFemale3DCGExtended);
 	testExtendedItemDialog(AssetFemale3DCGExtended, dialogArray);
 	testColorGroups(missingColorGroups);
 	testColorLayers(missingColorLayers);

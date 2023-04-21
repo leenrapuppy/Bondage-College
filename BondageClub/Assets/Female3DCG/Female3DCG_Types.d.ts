@@ -495,13 +495,12 @@ interface ExtendedItemOption {
 
 /** Extended item option subtype for typed items */
 interface TypedItemOptionBase extends Omit<ExtendedItemOption, "OptionType"> {
-	Property: ItemProperties & Pick<Required<ItemProperties>, "Type">;
-	/** A unique (automatically assigned) identifier of the struct type */
-	OptionType?: "TypedItemOption";
+	Property?: Omit<ItemProperties, "Type">;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig | TextItemConfig;
 	/** Whether or not this option can be selected randomly */
 	Random?: boolean;
+	NPCDefault?: boolean;
 }
 
 /** Extended item option subtype for typed items */
@@ -509,6 +508,7 @@ interface TypedItemOption extends Omit<TypedItemOptionBase, "ArchetypeConfig"> {
 	OptionType: "TypedItemOption";
 	/** If the option has an archetype, sets the data to use */
 	ArchetypeData?: VibratingItemData | VariableHeightData | TextItemData;
+	Property: ItemProperties & Pick<Required<ItemProperties>, "Type">;
 }
 
 /** Extended item option subtype for vibrating items */
@@ -718,16 +718,9 @@ interface ModularItemOptionBase extends Omit<ExtendedItemOption, "OptionType" | 
 	SetPose?: AssetPoseName;
 	/** A list of activities enabled by that module */
 	AllowActivity?: ActivityName[];
-	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
-	Name?: string;
-	/** A unique (automatically assigned) identifier of the struct type */
-	OptionType?: "ModularItemOption";
-	/** The option's (automatically assigned) parent module name */
-	ModuleName?: string;
-	/** The option's (automatically assigned) index within the parent module */
-	Index?: number;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig | TextItemConfig;
+	Property?: Omit<ItemProperties, "Type">;
 }
 
 /** An object describing a single option within a module for a modular item. */
