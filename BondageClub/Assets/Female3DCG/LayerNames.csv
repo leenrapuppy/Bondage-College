@@ -1566,3 +1566,9 @@ ItemHoodFoxHoodEarFuzz, Fuzz
 ItemHoodFoxHoodFace, Face
 ItemHoodPantyhoodBase, Pantyhose
 ItemHoodPantyhoodHairUnder, Hair 
+ClothLatexTankTopBase, Tank Top
+ClothLatexTankTopCollar, Collar
+ClothLatexTankTophoodDown, Loose Hood
+ClothLatexTankTophoodFull, Pulled Hood
+ClothLatexTankTophoodHigh, Hoddie Up
+ClothLatexTankTophoodLow, Hoodie Down
