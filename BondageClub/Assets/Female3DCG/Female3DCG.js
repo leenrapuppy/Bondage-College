@@ -312,6 +312,17 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
+				Name: "LatexTankTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, Effect: ["Slow"], AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
+				Layer: [
+					{Name: "Base", HasType: false, Top: 45, Left: 124 },
+					{Name: "Collar", HasType: false, Top: 45, Left: 124 },
+					{Name: "hoodDown", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh1"],},
+					{Name: "HoodFull", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh2"], CopyLayerColor: "HoodDown", Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },], },
+					{Name: "HoodLow", HasType: false, Top: 53, Left: 124, AllowModuleTypes: ["lh1"], CopyLayerColor: "HoodDown", },
+					{Name: "HoodHigh", HasType: false, Top: -3, Left: 122, AllowModuleTypes: ["lh2"], Priority: 55, CopyLayerColor: "HoodDown", },
+				],
+			},
+			{
 				Name: "CheerleaderTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, Top: 200, Left: 160, DefaultColor: ["#c91616", "#e0b51d", "#c91616", "#242485", "#f5f5f5"], AllowPose: ["Hogtied", "AllFours"],
 				Extended: true, DynamicAfterDraw: true, TextMaxLength: { Text: 8 }, TextFont: "'Archivo Black', 'Impact', 'Arial Black', 'Franklin Gothic', 'Arial', sans-serif",
 				Layer: [

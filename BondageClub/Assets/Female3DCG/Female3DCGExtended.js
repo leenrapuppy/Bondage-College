@@ -493,6 +493,43 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //Hoodie
+		LatexTankTop: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "BackHood", Key: "lh",
+						Options:[
+							{ // lh0 - None
+								Property: { Effect: [] }
+							},
+							{ // lh1 - Down
+								Property: { Effect: [] }
+							},
+							{ // lh2 - Pulled Up
+								Property: {Hide: ["HairFront", "HairAccessory1", "HairAccessory2",]}
+							},
+						]
+					},
+					{
+						Name: "ReverseHood", Key: "rh",
+						Options:[
+							{ // rh0 - None
+								Property: { Effect: [] }
+							},
+							{ // rh1 - Loose
+								Property: { Effect: [] }
+							},
+							{ // rh2 - Pulled Up
+								Property: {Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "Head"]}
+
+							}
+
+						]
+					},
+				],
+			},
+		}, //LatexTankTop
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
