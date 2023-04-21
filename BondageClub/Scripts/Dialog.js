@@ -2,6 +2,10 @@
 var DialogText = "";
 var DialogTextDefault = "";
 var DialogTextDefaultTimer = -1;
+/** The duration temporary status message show up for, in ms
+ * @type {number}
+ */
+var DialogTextDefaultDuration = 5000;
 /** @type {null | string} */
 var DialogExpressionColor = null;
 /**
@@ -1785,7 +1789,7 @@ function DialogItemClick(ClickItem) {
 
 				// If the room allows the item
 				if (!InventoryChatRoomAllow(ClickItem.Asset.Category)) {
-					DialogSetText("BlockedByRoom");
+					DialogSetStatus(DialogFindPlayer("BlockedByRoom"), DialogTextDefaultDuration);
 					return;
 				}
 
@@ -1806,9 +1810,9 @@ function DialogItemClick(ClickItem) {
 							}
 							DialogStruggleStart(C, action, CurrentItem, ClickItem);
 						} else if (ClickItem.Asset.SelfBondage <= 10)
-							DialogSetText("RequireSelfBondage" + ClickItem.Asset.SelfBondage);
+							DialogSetStatus(DialogFindPlayer("RequireSelfBondage" + ClickItem.Asset.SelfBondage), DialogTextDefaultDuration);
 						else
-							DialogSetText("CannotUseOnSelf");
+							DialogSetStatus(DialogFindPlayer("CannotUseOnSelf"), DialogTextDefaultDuration);
 
 					} else {
 
@@ -1872,16 +1876,19 @@ function DialogChangeMode(mode) {
 	const C = CharacterGetCurrent();
 	DialogMenuMode = mode;
 
+	// Clear status so that messages don't bleed through from one group to another
+	DialogStatusClear();
+
 	if (DialogMenuMode === "items") {
-		DialogTextDefault = DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase());
+		DialogSetStatus(DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "permissions") {
-		DialogTextDefault = DialogFind(Player, "DialogPermissionMode");
+		DialogSetStatus(DialogFind(Player, "DialogPermissionMode"));
 	} else if (DialogMenuMode === "activities") {
-		DialogTextDefault = DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase());
+		DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
 	} else if (DialogMenuMode === "locking") {
-		DialogTextDefault = DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase());
+		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else {
-		DialogTextDefault = "";
+		DialogSetStatus("");
 	}
 
 	switch (DialogMenuMode) {
@@ -2250,14 +2257,54 @@ function DialogFindFacialExpressionMenuGroup(ExpressionGroup) {
 	}
 	return false;
 }
+
 /**
  * Displays the given text for 5 seconds
- * @param {string} NewText - The text to be displayed
+ * @param {string} status - The text to be displayed
+ * @param {number} timer - the number of milliseconds to display the message for
  * @returns {void} - Nothing
  */
-function DialogSetText(NewText) {
-	DialogTextDefaultTimer = CommonTime() + 5000;
-	DialogText = DialogFindPlayer(NewText);
+function DialogSetStatus(status, timer = 0) {
+	if (timer > 0) {
+		DialogTextDefaultTimer = CommonTime() + timer;
+		DialogText = status;
+	} else {
+		// We let the timer for the non-default message expire normally
+		DialogTextDefault = status;
+	}
+}
+
+/**
+ * Clears the current status message.
+ *
+ * @param {boolean} clearDefault Whether to also clear the default status.
+ */
+function DialogStatusClear(clearDefault = false) {
+	if (clearDefault || DialogText === "")
+		DialogTextDefault = "";
+	DialogTextDefaultTimer = -1;
+	DialogText = "";
+}
+
+/**
+ * Draws the current dialog status
+ *
+ */
+function DialogStatusDraw(C) {
+	let status = "";
+	if (CommonTime() <= DialogTextDefaultTimer) {
+		status = DialogText;
+	} else {
+		status = DialogTextDefault;
+		DialogStatusClear();
+	}
+
+	// Only draw if we can interact, there's some space left and it won't mess up the UI
+	if (!Player.CanInteract() || InventoryGroupIsBlocked(C) || DialogMenuButton.length >= 8) return;
+
+	if (["extended", "tighten", "color", "struggle", "crafted"].includes(DialogMenuMode)) return;
+
+	DrawTextWrap(status, 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
 }
 
 /**
@@ -2525,11 +2572,9 @@ function DialogDrawRepositionButton() {
  */
 function DialogDrawTopMenu(C) {
 	const FocusItem = InventoryGet(C, C.FocusGroup.Name);
-	if (Player.CanInteract() && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) {
-		// Only draw if we can interact and there's some space left and it won't mess up the UI
-		if (!["color", "struggle", "crafted"].includes(DialogMenuMode))
-			DrawTextWrap(DialogText , 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
-	}
+
+	// Draw the status message if possible
+	DialogStatusDraw(C);
 
 	for (let I = DialogMenuButton.length - 1; I >= 0; I--) {
 		const ButtonColor = DialogGetMenuButtonColor(DialogMenuButton[I]);

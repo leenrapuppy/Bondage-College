@@ -440,7 +440,7 @@ function InventoryAllow(C, asset, prerequisites = asset.Prerequisite, setDialog 
 	prerequisites.some((prerequisite) => (Msg = InventoryPrerequisiteMessage(checkCharacter, prerequisite)));
 
 	// If no error message was found, we return TRUE, if a message was found, we can show it in the dialog
-	if (Msg && setDialog) DialogSetText(Msg);
+	if (Msg && setDialog) DialogSetStatus(DialogFindPlayer(Msg), DialogTextDefaultDuration);
 	return !Msg;
 }
 
