@@ -1,12 +1,12 @@
 "use strict";
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemPelvisObedienceBeltEngraving0Load() {
+function InventoryItemPelvisObedienceBelte0Load() {
 	PropertyTextLoad();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemPelvisObedienceBeltEngraving0Draw() {
+function InventoryItemPelvisObedienceBelte0Draw() {
 	// Draw the header and item
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
@@ -14,25 +14,25 @@ function InventoryItemPelvisObedienceBeltEngraving0Draw() {
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemPelvisObedienceBeltEngraving0Click() {
+function InventoryItemPelvisObedienceBelte0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemPelvisObedienceBeltEngraving0Exit();
+		InventoryItemPelvisObedienceBelte0Exit();
 		return;
 	}
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemPelvisObedienceBeltEngraving0Exit() {
+function InventoryItemPelvisObedienceBelte0Exit() {
 	PropertyTextExit(null, null, true, "ObedienceBeltEngravingUpdated", "ObedienceBeltEngravingErased");
 	ExtendedItemSubscreen = null;
 }
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemPelvisObedienceBeltShockModule1Load() {
+function InventoryItemPelvisObedienceBelts1Load() {
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemPelvisObedienceBeltShockModule1Draw() {
+function InventoryItemPelvisObedienceBelts1Draw() {
 	// Draw the header and item
 	ExtendedItemDrawHeader(1387, 125);
 
@@ -46,9 +46,9 @@ function InventoryItemPelvisObedienceBeltShockModule1Draw() {
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemPelvisObedienceBeltShockModule1Click() {
+function InventoryItemPelvisObedienceBelts1Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemPelvisObedienceBeltShockModule1Exit();
+		InventoryItemPelvisObedienceBelts1Exit();
 		return;
 	}
 
@@ -78,7 +78,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemPelvisObedienceBeltShockModule1Exit() {
+function InventoryItemPelvisObedienceBelts1Exit() {
 	ExtendedItemSubscreen = null;
 }
 

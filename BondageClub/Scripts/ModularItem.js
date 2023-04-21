@@ -662,6 +662,12 @@ function ModularItemSetType(module, index, data) {
 	if (changed) {
 		// Do not sync appearance while in the wardrobe
 		const IsCloth = DialogFocusItem.Asset.Group.Clothing;
+
+		if (option.HasSubscreen) {
+			/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+			const args = [C, DialogFocusItem, false];
+			CommonCallFunctionByName(`${data.functionPrefix}${option.Name}Init`, ...args);
+		}
 		ModularItemSetOption(
 			C, DialogFocusItem, currentModuleValues, newModuleValues, data,
 			!IsCloth, option.DynamicProperty,
@@ -691,8 +697,8 @@ function ModularItemSetType(module, index, data) {
 
 	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
 	if (option.HasSubscreen) {
-		ExtendedItemSubscreen = module.Name + index;
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C);
+		ExtendedItemSubscreen = option.Name;
+		CommonCallFunctionByName(`${data.functionPrefix}${ExtendedItemSubscreen}Load`);
 	} else {
 		ModularItemModuleTransition(ModularItemBase, data);
 	}

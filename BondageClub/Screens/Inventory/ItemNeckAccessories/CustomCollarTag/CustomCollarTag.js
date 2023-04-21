@@ -1,25 +1,25 @@
 "use strict";
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemNeckAccessoriesCustomCollarTagTxt0Load() {
+function InventoryItemNeckAccessoriesCustomCollarTagx0Load() {
 	PropertyTextLoad();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemNeckAccessoriesCustomCollarTagTxt0Draw() {
+function InventoryItemNeckAccessoriesCustomCollarTagx0Draw() {
 	ExtendedItemDrawHeader(1387, 125);
 	PropertyTextDraw();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemNeckAccessoriesCustomCollarTagTxt0Click() {
+function InventoryItemNeckAccessoriesCustomCollarTagx0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemNeckAccessoriesCustomCollarTagTxt0Exit();
+		InventoryItemNeckAccessoriesCustomCollarTagx0Exit();
 	}
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemNeckAccessoriesCustomCollarTagTxt0Exit() {
+function InventoryItemNeckAccessoriesCustomCollarTagx0Exit() {
 	PropertyTextExit();
 	ExtendedItemSubscreen = null;
 }

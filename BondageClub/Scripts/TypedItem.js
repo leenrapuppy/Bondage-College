@@ -161,7 +161,7 @@ function TypedItemPublishAction(data, C, item, newOption, previousOption) {
 	msg += newOption.Name;
 
 	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
-	ChatRoomPublishCustomAction(msg, true, dictionary.build());
+	ChatRoomPublishCustomAction(msg, false, dictionary.build());
 }
 
 /**
@@ -681,14 +681,6 @@ function TypedItemHandleOptionClick(C, Options, Option) {
 		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
-		} else if (Option.HasSubscreen) {
-			ExtendedItemSubscreen = Option.Name;
-			if (Option.Archetype) {
-				/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-				const args = [C, DialogFocusItem, true];
-				CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Init`, ...args);
-			}
-			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
 			TypedItemSetType(C, Options, Option);
 		}
@@ -711,6 +703,11 @@ function TypedItemSetType(C, Options, Option) {
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options, typeField);
 
+	if (Option.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, DialogFocusItem, false];
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${Option.Name}Init`, ...args);
+	}
 	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth); // Do not sync appearance while in the wardrobe
 
 	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC
@@ -719,22 +716,25 @@ function TypedItemSetType(C, Options, Option) {
 		if (Option.Expression) {
 			InventoryExpressionTriggerApply(C, Option.Expression);
 		}
+
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
 			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<T>>} */
 			const args = [C, DialogFocusItem, Option, previousOption];
 			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
+		} else if (C.IsPlayer()) {
+			DialogMenuButtonBuild(C);
 		} else {
-			ExtendedItemExit();
-			if (C.ID === 0) {
-				// Player is using the item on herself
-				DialogMenuButtonBuild(C);
-			} else {
-				// Otherwise, call the item's NPC dialog function, if one exists
-				CommonCallFunctionByName(FunctionPrefix + "NpcDialog", C, Option, previousOption);
-				C.FocusGroup = null;
-			}
+			CommonCallFunctionByName(FunctionPrefix + "NpcDialog", C, Option, previousOption);
 		}
+	}
+
+	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
+	if (Option.HasSubscreen) {
+		ExtendedItemSubscreen = Option.Name;
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Load`);
+	} else {
+		DialogLeave();
 	}
 }

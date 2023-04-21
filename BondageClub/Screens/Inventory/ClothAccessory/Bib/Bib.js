@@ -1,26 +1,26 @@
 "use strict";
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryClothAccessoryBibTxt1Load() {
+function InventoryClothAccessoryBibx1Load() {
 	PropertyTextLoad();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryClothAccessoryBibTxt1Draw() {
+function InventoryClothAccessoryBibx1Draw() {
 	ExtendedItemDrawHeader(1387, 125);
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 	PropertyTextDraw();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryClothAccessoryBibTxt1Click() {
+function InventoryClothAccessoryBibx1Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryClothAccessoryBibTxt1Exit();
+		InventoryClothAccessoryBibx1Exit();
 	}
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryClothAccessoryBibTxt1Exit() {
+function InventoryClothAccessoryBibx1Exit() {
 	PropertyTextExit();
 	ExtendedItemSubscreen = null;
 }
