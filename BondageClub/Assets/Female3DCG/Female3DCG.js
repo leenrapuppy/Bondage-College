@@ -795,8 +795,8 @@ var AssetFemale3DCG = [
 				HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 				AllowPose: ["Kneel", "KneelingSpread"],
 				Layer: [
-					{ Name: "Skirt" },
-					{ Name: "Design" },
+					{ Name: "Skirt", },
+					{ Name: "Design", },
 				],
 				Alpha: [
 					{ Pose: ["KneelingSpread"], Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "Shoes", "SuitLower", "Garters"], Masks: [[0, 462, 500, 538]] }
@@ -3486,7 +3486,7 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
 				]
-			},			
+			},
 			{
 				Name: "FloorShackles", Fetish: ["Metal"], Priority: 24, Left: 0, Value: 20, Difficulty: 6, Time: 10, AllowLock: true, Prerequisite: ["NoItemLegs", "LegsOpen"], SetPose: ["Spread"], Effect: ["Freeze", "Prone", "BlockKneel"], Block: ["ItemLegs", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemLegs", "ItemBoots"],
 				Layer: [
@@ -3644,7 +3644,7 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
 				]
-			},			
+			},
 			{ Name: "FuturisticLegCuffs",  Category: ["SciFi"], Fetish: ["Metal"], DefaultColor: ["Default", "#40812C", "#707070"], Audio: "FuturisticApply", Priority: 24, Value: 30, Difficulty: 3, Time: 10, Random: false, AllowLock: true, DrawLocks: false,
 				AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"], FuturisticRecolor: true, Effect: ["CuffedLegs"], Extended: true, AllowActivePose: ["Kneel", "KneelingSpread"], FreezeActivePose: [], HasType: false, HideForPose: ["KneelingSpread"],
 				Layer: [
@@ -4746,7 +4746,7 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
 				]
-			},			
+			},
 			{ Name: "CeilingShackles", Fetish: ["Metal"], Value: 100, Left: 0, Top: 0, Difficulty: 6, Audio: "ChainLong", Time: 20, Random: false, AllowLock: true, AllowPose: ["Suspension"], Effect: ["Block", "Prone", "Freeze", "NotSelfPickable"], SetPose: ["Yoked"], Hide: ["Bracelet"], Extended: true,
 				Layer: [
 					{ Name: "Chain", Top: -388, Priority: 6 },
@@ -8172,6 +8172,21 @@ var AssetFemale3DCG = [
 					{ Name: "InnerEar",Top: -1, Left: 132, HasType: false, },
 					{ Name: "Nose", Top: 1, Left: 134, HasType: false, },
 					{ Name: "Mouth", Top: 1, Left: 134, HasType: false, },
+
+				],
+			},
+			{
+				Name: "FoxHood", Fetish: ["Latex", "Pet"], Random: false, Value: 30, Difficulty: 5, Top: 21, Left:122, AllowLock: true, AllowTighten: true,
+				Hide: ["Head","HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", ],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
+				DefaultColor: [],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "OuterEar", Top: 21, Left: 120, CopyLayerColor: "Base", HasType: false, },
+					{ Name: "InnerEar",Top: 21, Left: 120, CopyLayerColor: "Base", HasType: false, },
+					{ Name: "Face", Top: 21, Left: 122, HasType: false, },
+					{ Name: "Lens", Top: 21, Left: 122, HasType: false, },
+					{ Name: "EarFuzz", Top: 21, Left: 112, CopyLayerColor: "Base", HasType: false, },
 
 				],
 			},
