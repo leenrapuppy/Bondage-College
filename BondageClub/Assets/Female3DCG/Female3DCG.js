@@ -7753,6 +7753,22 @@ var AssetFemale3DCG = [
 				DefaultTint: "#765d4e",
 			},
 			{
+				Name: "Pantyhood", Value: 10, Time: 5,
+				Hide: ["Glasses", "Mask", "HairFront", "FacialHair", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				HideItem: ["ItemHeadSnorkel", "ItemEarsFuturisticEarphones","HatFurHeadband"],
+				Effect: ["BlindLight", "Prone"],
+				Prerequisite: ["NotProtrudingFromMouth"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose", "ItemHead"],
+				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 208, 250], [290, 0, 210, 250]] }],
+				Audio: "ClothSlip",
+				Tint: [{Color: 0, Strength: 0.2}],
+				DefaultTint: "#765d4e",
+				Layer: [
+					{ Name: "Base", HasType: false, Left: 154, Top: 58, },
+					{ Name: "HairUnder", Priority: 8, HasType: false, Left: 155, Top: 58, },
+				],
+			},
+			{
 				Name: "GP9GasMask", Priority: 54, Value: 75, Difficulty: 25, Time: 10, HideItem: ["ItemHeadSnorkel", "ItemMouthCaneGag", "ItemMouthCropGag", "ItemEarsFuturisticEarphones", "HatFurHeadband"], Random: false, Alpha: [{ Group: ["HairFront"], Masks: [[206, 115, 88, 70]] }], AllowLock: true, Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
 				Prerequisite: ["NotProtrudingFromMouth"],
 				Layer: [
