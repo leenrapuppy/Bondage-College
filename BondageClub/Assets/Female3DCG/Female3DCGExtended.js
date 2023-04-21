@@ -4220,6 +4220,53 @@ var AssetFemale3DCGExtended = {
 				],
 			}
 		}, //Latex Dog Hood
+		VacHood: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "HandPump", Key: "hp",
+						Options:[
+							{ // hp0 - None
+								Property: { Effect: [] }
+							},
+							{ // hp1 - Pumped Mouth
+								Property: { Effect: ["GagMedium","BlockMouth"] }
+							},
+						]
+					},
+					{
+						Name: "PlasticClip", Key: "pc",
+						Options:[
+							{ // pc0 - None
+								Property: { Effect: [] }
+							},
+							{ // pc1 - Tube Clamped
+								Property: { Effect: ["GagMedium","BlockMouth"] }
+
+							}
+
+						]
+					},
+					{
+						Name: "Rebreather", Key: "r",
+						Options:[
+							{ // r0 - None
+								Property: { Effect: [] }
+							},
+							{ // r1 - Rebreather Gagged
+								Property: { Effect: ["GagMedium","BlockMouth"] }
+
+							},
+						]
+					},
+				],
+			},
+		}, //VacHood
+		LatexHabit: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "Hat", AssetName: "LatexHabit" },
+		}, // Latex Habit
 		LatexDogMask: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
@@ -4263,10 +4310,6 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //Latex Dog Mask
-		LatexHabit: {
-			Archetype: ExtendedArchetype.TYPED,
-			CopyConfig: { GroupName: "Hat", AssetName: "LatexHabit" },
-		}, // Latex Habit
 	}, // ItemHood
 	Jewelry: {
 		JewelrySet: {
