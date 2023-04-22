@@ -531,8 +531,10 @@ interface TypedItemOptionBase extends Omit<ExtendedItemOption, "OptionType"> {
 }
 
 /** Extended item option subtype for typed items */
-interface TypedItemOption extends TypedItemOptionBase {
+interface TypedItemOption extends Omit<TypedItemOptionBase, "ArchetypeConfig"> {
 	OptionType: "TypedItemOption";
+	/** If the option has an archetype, sets the data to use */
+	ArchetypeData?: VibratingItemData | VariableHeightData;
 }
 
 /** Extended item option subtype for vibrating items */
@@ -767,7 +769,7 @@ interface ModularItemOptionBase extends Omit<ExtendedItemOption, "OptionType" | 
 }
 
 /** An object describing a single option within a module for a modular item. */
-interface ModularItemOption extends ExtendedItemOption, ModularItemOptionBase {
+interface ModularItemOption extends Omit<ModularItemOptionBase, "ArchetypeConfig"> {
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name: string;
 	/** A unique (automatically assigned) identifier of the struct type */
@@ -776,6 +778,8 @@ interface ModularItemOption extends ExtendedItemOption, ModularItemOptionBase {
 	ModuleName: string;
 	/** The option's (automatically assigned) index within the parent module */
 	Index: number;
+	/** If the option has an archetype, sets the data to use */
+	ArchetypeData?: VibratingItemData | VariableHeightData;
 }
 
 //#endregion

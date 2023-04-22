@@ -48,8 +48,8 @@ const TypedItemChatSetting = {
  * Registers a typed extended item. This automatically creates the item's load, draw and click functions. It will also
  * generate the asset's AllowType array.
  * @param {Asset} asset - The asset being registered
- * @param {TypedItemConfig | undefined} config - The item's typed item configuration
- * @returns {void} - Nothing
+ * @param {TypedItemConfig} config - The item's typed item configuration
+ * @returns {TypedItemData} - The generated extended item data for the asset
  */
 function TypedItemRegister(asset, config) {
 	const data = TypedItemCreateTypedItemData(asset, config);
@@ -74,8 +74,8 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowHide(data);
 	TypedItemGenerateAllowTint(data);
 	TypedItemGenerateAllowLockType(data);
-	ExtendedItemRegisterSubscreens(asset, data.options);
 	asset.Extended = true;
+	return data;
 }
 
 /**
@@ -101,6 +101,9 @@ function TypedItemCreateTypedItemData(asset, {
 		if (typeof ChangeWhenLocked === "boolean" && typeof ret.ChangeWhenLocked !== "boolean") {
 			ret.ChangeWhenLocked = ChangeWhenLocked;
 		}
+		// @ts-expect-error: potentially copied from the protoOption via the spread operator
+		delete ret.ArchetypeConfig;
+		ret.ArchetypeData = ExtendedItemRegisterSubscreen(asset, o.ArchetypeConfig, ret);
 		return ret;
 	});
 

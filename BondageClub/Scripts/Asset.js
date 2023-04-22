@@ -271,16 +271,16 @@ function AssetBuildExtended(A, ExtendedConfig) {
 
 	switch (AssetConfig.Archetype) {
 		case ExtendedArchetype.MODULAR:
-			ModularItemRegister(A, AssetConfig.Config);
+			ModularItemRegister(A, AssetConfig.Config || {});
 			break;
 		case ExtendedArchetype.TYPED:
-			TypedItemRegister(A, AssetConfig.Config);
+			TypedItemRegister(A, AssetConfig.Config || {});
 			break;
 		case ExtendedArchetype.VIBRATING:
-			VibratorModeRegister(A, AssetConfig.Config);
+			VibratorModeRegister(A, AssetConfig.Config || {});
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
-			VariableHeightRegister(A, AssetConfig.Config);
+			VariableHeightRegister(A, /** @type {VariableHeightConfig} */(AssetConfig.Config));
 			break;
 	}
 	A.Archetype = AssetConfig.Archetype;

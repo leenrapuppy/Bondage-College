@@ -196,11 +196,11 @@ const VibratorModeDataLookup = {};
 /**
  * Registers a vibrator item. This automatically creates the item's load, draw, click and scriptDraw functions.
  * @param {Asset} asset - The asset being registered
- * @param {VibratingItemConfig | undefined} config - The item's vibrator item configuration
+ * @param {VibratingItemConfig} config - The item's vibrator item configuration
  * @param {null | ExtendedItemOption} parentOption - The extended item option of the super screen that this archetype was initialized from (if any)
- * @returns {void} - Nothing
+ * @returns {VibratingItemData} - The generated extended item data for the asset
  */
-function VibratorModeRegister(asset, config={}, parentOption=null) {
+function VibratorModeRegister(asset, config, parentOption=null) {
 	const data = VibratorModeCreateData(asset, config, parentOption);
 
 	if (IsBrowser()) {
@@ -217,6 +217,7 @@ function VibratorModeRegister(asset, config={}, parentOption=null) {
 		VibratorModeCreateScriptDrawFunction(data);
 	}
 	VibratorModeSetAssetProperties(data);
+	return data;
 }
 
 /**

@@ -835,17 +835,17 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 /**
  * Register archetypical subscreens for the passed extended item options
  * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {readonly (TypedItemOption | ModularItemOption)[]} options - The parent item's extended item option
+ * @param {VariableHeightConfig | VibratingItemConfig} config - The subscreens extended item config
+ * @param {TypedItemOption | ModularItemOption} option - The parent item's extended item option
+ * @returns {null | VariableHeightData | VibratingItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
  */
-function ExtendedItemRegisterSubscreens(asset, options) {
-	for (const option of options) {
-		switch (option.Archetype) {
-			case ExtendedArchetype.VARIABLEHEIGHT:
-				VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option);
-				break;
-			case ExtendedArchetype.VIBRATING:
-				VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(option.ArchetypeConfig), option);
-				break;
-		}
+function ExtendedItemRegisterSubscreen(asset, config, option) {
+	switch (option.Archetype) {
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			return VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(config), option);
+		case ExtendedArchetype.VIBRATING:
+			return VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(config || {}), option);
+		default:
+			return null;
 	}
 }

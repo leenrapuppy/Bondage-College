@@ -22,9 +22,9 @@ const VariableHeightDataLookup = {};
 /**
  * Registers a variable height extended item. This automatically creates the item's load, draw and click functions.
  * @param {Asset} asset - The asset being registered
- * @param {VariableHeightConfig | undefined} config - The variable height configuration
+ * @param {VariableHeightConfig} config - The variable height configuration
  * @param {null | ExtendedItemOption} parentOption - The extended item option of the super screen that this archetype was initialized from (if any)
- * @returns {void} - Nothing
+ * @returns {VariableHeightData} - The generated extended item data for the asset
  */
 function VariableHeightRegister(asset, config, parentOption=null) {
 	const data = VariableHeightCreateData(asset, config, parentOption);
@@ -41,6 +41,8 @@ function VariableHeightRegister(asset, config, parentOption=null) {
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
+	asset.Extended = true;
+	return data;
 }
 
 /**
