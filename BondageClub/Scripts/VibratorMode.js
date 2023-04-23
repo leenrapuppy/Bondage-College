@@ -54,10 +54,8 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.OFF,
 				Intensity: -1,
+				Effect: ["Egged"]
 			},
-			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect, ["Egged"]);
-			}
 		},
 		{
 			Name: "Low",
@@ -65,10 +63,8 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.LOW,
 				Intensity: 0,
+				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect, ["Egged", "Vibrating"]);
-			}
 		},
 		{
 			Name: "Medium",
@@ -76,10 +72,8 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.MEDIUM,
 				Intensity: 1,
+				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect, ["Egged", "Vibrating"]);
-			}
 		},
 		{
 			Name: "High",
@@ -87,10 +81,8 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.HIGH,
 				Intensity: 2,
+				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect || [], ["Egged", "Vibrating"]);
-			}
 		},
 		{
 			Name: "Maximum",
@@ -98,10 +90,8 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.MAXIMUM,
 				Intensity: 3,
+				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect || [], ["Egged", "Vibrating"]);
-			}
 		},
 	],
 	[VibratorModeSet.ADVANCED]: [
@@ -110,11 +100,13 @@ var VibratorModeOptions = {
 			OptionType: "VibratingItemOption",
 			Property: {
 				Mode: VibratorMode.RANDOM,
-				Intensity: -1,
+				Intensity: 0,
+				Effect: ["Egged", "Vibrating"],
 			},
 			DynamicProperty: (property) => {
+				property.Intensity = CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]);
 				property.Effect = CommonArrayConcatDedupe(
-					property.Effect || [],
+					property.Effect,
 					property.Intensity >= 0 ? ["Egged", "Vibrating"] : ["Egged"],
 				);
 			},
@@ -125,10 +117,8 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.ESCALATE,
 				Intensity: 0,
+				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect || [], ["Egged", "Vibrating"]);
-			}
 		},
 		{
 			Name: "Tease",
@@ -136,9 +126,10 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.TEASE,
 				Intensity: 0,
+				Effect: ["Egged", "Vibrating"],
 			},
 			DynamicProperty: (property) => {
-				property.Effect = CommonArrayConcatDedupe(property.Effect || [], ["Egged", "Vibrating"]);
+				property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
 			},
 		},
 		{
@@ -147,15 +138,10 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.DENY,
 				Intensity: 0,
+				Effect: ["Egged", "Vibrating", "Edged"],
 			},
 			DynamicProperty: (property) => {
-				/** @type {EffectName[]} */
-				const Effect = ["Egged"];
-				if (property.State === VibratorModeState.DENY || property.Mode === VibratorMode.DENY) Effect.push("Edged");
-				if (property.Intensity !== -1) Effect.push("Vibrating");
-
-				property.Effect = (property.Effect || []).filter(e => !["Egged", "Edged", "Vibrating"].includes(e));
-				property.Effect = CommonArrayConcatDedupe(property.Effect, Effect);
+				property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
 			},
 		},
 		{
@@ -164,15 +150,11 @@ var VibratorModeOptions = {
 			Property: {
 				Mode: VibratorMode.EDGE,
 				Intensity: 0,
+				Effect: ["Egged", "Vibrating", "Edged"],
+
 			},
 			DynamicProperty: (property) => {
-				/** @type {EffectName[]} */
-				const Effect = ["Egged"];
-				if (property.State === VibratorModeState.DENY || property.Mode === VibratorMode.DENY) Effect.push("Edged");
-				if (property.Intensity !== -1) Effect.push("Vibrating");
-
-				property.Effect = (property.Effect || []).filter(e => !["Egged", "Edged", "Vibrating"].includes(e));
-				property.Effect = CommonArrayConcatDedupe(property.Effect, Effect);
+				property.Intensity = CommonRandomItemFromList(null, [0, 1]);
 			},
 		},
 	],
@@ -466,7 +448,7 @@ function VibratorModeScriptDraw(Data) {
 	if (ModeChanged || typeof PersistentData.LastChange !== "number") PersistentData.LastChange = CommonTime();
 	if (ModeChanged) PersistentData.Mode = Item.Property.Mode;
 
-	if (ModeChanged || CommonTime() > PersistentData.ChangeTime) {
+	if (CommonTime() > PersistentData.ChangeTime) {
 		CommonCallFunctionByName("VibratorModeUpdate" + Item.Property.Mode, Item, C, PersistentData);
 		PersistentData.Mode = Item.Property.Mode;
 	}
@@ -483,11 +465,10 @@ function VibratorModeUpdateRandom(Item, C, PersistentData) {
 	const OldIntensity = Item.Property.Intensity;
 	/** @type {VibratorIntensity} */
 	const Intensity = CommonRandomItemFromList(OldIntensity, [-1, 0, 1, 2, 3]);
-
+	/** @type {EffectName[]} */
+	const Effect = Intensity === -1 ? ["Egged"] : ["Egged", "Vibrating"];
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	const newOption = CommonCloneDeep(VibratorModeGetOption("Random"));
-	newOption.Property.Intensity = Intensity;
-	ExtendedItemSetOption(C, Item, option.Property, newOption.Property, true, newOption.DynamicProperty);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect });
 
 	// Next update in 1-3 minutes
 	const OneMinute = 60000;
@@ -505,11 +486,8 @@ function VibratorModeUpdateRandom(Item, C, PersistentData) {
 function VibratorModeUpdateEscalate(Item, C, PersistentData) {
 	const OldIntensity = Item.Property.Intensity;
 	const Intensity = /** @type {VibratorIntensity} */((OldIntensity + 1) % 4);
-
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	const newOption = CommonCloneDeep(VibratorModeGetOption("Escalate"));
-	newOption.Property.Intensity = Intensity;
-	ExtendedItemSetOption(C, Item, option.Property, newOption.Property, true, newOption.DynamicProperty);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating"] });
 
 	// As intensity increases, time between updates decreases
 	const TimeFactor = Math.pow((5 - Intensity), 1.8);
@@ -552,11 +530,8 @@ function VibratorModeUpdateDeny(Item, C, PersistentData) {
 function VibratorModeUpdateEdge(Item, C, PersistentData) {
 	const OldIntensity = Item.Property.Intensity;
 	const Intensity = /** @type {VibratorIntensity} */(Math.min(Item.Property.Intensity + 1, 3));
-
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	const newOption = CommonCloneDeep(VibratorModeGetOption("Edge"));
-	newOption.Property.Intensity = Intensity;
-	ExtendedItemSetOption(C, Item, option.Property, newOption.Property, true, newOption.DynamicProperty);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
 
 	if (Intensity === 3) {
 		// If we've hit max intensity, no more changes needed
@@ -604,10 +579,7 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
 	if (Intensity !== -1) Effect.push("Vibrating");
 
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	const newOption = CommonCloneDeep(VibratorModeGetOption(Item.Property.Mode));
-	newOption.Property.Intensity = Intensity;
-	newOption.Property.State = State;
-	ExtendedItemSetOption(C, Item, option.Property, newOption.Property, true, newOption.DynamicProperty);
+	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, State, Intensity, Effect }, false);
 
 	Object.assign(PersistentData, {
 		ChangeTime: CommonTime() + 5000,

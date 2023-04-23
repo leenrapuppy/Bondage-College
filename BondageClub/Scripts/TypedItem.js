@@ -421,10 +421,10 @@ function TypedItemSetOption(C, item, options, option, push = false, baselineProp
 		return requirementMessage;
 	}
 
-	const previousProperty = {
-		...previousOption.Property,
-		...ExtendedItemGatherSubscreenProperty(item, previousOption),
-	};
+	const previousProperty = PropertyUnion(
+		{ ...previousOption.Property },
+		(previousOption ? ExtendedItemGatherSubscreenProperty(item, previousOption) : {}),
+	);
 	CommonKeys(baselineProperty || {}).forEach(i => delete previousProperty[i]);
 
 	ExtendedItemSetOption(C, item, previousProperty, newProperty, push, option.DynamicProperty);

@@ -541,7 +541,7 @@ interface TypedItemOption extends Omit<TypedItemOptionBase, "ArchetypeConfig"> {
 interface VibratingItemOption extends ExtendedItemOption {
 	OptionType: "VibratingItemOption";
 	Name: VibratorMode;
-	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity">;
+	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity" | "Effect">;
 	/** If the option has a subscreen, this can set a particular archetype to use */
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */

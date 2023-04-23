@@ -732,10 +732,10 @@ function ModularItemSetType(module, index, data) {
  * @returns {void} Nothing
  */
 function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, previousOption=null, push=false, dynamicProperty=null) {
-	const previousProperty = {
-		...ModularItemMergeModuleValues(data, previousModuleValues),
-		...(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
-	};
+	const previousProperty = PropertyUnion(
+		ModularItemMergeModuleValues(data, previousModuleValues),
+		(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
+	);
 	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
 
 	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);

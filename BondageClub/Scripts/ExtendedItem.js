@@ -416,13 +416,13 @@ function ExtendedItemExit() {
  * @returns {void} Nothing
  */
 function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
-	// Delete properties added by the previous option
-	const Property = Object.assign({}, item.Property);
-	for (const key of Object.keys(previousProperty)) {
-		delete Property[key];
+	// Delete properties added by the previous option and clone the new properties
+	if (!item.Property) {
+		item.Property = {};
 	}
-	// Clone the new properties and use them to extend the existing properties
-	Object.assign(Property, newProperty);
+	const Property = item.Property;
+	PropertyDifference(Property, previousProperty);
+	PropertyUnion(Property, newProperty);
 
 	// If the item is locked, ensure it has the "Lock" effect
 	if (Property.LockedBy && !(Property.Effect || []).includes("Lock")) {
@@ -430,15 +430,13 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 		Property.Effect.push("Lock");
 	}
 
-	item.Property = Property;
-
 	if (!InventoryDoesItemAllowLock(item)) {
 		// If the new type does not permit locking, remove the lock
-		ValidationDeleteLock(item.Property, false);
+		ValidationDeleteLock(Property, false);
 	}
 
 	if (dynamicProperty != null) {
-		dynamicProperty(item.Property);
+		dynamicProperty(Property);
 	}
 	CharacterRefresh(C, push);
 }

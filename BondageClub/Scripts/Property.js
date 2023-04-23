@@ -473,3 +473,46 @@ function PropertyTextValidate(OriginalFunction, Item=DialogFocusItem) {
 	}
 	return true;
 }
+
+/**
+ * Merge all passed item properties into the passed output, merging (and shallow copying) arrays if necessary.
+ * @param {ItemProperties} output - The to be updated properties
+ * @param {readonly ItemProperties[]} args - The additional item properties to be merged into the output
+ * @returns {ItemProperties} - The passed output modified inplace
+ */
+function PropertyUnion(output, ...args) {
+	for (const property of args) {
+		for (const [key, value] of Object.entries(property)) {
+			if (Array.isArray(value)) {
+				const previousValue = Array.isArray(output[key]) ? [...output[key]] : [];
+				output[key] = [
+					...previousValue,
+					...value.filter(i => !previousValue.includes(i)),
+				];
+			} else {
+				output[key] = value;
+			}
+		}
+	}
+	return output;
+}
+
+/**
+ * Remove all passed item properties from the passed output, removing (and shallow copying) array entries if necessary.
+ * @param {ItemProperties} output - The to-be updated properties
+ * @param {readonly ItemProperties[]} args - The additional item properties to be removed from the output
+ * @returns {ItemProperties} - The passed output modified inplace
+ */
+function PropertyDifference(output, ...args) {
+	for (const property of args) {
+		for (const [key, value] of Object.entries(property)) {
+			if (Array.isArray(value)) {
+				const previousValue = Array.isArray(output[key]) ? output[key] : [];
+				output[key] = previousValue.filter(i => !value.includes(i));
+			} else {
+				delete output[key];
+			}
+		}
+	}
+	return output;
+}
