@@ -849,3 +849,26 @@ function ExtendedItemRegisterSubscreen(asset, config, option) {
 			return null;
 	}
 }
+
+/**
+ * Gather and return all subscreen properties of the passed option.
+ * @param {Item} item - The item in question
+ * @param {ExtendedItemOption} option - The extended item option
+ * @returns {ItemProperties} - The item properties of the option's subscreen (if any)
+ */
+function ExtendedItemGatherSubscreenProperty(item, option) {
+	if (!("Archetype" in option && "ArchetypeData" in option)) {
+		return {};
+	}
+
+	switch (option.Archetype) {
+		case ExtendedArchetype.VIBRATING: {
+			const vibeData = /** @type {VibratingItemData} */(option.ArchetypeData);
+			return TypedItemFindPreviousOption(item, vibeData.options, "Mode").Property;
+		}
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			return { OverrideHeight: item.Property.OverrideHeight };
+		default:
+			return {};
+	}
+}

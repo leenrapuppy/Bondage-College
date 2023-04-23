@@ -681,7 +681,7 @@ function ModularItemSetType(module, index, data) {
 			CommonCallFunctionByName(`${data.functionPrefix}${option.Name}Init`, ...args);
 		}
 		ModularItemSetOption(
-			C, DialogFocusItem, currentModuleValues, newModuleValues, data,
+			C, DialogFocusItem, currentModuleValues, newModuleValues, data, currentOption,
 			!IsCloth, option.DynamicProperty,
 		);
 
@@ -716,6 +716,7 @@ function ModularItemSetType(module, index, data) {
 	}
 }
 
+// TODO: Refactor `ModularItemSetOption()` to closer resemble `TypedItemSetOption()`
 /**
  * Sets a modular item's type and properties to the option provided.
  * @param {Character} C - The character on whom the item is equipped
@@ -723,16 +724,20 @@ function ModularItemSetType(module, index, data) {
  * @param {readonly number[]} previousModuleValues - The previous module values
  * @param {readonly number[]} newModuleValues - The new module values
  * @param {ModularItemData} data - The modular item data
+ * @param {ModularItemOption} [previousOption] - The previous item option; only relevant if it links to a subscreen
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
  * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
  * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, push=false, dynamicProperty=null) {
-	const currentProperty = ModularItemMergeModuleValues(data, previousModuleValues);
+function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, previousOption=null, push=false, dynamicProperty=null) {
+	const previousProperty = {
+		...ModularItemMergeModuleValues(data, previousModuleValues),
+		...(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
+	};
 	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);
-	ExtendedItemSetOption(C, Item, currentProperty, newProperty, push, dynamicProperty);
+	ExtendedItemSetOption(C, Item, previousProperty, newProperty, push, dynamicProperty);
 }
 
 /**

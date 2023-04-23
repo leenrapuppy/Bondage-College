@@ -419,7 +419,11 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 		return requirementMessage;
 	}
 
-	ExtendedItemSetOption(C, item, previousOption.Property, newProperty, push, option.DynamicProperty);
+	const previousProperty = {
+		...previousOption.Property,
+		...ExtendedItemGatherSubscreenProperty(item, previousOption),
+	};
+	ExtendedItemSetOption(C, item, previousProperty, newProperty, push, option.DynamicProperty);
 }
 
 /**

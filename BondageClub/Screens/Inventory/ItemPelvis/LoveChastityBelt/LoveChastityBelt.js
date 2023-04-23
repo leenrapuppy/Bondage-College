@@ -82,7 +82,7 @@ function InventoryItemPelvisLoveChastityBeltSetType(module, index, data) {
 	if (index !== 2 && currentModuleValues[2] !== 0) {
 		const newModuleValues = currentModuleValues.slice();
 		newModuleValues[2] = 0;
-		ModularItemSetOption(C, DialogFocusItem, currentModuleValues, newModuleValues, data, false);
+		ModularItemSetOption(C, DialogFocusItem, currentModuleValues, newModuleValues, data, null, false);
 	}
 	ModularItemSetType(module, index, data);
 	ExtendedItemRequirementCheckMessageMemo.clearCache();
