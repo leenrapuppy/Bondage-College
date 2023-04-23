@@ -421,6 +421,12 @@ function TypedItemSetOption(C, item, options, option, push = false, baselineProp
 		return requirementMessage;
 	}
 
+	if (option.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, item, false];
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${option.Name}Init`, ...args);
+	}
+
 	const previousProperty = PropertyUnion(
 		{ ...previousOption.Property },
 		(previousOption ? ExtendedItemGatherSubscreenProperty(item, previousOption) : {}),
@@ -713,12 +719,6 @@ function TypedItemSetType(C, Options, Option) {
 	const FunctionPrefix = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "");
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options, typeField);
-
-	if (Option.HasSubscreen) {
-		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-		const args = [C, DialogFocusItem, false];
-		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${Option.Name}Init`, ...args);
-	}
 
 	// Do not sync appearance while in the wardrobe
 	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];

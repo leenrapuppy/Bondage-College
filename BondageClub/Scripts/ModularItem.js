@@ -675,13 +675,8 @@ function ModularItemSetType(module, index, data) {
 		// Do not sync appearance while in the wardrobe
 		const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 
-		if (option.HasSubscreen) {
-			/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-			const args = [C, DialogFocusItem, false];
-			CommonCallFunctionByName(`${data.functionPrefix}${option.Name}Init`, ...args);
-		}
 		ModularItemSetOption(
-			C, DialogFocusItem, currentModuleValues, newModuleValues, data, currentOption,
+			C, DialogFocusItem, currentModuleValues, newModuleValues, data, option, currentOption,
 			!IsCloth, option.DynamicProperty,
 		);
 
@@ -724,6 +719,7 @@ function ModularItemSetType(module, index, data) {
  * @param {readonly number[]} previousModuleValues - The previous module values
  * @param {readonly number[]} newModuleValues - The new module values
  * @param {ModularItemData} data - The modular item data
+ * @param {ModularItemOption} [newOption] - The new item option; only relevant if it links to a subscreen
  * @param {ModularItemOption} [previousOption] - The previous item option; only relevant if it links to a subscreen
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
@@ -731,7 +727,13 @@ function ModularItemSetType(module, index, data) {
  * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, previousOption=null, push=false, dynamicProperty=null) {
+function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, newOption=null, previousOption=null, push=false, dynamicProperty=null) {
+	if (newOption && newOption.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, Item, false];
+		CommonCallFunctionByName(`${data.functionPrefix}${newOption.Name}Init`, ...args);
+	}
+
 	const previousProperty = PropertyUnion(
 		ModularItemMergeModuleValues(data, previousModuleValues),
 		(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
