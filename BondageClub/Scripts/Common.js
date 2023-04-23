@@ -995,8 +995,7 @@ function CommonStringSubstitute(msg, substitutions) {
 	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
 	for (const [tag, subst, replacer] of substitutions) {
 		let repl = makeReplacer(replacer, subst);
-		while (msg !== subst && msg.includes(tag))
-			msg = msg.replace(tag, repl);
+		msg = msg.replace(new RegExp(tag, "g"), repl);
 	}
 	return msg;
 }
