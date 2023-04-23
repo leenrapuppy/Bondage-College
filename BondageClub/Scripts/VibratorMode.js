@@ -286,7 +286,9 @@ function VibratorModeValidate(C, item, option, currentOption) {
  * @returns {void} - Nothing
  */
 function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
-	window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] = VibratorModeScriptDraw;
+	if (typeof window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] !== "function") {
+		window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] = VibratorModeScriptDraw;
+	}
 }
 
 /**
