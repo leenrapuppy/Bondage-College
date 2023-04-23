@@ -391,7 +391,8 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 		return msg;
 	}
 
-	return TypedItemSetOption(C, item, options, option, push);
+	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];
+	return TypedItemSetOption(C, item, options, option, push, (data ? data.baselineProperty : null));
 }
 
 /**
@@ -403,10 +404,11 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
  * @param {T} option - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | ItemProperties} baselineProperty - The items baseline property
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetOption(C, item, options, option, push = false) {
+function TypedItemSetOption(C, item, options, option, push = false, baselineProperty=null) {
 	if (!item || !options || !option) return;
 
 	/** @type {ItemProperties} */
@@ -423,6 +425,8 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 		...previousOption.Property,
 		...ExtendedItemGatherSubscreenProperty(item, previousOption),
 	};
+	CommonKeys(baselineProperty || {}).forEach(i => delete previousProperty[i]);
+
 	ExtendedItemSetOption(C, item, previousProperty, newProperty, push, option.DynamicProperty);
 }
 
@@ -715,7 +719,10 @@ function TypedItemSetType(C, Options, Option) {
 		const args = [C, DialogFocusItem, false];
 		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${Option.Name}Init`, ...args);
 	}
-	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth); // Do not sync appearance while in the wardrobe
+
+	// Do not sync appearance while in the wardrobe
+	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];
+	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth, (data ? data.baselineProperty : null));
 
 	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC
 	if (!IsCloth) {
