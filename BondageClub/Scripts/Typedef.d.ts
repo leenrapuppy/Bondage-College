@@ -2177,7 +2177,7 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemData.scriptHooks} functions.
 	 */
-	baselineProperty: ItemProperties | null;
+	baselineProperty: ItemPropertiesNoArray | null;
 	/** The extended item option of the super screen that this archetype was initialized from (if any) */
 	parentOption: null | ExtendedItemOption;
 }
@@ -2541,6 +2541,9 @@ interface ItemPropertiesCustom {
 }
 
 interface ItemProperties extends ItemPropertiesBase, AssetDefinitionProperties, ItemPropertiesCustom { }
+
+/** An {@link ItemProperties} super-type with all array-containing values removed. */
+type ItemPropertiesNoArray = { [k in keyof ItemProperties]: ItemProperties[k] extends any[] ? never : ItemProperties[k] };
 
 //#endregion
 

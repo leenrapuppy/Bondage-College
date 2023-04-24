@@ -464,7 +464,7 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
 	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemConfig.ScriptHooks} functions.
 	 */
-	BaselineProperty?: ItemProperties;
+	BaselineProperty?: ItemPropertiesNoArray;
 	/** A boolean indicating whether or not images should be drawn for the option and/or module selection screen. */
 	DrawImages?: boolean;
 }
