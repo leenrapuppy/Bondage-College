@@ -851,7 +851,7 @@ var AssetFemale3DCG = [
 					{ Name: "Dress" },
 					{ Name: "Stripe" }
 				]
-			},			
+			},
 			// Penis Compatible Clothing
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -4293,7 +4293,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalPanties", Fetish: ["Latex", "Metal"], Value: 50, Top: 395, Left: 127, Difficulty: 50, Time: 15, RemoveTime: 12, AllowLock: true,
+				Name: "PortalPanties", Category: ["SciFi"], Fetish: ["Latex", "Metal"], Value: 50, Top: 395, Left: 127, Difficulty: 50, Time: 15, RemoveTime: 12, AllowLock: true,
 				Prerequisite: ["AccessVulva"],
 				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing", "ItemVulvaPlasticChastityCage1", "ItemVulvaPlasticChastityCage2", "ItemVulvaTechnoChastityCage", "ItemVulvaFlatChastityCage", "ItemVulvaVibeEggPenisBase"],
 				Hide: ["Pussy"], Effect: [ "Chaste", "UseRemote", ], ArousalZone: "ItemVulva", Block: [],
