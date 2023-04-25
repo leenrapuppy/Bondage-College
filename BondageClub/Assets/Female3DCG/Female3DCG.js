@@ -846,6 +846,12 @@ var AssetFemale3DCG = [
 					{ Name: "Innerstrips" },
 				],
 			},
+			{
+				Name: "TulleSkirt", Value: 30, Alpha: [{ Group: ["Panties", "ItemPelvis"], Masks: [[0, 0, 500, 570]] }], HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Attribute: ["Skirt"], DefaultColor: ["#131313", "#101010"], Layer: [
+					{ Name: "Dress" },
+					{ Name: "Stripe" }
+				]
+			},			
 			// Penis Compatible Clothing
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
