@@ -1,25 +1,25 @@
 "use strict";
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemHeadDroneMaskPattern5Load() {
+function InventoryItemHeadDroneMaskp5Load() {
 	PropertyTextLoad();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemHeadDroneMaskPattern5Draw() {
+function InventoryItemHeadDroneMaskp5Draw() {
 	ExtendedItemDrawHeader(1387, 125);
 	PropertyTextDraw();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemHeadDroneMaskPattern5Click() {
+function InventoryItemHeadDroneMaskp5Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemHeadDroneMaskPattern5Exit();
+		InventoryItemHeadDroneMaskp5Exit();
 	}
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemHeadDroneMaskPattern5Exit() {
+function InventoryItemHeadDroneMaskp5Exit() {
 	PropertyTextExit();
 	ExtendedItemSubscreen = null;
 }

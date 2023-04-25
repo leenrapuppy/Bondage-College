@@ -74,8 +74,8 @@ const ModularItemChatSetting = {
  * multiplicative nature of the item's types, and also converts the AllowModuleTypes property on any asset layers into
  * an AllowTypes property, if present.
  * @param {Asset} asset - The asset being registered
- * @param {ModularItemConfig | undefined} config - The item's modular item configuration
- * @returns {void} - Nothing
+ * @param {ModularItemConfig} config - The item's modular item configuration
+ * @returns {ModularItemData} - The generated extended item data for the asset
  */
 function ModularItemRegister(asset, config) {
 	const data = ModularItemCreateModularData(asset, config);
@@ -93,6 +93,7 @@ function ModularItemRegister(asset, config) {
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
 	ModularItemGenerateValidationProperties(data);
+	return data;
 }
 
 /**
@@ -143,26 +144,38 @@ function ModularItemDraw(data) {
 }
 
 /**
- * Parse and convert the passed item modules inplace. Returns the originally passed object.
- * @param {readonly ModularItemModuleBase[]} Modules - An object describing a single module for a modular item.
- * @param {boolean | undefined} [ChangeWhenLocked] - See {@link ModularItemConfig.ChangeWhenLocked}
- * @returns {ModularItemModule[]} - The updated modules; same object as `Modules`.
+ * Parse the and pre-process the passed modules (and their options)
+ * @param {Asset} asset - The asset in question
+ * @param {readonly ModularItemModuleBase[]} modules - An object describing a single module for a modular item.
+ * @param {boolean | undefined} [changeWhenLocked] - See {@link ModularItemConfig.ChangeWhenLocked}
+ * @returns {ModularItemModule[]} - The updated modules and options
  */
-function ModularItemUpdateModules(Modules, ChangeWhenLocked) {
-	for (const mod of Modules) {
-		mod.OptionType = "ModularItemModule";
-		mod.DrawImages = typeof mod.DrawImages === "boolean" ? mod.DrawImages : true;
-		mod.Options.forEach((option, i) => {
-			option.Name = `${mod.Key}${i}`;
-			option.OptionType = "ModularItemOption";
-			if (typeof ChangeWhenLocked === "boolean" && typeof option.ChangeWhenLocked !== "boolean") {
-				option.ChangeWhenLocked = ChangeWhenLocked;
-			}
-			option.ModuleName = mod.Name;
-			option.Index = i;
-		});
-	}
-	return /** @type {ModularItemModule[]} */(Modules);
+function ModularItemUpdateModules(asset, modules, changeWhenLocked) {
+	return modules.map(protoMod => {
+		/** @type {ModularItemModule} */
+		return {
+			...protoMod,
+			OptionType: "ModularItemModule",
+			DrawImages: typeof protoMod.DrawImages === "boolean" ? protoMod.DrawImages : true,
+			Options: protoMod.Options.map((protoOption, i) => {
+				/** @type {ModularItemOption} */
+				const option = {
+					...protoOption,
+					Name: `${protoMod.Key}${i}`,
+					OptionType: "ModularItemOption",
+					ModuleName: protoMod.Name,
+					Index: i,
+				};
+				if (typeof changeWhenLocked === "boolean" && typeof option.ChangeWhenLocked !== "boolean") {
+					option.ChangeWhenLocked = changeWhenLocked;
+				}
+				// @ts-expect-error: potentially copied from the protoOption via the spread operator
+				delete option.ArchetypeConfig;
+				option.ArchetypeData = ExtendedItemRegisterSubscreen(asset, protoOption.ArchetypeConfig, option);
+				return option;
+			}),
+		};
+	});
 }
 
 /**
@@ -184,7 +197,7 @@ function ModularItemCreateModularData(asset, {
 }) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
-	const ModulesParsed = ModularItemUpdateModules(Modules, ChangeWhenLocked);
+	const ModulesParsed = ModularItemUpdateModules(asset, Modules, ChangeWhenLocked);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
 	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 
@@ -211,20 +224,13 @@ function ModularItemCreateModularData(asset, {
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
 		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length, asset, BaseDrawImages) },
-		scriptHooks: {
-			load: ScriptHooks ? ScriptHooks.Load : undefined,
-			click: ScriptHooks ? ScriptHooks.Click : undefined,
-			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
-			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
-			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
-			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
-			init: ScriptHooks ? ScriptHooks.Init : undefined,
-		},
+		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		drawFunctions: {},
 		clickFunctions: {},
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 		drawImages: BaseDrawImages,
 		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
+		parentOption: null,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
@@ -668,8 +674,9 @@ function ModularItemSetType(module, index, data) {
 	if (changed) {
 		// Do not sync appearance while in the wardrobe
 		const IsCloth = DialogFocusItem.Asset.Group.Clothing;
+
 		ModularItemSetOption(
-			C, DialogFocusItem, currentModuleValues, newModuleValues, data,
+			C, DialogFocusItem, currentModuleValues, newModuleValues, data, option, currentOption,
 			!IsCloth, option.DynamicProperty,
 		);
 
@@ -697,13 +704,14 @@ function ModularItemSetType(module, index, data) {
 
 	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
 	if (option.HasSubscreen) {
-		ExtendedItemSubscreen = module.Name + index;
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C);
+		ExtendedItemSubscreen = option.Name;
+		CommonCallFunctionByName(`${data.functionPrefix}${ExtendedItemSubscreen}Load`);
 	} else {
 		ModularItemModuleTransition(ModularItemBase, data);
 	}
 }
 
+// TODO: Refactor `ModularItemSetOption()` to closer resemble `TypedItemSetOption()`
 /**
  * Sets a modular item's type and properties to the option provided.
  * @param {Character} C - The character on whom the item is equipped
@@ -711,16 +719,29 @@ function ModularItemSetType(module, index, data) {
  * @param {readonly number[]} previousModuleValues - The previous module values
  * @param {readonly number[]} newModuleValues - The new module values
  * @param {ModularItemData} data - The modular item data
+ * @param {ModularItemOption} [newOption] - The new item option; only relevant if it links to a subscreen
+ * @param {ModularItemOption} [previousOption] - The previous item option; only relevant if it links to a subscreen
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
  * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
  * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, push=false, dynamicProperty=null) {
-	const currentProperty = ModularItemMergeModuleValues(data, previousModuleValues);
+function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, newOption=null, previousOption=null, push=false, dynamicProperty=null) {
+	if (newOption && newOption.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, Item, false];
+		CommonCallFunctionByName(`${data.functionPrefix}${newOption.Name}Init`, ...args);
+	}
+
+	const previousProperty = PropertyUnion(
+		ModularItemMergeModuleValues(data, previousModuleValues),
+		(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
+	);
+	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
+
 	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);
-	ExtendedItemSetOption(C, Item, currentProperty, newProperty, push, dynamicProperty);
+	ExtendedItemSetOption(C, Item, previousProperty, newProperty, push, dynamicProperty);
 }
 
 /**

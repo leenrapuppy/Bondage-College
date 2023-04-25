@@ -48,8 +48,8 @@ const TypedItemChatSetting = {
  * Registers a typed extended item. This automatically creates the item's load, draw and click functions. It will also
  * generate the asset's AllowType array.
  * @param {Asset} asset - The asset being registered
- * @param {TypedItemConfig | undefined} config - The item's typed item configuration
- * @returns {void} - Nothing
+ * @param {TypedItemConfig} config - The item's typed item configuration
+ * @returns {TypedItemData} - The generated extended item data for the asset
  */
 function TypedItemRegister(asset, config) {
 	const data = TypedItemCreateTypedItemData(asset, config);
@@ -74,8 +74,8 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowHide(data);
 	TypedItemGenerateAllowTint(data);
 	TypedItemGenerateAllowLockType(data);
-	TypedItemRegisterSubscreens(asset, data);
 	asset.Extended = true;
+	return data;
 }
 
 /**
@@ -101,6 +101,9 @@ function TypedItemCreateTypedItemData(asset, {
 		if (typeof ChangeWhenLocked === "boolean" && typeof ret.ChangeWhenLocked !== "boolean") {
 			ret.ChangeWhenLocked = ChangeWhenLocked;
 		}
+		// @ts-expect-error: potentially copied from the protoOption via the spread operator
+		delete ret.ArchetypeConfig;
+		ret.ArchetypeData = ExtendedItemRegisterSubscreen(asset, o.ArchetypeConfig, ret);
 		return ret;
 	});
 
@@ -121,19 +124,12 @@ function TypedItemCreateTypedItemData(asset, {
 			CommonChatTags.SOURCE_CHAR,
 			CommonChatTags.DEST_CHAR,
 		],
-		scriptHooks: {
-			load: ScriptHooks ? ScriptHooks.Load : undefined,
-			click: ScriptHooks ? ScriptHooks.Click : undefined,
-			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
-			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
-			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
-			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
-			init: ScriptHooks ? ScriptHooks.Init : undefined,
-		},
+		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
+		parentOption: null,
 	};
 }
 
@@ -168,7 +164,7 @@ function TypedItemPublishAction(data, C, item, newOption, previousOption) {
 	msg += newOption.Name;
 
 	const dictionary = ExtendedItemBuildChatMessageDictionary(chatData, data);
-	ChatRoomPublishCustomAction(msg, true, dictionary.build());
+	ChatRoomPublishCustomAction(msg, false, dictionary.build());
 }
 
 /**
@@ -283,22 +279,6 @@ function TypedItemSetAllowLockType(asset, allowLockType, typeCount) {
 }
 
 /**
- * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {TypedItemData} data - The parent item's typed item data
- */
-function TypedItemRegisterSubscreens(asset, data) {
-	return data.options
-		.filter(option => option.Archetype !== undefined)
-		.forEach((option, i, options) => {
-			switch (option.Archetype) {
-				case ExtendedArchetype.VARIABLEHEIGHT:
-					VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option.Property, options);
-					break;
-			}
-		});
-}
-
-/**
  * Returns the options configuration array for a typed item
  * @param {AssetGroupName} groupName - The name of the asset group
  * @param {string} assetName - The name of the asset
@@ -366,7 +346,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	}
 
-	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}Validate`;
+	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}${ExtendedItemSubscreen || ""}Validate`;
 	/** @type {Parameters<ExtendedItemCallbacks.Validate<T>>} */
 	const args = [C, item, option, previousOption];
 	const validationMessage = CommonCallFunctionByName(validationFunctionName, ...args);
@@ -411,7 +391,8 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 		return msg;
 	}
 
-	return TypedItemSetOption(C, item, options, option, push);
+	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];
+	return TypedItemSetOption(C, item, options, option, push, (data ? data.baselineProperty : null));
 }
 
 /**
@@ -423,10 +404,11 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
  * @param {T} option - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | ItemProperties} baselineProperty - The items baseline property
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetOption(C, item, options, option, push = false) {
+function TypedItemSetOption(C, item, options, option, push = false, baselineProperty=null) {
 	if (!item || !options || !option) return;
 
 	/** @type {ItemProperties} */
@@ -439,7 +421,19 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 		return requirementMessage;
 	}
 
-	ExtendedItemSetOption(C, item, previousOption.Property, newProperty, push, option.DynamicProperty);
+	if (option.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, item, false];
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${option.Name}Init`, ...args);
+	}
+
+	const previousProperty = PropertyUnion(
+		{ ...previousOption.Property },
+		(previousOption ? ExtendedItemGatherSubscreenProperty(item, previousOption) : {}),
+	);
+	CommonKeys(baselineProperty || {}).forEach(i => delete previousProperty[i]);
+
+	ExtendedItemSetOption(C, item, previousProperty, newProperty, push, option.DynamicProperty);
 }
 
 /**
@@ -547,7 +541,7 @@ function TypedItemInit(Data, C, Item, Refresh=true) {
 function TypedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null, IgnoreSubscreen=false) {
 	// If an option's subscreen is open, it overrides the standard screen
 	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Draw`);
 		return;
 	}
 
@@ -614,7 +608,7 @@ function TypedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=nu
 
 	// If an option's subscreen is open, pass the click into it
 	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click", C, Options);
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Click`);
 		return;
 	}
 
@@ -631,8 +625,12 @@ function TypedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=nu
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-		ExtendedItemPermissionMode = false;
-		ExtendedItemExit();
+		if (ExtendedItemSubscreen) {
+			CommonCallFunctionByName(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Exit`);
+			ExtendedItemSubscreen = null;
+		} else {
+			ExtendedItemExit();
+		}
 		return;
 	}
 
@@ -700,14 +698,6 @@ function TypedItemHandleOptionClick(C, Options, Option) {
 		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
-		} else if (Option.HasSubscreen) {
-			ExtendedItemSubscreen = Option.Name;
-			if (Option.Archetype) {
-				/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-				const args = [C, DialogFocusItem, true];
-				CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Init`, ...args);
-			}
-			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
 			TypedItemSetType(C, Options, Option);
 		}
@@ -730,7 +720,9 @@ function TypedItemSetType(C, Options, Option) {
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, Options, typeField);
 
-	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth); // Do not sync appearance while in the wardrobe
+	// Do not sync appearance while in the wardrobe
+	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];
+	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth, (data ? data.baselineProperty : null));
 
 	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC
 	if (!IsCloth) {
@@ -738,22 +730,25 @@ function TypedItemSetType(C, Options, Option) {
 		if (Option.Expression) {
 			InventoryExpressionTriggerApply(C, Option.Expression);
 		}
+
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
 			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<T>>} */
 			const args = [C, DialogFocusItem, Option, previousOption];
 			CommonCallFunctionByName(FunctionPrefix + "PublishAction", ...args);
+		} else if (C.IsPlayer()) {
+			DialogMenuButtonBuild(C);
 		} else {
-			ExtendedItemExit();
-			if (C.ID === 0) {
-				// Player is using the item on herself
-				DialogMenuButtonBuild(C);
-			} else {
-				// Otherwise, call the item's NPC dialog function, if one exists
-				CommonCallFunctionByName(FunctionPrefix + "NpcDialog", C, Option, previousOption);
-				C.FocusGroup = null;
-			}
+			CommonCallFunctionByName(FunctionPrefix + "NpcDialog", C, Option, previousOption);
 		}
+	}
+
+	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
+	if (Option.HasSubscreen) {
+		ExtendedItemSubscreen = Option.Name;
+		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Load`);
+	} else {
+		DialogLeave();
 	}
 }

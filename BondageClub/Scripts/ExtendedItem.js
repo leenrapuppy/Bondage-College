@@ -116,12 +116,13 @@ function ExtendedItemCreateCallback(data, name, originalFunction) {
 }
 
 /**
+ * Construct the extended item's archetypical callbacks and place them in the main namespace.
  * @template {ExtendedItemOption} T
- * @param {ExtendedItemData<T>} data
- * @param {ExtendedItemCallbackStruct<T>} defaults
+ * @param {ExtendedItemData<T>} data - The extended item data
+ * @param {ExtendedItemCallbackStruct<T>} defaults - The default archetypical callbacks
  */
 function ExtendedItemCreateCallbacks(data, defaults) {
-	/** @type {(keyof Required<ExtendedItemCallbackStruct<T>>)[]} */
+	/** @type {(keyof ExtendedItemCallbackStruct<T>)[]} */
 	const ExtendedItemCreate = [
 		"load",
 		"click",
@@ -138,6 +139,25 @@ function ExtendedItemCreateCallbacks(data, defaults) {
 	}
 
 	ExtendedItemCreate.forEach(k => ExtendedItemCreateCallback(data, k, /** @type {ExtendedItemCallback<any[], any>} */(defaults[k])));
+}
+
+/**
+ * Convert that passed extended item config script hooks into their item data counterpart.
+ * @template {ExtendedItemData<any>} DataType
+ * @template {ExtendedItemOption} OptionType
+ * @param {ExtendedItemCapsScriptHooksStruct<DataType, OptionType>} scriptHooks - The extended item config script hooks
+ * @returns {ExtendedItemScriptHookStruct<DataType, OptionType>} - The extended item data script hooks
+ */
+function ExtendedItemParseScriptHooks(scriptHooks) {
+	return {
+		load: typeof scriptHooks.Load === "function" ? scriptHooks.Load : null,
+		click: typeof scriptHooks.Click === "function" ? scriptHooks.Click : null,
+		draw: typeof scriptHooks.Draw === "function" ? scriptHooks.Draw : null,
+		exit: typeof scriptHooks.Exit === "function" ? scriptHooks.Exit : null,
+		validate: typeof scriptHooks.Validate === "function" ? scriptHooks.Validate : null,
+		publishAction: typeof scriptHooks.PublishAction === "function" ? scriptHooks.PublishAction : null,
+		init: typeof scriptHooks.Init === "function" ? scriptHooks.Init : null,
+	};
 }
 
 /**
@@ -380,6 +400,7 @@ function ExtendedItemExit() {
 	DialogFocusItem = null;
 	DialogExtendedMessage = "";
 	ExtendedItemSubscreen = null;
+	ExtendedItemPermissionMode = false;
 }
 
 /**
@@ -395,13 +416,13 @@ function ExtendedItemExit() {
  * @returns {void} Nothing
  */
 function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
-	// Delete properties added by the previous option
-	const Property = Object.assign({}, item.Property);
-	for (const key of Object.keys(previousProperty)) {
-		delete Property[key];
+	// Delete properties added by the previous option and clone the new properties
+	if (!item.Property) {
+		item.Property = {};
 	}
-	// Clone the new properties and use them to extend the existing properties
-	Object.assign(Property, newProperty);
+	const Property = item.Property;
+	PropertyDifference(Property, previousProperty);
+	PropertyUnion(Property, newProperty);
 
 	// If the item is locked, ensure it has the "Lock" effect
 	if (Property.LockedBy && !(Property.Effect || []).includes("Lock")) {
@@ -409,15 +430,13 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 		Property.Effect.push("Lock");
 	}
 
-	item.Property = Property;
-
 	if (!InventoryDoesItemAllowLock(item)) {
 		// If the new type does not permit locking, remove the lock
-		ValidationDeleteLock(item.Property, false);
+		ValidationDeleteLock(Property, false);
 	}
 
 	if (dynamicProperty != null) {
-		dynamicProperty(item.Property);
+		dynamicProperty(Property);
 	}
 	CharacterRefresh(C, push);
 }
@@ -808,5 +827,46 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 		});
 	} else {
 		return Data.dialogPrefix.chat;
+	}
+}
+
+/**
+ * Register archetypical subscreens for the passed extended item options
+ * @param {Asset} asset - The asset whose subscreen is being registered
+ * @param {VariableHeightConfig | VibratingItemConfig} config - The subscreens extended item config
+ * @param {TypedItemOption | ModularItemOption} option - The parent item's extended item option
+ * @returns {null | VariableHeightData | VibratingItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
+ */
+function ExtendedItemRegisterSubscreen(asset, config, option) {
+	switch (option.Archetype) {
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			return VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(config), option);
+		case ExtendedArchetype.VIBRATING:
+			return VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(config || {}), option);
+		default:
+			return null;
+	}
+}
+
+/**
+ * Gather and return all subscreen properties of the passed option.
+ * @param {Item} item - The item in question
+ * @param {ExtendedItemOption} option - The extended item option
+ * @returns {ItemProperties} - The item properties of the option's subscreen (if any)
+ */
+function ExtendedItemGatherSubscreenProperty(item, option) {
+	if (!("Archetype" in option && "ArchetypeData" in option)) {
+		return {};
+	}
+
+	switch (option.Archetype) {
+		case ExtendedArchetype.VIBRATING: {
+			const vibeData = /** @type {VibratingItemData} */(option.ArchetypeData);
+			return TypedItemFindPreviousOption(item, vibeData.options, "Mode").Property;
+		}
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			return { OverrideHeight: item.Property.OverrideHeight };
+		default:
+			return {};
 	}
 }

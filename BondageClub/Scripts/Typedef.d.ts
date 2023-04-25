@@ -1943,13 +1943,13 @@ interface ExtendedItemScriptHookStruct<
 	DataType extends ExtendedItemData<any>,
 	OptionType extends ExtendedItemOption
 > {
-	load?: ExtendedItemScriptHookCallbacks.Load<DataType>,
-	draw?: ExtendedItemScriptHookCallbacks.Draw<DataType>,
-	click?: ExtendedItemScriptHookCallbacks.Click<DataType>,
-	exit?: ExtendedItemScriptHookCallbacks.Exit<DataType>,
-	validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
-	publishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
-	init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+	load: null | ExtendedItemScriptHookCallbacks.Load<DataType>,
+	draw: null | ExtendedItemScriptHookCallbacks.Draw<DataType>,
+	click: null | ExtendedItemScriptHookCallbacks.Click<DataType>,
+	exit: null | ExtendedItemScriptHookCallbacks.Exit<DataType>,
+	validate: null | ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
+	publishAction: null | ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
+	init: null | ExtendedItemScriptHookCallbacks.Init<DataType>,
 }
 
 /** An interface-based version of {@link ExtendedItemScriptHookCallbacks} */
@@ -2181,7 +2181,9 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemData.scriptHooks} functions.
 	 */
-	baselineProperty: ItemProperties | null;
+	baselineProperty: ItemPropertiesNoArray | null;
+	/** The extended item option of the super screen that this archetype was initialized from (if any) */
+	parentOption: null | ExtendedItemOption;
 }
 
 /** A struct-type that maps archetypes to their respective extended item data.  */
@@ -2544,6 +2546,9 @@ interface ItemPropertiesCustom {
 
 interface ItemProperties extends ItemPropertiesBase, AssetDefinitionProperties, ItemPropertiesCustom { }
 
+/** An {@link ItemProperties} super-type with all array-containing values removed. */
+type ItemPropertiesNoArray = { [k in keyof ItemProperties]: ItemProperties[k] extends any[] ? never : ItemProperties[k] };
+
 //#endregion
 
 /** A struct with drawing data for a given module. */
@@ -2600,6 +2605,7 @@ interface ModularItemData extends ExtendedItemData<ModularItemOption> {
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks: ExtendedItemScriptHookStruct<ModularItemData, ModularItemOption>;
+	parentOption: null;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
@@ -2652,6 +2658,7 @@ interface TypedItemData extends ExtendedItemData<TypedItemOption> {
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks: ExtendedItemScriptHookStruct<TypedItemData, TypedItemOption>;
+	parentOption: null;
 }
 
 //#region Validation
@@ -2738,6 +2745,8 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	dialogPrefix: {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */
 		header: string;
+		/** The dialogue prefix for the name of each option */
+		option: string;
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chat: string | ExtendedItemChatCallback<VibratingItemOption>;
 	};
@@ -2782,16 +2791,12 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 		header: string,
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chat: string | ExtendedItemChatCallback<VariableHeightOption>;
-		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		npc: string | ExtendedItemNPCCallback<VariableHeightOption>;
 	};
 	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, VariableHeightOption>;
 	/** The function that handles finding the current variable height setting */
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
 	setHeight: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
-	/** The list of extended item options the current option was selected from, if applicable */
-	parentOptions: TypedItemOption[];
 	drawImages: false;
 	chatSetting: "default";
 }

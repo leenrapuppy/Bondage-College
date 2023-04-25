@@ -3,23 +3,23 @@
 "use strict";
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemHoodDroneMaskPattern5Load() {
-	InventoryItemHeadDroneMaskPattern5Load();
+function InventoryItemHoodDroneMaskp5Load() {
+	InventoryItemHeadDroneMaskp5Load();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemHoodDroneMaskPattern5Draw() {
-	InventoryItemHeadDroneMaskPattern5Draw();
+function InventoryItemHoodDroneMaskp5Draw() {
+	InventoryItemHeadDroneMaskp5Draw();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemHoodDroneMaskPattern5Click() {
-	InventoryItemHeadDroneMaskPattern5Click();
+function InventoryItemHoodDroneMaskp5Click() {
+	InventoryItemHeadDroneMaskp5Click();
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemHoodDroneMaskPattern5Exit() {
-	InventoryItemHeadDroneMaskPattern5Exit();
+function InventoryItemHoodDroneMaskp5Exit() {
+	InventoryItemHeadDroneMaskp5Exit();
 }
 
 /** @type {ExtendedItemCallbacks.AfterDraw} */

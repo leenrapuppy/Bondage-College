@@ -467,7 +467,7 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
 	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemConfig.ScriptHooks} functions.
 	 */
-	BaselineProperty?: ItemProperties;
+	BaselineProperty?: ItemPropertiesNoArray;
 	/** A boolean indicating whether or not images should be drawn for the option and/or module selection screen. */
 	DrawImages?: boolean;
 }
@@ -526,23 +526,25 @@ interface TypedItemOptionBase extends Omit<ExtendedItemOption, "OptionType"> {
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "TypedItemOption";
 	/** If the option has a subscreen, this can set a particular archetype to use */
-	Archetype?: ExtendedArchetype;
+	Archetype?: "vibrating" | "variableheight";
 	/** If the option has an archetype, sets the config to use */
-	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig;
 	/** Whether or not this option can be selected randomly */
 	Random?: boolean;
 }
 
 /** Extended item option subtype for typed items */
-interface TypedItemOption extends TypedItemOptionBase {
+interface TypedItemOption extends Omit<TypedItemOptionBase, "ArchetypeConfig"> {
 	OptionType: "TypedItemOption";
+	/** If the option has an archetype, sets the data to use */
+	ArchetypeData?: VibratingItemData | VariableHeightData;
 }
 
 /** Extended item option subtype for vibrating items */
 interface VibratingItemOption extends ExtendedItemOption {
 	OptionType: "VibratingItemOption";
 	Name: VibratorMode;
-	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity">;
+	Property: ItemProperties & Pick<Required<ItemProperties>, "Mode" | "Intensity" | "Effect">;
 	/** If the option has a subscreen, this can set a particular archetype to use */
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
@@ -552,6 +554,8 @@ interface VibratingItemOption extends ExtendedItemOption {
 /** Extended item option subtype for vibrating items */
 interface VariableHeightOption extends ExtendedItemOption {
 	OptionType: "VariableHeightOption";
+	Property: Pick<Required<ItemProperties>, "OverrideHeight">;
+	Name: "newOption" | "previousOption";
 }
 
 /**
@@ -761,10 +765,14 @@ interface ModularItemOptionBase extends Omit<ExtendedItemOption, "OptionType" | 
 	ModuleName?: string;
 	/** The option's (automatically assigned) index within the parent module */
 	Index?: number;
+	/** If the option has a subscreen, this can set a particular archetype to use */
+	Archetype?: "vibrating" | "variableheight";
+	/** If the option has an archetype, sets the config to use */
+	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig;
 }
 
 /** An object describing a single option within a module for a modular item. */
-interface ModularItemOption extends ExtendedItemOption, ModularItemOptionBase {
+interface ModularItemOption extends Omit<ModularItemOptionBase, "ArchetypeConfig"> {
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name: string;
 	/** A unique (automatically assigned) identifier of the struct type */
@@ -773,6 +781,8 @@ interface ModularItemOption extends ExtendedItemOption, ModularItemOptionBase {
 	ModuleName: string;
 	/** The option's (automatically assigned) index within the parent module */
 	Index: number;
+	/** If the option has an archetype, sets the data to use */
+	ArchetypeData?: VibratingItemData | VariableHeightData;
 }
 
 //#endregion
@@ -796,6 +806,8 @@ interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
 	DialogPrefix?: {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
 		Header?: string;
+		/** The dialogue prefix for the name of each option */
+		Option?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
 		Chat?: string | ExtendedItemChatCallback<VibratingItemOption>;
 	};
@@ -825,8 +837,6 @@ interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> 
 		Header?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
 		Chat?: string | ExtendedItemChatCallback<VariableHeightOption>;
-		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		Npc?: string | ExtendedItemNPCCallback<VariableHeightOption>;
 	};
 	/** The function that handles finding the current variable height setting */
 	GetHeightFunction?: (property: ItemProperties) => number | null;

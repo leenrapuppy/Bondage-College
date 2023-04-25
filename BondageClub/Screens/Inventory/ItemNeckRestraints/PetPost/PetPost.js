@@ -1,25 +1,25 @@
 "use strict";
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemNeckRestraintsPetPostTxt0Load() {
+function InventoryItemNeckRestraintsPetPostx0Load() {
 	PropertyTextLoad();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemNeckRestraintsPetPostTxt0Draw() {
+function InventoryItemNeckRestraintsPetPostx0Draw() {
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 	PropertyTextDraw();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemNeckRestraintsPetPostTxt0Click() {
+function InventoryItemNeckRestraintsPetPostx0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemNeckRestraintsPetPostTxt0Exit();
+		InventoryItemNeckRestraintsPetPostx0Exit();
 	}
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemNeckRestraintsPetPostTxt0Exit() {
+function InventoryItemNeckRestraintsPetPostx0Exit() {
 	PropertyTextExit();
 	ExtendedItemSubscreen = null;
 }
@@ -64,23 +64,23 @@ function AssetsItemNeckRestraintsPetPostAfterDraw({
 }
 
 /** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemMiscPetPostTxt0Load() {
-	InventoryItemNeckRestraintsPetPostTxt0Load();
+function InventoryItemMiscPetPostx0Load() {
+	InventoryItemNeckRestraintsPetPostx0Load();
 }
 
 /** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemMiscPetPostTxt0Draw() {
-	InventoryItemNeckRestraintsPetPostTxt0Draw();
+function InventoryItemMiscPetPostx0Draw() {
+	InventoryItemNeckRestraintsPetPostx0Draw();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemMiscPetPostTxt0Click() {
-	InventoryItemNeckRestraintsPetPostTxt0Click();
+function InventoryItemMiscPetPostx0Click() {
+	InventoryItemNeckRestraintsPetPostx0Click();
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemMiscPetPostTxt0Exit() {
-	InventoryItemNeckRestraintsPetPostTxt0Exit();
+function InventoryItemMiscPetPostx0Exit() {
+	InventoryItemNeckRestraintsPetPostx0Exit();
 }
 
 /** @type {ExtendedItemCallbacks.AfterDraw} */
