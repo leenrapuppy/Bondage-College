@@ -215,6 +215,7 @@ type EffectName =
 
 	"Unlock-MetalPadlock" | "Unlock-OwnerPadlock" | "Unlock-OwnerTimerPadlock" |
 	"Unlock-LoversPadlock" | "Unlock-LoversTimerPadlock" |
+	"Unlock-FamilyPadlock" |
 	"Unlock-MistressPadlock" | "Unlock-MistressTimerPadlock" |
 	"Unlock-PandoraPadlock" |
 
@@ -295,7 +296,7 @@ type AssetPoseMapping = Partial<Record<AssetPoseName, AssetPoseName | "">>;
 
 type AssetLockType =
 	"CombinationPadlock" | "ExclusivePadlock" | "HighSecurityPadlock" |
-	"IntricatePadlock" | "LoversPadlock" | "LoversTimerPadlock" |
+	"IntricatePadlock" | "LoversPadlock" | "LoversTimerPadlock" | "FamilyPadlock" |
 	"MetalPadlock" | "MistressPadlock" | "MistressTimerPadlock" |
 	"OwnerPadlock" | "OwnerTimerPadlock" | "PandoraPadlock" |
 	"PasswordPadlock" | "SafewordPadlock" | "TimerPadlock" |
@@ -1145,6 +1146,7 @@ interface Asset {
 	PickDifficulty: number;
 	OwnerOnly: boolean;
 	LoverOnly: boolean;
+	FamilyOnly: boolean;
 	ExpressionTrigger?: readonly ExpressionTrigger[];
 	RemoveItemOnRemove: readonly { Name: string; Group: AssetGroupName; Type?: string; }[];
 	AllowEffect?: readonly EffectName[];
@@ -1291,7 +1293,7 @@ interface Item {
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
 type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
-type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
+type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "FamilyOnly" | "OwnerOnly" | "Unlocked";
 
 interface InventoryItem {
 	Group: AssetGroupName;
@@ -1507,6 +1509,7 @@ interface Character {
 	IsPlayer: () => this is PlayerCharacter;
 	IsBirthday: () => boolean;
 	IsFamilyOfPlayer: () => boolean;
+	IsInFamilyOfMemberNumber: (MemberNum: number) => boolean;
 	IsOnline: () => boolean;
 	IsNpc: () => this is NPCCharacter;
 	IsSimple: () => boolean;
@@ -2676,6 +2679,10 @@ interface AppearanceUpdateParameters {
 	 * lover-only items)
 	 */
 	fromLover: boolean;
+	/**
+	 * Whether or not the source player has permissions to use family-only items (in same BDSM family)
+	 */
+	fromFamily: boolean;
 	/** The script permission levels that the source player has with respect to the receiver */
 	permissions: ScriptPermissionLevel[];
 	/** The member number of the source player */

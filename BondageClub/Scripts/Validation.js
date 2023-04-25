@@ -36,6 +36,7 @@ const ValidationPropertyPermissions = {
 function ValidationCreateDiffParams(C, sourceMemberNumber) {
 	const fromSelf = sourceMemberNumber === C.MemberNumber;
 	const fromOwner = C.Ownership != null && (sourceMemberNumber === C.Ownership.MemberNumber || fromSelf);
+	const fromFamily = C.IsInFamilyOfMemberNumber(sourceMemberNumber);
 	const loverNumbers = CharacterGetLoversNumbers(C);
 	let fromLover = loverNumbers.includes(sourceMemberNumber) || fromSelf;
 	// An update from the player's owner is counted as being from a lover if lover locks aren't blocked by a lover rule
@@ -60,7 +61,7 @@ function ValidationCreateDiffParams(C, sourceMemberNumber) {
 		ScriptPermissionLevel.PUBLIC,
 	].filter(Boolean));
 
-	return { C, fromSelf, fromOwner, fromLover, permissions, sourceMemberNumber };
+	return { C, fromSelf, fromOwner, fromLover, fromFamily, permissions, sourceMemberNumber };
 }
 
 /**
@@ -442,13 +443,18 @@ function ValidationItemWarningMessage(item, { C, sourceMemberNumber }) {
  * @param {boolean} [remove] - Whether the lock change is a removal
  * @returns {boolean} - TRUE if the lock can be modified, FALSE otherwise
  */
-function ValidationIsLockChangePermitted(lock, { C, fromOwner, fromLover }, remove = false) {
+function ValidationIsLockChangePermitted(lock, { C, fromOwner, fromLover, fromFamily }, remove = false) {
 	if (!lock) return true;
 	if (lock.Asset.OwnerOnly && !fromOwner) return false;
 	if (lock.Asset.LoverOnly) {
 		// Owners can always remove lover locks, regardless of lover rules
 		if (remove && fromOwner) return true;
 		else return fromLover;
+	}
+	if (lock.Asset.FamilyOnly) {
+		// Owners can always remove family locks, regardless of rules
+		if (remove && fromOwner) return true;
+		else return fromFamily;
 	}
 	return true;
 }
@@ -571,17 +577,18 @@ function ValidationCanRemoveItem(previousItem, params, isSwap) {
 	// If we're not swapping, and the asset group can't be empty, always block removal
 	if (!previousItem.Asset.Group.AllowNone && !isSwap) return false;
 
-	const {fromSelf, fromOwner, fromLover} = params;
+	const {fromSelf, fromOwner, fromLover, fromFamily} = params;
 
 	// If the update is coming from ourself, it's always permitted
 	if (fromSelf) return true;
 
 	const lock = InventoryGetLock(previousItem);
 
-	// If the previous item has AllowRemoveExclusive, allow owner/lover-only items to be removed if they're not locked
+	// If the previous item has AllowRemoveExclusive, allow owner/lover/family-only items to be removed if they're not locked
 	if (previousItem.Asset.AllowRemoveExclusive) {
 		if (InventoryOwnerOnlyItem(previousItem) && (!lock || !lock.Asset.OwnerOnly)) return true;
 		else if (InventoryLoverOnlyItem(previousItem) && (!lock || !lock.Asset.LoverOnly)) return true;
+		else if (InventoryFamilyOnlyItem(previousItem) && (!lock || !lock.Asset.FamilyOnly)) return true;
 	}
 
 	// Owners can always remove lover locks, regardless of lover rules
@@ -589,6 +596,9 @@ function ValidationCanRemoveItem(previousItem, params, isSwap) {
 
 	// Only owners/lovers can remove lover locks
 	if (lock && lock.Asset.LoverOnly && !fromLover && !fromOwner) return false;
+
+	// Only owners/lovers can remove lover locks
+	if (lock && lock.Asset.FamilyOnly && !fromLover && !fromOwner && !fromFamily) return false;
 
 	// Only owners can remove owner locks
 	if (lock && lock.Asset.OwnerOnly && !fromOwner) return false;
@@ -605,7 +615,7 @@ function ValidationCanRemoveItem(previousItem, params, isSwap) {
  * @return {boolean} - TRUE if the item can be added or removed based on the appearance update parameters, FALSE
  * otherwise
  */
-function ValidationCanAddOrRemoveItem(item, { C, fromOwner, fromLover }) {
+function ValidationCanAddOrRemoveItem(item, { C, fromOwner, fromLover, fromFamily }) {
 	const asset = item.Asset;
 
 	// If the target does not permit full appearance modification, block changing non-clothing appearance items
@@ -621,6 +631,9 @@ function ValidationCanAddOrRemoveItem(item, { C, fromOwner, fromLover }) {
 
 	// If the item is lover only, only a lover/owner can add/remove it
 	if (asset.LoverOnly) return fromLover;
+
+	// If the item is lover only, only a lover/owner can add/remove it
+	if (asset.FamilyOnly) return fromFamily;
 
 	// If the asset does not have the Enable flag, it can't be added/removed
 	if (!asset.Enable) return false;

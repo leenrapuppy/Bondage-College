@@ -316,9 +316,27 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		IsFamilyOfPlayer: function () {
 			if (this.IsPlayer()) return false;
-			if (this.IsLoverOfPlayer() || this.IsOwner() || this.IsOwnedByPlayer()) return true;
+			if (this.IsOwner() || this.IsOwnedByPlayer()) return true;
 			if ((Player.Ownership != null) && (this.MemberNumber === Player.Ownership.MemberNumber)) return true;
 			return ((Player.Ownership != null) && (this.Ownership != null) && (Player.Ownership.MemberNumber === this.Ownership.MemberNumber));
+		},
+		IsInFamilyOfMemberNumber: function(MemberNum) {
+			if (ChatRoomCharacter == null) return false;
+			if (this.ID == 0)
+				for (let Char of ChatRoomCharacter)
+					if (Char.MemberNumber == MemberNum)
+						return Char.IsFamilyOfPlayer();
+			if ((this.ID != 0) && (MemberNum === Player.MemberNumber))
+				return this.IsFamilyOfPlayer();
+			if ((this.ID != 0) && (MemberNum !== Player.MemberNumber))
+				for (let Char of ChatRoomCharacter)
+					if (Char.MemberNumber == MemberNum) {
+						if ((Char.Ownership != null) && (this.Ownership != null) && (Char.Ownership.MemberNumber === this.Ownership.MemberNumber)) return true;
+						if ((Char.Ownership != null) && (Char.Ownership.MemberNumber == this.MemberNumber)) return true;
+						if ((this.Ownership != null) && (this.Ownership.MemberNumber == Char.MemberNumber)) return true;
+						return false;
+					}
+			return false;
 		},
 		IsOnline: function () {
 			return this.Type === CharacterType.ONLINE;

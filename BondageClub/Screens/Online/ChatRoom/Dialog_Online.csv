@@ -139,8 +139,10 @@ ReleaseLoverConfirm,,"(Cancel)",(Main menu),,
 130,100,(Allow DialogCharacterObject to buy keys.),(The store will sell keys to DialogCharacterObject.),"SendOwnerRule(""KeyAllow"")","GetOwnerRule(""BlockKey"")"
 130,100,(Confiscate DialogCharacterPossessive keys.),(DialogCharacterSubject lost all of DialogCharacterPossessive keys.),"SendOwnerRule(""KeyConfiscate"")",
 130,100,(Block DialogCharacterObject from buying keys.),(The store will not sell keys to DialogCharacterObject anymore.),"SendOwnerRule(""KeyBlock"")","!GetOwnerRule(""BlockKey"")"
-130,100,(Allow DialogCharacterObject to use owner locks on DialogCharacterSelf.),(DialogCharacterSubject will be able to use owner locks on DialogCharacterSelf.),"SendOwnerRule(""SelfOwnerLockAllow"")","GetOwnerRule(""BlockOwnerLockSelf"")"
-130,100,(Block DialogCharacterObject from using owner locks on DialogCharacterSelf.),(DialogCharacterSubject will not be able to use owner locks on DialogCharacterSelf anymore.),"SendOwnerRule(""SelfOwnerLockBlock"")","!GetOwnerRule(""BlockOwnerLockSelf"")"
+130,100,(Allow DialogCharacterObject to use family keys.),(DialogCharacterObject will now be able to use family keys.),"SendOwnerRule(""KeyAllowFamily"")","GetOwnerRule(""BlockFamilyKey"")"
+130,100,(Block DialogCharacterObject from using family keys.),(DialogCharacterObject won't be able to use family keys.),"SendOwnerRule(""KeyBlockFamily"")","!GetOwnerRule(""BlockFamilyKey"")"
+130,100,(Allow DialogCharacterObject to use owner/family locks on DialogCharacterSelf.),(DialogCharacterSubject will be able to use owner & family locks on DialogCharacterSelf.),"SendOwnerRule(""SelfOwnerLockAllow"")","GetOwnerRule(""BlockOwnerLockSelf"")"
+130,100,(Block DialogCharacterObject from using owner/family locks on DialogCharacterSelf.),(DialogCharacterSubject will not be able to use owner & family locks on DialogCharacterSelf anymore.),"SendOwnerRule(""SelfOwnerLockBlock"")","!GetOwnerRule(""BlockOwnerLockSelf"")"
 130,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 130,0,(Back to main menu.),(Main menu.),,
 140,100,(Allow DialogCharacterObject to buy remotes.),(The store will sell remotes to DialogCharacterObject.),"SendOwnerRule(""RemoteAllow"")","GetOwnerRule(""BlockRemote"")"

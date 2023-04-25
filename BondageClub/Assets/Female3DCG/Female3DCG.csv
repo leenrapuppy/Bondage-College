@@ -1591,6 +1591,7 @@ ItemMisc,TimerPasswordPadlock,Timer Password Lock
 ItemMisc,OwnerPadlock,Owner Padlock
 ItemMisc,OwnerTimerPadlock,Owner Timer Padlock
 ItemMisc,LoversPadlock,Lovers Padlock
+ItemMisc,FamilyPadlock,Family Padlock
 ItemMisc,LoversTimerPadlock,Lovers Timer Padlock
 ItemMisc,MistressPadlock,Mistress Padlock
 ItemMisc,PandoraPadlock,Pandora's Box Padlock
@@ -1600,6 +1601,7 @@ ItemMisc,SafewordPadlock,Safeword Padlock
 ItemMisc,MetalPadlockKey,Metal Padlock Key
 ItemMisc,OwnerPadlockKey,Owner Padlock Key
 ItemMisc,LoversPadlockKey,Lovers Padlock Key
+ItemMisc,FamilyPadlockKey,Family Padlock Key
 ItemMisc,MistressPadlockKey,Mistress Padlock Key
 ItemMisc,PandoraPadlockKey,Pandora's Box Padlock Key
 ItemMisc,MetalCuffsKey,Metal Cuffs Key

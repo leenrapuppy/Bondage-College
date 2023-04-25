@@ -1123,6 +1123,21 @@ function InventoryLoverOnlyItem(Item) {
 }
 
 /**
+* Returns TRUE if the item has a FamilyOnly flag, such as the family padlock
+* @param {Item} Item - The item from appearance that must be scanned
+* @returns {Boolean} - TRUE if family only
+*/
+function InventoryFamilyOnlyItem(Item) {
+	if (Item == null) return false;
+	if (Item.Asset.FamilyOnly) return true;
+	if (Item.Asset.Group.Category == "Item") {
+		var Lock = InventoryGetLock(Item);
+		if ((Lock != null) && (Lock.Asset.FamilyOnly != null) && Lock.Asset.FamilyOnly) return true;
+	}
+	return false;
+}
+
+/**
 * Returns TRUE if the character is wearing at least one restraint that's locked with an extra lock
 * @param {Character} C - The character to scan
 * @returns {Boolean} - TRUE if one restraint with an extra lock is found
@@ -1174,6 +1189,20 @@ function InventoryCharacterHasLoverOnlyRestraint(C) {
 	if (C.Appearance != null)
 		for (let A = 0; A < C.Appearance.length; A++) {
 			if (C.Appearance[A].Asset.IsRestraint && InventoryLoverOnlyItem(C.Appearance[A]))
+				return true;
+		}
+	return false;
+}
+
+/**
+* Returns TRUE if the character is wearing at least one item that's a restraint with a FamilyOnly flag
+* @param {Character} C - The character to scan
+* @returns {Boolean} - TRUE if one family only restraint is found
+*/
+function InventoryCharacterHasFamilyOnlyRestraint(C) {
+	if (C.Appearance != null)
+		for (let A = 0; A < C.Appearance.length; A++) {
+			if (C.Appearance[A].Asset.IsRestraint && InventoryFamilyOnlyItem(C.Appearance[A]))
 				return true;
 		}
 	return false;
@@ -1257,7 +1286,7 @@ function InventoryLockRandom(C, Item, FromOwner) {
 	if (InventoryDoesItemAllowLock(Item)) {
 		var List = [];
 		for (let A = 0; A < Asset.length; A++)
-			if (Asset[A].IsLock && Asset[A].Random && !Asset[A].LoverOnly && (FromOwner || !Asset[A].OwnerOnly))
+			if (Asset[A].IsLock && Asset[A].Random && !Asset[A].LoverOnly && !Asset[A].FamilyOnly && (FromOwner || !Asset[A].OwnerOnly))
 				List.push(Asset[A]);
 		if (List.length > 0) {
 			var Lock = { Asset: InventoryGetRandom(C, null, List) };

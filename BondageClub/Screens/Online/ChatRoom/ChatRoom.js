@@ -653,8 +653,9 @@ function ChatRoomCanBeLeashedBy(sourceMemberNumber, C) {
 			}
 
 		if (canLeash && !isTrapped) {
-			if (sourceMemberNumber == 0 || !neckLock || (!neckLock.Asset.OwnerOnly && !neckLock.Asset.LoverOnly) ||
+			if (sourceMemberNumber == 0 || !neckLock || (!neckLock.Asset.OwnerOnly && !neckLock.Asset.LoverOnly && !neckLock.Asset.FamilyOnly) ||
 				(neckLock.Asset.OwnerOnly && C.IsOwnedByMemberNumber(sourceMemberNumber)) ||
+				(neckLock.Asset.FamilyOnly && C.IsFamilyOfPlayer()) ||
 				(neckLock.Asset.LoverOnly && C.IsLoverOfMemberNumber(sourceMemberNumber))) {
 				return true;
 			}
@@ -4184,8 +4185,10 @@ function ChatRoomSetRule(data) {
 
 		// Key rules
 		if (data.Content == "OwnerRuleKeyAllow") LogDelete("BlockKey", "OwnerRule");
-		if (data.Content == "OwnerRuleKeyConfiscate") {InventoryConfiscateKey(); DialogLentLockpicks = false;}
+		if (data.Content == "OwnerRuleKeyConfiscate") { InventoryConfiscateKey(); DialogLentLockpicks = false; }
 		if (data.Content == "OwnerRuleKeyBlock") LogAdd("BlockKey", "OwnerRule");
+		if (data.Content == "OwnerRuleKeyAllowFamily") LogDelete("BlockFamilyKey", "OwnerRule");
+		if (data.Content == "OwnerRuleKeyBlockFamily") LogAdd("BlockFamilyKey", "OwnerRule");
 		if (data.Content == "OwnerRuleSelfOwnerLockAllow") LogDelete("BlockOwnerLockSelf", "OwnerRule");
 		if (data.Content == "OwnerRuleSelfOwnerLockBlock") LogAdd("BlockOwnerLockSelf", "OwnerRule");
 

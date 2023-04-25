@@ -44,6 +44,7 @@ function InventoryItemMiscHighSecurityPadlockPlayerHasKeys(C, Item) {
 			if (Lock != null) {
 				if (Lock.Asset.LoverOnly && !C.IsLoverOfPlayer()) return false;
 				if (Lock.Asset.OwnerOnly && !C.IsOwnedByPlayer()) return false;
+				if (Lock.Asset.FamilyOnly && !C.IsFamilyOfPlayer()) return false;
 				return true;
 			} else return true;
 		}

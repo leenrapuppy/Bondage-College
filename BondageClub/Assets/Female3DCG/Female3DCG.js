@@ -13,7 +13,7 @@
 // -1 value items cannot be bought, they must be acquired in-game in some other ways
 
 // *** Sort order of asset & asset group properties ***
-// Name, Priority, Value, Difficulty, SelfBondage, Time, RemoveTime, Enable, Visible, Random, Wear, IsRestraint, AllowLock, OwnerOnly, LoverOnly, Left, Top, DefaultColor, BuyGroup, Prerequisite, Hide, HideItem, everything else
+// Name, Priority, Value, Difficulty, SelfBondage, Time, RemoveTime, Enable, Visible, Random, Wear, IsRestraint, AllowLock, OwnerOnly, LoverOnly, FamilyOnly, Left, Top, DefaultColor, BuyGroup, Prerequisite, Hide, HideItem, everything else
 // Group, ParentGroup, ParentSize, ParentColor, Category, Priority, Default, Clothing, Underwear, Random, IsRestraint, Blink, Left, Top, Color, FullAlpha, AllowNone, AllowColorize, AllowCustomize, AllowPose, SetPose, Effect, Zone, Activity
 
 // *** Item addition & modification guidelines ***
@@ -8323,6 +8323,7 @@ var AssetFemale3DCG = [
 			{ Name: "OwnerTimerPadlock", Value: 100, Wear: false, OwnerOnly: true, Effect: [], IsLock: true, MaxTimer: 604800, RemoveTimer: 300 },
 			{ Name: "LoversPadlock", Value: 60, Time: 10, Wear: false, LoverOnly: true, Effect: [], IsLock: true},
 			{ Name: "LoversTimerPadlock", Value: 100, Wear: false, LoverOnly: true, Effect: [], IsLock: true, MaxTimer: 604800, RemoveTimer: 300 },
+			{ Name: "FamilyPadlock", Value: 50, Time: 10, Wear: false, FamilyOnly: true, Effect: [], IsLock: true},
 			{ Name: "MistressPadlock", Value: -1, Time: 10, Wear: false, Effect: [], IsLock: true},
 			{ Name: "MistressTimerPadlock", Value: -1, Wear: false, Effect: [], IsLock: true, MaxTimer: 14400, RemoveTimer: 300 },
 			{ Name: "PandoraPadlock", Value: -1, Time: 10, Wear: false, Effect: [], IsLock: true},
@@ -8331,6 +8332,7 @@ var AssetFemale3DCG = [
 			{ Name: "MetalPadlockKey", Value: 10, Wear: false, Effect: ["Unlock-MetalPadlock"] },
 			{ Name: "OwnerPadlockKey", Value: 60, Wear: false, OwnerOnly: true, Effect: ["Unlock-OwnerPadlock", "Unlock-OwnerTimerPadlock"] },
 			{ Name: "LoversPadlockKey", Value: 40, Wear: false, LoverOnly: true, Effect: ["Unlock-LoversPadlock", "Unlock-LoversTimerPadlock"] },
+			{ Name: "FamilyPadlockKey", Value: 30, Wear: false, FamilyOnly: true, Effect: ["Unlock-FamilyPadlock"] },
 			{ Name: "MistressPadlockKey", Value: -1, Wear: false, Effect: ["Unlock-MistressPadlock", "Unlock-MistressTimerPadlock"] },
 			{ Name: "PandoraPadlockKey", Value: -1, Wear: false, Effect: ["Unlock-PandoraPadlock"] },
 			{ Name: "MetalCuffsKey", Value: 20, Time: 5, Wear: false, Effect: ["Unlock-MetalCuffs", "Unlock-EscortAnkleCuffs"] },

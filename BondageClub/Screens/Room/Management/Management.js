@@ -299,12 +299,12 @@ function ManagementMistressCannotBePaid() { return (LogQuery("ClubMistress", "Ma
  * Checks if the player can be a club slave.
  * @returns {boolean} - TRUE if the player is not wearing an owner/lover only restraint and is not too dominant.
  */
-function ManagementCanBeClubSlave() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && ReputationGet("Dominant") < -50); }
+function ManagementCanBeClubSlave() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && !InventoryCharacterHasFamilyOnlyRestraint(Player) && ReputationGet("Dominant") < -50); }
 /**
  * Checks if the player cannot be a club slave due to her dominant reputation.
  * @returns {boolean} - TRUE if the player is not wearing an owner/lover only restraint, but is too dominant.
  */
-function ManagementCannotBeClubSlaveDominant() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && ReputationGet("Dominant") >= -50); }
+function ManagementCannotBeClubSlaveDominant() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && !InventoryCharacterHasFamilyOnlyRestraint(Player) && ReputationGet("Dominant") >= -50); }
 /**
  * Checks if the player cannot be a club slave due to her currently worn owner-only restraint(s).
  * @returns {boolean} - TRUE if the player is wearing an owner-only restraint.
@@ -315,6 +315,11 @@ function ManagementCannotBeClubSlaveOwnerLock() { return InventoryCharacterHasOw
  * @returns {boolean} - TRUE if the player is wearing a lover-only restraint.
  */
 function ManagementCannotBeClubSlaveLoverLock() { return InventoryCharacterHasLoverOnlyRestraint(Player); }
+/**
+ * Checks if the player cannot be a club slave due to her currently worn lover-only restraint(s).
+ * @returns {boolean} - TRUE if the player is wearing a lover-only restraint.
+ */
+function ManagementCannotBeClubSlaveFamilyLock() { return InventoryCharacterHasFamilyOnlyRestraint(Player); }
 /**
  * Checks if the player can kiss the current NPC.
  * @returns {boolean} - TRUE if both the NPC and the player can talk.

@@ -481,7 +481,7 @@ function KidnapLeagueRandomActivityLaunch() {
 			if (KidnapPlayerClothAccessory != null) InventoryWear(Player, KidnapPlayerClothAccessory.Asset.Name, "ClothAccessory", KidnapPlayerClothAccessory.Color);
 			if (KidnapPlayerClothLower != null) InventoryWear(Player, KidnapPlayerClothLower.Asset.Name, "ClothLower", KidnapPlayerClothLower.Color);
 		}
-		if ((!InventoryCharacterHasOwnerOnlyRestraint(Player)) && (!InventoryCharacterHasLoverOnlyRestraint(Player))){
+		if ((!InventoryCharacterHasOwnerOnlyRestraint(Player)) && (!InventoryCharacterHasLoverOnlyRestraint(Player)) && (!InventoryCharacterHasFamilyOnlyRestraint(Player))){
 			CharacterRelease(Player);
 			KidnapLeagueRandomActivityStart("End");
 			KidnapLeagueVisitRoom = ((Math.random() >= 0.5) && KidnapLeagueCanTransferToRoom());
@@ -497,13 +497,13 @@ function KidnapLeagueRandomActivityLaunch() {
 
 		// Add or remove an item
 		if ((KidnapLeagueRandomActivity == "AddGag") && (InventoryGet(Player, "ItemMouth") == null)) { InventoryWearRandom(Player, "ItemMouth", KidnapLeagueRandomKidnapperDifficulty); KidnapLeagueRandomActivityStart(KidnapLeagueRandomActivity); return; }
-		if ((KidnapLeagueRandomActivity == "RemoveGag") && (InventoryGet(Player, "ItemMouth") != null) && !InventoryOwnerOnlyItem(InventoryGet(Player, "ItemMouth")) && !InventoryLoverOnlyItem(InventoryGet(Player, "ItemMouth"))){
+		if ((KidnapLeagueRandomActivity == "RemoveGag") && (InventoryGet(Player, "ItemMouth") != null) && !InventoryOwnerOnlyItem(InventoryGet(Player, "ItemMouth")) && !InventoryLoverOnlyItem(InventoryGet(Player, "ItemMouth")) && !InventoryFamilyOnlyItem(InventoryGet(Player, "ItemMouth"))){
 			InventoryRemove(Player, "ItemMouth"); KidnapLeagueRandomActivityStart(KidnapLeagueRandomActivity); return; }
 		if ((KidnapLeagueRandomActivity == "AddFeet") && (InventoryGet(Player, "ItemFeet") == null) && !Player.IsKneeling()) { InventoryWearRandom(Player, "ItemFeet", KidnapLeagueRandomKidnapperDifficulty); KidnapLeagueRandomActivityStart(KidnapLeagueRandomActivity); return; }
-		if ((KidnapLeagueRandomActivity == "RemoveFeet") && (InventoryGet(Player, "ItemFeet") != null) && !InventoryOwnerOnlyItem(InventoryGet(Player, "ItemFeet")) && !InventoryLoverOnlyItem(InventoryGet(Player, "ItemFeet"))) {
+		if ((KidnapLeagueRandomActivity == "RemoveFeet") && (InventoryGet(Player, "ItemFeet") != null) && !InventoryOwnerOnlyItem(InventoryGet(Player, "ItemFeet")) && !InventoryLoverOnlyItem(InventoryGet(Player, "ItemFeet")) && !InventoryFamilyOnlyItem(InventoryGet(Player, "ItemFeet"))) {
 			InventoryRemove(Player, "ItemFeet"); KidnapLeagueRandomActivityStart(KidnapLeagueRandomActivity); return; }
 		if ((KidnapLeagueRandomActivity == "AddLegs") && (InventoryGet(Player, "ItemLegs") == null) && !Player.IsKneeling()) { InventoryWearRandom(Player, "ItemLegs", KidnapLeagueRandomKidnapperDifficulty); KidnapLeagueRandomActivityStart(KidnapLeagueRandomActivity); return; }
-		if ((KidnapLeagueRandomActivity == "RemoveLegs") && (InventoryGet(Player, "ItemLegs") != null) && !InventoryOwnerOnlyItem(InventoryGet(Player, "ItemLegs")) && !InventoryLoverOnlyItem(InventoryGet(Player, "ItemLegs"))) {
+		if ((KidnapLeagueRandomActivity == "RemoveLegs") && (InventoryGet(Player, "ItemLegs") != null) && !InventoryOwnerOnlyItem(InventoryGet(Player, "ItemLegs")) && !InventoryLoverOnlyItem(InventoryGet(Player, "ItemLegs")) && !InventoryFamilyOnlyItem(InventoryGet(Player, "ItemLegs"))) {
 			InventoryRemove(Player, "ItemLegs"); KidnapLeagueRandomActivityStart(KidnapLeagueRandomActivity); return; }
 
 		// Physical activities

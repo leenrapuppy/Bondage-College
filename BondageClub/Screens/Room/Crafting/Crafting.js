@@ -96,7 +96,7 @@ const CraftingStatusType = {
  * An empty string implies the absence of a lock.
  * @type {readonly (AssetLockType | "")[]}
  */
-const CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
+const CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "FamilyPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
  * Returns TRUE if a crafting item has an effect from a list or allows that effect

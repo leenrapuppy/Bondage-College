@@ -224,7 +224,7 @@ function InventoryItemNeckFuturisticCollarCanLock(C, LockType) {
 			break;
 		}
 	// Next we check if the target player has it, but not for the mistress, owner, or lover locks
-	if (LockItem == null && LockType != "MistressPadlock" && LockType != "LoversPadlock" && LockType != "OwnerPadlock") {
+	if (LockItem == null && LockType != "MistressPadlock" && LockType != "FamilyPadlock" && LockType != "LoversPadlock" && LockType != "OwnerPadlock") {
 		for (let I = 0; I < C.Inventory.length; I++) {
 			if ((C.Inventory[I].Name == LockType) && (C.Inventory[I].Group == "ItemMisc")) {
 				LockItem = C.Inventory[I];
@@ -246,7 +246,10 @@ function InventoryItemNeckFuturisticCollarCanLock(C, LockType) {
 		if (LockItem.Asset.LoverOnly && !C.IsLoverOfPlayer())
 			if ((C.ID != 0) || (C.Lovership.length == 0) || ((C.ID == 0) && C.GetLoversNumbers(true).length == 0))
 				return false;
-
+		if (LockItem.Asset.FamilyOnly && !C.IsFamilyOfPlayer())
+			if ((C.ID != 0) || ((C.Owner == "") && (C.Ownership == null)) || ((C.ID == 0) && LogQuery("BlockOwnerLockSelf", "OwnerRule")))
+				return false;
+	
 		if (LockItem.Asset.Name == "TimerPasswordPadlock" || LockItem.Asset.Name == "MistressTimerPadlock" || LockItem.Asset.Name == "LoversTimerPadlock" || LockItem.Asset.Name == "OwnerTimerPadlock") {
 			if (!(parseInt(ElementValue("FutureCollarTimeField")) > 0)) return false;
 		}

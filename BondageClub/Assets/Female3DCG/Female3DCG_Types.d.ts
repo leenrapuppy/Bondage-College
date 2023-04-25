@@ -206,6 +206,9 @@ interface AssetDefinition {
 	/** Whether the asset is only available to lovers. */
 	LoverOnly?: boolean;
 
+	/** Whether the asset is only available to the family. */
+	FamilyOnly?: boolean;
+
 	/** A list of facial expression using the asset causes to the character */
 	ExpressionTrigger?: ExpressionTrigger[];
 

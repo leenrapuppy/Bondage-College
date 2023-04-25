@@ -156,6 +156,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		PickDifficulty: (AssetDef.PickDifficulty == null) ? 0 : AssetDef.PickDifficulty,
 		OwnerOnly: (AssetDef.OwnerOnly == null) ? false : AssetDef.OwnerOnly,
 		LoverOnly: (AssetDef.LoverOnly == null) ? false : AssetDef.LoverOnly,
+		FamilyOnly: (AssetDef.FamilyOnly == null) ? false : AssetDef.FamilyOnly,
 		ExpressionTrigger: AssetDef.ExpressionTrigger,
 		RemoveItemOnRemove: (AssetDef.RemoveItemOnRemove == null) ? Group.RemoveItemOnRemove : Group.RemoveItemOnRemove.concat(AssetDef.RemoveItemOnRemove),
 		AllowEffect: AssetDef.AllowEffect,

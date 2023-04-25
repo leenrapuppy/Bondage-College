@@ -76,6 +76,7 @@ module.exports = {
 						'AllowLock', // Assets
 						'OwnerOnly', // Assets
 						'LoverOnly', // Assets
+						'FamilyOnly', // Assets
 						'Blink', // Asset Groups
 						'Left', // Both
 						'Top', // Both

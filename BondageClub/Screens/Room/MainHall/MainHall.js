@@ -11,6 +11,7 @@ var MainHallIsMaid = false;
 var MainHallIsHeadMaid = false;
 var MainHallHasOwnerLock = false;
 var MainHallHasLoverLock = false;
+var MainHallHasFamilyLock = false;
 var MainHallHasSlaveCollar = false;
 /** The max number of known tips */
 var MainHallMaxTip = 30;
@@ -116,11 +117,12 @@ function MainHallCanTrickMaid() { return (ManagementIsClubSlave() && SarahUnlock
  * Checks, if the player has an owner or lover lock on her
  * @returns {boolean} - Returns true, if the player has either a lover or owner item on herself, false otherwise
  */
-function MainHallHasOwnerOrLoverItem() { return MainHallHasLoverLock || MainHallHasOwnerLock; }
+function MainHallHasOwnerOrLoverItem() { return MainHallHasOwnerLock || MainHallHasLoverLock || MainHallHasFamilyLock; }
 function MainHallHasOwnerOrLoverItemAndMaidsNotDisabled() { return MainHallHasOwnerOrLoverItem() && !MainHallIsMaidsDisabled(); }
 function MainHallHasNoOwnerOrLoverItemAndMaidsNotDisabled() { return !MainHallHasOwnerOrLoverItem() && !MainHallIsMaidsDisabled(); }
 function MainHallHasOwnerItemAndMaidsNotDisabled() { return MainHallHasOwnerLock && !MainHallIsMaidsDisabled(); }
 function MainHallHasLoverItemAndMaidsNotDisabled() { return MainHallHasLoverLock && !MainHallIsMaidsDisabled(); }
+function MainHallHasFamilyItemAndMaidsNotDisabled() { return MainHallHasFamilyLock && !MainHallIsMaidsDisabled(); }
 function MainHallHasSlaveCollarAndMaidsNotDisabled() { return MainHallHasSlaveCollar && !MainHallIsMaidsDisabled(); }
 function MainHallPlayerNeedsHelpAndHasNoOwnerOrLoverItemAndMaidsNotDisabled() { return  MainHallPlayerNeedsHelpAndHasNoOwnerOrLoverItem() && !MainHallIsMaidsDisabled(); }
 
@@ -156,6 +158,7 @@ function MainHallLoad() {
 	MainHallIsHeadMaid = LogQuery("LeadSorority", "Maid");
 	MainHallHasOwnerLock = InventoryCharacterHasOwnerOnlyRestraint(Player);
 	MainHallHasLoverLock = InventoryCharacterHasLoverOnlyRestraint(Player);
+	MainHallHasFamilyLock = InventoryCharacterHasFamilyOnlyRestraint(Player);
 	for (let A = 0; A < Player.Appearance.length; A++)
 		if (Player.Appearance[A].Asset.Name == "SlaveCollar")
 			if (Player.Appearance[A].Property)
@@ -554,6 +557,7 @@ function MainHallPunishFromChatroom() {
 	CharacterSetCurrent(MainHallMaid);
 	MainHallHasOwnerLock = InventoryCharacterHasOwnerOnlyRestraint(Player);
 	MainHallHasLoverLock = InventoryCharacterHasLoverOnlyRestraint(Player);
+	MainHallHasFamilyLock = InventoryCharacterHasFamilyOnlyRestraint(Player);
 	if (ReputationGet("Dominant") > 10) ReputationProgress("Dominant", -10);
 	if (ReputationGet("Dominant") < -10) ReputationProgress("Dominant", 10);
 }
