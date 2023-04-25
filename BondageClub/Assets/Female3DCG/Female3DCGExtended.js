@@ -8915,6 +8915,55 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		},
+		PortalPanties: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "CrotchShield", Key: "c",
+						DrawImages: false,
+						Options: [
+							{}, // 0 - open
+							{ // 1 - close front
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings"],
+								},
+							},
+							{ // 2 - close back
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemButt"],
+								},
+							},
+							{ // 3 - close both
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+								},
+							},
+						],
+					},
+					{
+						Name: "CrotchCover", Key: "co",
+						Options:[
+							{ // co0 - Remove Cover
+								Property: { Effect: [] }
+							},
+							{ // co1 - Add cover
+								Property: { Effect: [] }
+							},
+						]
+					},
+				],
+				ScriptHooks: {
+					Load: FuturisticAccessLoad,
+					Click: FuturisticAccessClick,
+					Draw: FuturisticAccessDraw,
+					Exit: FuturisticAccessExit,
+				}
+			},
+		},
 		LoveChastityBelt: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {

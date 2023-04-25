@@ -218,7 +218,7 @@ type EffectName =
 	"Unlock-MistressPadlock" | "Unlock-MistressTimerPadlock" |
 	"Unlock-PandoraPadlock" |
 
-	"Unlock-MetalCuffs" | "Unlock-EscortAnkleCuffs" |
+	"Unlock-MetalCuffs" | "Unlock-EscortAnkleCuffs" | "Unlock-PortalPanties" |
 
 	// XXX: only for lockpicks?
 	"Unlock-" |
