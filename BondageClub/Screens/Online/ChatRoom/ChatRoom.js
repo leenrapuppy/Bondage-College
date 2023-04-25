@@ -1048,31 +1048,33 @@ function ChatRoomDrawBackground(Background, Y, Zoom, DarkFactor, InvertRoom) {
  * @param {number} Pos Index of target character
  */
 function ChatRoomDrawCharacterOverlay(C, CharX, CharY, Zoom, Pos) {
-	// Draw the ghostlist/friendlist, whitelist/blacklist, admin icons
+
+	// Draw the ghostlist/friendlist, whitelist/blacklist, admin icons, etc. above the character
 	if (ChatRoomHideIconState == 0) {
 		if (Player.WhiteList.includes(C.MemberNumber)) {
-			DrawImageResize("Icons/Small/WhiteList.png", CharX + 75 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+			DrawImageResize("Icons/Small/WhiteList.png", CharX + 70 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
 		} else if (Player.BlackList.includes(C.MemberNumber)) {
-			DrawImageResize("Icons/Small/BlackList.png", CharX + 75 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
-		}
-		if (Array.isArray(ChatRoomData.Admin) && ChatRoomData.Admin.includes(C.MemberNumber)) {
-			DrawImageResize("Icons/Small/Admin.png", CharX + 125 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
-		}
-		if (C.IsBirthday()) {
-			DrawImageResize("Icons/Small/Birthday.png", CharX + 175 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
-		}
-		if (ChatRoomCarryingBounty(C)) {
-			DrawImageResize("Icons/Small/Money.png", CharX + 225 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
-		}
-		// Warning icon when game versions don't match
-		if (C.OnlineSharedSettings && C.OnlineSharedSettings.GameVersion !== GameVersion) {
-			DrawImageResize("Icons/Small/Warning.png", CharX + 325 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+			DrawImageResize("Icons/Small/BlackList.png", CharX + 70 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
 		}
 		if (Player.GhostList.includes(C.MemberNumber)) {
-			DrawImageResize("Icons/Small/GhostList.png", CharX + 375 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+			DrawImageResize("Icons/Small/GhostList.png", CharX + 110 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
 		} else if (Player.FriendList.includes(C.MemberNumber)) {
-			DrawImageResize("Icons/Small/FriendList.png", CharX + 375 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+			DrawImageResize("Icons/Small/FriendList.png", CharX + 110 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
 		}
+		if (C.IsBirthday())
+			DrawImageResize("Icons/Small/Birthday.png", CharX + 150 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
+		else if (C.IsOwner())
+			DrawImageResize("Icons/Small/Owner.png", CharX + 150 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
+		else if (C.IsLoverOfPlayer())
+			DrawImageResize("Icons/Small/Lover.png", CharX + 150 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
+		else if (C.IsFamilyOfPlayer())
+			DrawImageResize("Icons/Small/Family.png", CharX + 150 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
+		if (ChatRoomCarryingBounty(C))
+			DrawImageResize("Icons/Small/Money.png", CharX + 310 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
+		if (C.OnlineSharedSettings && C.OnlineSharedSettings.GameVersion !== GameVersion)
+			DrawImageResize("Icons/Small/Warning.png", CharX + 350 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
+		if (Array.isArray(ChatRoomData.Admin) && ChatRoomData.Admin.includes(C.MemberNumber))
+			DrawImageResize("Icons/Small/Admin.png", CharX + 390 * Zoom, CharY, 40 * Zoom, 40 * Zoom);
 	}
 
 	if (ChatRoomTargetMemberNumber == C.MemberNumber && ChatRoomHideIconState <= 1) {

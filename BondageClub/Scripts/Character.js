@@ -314,6 +314,12 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				   ((new Date(this.Creation)).getMonth() == (new Date(CurrentTime)).getMonth()) &&
 				   ((new Date(this.Creation)).getFullYear() != (new Date(CurrentTime)).getFullYear());
 		},
+		IsFamilyOfPlayer: function () {
+			if (this.IsPlayer()) return false;
+			if (this.IsLoverOfPlayer() || this.IsOwner() || this.IsOwnedByPlayer()) return true;
+			if ((Player.Ownership != null) && (this.MemberNumber === Player.Ownership.MemberNumber)) return true;
+			return ((Player.Ownership != null) && (this.Ownership != null) && (Player.Ownership.MemberNumber === this.Ownership.MemberNumber));
+		},
 		IsOnline: function () {
 			return this.Type === CharacterType.ONLINE;
 		},

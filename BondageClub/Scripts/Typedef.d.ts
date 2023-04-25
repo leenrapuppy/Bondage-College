@@ -1506,6 +1506,7 @@ interface Character {
 	IsEdged: () => boolean;
 	IsPlayer: () => this is PlayerCharacter;
 	IsBirthday: () => boolean;
+	IsFamilyOfPlayer: () => boolean;
 	IsOnline: () => boolean;
 	IsNpc: () => this is NPCCharacter;
 	IsSimple: () => boolean;
