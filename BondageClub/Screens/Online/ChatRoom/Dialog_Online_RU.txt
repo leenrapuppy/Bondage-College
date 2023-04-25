@@ -1,9 +1,9 @@
-﻿###_NPC
+###_NPC
 (You can use or remove items by selecting specific body regions.)
 (Ты можешь использовать или удалять предметы, выбирая определенные области тела.)
 (You don't have access to use or remove items on DialogCharacterPossessive.)
 (У тебя нет доступа к использованию или удалению предметов на DialogCharacterPossessive.)
-###_PLAYER
+###_NPC
 (View DialogCharacterPossessive profile.)
 (Просмотреть DialogCharacterPossessive профиль.)
 (Change DialogCharacterPossessive clothes.)

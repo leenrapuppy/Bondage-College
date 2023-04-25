@@ -734,6 +734,8 @@ Roll over Mouth
 Покатать по рту
 Rub on Mouth
 Потереть о рот
+Take a sip
+Глотнуть
 Tickle Mouth
 Щекотать рот
 Moan
@@ -760,6 +762,10 @@ Caress Face
 Ласкать лицо
 Brush Hair
 Расчесывать волосы
+Rub on Head
+Потереть о голову
+Tickle Head
+Щекотать голову
 Pull Hair
 Тянуть за волосы
 Pet Head
@@ -1677,6 +1683,8 @@ SourceCharacter mumbles incoherently into PronounPossessive gag.
 SourceCharacter бессвязно бормочет сквозь кляп.
 SourceCharacter rubs PronounPossessive own mouth with PronounPossessive UsedAsset.
 SourceCharacter трет свой рот с помощью UsedAsset.
+SourceCharacter takes a sip from PronounPossessive UsedAsset.
+SourceCharacter делает глоток из своей UsedAsset.
 SourceCharacter tickles PronounPossessive own mouth with PronounPossessive UsedAsset.
 SourceCharacter щекочет свой  рот с помощью UsedAsset.
 SourceCharacter rolls a UsedAsset over PronounPossessive own mouth.
@@ -1702,6 +1710,8 @@ SourceCharacter ласкает и очищает рот TargetCharacter's .
 SourceCharacter clamps PronounPossessive hand over TargetCharacter's mouth.
 SourceCharacter зажимает рукой рот TargetCharacter's .
 SourceCharacter rubs TargetCharacter's mouth with PronounPossessive UsedAsset.
+SourceCharacter gives TargetCharacter a sip from PronounPossessive UsedAsset.
+SourceCharacter поит TargetCharacter из своей UsedAsset.
 SourceCharacter трет рот TargetCharacter's  с помощью UsedAsset.
 SourceCharacter slowly penetrates TargetCharacter's mouth with PronounPossessive UsedAsset.
 SourceCharacter медленно проникает в рот TargetCharacter's с помощью UsedAsset.
@@ -1723,6 +1733,10 @@ SourceCharacter pulls on PronounPossessive own hair.
 SourceCharacter тянет себя за волосы.
 SourceCharacter pets herself on the head.
 SourceCharacter гладит себя по голове.
+SourceCharacter rubs PronounPossessive own head with PronounPossessive UsedAsset.
+SourceCharacter трет свою голову с помощью UsedAsset.
+SourceCharacter tickles PronounPossessive own head with PronounPossessive UsedAsset.
+SourceCharacter щекочет свою голову с помощью UsedAsset.
 SourceCharacter shakes PronounPossessive head.
 SourceCharacter отрицательно мотает своей головой.
 SourceCharacter nods.
@@ -1737,6 +1751,10 @@ SourceCharacter caresses TargetCharacter's face.
 SourceCharacter ласкает лицо TargetCharacter's .
 SourceCharacter brushes TargetCharacter's hair.
 SourceCharacter расчесывает волосы TargetCharacter's .
+SourceCharacter rubs TargetCharacter's head with PronounPossessive UsedAsset.
+SourceCharacter трет голову TargetCharacter's с помощью UsedAsset.
+SourceCharacter tickles TargetCharacter's head with PronounPossessive UsedAsset.
+SourceCharacter щекочет голову TargetCharacter's с помощью UsedAsset.
 SourceCharacter pulls on TargetCharacter's hair.
 SourceCharacter дергает TargetCharacter's за волосы.
 SourceCharacter gently pets TargetCharacter's head.

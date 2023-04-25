@@ -79,7 +79,7 @@ The rent is $250.  Do you have enough money?
 Арендная плата составляет $250.  У вас достаточно денег?
 ###_PLAYER
 I'd like to improve my room.
-Я бы хотел улучшить свою комнату.
+Я бы хотела улучшить свою комнату.
 ###_NPC
 Excellent!  The club can provide wardrobes, cages, security and expansions for private rooms.  What would you like?
 Отлично!  Клуб может предоставить гардероб, клетки, зашита и  расширение приватной комнаты.  Что бы вы хотели?
@@ -128,7 +128,7 @@ That's all the questions I had.
 Достаточно вопросов.
 ###_NPC
 Alright.  What can I do for you then?
-Хорошо.  Что я могу для вас сделать?
+Хорошо.  Что я могу еще для вас сделать?
 ###_PLAYER
 Can I tie you up?
 Можно я тебя свяжу?
@@ -158,7 +158,7 @@ I don't have enough money.
 У меня не хватает денег.
 ###_NPC
 You can get work as a maid or take kidnapping bounties if you need money.
-Ты можешь получить работу в качестве горничной или получить награды похитителей, если тебе нужны деньги.
+Вы можете устроиться работать горничной или получить награду за похищения, если вам нужны деньги.
 ###_PLAYER
 Great!  This room is mine now?
 Отлично!  Эта комната теперь моя?
@@ -173,6 +173,12 @@ I would like a wardrobe.
 ###_NPC
 An excellent choice.  The price is $100.  Can you afford it?
 Великолепный выбор.  Цена $100.  Вы можете себе это позволить?
+###_PLAYER
+What kind of beds do you have?
+Какие у вас есть кровати?
+###_NPC
+(She opens a catalog and shows you the beds.)  All our beds are $150, which one would you like?
+(Она открывает каталог и показывает вам кровати.) Все наши кровати стоят 150 долларов, какую бы вы предпочли?
 ###_PLAYER
 I want some cages.
 Мне нужны клетки.
@@ -268,3 +274,19 @@ Very well, the security team will not patrol around your room anymore.  Beware o
 ###_PLAYER
 No, I need to think about it.
 Нет, мне нужно подумать об этом.
+###_PLAYER
+Can I change my bed later?
+Могу ли я поменять свою кровать позже?
+###_NPC
+Of course, but you will need to pay $150 again.
+Конечно, но вам нужно будет снова заплатить 150 долларов.
+###_PLAYER
+I'll take the white bed. (Pay $150)
+Я возьму белую кровать. (оплата 150 долларов)
+I'll take the pink bed. (Pay $150)
+Я возьму розовую кровать. (оплата 150 долларов)
+I'll take the black bed. (Pay $150)
+Я возьму черную кровать. (оплата 150 долларов)
+###_NPC
+Great!  We'll deliver your new bed right now.
+Отлично! Мы доставим вашу новую кровать прямо сейчас.

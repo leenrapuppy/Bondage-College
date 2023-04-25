@@ -176,6 +176,12 @@ Head Harness
 Сбруя для головы
 Festival Fox Mask
 Фестивальная маска лисы
+Inflatable Gag Mask
+Надувная кляп-маска
+Latex Dog Mask
+Латексная маска собаки
+Latex Bunny
+Латексный кролик
 Lipstick Marks
 Следы помады
 Jewelry
@@ -216,6 +222,8 @@ Fur Scarf
 Меховой Шарф
 Latex Respirator
 Латексный респиратор
+Padded Face Mask
+Мягкая маска
 Flower Garland
 Цветочная гирлянда
 Rope Necklace
@@ -326,6 +334,8 @@ Cross Skirt
 Поперечная юбка
 Cheerleader Skirt
 Юбка чирлидерши
+Cross Skirt (light)
+Поперечная юбка (легкая)
 Suit Lower
 Нижний костюм
 Catsuit Panties
@@ -548,6 +558,10 @@ Micro Thong
 Микро стринги
 Boxer Shorts
 Боксерские трусы
+Briefs
+Трусы-шорты
+Jockstrap
+Джоки
 Socks
 Носки
 Ankle
@@ -600,6 +614,8 @@ Leather Garter Belts
 Кожаные подвязки
 Leather Garter Belt
 Кожаный пояс с подвязками
+Lace and Satin Garter Belt
+Кружевной и атласный пояс для чулок
 Tentacles
 Тентакли
 Drop Bag
@@ -712,6 +728,8 @@ Baseball Cap Back
 Бейсболка козырьком назад
 Baseball Cap Front
 Бейсболка козырьком вперед
+Swim Cap
+Шапочка для плаванья
 Hair Accessory
 Аксессуар для волос
 Hair Ribbon 1
@@ -1329,8 +1347,6 @@ Duct Tape
 клейкая лента
 Leather Ankle Cuffs
 Кожаные Манжеты для щиколоток
-Leather Deluxe Ankle Cuffs
-Делюкс Манжеты для щиколоток
 Floor Shackles
 Напольные кандалы
 Steel Ankle Cuffs
@@ -1371,8 +1387,6 @@ Legs
 Ноги
 Leather Leg Cuffs
 Кожаные наножники
-Leather Deluxe Leg Cuffs
-Делюкс Манжеты на бедра
 Futuristic Leg Cuffs
 Футуристические манжеты для ног
 Ornate Leg Cuffs
@@ -1447,8 +1461,10 @@ Plastic Chastity Cage 1
 Пластиковая клетка верности 1
 Plastic Chastity Cage 2
 Пластиковая клетка верности 2
-Techno Chastity Cage 1
-Техно клетка верности 1
+Techno Chastity Cage
+Техно клетка верности
+Flat Chastity Cage
+Плоская клетка верности
 Clitoris
 Клитор
 Straight Clitoris Piercing
@@ -1715,8 +1731,6 @@ Armbinder Jacket
 Куртка-армбиндер
 Leather Cuffs
 Кожаные Манжеты
-Leather Deluxe Cuffs
-Кожаные Манжеты Делюкс
 Ceiling Shackles
 Потолочные кандалы
 Steel Cuffs
@@ -1852,7 +1866,9 @@ Whip
 Cattle Prod
 Электрошокер
 Tennis Racket
-теннисная ракетка
+Теннисная Ракетка
+For Sale Sign
+Знак продажи
 Rainbow Wand
 Радужная палочка
 Gavel
@@ -1947,8 +1963,6 @@ Neck
 Шея
 Leather Collar
 кожаный ошейник
-Leather Deluxe Collar
-Кожаный ошейник Делюкс
 Bell Collar
 Ошейник с колокольчиком
 Bow Collar

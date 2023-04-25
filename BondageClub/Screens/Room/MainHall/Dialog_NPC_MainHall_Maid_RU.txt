@@ -391,6 +391,7 @@ You will be helpless for the next hour, and the maids will not rescue you, nor w
 ###_NPC
 (She smiles and slaps your butt) Fair enough. Now go struggle some more.
 (Она улыбается и шлепает тебя по заднице) Достаточно честно. А теперь иди, поборись еще.
+###_NPC
 Welcome back! The Club went through some renovation since you last visited.
 Добро пожаловать обратно! Клуб претерпел некоторые изменения с момента вашего последнего визита.
 ###_PLAYER

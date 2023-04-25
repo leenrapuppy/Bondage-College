@@ -95,7 +95,7 @@ Please respect other players limits.  Enforce your own limits.
 Do not attempt anything that could harm you in your real life.
 Не пытайтесь делать что-либо, что может навредить вам в реальной жизни.
 Remember your friends in your private room or they will leave.
-Помни своих друзей в своей личной комнате или они уйдут.
+Помни о своих друзьях в своей личной комнате или они уйдут.
 If you find bugs or exploits, please report them and give details.
 Если вы обнаружите ошибки или эксплойты, пожалуйста, сообщите о них и сообщите подробности.
 Take good care of each other feelings and your submissives.
@@ -107,7 +107,7 @@ A collared college girl can be convinced to give you her uniform.
 It's easier to destroy a reputation than to build one.
 Легче разрушить репутацию, чем создать ее.
 There's no best way to make money.  Simply find a job you enjoy.
-Нет лучшего способа заработать деньги. Чем просто найти работу, которая вам нравится.
+Нет лучшего способа заработать деньги. Чем просто найдите работу, которая вам понравится.
 Please do not use console commands to grief other players.
 Пожалуйста, не используйте консольные команды, чтобы гриферить других игроков.
 Beta items will be lost if you go back to the regular version.
@@ -120,6 +120,28 @@ Type /help in a chatroom to know the available chat commands.
 Введите /help в чате, чтобы узнать доступные команды чата.
 Try visiting your graphics preferences if you are experiencing performance issues.
 Попробуйте посетить настройки графики, если у вас возникли проблемы с производительностью.
+Don't forget to do the daily job in the Introduction Room.
+Не забывайте выполнять ежедневную работу в Ознакомительном Классе.
+Corsets can be worn both as clothing and a restraint.
+Корсеты можно носить как в качестве одежды, так и в качестве удерживающего средства.
+Chat rooms are where you can interact with other people, stay safe.
+Чаты — это место, где вы можете общаться с другими людьми и быть в безопасности.
+Locks make restraints impossible to get out of by yourself.
+Замки не позволяют освободиться самостоятельно.
+Ring the bell if you get stuck, a maid will be with you shortly.
+Позвоните в звонок, если вы застряли, горничная скоро прийдет к вам.
+Certain actions train different skills, making you better with restraints.
+Определенные действия тренируют разные навыки, делая вас лучше с ограничениями.
+The Maid Quarters is always looking to pay those that help out.
+В Комнате Прислуги всегда платят тем, кто помогает им.
+The Kidnapper's League pays quite a bit for those that can catch others.
+Лига похитителей неплохо платит тем, кто может захватить других.
+The Asylum also has its own chat room, along with payment as a Nurse.
+В Психушке также есть собственный чат, а также оплата за работу в качестве медсестры.
+Your profile has a LOT of settings, feel free to take a look.
+Ваш профиль имеет МНОГО настроек, не стесняйтесь взглянуть на них.
+Need a stat boost? The Cafe might have something to help.
+Нужна прокачка характеристик? Кафе может помочь в этом.
 (A woman blocks your path.)  DialogPlayerName!  You've been a nuisance for Pandora's Box for far too long.  Surrender now or you will get hurt.
 (Женщина преграждает вам путь.) DialogPlayerName! Ты слишком долго мешал Ящику Пандоры. Сдавайся сейчас же, иначе тебе будет больно.
 (A girl taps on your shoulder.)  Here you are!  Pandora's Box sent me to get you.  Get on your knees right now or there will be trouble.
