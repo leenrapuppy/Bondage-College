@@ -1628,6 +1628,18 @@ var AssetFemale3DCG = [
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Pose: ["Spread"], Masks: [[0, 790, 500, 210]] },
 				],
 			},
+			{ Name: "LatexHeels", Value: 40, Difficulty: 7, Time: 10, RemoveTime: 20,
+				Left: 123,  Random: false, AllowLock: false, Effect: [], Hide: [],
+				AllowPose: ["LegsClosed", "Hogtied", "Spread"],
+				HideForPose: ["Kneel", "KneelingSpread"],
+				Layer: [
+					{ Name: "Base", HasType: false },
+					{ Name: "Trim", HasType: false,},
+				], Alpha: [
+					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 860, 350, 120]] },
+					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 870, 350, 150]] },
+				], Height: 30
+			},
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
