@@ -275,11 +275,6 @@ function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
  * @returns {Set<string>}
  */
 function testTypedItemDialog(groupName, assetName, assetConfig, dialogSet) {
-	// Skip if dialog keys if they are set via CopyConfig; they will be checked when validating the parrent item
-	if (assetConfig.CopyConfig && !assetConfig.Config?.DialogPrefix) {
-		return new Set();
-	}
-
 	const chatSetting = assetConfig.Config?.ChatSetting ?? "toOnly";
 	/** @type {Partial<TypedItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
@@ -612,6 +607,10 @@ function sanitizeVMOutput(input) {
 							assetConfig = Object.assign({}, assetConfig, {Config: MergedConfig});
 						}
 					}
+
+					// Overwrite the config to the fully resolved version. That saves the rest of the checks from having to handle that.
+					AssetFemale3DCGExtended[Group.Group][Asset.Name] = assetConfig;
+
 					if (assetConfig.Config) {
 						if (assetConfig.Archetype === "typed") {
 							const HasSubscreen = !localError && assetConfig.Config.Options?.some(option => !!option.HasSubscreen);
@@ -713,36 +712,6 @@ function sanitizeVMOutput(input) {
 		error(`Unused Asset/Group description: ${desc.join(",")}`);
 	}
 
-	// Check player dialog in AssetFemale3DCGExtended
-	Object.values(AssetFemale3DCGExtended).forEach((category) => {
-		Object.values(Object(category)).forEach((asset) => {
-			const dialog = asset.Config && asset.Config.Dialog;
-			const options = asset.Config && asset.Config.Options;
-			if (!dialog || !options) {
-				return;
-			}
-
-			options.forEach((option) => {
-				if (option.ArchetypeConfig && option.ArchetypeConfig.Dialog) {
-					const optionDialog = option.ArchetypeConfig.Dialog;
-					if (!dialogArray.find(e => e[0] === optionDialog.ChatPrefix)) {
-						error(`Missing Dialog: '${optionDialog.ChatPrefix}'`);
-					}
-					return;
-				}
-
-				[dialog.ChatPrefix, dialog.TypePrefix].forEach((prefix) => {
-					if (
-						prefix
-						&& typeof prefix !== "function"
-						&& !dialogArray.find(e => e[0] === prefix + option.Name)
-					) {
-						error(`Missing Dialog: '${prefix + option.Name}'`);
-					}
-				});
-			});
-		});
-	});
 
 	testDynamicGroupName(AssetFemale3DCG);
 	testTypedOptionName(AssetFemale3DCGExtended);
