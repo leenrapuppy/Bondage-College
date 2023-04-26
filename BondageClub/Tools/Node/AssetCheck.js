@@ -588,9 +588,19 @@ function sanitizeVMOutput(input) {
 				const groupConfig = AssetFemale3DCGExtended[Group.Group] || {};
 				let assetConfig = groupConfig[Asset.Name];
 				if (assetConfig) {
-					if (assetConfig && assetConfig.CopyConfig) {
+					const visited = new Set([`${Group.Group}${Asset.Name}`]);
+					while (assetConfig.CopyConfig) {
 						const { Config: Overrides, Archetype } = assetConfig;
 						const { GroupName, AssetName } = assetConfig.CopyConfig;
+
+						const key = `${GroupName || Group.Group}${AssetName}`;
+						if (visited.has(key)) {
+							console.error(`Found cyclic CopyConfig reference in ${Group.Group}:${Asset.Name}:`, visited);
+							return;
+						} else {
+							visited.add(key);
+						}
+
 						assetConfig = (AssetFemale3DCGExtended[GroupName || Group.Group] || {} )[AssetName];
 						if (!assetConfig) {
 							error(`Asset ${Group.Group}:${Asset.Name}: CopyConfig target not found!`);

@@ -252,9 +252,19 @@ function AssetBuildExtended(A, ExtendedConfig) {
 		return;
 	}
 
-	if (AssetConfig.CopyConfig) {
-		const { Config: Overrides, Archetype } = AssetConfig;
+	const visited = new Set([`${A.Group.Name}${A.Name}`]);
+	while (AssetConfig.CopyConfig) {
+		const { Config: Overrides, Archetype } = /** @type {AssetArchetypeConfig} */(AssetConfig);
 		const { GroupName, AssetName } = AssetConfig.CopyConfig;
+
+		const key = `${GroupName || A.Group.Name}${AssetName}`;
+		if (visited.has(key)) {
+			console.error(`Found cyclic CopyConfig reference in ${A.Group.Name}:${A.Name}:`, visited);
+			return;
+		} else {
+			visited.add(key);
+		}
+
 		AssetConfig = AssetFindExtendedConfig(ExtendedConfig, GroupName || A.Group.Name, AssetName);
 		if (!AssetConfig) {
 			console.error(`CopyConfig ${GroupName || A.Group.Name}:${AssetName} not found for ${A.Group.Name}:${A.Name}`);
