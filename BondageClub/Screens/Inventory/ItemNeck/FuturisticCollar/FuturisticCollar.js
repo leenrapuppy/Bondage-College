@@ -249,7 +249,7 @@ function InventoryItemNeckFuturisticCollarCanLock(C, LockType) {
 		if (LockItem.Asset.FamilyOnly && !C.IsFamilyOfPlayer())
 			if ((C.ID != 0) || ((C.Owner == "") && (C.Ownership == null)) || ((C.ID == 0) && LogQuery("BlockOwnerLockSelf", "OwnerRule")))
 				return false;
-	
+
 		if (LockItem.Asset.Name == "TimerPasswordPadlock" || LockItem.Asset.Name == "MistressTimerPadlock" || LockItem.Asset.Name == "LoversTimerPadlock" || LockItem.Asset.Name == "OwnerTimerPadlock") {
 			if (!(parseInt(ElementValue("FutureCollarTimeField")) > 0)) return false;
 		}
