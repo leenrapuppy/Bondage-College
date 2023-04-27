@@ -19,7 +19,7 @@ var ServerAccountNameRegex = /^[a-zA-Z0-9]{1,20}$/;
 var ServerAccountPasswordRegex = /^[a-zA-Z0-9]{1,20}$/;
 var ServerAccountResetNumberRegex = /^[0-9]{1,20}$/;
 var ServerCharacterNameRegex = /^[a-zA-Z ]{1,20}$/;
-var ServerCharacterNicknameRegex = /^[a-zA-Z\s]*$/;
+var ServerCharacterNicknameRegex = /^[\p{L}0-9\p{Z}'-]+$/u;
 
 const ServerScriptMessage = "WARNING! Console scripts can break your account or steal your data. Only run scripts if " +
 	"you know what you're doing and you trust the source. See " +
