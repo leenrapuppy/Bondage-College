@@ -48,8 +48,6 @@ function ServerInit() {
 	ServerSocket.on("ChatRoomSyncMemberLeave", function (data) { ChatRoomSyncMemberLeave(data); });
 	ServerSocket.on("ChatRoomSyncRoomProperties", function (data) { ChatRoomSyncRoomProperties(data); });
 	ServerSocket.on("ChatRoomSyncCharacter", function (data) { ChatRoomSyncCharacter(data); });
-	ServerSocket.on("ChatRoomSyncSwapPlayers", function (data) { ChatRoomSyncSwapPlayers(data); });
-	ServerSocket.on("ChatRoomSyncMovePlayer", function (data) { ChatRoomSyncMovePlayer(data); });
 	ServerSocket.on("ChatRoomSyncReorderPlayers", function (data) { ChatRoomSyncReorderPlayers(data); });
 	ServerSocket.on("ChatRoomSyncSingle", function (data) { ChatRoomSyncSingle(data); });
 	ServerSocket.on("ChatRoomSyncExpression", function (data) { ChatRoomSyncExpression(data); });
