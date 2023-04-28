@@ -6573,6 +6573,24 @@ var AssetFemale3DCGExtended = {
 				]
 			},
 		}, // FuturisticHeels2
+		ThighBoots: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Layer", Key: "l",
+						Options:[
+							{ // l0 - Smooth
+								Property: { Effect: [] }
+							},
+							{ // l1 - Pulled
+								Property: { Effect: [] }
+							},
+						]
+					},
+				],
+			},
+		}, // Thighboots
 	}, // Shoes
 	HairAccessory1: {
 		ElfEars: {

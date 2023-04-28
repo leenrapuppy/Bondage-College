@@ -1640,6 +1640,14 @@ var AssetFemale3DCG = [
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 870, 350, 150]] },
 				], Height: 30
 			},
+			{ Name: "ThighBoots", Fetish: ["Latex"], Value: 50, HideItem: ["SocksSocks4", "SocksSocks5", "LeftAnkletRibbon1", "RightAnkletRibbon1"], Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 875, 350, 200]] }], Height: 35, HideForPose: ["KneelingSpread"], Extended: true,
+				Layer: [
+					{ Name: "Base", HasType: false, Left: 127, },
+					{ Name: "Thigh", HasType: false, CopyLayerColor: "Base", Left: 127, },
+					{ Name: "Layer", HasType: false, CopyLayerColor: "Base", AllowModuleTypes: ["l1"], Left: 127, },
+					{ Name: "Band", HasType: false, Left: 127, },
+				],
+			},
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
