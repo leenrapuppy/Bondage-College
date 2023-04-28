@@ -521,7 +521,7 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // rh2 - Pulled Up
-								Property: {Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "Head"]}
+								Property: {Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "Head"]}
 
 							}
 
