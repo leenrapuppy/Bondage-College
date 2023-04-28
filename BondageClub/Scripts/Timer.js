@@ -67,7 +67,7 @@ function TimerInventoryRemove() {
 
 							const Dictionary = new DictionaryBuilder()
 								.destinationCharacterName(Character[C])
-								.focusGroup(Character[C].Appearance[1].Asset.Group.Name)
+								.focusGroup(item.Asset.Group.Name)
 								.asset(Lock.Asset, "LockName")
 								.build();
 							ServerSend("ChatRoomChat", {Content: "TimerRelease", Type: "Action", Dictionary});
