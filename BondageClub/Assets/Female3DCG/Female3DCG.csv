@@ -240,6 +240,7 @@ Corset,LatexCorset1,Latex Corset
 Corset,LeatherCorsetTop1,Leather Corset Top
 Corset,Corset6,Noble Corset
 Corset,SteampunkCorsetTop1,Steampunk Corset
+Corset,Underbust,Boned Underbust Corset
 Panties,,Panties
 Panties,Panties1,Style 1
 Panties,Panties7,Style 2
@@ -1015,6 +1016,7 @@ ItemTorso,LockingSwimsuit,Locking Swimsuit
 ItemTorso,LockingSwimsuit2,Locking Swimsuit 2
 ItemTorso,LeatherChestHarness1,Leather Chest Harness 1
 ItemTorso,NavelBar1,Navel Bar
+ItemTorso,Underbust,Boned Underbust Corset
 ItemTorso2,,Torso
 ItemTorso2,LockingSwimsuit,Locking Swimsuit
 ItemTorso2,LeatherStrapHarness,Leather Strap Body Harness
@@ -1041,6 +1043,7 @@ ItemTorso2,ThinLeatherStraps,Thin Leather Straps
 ItemTorso2,LockingSwimsuit2,Locking Swimsuit 2
 ItemTorso2,LeatherChestHarness1,Leather Chest Harness 1
 ItemTorso2,NavelBar1,Navel Bar
+ItemTorso2,Underbust,Boned Underbust Corset
 ItemNipples,,Nipples
 ItemNipples,NippleClamp,Nipple Clamps
 ItemNipples,VibeNippleClamp,Vibrating Nipple Clamps
