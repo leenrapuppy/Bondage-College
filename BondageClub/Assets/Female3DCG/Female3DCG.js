@@ -1111,6 +1111,7 @@ var AssetFemale3DCG = [
 				HideItem: ["ClothLowerTennisSkirt1", "ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "ClothAccessoryPoncho", "NecklaceBodyChainNecklace"],
 				AllowPose: ["Hogtied", "AllFours", "OverTheHead"]
 			},
+			{ Name: "Underbust", Fetish: ["Lingerie"], Priority: 22, Value: 20, BuyGroup: "UnderBust", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HideForPose: ["AllFours"] },
 			// Flat Chest Compatible Clothing
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -4407,6 +4408,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "LockingSwimsuit", Gender: "F", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit", Value: 60, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessTorso", "HasBreasts"], Extended: true },
 			{ Name: "LockingSwimsuit2", Gender: "F", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit2", Value: 70, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessTorso", "HasBreasts"] },
+			{ Name: "Underbust", Fetish: ["Lingerie"], Priority: 22, Value: 20, Difficulty: 8, Time: 15, RemoveTime: 10, AllowLock: true, AllowTighten: true, DrawLocks: false, Left: 150, BuyGroup: "Underbust", Prerequisite: ["AccessTorso"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HideForPose: ["Hogtied", "AllFours"], DynamicGroupName: "Corset" },
 			//Flat Chest Compatible Items
 			{ Name: "LeatherChestHarness1", Gender: "M", Prerequisite: ["AccessTorso", "HasFlatChest"], BuyGroup: "LeatherChestHarness1", Value: 30, AllowLock: true, DrawLocks: false,
 				Layer: [
@@ -4523,6 +4525,7 @@ var AssetFemale3DCG = [
 					{ Name: "Jewel", HasType: false, AllowModuleTypes: ["j1"]},
 				],
 			},
+			{ Name: "Underbust", Fetish: ["Lingerie"], Priority: 22, Value: 20, Difficulty: 8, Time: 15, RemoveTime: 10, AllowLock: true, AllowTighten: true, DrawLocks: false, Left: 150, BuyGroup: "Underbust", Prerequisite: ["AccessTorso"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HideForPose: ["Hogtied", "AllFours"], DynamicGroupName: "Corset" },
 		]
 	},
 
