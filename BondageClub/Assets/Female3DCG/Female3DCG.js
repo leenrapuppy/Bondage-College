@@ -9627,6 +9627,28 @@ var ActivityFemale3DCG = [
 		Target: ["ItemMouth"],
 		TargetSelf: true,
 	},
+	/* Family activities */
+	{
+		Name: "SistersHug",
+		MaxProgress: 30,
+		Prerequisite: ["Sisters"],
+		Target: ["ItemArms"],
+		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 8 }, { Group: "Eyebrows", Name: "Soft", Timer: 8 }, { Group: "Eyes", Name: "Daydream", Timer: 8 }],
+	},
+	{
+		Name: "BrothersHandshake",
+		MaxProgress: 10,
+		Prerequisite: ["Brothers"],
+		Target: ["ItemHands"],
+		ActivityExpression: [{ Group: "Eyebrows", Name: "OneRaised", Timer: 8 }, { Group: "Mouth", Name: "Smirk", Timer: 8 }, { Group: "Eyes", Name: "ShylyHappy", Timer: 8 }],
+	},
+	{
+		Name: "SiblingsCheekKiss",
+		MaxProgress: 20,
+		Prerequisite: ["SiblingsWithDifferentGender"],
+		Target: ["ItemMouth"],
+		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 8 }, { Group: "Eyebrows", Name: "Lowered", Timer: 8 }, { Group: "Mouth", Name: "Pout", Timer: 8 }],
+	},
 ];
 
 

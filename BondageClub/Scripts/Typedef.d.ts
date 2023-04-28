@@ -1249,7 +1249,8 @@ type ActivityName = "Bite" | "Caress" | "Choke" | "Cuddle" | "FrenchKiss" |
 	"PenetrateSlow" | "Pet" | "Pinch" | "PoliteKiss" | "PourItem" | "Pull" |
 	"RestHead" | "RollItem" | "Rub" | "RubItem" | "ShockItem" | "SipItem" | "Sit" |
 	"Slap" | "Spank" | "SpankItem" | "Step" | "StruggleArms" | "StruggleLegs" |
-	"Suck" | "TakeCare" | "Tickle" | "TickleItem" | "Whisper" | "Wiggle"
+	"Suck" | "TakeCare" | "Tickle" | "TickleItem" | "Whisper" | "Wiggle" |
+	"SistersHug" | "BrothersHandshake" | "SiblingsCheekKiss"
 ;
 
 interface Activity {

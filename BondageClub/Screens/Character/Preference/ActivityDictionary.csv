@@ -55,6 +55,9 @@ ActivityStruggleArms,Struggle
 ActivityStruggleLegs,Struggle
 ActivityStep,Step
 ActivityKick,Kick
+ActivitySistersHug,Sisters Hug
+ActivityBrothersHandshake,Brothers Handshake
+ActivitySiblingsCheekKiss,Siblings Cheek Kiss
 OrgasmFailResist0,"SourceCharacter is tormented by the vibrations, struggling to keep PronounPossessive cool."
 OrgasmFailResist1,"SourceCharacter struggles against the intense vibrations, hardly able to control PronounPossessiveself."
 OrgasmFailResist2,SourceCharacter resists the stimulation until it finally cuts off abruptly.
@@ -103,6 +106,7 @@ Label-ChatOther-ItemArms-Spank,Spank Arm
 Label-ChatOther-ItemArms-SpankItem,Spank Arm
 Label-ChatOther-ItemArms-Tickle,Tickle Arms
 Label-ChatOther-ItemArms-TickleItem,Tickle Arm
+Label-ChatOther-ItemArms-SistersHug,Sisters Hug
 Label-ChatOther-ItemBoots-Bite,Bite Foot
 Label-ChatOther-ItemBoots-Caress,Caress Feet
 Label-ChatOther-ItemBoots-GaggedKiss,Touch Foot with Gag
@@ -220,6 +224,7 @@ Label-ChatOther-ItemHands-Spank,Spank Hand
 Label-ChatOther-ItemHands-SpankItem,Spank Hands
 Label-ChatOther-ItemHands-Suck,Suck Fingers
 Label-ChatOther-ItemHands-TakeCare,Polish Nails
+Label-ChatOther-ItemHands-BrothersHandshake,Brothers Handshake
 Label-ChatOther-ItemHead-Bite,Bite Hair
 Label-ChatOther-ItemHead-Caress,Caress Face
 Label-ChatOther-ItemHead-GaggedKiss,Gag Kiss Forehead
@@ -272,6 +277,7 @@ Label-ChatOther-ItemMouth-TickleItem,Tickle Mouth
 Label-ChatOther-ItemMouth-ReversePenetrateAss,Take in Ass
 Label-ChatOther-ItemMouth-ReversePenetratePussy,Take in Pussy
 Label-ChatOther-ItemMouth-ReverseSuckItem,Take in Mouth
+Label-ChatOther-ItemMouth-SiblingsCheekKiss,Siblings Cheek Kiss
 Label-ChatOther-ItemNeck-Bite,Bite Neck
 Label-ChatOther-ItemNeck-Caress,Caress Neck
 Label-ChatOther-ItemNeck-Choke,Choke Neck
@@ -658,6 +664,7 @@ ChatOther-ItemArms-Spank,SourceCharacter spanks TargetCharacter's arm.
 ChatOther-ItemArms-SpankItem,SourceCharacter hits TargetCharacter's arm with PronounPossessive UsedAsset.
 ChatOther-ItemArms-Tickle,SourceCharacter tickles TargetCharacter's arms.
 ChatOther-ItemArms-TickleItem,SourceCharacter tickles TargetCharacter's arm with PronounPossessive UsedAsset.
+ChatOther-ItemArms-SistersHug,SourceCharacter shares a warm sisterly hug with TargetCharacter.
 ChatOther-ItemBoots-Bite,SourceCharacter bites TargetCharacter's foot.
 ChatOther-ItemBoots-Caress,SourceCharacter caresses TargetCharacter's feet.
 ChatOther-ItemBoots-GaggedKiss,SourceCharacter touches TargetCharacter's feet with PronounPossessive gag.
@@ -774,6 +781,7 @@ ChatOther-ItemHands-PoliteKiss,SourceCharacter politely kisses TargetCharacter's
 ChatOther-ItemHands-Spank,SourceCharacter spanks TargetCharacter's hand.
 ChatOther-ItemHands-Suck,SourceCharacter sucks on TargetCharacter's fingers.
 ChatOther-ItemHands-TakeCare,SourceCharacter cleans and polishes TargetCharacter's nails.
+ChatOther-ItemHands-BrothersHandshake,SourceCharacter does his secret brothers handshake with TargetCharacter.
 ChatOther-ItemHead-Bite,SourceCharacter bites TargetCharacter's hair.
 ChatOther-ItemHead-Caress,SourceCharacter caresses TargetCharacter's face.
 ChatOther-ItemHead-GaggedKiss,SourceCharacter gives a gagged kiss on TargetCharacter's forehead.
@@ -826,6 +834,7 @@ ChatOther-ItemMouth-RollItem,SourceCharacter rolls a UsedAsset over TargetCharac
 ChatOther-ItemMouth-RubItem,SourceCharacter rubs TargetCharacter's mouth with PronounPossessive UsedAsset.
 ChatOther-ItemMouth-SipItem,SourceCharacter gives TargetCharacter a sip from PronounPossessive UsedAsset.
 ChatOther-ItemMouth-TickleItem,SourceCharacter tickles TargetCharacter's mouth with PronounPossessive UsedAsset.
+ChatOther-ItemMouth-SiblingsCheekKiss,SourceCharacter shares a kind sibling cheek kiss with TargetCharacter.
 ChatOther-ItemNeck-Bite,SourceCharacter bites TargetCharacter's neck.
 ChatOther-ItemNeck-Caress,SourceCharacter caresses TargetCharacter's neck.
 ChatOther-ItemNeck-Choke,SourceCharacter chokes TargetCharacter's neck.
