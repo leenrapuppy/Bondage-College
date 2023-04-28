@@ -90,7 +90,7 @@ type ItemVulvaFuturisticVibratorAccessMode = "" | "ProhibitSelf" | "LockMember";
  * @property Freeze - Prevents walking and kneeling unaided. There's a few caveats with the kneeling part.
  * @property Prone - Indicates the character is prone. Looks non-functional.
  * @property Block - Indicates that the character is "blocked". Acts as a restraint.
- * @property Mounted - Indicates that the character is mounted onto something. Acts as a restraint.
+ * @property Mounted - Indicates that the character is mounted onto something. Acts as a restraint and blocks moving around.
  * @property KneelFreeze - Prevents walking.
  * @property ForceKneel - Prevents kneeling unaided.
  * @property BlockKneel - Prevents items that have the CanKneel prerequisite from being applied.
