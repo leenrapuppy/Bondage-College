@@ -8671,7 +8671,7 @@ var AssetFemale3DCG = [
 					{ Group: "ItemFeet", Name: "HempRope", Type: "BedSpreadEagle" },
 					{ Group: "ItemFeet", Name: "MedicalBedRestraints" },
 				],
-				Effect: ["Freeze", "Mounted", "OnBed"],
+				Effect: ["Mounted", "OnBed"],
 				Prerequisite: ["AllFours", "NotSuspended", "NotHogtied"],
 				SetPose: ["BaseLower"],
 				AllowActivePose: ["BaseLower", "LegsClosed", "Kneel", "KneelingSpread"],

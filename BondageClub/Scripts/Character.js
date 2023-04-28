@@ -99,9 +99,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		CanWalk: function () {
 			return (
-				(this.Effect.indexOf("Freeze") < 0) &&
-				(this.Effect.indexOf("Tethered") < 0) &&
-				((this.Pose == null) || (this.Pose.indexOf("Kneel") < 0) || (this.Effect.indexOf("KneelFreeze") < 0))
+				!this.HasEffect("Freeze") &&
+				!this.HasEffect("Tethered") &&
+				!this.HasEffect("Mounted") &&
+				((this.Pose == null) || !this.Pose.includes("Kneel") || !this.HasEffect("KneelFreeze"))
 			);
 		},
 		CanKneel: function () {
