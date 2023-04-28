@@ -935,6 +935,10 @@ ShoesFuzzyBootsBoots,Boots
 ShoesFuzzyBootsFur,Fur
 ShoesLatexHeelsBase, Shoe
 ShoesLatexHeelsTrim, Trim
+ShoesThighBootsBase, Boot
+ShoesThighBootsThigh, Boot
+ShoesThighBootsLayer, Inner
+ShoesThighBootsBand, Band
 ItemMouthWiffleGagStrap,Strap
 ItemMouthWiffleGagBall,Ball
 ItemMouthHarnessBallGagBall,Ball

@@ -317,7 +317,7 @@ var AssetFemale3DCG = [
 					{Name: "Base", HasType: false, Top: 45, Left: 124 },
 					{Name: "Collar", HasType: false, Top: 45, Left: 124 },
 					{Name: "hoodDown", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh1"],},
-					{Name: "HoodFull", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh2"], CopyLayerColor: "HoodDown", Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [0, 90, 500, -500], [183,238,14,12], [303,238,14,12]] },], },
+					{Name: "HoodFull", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh2"], CopyLayerColor: "HoodDown", Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [183,238,14,12], [303,238,14,12]] },], },
 					{Name: "HoodLow", HasType: false, Top: 53, Left: 124, AllowModuleTypes: ["lh1"], CopyLayerColor: "HoodDown", },
 					{Name: "HoodHigh", HasType: false, Top: -3, Left: 122, AllowModuleTypes: ["lh2"], Priority: 55, CopyLayerColor: "HoodDown", },
 				],
@@ -1639,6 +1639,14 @@ var AssetFemale3DCG = [
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 860, 350, 120]] },
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 870, 350, 150]] },
 				], Height: 30
+			},
+			{ Name: "ThighBoots", Fetish: ["Latex"], Value: 50, HideItem: ["SocksSocks4", "SocksSocks5", "LeftAnkletRibbon1", "RightAnkletRibbon1"], Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 875, 350, 200]] }], Height: 35, HideForPose: ["KneelingSpread"], Extended: true,
+				Layer: [
+					{ Name: "Base", HasType: false, Left: 127, },
+					{ Name: "Thigh", HasType: false, CopyLayerColor: "Base", Left: 127, },
+					{ Name: "Layer", HasType: false, CopyLayerColor: "Base", AllowModuleTypes: ["l1"], Left: 127, },
+					{ Name: "Band", HasType: false, Left: 127, },
+				],
 			},
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -7880,19 +7888,19 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "AccentHood", Fetish: ["Latex"], Top: 20, Left: 149, Value: 30, Time: 15, AllowLock: true, AllowTighten: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Name: "AccentHood", Fetish: ["Latex"], Top: 28, Left: 123, Value: 30, Time: 15, AllowLock: true, AllowTighten: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }],
 			},
 			{
-				Name: "CollarHood", Fetish: ["Latex"], Top: 21, Left: 150, Value: 50, AllowLock: true, AllowTighten: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Name: "CollarHood", Fetish: ["Latex"], Top: 23, Left: 122, Value: 50, AllowLock: true, AllowTighten: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Layer: [
 					{ Name: "Hood" },
 					{ Name: "Collar" },
 				],
-				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [290, 0, 205, 260]] }]
+				Alpha: [{ Group: ["Head"], Masks: [[0, 0, 207, 270], [290, 0, 200, 270], [280, 170, 200, 270], [0, 170, 227, 270]] }]
 			},
 			{
-				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, AllowTighten: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"],
+				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, Top: 28, Left: 123, DrawLocks: false, AllowLock: true, AllowTighten: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"],
 				Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Layer:[
 					{ Name: ""},
@@ -7954,15 +7962,15 @@ var AssetFemale3DCG = [
 				DefaultColor: ["Default", "Default", "Default", "#2D8736", "Default", "Default", "#000000"],
 				Layer: [
 					{ Name: "Base", AllowModuleTypes: ["t0"] },
-					{ Name: "BaseThin", CopyLayerColor: "Base", AllowModuleTypes: ["t1"], Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [287, 0, 205, 260]] }]},
+					{ Name: "BaseThin", Top: 25, Left: 122, CopyLayerColor: "Base", AllowModuleTypes: ["t1"], Alpha: [{ Group: ["Head"], Masks: [[0, 0, 212, 260], [287, 0, 205, 260]] }]},
 					{ Name: "Linings", AllowModuleTypes: ["t0"] },
-					{ Name: "LiningsThin", CopyLayerColor: "Linings", AllowModuleTypes: ["t1"] },
+					{ Name: "LiningsThin", Top: 25, Left: 122, CopyLayerColor: "Linings", AllowModuleTypes: ["t1"] },
 					{ Name: "Panel", AllowModuleTypes: ["t0"] },
-					{ Name: "PanelThin", CopyLayerColor: "Panel", AllowModuleTypes: ["t1"] },
+					{ Name: "PanelThin", Top: 25, Left: 122, CopyLayerColor: "Panel", AllowModuleTypes: ["t1"] },
 					{ Name: "Display",  AllowModuleTypes: ["t0"] },
-					{ Name: "DisplayThin", CopyLayerColor: "Display", AllowModuleTypes: ["t1"] },
+					{ Name: "DisplayThin", Top: 25, Left: 122, CopyLayerColor: "Display", AllowModuleTypes: ["t1"] },
 					{ Name: "Openings", AllowModuleTypes: ["t0"] },
-					{ Name: "OpeningsThin", CopyLayerColor: "Openings", AllowModuleTypes: ["t1"] },
+					{ Name: "OpeningsThin", Top: 25, Left: 122, CopyLayerColor: "Openings", AllowModuleTypes: ["t1"] },
 					{ Name: "Blindfold", Top: 80, Left: 164, AllowModuleTypes: ["b1"], AllowColorize: false, },
 					{ Name: "BlindfoldNeutral", Top: 80, Left: 164, AllowModuleTypes: ["b1e0"], CopyLayerColor: "Drawings", },
 					{ Name: "BlindfoldOwO", Top: 80, Left: 164, AllowModuleTypes: ["b1e1"], CopyLayerColor: "Drawings", },
@@ -7973,7 +7981,7 @@ var AssetFemale3DCG = [
 					{ Name: "GagUwU", Top: 80, Left: 164, AllowModuleTypes: ["g1e2"], CopyLayerColor: "Drawings", },
 					{ Name: "Drawings", HasImage: false, HasType: true,},
 					{ Name: "Lock", Top: 113, Left: 233, LockLayer: true, AllowColorize: true, AllowModuleTypes: ["t0"] },
-					{ Name: "LockThin", LockLayer: true, CopyLayerColor: "Lock", AllowModuleTypes: ["t1"] },
+					{ Name: "LockThin", Top: 25, Left: 122, LockLayer: true, CopyLayerColor: "Lock", AllowModuleTypes: ["t1"] },
 				],
 			},
 			{
@@ -7982,7 +7990,7 @@ var AssetFemale3DCG = [
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose",],
 				Layer: [
 					{Name: "Thick", HasType: false, AllowTypes: ["Thick"]},
-					{Name: "Thin", HasType: false, CopyLayerColor: "Thick", AllowTypes: ["Thin"], Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }]},
+					{Name: "Thin", HasType: false, CopyLayerColor: "Thick", AllowTypes: ["Thin"], Top: 29, Left: 122, Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }]},
 					{Name: "Lock", LockLayer: true, AllowColorize: false},
 
 				],
@@ -7993,13 +8001,13 @@ var AssetFemale3DCG = [
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 				Layer: [
 					{ Name: "FakeMouth", AllowColorize: false, AllowModuleTypes: ["t0m1"] },
-					{ Name: "FakeMouthThin", AllowColorize: false, AllowModuleTypes: ["t1m1"] },
+					{ Name: "FakeMouthThin", Top: 24, Left:122,  AllowColorize: false, AllowModuleTypes: ["t1m1"] },
 					{ Name: "Lenses", AllowModuleTypes: ["t0"] },
-					{ Name: "LensesThin", AllowModuleTypes: ["t1"], CopyLayerColor: "Lenses", },
+					{ Name: "LensesThin", Top: 24, Left:122,  AllowModuleTypes: ["t1"], CopyLayerColor: "Lenses", },
 					{ Name: "Hood", AllowModuleTypes: ["t0"], },
-					{ Name: "HoodThin", AllowModuleTypes: ["t1"], CopyLayerColor: "Hood", Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }], },
+					{ Name: "HoodThin", Top: 24, Left:122,  AllowModuleTypes: ["t1"], CopyLayerColor: "Hood", Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }], },
 					{ Name: "Plug", AllowModuleTypes: ["t0"] },
-					{ Name: "PlugThin", AllowModuleTypes: ["t1"], CopyLayerColor: "Plug" },
+					{ Name: "PlugThin", Top: 24, Left:122,  AllowModuleTypes: ["t1"], CopyLayerColor: "Plug" },
 				],
 			},
 			{

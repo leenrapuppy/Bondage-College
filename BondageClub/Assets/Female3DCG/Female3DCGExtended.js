@@ -521,7 +521,7 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // rh2 - Pulled Up
-								Property: {Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "Head"]}
+								Property: {Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "Head"]}
 
 							}
 
@@ -6573,6 +6573,24 @@ var AssetFemale3DCGExtended = {
 				]
 			},
 		}, // FuturisticHeels2
+		ThighBoots: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Layer", Key: "l",
+						Options:[
+							{ // l0 - Smooth
+								Property: { Effect: [] }
+							},
+							{ // l1 - Pulled
+								Property: { Effect: [] }
+							},
+						]
+					},
+				],
+			},
+		}, // Thighboots
 	}, // Shoes
 	HairAccessory1: {
 		ElfEars: {
