@@ -1379,6 +1379,10 @@ function DrawProcess(time) {
 	// Draws beep from online player sent by the server
 	ServerDrawBeep();
 
+	// Draw a marker for the controller's position
+	if (ControllerIsActive()) {
+		DrawRect(MouseX - 5, MouseY - 5, 10, 10, "Red");
+	}
 
 	// Checks for screen resize/position change and calls appropriate function
 	const newCanvasPosition = [MainCanvas.canvas.offsetLeft, MainCanvas.canvas.offsetTop, MainCanvas.canvas.clientWidth, MainCanvas.canvas.clientHeight];

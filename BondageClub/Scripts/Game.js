@@ -15,6 +15,9 @@ function GameStart() {
 	//CheatImport();
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
+
+	CurrentTime = CommonTime();
+
 	CommonIsMobile = CommonDetectMobile();
 	TranslationLoad();
 	DrawLoad();
@@ -39,7 +42,7 @@ function GameStart() {
 	canvas.addEventListener("touchmove", TouchMove);
 	canvas.addEventListener("touchend", TouchEnd);
 
-	GameRun(0);
+	requestAnimationFrame(GameRun);
 }
 
 // When the code is loaded, we start the game engine
@@ -50,8 +53,16 @@ window.addEventListener("load", GameStart);
  * @param {number} Timestamp
  */
 function GameRun(Timestamp) {
+
+	// Increments the time from the last frame
+	TimerRunInterval = Timestamp - TimerLastTime;
+	TimerLastTime = Timestamp;
+	CurrentTime = CurrentTime + TimerRunInterval;
+
 	DrawProcess(Timestamp);
-	TimerProcess(Timestamp);
+	TimerProcess();
+
+	requestAnimationFrame(MainRun);
 }
 
 /**

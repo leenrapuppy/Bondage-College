@@ -1,7 +1,7 @@
 "use strict";
 var CurrentTime = 0;
 var TimerRunInterval = 20;
-var TimerLastTime = CommonTime();
+var TimerLastTime = 0;
 var TimerLastCycleCall = 0;
 var TimerLastArousalProgress = 0;
 var TimerLastArousalProgressCount = 0;
@@ -130,15 +130,9 @@ function TimerPrivateOwnerBeep() {
 
 /**
  * Main timer process
- * @param {number} Timestamp - Time in ms of the time when the function was called
  * @returns {void} - Nothing
  */
-function TimerProcess(Timestamp) {
-
-	// Increments the time from the last frame
-	TimerRunInterval = Timestamp - TimerLastTime;
-	TimerLastTime = Timestamp;
-	CurrentTime = CurrentTime + TimerRunInterval;
+function TimerProcess() {
 
 	// At each 1700 ms, we check for timed events (equivalent of 100 cycles at 60FPS)
 	if (TimerLastCycleCall + 1700 <= CommonTime()) {
@@ -240,14 +234,6 @@ function TimerProcess(Timestamp) {
 		}
 
 	}
-
-	if (ControllerIsActive()) {
-		DrawRect(MouseX - 5, MouseY - 5, 10, 10, "Red");
-	}
-
-	// Launches the main again for the next frame
-	requestAnimationFrame(GameRun);
-
 }
 
 /**
