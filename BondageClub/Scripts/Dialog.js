@@ -527,7 +527,9 @@ function DialogStartKinkyDungeon() {
 	}
 	DialogGamingPreviousRoom = CurrentScreen;
 	DialogGamingPreviousModule = CurrentModule;
-	MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
+	if (ArcadeKinkyDungeonLoad()) {
+		MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
+	}
 }
 
 

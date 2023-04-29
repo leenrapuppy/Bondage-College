@@ -2686,9 +2686,10 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 	}
 	else if (data.Content == "GiveLockpicks") DialogLentLockpicks = true;
 	else if (data.Content == "RequestFullKinkyDungeonData") {
-		KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
-		if (CurrentScreen == "KinkyDungeon")
+		if (CurrentScreen == "KinkyDungeon") {
+			KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
 			KinkyDungeonSendData(KinkyDungeonPackData(true, true, true, true));
+		}
 	}
 	else if (data.Content == "TakeSuitcase") {
 		if (!Player.CanInteract() && ServerChatRoomGetAllowItem(SenderCharacter, Player)) {
@@ -4323,9 +4324,11 @@ function ChatRoomOnlineBountyHandleData(data, sender) {
  * @returns {void} - Nothing
  */
 function ChatRoomGameResponse(data) {
-	if (data.Data.KinkyDungeon)
-		KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
-	else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
+	if (data.Data.KinkyDungeon) {
+		if (CurrentScreen == "KinkyDungeon") {
+			KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
+		}
+	} else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
 		ChatRoomOnlineBountyHandleData(data.Data.OnlineBounty, data.Sender);
 	else if (ChatRoomGame == "LARP") GameLARPProcess(data);
 	else if (ChatRoomGame == "MagicBattle") GameMagicBattleProcess(data);
