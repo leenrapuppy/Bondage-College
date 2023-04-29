@@ -192,6 +192,7 @@ function ArcadeKinkyDungeonEnd() {
 }
 
 var KinkyDungeonFiles = [
+	"Screens/MiniGame/KinkyDungeon/pixi.min.js",
 	"Screens/MiniGame/KinkyDungeon/KDModUtils.js",
 	"Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js",
 	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEditorTiles.js",
