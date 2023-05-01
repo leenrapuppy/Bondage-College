@@ -188,12 +188,12 @@ function VibratorModeRegister(asset, config, parentOption=null) {
 	if (IsBrowser()) {
 		/** @type {ExtendedItemCallbackStruct<VibratingItemOption>} */
 		const defaultCallbacks = {
-			load: () => VibratorModeLoad(data.dialogPrefix.header),
-			click: () => VibratorModeClick(data.modeSet, 450, data.parentOption != null),
-			draw: () => VibratorModeDraw(data.modeSet, 450, data.parentOption != null),
+			load: () => VibratorModeLoad(data),
+			click: () => VibratorModeClick(data),
+			draw: () => VibratorModeDraw(data),
 			validate: VibratorModeValidate,
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
-			init: (...args) => VibratorModeInit(data.modeSet, ...args),
+			init: (...args) => VibratorModeInit(data, ...args),
 			scriptDraw: VibratorModeScriptDraw,
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
@@ -256,14 +256,14 @@ function VibratorModeGetOptions(modeSet=Object.values(VibratorModeSet)) {
 
 /**
  * Loads the vibrating item's extended item menu.
- * @param {string} prefix
+ * @param {VibratingItemData} data
  */
-function VibratorModeLoad(prefix) {
+function VibratorModeLoad({ dialogPrefix: { header } }) {
 	const intensity = DialogFocusItem.Property.Intensity;
 	if (ExtendedItemOffsets[ExtendedItemOffsetKey()] == null) {
 		ExtendedItemSetOffset(0);
 	}
-	DialogExtendedMessage = DialogFindPlayer(`${prefix}${intensity}`);
+	DialogExtendedMessage = DialogFindPlayer(`${header}${intensity}`);
 }
 
 /** @type {ExtendedItemCallbacks.Validate<ExtendedItemOption>} */
@@ -378,30 +378,24 @@ function VibratorModeGenerateCoords(modeSet, Y=450) {
 
 /**
  * Common draw function for vibrators
- * @param {readonly VibratorModeSet[]} modeSet - The vibrator mode sets for the item
+ * @param {VibratingItemData} data
  * @param {number} [Y] - The y-coordinate at which to start drawing the controls
- * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
- * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} - Nothing
  */
-function VibratorModeDraw(modeSet, Y=450, IgnoreSubscreen=false) {
-	const coords = VibratorModeGenerateCoords(modeSet, Y);
-	const actualOptions = VibratorModeGetOptions(modeSet);
-	TypedItemDraw(actualOptions, "", 10, false, coords, IgnoreSubscreen);
+function VibratorModeDraw(data, Y=450) {
+	const coords = VibratorModeGenerateCoords(data.modeSet, Y);
+	TypedItemDraw(data, coords.length, coords);
 }
 
 /**
  * Common click function for vibrators
- * @param {readonly VibratorModeSet[]} modeSet - The vibrator mode sets for the item
+ * @param {VibratingItemData} data
  * @param {number} [Y] - The y-coordinate at which the extended item controls were drawn
- * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
- * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
  * @returns {void} - Nothing
  */
-function VibratorModeClick(modeSet, Y=450, IgnoreSubscreen=false) {
-	const coords = VibratorModeGenerateCoords(modeSet, Y);
-	const options = VibratorModeGetOptions(modeSet);
-	TypedItemClick(options, 10, false, coords, IgnoreSubscreen);
+function VibratorModeClick(data, Y=450) {
+	const coords = VibratorModeGenerateCoords(data.modeSet, Y);
+	TypedItemClick(data, coords.length, coords);
 }
 
 /**
@@ -715,21 +709,25 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 
 /**
  * Initialize the vibrating item properties
- * @param {VibratorModeSet[]} modeSet optional list with the names of all supported configuration sets.
+ * @param {VibratingItemData} data
  * @param {Item} Item - The item in question
  * @param {Character} C - The character that has the item equiped
  * @param {boolean} Refresh - Whether the character and relevant item should be refreshed and pushed to the server
  * @returns {boolean} Whether properties were initialized or not
  */
-function VibratorModeInit(modeSet, C, Item, Refresh=true) {
-	const options = VibratorModeGetOptions(modeSet);
-	if (CommonIsObject(Item.Property) && options.some(o => o.Name === Item.Property.Mode)) {
+function VibratorModeInit(data, C, Item, Refresh=true) {
+	if (!CommonIsObject(Item.Property)) {
+		Item.Property = {};
+	}
+	if (data.options.some(o => o.Name === Item.Property.Mode)) {
 		return false;
 	}
 
-	const Options = VibratorModeGetOptions(modeSet);
-	const FirstOption = Options[0] || VibratorModeOff;
-	TypedItemSetOption(C, Item, Options, FirstOption, false);
+	Object.assign(
+		Item.Property,
+		data.baselineProperty ? CommonCloneDeep(data.baselineProperty) : null,
+		CommonCloneDeep(VibratorModeOff.Property),
+	);
 
 	if (Refresh) {
 		CharacterRefresh(C, true, false);

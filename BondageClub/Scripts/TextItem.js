@@ -158,8 +158,10 @@ const TextItem = {
 	 * Load function for items with text input fields.
 	 * @param {TextItemData} data
 	 */
-	Load: function ({ dialogPrefix, asset, eventListeners, maxLength, parentOption }) {
-		ExtendedItemLoad(dialogPrefix.header, parentOption != null);
+	Load: function (data) {
+		ExtendedItemLoad(data);
+
+		const { asset, eventListeners, maxLength } = data;
 		const item = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
 		const C = CharacterGetCurrent();
 		for (const [name, length] of CommonEntries(maxLength)) {

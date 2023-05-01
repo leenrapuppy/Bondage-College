@@ -8,7 +8,7 @@ function InventoryItemArmsFullLatexSuitDrawHook(Data, OriginalFunction) {
 
 	// Manually call `TypedItemDraw` (rather than `OriginalFunction`) for tighter control over the button positions
 	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
-	TypedItemDraw(Data.options, Data.dialogPrefix.option, Data.options.length, Data.drawImages, XYCoords);
+	TypedItemDraw(Data, XYCoords.length, XYCoords);
 
 	const C = CharacterGetCurrent();
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
@@ -23,7 +23,7 @@ function InventoryItemArmsFullLatexSuitClickHook(Data, OriginalFunction) {
 
 	// Manually call `TypedItemDraw` (rather than `OriginalFunction`) for tighter control over the button positions
 	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
-	TypedItemClick(Data.options, Data.options.length, Data.drawImages, XYCoords);
+	TypedItemClick(Data, XYCoords.length, XYCoords);
 
 	if (MouseIn(...ExtendedXY[6][4], 225, 275)) {
 		const C = CharacterGetCurrent();

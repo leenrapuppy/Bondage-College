@@ -218,21 +218,17 @@ function ExtendedItemInitNoArch(C, Item, Properties, Refresh=true) {
 
 /**
  * Loads the item's extended item menu
- * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
- *     type
- * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
- * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
+ * @param {ExtendedItemData<any>} data
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(DialogKey, IgnoreSubscreen=false) {
-	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
+function ExtendedItemLoad({ functionPrefix, dialogPrefix, parentOption }) {
+	if (ExtendedItemSubscreen && parentOption == null) {
+		CommonCallFunctionByNameWarn(`${functionPrefix}${ExtendedItemSubscreen}Load`);
 		return;
 	}
 
 	if (ExtendedItemOffsets[ExtendedItemOffsetKey()] == null) ExtendedItemSetOffset(0);
-
-	DialogExtendedMessage = DialogFindPlayer(DialogKey);
+	DialogExtendedMessage = DialogFindPlayer(dialogPrefix.header);
 }
 
 /**
