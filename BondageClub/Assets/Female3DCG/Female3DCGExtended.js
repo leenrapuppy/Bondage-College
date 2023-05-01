@@ -9296,6 +9296,35 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LoveChastityBelt
+		FuturisticTrainingBelt: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				Options: [VibratorModeSet.STANDARD],
+				ScriptHooks: {
+					Load: InventoryItemPelvisFuturisticTrainingBeltLoadHook,
+					Click: InventoryItemPelvisFuturisticTrainingBeltClickHook,
+					Draw: InventoryItemPelvisFuturisticTrainingBeltDrawHook,
+					Exit: InventoryItemPelvisFuturisticTrainingBeltExitHook,
+					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemPelvisFuturisticTrainingBeltScriptDraw,
+				},
+				BaselineProperty: {
+					ShowText: false,
+					NextShockTime: 0,
+					PunishStruggle: false,
+					PunishStruggleOther: false,
+					PunishOrgasm: false,
+					PunishStandup: false,
+					PunishSpeech: 0,
+					PunishRequiredSpeech: 0,
+					PunishRequiredSpeechWord: "Miss",
+					PunishProhibitedSpeech: 0,
+					PunishProhibitedSpeechWords: "I,me,am,my,im",
+					PublicModeCurrent: 0,
+					PublicModePermission: 0,
+				},
+			},
+		}, // FuturisticTrainingBelt
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {
