@@ -453,7 +453,7 @@ function VibratorModeUpdateRandom(Item, C, PersistentData) {
 	/** @type {EffectName[]} */
 	const Effect = Intensity === -1 ? ["Egged"] : ["Egged", "Vibrating"];
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect });
+	ExtendedItemSetProperty(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect });
 
 	// Next update in 1-3 minutes
 	const OneMinute = 60000;
@@ -472,7 +472,7 @@ function VibratorModeUpdateEscalate(Item, C, PersistentData) {
 	const OldIntensity = Item.Property.Intensity;
 	const Intensity = /** @type {VibratorIntensity} */((OldIntensity + 1) % 4);
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating"] });
+	ExtendedItemSetProperty(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating"] });
 
 	// As intensity increases, time between updates decreases
 	const TimeFactor = Math.pow((5 - Intensity), 1.8);
@@ -516,7 +516,7 @@ function VibratorModeUpdateEdge(Item, C, PersistentData) {
 	const OldIntensity = Item.Property.Intensity;
 	const Intensity = /** @type {VibratorIntensity} */(Math.min(Item.Property.Intensity + 1, 3));
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
+	ExtendedItemSetProperty(C, Item, option.Property, { Mode: PersistentData.Mode, Intensity, Effect: ["Egged", "Vibrating", "Edged"] });
 
 	if (Intensity === 3) {
 		// If we've hit max intensity, no more changes needed
@@ -564,7 +564,7 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
 	if (Intensity !== -1) Effect.push("Vibrating");
 
 	const option = VibratorModeGetOption(PersistentData.Mode);
-	ExtendedItemSetOption(C, Item, option.Property, { Mode: PersistentData.Mode, State, Intensity, Effect }, false);
+	ExtendedItemSetProperty(C, Item, option.Property, { Mode: PersistentData.Mode, State, Intensity, Effect }, false);
 
 	Object.assign(PersistentData, {
 		ChangeTime: CommonTime() + 5000,

@@ -433,8 +433,8 @@ function TypedItemSetOption(C, item, options, option, push = false, baselineProp
 		(previousOption ? ExtendedItemGatherSubscreenProperty(item, previousOption) : {}),
 	);
 	CommonKeys(baselineProperty || {}).forEach(i => delete previousProperty[i]);
+	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push, newOption.DynamicProperty);
 
-	ExtendedItemSetOption(C, item, previousProperty, newProperty, push, option.DynamicProperty);
 }
 
 /**

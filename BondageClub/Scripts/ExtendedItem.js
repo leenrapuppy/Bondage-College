@@ -418,7 +418,7 @@ function ExtendedItemExit() {
  * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
+function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
 	// Delete properties added by the previous option and clone the new properties
 	if (!item.Property) {
 		item.Property = {};

@@ -506,7 +506,7 @@ interface ExtendedItemOption {
 	OptionType: "ExtendedItemOption" | "TypedItemOption" | "VariableHeightOption" | "ModularItemOption" | "VibratingItemOption" | "TextItemOption";
 	/**
 	 * A callback for dynamically assigning item properties.
-	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
+	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetProperty}.
 	 */
 	DynamicProperty?: DynamicPropertyCallback;
 }

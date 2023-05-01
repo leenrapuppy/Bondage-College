@@ -740,9 +740,9 @@ function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, da
 		(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
 	);
 	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
+	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push, newOption.DynamicProperty);
 
 	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);
-	ExtendedItemSetOption(C, Item, previousProperty, newProperty, push, dynamicProperty);
 }
 
 /**
