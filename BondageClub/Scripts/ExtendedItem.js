@@ -600,6 +600,8 @@ function ExtendedItemMapChatTagToDictionaryEntry(dictionary, C, asset, tag) {
 			return dictionary.targetCharacterName(C);
 		case CommonChatTags.ASSET_NAME:
 			return dictionary.asset(asset);
+		case CommonChatTags.AUTOMATIC:
+			return dictionary.markAutomatic();
 		default:
 			console.warn(`Unknown ${asset.Group.Name}:${asset.Name} chat tag "${tag}"`);
 			return dictionary;

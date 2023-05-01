@@ -520,7 +520,8 @@ type CharacterReferenceTag =
 
 type CommonChatTags =
 	| CharacterReferenceTag
-	| "AssetName";
+	| "AssetName"
+	| "Automatic";
 
 /**
  * A dictionary entry containing a replacement tag to be replaced by some value. The replacement strategy depends on

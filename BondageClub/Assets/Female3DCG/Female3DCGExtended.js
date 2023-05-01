@@ -5921,6 +5921,29 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LoversVibrator
+		FuturisticVibrator: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.AUTOMATIC,
+				],
+				ScriptHooks: {
+					Load: InventoryItemVulvaFuturisticVibratorLoadHook,
+					Draw: InventoryItemVulvaFuturisticVibratorDrawHook,
+					Click: InventoryItemVulvaFuturisticVibratorClickHook,
+					Exit: InventoryItemVulvaFuturisticVibratorExitHook,
+					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemVulvaFuturisticVibratorScriptDrawHook,
+				},
+				BaselineProperty: {
+					AccessMode: "",
+					TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
+				}
+			},
+		}, // FuturisticVibrator
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
