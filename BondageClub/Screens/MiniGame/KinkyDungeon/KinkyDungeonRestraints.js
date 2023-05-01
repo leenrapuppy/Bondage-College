@@ -2587,9 +2587,6 @@ function KinkyDungeonAddRestraint(restraint, Tightness, Bypass, Lock, Keep, Link
 				}
 				//if (placed && !placed.Property) placed.Property = {};
 				if (restraint.Type) {
-					let options = window["Inventory" + ((AssetGroup.includes("ItemMouth")) ? "ItemMouth" : AssetGroup) + restraint.Asset + "Options"];
-					if (!options) options = TypedItemDataLookup[`${AssetGroup}${restraint.Asset}`].options; // Try again
-					const option = options.find(o => o.Name === restraint.Type);
 					/*
 					KinkyDungeonPlayer.FocusGroup = AssetGroupGet("Female3DCG", AssetGroup);
 					TypedItemSetType(KinkyDungeonPlayer, options, option);
@@ -2597,7 +2594,7 @@ function KinkyDungeonAddRestraint(restraint, Tightness, Bypass, Lock, Keep, Link
 					if (placedOnPlayer) {
 						const playerItem = InventoryGet(Player, AssetGroup);
 						if (playerItem) {
-							TypedItemSetOption(Player, playerItem, options, option, false);
+							TypedItemSetOptionByName(Player, playerItem, restraint.Type, false);
 							KinkyDungeonPlayerNeedsRefresh = true;
 						}
 					}

@@ -441,7 +441,7 @@ function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=fa
 	if (dynamicProperty != null) {
 		dynamicProperty(Property);
 	}
-	CharacterRefresh(C, push);
+	CharacterRefresh(C, push, false);
 }
 
 /**
@@ -883,6 +883,73 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
 		}
 		default:
 			return {};
+	}
+}
+
+/**
+ * Sets an extended item's type and properties to the option provided.
+ * @template {ModularItemOption | TypedItemOption | VibratingItemOption} OptionType
+ * @param {ModularItemData | TypedItemData | VibratingItemData} data - The extended item data
+ * @param {Character} C - The character on whom the item is equipped
+ * @param {Item} item - The item whose type to set
+ * @param {OptionType} newOption - The to-be applied extended item option
+ * @param {OptionType} previousOption - The previously applied extended item option
+ * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
+ * player) - defaults to false.
+ * @returns {string|undefined} - undefined or an empty string if the option was set correctly. Otherwise, returns a string
+ * informing the player of the requirements that are not met.
+ */
+function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=false) {
+	if (newOption.Name === previousOption.Name) {
+		return DialogFindPlayer("AlreadySet");
+	}
+
+	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
+	if (requirementMessage) {
+		return requirementMessage;
+	}
+
+	/** @type {ItemProperties} */
+	let previousOptionProperty;
+	/** @type {ItemProperties} */
+	let newProperty;
+	switch (newOption.OptionType) {
+		case "ModularItemOption": {
+			const moduleData = /** @type {ModularItemData} */(data);
+			const previousModuleValues = ModularItemParseCurrent(moduleData, item.Property.Type);
+			const moduleIndex = moduleData.modules.findIndex(m => m.Name === newOption.ModuleName);
+			const newModuleValues = [...previousModuleValues];
+			newModuleValues[moduleIndex] = newOption.Index;
+
+			newProperty = ModularItemMergeModuleValues(moduleData, newModuleValues);
+			previousOptionProperty = ModularItemMergeModuleValues(moduleData, previousModuleValues);
+			break;
+		}
+		case "VibratingItemOption":
+		case "TypedItemOption":
+			newProperty = JSON.parse(JSON.stringify(newOption.Property));
+			previousOptionProperty = { ...previousOption.Property };
+			break;
+		default:
+			console.error(`Unsupported archetype: ${data.asset.Archetype}`);
+			return;
+	}
+
+	if (newOption.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, item, false];
+		CommonCallFunctionByNameWarn(`${data.functionPrefix}${newOption.Name}Init`, ...args);
+	}
+
+	const previousProperty = PropertyUnion(
+		previousOptionProperty,
+		ExtendedItemGatherSubscreenProperty(item, previousOption),
+	);
+	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
+	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push, newOption.DynamicProperty);
+
+	if (newOption.Expression) {
+		InventoryExpressionTriggerApply(C, newOption.Expression);
 	}
 }
 

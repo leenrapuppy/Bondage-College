@@ -7563,6 +7563,8 @@ var AssetFemale3DCGExtended = {
 					Draw: InventoryItemMouthFuturisticPanelGagDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemMouthFuturisticPanelGagScriptDrawHook,
+					BeforeDraw: AssetsItemMouthFuturisticPanelGagBeforeDrawHook,
 				},
 				DialogPrefix: {
 					Header: "ItemMouthFuturisticPanelGagSelect",

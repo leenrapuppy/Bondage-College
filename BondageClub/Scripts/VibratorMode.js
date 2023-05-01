@@ -735,3 +735,11 @@ function VibratorModeInit(data, C, Item, Refresh=true) {
 	}
 	return true;
 }
+
+/**
+ * An alias for {@link TypedItemSetOptionByName}.
+ * @type {typeof TypedItemSetOptionByName}
+ */
+function VibratorModeSetOptionByName(...args) {
+	return TypedItemSetOptionByName(...args);
+}

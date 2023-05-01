@@ -564,63 +564,6 @@ function InventoryCraftPropertyIs(Item, Property) {
 }
 
 /**
-* Helper function for `InventoryWearCraft` for handling Modular items
-* @param {Item} Item - The item being applied
-* @param {Character} C - The character that must wear the item
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftModular(Item, C, Type) {
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	if (Data === undefined) {
-		return;
-	}
-
-	// Validate that the requirements are met for all chosen options
-	const NewModuleValues = ModularItemParseCurrent(Data, Type);
-	const PreviousModuleValues = NewModuleValues.map((value) => 0);
-	NewModuleValues.forEach((value, i) => {
-		const Options = Data.modules[i].Options;
-		const NewOption = Options[value];
-		if (!NewOption || ExtendedItemRequirementCheckMessage(Item, C, NewOption, Options[0])) {
-			NewModuleValues[i] = 0;
-		}
-	});
-
-	ModularItemSetOption(C, Item, PreviousModuleValues, NewModuleValues, Data);
-}
-
-/**
-* Helper function for `InventoryWearCraft` for handling Typed items
-* @param {Item} Item - The item being applied
-* @param {Character} C - The character that must wear the item
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftTyped(Item, C, Type) {
-	if (Type != null) {
-		TypedItemSetOptionByName(C, Item, Type);
-	}
-}
-
-/**
-* Helper function for `InventoryWearCraft` for handling Vibrating items
-* @param {Item} Item - The item being applied
-* @param {Character} C - The character that must wear the item
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftVibrating(Item, C, Type) {
-	const Data = VibratorModeDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	if (Data === undefined) {
-		return;
-	}
-
-	const option = Data.options.find(o => o.Name === Type) || VibratorModeOff;
-	TypedItemSetOption(C, Item, Data.options, option);
-}
-
-/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {Character} C - The character that must wear the item
@@ -630,18 +573,18 @@ function InventoryWearCraft(Item, C, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
 
-	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
-		switch(Item.Asset.Archetype) {
-			case ExtendedArchetype.TYPED:
-				InventoryWearCraftTyped(Item, C, Craft.Type);
-				break;
-			case ExtendedArchetype.MODULAR:
-				InventoryWearCraftModular(Item, C, Craft.Type);
-				break;
-			case ExtendedArchetype.VIBRATING:
-				InventoryWearCraftVibrating(Item, C, Craft.Type);
-				break;
-		}
+	switch(Item.Asset.Archetype) {
+		case ExtendedArchetype.TYPED:
+			if (Craft.Type != null) {
+				TypedItemSetOptionByName(C, Item, Craft.Type);
+			}
+			break;
+		case ExtendedArchetype.MODULAR:
+			ModularItemSetOptionByName(C, Item, Craft.Type);
+			break;
+		case ExtendedArchetype.VIBRATING:
+			VibratorModeSetOptionByName(C, Item, Craft.Type);
+			break;
 	}
 }
 

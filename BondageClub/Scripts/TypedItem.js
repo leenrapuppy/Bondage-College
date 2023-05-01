@@ -377,64 +377,44 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 	const groupName = item.Asset.Group.Name;
 	const warningMessage = `Cannot set option for ${groupName}:${assetName} to ${optionName}`;
 
-	if (item.Asset.Archetype !== ExtendedArchetype.TYPED) {
-		const msg = `${warningMessage}: item does not use the typed archetype`;
-		console.warn(msg);
-		return msg;
+	/** @type {TypedItemData | VibratingItemData} */
+	let data;
+	/** @type {"Type" | "Mode"} */
+	let typeField;
+	switch (item.Asset.Archetype) {
+		case ExtendedArchetype.TYPED:
+			data = TypedItemDataLookup[`${item.Asset.Group.Name}${item.Asset.Name}`];
+			typeField = "Type";
+			break;
+		case ExtendedArchetype.VIBRATING:
+			data = VibratorModeDataLookup[`${item.Asset.Group.Name}${item.Asset.Name}`];
+			typeField = "Mode";
+			break;
+		default: {
+			const msg = `${warningMessage}: item does not use the typed or vibrating archetype`;
+			console.warn(msg);
+			return msg;
+		}
 	}
 
-	const options = TypedItemGetOptions(groupName, assetName);
-	const option = options.find(o => o.Name === optionName);
+	/** @type {readonly (TypedItemOption | VibratingItemOption)[]} */
+	const options = data.options;
+	const newOption = options.find(o => o.Name === optionName);
+	const previousOption = TypedItemFindPreviousOption(item, options, typeField);
 
-	if (!option) {
+	if (!newOption) {
 		const msg = `${warningMessage}: option "${optionName}" does not exist`;
 		console.warn(msg);
 		return msg;
 	}
 
-	const data = TypedItemDataLookup[`${groupName}${assetName}`];
-	return TypedItemSetOption(C, item, options, option, push, (data ? data.baselineProperty : null));
-}
-
-/**
- * Sets a typed item's type and properties to the option provided.
- * @template {TypedItemOption | VibratingItemOption} T
- * @param {Character} C - The character on whom the item is equipped
- * @param {Item} item - The item whose type to set
- * @param {readonly T[]} options - The typed item options for the item
- * @param {T} option - The option to set
- * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
- * player) - defaults to false.
- * @param {null | ItemProperties} baselineProperty - The items baseline property
- * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
- * informing the player of the requirements that are not met.
- */
-function TypedItemSetOption(C, item, options, option, push = false, baselineProperty=null) {
-	if (!item || !options || !option) return;
-
-	/** @type {ItemProperties} */
-	const newProperty = JSON.parse(JSON.stringify(option.Property));
-	const typeField = (option.OptionType === "VibratingItemOption") ? "Mode" : "Type";
-	const previousOption = TypedItemFindPreviousOption(item, options, typeField);
-
-	const requirementMessage = TypedItemValidateOption(C, item, option, previousOption);
+	const requirementMessage = ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
 	if (requirementMessage) {
-		return requirementMessage;
+		if (requirementMessage && newOption.Name !== previousOption.Name) {
+			console.warn(`${warningMessage}: ${DialogFindPlayer(requirementMessage)}`);
+		}
+		return DialogFindPlayer(requirementMessage);
 	}
-
-	if (option.HasSubscreen) {
-		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-		const args = [C, item, false];
-		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${option.Name}Init`, ...args);
-	}
-
-	const previousProperty = PropertyUnion(
-		{ ...previousOption.Property },
-		(previousOption ? ExtendedItemGatherSubscreenProperty(item, previousOption) : {}),
-	);
-	CommonKeys(baselineProperty || {}).forEach(i => delete previousProperty[i]);
-	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push, newOption.DynamicProperty);
-
 }
 
 /**
@@ -469,20 +449,18 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 		return;
 	}
 
-	const allOptions = TypedItemGetOptions(item.Asset.Group.Name, item.Asset.Name);
-	// Avoid blocked & non-random options
-	const availableOptions = allOptions
-		.filter(o => o.Random !== false && !InventoryBlockedOrLimited(C, item, o.Property.Type));
+	const data = TypedItemDataLookup[`${item.Asset.Group.Name}${item.Asset.Name}`];
 
-	/** @type {TypedItemOption} */
-	let option;
+	// Avoid blocked & non-random options
+	const availableOptions = data.options
+		.filter(o => o.Random !== false && !InventoryBlockedOrLimited(C, item, o.Property.Type));
 	if (availableOptions.length === 0) {
-		// If no options are available, use the null type
-		option = allOptions.find(O => O.Property.Type == null);
-	} else {
-		option = CommonRandomItemFromList(null, availableOptions);
+		return;
 	}
-	return TypedItemSetOption(C, item, availableOptions, option, push);
+
+	const newOption = CommonRandomItemFromList(null, availableOptions);
+	const previousOption = TypedItemFindPreviousOption(item, data.options);
+	return ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
 }
 
 /**
@@ -690,7 +668,7 @@ function TypedItemHandleOptionClick(data, C, Option) {
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
 		} else {
-			TypedItemSetType(C, Options, Option);
+			TypedItemSetType(data, C, Option);
 		}
 	}
 }
@@ -711,16 +689,14 @@ function TypedItemSetType(data, C, newOption) {
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, data.options, typeField);
 
 	// Do not sync appearance while in the wardrobe
-	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];
-	TypedItemSetOption(C, DialogFocusItem, Options, Option, !IsCloth, (data ? data.baselineProperty : null));
+	const requirementMessage = ExtendedItemSetOption(data, C, DialogFocusItem, newOption, previousOption, !IsCloth);
+	if (requirementMessage) {
+		DialogExtendedMessage = requirementMessage;
+		return;
+	}
 
 	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC
 	if (!IsCloth) {
-		// If the item triggers an expression, start the expression change
-		if (newOption.Expression) {
-			InventoryExpressionTriggerApply(C, newOption.Expression);
-		}
-
 		ChatRoomCharacterUpdate(C);
 		if (CurrentScreen === "ChatRoom") {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
