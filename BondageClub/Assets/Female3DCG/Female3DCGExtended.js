@@ -5897,7 +5897,7 @@ var AssetFemale3DCGExtended = {
 				],
 				ScriptHooks: {
 					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDrawHook,
-					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExitHook,
+					SetOption: InventoryItemVulvaClitAndDildoVibratorbeltSetOptionHook,
 				},
 				DialogPrefix: {
 					Chat: ({previousOption, newOption}) => {
@@ -9287,7 +9287,7 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { ShowText: true },
 				ScriptHooks: {
-					Click: InventoryItemPelvisLoveChastityBeltClick,
+					SetOption: InventoryItemPelvisLoveChastityBeltSetOptionHook,
 					Draw: InventoryItemPelvisLoveChastityBeltDraw,
 					Validate: InventoryItemPelvisLoveChastityBeltValidate,
 				},

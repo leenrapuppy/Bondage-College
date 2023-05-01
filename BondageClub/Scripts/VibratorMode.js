@@ -195,6 +195,7 @@ function VibratorModeRegister(asset, config, parentOption=null) {
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
 			init: (...args) => VibratorModeInit(data, ...args),
 			scriptDraw: VibratorModeScriptDraw,
+			setOption: (...args) => ExtendedItemSetOption(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}

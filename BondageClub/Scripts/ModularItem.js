@@ -89,6 +89,7 @@ function ModularItemRegister(asset, config) {
 			validate: ExtendedItemValidate,
 			publishAction: (...args) => ModularItemPublishAction(data, ...args),
 			init: (...args) => ModularItemInit(data, ...args),
+			setOption: (...args) => ExtendedItemSetOption(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
@@ -658,7 +659,11 @@ function ModularItemSetType(module, index, data) {
 
 	// Do not sync appearance while in the wardrobe
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-	const requirementMessage = ExtendedItemSetOption(data, C, DialogFocusItem, newOption, previousOption, !IsCloth);
+
+	/** @type {Parameters<ExtendedItemCallbacks.SetOption<ModularItemOption>>} */
+	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
+	/** @type {string | undefined} */
+	const requirementMessage = CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;

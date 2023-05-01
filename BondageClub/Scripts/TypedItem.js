@@ -63,6 +63,7 @@ function TypedItemRegister(asset, config) {
 			validate: ExtendedItemValidate,
 			publishAction: (...args) => TypedItemPublishAction(data, ...args),
 			init: (...args) => TypedItemInit(data, ...args),
+			setOption: (...args) => ExtendedItemSetOption(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 		ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialogPrefix.npc);
@@ -368,7 +369,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) {
+function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
 	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
 
 	if (!item) return;
@@ -689,7 +690,10 @@ function TypedItemSetType(data, C, newOption) {
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, data.options, typeField);
 
 	// Do not sync appearance while in the wardrobe
-	const requirementMessage = ExtendedItemSetOption(data, C, DialogFocusItem, newOption, previousOption, !IsCloth);
+	/** @type {Parameters<ExtendedItemCallbacks.SetOption<TypedItemOption | VibratingItemOption>>} */
+	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
+	/** @type {string | undefined} */
+	const requirementMessage = CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;

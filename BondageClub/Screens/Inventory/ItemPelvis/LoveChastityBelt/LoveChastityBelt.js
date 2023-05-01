@@ -40,52 +40,23 @@ function InventoryItemPelvisLoveChastityBeltDraw(Data, OriginalFunction) {
 	}
 }
 
-/** @type {ExtendedItemScriptHookCallbacks.Click<ModularItemData>} */
-function InventoryItemPelvisLoveChastityBeltClick(Data, OriginalFunction) {
-	// Disable the vibrator when the front shield is removed
-	if (!ExtendedItemPermissionMode && Data.currentModule === "FrontShield") {
-		const Module = Data.modules.find((m) => m.Name === "FrontShield");
-		const Positions = Data.drawData.FrontShield.positions;
-		for (const [i, [x, y]] of Positions.entries()) {
-			if (MouseIn(x, y, 225, 55)) {
-				return InventoryItemPelvisLoveChastityBeltSetType(Module, i, Data);
-			}
-		}
-	}
-	InventoryItemPelvisSciFiPleasurePantiesClickHook(Data, OriginalFunction, false);
-}
-
-/**
- * Custom `SetType` function for the Love Chastity Belt's front shield.
- * @param {ModularItemModule} module - The module that changed
- * @param {number} index - The index of the newly chosen option within the module
- * @param {ModularItemData} data - The modular item's data
- * @returns {void} - Nothing
- * @see {@link ModularItemSetType}
- */
-function InventoryItemPelvisLoveChastityBeltSetType(module, index, data) {
-	const C = CharacterGetCurrent();
-	const option = module.Options[index];
-	const currentModuleValues = ModularItemParseCurrent(data);
-	const moduleIndex = data.modules.indexOf(module);
-	const currentOption = module.Options[currentModuleValues[moduleIndex]];
-
-	// Make a final requirement check before actually modifying the item
-	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, option, currentOption);
-	if (requirementMessage || currentModuleValues[moduleIndex] === index) {
-		DialogExtendedMessage = requirementMessage;
-		return;
+/** @type {ExtendedItemScriptHookCallbacks.SetOption<ModularItemData, ModularItemOption>} */
+function InventoryItemPelvisLoveChastityBeltSetOptionHook(data, originalFunction, C, item, newOption, previousOption, push) {
+	const msg = originalFunction(C, item, newOption, previousOption, false);
+	if (msg) {
+		return msg;
 	}
 
-	// Ensure that the vibrator intensity is only set when the appropriate attachment is selected
-	// Update the vibrator intensity without pushing before updating the front shield itself
-	if (index !== 2 && currentModuleValues[2] !== 0) {
-		const newModuleValues = currentModuleValues.slice();
-		newModuleValues[2] = 0;
-		ModularItemSetOption(C, DialogFocusItem, currentModuleValues, newModuleValues, data, option, currentOption, false);
+	// Switch off the vibe module if the corresponding front shield is removed
+	if (previousOption.Name === "f2") { // 2 - close front & vibrator
+		ExtendedItemRequirementCheckMessageMemo.clearCache();
+		const previousModuleValues = ModularItemParseCurrent(data, item.Property.Type);
+		const vibePreviousOption = data.modules[2].Options[previousModuleValues[2]];
+		const vibeNewOption = data.modules[2].Options[0];
+		return originalFunction(C, item, vibeNewOption, vibePreviousOption, push);
+	} else {
+		CharacterRefresh(C, push, false);
 	}
-	ModularItemSetType(module, index, data);
-	ExtendedItemRequirementCheckMessageMemo.clearCache();
 }
 
 /** @type {ExtendedItemScriptHookStruct<ModularItemData, ModularItemOption>["validate"]} */
