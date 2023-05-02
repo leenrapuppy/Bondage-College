@@ -852,7 +852,6 @@ var AssetFemale3DCG = [
 					{ Name: "Stripe" }
 				]
 			},
-			// Penis Compatible Clothing
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -910,7 +909,6 @@ var AssetFemale3DCG = [
 			{ Name: "Stockings2", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Left: 125, Top: 400, BuyGroup: "Stockings2", DynamicGroupName: "Socks" },
 			{ Name: "Stockings3", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, BuyGroup: "Stockings3", DynamicGroupName: "Socks" },
 			{ Name: "Stockings4", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, BuyGroup: "Stockings4", DynamicGroupName: "Socks" },
-			// Penis Compatible Clothing
 			{
 				Name: "MaleSeamlessCatsuit", Gender: "M", Prerequisite: ["HasPenis"], DefaultColor: ["Default", "#000000"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower", "Pussy", "ItemVulva"], HideItem: ["SocksPantyhose1"],
 				Layer: [
@@ -1234,7 +1232,6 @@ var AssetFemale3DCG = [
 			{Name: "Thong", Gender: "F", Prerequisite: ["HasVagina"], Value: 15, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
 			{Name: "StringThong", Gender: "F", Prerequisite: ["HasVagina"], Value: 20, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
 			{Name: "MicroThong", Gender: "F", Prerequisite: ["HasVagina"], Value: 25, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
-			// Penis Compatible Clothing
 			{
 				Name: "BoxerShorts", Gender: "M", Prerequisite: ["HasPenis"], Attribute: ["GenitaliaCover"], Hide: ["Pussy", "ItemVulva", "ItemVulvaPiercings"], AllowExpression: ["Hard"],
 				DefaultColor: ["#FFFFFF", "Default"],
@@ -3386,7 +3383,7 @@ var AssetFemale3DCG = [
 			{ Name: "PussyDark1", Gender: "F", Attribute: ["PussyLayer"] },
 			{ Name: "PussyDark2", Gender: "F", Attribute: ["PussyLayer"] },
 			{ Name: "PussyDark3", Gender: "F", Attribute: ["PussyLayer"] },
-			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper", AllowActivity: ["PenetrateItem"], Attribute: ["PenisLayer"]}
+			{ Name: "Penis", Random: false, Left: 200, Top: 410, Priority: 23, Gender: "M", InheritColor: "BodyUpper", AllowActivity: ["PenetrateItem"], Attribute: ["PenisLayer"]}
 		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"],
 		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
@@ -3911,8 +3908,8 @@ var AssetFemale3DCG = [
 					{ Name: "Cross", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["Cross"] },
 				],
 			},
-			// Penis Compatible Items
 			{ Name: "BasicCockring", Gender: "M", Value: 10, Left: 200, Top: 410, Prerequisite: ["AccessVulva", "HasPenis"], AllowExpression: ["Hard"],
+				Priority: 24,
 				AllowPose: [],
 				Layer: [
 					{ Name: "CockRing", MirrorExpression: "Pussy" },
@@ -3934,6 +3931,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "VibeEggPenisBase", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, AllowExpression: ["Hard"],
 				Left: 200, Top: 410,
+				Priority: 24,
 				DefaultColor: ["#323232", "#EFB0F4" ],
 				AllowPose: [],
 				Layer: [
@@ -4035,6 +4033,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "VibeEggGlans", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, AllowExpression: ["Hard"],
 				Left: 200, Top: 410,
+				Priority: 24,
 				DefaultColor: ["#323232", "#EFB0F4" ],
 				AllowPose: [],
 				Layer: [
