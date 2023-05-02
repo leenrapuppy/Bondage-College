@@ -470,6 +470,7 @@ function InfiltrationPandoraPrisonerBrainwash() {
 	C.Owner = Player.Name;
 	//Interrogation restraints - Not strictly required, just flavor for Private Room NPC profile.
 	CharacterNaked(C);
+	CharacterReleaseTotal(C);
 	InventoryWear(C, "SlaveCollar", "ItemNeck");
 	InventoryWear(C,"SteelCuffs","ItemArms");
 	InventoryWear(C,"SteelAnkleCuffs","ItemFeet");
@@ -483,7 +484,7 @@ function InfiltrationPandoraPrisonerBrainwash() {
 	var T = NPCTraitGet(C, "Dominant") - S;
 	if (T < -100) { T = -100; }
 	NPCTraitSet(C, "Dominant", T);
-	//Neutralize love
+	//Neutralize relation, will further decay over time to represent resentment from interrogation
 	C.Love = 0;
 	//Reset and recheck for smoother dialog
 	InfiltrationSetPandoraPrisoner();
