@@ -14,7 +14,7 @@
 /**
  * An enum encapsulating the available extended item archetypes
  * MODULAR - Indicates that this item is modular, with several independently configurable modules
- * @type {{MODULAR: "modular", TYPED: "typed", VIBRATING: "vibrating", VARIABLEHEIGHT: "variableheight"}}
+ * @type {{MODULAR: "modular", TYPED: "typed", VIBRATING: "vibrating", VARIABLEHEIGHT: "variableheight", TEXT: "text"}}
  * @see {@link ModularItemConfig}
  * @see {@link TypedItemConfig}
  */
@@ -23,6 +23,7 @@ const ExtendedArchetype = {
 	TYPED: "typed",
 	VIBRATING: "vibrating",
 	VARIABLEHEIGHT: "variableheight",
+	TEXT: "text",
 };
 
 /**
@@ -530,6 +531,19 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //LatexTankTop
+		CheerleaderTop: {
+			Archetype: ExtendedArchetype.TEXT,
+			Config: {
+				MaxLength: { Text: 8 },
+				Font: "'Archivo Black', 'Impact', 'Arial Black', 'Franklin Gothic', 'Arial', sans-serif",
+				ScriptHooks: {
+					AfterDraw: AssetsClothCheerleaderTopAfterDrawHook,
+				},
+				DialogPrefix: {
+					Header: "ClothCheerleaderTopTextLabel",
+				},
+			},
+		},
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
@@ -583,7 +597,20 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Txt", Key: "x",
-						Options: [{}, { HasSubscreen: true }],
+						Options: [
+							{},
+							{
+								HasSubscreen: true,
+								Archetype: ExtendedArchetype.TEXT,
+								ArchetypeConfig: {
+									MaxLength: { Text: 24, Text2: 24 },
+									Font: "Pacifico",
+									ScriptHooks: {
+										AfterDraw: AssetsClothAccessoryBibAfterDrawHook,
+									},
+								},
+							},
+						],
 					},
 				],
 				BaselineProperty: { Text: "", Text2: "" },
@@ -2569,9 +2596,9 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { Text: "" },
 				ChatSetting: TypedItemChatSetting.FROM_TO,
 				ScriptHooks: {
-					Load: PropertyTextLoad,
+					Load: InventoryItemArmsTransportJacketLoadHook,
 					Draw: InventoryItemArmsTransportJacketDrawHook,
-					Exit: PropertyTextExit,
+					Exit: InventoryItemArmsTransportJacketExitHook,
 				}
 			},
 		}, // TransportJacket
@@ -2685,7 +2712,17 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Txt", Key: "x",
-						Options: [{ HasSubscreen: true }],
+						Options: [{
+							HasSubscreen: true,
+							Archetype: ExtendedArchetype.TEXT,
+							ArchetypeConfig: {
+								MaxLength: { Text: 9 },
+								Font: "sans-serif",
+								ScriptHooks: {
+									AfterDraw: AssetsItemNeckAccessoriesCustomCollarTagAfterDrawHook,
+								},
+							},
+						}],
 					},
 				],
 				ChangeWhenLocked: false,
@@ -2898,6 +2935,16 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false },
 			},
 		}, // CollarAutoShockUnit
+		ElectronicTag: {
+			Archetype: ExtendedArchetype.TEXT,
+			Config: {
+				MaxLength: { Text: 9 },
+				Font: "sansserif",
+				ScriptHooks: {
+					AfterDraw: AssetsItemNeckAccessoriesElectronicTagAfterDrawHook,
+				},
+			},
+		}, // ElectronicTag
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {
@@ -2948,7 +2995,19 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Txt", Key: "x",
-						Options: [{ HasSubscreen: true }],
+						Options: [
+							{
+								HasSubscreen: true,
+								Archetype: ExtendedArchetype.TEXT,
+								ArchetypeConfig: {
+									MaxLength: { Text: 14, Text2: 14, Text3: 14 },
+									Font: "sans-serif",
+									ScriptHooks: {
+										AfterDraw: AssetsItemNeckRestraintsPetPostAfterDrawHook,
+									},
+								},
+							}, // text
+						],
 					},
 				],
 				ChangeWhenLocked: false,
@@ -3397,7 +3456,24 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Pattern", Key: "p",
-						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
+						Options:[
+							{}, // Blank
+							{}, // Barcode
+							{}, // Scarab
+							{}, // Hex
+							{}, // Lines
+							{
+								HasSubscreen: true,
+								Archetype: ExtendedArchetype.TEXT,
+								ArchetypeConfig: {
+									MaxLength: { Text: 16 },
+									Font: "Impact",
+									ScriptHooks: {
+										AfterDraw: AssetsItemHeadDroneMaskAfterDrawHook,
+									},
+								},
+							}, // text
+						],
 					},
 					{
 						Name: "Glow", Key: "g",
@@ -4304,6 +4380,16 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //Latex Dog Mask
+		CanvasHood: {
+			Archetype: ExtendedArchetype.TEXT,
+			Config: {
+				MaxLength: { Text: 12 },
+				Font: "'Saira Stencil One', 'Arial', sans-serif",
+				ScriptHooks: {
+					AfterDraw: AssetsItemHoodCanvasHoodAfterDrawHook,
+				},
+			},
+		}, // CanvasHood
 	}, // ItemHood
 	Jewelry: {
 		JewelrySet: {
@@ -4606,7 +4692,11 @@ var AssetFemale3DCGExtended = {
 									OverrideHeight: { Height: 0, Priority: 60 },
 								},
 								Archetype: ExtendedArchetype.VIBRATING,
-								ArchetypeConfig: {},
+								ArchetypeConfig: {
+									ScriptHooks: {
+										ScriptDraw: AssetsItemDevicesFuturisticCrateScriptDrawHook,
+									},
+								},
 							},
 						],
 					},
@@ -5336,6 +5426,7 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemDevicesWoodenBoxLoadHook,
 					Draw: InventoryItemDevicesWoodenBoxDrawHook,
 					Exit: InventoryItemDevicesWoodenBoxExitHook,
+					PublishAction: InventoryItemDevicesWoodenBoxPublishActionHook,
 				},
 			},
 		}, // WoodenBox
@@ -5429,6 +5520,26 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { Opacity: 1 },
 			},
 		}, // FoldingScreen
+		DollBox: {
+			Archetype: ExtendedArchetype.TEXT,
+			Config: {
+				ScriptHooks: {
+					AfterDraw: AssetsItemDevicesDollBoxAfterDrawHook,
+				},
+				MaxLength: { Text: 22, Text2: 22 },
+				Font: "'Satisfy', cursive",
+			},
+		}, // DollBox
+		PetBowl: {
+			Archetype: ExtendedArchetype.TEXT,
+			Config: {
+				ScriptHooks: {
+					AfterDraw: AssetsItemDevicesPetBowlAfterDrawHook,
+				},
+				MaxLength: { Text: 12 },
+				Font: "'Saira Stencil One', 'Arial', sans-serif",
+			},
+		}, // PetBowl
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
@@ -8620,7 +8731,19 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Txt", Key: "x",
-						Options: [{ HasSubscreen: true }],
+						Options: [
+							{
+								HasSubscreen: true,
+								Archetype: ExtendedArchetype.TEXT,
+								ArchetypeConfig: {
+									MaxLength: { Text: 14, Text2: 14, Text3: 14 },
+									Font: "sans-serif",
+									ScriptHooks: {
+										AfterDraw: AssetsItemNeckRestraintsPetPostAfterDrawHook,
+									},
+								},
+							}, // text
+						],
 					},
 				],
 				DialogPrefix: {
@@ -8628,6 +8751,16 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		},//PetPost
+		WoodenSign: {
+			Archetype: ExtendedArchetype.TEXT,
+			Config: {
+				MaxLength: { Text: 12, Text2: 12 },
+				Font: "'Calligraffitti', cursive",
+				ScriptHooks: {
+					AfterDraw: AssetsItemMiscWoodenSignAfterDrawHook,
+				},
+			},
+		}, // WoodenSign
 	}, // ItemMisc
 	ItemPelvis: {
 		FuturisticChastityBelt: {
@@ -8844,7 +8977,20 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Engraving", Key: "e",
 						Options: [
-							{ HasSubscreen: true },
+							{
+								HasSubscreen: true,
+								Archetype: ExtendedArchetype.TEXT,
+								ArchetypeConfig: {
+									MaxLength: { Text: 13 },
+									Font: "Arial, sans-serif",
+									DialogPrefix: {
+										Chat: "ObedienceBeltEngraving",
+									},
+									ScriptHooks: {
+										AfterDraw: AssetsItemPelvisObedienceBeltAfterDrawHook,
+									},
+								},
+							}, // text
 						],
 					}
 				],
@@ -10064,7 +10210,24 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Pattern", Key: "p",
-						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
+						Options:[
+							{}, // Blank
+							{}, // Barcode
+							{}, // Scarab
+							{}, // Hex
+							{}, // Lines
+							{
+								HasSubscreen: true,
+								Archetype: ExtendedArchetype.TEXT,
+								ArchetypeConfig: {
+									MaxLength: { Text: 16 },
+									Font: "Impact",
+									ScriptHooks: {
+										AfterDraw: AssetsItemHeadDroneMaskAfterDrawHook,
+									},
+								},
+							}, // text
+						],
 					},
 					{
 						Name: "Glow", Key: "g",

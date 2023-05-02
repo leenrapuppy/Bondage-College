@@ -1099,6 +1099,17 @@ function CommonKeys(record) {
 }
 
 /**
+ * A {@link Object.entries} variant annotated to return respect literal key types
+ * @template {string} KT
+ * @template VT
+ * @param {Partial<Record<KT, VT>>} record A record with string-based keys
+ * @returns {[KT, VT][]} The key/value pairs in the passed record
+ */
+function CommonEntries(record) {
+	return /** @type {[KT, VT][]} */(Object.entries(record));
+}
+
+/**
  * A {@link Array.includes} version annotated to return a type guard.
  * @template T
  * @param {readonly T[]} array The array in question

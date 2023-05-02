@@ -114,6 +114,7 @@ function TypedItemCreateTypedItemData(asset, {
 		options: optionsParsed,
 		key,
 		functionPrefix: `Inventory${key}`,
+		dynamicAssetsFunctionPrefix: `Assets${key}`,
 		dialogPrefix: {
 			header: DialogPrefix.Header || `${key}Select`,
 			option: DialogPrefix.Option || key,

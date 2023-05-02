@@ -194,9 +194,9 @@ function VibratorModeRegister(asset, config, parentOption=null) {
 			validate: VibratorModeValidate,
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
 			init: (...args) => VibratorModeInit(data.modeSet, ...args),
+			scriptDraw: VibratorModeScriptDraw,
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
-		VibratorModeCreateScriptDrawFunction(data);
 	}
 	VibratorModeSetAssetProperties(data);
 	return data;
@@ -277,17 +277,6 @@ function VibratorModeValidate(C, item, option, currentOption) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	} else {
 		return ExtendedItemValidate(C, item, option, currentOption);
-	}
-}
-
-/**
- * Creates an asset's dynamic script draw function
- * @param {VibratingItemData} data - The vibrating item data for the asset
- * @returns {void} - Nothing
- */
-function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
-	if (typeof window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] !== "function") {
-		window[`${dynamicAssetsFunctionPrefix}ScriptDraw`] = VibratorModeScriptDraw;
 	}
 }
 

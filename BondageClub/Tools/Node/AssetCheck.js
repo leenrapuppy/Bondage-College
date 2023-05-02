@@ -14,6 +14,7 @@ const NEEDED_FILES = [
 	"Scripts/VariableHeight.js",
 	"Scripts/VibratorMode.js",
 	"Scripts/Property.js",
+	"Scripts/TextItem.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
@@ -21,7 +22,6 @@ const NEEDED_FILES = [
 	"Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js",
 	"Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js",
 	"Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js",
-	"Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js",
 	"Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js",
 	"Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js",
@@ -34,6 +34,18 @@ const NEEDED_FILES = [
 	"Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js",
 	"Screens/Inventory/ItemButt/AnalBeads2/AnalBeads2.js",
 	"Screens/Inventory/ItemDevices/LuckyWheel/LuckyWheel.js",
+	"Screens/Inventory/ItemDevices/FuturisticCrate/FuturisticCrate.js",
+	"Screens/Inventory/Cloth/CheerleaderTop/CheerleaderTop.js",
+	"Screens/Inventory/ClothAccessory/Bib/Bib.js",
+	"Screens/Inventory/ItemDevices/DollBox/DollBox.js",
+	"Screens/Inventory/ItemDevices/PetBowl/PetBowl.js",
+	"Screens/Inventory/ItemHead/DroneMask/DroneMask.js",
+	"Screens/Inventory/ItemMisc/WoodenSign/WoodenSign.js",
+	"Screens/Inventory/ItemHood/CanvasHood/CanvasHood.js",
+	"Screens/Inventory/ItemPelvis/ObedienceBelt/ObedienceBelt.js",
+	"Screens/Inventory/ItemNeckAccessories/CustomCollarTag/CustomCollarTag.js",
+	"Screens/Inventory/ItemNeckAccessories/ElectronicTag/ElectronicTag.js",
+	"Screens/Inventory/ItemNeckRestraints/PetPost/PetPost.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js",
 	"Scripts/Translation.js",
@@ -633,9 +645,6 @@ function sanitizeVMOutput(input) {
 					if (assetConfig.Archetype === "typed" && Asset.AllowType !== undefined) {
 						error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowType`);
 					}
-					if (!["modular", "typed", "vibrating"].includes(assetConfig.Archetype)) {
-						error(`Extended asset archetype for ${Group.Group}:${Asset.Name}: Unknown Archetype ${assetConfig.Archetype}`);
-					}
 				}
 			}
 
@@ -657,10 +666,6 @@ function sanitizeVMOutput(input) {
 
 			if (!localError) {
 				GroupAssets.push(Asset);
-			}
-
-			if (Asset.TextFont != null && Asset.DynamicAfterDraw !== true) {
-				error(`Asset ${Group.Group}:${Asset.Name}: Assets should only define "TextFont" if "DynamicAfterDraw" is set to true`);
 			}
 		}
 	}

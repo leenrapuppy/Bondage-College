@@ -2,22 +2,35 @@
 
 /** @type {ExtendedItemScriptHookCallbacks.Load<TypedItemData>} */
 function InventoryItemDevicesWoodenBoxLoadHook(Data, OriginalFunction) {
-	PropertyTextLoad(Data, OriginalFunction);
+	const textData = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TEXT);
+	if (textData === null) {
+		return;
+	}
+
+	TextItem.Load(textData);
 	PropertyOpacityLoad();
 }
 
 /** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
 function InventoryItemDevicesWoodenBoxDrawHook(Data, OriginalFunction) {
+	const textData = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TEXT);
+	if (textData === null) {
+		return;
+	}
+
+	TextItem.Draw(textData);
 	PropertyOpacityDraw(Data, OriginalFunction);
-	PropertyTextDraw(Data, null, 1505, 850);
 }
 
 /** @type {ExtendedItemScriptHookCallbacks.Exit<TypedItemData>} */
 function InventoryItemDevicesWoodenBoxExitHook() {
-	const C = CharacterGetCurrent();
+	const textData = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TEXT);
+	if (textData === null) {
+		return;
+	}
 
+	TextItem.Exit(textData);
 	PropertyOpacityExit(null, null, false);
-	PropertyTextExit(null, null, false);
 
 	// Apply extra opacity-specific effects
 	const Property = DialogFocusItem.Property;
@@ -30,26 +43,44 @@ function InventoryItemDevicesWoodenBoxExitHook() {
 		Property.Effect = CommonArrayConcatDedupe(Property.Effect, ExtraEffects);
 	}
 
+	const C = CharacterGetCurrent();
 	CharacterRefresh(C, true, false);
 	ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
+}
 
-	ElementRemove(PropertyGetID("Opacity"));
-	ElementRemove(PropertyGetID("Text"));
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, any>} */
+function InventoryItemDevicesWoodenBoxPublishActionHook(data, originalFunction, C, item, newOption, previousOption) {
+	switch (newOption.OptionType) {
+		case "TypedItemOption":
+			originalFunction(C, item, newOption, previousOption);
+			return;
+		case "TextItemOption": {
+			const textData = ExtendedItemGetData(item, ExtendedArchetype.TEXT);
+			if (textData === null) {
+				return;
+			}
+			TextItem.PublishAction(textData, C, item, newOption, previousOption);
+			return;
+		}
+	}
 }
 
 /**
  * Dynamic AfterDraw function. Draws text onto the box.
  * @type {ExtendedItemCallbacks.AfterDraw}
  */
-function AssetsItemDevicesWoodenBoxAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
-	if (L === "_Text") {
+function AssetsItemDevicesWoodenBoxAfterDraw(
+	{ C, A, CA, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }
+) {
+	const data = ExtendedItemGetData(CA, ExtendedArchetype.TEXT);
+	if (data != null && L === "_Text") {
 		const height = 900;
 		const width = 310;
 		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
 		const ctx = tmpCanvas.getContext("2d");
 
-		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "";
-		text = text.substring(0, A.TextMaxLength.Text);
+		TextItem.Init(data, C, CA, false);
+		const text = CA.Property.Text;
 
 		let from;
 		let to;
@@ -64,7 +95,7 @@ function AssetsItemDevicesWoodenBoxAfterDraw({ C, A, X, Y, L, Property, drawCanv
 		const { r, g, b } = DrawHexToRGB(Color);
 		DynamicDrawTextFromTo(text, ctx, from, to, {
 			fontSize: 96,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			color: `rgba(${r}, ${g}, ${b}, ${0.7 * Opacity})`,
 		});
 

@@ -104,8 +104,9 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
  * @param {null | ExtendedItemCallback<T, RT>} originalFunction
  */
 function ExtendedItemCreateCallback(data, name, originalFunction) {
-	const nameCaps = `${name[0].toUpperCase()}${name.slice(1)}`;
-	const funcName = `${data.functionPrefix}${nameCaps}`;
+	const suffix = `${name[0].toUpperCase()}${name.slice(1)}`;
+	const prefix = ["afterDraw", "beforeDraw", "scriptDraw"].includes(name) ? data.dynamicAssetsFunctionPrefix : data.functionPrefix;
+	const funcName = `${prefix}${suffix}`;
 	const scriptHook = /** @type {ExtendedItemScriptHookCallback<any, T, RT>} */(data.scriptHooks[name]);
 	if (scriptHook != null) {
 		/** @type {ExtendedItemCallback<T, RT>} */
@@ -131,6 +132,9 @@ function ExtendedItemCreateCallbacks(data, defaults) {
 		"validate",
 		"publishAction",
 		"init",
+		"beforeDraw",
+		"afterDraw",
+		"scriptDraw",
 	];
 
 	const extraKeys = CommonKeys(defaults).filter(i => !ExtendedItemCreate.includes(i));
@@ -157,6 +161,9 @@ function ExtendedItemParseScriptHooks(scriptHooks) {
 		validate: typeof scriptHooks.Validate === "function" ? scriptHooks.Validate : null,
 		publishAction: typeof scriptHooks.PublishAction === "function" ? scriptHooks.PublishAction : null,
 		init: typeof scriptHooks.Init === "function" ? scriptHooks.Init : null,
+		beforeDraw: typeof scriptHooks.BeforeDraw === "function" ? scriptHooks.BeforeDraw : null,
+		afterDraw: typeof scriptHooks.AfterDraw === "function" ? scriptHooks.AfterDraw : null,
+		scriptDraw: typeof scriptHooks.ScriptDraw === "function" ? scriptHooks.ScriptDraw : null,
 	};
 }
 
@@ -765,7 +772,7 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 		return null;
 	}
 
-	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
+	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData | TextItemData} */
 	let Data;
 	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}${Type == null ? "" : Type}`;
 	switch (Archetype) {
@@ -780,6 +787,9 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			Data = VariableHeightDataLookup[Key];
+			break;
+		case ExtendedArchetype.TEXT:
+			Data = TextItemDataLookup[Key];
 			break;
 		default:
 			console.warn(`Unsupported archetype: "${Archetype}"`);
@@ -833,9 +843,9 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 /**
  * Register archetypical subscreens for the passed extended item options
  * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {VariableHeightConfig | VibratingItemConfig} config - The subscreens extended item config
+ * @param {VariableHeightConfig | VibratingItemConfig | TextItemConfig} config - The subscreens extended item config
  * @param {TypedItemOption | ModularItemOption} option - The parent item's extended item option
- * @returns {null | VariableHeightData | VibratingItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
+ * @returns {null | VariableHeightData | VibratingItemData | TextItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
  */
 function ExtendedItemRegisterSubscreen(asset, config, option) {
 	switch (option.Archetype) {
@@ -843,6 +853,8 @@ function ExtendedItemRegisterSubscreen(asset, config, option) {
 			return VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(config), option);
 		case ExtendedArchetype.VIBRATING:
 			return VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(config || {}), option);
+		case ExtendedArchetype.TEXT:
+			return TextItemRegister(asset, /** @type {TextItemConfig} */(config), option);
 		default:
 			return null;
 	}
@@ -866,7 +878,65 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
 		}
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			return { OverrideHeight: item.Property.OverrideHeight };
+		case ExtendedArchetype.TEXT: {
+			const textData = /** @type {TextItemData} */(option.ArchetypeData);
+			/** @type {TextItemRecord<string>} */
+			const ret = {};
+			textData.textNames.forEach(i => ret[i] = item.Property[i]);
+			return ret;
+		}
 		default:
 			return {};
+	}
+}
+
+/** A temporary hack for registering extra archetypes for a single screen. */
+function ExtendedItemManualRegister() {
+	/** @type {{ group: AssetGroupName, name: string, config: AssetArchetypeConfig }[]} */
+	const items = [
+		{
+			group: "ItemArms",
+			name: "TransportJacket",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				Config: {
+					MaxLength: { Text: 14 },
+					Font: "'Saira Stencil One', 'Arial', sans-serif",
+					DrawData: {
+						Positions: [[1505, 850]],
+					},
+					DialogPrefix: {
+						Header: "ItemArmsTransportJacketSelect",
+					},
+				},
+			},
+		},
+		{
+			group: "ItemDevices",
+			name: "WoodenBox",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				Config: {
+					MaxLength: { Text: 20 },
+					Font: "'Saira Stencil One', 'Arial', sans-serif",
+					PushOnPublish: false,
+					DrawData: {
+						Positions: [[1505, 850]],
+					},
+					DialogPrefix: {
+						Header: "ItemDevicesWoodenBoxSelect",
+					},
+				},
+			},
+		},
+	];
+
+	for (const { group, name, config } of items) {
+		const asset = AssetGet("Female3DCG", group, name);
+		switch (config.Archetype) {
+			case ExtendedArchetype.TEXT:
+				TextItemRegister(asset, /** @type {TextItemConfig} */(config.Config), null, false);
+				break;
+		}
 	}
 }

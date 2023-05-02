@@ -1,45 +1,18 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Init} */
-function InventoryItemHoodCanvasHoodInit(C, Item, Refresh=true) {
-	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
-}
-
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemHoodCanvasHoodLoad() {
-	PropertyTextLoad();
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemHoodCanvasHoodDraw() {
-	ExtendedItemDrawHeader();
-	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
-	PropertyTextDraw();
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemHoodCanvasHoodClick() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemHoodCanvasHoodExit() {
-	PropertyTextExit();
-}
-
 /**
  * Post-render drawing function. Draws custom text in a slight arc to mimic the
  * curvature of the character's head.
- * @type {ExtendedItemCallbacks.AfterDraw}
+ * @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>}
  */
-function AssetsItemHoodCanvasHoodAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
+function AssetsItemHoodCanvasHoodAfterDrawHook(data, originalFunction,
+	{ C, A, CA, X, Y, L, drawCanvas, drawCanvasBlink, AlphaMasks, Color },
+) {
 	if (L === "_Text") {
 		// Fetch the text property and assert that it matches the character
 		// and length requirements
-		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "";
-		text = text.substring(0, A.TextMaxLength.Text);
+		TextItem.Init(data, C, CA, false);
+		const text = CA.Property.Text;
 
 		// Prepare a temporary canvas to draw the text to
 		const height = 50;
@@ -49,7 +22,7 @@ function AssetsItemHoodCanvasHoodAfterDraw({ C, A, X, Y, L, Property, drawCanvas
 
 		DynamicDrawTextArc(text, ctx, width / 2, height / 2, {
 			fontSize: 36,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			width,
 			color: Color,
 		});
