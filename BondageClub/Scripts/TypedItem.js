@@ -392,7 +392,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 		return msg;
 	}
 
-	const data = TypedItemDataLookup[`${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}`];
+	const data = TypedItemDataLookup[`${groupName}${assetName}`];
 	return TypedItemSetOption(C, item, options, option, push, (data ? data.baselineProperty : null));
 }
 
