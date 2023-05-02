@@ -890,6 +890,7 @@ function PandoraCharacterNaked() {
  * @returns {void} - Nothing
  */
 function PandoraPlayerClothes(Type) {
+	CharacterAppearanceStripLayer(Player);
 	PandoraDress(Player, Type);
 	PandoraClothes = Type;
 }
