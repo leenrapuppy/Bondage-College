@@ -477,7 +477,7 @@ function InfiltrationPandoraPrisonerBrainwash() {
 	//Refresh will not update modular item forced poses. Using cage for now
 	//InventoryWear(C,"WoodenRack","ItemDevices");
 	//(InventoryGet(C,"ItemDevices")).Property.Type = "f1t4b3";
-	CharacterRefresh(C)
+	CharacterRefresh(C);
 	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 60-110)
 	var S = Math.floor(Math.random()*10) + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
 	var T = NPCTraitGet(C, "Dominant") - S;
