@@ -852,6 +852,15 @@ var AssetFemale3DCG = [
 					{ Name: "Stripe" }
 				]
 			},
+			{
+				Name: "PantBoots", Gender: "F", Prerequisite: ["HasVagina"], Value: 40, Left: 120, Top: 450, Extended: true,
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Stripe", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "Boot", HasType: false, AllowModuleTypes: ["b1"], },
+				],
+			},
+			// Penis Compatible Clothing
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -5368,6 +5377,19 @@ var AssetFemale3DCG = [
 					{ Name: "Lock", LockLayer: true, AllowColorize: false },
 				],
 			},
+			{
+				Name: "PrisonSJ", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 100, Left: 52, Top: 196, Difficulty: 13, SelfBondage: 4, Time: 35, RemoveTime: 15, AllowLock: true, DrawLocks: false,
+				Hide: ["ItemVulva", "LeftHand", "RightHand","Cloth","Panties","Bra"],
+				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemHands", "ItemHandheld"],
+				SetPose: ["BackElbowTouch"], Extended: true,
+				Effect: ["Block", "Prone", "Slow"],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Stripe", HasType: false, AllowModuleTypes: ["p0"],},
+					{ Name: "OpenZip", HasType: false, AllowModuleTypes: ["c1"],},
+					{ Name: "CloseZip", HasType: false, AllowModuleTypes: ["c0"],CopyLayerColor: "OpenZip", },
+				]
+			},
 			// Flat Chest Compatible Items
 			{
 				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, AllowTighten: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false,
@@ -8272,6 +8294,17 @@ var AssetFemale3DCG = [
 					{ Name: "ClipHose", Top: 48, Left: 134, HasType: false,CopyLayerColor: "Tube", AllowModuleTypes: ["pc1"]},
 					{ Name: "Rebreather", Top: 134, Left: 134, HasType: false,CopyLayerColor: "HandPump", AllowModuleTypes: ["r1"]},
 
+				],
+			},
+			{
+				Name: "SensoryDeprivationHood", Fetish: ["Latex"], Value: 20, Difficulty: 8, Top: 22, Left:124, AllowLock: true, Effect: ['DeafTotal', "BlindHeavy", "BlockMouth", "GagVeryHeavy"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
+				DefaultColor: [],
+				Layer: [
+					{ Name: "Base",  HasType: false,},
+					{ Name: "EarCover", HasType: false,},
+					{ Name: "Lips", HasType: false,},
 				],
 			},
 		],

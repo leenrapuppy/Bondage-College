@@ -720,6 +720,38 @@ var AssetFemale3DCGExtended = {
 			}
 		}, //KissMark
 	}, // ClothAccessory
+	ClothLower: {
+		PantBoots: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Stripe", Key: "s",
+						Options:[
+							{ // s0 - No stripe
+								Property: { Effect: [] }
+							},
+							{ // s1 - Striped
+								Property: { Effect: [] }
+							},
+						]
+					},
+					{
+						Name: "Boot", Key: "b",
+						Options:[
+							{ // b0 - Detached Boots
+								Property: { Effect: [] }
+							},
+							{ // b1 - Attached Boots
+								Property: { Effect: [] }
+
+							}
+						]
+					},
+				],
+			},
+		}, //PantBoots
+	}, // ClothLower
 	ItemBreast: {
 		Ribbons: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2602,6 +2634,37 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // TransportJacket
+		PrisonSJ: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Stripes", Key: "p",
+						Options:[
+							{ // p0 - Prison Stripe
+								Property: { Effect: [] }
+							},
+							{ // p1 - No Stripes
+								Property: { Effect: [] }
+							},
+						]
+					},
+					{
+						Name: "Zipper", Key: "c",
+						Options:[
+							{ // c0 - closed
+								Property: { Effect: ["Chaste"] }
+							},
+							{ // c1 - Exposed
+								Property: { Effect: [] }
+
+							}
+
+						]
+					},
+				],
+			},
+		}, //PrisonSJ
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
