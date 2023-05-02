@@ -1449,6 +1449,9 @@ GlassesVGlassesFrame,Frame
 GlassesVGlassesGlass,Lenses
 GlassesGradientSunglassesFrame,Frame
 GlassesGradientSunglassesGlass,Glass
+GlassesGogglesBase,Goggles
+GlassesGogglesStrap,Strap
+GlassesGogglesGlass,Lenses
 GlovesBikerGlovesHands,Gloves
 GlovesBikerGlovesStraps,Straps
 ItemTorsoLeatherChestHarness1Ring,Ring
