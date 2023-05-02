@@ -2505,6 +2505,14 @@ var AssetFemale3DCG = [
 			{ Name: "EyePatch1", Value: 10, Priority: 29, Extended: true },
 			{ Name: "CatGlasses", Value: 15, Priority: 53, Left: 182, Extended: true},
 			{
+				Name: "Goggles", Value: 20, Left: 190, DefaultColor: ["#9B9C58","#303030","#9A9999",],
+				Layer: [
+					{ Name: "Glass", },
+					{ Name: "Strap", },
+					{ Name: "Base", },
+				],
+			},
+			{
 				Name: "VGlasses", Value: 20, DefaultColor: ["#93861F", "#7F0202"],
 				Layer: [
 					{ Name: "Frame" },
