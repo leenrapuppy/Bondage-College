@@ -103,13 +103,6 @@ var VibratorModeOptions = {
 				Intensity: 0,
 				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Intensity = CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]);
-				property.Effect = CommonArrayConcatDedupe(
-					property.Effect,
-					property.Intensity >= 0 ? ["Egged", "Vibrating"] : ["Egged"],
-				);
-			},
 		},
 		{
 			Name: "Escalate",
@@ -128,9 +121,6 @@ var VibratorModeOptions = {
 				Intensity: 0,
 				Effect: ["Egged", "Vibrating"],
 			},
-			DynamicProperty: (property) => {
-				property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
-			},
 		},
 		{
 			Name: "Deny",
@@ -139,9 +129,6 @@ var VibratorModeOptions = {
 				Mode: VibratorMode.DENY,
 				Intensity: 0,
 				Effect: ["Egged", "Vibrating", "Edged"],
-			},
-			DynamicProperty: (property) => {
-				property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
 			},
 		},
 		{
@@ -152,9 +139,6 @@ var VibratorModeOptions = {
 				Intensity: 0,
 				Effect: ["Egged", "Vibrating", "Edged"],
 
-			},
-			DynamicProperty: (property) => {
-				property.Intensity = CommonRandomItemFromList(null, [0, 1]);
 			},
 		},
 	],
@@ -201,6 +185,43 @@ function VibratorModeRegister(asset, config, parentOption=null) {
 	}
 	VibratorModeSetAssetProperties(data);
 	return data;
+}
+
+/**
+ * Sets an extended item's type and properties to the option provided.
+ * @param {VibratingItemData} data - The extended item data
+ * @param {Character} C - The character on whom the item is equipped
+ * @param {Item} item - The item whose type to set
+ * @param {VibratingItemOption} newOption - The to-be applied extended item option
+ * @param {VibratingItemOption} previousOption - The previously applied extended item option
+ * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
+ * player) - defaults to false.
+ * @returns {string|undefined} - undefined or an empty string if the option was set correctly. Otherwise, returns a string
+ * informing the player of the requirements that are not met.
+ */
+function VibratorModeSetOption(data, C, item, newOption, previousOption, push=false) {
+	const msg = ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
+	if (msg) {
+		return msg;
+	}
+
+	switch (newOption.Name) {
+		case "Random":
+			item.Property.Intensity = CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]);
+			item.Property.Effect = CommonArrayConcatDedupe(
+				item.Property.Effect,
+				item.Property.Intensity >= 0 ? ["Egged", "Vibrating"] : ["Egged"],
+			);
+			break;
+		case "Tease":
+		case "Deny":
+			item.Property.Intensity = CommonRandomItemFromList(null, [0, 1, 2, 3]);
+			break;
+		case "Edge":
+			item.Property.Intensity = CommonRandomItemFromList(null, [0, 1]);
+			break;
+	}
+	CharacterRefresh(C, push, false);
 }
 
 /**

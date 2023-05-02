@@ -416,11 +416,9 @@ function ExtendedItemExit() {
  * @param {ItemProperties} newProperty - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
- * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
- * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
+function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=false) {
 	// Delete properties added by the previous option and clone the new properties
 	if (!item.Property) {
 		item.Property = {};
@@ -438,10 +436,6 @@ function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=fa
 	if (!InventoryDoesItemAllowLock(item)) {
 		// If the new type does not permit locking, remove the lock
 		ValidationDeleteLock(Property, false);
-	}
-
-	if (dynamicProperty != null) {
-		dynamicProperty(Property);
 	}
 	CharacterRefresh(C, push, false);
 }
@@ -950,7 +944,7 @@ function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=fa
 		ExtendedItemGatherSubscreenProperty(item, previousOption),
 	);
 	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
-	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push, newOption.DynamicProperty);
+	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push);
 
 	if (newOption.Expression) {
 		InventoryExpressionTriggerApply(C, newOption.Expression);
