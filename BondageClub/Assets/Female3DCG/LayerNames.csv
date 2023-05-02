@@ -1604,3 +1604,13 @@ ItemnPelvisPortalPantiesMetalHex, Hex
 ItemPelvisPortalPantiesGlow1, LED
 ItemPelvisPortalPantiesGlow2, LED
 ItemHandheldPortalTablet,Tablet
+ClothLowerPantBootsBase,Latex
+ClothLowerPantBootsStripe,Stripe
+ClothLowerPantBootsBoot,Boot
+ItemArmsPrisonSJBase,Latex
+ItemArmsPrisonSJStripe,Stripe
+ItemArmsPrisonSJClosedZip,Zipper
+ItemArmsPrisonSJOpenZip,Zipper
+ItemHoodSensoryDeprivationHoodBase, Latex
+ItemHoodSensoryDeprivationHoodEarCover, Silencer
+ItemHoodSensoryDeprivationHoodLips, Lips

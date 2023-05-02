@@ -162,6 +162,7 @@ ClothLower,CrossSkirt,Cross Skirt
 ClothLower,CheerleaderSkirt,Cheerleader Skirt
 ClothLower,CrossSkirtLight,Cross Skirt (light)
 ClothLower,TulleSkirt,Fitted Pleated Skirt
+ClothLower,PantBoots,Long Latex Pants
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
@@ -1162,6 +1163,7 @@ ItemArms,BondageBra,Bondage Bra
 ItemArms,SmoothLeatherArmbinder1,Smooth Lacing Leather Armbinder
 ItemArms,CanvasStraitjacket1,Canvas Straitjacket 1
 ItemArms,SleepSac,SleepSac
+ItemArms,PrisonSJ,Latex SJ
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1578,6 +1580,7 @@ ItemHood,LatexBunny,Latex Bunny
 ItemHood,FoxHood,Fox Hood
 ItemHood,Pantyhood,Panty hood
 ItemHood,VacHood, Vac Hood
+ItemHood,SensoryDeprivationHood,Sensory Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
