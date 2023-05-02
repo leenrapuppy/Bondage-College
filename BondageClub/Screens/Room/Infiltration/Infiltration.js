@@ -98,7 +98,7 @@ function InfiltrationLoad() {
 	// Make sure the infiltration data is setup
 	if (Player.Infiltration == null) Player.Infiltration = {};
 	if (Player.Infiltration.Perks == null) Player.Infiltration.Perks = "";
-	
+
 	// If there's a private room character from Pandora, set character at random.
 	InfiltrationSetPandoraPrisoner();
 }
