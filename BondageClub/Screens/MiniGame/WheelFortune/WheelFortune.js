@@ -21,6 +21,8 @@ var WheelFortuneEncaseList = ["Coffin", "VacBedDeluxe", "CryoCapsule", "DisplayC
 var WheelFortuneEncaseClosedList = ["Coffin", "CryoCapsule"];
 var WheelFortunePasswordChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var WheelFortuneDefault = "ABCFGHKLMNPQRSUVWabcfgj$!-()0123456";
+
+/** @type {WheelFortuneOptionType[]} */
 var WheelFortuneOption = [
 	{
 		// Gagged

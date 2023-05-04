@@ -3598,3 +3598,20 @@ interface ArousalSettingsType {
 }
 
 // #end region
+
+// #region fortune wheel
+
+/** A union of valid wheel of fortune button colors */
+type WheelFortuneColor = "Blue" | "Gold" | "Gray" | "Green" | "Orange" | "Purple" | "Red" | "Yellow";
+
+/** Base type for fortune wheel options */
+interface WheelFortuneOptionType {
+    /** A single-character UTF16 string with the option's ID */
+    ID: string;
+    /** The color of the option button */
+    Color: WheelFortuneColor;
+    /** An optional script that will be executed whenever the option is picked */
+    Script?: () => void;
+}
+
+// #end region
