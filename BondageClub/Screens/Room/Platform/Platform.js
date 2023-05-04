@@ -1940,35 +1940,35 @@ function PlatformMoveActive(Move) {
 
 	// Crouching can be done by down on the joystick DPAD or S on the keyboard
 	if ((Move == "Crouch") && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) return true;
-	if ((Move == "Crouch") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadDown].pressed) return true;
+	if ((Move == "Crouch") && ControllerIsActive() && (PlatformButtons != null) && PlatformButtons[ControllerDPadDown].pressed) return true;
 	if ((Move == "Crouch") && CommonTouchActive(150, 850, 100, 100)) return true;
 
 	// Moving left can be done with jostick DPAD or A or Z on the keyboard
 	if ((Move == "Left") && ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0) || (PlatformKeys.indexOf(81) >= 0) || (PlatformKeys.indexOf(113) >= 0))) return true;
-	if ((Move == "Left") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadLeft].pressed) return true;
+	if ((Move == "Left") && ControllerIsActive() && (PlatformButtons != null) && PlatformButtons[ControllerDPadLeft].pressed) return true;
 	if ((Move == "Left") && CommonTouchActive(50, 750, 100, 100)) return true;
 
 	// Moving right can be done with jostick DPAD or D on the keyboard
 	if ((Move == "Right") && ((PlatformKeys.indexOf(68) >= 0) || (PlatformKeys.indexOf(100) >= 0))) return true;
-	if ((Move == "Right") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadRight].pressed) return true;
+	if ((Move == "Right") && ControllerIsActive() && (PlatformButtons != null) && PlatformButtons[ControllerDPadRight].pressed) return true;
 	if ((Move == "Right") && CommonTouchActive(250, 750, 100, 100)) return true;
 
 	// Jumping can be done by B on the joystick DPAD or spacebar on the keyboard
 	if ((Move == "Jump") && (PlatformKeys.indexOf(32) >= 0)) return true;
-	if ((Move == "Jump") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerA].pressed) return true;
+	if ((Move == "Jump") && ControllerIsActive() && (PlatformButtons != null) && PlatformButtons[ControllerA].pressed) return true;
 	if ((Move == "Jump") && CommonTouchActive(1850, 750, 100, 100)) return true;
 
 	// Aiming requires holding the K key for a set time, only for Edlaran if she has arrows left
 	if ((Move == "Aim") && (PlatformPlayer.ForceX == 0) && (PlatformPlayer.ForceY == 0) && (PlatformPlayer.Name == "Edlaran") && (PlatformPlayer.Projectile != null) && (PlatformPlayer.Projectile > 0)) {
 		if ((PlatformKeys.indexOf(75) >= 0) || (PlatformKeys.indexOf(107) >= 0)) return true;
-		if (ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerX].pressed) return true;
+		if (ControllerIsActive() && (PlatformButtons != null) && PlatformButtons[ControllerX].pressed) return true;
 		if (CommonTouchActive(1750, 750, 100, 100)) return true;
 	}
 
 	// Blocking can be done using I, but you need to get the perk first
 	if ((Move == "Block") && (PlatformPlayer.ForceX == 0) && PlatformHasPerk(PlatformPlayer, "Block")) {
 		if ((PlatformKeys.indexOf(73) >= 0) || (PlatformKeys.indexOf(105) >= 0)) return true;
-		if (ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerTriggerLeft].pressed) return true;
+		if (ControllerIsActive() && (PlatformButtons != null) && PlatformButtons[ControllerTriggerLeft].pressed) return true;
 		if (CommonTouchActive(1750, 750, 100, 100)) return true;
 	}
 

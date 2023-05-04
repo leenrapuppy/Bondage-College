@@ -527,7 +527,9 @@ function DialogStartKinkyDungeon() {
 	}
 	DialogGamingPreviousRoom = CurrentScreen;
 	DialogGamingPreviousModule = CurrentModule;
-	MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
+	if (ArcadeKinkyDungeonLoad()) {
+		MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
+	}
 }
 
 
@@ -629,7 +631,7 @@ function DialogLeave() {
 	DialogSelfMenuSelected = null;
 	DialogSavedExpressionPreviews = [];
 	DialogFacialExpressionsSelected = -1;
-	ClearButtons();
+	ControllerClearAreas();
 	DialogFacialExpressions = [];
 }
 
@@ -2492,8 +2494,8 @@ function DialogFindAutoReplace(C, KeyWord1, KeyWord2, ReturnPrevious) {
  * @returns {void} - Nothing
  */
 function DialogDraw() {
-	if (ControllerActive == true) {
-		ClearButtons();
+	if (ControllerIsActive()) {
+		ControllerClearAreas();
 	}
 	// Draw both the player and the interaction character
 	if (CurrentCharacter.ID != 0) DrawCharacter(Player, 0, 0, 1);

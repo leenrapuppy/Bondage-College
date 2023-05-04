@@ -502,8 +502,13 @@ function StruggleStrengthDraw(C) {
 	// Draw the tighten/loosen button or the explaination message
 	if (StruggleAllowLoosen())
 		DrawButton(1300, 880, 400, 65, DialogFindPlayer("TryLoosen"), "White");
-	else
-		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : ((ControllerActive) ? "ProgressKeysController" : "ProgressKeys")), 1500, 900, "White", "Black");
+	else {
+		if (ControllerIsActive()) {
+			DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeys"), 1500, 900, "White", "Black");
+		} else {
+			DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeysController"), 1500, 900, "White", "Black");
+		}
+	}
 
 }
 

@@ -40,6 +40,7 @@ var AppearanceUseCharacterInPreviewsSetting = false;
 
 const CanvasUpperOverflow = 700;
 const CanvasLowerOverflow = 150;
+const CanvasDrawWidth = 500;
 const CanvasDrawHeight = 1000 + CanvasUpperOverflow + CanvasLowerOverflow;
 
 const AppearancePermissionColors = {
@@ -852,7 +853,7 @@ function AppearanceRun() {
 				DrawAssetPreview(X, Y, Item.Asset, { Background, Vibrating: Item.Vibrating, Icons: Item.Icons });
 			}
 
-			setButton(X, Y);
+			ControllerAddActiveArea(X, Y);
 			X = X + 250;
 			if (X > 1800) {
 				X = 1250;
@@ -1107,7 +1108,7 @@ function CharacterAppearanceSetColorForGroup(C, Color, Group) {
 function AppearanceClick() {
 	var C = CharacterAppearanceSelection;
 
-	ClearButtons();
+	ControllerClearAreas();
 	// When there is an extended item
 	if (DialogFocusItem != null) {
 		CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Click()");

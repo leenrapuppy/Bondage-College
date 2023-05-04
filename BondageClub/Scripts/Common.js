@@ -18,13 +18,7 @@ var CommonIsMobile = false;
 /** @type {Record<string, string[][]>} */
 var CommonCSVCache = {};
 var CutsceneStage = 0;
-
 var CommonPhotoMode = false;
-var GameVersion = "R0";
-const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
-var CommonVersionUpdated = false;
-/** @type {null | TouchList} */
-var CommonTouchList = null;
 
 /**
  * An enum encapsulating possible chatroom message substitution tags. Character name substitution tags are interpreted
@@ -299,13 +293,13 @@ function CommonKeyDown(event) {
 	if (CurrentCharacter == null) {
 		if (CurrentScreenFunctions.KeyDown)
 			CurrentScreenFunctions.KeyDown(event);
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			ControllerSupportKeyDown();
 		}
 	}
 	else {
 		StruggleKeyDown();
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			ControllerSupportKeyDown();
 		}
 	}
@@ -417,8 +411,8 @@ function CommonSetScreen(NewModule, NewScreen) {
 	if (CurrentScreenFunctions && CurrentScreenFunctions.Unload) {
 		CurrentScreenFunctions.Unload();
 	}
-	if (ControllerActive == true) {
-		ClearButtons();
+	if (ControllerIsActive()) {
+		ControllerClearAreas();
 	}
 
 
