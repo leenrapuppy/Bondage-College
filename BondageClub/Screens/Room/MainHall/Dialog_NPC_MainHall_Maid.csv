@@ -34,7 +34,7 @@ ItemPelvisCrop,,,(She grumbles as you strike her butt with the crop.)  A maid wo
 0,,"Yes, can you release me?",(She releases you and smiles.)  Here you go!  Everything is ok now?,MaidReleasePlayer(),PlayerNeedsHelpAndHasNoOwnerOrLoverItemAndMaidsNotDisabled()
 0,40,(Nod yes.),(She checks your locks and frowns.)  Is that an owner lock?  Your Mistress might not be pleased if I release you.,,HasOwnerItemAndMaidsNotDisabled()
 0,45,(Nod yes.),(She checks your locks and frowns.)  Is that a lover lock?  Your lover might not be pleased if I release you.,,HasLoverItemAndMaidsNotDisabled()
-0,45,(Nod yes.),(She checks your locks and frowns.)  Is that a family lock?  Your Club family might not be pleased if I release you.,,HasFamilyItemAndMaidsNotDisabled()
+0,45,(Nod yes.),(She checks your locks and frowns.)  Is that a family lock?  Your D/s family might not be pleased if I release you.,,HasFamilyItemAndMaidsNotDisabled()
 0,70,(Nod yes and point to your slave collar.),(She checks the lock and frowns.) That is a slave collar. Your Mistress might not be pleased if I change it.,,HasSlaveCollarAndMaidsNotDisabled()
 0,100,(Nod yes.),"(She shakes her head no.)  I'm sorry, I cannot help hardcore or extreme members.  Change your membership or find someone in a chatroom.",,MaidsPlayingHardcore()
 0,100,(Nod yes.),(She shakes her head no.) Hang in there.  You have less than 10 minutes to go.,,MaidsDisabledMinutesLeft()

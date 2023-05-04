@@ -1123,7 +1123,7 @@ function InventoryLoverOnlyItem(Item) {
 }
 
 /**
-* Returns TRUE if the item has a FamilyOnly flag, such as the family padlock
+* Returns TRUE if the item has a FamilyOnly flag, such as the D/s family padlock
 * @param {Item} Item - The item from appearance that must be scanned
 * @returns {Boolean} - TRUE if family only
 */
