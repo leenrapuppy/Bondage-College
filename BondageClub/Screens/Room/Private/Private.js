@@ -1006,7 +1006,7 @@ function PrivateLoadCharacter(C) {
 /**
  * Triggered when a new character is added to the player's private room.
  * @param {NPCCharacter} Template - The base of the character, includes the name and appearance.
- * @param {string} [Archetype] - The type of character such as maid or mistress.
+ * @param {"" | NPCArchetype} [Archetype] - The type of character such as maid or mistress.
  * @param {boolean} [CustomData=false] - Whether or not the character has non-random traits.
  * @returns {NPCCharacter} - The new private room character.
  */
@@ -1017,7 +1017,7 @@ function PrivateAddCharacter(Template, Archetype, CustomData) {
 	C.Appearance = Template.Appearance.slice();
 	C.AppearanceFull = Template.Appearance.slice();
 	C.Love = 0;
-	if ((Archetype != null) && (Archetype != "") && (Archetype != "Submissive")) C.Title = Archetype;
+	if (Archetype && Archetype != "Submissive") C.Title = Archetype;
 	NPCTraitGenerate(C);
 	if (Archetype === "Mistress") NPCTraitSet(C, "Dominant", 60 + Math.floor(Math.random() * 41));
 	if (Archetype === "Submissive") NPCTraitSet(C, "Dominant", -50 - Math.floor(Math.random() * 51));

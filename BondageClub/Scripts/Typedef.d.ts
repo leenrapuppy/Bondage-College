@@ -365,6 +365,29 @@ type FetishName =
 	"Pony" | "ABDL" | "Forniphilia"
 	;
 
+type BackgroundTag =
+	"Filter by tag" | "Indoor" | "Outdoor" | "Aquatic" | "Special Events" | "SciFi & Fantasy" |
+	"Club & College" | "Regular house" | "Dungeon" | "Asylum"
+	;
+
+// NOTE: `NPCArchetype` is for NPC's only
+type TitleName =
+	NPCArchetype | "None" | "Mistress" | "ClubSlave" | "Maid" | "HeadMaid" | "BondageMaid" | "Kidnapper" |
+	"MasterKidnapper" | "Patient" | "PermanentPatient" | "EscapedPatient" | "Nurse" | "Doctor" |
+	"LadyLuck" | "Patron" | "CollegeStudent" |"Nawashi" | "Houdini" | "PonyAlicorn" |
+	"PonyPegasus" | "PonyUnicorn" | "PonyWild" | "PonyHot" | "PonyWarm" | "PonyCold" | "PonyFarm" |
+	"PonyFoal" | "InfilrationMole" | "InfilrationInfiltrator" | "InfilrationAgent" |
+	"InfilrationOperative" | "InfilrationSuperspy" | "MagicSchoolWizard" | "MagicSchoolMagus" |
+	"MagicSchoolMagician" | "MagicSchoolSorcerer" | "MagicSchoolSage" | "MagicSchoolOracle" |
+	"MagicSchoolWitch" | "MagicSchoolWarlock" | "Duchess" | "LittleOne" | "Baby" | "DL" |
+	"BondageBaby" | "Switch" | "Kitten" | "Puppy" | "Foxy" | "Bunny" | "Doll" | "Demon" | "Angel" |
+	"Succubus" | "GoodGirl" | "GoodSlaveGirl" | "GoodSlave" | "Drone"
+	;
+
+type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
+
+type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
+
 //#endregion
 
 //#region Server Messages
@@ -1485,7 +1508,7 @@ interface Character {
 	ArousalSettings?: ArousalSettingsType;
 	AppearanceFull?: Item[];
 	// Online character properties
-	Title?: string;
+	Title?: TitleName;
 	LabelColor?: any;
 	Creation?: any;
 	Description?: any;
@@ -1531,7 +1554,10 @@ type NPCArchetype =
 	/* Pandora NPCs */
 	"MemberNew"|"MemberOld"|"Cosplay"|"Mistress"|"Slave"|"Maid"|"Guard"|
 	/* Pandora Special */
-	"Victim"|"Target"|"Chest";
+	"Victim"|"Target"|"Chest"|
+	// Misc
+	"Dominatrix" | "Nurse" | "Submissive" | "Mistress" | "Patient" | "Maid" | "Mistress" | "Maiestas" | "Vincula" | "Amplector" | "Corporis"
+	;
 
 /** NPC Character extension */
 // FIXME: That one should find its way down to NPCCharacter, but
@@ -1622,7 +1648,7 @@ interface Character {
 
 /** Magic School */
 interface Character {
-	House?: string;
+	House?: "" | MagicSchoolHouse;
 }
 
 /** MovieStudio */

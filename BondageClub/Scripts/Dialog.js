@@ -90,6 +90,7 @@ var DialogLockMenu = false;
 var DialogCraftingMenu = false;
 var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
+/** @type {"" | ModuleType} */
 var DialogGamingPreviousModule = "";
 var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
 /**
@@ -538,7 +539,9 @@ function DialogStartKinkyDungeon() {
  * @returns {void}
  */
 function DialogEndKinkyDungeon() {
-	CommonSetScreen(DialogGamingPreviousModule, DialogGamingPreviousRoom);
+	if (DialogGamingPreviousModule) {
+		CommonSetScreen(DialogGamingPreviousModule, DialogGamingPreviousRoom);
+	}
 }
 
 /**
@@ -653,7 +656,7 @@ function DialogRemove() {
 
 /**
  * Generic dialog function to remove any dialog from a specific group
- * @param {AssetGroupName} GroupName - All dialog options are removed from this group
+ * @param {string} GroupName - All dialog options are removed from this group
  * @returns {void} - Nothing
  */
 function DialogRemoveGroup(GroupName) {
