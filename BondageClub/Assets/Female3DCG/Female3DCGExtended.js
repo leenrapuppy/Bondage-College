@@ -10485,6 +10485,32 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // FuturisticMittens
+		PaddedMittens: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Unchained",
+						Property: {
+							Type: "Unchained",
+						},
+					},
+					{
+						Name: "Chained",
+						Prerequisite: ["NeedsHarness", "NoItemArms"],
+						Property: {
+							Type: "Chained",
+							SetPose: ["BaseUpper"],
+							Block: ["ItemArms", "ItemTorso", "ItemTorso2"],
+						}
+					}
+				],
+			}
+		}, // PaddedMittens
+		PawMittens: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { AssetName: "PaddedMittens" },
+		}, // PawMittens
 	}, // ItemHands
 	ItemAddon: {
 		CeilingChain: {

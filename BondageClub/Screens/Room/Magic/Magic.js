@@ -451,13 +451,6 @@ function MagicTrickEndPerformance() {
  * @returns {void} - Nothing
  */
 function MagicRestrainRemove(C) {
-	let itemArms = InventoryGet(C, "ItemArms");
-
-	if ((itemArms != null) && (itemArms.Asset.Name === "MittenChain1")) {
-		// If the arms are restrained by the adult baby harness chain, remove the harness and the mittens as well
-		InventoryRemove(C, "ItemHands");
-		InventoryRemove(C, "ItemTorso");
-	}
 	MagicRestraintList.forEach(group => InventoryRemove(C, group));
 }
 
@@ -468,24 +461,14 @@ function MagicRestrainRemove(C) {
  * @returns {void} - Nothing
  */
 function MagicRestrainCopyTransfer(FromC, ToC) {
-	var chainFound = false;
-
 	// Removes any previous appearance asset From second character
 	MagicRestrainRemove(ToC);
 
 	// Adds all appearance assets from the first character to the second
 	for (var A = 0; A < FromC.Appearance.length; A++) {
 		if ((FromC.Appearance[A].Asset != null) && (MagicRestraintList.indexOf(FromC.Appearance[A].Asset.Group.Name) >= 0)) {
-			if (FromC.Appearance[A].Asset.Name === "MittenChain1") {
-				chainFound = true;
-			}
 			InventoryWear(ToC, FromC.Appearance[A].Asset.Name, FromC.Appearance[A].Asset.Group.Name);
 		}
-	}
-	if (chainFound) {
-		// If the arms are restrained by the adult baby harness, add the harness and the mittens as well
-		InventoryWear(ToC, InventoryGet(FromC, "ItemTorso").Asset.Name, "ItemTorso");
-		InventoryWear(ToC, InventoryGet(FromC, "ItemHands").Asset.Name, "ItemHands");
 	}
 
 	// Removes any previous appearance asset From first

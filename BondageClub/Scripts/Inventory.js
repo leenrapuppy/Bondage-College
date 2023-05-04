@@ -290,6 +290,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
 
 		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
+		case "NeedsHarness": return !CharacterHasItemWithAttribute(C, "CanAttachMittens") ? "NeedsHarness" : "";
 
 		// Returns no message, indicating that all prerequisites are fine
 		case "GagFlat": return "";
