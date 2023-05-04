@@ -6,7 +6,9 @@ var ChatCreateMessage = "";
 var ChatCreatePrivate = null;
 /** @type {null | boolean} */
 var ChatCreateLocked = null;
+/** @type {ChatRoomGame} */
 var ChatCreateGame = "";
+/** @type {ChatRoomGame[]} */
 var ChatCreateGameList = ["", "LARP", "MagicBattle", "GGTS"];
 var ChatCreateBackgroundIndex = 0;
 var ChatCreateBackgroundSelect = "";
@@ -14,7 +16,9 @@ var ChatCreateBackgroundSelect = "";
 var ChatCreateBackgroundList = null;
 var ChatCreateShowBackgroundMode = false;
 var ChatCreateIsHidden = false;
+/** @type {ChatRoomLanguage} */
 var ChatCreateLanguage = "EN";
+/** @type {ChatRoomLanguage[]} */
 var ChatCreateLanguageList = ["EN", "DE", "FR", "ES", "CN", "RU"];
 
 /**

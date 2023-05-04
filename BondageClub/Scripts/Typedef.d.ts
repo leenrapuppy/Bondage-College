@@ -400,6 +400,8 @@ type ActivityPrerequisite =
 	"Needs-PourItem" | "Needs-ShockItem" | "Needs-Inject" | "Needs-PenetrateItem" | "Needs-SipItem"
 	;
 
+type AssetCategory = "Medical" | "Extreme" | "Pony" | "SciFi" | "ABDL" | "Fantasy";
+
 //#endregion
 
 //#region Server Messages
@@ -449,18 +451,25 @@ interface IChatRoomSyncArousalMessage {
 
 //#region Chat
 
+type ChatRoomLovershipOption = "" | "CanOfferBeginWedding" | "CanBeginWedding";
+type ChatRoomOwnershipOption = "" | "CanOfferEndTrial" | "CanOfferTrial" | "CanEndTrial";
+type ChatRoomSpaceType = "X" | "" | "M" | "Asylum";
+type ChatRoomGame = "" | "LARP" | "MagicBattle" | "GGTS";
+type ChatRoomBlockCategory = AssetCategory | "Leashing" | "Photos" | "Arousal";
+type ChatRoomLanguage = "EN" | "DE" | "FR" | "ES" | "CN" | "RU";
+
 interface ChatRoom {
 	Name: string;
 	Description: string;
 	Admin: number[];
 	Ban: number[];
 	Limit: number;
-	Game: string;
+	Game: ChatRoomGame;
 	Background: string;
 	Private: boolean;
 	Locked: boolean;
-	BlockCategory: string[];
-	Language: string;
+	BlockCategory: ChatRoomBlockCategory[];
+	Language: ChatRoomLanguage;
 	Character?: any[]; /* From server, not really a Character object */
 }
 
@@ -1146,7 +1155,7 @@ interface Asset {
 	MinOpacity: number;
 	MaxOpacity: number;
 	Audio?: string;
-	Category?: readonly string[];
+	Category?: readonly AssetCategory[];
 	Fetish?: readonly FetishName[];
 	CustomBlindBackground?: string;
 	ArousalZone: AssetGroupItemName;

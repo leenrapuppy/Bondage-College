@@ -7,10 +7,10 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Alex", "Anna", "AnnaBella", "ArashiSama", "Aylea", "Bryce", "Christian", "Clash", 
-	"DarkStar", "Dave", "Desch", "Dynilath", "Edwin", "Elfreda", "Escurse", "Faleata", "FanRunner", 
-	"Greendragon", "JoeyDubDee", "m4c0202", "Michal", "Michel", "Mike", "Mindtie", "Misa", "Nick", 
-	"Nightcore", "Nora", "Qrroww", "Rika", "Schrödingers", "SexyWonder", "Shadow", "Tam", 
+	"Aceffect", "Alex", "Anna", "AnnaBella", "ArashiSama", "Aylea", "Bryce", "Christian", "Clash",
+	"DarkStar", "Dave", "Desch", "Dynilath", "Edwin", "Elfreda", "Escurse", "Faleata", "FanRunner",
+	"Greendragon", "JoeyDubDee", "m4c0202", "Michal", "Michel", "Mike", "Mindtie", "Misa", "Nick",
+	"Nightcore", "Nora", "Qrroww", "Rika", "Schrödingers", "SexyWonder", "Shadow", "Tam",
 	"Tarram", "TonyBoy", "TopHat", "Troubadix", "WhiteSniper", "Xepherio", "William"
 ];
 
@@ -641,7 +641,7 @@ function LoginResponse(C) {
 			if (ChatCreateLanguageList.indexOf(ChatCreateLanguage) < 0) ChatCreateLanguage = ChatCreateLanguageList[0];
 			ChatSearchLanguage = C.RoomSearchLanguage;
 			if (ChatSearchLanguage == null) ChatSearchLanguage = "";
-			if (ChatCreateLanguageList.indexOf(ChatSearchLanguage) < 0) ChatSearchLanguage = "";
+			if (ChatSearchLanguage && ChatCreateLanguageList.indexOf(ChatSearchLanguage) < 0) ChatSearchLanguage = "";
 
 			// Load the last chat room
 			Player.LastChatRoom = C.LastChatRoom;

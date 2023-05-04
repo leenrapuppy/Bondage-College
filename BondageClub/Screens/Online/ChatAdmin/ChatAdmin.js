@@ -5,15 +5,18 @@ var ChatAdminBackgroundIndex = 0;
 var ChatAdminBackgroundSelect = "";
 var ChatAdminPrivate = false;
 var ChatAdminLocked = false;
+/** @type {ChatRoomGame} */
 var ChatAdminGame = "";
+/** @type {ChatRoomGame[]} */
 var ChatAdminGameList = ["", "LARP", "MagicBattle", "GGTS"];
 /** @type {null | string} */
 var ChatAdminBackgroundSelected = null;
-/** @type {null | { Name: string, Language: string, Description: string, Limit: string, AdminList: string, BanList: string, Private: boolean, Locked: boolean }} */
+/** @type {null | { Name: string, Language: ChatRoomLanguage, Description: string, Limit: string, AdminList: string, BanList: string, Private: boolean, Locked: boolean }} */
 var ChatAdminTemporaryData = null;
-/** @type {string[]} */
+/** @type {ChatRoomBlockCategory[]} */
 var ChatAdminBlockCategory = [];
 var ChatAdminInitialLoad = false;
+/** @type {ChatRoomLanguage} */
 var ChatAdminLanguage = "EN";
 
 /**
