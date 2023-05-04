@@ -257,7 +257,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "SiblingsWithDifferentGender":
 			return (acting.HasPenis() != acted.HasPenis()) && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
 		default:
-		break;
+			break;
 	}
 	return true;
 }

@@ -566,11 +566,10 @@ function SarahSophiePreparePunishCharacter(C) {
 	InventoryWear(C, "LeatherBelt", "ItemFeet");
 	InventoryWear(C, "LeatherBelt", "ItemLegs");
 	var Cuffs = InventoryGet(C, "ItemArms");
-	Cuffs.Property = {};
-	Cuffs.Property.Type = "Wrist";
-	Cuffs.Property.SetPose = ["BackBoxTie"];
-	Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
-	CharacterRefresh(C);
+	if (Cuffs) {
+		TypedItemSetOptionByName(C, Cuffs, "Wrist");
+		CharacterRefresh(C);
+	}
 }
 
 /**
@@ -581,12 +580,10 @@ function SarahSophiePreparePunishCharacter(C) {
 function SarahSophieStartBuzz(C, Intensity) {
 	Intensity = parseInt(Intensity, 10);
 	if (Intensity <= -1 || Intensity >= 3) return;
+
 	var Egg = InventoryGet(C, "ItemVulva");
-	Egg.Property = {};
-	// @ts-ignore Range-checked above
-	Egg.Property.Intensity = Intensity;
-	if (Intensity >= 0) Egg.Property.Effect = ["Egged", "Vibrating"];
-	else Egg.Property.Effect = ["Egged"];
+	const newOption = VibratorModeOptions[VibratorModeSet.STANDARD].find(o => o.Property.Intensity === Intensity);
+	VibratorModeSetOptionByName(C, Egg, newOption.Name);
 	CharacterRefresh(C);
 }
 

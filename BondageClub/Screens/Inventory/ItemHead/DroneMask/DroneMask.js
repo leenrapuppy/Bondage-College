@@ -1,32 +1,8 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemHeadDroneMaskp5Load() {
-	PropertyTextLoad();
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemHeadDroneMaskp5Draw() {
-	ExtendedItemDrawHeader(1387, 125);
-	PropertyTextDraw();
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemHeadDroneMaskp5Click() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemHeadDroneMaskp5Exit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemHeadDroneMaskp5Exit() {
-	PropertyTextExit();
-	ExtendedItemSubscreen = null;
-}
-
-/** @type {ExtendedItemCallbacks.AfterDraw} */
-function AssetsItemHeadDroneMaskAfterDraw({
-	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color,
+/** @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>} */
+function AssetsItemHeadDroneMaskAfterDrawHook(data, originalFunction, {
+	C, A, CA, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color,
 }) {
 	if (L === "_Text"){
 		const Properties = Property || {};
@@ -40,13 +16,13 @@ function AssetsItemHeadDroneMaskAfterDraw({
 		let YOffset = 89;
 		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
 
-		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "";
-		text = text.substring(0, A.TextMaxLength.Text);
+		TextItem.Init(data, C, CA, false);
+		const text = CA.Property.Text;
 		const isAlone = !text;
 
 		const drawOptions = {
 			fontSize: 20,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			color: Color,
 			width: Width,
 		};

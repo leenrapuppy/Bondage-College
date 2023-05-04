@@ -21,7 +21,7 @@
 	<script async src="Scripts/lib/chessboard-4.3.9.min.js"></script>
 </head>
 
-<script src="Screens/MiniGame/KinkyDungeon/pixi.min.js"></script>
+<script src="Scripts/Game.js"></script>
 <script src="Backgrounds/Backgrounds.js"></script>
 <script src="Scripts/GLDraw.js"></script>
 <script src="Scripts/Common.js"></script>
@@ -61,6 +61,7 @@
 <script src="Screens/Character/ItemColor/ItemColor.js"></script>
 <script src="Scripts/VibratorMode.js"></script>
 <script src="Scripts/Property.js"></script>
+<script src="Scripts/TextItem.js"></script>
 <script src="Scripts/DynamicDraw.js"></script>
 <script src="Scripts/Notification.js"></script>
 <script src="Scripts/Graph.js"></script>
@@ -73,7 +74,6 @@
 <script src="Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js"></script>
 <script src="Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js"></script>
 <script src="Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js"></script>
-<script src="Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js"></script>
 <script src="Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js"></script>
 <script src="Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js"></script>
 <script src="Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js"></script>
@@ -86,6 +86,20 @@
 <script src="Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js"></script>
 <script src="Screens/Inventory/ItemButt/AnalBeads2/AnalBeads2.js"></script>
 <script src="Screens/Inventory/ItemDevices/LuckyWheel/LuckyWheel.js"></script>
+<script src="Screens/Inventory/ItemDevices/FuturisticCrate/FuturisticCrate.js"></script>
+<script src="Screens/Inventory/Cloth/CheerleaderTop/CheerleaderTop.js"></script>
+<script src="Screens/Inventory/ClothAccessory/Bib/Bib.js"></script>
+<script src="Screens/Inventory/ItemDevices/DollBox/DollBox.js"></script>
+<script src="Screens/Inventory/ItemDevices/PetBowl/PetBowl.js"></script>
+<script src="Screens/Inventory/ItemHead/DroneMask/DroneMask.js"></script>
+<script src="Screens/Inventory/ItemMisc/WoodenSign/WoodenSign.js"></script>
+<script src="Screens/Inventory/ItemHood/CanvasHood/CanvasHood.js"></script>
+<script src="Screens/Inventory/ItemPelvis/ObedienceBelt/ObedienceBelt.js"></script>
+<script src="Screens/Inventory/ItemNeckAccessories/CustomCollarTag/CustomCollarTag.js"></script>
+<script src="Screens/Inventory/ItemNeckAccessories/ElectronicTag/ElectronicTag.js"></script>
+<script src="Screens/Inventory/ItemNeckRestraints/PetPost/PetPost.js"></script>
+<script src="Screens/Inventory/ItemVulva/FuturisticVibrator/FuturisticVibrator.js"></script>
+<script src="Screens/Inventory/ItemPelvis/FuturisticTrainingBelt/FuturisticTrainingBelt.js"></script>
 <script src="Assets/Female3DCG/Female3DCGExtended.js"></script>
 <script src="Screens/Character/Login/Login.js"></script>
 <script src="Screens/Character/Appearance/Appearance.js"></script>
@@ -192,8 +206,6 @@
 <script src="Screens/Inventory/ItemNeck/AutoShockCollar/AutoShockCollar.js"></script>
 <script src="Screens/Inventory/ItemArms/HempRope/HempRope.js"></script>
 <script src="Screens/Inventory/ItemArms/NylonRope/NylonRope.js"></script>
-<script src="Screens/Inventory/ItemHands/PaddedMittens/PaddedMittens.js"></script>
-<script src="Screens/Inventory/ItemHands/PawMittens/PawMittens.js"></script>
 <script src="Screens/Inventory/ItemMisc/MetalPadlock/MetalPadlock.js"></script>
 <script src="Screens/Inventory/ItemMisc/IntricatePadlock/IntricatePadlock.js"></script>
 <script src="Screens/Inventory/ItemMisc/TimerPadlock/TimerPadlock.js"></script>
@@ -211,273 +223,19 @@
 <script src="Screens/Inventory/ItemMisc/MistressPadlock/MistressPadlock.js"></script>
 <script src="Screens/Inventory/ItemMisc/PandoraPadlock/PandoraPadlock.js"></script>
 <script src="Screens/Inventory/ItemMisc/ExclusivePadlock/ExclusivePadlock.js"></script>
-<script src="Screens/Inventory/ItemMouth/FuturisticHarnessPanelGag/FuturisticHarnessPanelGag.js"></script>
-<script src="Screens/Inventory/ItemMouth/FuturisticHarnessBallGag/FuturisticHarnessBallGag.js"></script>
 <script src="Screens/Inventory/ItemNeck/FuturisticCollar/FuturisticCollar.js"></script>
 <script src="Screens/Inventory/ItemFeet/HempRope/HempRope.js"></script>
 <script src="Screens/Inventory/ItemFeet/NylonRope/NylonRope.js"></script>
 <script src="Screens/Inventory/ItemNeck/SlaveCollar/SlaveCollar.js"></script>
-<script src="Screens/Inventory/ItemVulva/FuturisticVibrator/FuturisticVibrator.js"></script>
-<script src="Screens/Inventory/ItemDevices/PetBowl/PetBowl.js"></script>
 <script src="Screens/Inventory/ItemPelvis/FuturisticChastityBelt/FuturisticChastityBelt.js"></script>
-<script src="Screens/Inventory/ItemPelvis/FuturisticTrainingBelt/FuturisticTrainingBelt.js"></script>
-<script src="Screens/Inventory/ItemPelvis/ObedienceBelt/ObedienceBelt.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CustomCollarTag/CustomCollarTag.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/ElectronicTag/ElectronicTag.js"></script>
 <script src="Screens/Inventory/ItemDevices/Kennel/Kennel.js"></script>
-<script src="Screens/Inventory/ItemMisc/WoodenSign/WoodenSign.js"></script>
-<script src="Screens/Inventory/ItemHood/CanvasHood/CanvasHood.js"></script>
-<script src="Screens/Inventory/ItemDevices/FuturisticCrate/FuturisticCrate.js"></script>
-<script src="Screens/Inventory/ItemDevices/DollBox/DollBox.js"></script>
-<script src="Screens/Inventory/ItemNeckRestraints/PetPost/PetPost.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KDModUtils.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEditorTiles.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEditor.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEditorGen.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonErrors.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeon.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonGame.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonVibe.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonBuffsList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonAlt.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonBones.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMapMods.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonBoss.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPerks.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonParams.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonVision.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonQuest.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLoot.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemies.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPersonality.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemiesList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemyEventList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonCurse.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraints.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraintsList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFight.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonWeaponList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonInput.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonHUD.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDraw.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFurniture.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagic.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicCode.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPlayerEffects.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonShrine.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonObject.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonItem.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDress.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEffectTiles.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDressList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonConsumables.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonConsumablesList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonInventory.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMultiplayer.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLore.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonReputation.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTraps.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTiles.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTilesList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPathfinding.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonBuffs.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEvents.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSpawns.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJail.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSetpiece.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogue.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueTriggers.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFactions.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFactionsList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMistress.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJailList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTests.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLootList.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMusic.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KDDelayedActions.js"></script>
 <script src="Screens/Inventory/ItemDevices/FuckMachine/FuckMachine.js"></script>
-<script src="Screens/Inventory/ClothAccessory/Bib/Bib.js"></script>
 <script src="Screens/Inventory/Wings/SteampunkWings/SteampunkWings.js"></script>
-<script src="Screens/Inventory/ItemHead/DroneMask/DroneMask.js"></script>
-<script src="Screens/Inventory/ItemHood/DroneMask/DroneMask.js"></script>
 <script src="Screens/Inventory/ItemNipples/LactationPump/LactationPump.js"></script>
 <script src="Screens/Inventory/ItemDevices/WheelFortune/WheelFortune.js"></script>
 <script src="Screens/Inventory/ItemNeckRestraints/CollarLeash/CollarLeash.js"></script>
-<script src="Screens/Inventory/Cloth/CheerleaderTop/CheerleaderTop.js"></script>
-<script>
-
-// When the code is loaded, we start the game engine
-window.onload = function() {
-	ServerURL = CommonGetServer();
-	//CheatImport();
-	GameVersion = "R91";
-	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
-	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
-	CommonIsMobile = CommonDetectMobile();
-	TranslationLoad();
-	DrawLoad();
-	AssetLoadAll();
-	CommandsLoad();
-	CommonSetScreen("Character", "Login");
-	ControllerActive = false;
-	ServerInit();
-	MainRun(0);
-};
-
-/**
- * Main game running state, runs the drawing
- * @param {number} Timestamp
- */
-function MainRun(Timestamp) {
-	DrawProcess(Timestamp);
-	TimerProcess(Timestamp);
-}
-
-/**
- * When the user presses a key, we send the KeyDown event to the current screen if it can accept it
- * @param {KeyboardEvent} event
- */
-function KeyDown(event) {
-	if (event.repeat) return;
-	KeyPress = event.keyCode || event.which;
-	CommonKeyDown(event);
-}
-
-/**
- * Handler for document-wide keydown event
- * @param {KeyboardEvent} event
- */
-function DocumentKeyDown(event) {
-	if (event.repeat) return;
-	if (event.key == "Escape") {
-		if (CurrentScreenFunctions.Exit) {
-			CurrentScreenFunctions.Exit();
-		} else if ((CurrentCharacter != null) && Array.isArray(DialogMenuButton) && (DialogMenuButton.indexOf("Exit") >= 0)) {
-			if (!DialogLeaveFocusItem())
-				DialogLeaveItemMenu();
-		} else if ((CurrentCharacter != null) && (CurrentScreen == "ChatRoom")) {
-			DialogLeave();
-		} else if ((CurrentCharacter == null) && (CurrentScreen == "ChatRoom") && (document.getElementById("TextAreaChatLog") != null)) {
-			ElementScrollToEnd("TextAreaChatLog");
-		}
-	} else if (event.key == "Tab") {
-		KeyDown(event);
-	}
-}
-
-/**
- * When the user clicks, we fire the click event for other screens
- * @param {MouseEvent} event
- */
-function Click(event) {
-	if (!CommonIsMobile) {
-		MouseMove(event);
-		CommonClick(event);
-	}
-}
-
-/**
- * When the user touches the screen (mobile only), we fire the click event for other screens
- * @param {TouchEvent} event
- */
-function TouchStart(event) {
-	if (CommonIsMobile && MainCanvas) {
-		TouchMove(event.touches[0]);
-		CommonClick(event);
-		CommonTouchList = event.touches;
-	}
-}
-
-/**
- * When the user touches the screen (mobile only), we fire the click event for other screens
- * @param {TouchEvent} event
- */
-function TouchEnd(event) {
-	if (CommonIsMobile && MainCanvas)
-		CommonTouchList = event.touches;
-}
-
-/**
- * When touch moves, we keep it's position for other scripts
- * @param {Touch} touch
- */
-function TouchMove(touch) {
-	if (MainCanvas) {
-		MouseX = Math.round((touch.pageX - MainCanvas.canvas.offsetLeft) * 2000 / MainCanvas.canvas.clientWidth);
-		MouseY = Math.round((touch.pageY - MainCanvas.canvas.offsetTop) * 1000 / MainCanvas.canvas.clientHeight);
-	}
-}
-
-/**
- * When mouse move, we keep the mouse position for other scripts
- * @param {MouseEvent} event
- */
-function MouseMove(event) {
-	if (MainCanvas) {
-		MouseX = Math.round(event.offsetX * 2000 / MainCanvas.canvas.clientWidth);
-		MouseY = Math.round(event.offsetY * 1000 / MainCanvas.canvas.clientHeight);
-	}
-}
-
-/**
- * When the mouse is away from the control, we stop keeping the coordinates,
- * we also check for false positives with "relatedTarget"
- * @param {MouseEvent} event
- */
-function LoseFocus(event) {
-	if (event.relatedTarget || event.toElement) {
-		MouseX = -1;
-		MouseY = -1;
-	}
-}
-
-</script>
-
-<div id="axes" style="display: flex; flex-direction: column;"></div>
-<script>
-	if (ControllerActive == true) {
-		window.addEventListener('gamepadconnected', (event) => {
-			const update = () => {
-				const output = document.getElementById('axes');
-				output.innerHTML = '';
-
-				for (const gamepad of navigator.getGamepads()) {
-					if (!gamepad) continue;
-					for (const [index, axis] of gamepad.axes.entries()) {
-						ControllerAxis(gamepad.axes);
-					}
-				}
-				requestAnimationFrame(update);
-			};
-			update();
-		});
-	}
-</script>
-<div id="buttons" style="display: flex; flex-direction: column;"></div>
-<script>
-	if (ControllerActive == true) {
-		window.addEventListener('gamepadconnected', (event) => {
-			const update = () => {
-				const output = document.getElementById('buttons');
-				output.innerHTML = '';
-
-				for (const gamepad of navigator.getGamepads()) {
-					if (!gamepad) continue;
-					for (const [index, button] of gamepad.buttons.entries()) {
-						ControllerButton(gamepad.buttons);
-					}
-				}
-				requestAnimationFrame(update);
-			};
-			update();
-		});
-	}
-</script>
 
 <body style="width:100%; height:100%; background-color:black; margin:0px; padding:0px; overflow:hidden;">
-	<canvas id="MainCanvas" Width="2000" Height="1000" onClick="Click(event);" onTouchStart="TouchStart(event);" onTouchEnd="TouchEnd(event);" onMouseMove="MouseMove(event);" onMouseLeave="LoseFocus(event);"></canvas>
+	<canvas id="MainCanvas" Width="2000" Height="1000"></canvas>
 </body>
 </html>

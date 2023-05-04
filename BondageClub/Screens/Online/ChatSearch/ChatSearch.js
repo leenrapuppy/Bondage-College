@@ -12,6 +12,7 @@ var ChatSearchResultOffset = 0;
 var ChatSearchRoomsPerPage = 24;
 var ChatSearchMessage = "";
 var ChatSearchLeaveRoom = "MainHall";
+/** @type {ModuleType} */
 var ChatSearchLeaveSpace = "Room";
 /** @type {null | Item[]} */
 var ChatSearchSafewordAppearance = null;

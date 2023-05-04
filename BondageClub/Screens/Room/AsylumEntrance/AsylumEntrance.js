@@ -165,10 +165,7 @@ function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
 			InventoryWear(C, "FuturisticChastityBelt", "ItemPelvis");
 			let Item = InventoryGet(Player, "ItemPelvis");
 			if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticChastityBelt")) {
-				if (Item.Property == null) Item.Property = {};
-				Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
-				Item.Property.Effect = ["UseRemote", "Chaste"];
-				Item.Property.Type = "m0f1b1t0o0";
+				ModularItemSetOptionByName(Player, Item, "m0f1b1t0o0");
 				Item.Color = ["#D06060", "#803030", "Default", "Default", "Default", "Default", "#222222", "Default"];
 			}
 			InventoryWear(C, "FuturisticBra", "ItemBreast");
@@ -283,13 +280,8 @@ function AsylumEntranceFightNurseEnd() {
  */
 function AsylumEntrancePlayerJacket(Pose) {
 	InventoryWear(Player, "StraitJacket", "ItemArms", "Default", 3);
-	Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet("Female3DCG", "ItemArms"));
-	const Options = TypedItemDataLookup.ItemArmsStraitJacket.options;
-	const Option = Options.find(o => o.Name === Pose);
-	if (Option) {
-		TypedItemSetType(Player, Options, Option);
-	}
-	Player.FocusGroup = null;
+	const item = InventoryGet(Player, "ItemArms");
+	TypedItemSetOptionByName(Player, item, Pose);
 }
 
 /**

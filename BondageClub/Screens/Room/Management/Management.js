@@ -13,6 +13,7 @@ var ManagementCanReleaseChastity = true;
 var ManagementEmpty = false;
 /** @type {null | NPCCharacter} */
 var ManagementRandomGirl = null;
+/** @type {"" | NPCArchetype} */
 var ManagementRandomGirlArchetype = "";
 var ManagementRandomActivityCount = 0;
 var ManagementRandomActivity = "";

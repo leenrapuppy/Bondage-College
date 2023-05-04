@@ -794,10 +794,10 @@ function ChatRoomClearAllElements() {
  * Starts the chatroom selection screen.
  * @param {ChatRoomSpaceType} Space - Name of the chatroom space
  * @param {string} Game - Name of the chatroom game to play
- * @param {string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
- * @param {string} LeaveSpace - Name of the space to go back to when exiting chatsearch.
+ * @param {null | string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
+ * @param {null | ModuleType} LeaveSpace - Name of the space to go back to when exiting chatsearch.
  * @param {string} Background - Name of the background to use in chatsearch.
- * @param {string[]} BackgroundTagList - List of available backgrounds in the chatroom space.
+ * @param {BackgroundTag[]} BackgroundTagList - List of available backgrounds in the chatroom space.
  * @returns {void} - Nothing.
  */
 function ChatRoomStart(Space, Game, LeaveRoom, LeaveSpace, Background, BackgroundTagList) {
@@ -2686,9 +2686,10 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 	}
 	else if (data.Content == "GiveLockpicks") DialogLentLockpicks = true;
 	else if (data.Content == "RequestFullKinkyDungeonData") {
-		KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
-		if (CurrentScreen == "KinkyDungeon")
+		if (CurrentScreen == "KinkyDungeon") {
+			KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
 			KinkyDungeonSendData(KinkyDungeonPackData(true, true, true, true));
+		}
 	}
 	else if (data.Content == "TakeSuitcase") {
 		if (!Player.CanInteract() && ServerChatRoomGetAllowItem(SenderCharacter, Player)) {
@@ -4323,9 +4324,11 @@ function ChatRoomOnlineBountyHandleData(data, sender) {
  * @returns {void} - Nothing
  */
 function ChatRoomGameResponse(data) {
-	if (data.Data.KinkyDungeon)
-		KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
-	else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
+	if (data.Data.KinkyDungeon) {
+		if (CurrentScreen == "KinkyDungeon") {
+			KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
+		}
+	} else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
 		ChatRoomOnlineBountyHandleData(data.Data.OnlineBounty, data.Sender);
 	else if (ChatRoomGame == "LARP") GameLARPProcess(data);
 	else if (ChatRoomGame == "MagicBattle") GameMagicBattleProcess(data);

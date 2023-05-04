@@ -1,32 +1,8 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemNeckAccessoriesCustomCollarTagx0Load() {
-	PropertyTextLoad();
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemNeckAccessoriesCustomCollarTagx0Draw() {
-	ExtendedItemDrawHeader(1387, 125);
-	PropertyTextDraw();
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemNeckAccessoriesCustomCollarTagx0Click() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemNeckAccessoriesCustomCollarTagx0Exit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemNeckAccessoriesCustomCollarTagx0Exit() {
-	PropertyTextExit();
-	ExtendedItemSubscreen = null;
-}
-
-/** @type {ExtendedItemCallbacks.AfterDraw} */
-function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
-	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
+/** @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>} */
+function AssetsItemNeckAccessoriesCustomCollarTagAfterDrawHook(data, originalFunction, {
+	C, A, CA, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
 	if (L === "_Text") {
 		// Determine the canvas position and size
@@ -49,13 +25,13 @@ function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 			YOffset = 31;
 		}
 
-		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "Tag";
-		text = text.substring(0, A.TextMaxLength.Text);
+		TextItem.Init(data, C, CA, false);
+		const text = CA.Property.Text;
 
 		/** @type {DynamicDrawOptions} */
 		const drawOptions = {
 			fontSize: 13,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			color: Color,
 			textAlign: "center",
 			width: Width,

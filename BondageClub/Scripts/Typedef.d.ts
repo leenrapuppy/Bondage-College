@@ -322,7 +322,7 @@ type AssetPrerequisite =
 	"AllFours" | "BlockedMouth" | "ButtEmpty" | "CanBeCeilingTethered" | "CanCloseLegs" | "CanKneel" | "CannotBeSuited" | "CannotHaveWand" |
 	"ClitEmpty" | "Collared" | "CuffedArms" | "CuffedArmsOrEmpty" | "CuffedFeet" | "CuffedFeetOrEmpty" | "CuffedLegs" | "CuffedLegsOrEmpty" |
 	"DisplayFrame" | "EyesEmpty" | "GagCorset" | "GagFlat" | "GagUnique" | "GasMask" | "HasBreasts" | "HasFlatChest" | "HasPenis" | "HasVagina" |
-	"HoodEmpty" | "LegsOpen" | "NakedFeet" | "NakedHands" | "NeedsNippleRings" | "NoChastityCage" | "NoClothLower" | "NoFeetSpreader" | "NoItemArms" |
+	"HoodEmpty" | "LegsOpen" | "NakedFeet" | "NakedHands" | "NeedsHarness" | "NeedsNippleRings" | "NoChastityCage" | "NoClothLower" | "NoFeetSpreader" | "NoItemArms" |
 	"NoItemFeet" | "NoItemHands" | "NoItemLegs" | "NoMaidTray" | "NoOuterClothes" | "NotChained" | "NotChaste" | "NotHogtied" | "NotHorse" | "NotKneeling" |
 	"NotKneelingSpread" | "NotLifted" | "NotMasked" | "NotMounted" | "NotProtrudingFromMouth" | "NotShackled" | "NotSuspended" | "NotYoked" | "OnBed" |
 	"RemotesAllowed" | "VulvaEmpty" | "VulvaNotBlockedByBelt"
@@ -365,58 +365,28 @@ type FetishName =
 	"Pony" | "ABDL" | "Forniphilia"
 	;
 
-//#endregion
+type BackgroundTag =
+	"Filter by tag" | "Indoor" | "Outdoor" | "Aquatic" | "Special Events" | "SciFi & Fantasy" |
+	"Club & College" | "Regular house" | "Dungeon" | "Asylum"
+	;
 
-//#region index.html
+// NOTE: `NPCArchetype` is for NPC's only
+type TitleName =
+	NPCArchetype | "None" | "Mistress" | "ClubSlave" | "Maid" | "HeadMaid" | "BondageMaid" | "Kidnapper" |
+	"MasterKidnapper" | "Patient" | "PermanentPatient" | "EscapedPatient" | "Nurse" | "Doctor" |
+	"LadyLuck" | "Patron" | "CollegeStudent" |"Nawashi" | "Houdini" | "PonyAlicorn" |
+	"PonyPegasus" | "PonyUnicorn" | "PonyWild" | "PonyHot" | "PonyWarm" | "PonyCold" | "PonyFarm" |
+	"PonyFoal" | "InfilrationMole" | "InfilrationInfiltrator" | "InfilrationAgent" |
+	"InfilrationOperative" | "InfilrationSuperspy" | "MagicSchoolWizard" | "MagicSchoolMagus" |
+	"MagicSchoolMagician" | "MagicSchoolSorcerer" | "MagicSchoolSage" | "MagicSchoolOracle" |
+	"MagicSchoolWitch" | "MagicSchoolWarlock" | "Duchess" | "LittleOne" | "Baby" | "DL" |
+	"BondageBaby" | "Switch" | "Kitten" | "Puppy" | "Foxy" | "Bunny" | "Doll" | "Demon" | "Angel" |
+	"Succubus" | "GoodGirl" | "GoodSlaveGirl" | "GoodSlave" | "Drone"
+	;
 
-/**
- * Main game running state, runs the drawing
- * @param {number} Timestamp
- */
-declare function MainRun(Timestamp: number): void;
+type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 
-/**
- * When the user presses a key, we send the KeyDown event to the current screen if it can accept it
- * @param {KeyboardEvent} event
- */
-declare function KeyDown(event: KeyboardEvent): void;
-
-/**
- * Handler for document-wide keydown event
- * @param {KeyboardEvent} event
- */
-declare function DocumentKeyDown(event: KeyboardEvent): void;
-
-/**
- * When the user clicks, we fire the click event for other screens
- * @param {MouseEvent} event
- */
-declare function Click(event: MouseEvent): void;
-
-/**
- * When the user touches the screen (mobile only), we fire the click event for other screens
- * @param {TouchEvent} event
- */
-declare function TouchStart(event: TouchEvent): void;
-
-/**
- * When touch moves, we keep it's position for other scripts
- * @param {Touch} touch
- */
-declare function TouchMove(touch: Touch): void;
-
-/**
- * When mouse move, we keep the mouse position for other scripts
- * @param {MouseEvent} event
- */
-declare function MouseMove(event: MouseEvent): void;
-
-/**
- * When the mouse is away from the control, we stop keeping the coordinates,
- * we also check for false positives with "relatedTarget"
- * @param {MouseEvent} event
- */
-declare function LoseFocus(event: MouseEvent): void;
+type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
 
 //#endregion
 
@@ -520,7 +490,8 @@ type CharacterReferenceTag =
 
 type CommonChatTags =
 	| CharacterReferenceTag
-	| "AssetName";
+	| "AssetName"
+	| "Automatic";
 
 /**
  * A dictionary entry containing a replacement tag to be replaced by some value. The replacement strategy depends on
@@ -1207,8 +1178,6 @@ interface Asset {
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
 	ExpressionPrerequisite?: readonly AssetPrerequisite[];
-	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
-	TextFont: null | string;
 
 	FuturisticRecolor?: boolean;
 	FuturisticRecolorDisplay?: boolean;
@@ -1539,7 +1508,7 @@ interface Character {
 	ArousalSettings?: ArousalSettingsType;
 	AppearanceFull?: Item[];
 	// Online character properties
-	Title?: string;
+	Title?: TitleName;
 	LabelColor?: any;
 	Creation?: any;
 	Description?: any;
@@ -1585,7 +1554,10 @@ type NPCArchetype =
 	/* Pandora NPCs */
 	"MemberNew"|"MemberOld"|"Cosplay"|"Mistress"|"Slave"|"Maid"|"Guard"|
 	/* Pandora Special */
-	"Victim"|"Target"|"Chest";
+	"Victim"|"Target"|"Chest"|
+	// Misc
+	"Dominatrix" | "Nurse" | "Submissive" | "Mistress" | "Patient" | "Maid" | "Mistress" | "Maiestas" | "Vincula" | "Amplector" | "Corporis"
+	;
 
 /** NPC Character extension */
 // FIXME: That one should find its way down to NPCCharacter, but
@@ -1676,7 +1648,7 @@ interface Character {
 
 /** Magic School */
 interface Character {
-	House?: string;
+	House?: "" | MagicSchoolHouse;
 }
 
 /** MovieStudio */
@@ -1951,6 +1923,10 @@ interface ExtendedItemScriptHookStruct<
 	validate: null | ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	publishAction: null | ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	init: null | ExtendedItemScriptHookCallbacks.Init<DataType>,
+	setOption: null | ExtendedItemScriptHookCallbacks.SetOption<DataType, OptionType>,
+	beforeDraw: null | ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
+	afterDraw: null | ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
+	scriptDraw: null | ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
 }
 
 /** An interface-based version of {@link ExtendedItemScriptHookCallbacks} */
@@ -1965,6 +1941,10 @@ interface ExtendedItemCapsScriptHooksStruct<
 	Validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	PublishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	Init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+	SetOption?: ExtendedItemScriptHookCallbacks.SetOption<DataType, OptionType>,
+	BeforeDraw?: ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
+	AfterDraw?: ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
+	ScriptDraw?: ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
 }
 
 /** An interface-based version of {@link ExtendedItemCallbacks} with decapitalized keys*/
@@ -1978,6 +1958,10 @@ interface ExtendedItemCallbackStruct<
 	validate?: ExtendedItemCallbacks.Validate<OptionType>,
 	publishAction?: ExtendedItemCallbacks.PublishAction<OptionType>,
 	init?: ExtendedItemCallbacks.Init,
+	setOption?: ExtendedItemCallbacks.SetOption<OptionType>,
+	beforeDraw?: ExtendedItemCallbacks.BeforeDraw,
+	afterDraw?: ExtendedItemCallbacks.AfterDraw,
+	scriptDraw?: ExtendedItemCallbacks.ScriptDraw,
 }
 
 /** Namespace with item-specific functions typically called by extended items. */
@@ -2034,6 +2018,17 @@ declare namespace ExtendedItemCallbacks {
 	 * @returns Whether the items properties were actually updated or not
 	 */
 	type Init = ExtendedItemCallback<[C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `SetOption` functions.
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @param push Whether to push to changes to the server
+	 */
+	type SetOption<
+		OptionType extends ExtendedItemOption
+	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType, push: boolean], string>;
 	/**
 	 * Callback for extended item `AfterDraw` functions.
 	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
@@ -2144,6 +2139,55 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	type Init<
 		DataType extends ExtendedItemData<any>
 	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `SetOption` functions.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @param push Whether to push to changes to the server
+	 * @returns
+	 */
+	type SetOption<
+		DataType extends ExtendedItemData<any>,
+		OptionType extends ExtendedItemOption
+	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType, push: boolean], string>;
+	/**
+	 * Callback for extended item `AfterDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param drawData The dynamic draw data
+	 */
+	type AfterDraw<
+		DataType extends ExtendedItemData<any>,
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicDrawingData<PersistentData>]>;
+	/**
+	 * Callback for extended item `BeforeDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicBeforeDraw}.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param drawData The dynamic draw data
+	 * @returns A record with any and all to-be overriden draw data
+	 */
+	type BeforeDraw<
+		DataType extends ExtendedItemData<any>,
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicDrawingData<PersistentData>], DynamicBeforeDrawOverrides>;
+	/**
+	 * Callback for extended item `ScriptDraw` functions.
+	 * Relevant for assets that define {@link Asset.DynamicScriptDraw}.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param drawData The dynamic draw data
+	 */
+	type ScriptDraw<
+		DataType extends ExtendedItemData<any>,
+		PersistentData extends Record<string, any> = Record<string, unknown>
+	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicScriptCallbackData<PersistentData>]>;
 }
 
 /**
@@ -2172,6 +2216,8 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	key: string;
 	/** The common prefix used for all extended item functions associated with the asset */
 	functionPrefix: string;
+	/** The common prefix used for all dynamic asset hook functions for the asset */
+	dynamicAssetsFunctionPrefix: string;
 	/** An array of the chat message tags that should be included in the item's chatroom messages. */
 	chatTags: CommonChatTags[];
 	/** Contains custom dictionary entries in the event that the base ones do not suffice. */
@@ -2193,6 +2239,7 @@ interface ExtendedDataLookupStruct {
 	[ExtendedArchetype.MODULAR]: ModularItemData;
 	[ExtendedArchetype.VIBRATING]: VibratingItemData;
 	[ExtendedArchetype.VARIABLEHEIGHT]: VariableHeightData;
+	[ExtendedArchetype.TEXT]: TextItemData;
 }
 
 interface AssetOverrideHeight {
@@ -2559,7 +2606,7 @@ interface ModularItemDrawData {
 	/** Whether pagination is required; i.e. if the number of buttons is larger than {@link ModularItemDrawData.itemsPerPage} */
 	paginate: boolean,
 	/** An array with two-tuples of X and Y coordinates for the buttons */
-	positions: [number, number][],
+	positions: [X: number, Y: number][],
 	/** Whether each button should be accompanied by a preview image */
 	drawImages: boolean,
 	/** The number of buttons to be drawn per page */
@@ -2740,8 +2787,6 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	options: VibratingItemOption[];
 	/** The list with all groups of extended item options available for the item */
 	modeSet: VibratorModeSet[];
-	/** The common prefix used for all dynamic asset hook functions for the asset */
-	dynamicAssetsFunctionPrefix: string;
 	/** A record containing various dialog keys used by the extended item screen */
 	dialogPrefix: {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */
@@ -2803,6 +2848,64 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 }
 
 //#endregion
+
+// #region TextItem
+
+/** A struct with drawing data for a given module. */
+interface TextItemDrawData extends Omit<ModularItemDrawData, "positions"> {
+	/** An array with tuples of X and Y coordinates for the buttons and, optionally, the buttons width and height */
+	positions: [X: number, Y: number, W?: number, H?: number][],
+	drawImages: false,
+}
+
+interface TextItemData extends ExtendedItemData<TextItemOption> {
+	/** A record with the maximum length for each text-based properties with an input field. */
+	maxLength: TextItemRecord<number>;
+	/** A record containing various dialog keys used by the extended item screen */
+	dialogPrefix: {
+		/** The dialog key for the item's load text (usually a prompt to select the type) */
+		header: string,
+		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
+		chat: string | ExtendedItemChatCallback<TextItemOption>;
+	};
+	scriptHooks: ExtendedItemScriptHookStruct<TextItemData, TextItemOption>;
+	drawImages: false;
+	chatSetting: "default";
+	baselineProperty: ItemPropertiesNoArray;
+	eventListeners: TextItemRecord<TextItemEventListener>;
+	drawData: TextItemDrawData;
+	pushOnPublish: boolean;
+	textNames: TextItemNames[];
+	/**
+	 * The font used for dynamically drawing text.
+	 * Requires {@link AssetDefinition.DynamicAfterDraw} to be set.
+	 */
+	font: null | string;
+}
+
+// NOTE: Use the intersection operator to enforce that the it remains a `keyof ItemProperties` subtype
+/** Property keys of {@link ItemProperties} with text input fields */
+type TextItemNames = keyof ItemProperties & (
+	"Text" | "Text2" | "Text3"
+);
+
+type TextItemRecord<T> = Partial<Record<TextItemNames, T>>;
+
+/**
+ * A callback signature for handling (throttled) text changes.
+ * @param C - The character being modified
+ * @param textRecord
+ * @param name - The property wherein the updated text should be stored
+ * @param text - The new text to be assigned to the item
+ */
+type TextItemEventListener = (
+	C: Character,
+	textRecord: TextItemRecord<string>,
+	name: TextItemNames,
+	text: string,
+) => void;
+
+// #endregion
 
 type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
@@ -3299,34 +3402,6 @@ interface HSVColor {
 type ColorPickerCallbackType = (Color: string) => void;
 
 //#end region
-
-// #region property
-
-// NOTE: Use the intersection operator to enforce that the it remains a `keyof ItemProperties` subtype
-/** Property keys of {@link ItemProperties} with text input fields */
-type PropertyTextNames = keyof ItemProperties & (
-	"Text" | "Text2" | "Text3"
-);
-
-/**
- * A callback signature for handling (throttled) text changes.
- * @param {Character} C - The character being modified
- * @param {Item} item - The item being modified
- * @param {PropertyTextNames} PropName - The property wherein the updated text should be stored
- * @param {string} Text - The new text to be assigned to the item
- * @returns {void} Nothing
- */
-type PropertyTextEventListener = (
-	C: Character,
-	Item: Item,
-	PropName: PropertyTextNames,
-	Text: string,
-) => void;
-
-/** A record type with custom event listeners for one or more text input fields. */
-type PropertyTextEventListenerRecord = Partial<Record<PropertyTextNames, PropertyTextEventListener>>;
-
-// #end region
 
 // #region Log
 

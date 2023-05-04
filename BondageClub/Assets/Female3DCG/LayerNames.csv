@@ -1386,10 +1386,12 @@ ItemEarsFuturisticEarphonesLock,Lock
 ItemHandsPaddedMittensGloves,Gloves
 ItemHandsPaddedMittensStraps,Straps
 ItemHandsPaddedMittensBuckles,Buckles
+ItemHandsPaddedMittensChain,Chain
 ItemHandsPawMittensGloves,Gloves
 ItemHandsPawMittensStraps,Straps
 ItemHandsPawMittensBuckles,Buckles
 ItemHandsPawMittensPaws,Paws
+ItemHandsPawMittensChain,Chain
 ItemHeadBlackoutLensesLeft,Left Lens
 ItemHeadBlackoutLensesRight,Right Lens
 ItemHeadInteractiveVRHeadsetDisplay,Display
@@ -1449,6 +1451,9 @@ GlassesVGlassesFrame,Frame
 GlassesVGlassesGlass,Lenses
 GlassesGradientSunglassesFrame,Frame
 GlassesGradientSunglassesGlass,Glass
+GlassesGogglesBase,Goggles
+GlassesGogglesStrap,Strap
+GlassesGogglesGlass,Lenses
 GlovesBikerGlovesHands,Gloves
 GlovesBikerGlovesStraps,Straps
 ItemTorsoLeatherChestHarness1Ring,Ring
@@ -1601,3 +1606,13 @@ ItemnPelvisPortalPantiesMetalHex, Hex
 ItemPelvisPortalPantiesGlow1, LED
 ItemPelvisPortalPantiesGlow2, LED
 ItemHandheldPortalTablet,Tablet
+ClothLowerPantBootsBase,Latex
+ClothLowerPantBootsStripe,Stripe
+ClothLowerPantBootsBoot,Boot
+ItemArmsPrisonSJBase,Latex
+ItemArmsPrisonSJStripe,Stripe
+ItemArmsPrisonSJClosedZip,Zipper
+ItemArmsPrisonSJOpenZip,Zipper
+ItemHoodSensoryDeprivationHoodBase, Latex
+ItemHoodSensoryDeprivationHoodEarCover, Silencer
+ItemHoodSensoryDeprivationHoodLips, Lips

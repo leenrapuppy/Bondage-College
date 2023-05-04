@@ -1,33 +1,8 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryClothAccessoryBibx1Load() {
-	PropertyTextLoad();
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryClothAccessoryBibx1Draw() {
-	ExtendedItemDrawHeader(1387, 125);
-	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
-	PropertyTextDraw();
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryClothAccessoryBibx1Click() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryClothAccessoryBibx1Exit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryClothAccessoryBibx1Exit() {
-	PropertyTextExit();
-	ExtendedItemSubscreen = null;
-}
-
-/** @type {ExtendedItemCallbacks.AfterDraw} */
-function AssetsClothAccessoryBibAfterDraw({
-	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
+/** @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>} */
+function AssetsClothAccessoryBibAfterDrawHook(data, originalFunction, {
+	C, A, CA, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
 	if (L === "_Text") {
 		const Properties = Property || {};
@@ -41,15 +16,13 @@ function AssetsClothAccessoryBibAfterDraw({
 		let YOffset = 40;
 		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
 
-		const MaxText1Length = A.TextMaxLength.Text;
-		const MaxText2Length = A.TextMaxLength.Text2;
-		const text1 = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text.substring(0, MaxText1Length) : "";
-		const text2 = Property && typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2) ? Property.Text2.substring(0, MaxText2Length) : "";
+		TextItem.Init(data, C, CA, false);
+		const [text1, text2] = [CA.Property.Text, CA.Property.Text2];
 		const isAlone = !text1 || !text2;
 
 		const drawOptions = {
 			fontSize: 20,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			color: Color,
 			width: Width,
 		};

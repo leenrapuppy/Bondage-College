@@ -1,35 +1,5 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Init} */
-function InventoryClothCheerleaderTopInit(C, Item, Refresh) {
-	return ExtendedItemInitNoArch(C, Item, { Text: "" }, Refresh);
-}
-
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryClothCheerleaderTopLoad() {
-	PropertyTextLoad();
-	DialogExtendedMessage = DialogFindPlayer("ClothCheerleaderTopTextLabel");
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryClothCheerleaderTopDraw() {
-	ExtendedItemDrawHeader();
-	DrawText(DialogExtendedMessage, 1505, 530, "#fff", "#000");
-	PropertyTextDraw();
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryClothCheerleaderTopClick() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryClothCheerleaderTopExit() {
-	PropertyTextExit();
-}
-
 const AssetsClothCheerleaderTopData = {
 	_Small: {
 		shearFactor: 0.78,
@@ -53,10 +23,8 @@ const AssetsClothCheerleaderTopData = {
 	}
 };
 
-/**
- * @param {DynamicDrawingData} data
- */
-function AssetsClothCheerleaderTopAfterDraw({
+/** @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>} */
+function AssetsClothCheerleaderTopAfterDrawHook(data, originalFunction, {
 	CA,
 	C,
 	A,
@@ -64,7 +32,6 @@ function AssetsClothCheerleaderTopAfterDraw({
 	X,
 	Y,
 	L,
-	Property,
 	drawCanvas,
 	drawCanvasBlink,
 	AlphaMasks,
@@ -85,12 +52,8 @@ function AssetsClothCheerleaderTopAfterDraw({
 		}
 	}
 
-	let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text)
-		? Property.Text
-		: "";
-	text = text.substring(0, A.TextMaxLength.Text)
-		.replace(/(?:)/g, ' ')
-		.trim();
+	TextItem.Init(data, C, CA, false);
+	const text = CA.Property.Text;
 
 	const sizeData = AssetsClothCheerleaderTopData[G] || AssetsClothCheerleaderTopData._Small;
 
@@ -101,7 +64,7 @@ function AssetsClothCheerleaderTopAfterDraw({
 
 	DynamicDrawTextArc(text, ctx, width / 2, height / 2, {
 		fontSize: 48,
-		fontFamily: A.TextFont,
+		fontFamily: data.font,
 		width,
 		color: fillColor,
 		strokeColor,

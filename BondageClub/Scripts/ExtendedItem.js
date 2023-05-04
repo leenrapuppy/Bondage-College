@@ -104,8 +104,9 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
  * @param {null | ExtendedItemCallback<T, RT>} originalFunction
  */
 function ExtendedItemCreateCallback(data, name, originalFunction) {
-	const nameCaps = `${name[0].toUpperCase()}${name.slice(1)}`;
-	const funcName = `${data.functionPrefix}${nameCaps}`;
+	const suffix = `${name[0].toUpperCase()}${name.slice(1)}`;
+	const prefix = ["afterDraw", "beforeDraw", "scriptDraw"].includes(name) ? data.dynamicAssetsFunctionPrefix : data.functionPrefix;
+	const funcName = `${prefix}${suffix}`;
 	const scriptHook = /** @type {ExtendedItemScriptHookCallback<any, T, RT>} */(data.scriptHooks[name]);
 	if (scriptHook != null) {
 		/** @type {ExtendedItemCallback<T, RT>} */
@@ -131,6 +132,10 @@ function ExtendedItemCreateCallbacks(data, defaults) {
 		"validate",
 		"publishAction",
 		"init",
+		"setOption",
+		"beforeDraw",
+		"afterDraw",
+		"scriptDraw",
 	];
 
 	const extraKeys = CommonKeys(defaults).filter(i => !ExtendedItemCreate.includes(i));
@@ -157,6 +162,10 @@ function ExtendedItemParseScriptHooks(scriptHooks) {
 		validate: typeof scriptHooks.Validate === "function" ? scriptHooks.Validate : null,
 		publishAction: typeof scriptHooks.PublishAction === "function" ? scriptHooks.PublishAction : null,
 		init: typeof scriptHooks.Init === "function" ? scriptHooks.Init : null,
+		setOption: typeof scriptHooks.SetOption === "function" ? scriptHooks.SetOption : null,
+		beforeDraw: typeof scriptHooks.BeforeDraw === "function" ? scriptHooks.BeforeDraw : null,
+		afterDraw: typeof scriptHooks.AfterDraw === "function" ? scriptHooks.AfterDraw : null,
+		scriptDraw: typeof scriptHooks.ScriptDraw === "function" ? scriptHooks.ScriptDraw : null,
 	};
 }
 
@@ -211,21 +220,17 @@ function ExtendedItemInitNoArch(C, Item, Properties, Refresh=true) {
 
 /**
  * Loads the item's extended item menu
- * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
- *     type
- * @param {boolean} IgnoreSubscreen - Whether loading subscreen draw functions should be ignored.
- * Should be set to `true` to avoid infinite recursions if the the subscreen also calls this function.
+ * @param {ExtendedItemData<any>} data
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(DialogKey, IgnoreSubscreen=false) {
-	if (ExtendedItemSubscreen && !IgnoreSubscreen) {
-		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
+function ExtendedItemLoad({ functionPrefix, dialogPrefix, parentOption }) {
+	if (ExtendedItemSubscreen && parentOption == null) {
+		CommonCallFunctionByNameWarn(`${functionPrefix}${ExtendedItemSubscreen}Load`);
 		return;
 	}
 
 	if (ExtendedItemOffsets[ExtendedItemOffsetKey()] == null) ExtendedItemSetOffset(0);
-
-	DialogExtendedMessage = DialogFindPlayer(DialogKey);
+	DialogExtendedMessage = DialogFindPlayer(dialogPrefix.header);
 }
 
 /**
@@ -293,9 +298,8 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 		}
 	}
 	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
-	if (ControllerActive == true) {
-		setButton(X + 112, Y + 30 + ImageHeight);
-	}
+
+	ControllerAddActiveArea(X + 112, Y + 30 + ImageHeight);
 }
 
 /**
@@ -411,11 +415,9 @@ function ExtendedItemExit() {
  * @param {ItemProperties} newProperty - The option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
- * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
- * Executed after the conventional properties have been assigned.
  * @returns {void} Nothing
  */
-function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false, dynamicProperty=null) {
+function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=false) {
 	// Delete properties added by the previous option and clone the new properties
 	if (!item.Property) {
 		item.Property = {};
@@ -434,11 +436,7 @@ function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=fals
 		// If the new type does not permit locking, remove the lock
 		ValidationDeleteLock(Property, false);
 	}
-
-	if (dynamicProperty != null) {
-		dynamicProperty(Property);
-	}
-	CharacterRefresh(C, push);
+	CharacterRefresh(C, push, false);
 }
 
 /**
@@ -597,6 +595,8 @@ function ExtendedItemMapChatTagToDictionaryEntry(dictionary, C, asset, tag) {
 			return dictionary.targetCharacterName(C);
 		case CommonChatTags.ASSET_NAME:
 			return dictionary.asset(asset);
+		case CommonChatTags.AUTOMATIC:
+			return dictionary.markAutomatic();
 		default:
 			console.warn(`Unknown ${asset.Group.Name}:${asset.Name} chat tag "${tag}"`);
 			return dictionary;
@@ -765,7 +765,7 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 		return null;
 	}
 
-	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
+	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData | TextItemData} */
 	let Data;
 	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}${Type == null ? "" : Type}`;
 	switch (Archetype) {
@@ -780,6 +780,9 @@ function ExtendedItemGetData(Item, Archetype, Type=null) {
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			Data = VariableHeightDataLookup[Key];
+			break;
+		case ExtendedArchetype.TEXT:
+			Data = TextItemDataLookup[Key];
 			break;
 		default:
 			console.warn(`Unsupported archetype: "${Archetype}"`);
@@ -833,9 +836,9 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 /**
  * Register archetypical subscreens for the passed extended item options
  * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {VariableHeightConfig | VibratingItemConfig} config - The subscreens extended item config
+ * @param {VariableHeightConfig | VibratingItemConfig | TextItemConfig} config - The subscreens extended item config
  * @param {TypedItemOption | ModularItemOption} option - The parent item's extended item option
- * @returns {null | VariableHeightData | VibratingItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
+ * @returns {null | VariableHeightData | VibratingItemData | TextItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
  */
 function ExtendedItemRegisterSubscreen(asset, config, option) {
 	switch (option.Archetype) {
@@ -843,6 +846,8 @@ function ExtendedItemRegisterSubscreen(asset, config, option) {
 			return VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(config), option);
 		case ExtendedArchetype.VIBRATING:
 			return VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(config || {}), option);
+		case ExtendedArchetype.TEXT:
+			return TextItemRegister(asset, /** @type {TextItemConfig} */(config), option);
 		default:
 			return null;
 	}
@@ -866,7 +871,132 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
 		}
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			return { OverrideHeight: item.Property.OverrideHeight };
+		case ExtendedArchetype.TEXT: {
+			const textData = /** @type {TextItemData} */(option.ArchetypeData);
+			/** @type {TextItemRecord<string>} */
+			const ret = {};
+			textData.textNames.forEach(i => ret[i] = item.Property[i]);
+			return ret;
+		}
 		default:
 			return {};
+	}
+}
+
+/**
+ * Sets an extended item's type and properties to the option provided.
+ * @template {ModularItemOption | TypedItemOption | VibratingItemOption} OptionType
+ * @param {ModularItemData | TypedItemData | VibratingItemData} data - The extended item data
+ * @param {Character} C - The character on whom the item is equipped
+ * @param {Item} item - The item whose type to set
+ * @param {OptionType} newOption - The to-be applied extended item option
+ * @param {OptionType} previousOption - The previously applied extended item option
+ * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
+ * player) - defaults to false.
+ * @returns {string|undefined} - undefined or an empty string if the option was set correctly. Otherwise, returns a string
+ * informing the player of the requirements that are not met.
+ */
+function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=false) {
+	if (newOption.Name === previousOption.Name) {
+		return DialogFindPlayer("AlreadySet");
+	}
+
+	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
+	if (requirementMessage) {
+		return requirementMessage;
+	}
+
+	/** @type {ItemProperties} */
+	let previousOptionProperty;
+	/** @type {ItemProperties} */
+	let newProperty;
+	switch (newOption.OptionType) {
+		case "ModularItemOption": {
+			const moduleData = /** @type {ModularItemData} */(data);
+			const previousModuleValues = ModularItemParseCurrent(moduleData, item.Property.Type);
+			const moduleIndex = moduleData.modules.findIndex(m => m.Name === newOption.ModuleName);
+			const newModuleValues = [...previousModuleValues];
+			newModuleValues[moduleIndex] = newOption.Index;
+
+			newProperty = ModularItemMergeModuleValues(moduleData, newModuleValues);
+			previousOptionProperty = ModularItemMergeModuleValues(moduleData, previousModuleValues);
+			break;
+		}
+		case "VibratingItemOption":
+		case "TypedItemOption":
+			newProperty = JSON.parse(JSON.stringify(newOption.Property));
+			previousOptionProperty = { ...previousOption.Property };
+			break;
+		default:
+			console.error(`Unsupported archetype: ${data.asset.Archetype}`);
+			return;
+	}
+
+	if (newOption.HasSubscreen) {
+		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
+		const args = [C, item, false];
+		CommonCallFunctionByNameWarn(`${data.functionPrefix}${newOption.Name}Init`, ...args);
+	}
+
+	const previousProperty = PropertyUnion(
+		previousOptionProperty,
+		ExtendedItemGatherSubscreenProperty(item, previousOption),
+	);
+	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
+	ExtendedItemSetProperty(C, item, previousProperty, newProperty, push);
+
+	if (newOption.Expression) {
+		InventoryExpressionTriggerApply(C, newOption.Expression);
+	}
+}
+
+/** A temporary hack for registering extra archetypes for a single screen. */
+function ExtendedItemManualRegister() {
+	/** @type {{ group: AssetGroupName, name: string, config: AssetArchetypeConfig }[]} */
+	const items = [
+		{
+			group: "ItemArms",
+			name: "TransportJacket",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				Config: {
+					MaxLength: { Text: 14 },
+					Font: "'Saira Stencil One', 'Arial', sans-serif",
+					DrawData: {
+						Positions: [[1505, 850]],
+					},
+					DialogPrefix: {
+						Header: "ItemArmsTransportJacketSelect",
+					},
+				},
+			},
+		},
+		{
+			group: "ItemDevices",
+			name: "WoodenBox",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				Config: {
+					MaxLength: { Text: 20 },
+					Font: "'Saira Stencil One', 'Arial', sans-serif",
+					PushOnPublish: false,
+					DrawData: {
+						Positions: [[1505, 850]],
+					},
+					DialogPrefix: {
+						Header: "ItemDevicesWoodenBoxSelect",
+					},
+				},
+			},
+		},
+	];
+
+	for (const { group, name, config } of items) {
+		const asset = AssetGet("Female3DCG", group, name);
+		switch (config.Archetype) {
+			case ExtendedArchetype.TEXT:
+				TextItemRegister(asset, /** @type {TextItemConfig} */(config.Config), null, false);
+				break;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 "use strict";
 var TitleBackground = "Sheet";
-/** @type {{ Name: string; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
+/** @type {{ Name: TitleName; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
 var TitleList = [
 	{ Name: "None", Requirement: function () { return true; } },
 	{ Name: "Mistress", Requirement: function () { return LogQuery("ClubMistress", "Management"); }, Earned: true },
@@ -61,20 +61,20 @@ var TitleList = [
 	{ Name: "GoodSlave", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true },
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
-/** @type {null | string} */
+/** @type {null | TitleName} */
 var TitleSelectedTitle = null;
 var TitleCanEditNickname = true;
 /** @type {null | string} */
 var TitleNicknameStatus = null;
 let TitleOffset = 0;
-/** @type {{ Name: string; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
+/** @type {{ Name: TitleName; Requirement: () => boolean; Earned?: boolean, Force?: boolean }[]} */
 let TitleListFiltered = [];
 const TitlePerPage = 28;
 
 /**
  * Sets the new title of the player, if the title has changed
- * @param {string} NewTitle - The new title for the player
- * @returns {string} - The new title of the player
+ * @param {TitleName} NewTitle - The new title for the player
+ * @returns {TitleName} - The new title of the player
  */
 function TitleSet(NewTitle) {
 	if (NewTitle != Player.Title) {
@@ -88,7 +88,7 @@ function TitleSet(NewTitle) {
  * Returns the current title of the given player. If an invalid title is found or the player has to wear a certain title
  * the correct title is pushed to the player's attributes
  * @param {Character} C - The player, whose title we want to get
- * @returns {string} - The title of the given player
+ * @returns {TitleName} - The title of the given player
  */
 function TitleGet(C) {
 
@@ -99,7 +99,7 @@ function TitleGet(C) {
 				return TitleSet(TitleList[T].Name);
 
 	// No title or other character titles aren't validated
-	if ((C.Title == null) || (C.Title == "") || (C.Title == "None")) return "None";
+	if (!C.Title || (C.Title == "None")) return "None";
 	if (C.ID != 0) return C.Title;
 
 	// If we find a valid title, we return it
@@ -114,11 +114,11 @@ function TitleGet(C) {
 
 /**
  * Checks, if the given title is forced a forced title like 'Club Slave' or 'Escaped Patient'
- * @param {string} Title - The title to check
+ * @param {TitleName} Title - The title to check
  * @returns {boolean} - Result of the check
  */
 function TitleIsForced(Title) {
-	if ((Title == null) || (Title == "") || (Title == "None")) return false;
+	if (!Title || (Title == "None")) return false;
 	for (let T = 0; T < TitleList.length; T++)
 		if ((Title == TitleList[T].Name) && (TitleList[T].Force != null) && TitleList[T].Force)
 			return true;
@@ -127,11 +127,11 @@ function TitleIsForced(Title) {
 
 /**
  * Checks, if the given title is earned a earned title is any title that doesn't always return true such as 'Switch', 'Doll' & 'Angel'
- * @param {string} Title - The title to check
+ * @param {TitleName} Title - The title to check
  * @returns {boolean} - Result of the check
  */
 function TitleIsEarned(Title) {
-	if ((Title == null) || (Title == "") || (Title == "None")) return false;
+	if (!Title || (Title == "None")) return false;
 	for (let T = 0; T < TitleList.length; T++)
 		if ((Title == TitleList[T].Name) && (TitleList[T].Earned != null) && TitleList[T].Earned)
 			return true;

@@ -1,36 +1,9 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Init} */
-function InventoryItemDevicesDollBoxInit(C, Item, Refresh) {
-	return ExtendedItemInitNoArch(C, Item, { Text: "", Text2: "" }, Refresh);
-}
-
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemDevicesDollBoxLoad() {
-	PropertyTextLoad();
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemDevicesDollBoxDraw() {
-	ExtendedItemDrawHeader();
-	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
-	PropertyTextDraw();
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemDevicesDollBoxClick() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemDevicesDollBoxExit() {
-	PropertyTextExit();
-}
-
-/** @type {ExtendedItemCallbacks.AfterDraw} */
-function AssetsItemDevicesDollBoxAfterDraw({C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color}) {
+/** @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>} */
+function AssetsItemDevicesDollBoxAfterDrawHook(data, originalFunction,
+	{C, A, CA, X, Y, L, drawCanvas, drawCanvasBlink, AlphaMasks, Color},
+) {
 	if (L === "_Text") {
 		// We set up a canvas
 		const height = 200;
@@ -39,15 +12,13 @@ function AssetsItemDevicesDollBoxAfterDraw({C, A, X, Y, L, Property, drawCanvas,
 		const ctx = tempCanvas.getContext("2d");
 
 		// One line of text will be centered
-		const MaxText1Length = A.TextMaxLength.Text;
-		const MaxText2Length = A.TextMaxLength.Text2;
-		const text1 = (Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text.substring(0, MaxText1Length) : "");
-		const text2 = (Property && typeof Property.Text2 === "string" && DynamicDrawTextRegex.test(Property.Text2) ? Property.Text2.substring(0, MaxText2Length) : "");
+		TextItem.Init(data, C, CA, false);
+		const [text1, text2] = [CA.Property.Text, CA.Property.Text2];
 		const isAlone = !text1 || !text2;
 
 		const drawOptions = {
 			fontSize: 40,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			color: Color,
 			effect: DynamicDrawTextEffect.BURN,
 			width,

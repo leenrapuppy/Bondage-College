@@ -136,7 +136,8 @@ function ArcadeRun() {
 	DrawCharacter(ArcadePlayer, 1250, 0, 1);
 	if (Player.CanWalk()) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png");
-	if (ArcadeCanPlayGames()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/KinkyDungeon.png");
+	const ready = ArcadeKinkyDungeonLoad();
+	if (ArcadeCanPlayGames()) DrawButton(1885, 265, 90, 90, "", ready ? "White" : "Grey", "Icons/KinkyDungeon.png", ready ? undefined : "Loading...", !ready);
 	else DrawButton(1885, 265, 90, 90, "", "Pink", "Icons/KinkyDungeon.png");
 }
 
@@ -169,6 +170,8 @@ function ArcadeClick() {
  * @returns {void} - Nothing
  */
 function ArcadeKinkyDungeonStart(PlayerLevel) {
+	if (!ArcadeKinkyDungeonLoad())
+		return;
 	if (KinkyDungeonPlayerCharacter != null) {
 		KinkyDungeonGameRunning = false; // Reset the game to prevent carrying over spectator data
 		KinkyDungeonPlayerCharacter = null;
@@ -186,4 +189,106 @@ function ArcadeKinkyDungeonEnd() {
 	//if (MiniGameVictory) {
 
 	//}
+}
+
+var KinkyDungeonFiles = [
+	"Screens/MiniGame/KinkyDungeon/pixi.min.js",
+	"Screens/MiniGame/KinkyDungeon/KDModUtils.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEditorTiles.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEditor.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEditorGen.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonErrors.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeon.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonGame.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonVibe.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonBuffsList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonAlt.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonBones.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMapMods.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonBoss.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonPerks.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonParams.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonVision.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonQuest.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonLoot.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemies.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonPersonality.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemiesList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemyEventList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonCurse.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraints.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraintsList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonFight.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonWeaponList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonInput.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonHUD.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonDraw.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonFurniture.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMagic.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicCode.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonPlayerEffects.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonShrine.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonObject.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonItem.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonDress.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEffectTiles.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonDressList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonConsumables.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonConsumablesList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonInventory.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMultiplayer.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonLore.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonReputation.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonTraps.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonTiles.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonTilesList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonPathfinding.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonBuffs.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonEvents.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonSpawns.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonJail.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonSetpiece.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogue.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueTriggers.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonFactions.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonFactionsList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMistress.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonJailList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonTests.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonLootList.js",
+	"Screens/MiniGame/KinkyDungeon/KinkyDungeonMusic.js",
+	"Screens/MiniGame/KinkyDungeon/KDDelayedActions.js",
+];
+
+var KinkyDungeonIsLoading = false;
+var KinkyDungeonReady = false;
+
+async function ArcadeKinkyDungeonStartLoad() {
+	for (const file of KinkyDungeonFiles) {
+		await new Promise((resolve, reject) => {
+			const script = document.createElement("script");
+			script.onerror = reject;
+			script.onload = () => resolve();
+			script.setAttribute("language", "JavaScript");
+			script.setAttribute("crossorigin", "anonymous");
+			script.setAttribute("src", file);
+			document.head.appendChild(script);
+		});
+	}
+}
+
+/**
+ * @returns {boolean} - False if the dungeon is not ready yet, true otherwise
+ */
+function ArcadeKinkyDungeonLoad() {
+	if (!KinkyDungeonIsLoading) {
+		KinkyDungeonIsLoading = true;
+		void ArcadeKinkyDungeonStartLoad().then(() => {
+			KinkyDungeonReady = true;
+		});
+	}
+	return KinkyDungeonReady;
 }

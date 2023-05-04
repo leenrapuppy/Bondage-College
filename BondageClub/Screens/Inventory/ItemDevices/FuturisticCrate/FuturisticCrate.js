@@ -36,12 +36,12 @@ function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, P
 	return { Y: Y + FuckLength * (-Math.cos(Data.DildoState * 2 * Math.PI)) };
 }
 
-/** @type {ExtendedItemCallbacks.ScriptDraw<FuturisticCratePersistentData>} */
-function AssetsItemDevicesFuturisticCrateScriptDraw(data) {
-	VibratorModeScriptDraw(data);
+/** @type {ExtendedItemScriptHookCallbacks.ScriptDraw<VibratingItemData, FuturisticCratePersistentData>} */
+function AssetsItemDevicesFuturisticCrateScriptDrawHook(data, originalFunction, drawData) {
+	originalFunction(drawData);
 
-	const Data = data.PersistentData();
-	const Properties = data.Item.Property || {};
+	const Data = drawData.PersistentData();
+	const Properties = drawData.Item.Property || {};
 	const FrameTime = Player.GraphicsSettings ? Math.max(30, (Player.GraphicsSettings.AnimationQuality * 0.6)) : 30;
 	const Intensity = typeof Properties.Intensity === "number" ? Properties.Intensity : -1;
 	const FuckLength = 32;
@@ -51,7 +51,7 @@ function AssetsItemDevicesFuturisticCrateScriptDraw(data) {
 
 	if (Data.FuckChangeTime < CommonTime() && !(Intensity === -1 && FuckLength <= Data.DildoState)) {
 		Data.FuckChangeTime = CommonTime() + FrameTime;
-		AnimationRequestRefreshRate(data.C, FrameTime);
-		AnimationRequestDraw(data.C);
+		AnimationRequestRefreshRate(drawData.C, FrameTime);
+		AnimationRequestDraw(drawData.C);
 	}
 }

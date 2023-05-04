@@ -4,7 +4,7 @@
 var Player;
 /** @type {number|string} */
 var KeyPress = "";
-/** @type {string} */
+/** @type {ModuleType} */
 var CurrentModule;
 /** @type {string} */
 var CurrentScreen;
@@ -18,13 +18,7 @@ var CommonIsMobile = false;
 /** @type {Record<string, string[][]>} */
 var CommonCSVCache = {};
 var CutsceneStage = 0;
-
 var CommonPhotoMode = false;
-var GameVersion = "R0";
-const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
-var CommonVersionUpdated = false;
-/** @type {null | TouchList} */
-var CommonTouchList = null;
 
 /**
  * An enum encapsulating possible chatroom message substitution tags. Character name substitution tags are interpreted
@@ -37,7 +31,7 @@ var CommonTouchList = null;
  * Additionally, sending the following tags will ensure that asset names in messages are correctly translated by
  * recipients:
  * ASSET_NAME: (substituted with the localized name of the asset, if available)
- * @type {Record<"SOURCE_CHAR"|"DEST_CHAR"|"DEST_CHAR_NAME"|"TARGET_CHAR"|"TARGET_CHAR_NAME"|"ASSET_NAME", CommonChatTags>}
+ * @type {Record<"SOURCE_CHAR"|"DEST_CHAR"|"DEST_CHAR_NAME"|"TARGET_CHAR"|"TARGET_CHAR_NAME"|"ASSET_NAME"|"AUTOMATIC", CommonChatTags>}
  */
 const CommonChatTags = {
 	SOURCE_CHAR: "SourceCharacter",
@@ -46,6 +40,7 @@ const CommonChatTags = {
 	TARGET_CHAR: "TargetCharacter",
 	TARGET_CHAR_NAME: "TargetCharacterName",
 	ASSET_NAME: "AssetName",
+	AUTOMATIC: "Automatic",
 };
 
 String.prototype.replaceAt=function(index, character) {
@@ -298,13 +293,13 @@ function CommonKeyDown(event) {
 	if (CurrentCharacter == null) {
 		if (CurrentScreenFunctions.KeyDown)
 			CurrentScreenFunctions.KeyDown(event);
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			ControllerSupportKeyDown();
 		}
 	}
 	else {
 		StruggleKeyDown();
-		if (ControllerActive == true) {
+		if (ControllerIsActive()) {
 			ControllerSupportKeyDown();
 		}
 	}
@@ -406,7 +401,7 @@ function CommonCallFunctionByNameWarn(FunctionName/*, ...args */) {
 
 /**
  * Sets the current screen and calls the loading script if needed
- * @param {string} NewModule - Module of the screen to display
+ * @param {ModuleType} NewModule - Module of the screen to display
  * @param {string} NewScreen - Screen to display
  * @returns {void} - Nothing
  */
@@ -416,8 +411,8 @@ function CommonSetScreen(NewModule, NewScreen) {
 	if (CurrentScreenFunctions && CurrentScreenFunctions.Unload) {
 		CurrentScreenFunctions.Unload();
 	}
-	if (ControllerActive == true) {
-		ClearButtons();
+	if (ControllerIsActive()) {
+		ControllerClearAreas();
 	}
 
 
@@ -1096,6 +1091,17 @@ function CommonIsArray(arg) {
  */
 function CommonKeys(record) {
 	return /** @type {T[]} */(Object.keys(record));
+}
+
+/**
+ * A {@link Object.entries} variant annotated to return respect literal key types
+ * @template {string} KT
+ * @template VT
+ * @param {Partial<Record<KT, VT>>} record A record with string-based keys
+ * @returns {[KT, VT][]} The key/value pairs in the passed record
+ */
+function CommonEntries(record) {
+	return /** @type {[KT, VT][]} */(Object.entries(record));
 }
 
 /**

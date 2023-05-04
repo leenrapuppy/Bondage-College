@@ -6,7 +6,7 @@ var KidnapLeagueTrainer = null;
 var KidnapLeagueRandomKidnapper = null;
 var KidnapLeagueRandomKidnapperScenario = "0";
 var KidnapLeagueRandomKidnapperDifficulty = 0;
-/** @type {null | string} */
+/** @type {null | "" | "Maid" | "Mistress"} */
 var KidnapLeagueArchetype = null;
 var KidnapLeagueWillPayForFreedom = false;
 var KidnapLeagueRandomActivityList = ["AddGag", "RemoveGag", "AddFeet", "RemoveFeet", "AddLegs", "RemoveLegs", "Tickle", "Spank", "Kiss", "Fondle"];

@@ -1,27 +1,23 @@
 "use strict";
 
-/**
- * All tags
- * @constant
- * @type {string}
- */
-var BackgroundsTagNone = "Filter by tag";
-var BackgroundsTagIndoor = "Indoor";
-var BackgroundsTagOutdoor = "Outdoor";
-var BackgroundsTagAquatic = "Aquatic";
-var BackgroundsTagSpecial = "Special Events";
-var BackgroundsTagSciFiFantasy = "SciFi & Fantasy";
-var BackgroundsTagClub = "Club & College";
-var BackgroundsTagHouse = "Regular house";
-var BackgroundsTagDungeon = "Dungeon";
-var BackgroundsTagAsylum = "Asylum";
+// All tags
+const BackgroundsTagNone = "Filter by tag";
+const BackgroundsTagIndoor = "Indoor";
+const BackgroundsTagOutdoor = "Outdoor";
+const BackgroundsTagAquatic = "Aquatic";
+const BackgroundsTagSpecial = "Special Events";
+const BackgroundsTagSciFiFantasy = "SciFi & Fantasy";
+const BackgroundsTagClub = "Club & College";
+const BackgroundsTagHouse = "Regular house";
+const BackgroundsTagDungeon = "Dungeon";
+const BackgroundsTagAsylum = "Asylum";
 
 /**
  * List of all tags to create online chat rooms
  * @constant
- * @type {string[]}
+ * @type {BackgroundTag[]}
  */
-var BackgroundsTagList = [
+const BackgroundsTagList = [
 	BackgroundsTagNone,
 	BackgroundsTagIndoor,
 	BackgroundsTagOutdoor,
@@ -36,20 +32,21 @@ var BackgroundsTagList = [
 /**
  * List of all tags to setup your main hall or private room
  * @constant
- * @type {string[]}
+ * @type {BackgroundTag[]}
  */
-var BackgroundsPrivateRoomTagList = [
+const BackgroundsPrivateRoomTagList = [
 	BackgroundsTagClub,
 	BackgroundsTagHouse,
 	BackgroundsTagDungeon
 ];
 
+// Be sure to go into [Screens\Character\Player\Dialog_Player.csv] and add a new line at around line 440, follow the format.
 /**
  * List of all the common backgrounds.
  * @constant
- * @type {{ Name: string; Tag: string[]; }[]}
+ * @type {{ Name: string; Tag: BackgroundTag[]; }[]}
  */
-var BackgroundsList = [
+const BackgroundsList = [
 	{ Name: "Introduction", Tag: [BackgroundsTagIndoor, BackgroundsTagClub] },
 	{ Name: "KidnapLeague", Tag: [BackgroundsTagIndoor, BackgroundsTagClub] },
 	{ Name: "MaidQuarters", Tag: [BackgroundsTagIndoor, BackgroundsTagClub] },
@@ -216,10 +213,10 @@ var BackgroundsList = [
 	{ Name: "BeachSunset", Tag: [BackgroundsTagOutdoor] },
 	{ Name: "Gymnasium", Tag: [BackgroundsTagIndoor] },
 ];
-// Be sure to go into [Screens\Character\Player\Dialog_Player.csv] and add a new line at around line 440, follow the format.
+
 /**
  * Builds the selectable background arrays based on the tags supplied
- * @param {string[]} BackgroundTagList - An array of string of all the tags to load
+ * @param {readonly BackgroundTag[]} BackgroundTagList - An array of string of all the tags to load
  * @returns {string[]} - The list of all background names
  */
 function BackgroundsGenerateList(BackgroundTagList) {

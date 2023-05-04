@@ -1,42 +1,8 @@
 "use strict";
 
-/** @type {ExtendedItemCallbacks.Init} */
-function InventoryItemNeckAccessoriesElectronicTagInit(C, Item, Refresh) {
-	return ExtendedItemInitNoArch(C, Item, { Text: "Tag" }, Refresh);
-}
-
-/** @type {ExtendedItemCallbacks.Load} */
-function InventoryItemNeckAccessoriesElectronicTagLoad() {
-	// Only create the inputs if the item isn't locked
-	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
-		PropertyTextLoad();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemNeckAccessoriesElectronicTagDraw() {
-	ExtendedItemDrawHeader();
-	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
-	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
-		PropertyTextDraw();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemNeckAccessoriesElectronicTagClick() {
-	if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
-	}
-}
-
-/** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemNeckAccessoriesElectronicTagExit() {
-	PropertyTextExit();
-}
-
-/** @type {ExtendedItemCallbacks.AfterDraw} */
-function AssetsItemNeckAccessoriesElectronicTagAfterDraw({
-	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
+/** @type {ExtendedItemScriptHookCallbacks.AfterDraw<TextItemData>} */
+function AssetsItemNeckAccessoriesElectronicTagAfterDrawHook(data, originalFunction, {
+	C, A, CA, X, Y, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
 	if (L === "_Text") {
 		// We set up a canvas
@@ -44,13 +10,13 @@ function AssetsItemNeckAccessoriesElectronicTagAfterDraw({
 		const Width = 45;
 		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
 
-		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "Tag";
-		text = text.substring(0, A.TextMaxLength.Text);
+		TextItem.Init(data, C, CA, false);
+		const text = CA.Property.Text;
 
 		/** @type {DynamicDrawOptions} */
 		const drawOptions = {
 			fontSize: 14,
-			fontFamily: A.TextFont,
+			fontFamily: data.font,
 			color: Color,
 			textAlign: "center",
 			width: Width,

@@ -468,14 +468,23 @@ function InfiltrationPandoraPrisonerBrainwash() {
 	NPCEventDelete(C, "EndSubTrial");
 	NPCEventAdd(C, "NPCCollaring", CurrentTime);
 	C.Owner = Player.Name;
-	InventoryWear(C, "SlaveCollar", "ItemNeck");
+	//Interrogation restraints - Not strictly required, just flavor for Private Room NPC profile.
 	CharacterNaked(C);
+	CharacterReleaseTotal(C);
+	InventoryWear(C, "SlaveCollar", "ItemNeck");
+	InventoryWear(C,"SteelCuffs","ItemArms");
+	InventoryWear(C,"SteelAnkleCuffs","ItemFeet");
+	InventoryWear(C,"Cage","ItemDevices");
+	//Refresh will not update modular item forced poses. Using cage for now
+	//InventoryWear(C,"WoodenRack","ItemDevices");
+	//(InventoryGet(C,"ItemDevices")).Property.Type = "f1t4b3";
+	CharacterRefresh(C);
 	//Move towards submission by a random amount between 0-10 + Infiltration skill adjustment (range 60-110)
 	var S = Math.floor(Math.random()*10) + (SkillGetLevel(Player, "Infiltration") * 10) + (Math.round(SkillGetProgress(Player, "Infiltration") / 100));
 	var T = NPCTraitGet(C, "Dominant") - S;
 	if (T < -100) { T = -100; }
 	NPCTraitSet(C, "Dominant", T);
-	//Neutralize love
+	//Neutralize relation, will further decay over time to represent resentment from interrogation
 	C.Love = 0;
 	//Reset and recheck for smoother dialog
 	InfiltrationSetPandoraPrisoner();

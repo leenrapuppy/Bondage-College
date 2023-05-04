@@ -162,6 +162,7 @@ ClothLower,CrossSkirt,Cross Skirt
 ClothLower,CheerleaderSkirt,Cheerleader Skirt
 ClothLower,CrossSkirtLight,Cross Skirt (light)
 ClothLower,TulleSkirt,Fitted Pleated Skirt
+ClothLower,PantBoots,Long Latex Pants
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
@@ -543,6 +544,7 @@ Glasses,EyePatch1,Eye Patch
 Glasses,CatGlasses,Cat-Eye Glasses
 Glasses,VGlasses,V Glasses
 Glasses,GradientSunglasses,Gradient Sunglasses
+Glasses,Goggles,Goggles
 Mask,,Mask
 Mask,VenetianMask,Venetian Mask
 Mask,DominoMask,Domino Mask
@@ -1103,7 +1105,6 @@ ItemArms,SteelCuffs,Steel Cuffs
 ItemArms,FuturisticCuffs,Futuristic Cuffs
 ItemArms,OrnateCuffs,Ornate Cuffs
 ItemArms,HighStyleSteelCuffs,HighStyle Steel Cuffs
-ItemArms,MittenChain1,Mittens Chain
 ItemArms,FourLimbsShackles,Four Limbs Shackles
 ItemArms,Manacles,Manacles
 ItemArms,FullBodyShackles,Full Body Shackles
@@ -1161,6 +1162,7 @@ ItemArms,BondageBra,Bondage Bra
 ItemArms,SmoothLeatherArmbinder1,Smooth Lacing Leather Armbinder
 ItemArms,CanvasStraitjacket1,Canvas Straitjacket 1
 ItemArms,SleepSac,SleepSac
+ItemArms,PrisonSJ,Latex SJ
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1577,6 +1579,7 @@ ItemHood,LatexBunny,Latex Bunny
 ItemHood,FoxHood,Fox Hood
 ItemHood,Pantyhood,Panty hood
 ItemHood,VacHood, Vac Hood
+ItemHood,SensoryDeprivationHood,Sensory Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
