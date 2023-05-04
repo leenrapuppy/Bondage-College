@@ -388,6 +388,18 @@ type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 
 type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
 
+type ActivityPrerequisite =
+	"UseMouth" | "UseTongue" | "TargetMouthBlocked" | "IsGagged" | "TargetKneeling" | "UseHands" |
+	"UseArms" | "UseFeet" | "CantUseArms" | "CantUseFeet" | "TargetCanUseTongue" | "TargetMouthOpen" |
+	"VulvaEmpty" | "AssEmpty" | "UseVulva" | "UseAss" | "MoveHead" | "ZoneAccessible" |
+	"TargetZoneAccessible" | "ZoneNaked" | "TargetZoneNaked" | "TargetHasPenis" | "HasPenis" |
+	"CanUsePenis" | "TargetHasVagina" | "HasVagina" | "TargetHasBreasts" | "HasBreasts" |
+	"Sisters" | "Brothers" | "SiblingsWithDifferentGender" | "TargetHasFlatChest" | "HasFlatChest" |
+
+	"Needs-SpankItem" | "Needs-TickleItem" | "Needs-RubItem" | "Needs-RollItem" | "Needs-MasturbateItem" |
+	"Needs-PourItem" | "Needs-ShockItem" | "Needs-Inject" | "Needs-PenetrateItem" | "Needs-SipItem"
+	;
+
 //#endregion
 
 //#region Server Messages
@@ -1226,7 +1238,7 @@ interface Activity {
 	Name: ActivityName;
 	MaxProgress: number;
 	MaxProgressSelf?: number;
-	Prerequisite: string[];
+	Prerequisite: ActivityPrerequisite[];
 	Target: AssetGroupItemName[];
 	TargetSelf?: AssetGroupItemName[] | true;
 	/** Whether to reverse the prerequisite checks for that one */

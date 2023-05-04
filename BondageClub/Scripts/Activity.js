@@ -99,7 +99,7 @@ function ActivityGetGroupOrMirror(family, groupname) {
 /**
  * Gets all groups that mirror or are mirrored by the given group name for activities. The returned array includes the
  * named group.
- * @param {string} family - The asset family for the named group
+ * @param {IAssetFamily} family - The asset family for the named group
  * @param {AssetGroupName} groupName - The name of the group to resolve
  * @returns {AssetGroup[]} - The group and all groups from the same family that mirror or are mirrored by it
  */
@@ -157,7 +157,7 @@ function ActivityCheckPermissions(activity, character, onOther) {
 
 /**
  * Check that that a given prerequisite is met.
- * @param {string} prereq - The prerequisite to consider
+ * @param {ActivityPrerequisite} prereq - The prerequisite to consider
  * @param {Character|PlayerCharacter} acting - The character performing the activity
  * @param {Character|PlayerCharacter} acted - The character being acted on
  * @param {AssetGroup} group - The group being acted on
@@ -256,8 +256,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return acting.HasPenis() && acted.HasPenis() && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
 		case "SiblingsWithDifferentGender":
 			return (acting.HasPenis() != acted.HasPenis()) && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
-		default:
-			break;
 	}
 	return true;
 }
@@ -394,7 +392,7 @@ function ActivityAllowedForGroup(character, groupname) {
 /**
  * Returns TRUE if an activity can be done
  * @param {Character} C - The character to evaluate
- * @param {string} Activity - The name of the activity
+ * @param {ActivityName} Activity - The name of the activity
  * @param {AssetGroupName} Group - The name of the group
  * @return {boolean} - TRUE if the activity can be done
  */
@@ -410,7 +408,7 @@ function ActivityCanBeDone(C, Activity, Group) {
  * Calculates the effect of an activity performed on a zone
  * @param {Character} S - The character performing the activity
  * @param {Character} C - The character on which the activity is performed
- * @param {string|Activity} A - The activity performed
+ * @param {ActivityName | Activity} A - The activity performed
  * @param {AssetGroupName} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
@@ -832,7 +830,7 @@ function ActivityTimerProgress(C, Progress) {
 /**
  * Set the current vibrator level for drawing purposes
  * @param {Character} C - Character for which the timer is progressing
- * @param {number} Level - Level from 0 to 4 (higher = more vibration)
+ * @param {0 | 1 | 2 | 3 | 4} Level - Level from 0 to 4 (higher = more vibration)
  * @returns {void} - Nothing
  */
 function ActivityVibratorLevel(C, Level) {
