@@ -3,7 +3,7 @@ var FriendListBackground = "BrickWall";
 var FriendListContent = "";
 /** @type {number[]} */
 var FriendListConfirmDelete = [];
-/** @type {null | { Screen: string, Module: string, IsInChatRoom?: boolean, hasScrolledChat?: boolean }} */
+/** @type {null | { Screen: string, Module: ModuleType, IsInChatRoom?: boolean, hasScrolledChat?: boolean }} */
 var FriendListReturn = null;
 var FriendListMode = ["Friends", "Beeps", "Delete"];
 var FriendListModeIndex = 0;

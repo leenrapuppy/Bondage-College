@@ -12,6 +12,7 @@ var BackgroundSelectionSize = 12;
 var BackgroundSelectionOffset = 0;
 /** @type {null | ((selection: string) => void)} */
 var BackgroundSelectionCallback = null;
+/** @type {"" | ModuleType} */
 var BackgroundSelectionPreviousModule = "";
 var BackgroundSelectionPreviousScreen = "";
 /** @type {{ Name: string, Description: string, Low: string }[]} */
@@ -205,5 +206,7 @@ function BackgroundSelectionExit(SetBackground) {
 	ElementRemove("TagDropDown");
 	if (SetBackground && BackgroundSelectionCallback) BackgroundSelectionCallback(BackgroundSelectionSelect);
 	BackgroundSelectionCallback = null;
-	CommonSetScreen(BackgroundSelectionPreviousModule, BackgroundSelectionPreviousScreen);
+	if (BackgroundSelectionPreviousModule) {
+		CommonSetScreen(BackgroundSelectionPreviousModule, BackgroundSelectionPreviousScreen);
+	}
 }

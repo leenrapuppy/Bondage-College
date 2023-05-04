@@ -4,7 +4,7 @@
 var Player;
 /** @type {number|string} */
 var KeyPress = "";
-/** @type {string} */
+/** @type {ModuleType} */
 var CurrentModule;
 /** @type {string} */
 var CurrentScreen;
@@ -401,7 +401,7 @@ function CommonCallFunctionByNameWarn(FunctionName/*, ...args */) {
 
 /**
  * Sets the current screen and calls the loading script if needed
- * @param {string} NewModule - Module of the screen to display
+ * @param {ModuleType} NewModule - Module of the screen to display
  * @param {string} NewScreen - Screen to display
  * @returns {void} - Nothing
  */

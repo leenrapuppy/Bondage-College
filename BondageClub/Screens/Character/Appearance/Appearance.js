@@ -21,6 +21,7 @@ var CharacterAppearanceColorPickerRefreshTimer = null;
 /** @type {Character | null} */
 var CharacterAppearanceSelection = null;
 var CharacterAppearanceReturnRoom = "MainHall";
+/** @type {ModuleType} */
 var CharacterAppearanceReturnModule = "Room";
 var CharacterAppearanceWardrobeOffset = 0;
 var CharacterAppearanceWardrobeText = "";

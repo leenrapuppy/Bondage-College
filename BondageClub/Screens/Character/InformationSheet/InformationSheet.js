@@ -2,6 +2,7 @@
 var InformationSheetBackground = "Sheet";
 /** @type {null | Character} */
 var InformationSheetSelection = null;
+/** @type {"" | ModuleType} */
 var InformationSheetPreviousModule = "";
 var InformationSheetPreviousScreen = "";
 var InformationSheetSecondScreen = false;
@@ -270,7 +271,9 @@ function InformationSheetClick() {
  */
 function InformationSheetExit() {
 	InformationSheetSecondScreen = false;
-	CommonSetScreen(InformationSheetPreviousModule, InformationSheetPreviousScreen);
+	if (InformationSheetPreviousModule) {
+		CommonSetScreen(InformationSheetPreviousModule, InformationSheetPreviousScreen);
+	}
 }
 
 /**

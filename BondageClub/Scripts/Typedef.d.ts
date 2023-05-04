@@ -386,6 +386,8 @@ type TitleName =
 
 type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 
+type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
+
 //#endregion
 
 //#region Server Messages

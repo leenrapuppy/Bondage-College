@@ -90,6 +90,7 @@ var DialogLockMenu = false;
 var DialogCraftingMenu = false;
 var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
+/** @type {"" | ModuleType} */
 var DialogGamingPreviousModule = "";
 var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
 /**
@@ -538,7 +539,9 @@ function DialogStartKinkyDungeon() {
  * @returns {void}
  */
 function DialogEndKinkyDungeon() {
-	CommonSetScreen(DialogGamingPreviousModule, DialogGamingPreviousRoom);
+	if (DialogGamingPreviousModule) {
+		CommonSetScreen(DialogGamingPreviousModule, DialogGamingPreviousRoom);
+	}
 }
 
 /**
