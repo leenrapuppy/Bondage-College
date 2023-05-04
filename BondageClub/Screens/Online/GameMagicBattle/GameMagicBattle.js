@@ -215,7 +215,7 @@ function GameMagicBattleClick() {
 		return;
 	}
 	if (MouseIn(1815, 190, 90, 90) && (GameMagicBattleGetStatus() == "") && (Player.Game.MagicBattle.House.indexOf("House") == 0) && Player.CanChangeOwnClothes()) {
-		MagicSchoolLaboratoryPrepareNPC(Player, Player.Game.MagicBattle.House.replace("House", ""));
+		MagicSchoolLaboratoryPrepareNPC(Player, /** @type {MagicSchoolHouse} */(Player.Game.MagicBattle.House.replace("House", "")));
 		ChatRoomCharacterUpdate(Player);
 		return;
 	}
