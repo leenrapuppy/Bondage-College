@@ -1568,8 +1568,7 @@ function PrivateWearRing(C, Color) {
 	InventoryWear(C, "Rings", "RightHand", Color);
 	let Item = InventoryGet(C, "RightHand");
 	if (Item == null) return;
-	if (Item.Property == null) Item.Property = {};
-	Item.Property.Type = "t0i0m0r2p0";
+	ModularItemSetOptionByName(C, Item, "t0i0m0r2p0");
 	CharacterRefresh(C);
 }
 

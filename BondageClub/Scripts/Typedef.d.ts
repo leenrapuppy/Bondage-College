@@ -520,7 +520,8 @@ type CharacterReferenceTag =
 
 type CommonChatTags =
 	| CharacterReferenceTag
-	| "AssetName";
+	| "AssetName"
+	| "Automatic";
 
 /**
  * A dictionary entry containing a replacement tag to be replaced by some value. The replacement strategy depends on
@@ -1949,6 +1950,7 @@ interface ExtendedItemScriptHookStruct<
 	validate: null | ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	publishAction: null | ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	init: null | ExtendedItemScriptHookCallbacks.Init<DataType>,
+	setOption: null | ExtendedItemScriptHookCallbacks.SetOption<DataType, OptionType>,
 	beforeDraw: null | ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
 	afterDraw: null | ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
 	scriptDraw: null | ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
@@ -1966,6 +1968,7 @@ interface ExtendedItemCapsScriptHooksStruct<
 	Validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	PublishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	Init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+	SetOption?: ExtendedItemScriptHookCallbacks.SetOption<DataType, OptionType>,
 	BeforeDraw?: ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
 	AfterDraw?: ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
 	ScriptDraw?: ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
@@ -1982,6 +1985,7 @@ interface ExtendedItemCallbackStruct<
 	validate?: ExtendedItemCallbacks.Validate<OptionType>,
 	publishAction?: ExtendedItemCallbacks.PublishAction<OptionType>,
 	init?: ExtendedItemCallbacks.Init,
+	setOption?: ExtendedItemCallbacks.SetOption<OptionType>,
 	beforeDraw?: ExtendedItemCallbacks.BeforeDraw,
 	afterDraw?: ExtendedItemCallbacks.AfterDraw,
 	scriptDraw?: ExtendedItemCallbacks.ScriptDraw,
@@ -2041,6 +2045,17 @@ declare namespace ExtendedItemCallbacks {
 	 * @returns Whether the items properties were actually updated or not
 	 */
 	type Init = ExtendedItemCallback<[C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `SetOption` functions.
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @param push Whether to push to changes to the server
+	 */
+	type SetOption<
+		OptionType extends ExtendedItemOption
+	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType, push: boolean], string>;
 	/**
 	 * Callback for extended item `AfterDraw` functions.
 	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
@@ -2151,6 +2166,21 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	type Init<
 		DataType extends ExtendedItemData<any>
 	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `SetOption` functions.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @param push Whether to push to changes to the server
+	 * @returns
+	 */
+	type SetOption<
+		DataType extends ExtendedItemData<any>,
+		OptionType extends ExtendedItemOption
+	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType, push: boolean], string>;
 	/**
 	 * Callback for extended item `AfterDraw` functions.
 	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.

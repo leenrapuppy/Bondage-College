@@ -37,7 +37,7 @@ var CommonTouchList = null;
  * Additionally, sending the following tags will ensure that asset names in messages are correctly translated by
  * recipients:
  * ASSET_NAME: (substituted with the localized name of the asset, if available)
- * @type {Record<"SOURCE_CHAR"|"DEST_CHAR"|"DEST_CHAR_NAME"|"TARGET_CHAR"|"TARGET_CHAR_NAME"|"ASSET_NAME", CommonChatTags>}
+ * @type {Record<"SOURCE_CHAR"|"DEST_CHAR"|"DEST_CHAR_NAME"|"TARGET_CHAR"|"TARGET_CHAR_NAME"|"ASSET_NAME"|"AUTOMATIC", CommonChatTags>}
  */
 const CommonChatTags = {
 	SOURCE_CHAR: "SourceCharacter",
@@ -46,6 +46,7 @@ const CommonChatTags = {
 	TARGET_CHAR: "TargetCharacter",
 	TARGET_CHAR_NAME: "TargetCharacterName",
 	ASSET_NAME: "AssetName",
+	AUTOMATIC: "Automatic",
 };
 
 String.prototype.replaceAt=function(index, character) {

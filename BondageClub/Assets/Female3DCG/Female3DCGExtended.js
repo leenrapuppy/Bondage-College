@@ -5897,7 +5897,7 @@ var AssetFemale3DCGExtended = {
 				],
 				ScriptHooks: {
 					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDrawHook,
-					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExitHook,
+					SetOption: InventoryItemVulvaClitAndDildoVibratorbeltSetOptionHook,
 				},
 				DialogPrefix: {
 					Chat: ({previousOption, newOption}) => {
@@ -5921,6 +5921,29 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LoversVibrator
+		FuturisticVibrator: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.AUTOMATIC,
+				],
+				ScriptHooks: {
+					Load: InventoryItemVulvaFuturisticVibratorLoadHook,
+					Draw: InventoryItemVulvaFuturisticVibratorDrawHook,
+					Click: InventoryItemVulvaFuturisticVibratorClickHook,
+					Exit: InventoryItemVulvaFuturisticVibratorExitHook,
+					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemVulvaFuturisticVibratorScriptDrawHook,
+				},
+				BaselineProperty: {
+					AccessMode: "",
+					TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
+				}
+			},
+		}, // FuturisticVibrator
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -7563,6 +7586,8 @@ var AssetFemale3DCGExtended = {
 					Draw: InventoryItemMouthFuturisticPanelGagDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemMouthFuturisticPanelGagScriptDrawHook,
+					BeforeDraw: AssetsItemMouthFuturisticPanelGagBeforeDrawHook,
 				},
 				DialogPrefix: {
 					Header: "ItemMouthFuturisticPanelGagSelect",
@@ -9262,7 +9287,7 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { ShowText: true },
 				ScriptHooks: {
-					Click: InventoryItemPelvisLoveChastityBeltClick,
+					SetOption: InventoryItemPelvisLoveChastityBeltSetOptionHook,
 					Draw: InventoryItemPelvisLoveChastityBeltDraw,
 					Validate: InventoryItemPelvisLoveChastityBeltValidate,
 				},
@@ -9271,6 +9296,35 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LoveChastityBelt
+		FuturisticTrainingBelt: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				Options: [VibratorModeSet.STANDARD],
+				ScriptHooks: {
+					Load: InventoryItemPelvisFuturisticTrainingBeltLoadHook,
+					Click: InventoryItemPelvisFuturisticTrainingBeltClickHook,
+					Draw: InventoryItemPelvisFuturisticTrainingBeltDrawHook,
+					Exit: InventoryItemPelvisFuturisticTrainingBeltExitHook,
+					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemPelvisFuturisticTrainingBeltScriptDraw,
+				},
+				BaselineProperty: {
+					ShowText: false,
+					NextShockTime: 0,
+					PunishStruggle: false,
+					PunishStruggleOther: false,
+					PunishOrgasm: false,
+					PunishStandup: false,
+					PunishSpeech: 0,
+					PunishRequiredSpeech: 0,
+					PunishRequiredSpeechWord: "Miss",
+					PunishProhibitedSpeech: 0,
+					PunishProhibitedSpeechWords: "I,me,am,my,im",
+					PublicModeCurrent: 0,
+					PublicModePermission: 0,
+				},
+			},
+		}, // FuturisticTrainingBelt
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {

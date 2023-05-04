@@ -3836,7 +3836,6 @@ var AssetFemale3DCG = [
 				Difficulty: 3, AllowLock: true, DrawLocks: false, Time: 10, Prerequisite: ["AccessVulva", "HasVagina"],
 				FuturisticRecolor: true, Effect: [ "Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "FillVulva", "Edged"],
 				ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
-				AllowType: ["Off", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
 				DynamicScriptDraw: true,
 				Extended: true,
 				Layer: [
@@ -4220,7 +4219,7 @@ var AssetFemale3DCG = [
 				Audio: "FuturisticApply", Prerequisite: ["AccessVulva", "VulvaEmpty", "ClitEmpty", "ButtEmpty", "HasVagina"],
 				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"],
 				FuturisticRecolor: true, Effect: ["FillVulva", "UseRemote", "Egged", "Chaste", "Edged"], AllowEffect: ["Vibrating", "DenialMode", "RuinOrgasms"],
-				Block: ["ItemVulvaPiercings", "ItemButt", "ItemVulva"], AllowType: [], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }],
+				Block: ["ItemVulvaPiercings", "ItemButt", "ItemVulva"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }],
 				Extended: true, HasType: false, DynamicScriptDraw: true,
 				Layer: [
 					{ Name: "Display", AllowColorize: true , ParentGroup: null},
