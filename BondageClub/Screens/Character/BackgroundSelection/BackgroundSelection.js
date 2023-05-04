@@ -3,7 +3,7 @@
 var BackgroundSelectionBackground = "Introduction";
 /** @type {string[]} */
 var BackgroundSelectionList = [];
-/** @type {string[]} */
+/** @type {BackgroundTag[]} */
 var BackgroundSelectionTagList = [];
 var BackgroundSelectionIndex = 0;
 var BackgroundSelectionSelect = "";
@@ -88,7 +88,7 @@ function BackgroundSelectionInputChanged() {
 function BackgroundSelectionTagChanged() {
 	const DD = /** @type {HTMLSelectElement} */(document.getElementById("TagDropDown-select"));
 	if (DD == null) return;
-	BackgroundSelectionList = BackgroundsGenerateList((DD.selectedIndex == 0) ? BackgroundSelectionTagList : [DD.options[DD.selectedIndex].text]);
+	BackgroundSelectionList = BackgroundsGenerateList((DD.selectedIndex == 0) ? BackgroundSelectionTagList : [/** @type {BackgroundTag} */(DD.options[DD.selectedIndex].text)]);
 	BackgroundSelectionView = BackgroundSelectionAll.slice().sort(BackGroundSelectionSort);
 	BackgroundSelectionInputChanged();
 	if (BackgroundSelectionOffset >= BackgroundSelectionView.length) BackgroundSelectionOffset = 0;

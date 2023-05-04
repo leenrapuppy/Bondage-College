@@ -365,6 +365,11 @@ type FetishName =
 	"Pony" | "ABDL" | "Forniphilia"
 	;
 
+type BackgroundTag =
+	"Filter by tag" | "Indoor" | "Outdoor" | "Aquatic" | "Special Events" | "SciFi & Fantasy" |
+	"Club & College" | "Regular house" | "Dungeon" | "Asylum"
+	;
+
 //#endregion
 
 //#region Server Messages
