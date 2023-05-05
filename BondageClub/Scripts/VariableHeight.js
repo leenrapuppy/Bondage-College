@@ -169,7 +169,7 @@ function VariableHeightClick(data) {
 		const args = [C, DialogFocusItem, newOption, previousOption];
 		DialogFocusItem.Property.Revert = false;
 		CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
-		DialogLeave();
+		ExtendedItemExit();
 	}
 }
 

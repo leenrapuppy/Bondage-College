@@ -720,8 +720,6 @@ function TypedItemSetType(data, C, newOption) {
 	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
 	if (newOption.HasSubscreen) {
 		ExtendedItemSubscreen = newOption.Name;
-		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Load`);
-	} else {
-		DialogLeave();
+		CommonCallFunctionByNameWarn(`${data.functionPrefix}${ExtendedItemSubscreen}Load`);
 	}
 }
