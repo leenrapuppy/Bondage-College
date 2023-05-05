@@ -70,6 +70,7 @@ function VariableHeightCreateData(asset,
 		dialogPrefix: {
 			header: DialogPrefix.Header || "VariableHeightSelect",
 			chat: DialogPrefix.Chat || `${key}Set`,
+			option: DialogPrefix.Option | "VariableHeight",
 		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,
@@ -123,7 +124,7 @@ function VariableHeightLoad({ maxHeight, minHeight, slider, getHeight, setHeight
  * @param {VariableHeightData} data - The variable height data for the asset
  * @returns {void} - Nothing
  */
-function VariableHeightDraw({ slider }) {
+function VariableHeightDraw({ slider, drawImages, dialogPrefix }) {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "white", "gray");
 
@@ -132,7 +133,11 @@ function VariableHeightDraw({ slider }) {
 	DrawTextFit(DialogFindPlayer("VariableHeightPercent"), 1405, 555, 250, "white", "gray");
 	ElementPosition(VariableHeightNumerId, 1640, 550, 175);
 
-	DrawButton(1350, 700, 300, 64, DialogFind(Player, "VariableHeightConfirm"), "White", "");
+	const { newOption, previousOption } = VariableHeightConstructOptions(DialogFocusItem);
+	ExtendedItemDrawButton(
+		newOption, previousOption, dialogPrefix.option,
+		1350, 700, drawImages, DialogFocusItem, false,
+	);
 }
 
 /**
