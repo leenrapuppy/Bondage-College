@@ -341,6 +341,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 			PermissionFailure = InventoryBlockedOrLimited(C, item, option.Name);
 			break;
 		case "VariableHeightOption":
+		case "TextItemOption":
 			break;
 		default:
 			console.error(`Unsupported extended item option type: ${option.OptionType}`);

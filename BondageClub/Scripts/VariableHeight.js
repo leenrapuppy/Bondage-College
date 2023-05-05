@@ -157,16 +157,19 @@ function VariableHeightClick(data) {
 
 	// Confirm button
 	if (MouseIn(1350, 700, 300, 64)) {
+		const C = CharacterGetCurrent();
 		const { newOption, previousOption } = VariableHeightConstructOptions(DialogFocusItem);
-		/** @type {Parameters<ExtendedItemCallbacks.PublishAction<VariableHeightOption>>} */
-		const args = [CharacterGetCurrent(), DialogFocusItem, newOption, previousOption];
-		/** @type {string} */
-		const isInvalid = CommonCallFunctionByName(`${data.functionPrefix}Validate`, ...args);
-		if (!isInvalid) {
-			DialogFocusItem.Property.Revert = false;
-			CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
-			DialogLeave();
+		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+		if (requirementMessage) {
+			DialogExtendedMessage = requirementMessage;
+			return;
 		}
+
+		/** @type {Parameters<ExtendedItemCallbacks.PublishAction<VariableHeightOption>>} */
+		const args = [C, DialogFocusItem, newOption, previousOption];
+		DialogFocusItem.Property.Revert = false;
+		CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
+		DialogLeave();
 	}
 }
 
