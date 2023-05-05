@@ -24,7 +24,7 @@ RemoveSuspensionHempRope,,,(You untie the hemp rope from the ceiling and slowly 
 0,1,What kind of test is it?,(She shoves you into a cell and closes the door.),CellPlayerIn(),PrisonPlayerIsHandcuffed()
 0,30,I heard something about a gang of bad girls?,"The gang includes the troublemakers, all of whom should be put in a prison cell.",,!PrisonPlayerIsBadGirl()
 0,40,I don't want to be a part of the Bad Girls Gang anymore.,"Well, if you promise to be good, we'll leave you alone.",,PrisonPlayerIsBadGirl()
-0,,(return the dice),Thanks.,DiceBack(),PrisonPlayerIsBadGirlThief()
+0,,(Return the dice),Thanks.,DiceBack(),PrisonPlayerIsBadGirlThief()
 0,,Okay. Bye! (Leave her.),"Pleased to meet you. I'm DialogCharacterName, I work here as a maid.",DialogLeave(),
 1,20,(Look surprised.),It's good that you're under lock and key!,DialogLeave(),
 20,,"Please, can you let me out?",,CellPlayerAsk(),Player.CanTalk()
