@@ -80,6 +80,8 @@ ClothSlaveRagsBase,Base
 ClothSlaveRagsBaseStains,Stains
 ClothSlaveRagsRope,Rope
 ClothSlaveRagsChains,Chains
+ClothFrilledShirtBase, Latex
+ClothFrilledShirtFrill, Frills
 NecklaceNecklaceLockChain,Chain
 NecklaceNecklaceLockLock,Lock
 NecklaceNecklaceKeyChain,Chain
@@ -1616,3 +1618,4 @@ ItemArmsPrisonSJOpenZip,Zipper
 ItemHoodSensoryDeprivationHoodBase, Latex
 ItemHoodSensoryDeprivationHoodEarCover, Silencer
 ItemHoodSensoryDeprivationHoodLips, Lips
+GlovesLatexShortGloves,Glove
