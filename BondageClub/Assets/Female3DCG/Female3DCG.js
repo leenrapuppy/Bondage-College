@@ -333,6 +333,13 @@ var AssetFemale3DCG = [
 					{ Name: "TextStroke", HasImage: false },
 				],
 			},
+			{
+				Name: "FrilledShirt", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Priority: 30, Top: 163, Left: 50,
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Frill", HasType: false, CopyLayerColor: "Base", },
+				],
+			},
 			// Flat Chest Compatible Clothing
 			{
 				Name: "MaleTankTop1", Gender: "M", Prerequisite: ["HasFlatChest"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"]
@@ -2366,6 +2373,7 @@ var AssetFemale3DCG = [
 			{ Name: "SeethroughSuit", Fetish: ["Nylon"], Value: -1, BuyGroup: "SeethroughSuit", HideForPose: ["BackElbowTouch"] },
 			{ Name: "CowPrintedGloves", Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
 			{ Name: "LatexElbowGloves", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 75, HideForPose: ["BackElbowTouch"] },
+			{ Name: "LatexShortGloves", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 75, Top: 9, HideForPose: ["BackElbowTouch"] },
 			{ Name: "FishnetGloves", Gender: "F", Prerequisite: ["HasBreasts"], Value: 10, DefaultColor: ["#151515"], HideForPose: ["BackElbowTouch"] },
 			{
 				Name: "HaremGlove", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Nylon"], Value: 25,

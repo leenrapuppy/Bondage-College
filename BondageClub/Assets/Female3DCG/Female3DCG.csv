@@ -69,6 +69,7 @@ Cloth,SlaveRags,Slave Rags
 Cloth,Hoodie,Cropped Hoodie
 Cloth,LatexTankTop, Tank Top
 Cloth,CheerleaderTop,Cheerleader Top
+Cloth,FrilledShirt,Latex Shirt
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -519,6 +520,7 @@ Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
 Gloves,BikerGloves,Biker Gloves
 Gloves,CheerleaderPomPoms,Pom Poms
+Gloves,LatexShortGloves,Latex Gloves
 LeftHand,,Left Hand
 LeftHand,Rings,Rings
 RightHand,,Right Hand
