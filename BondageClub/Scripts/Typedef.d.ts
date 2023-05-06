@@ -1841,6 +1841,8 @@ interface PlayerCharacter extends Character {
 		HideShopItems: GenderSetting;
 		AutoJoinSearch: GenderSetting;
 	};
+	/** The list of items we got confiscated in the Prison */
+	ConfiscatedItems?: { Group: AssetGroupName, Name: string }[];
 }
 
 /**

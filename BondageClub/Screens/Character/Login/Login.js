@@ -739,6 +739,7 @@ function LoginResponse(C) {
 			ReputationLoad(C.Reputation);
 			SkillLoad(C.Skill);
 			CraftingLoadServer(C.Crafting);
+			Player.ConfiscatedItems = C.ConfiscatedItems;
 
 			// Calls the preference init to make sure the preferences are loaded correctly
 			PreferenceInitPlayer();
@@ -778,6 +779,8 @@ function LoginResponse(C) {
 			LoginCheatItems();
 			LoginValideBuyGroups();
 			LoginValidateArrays();
+			PrisonRestoreConfiscatedItems();
+
 			if (InventoryBeforeFixes != InventoryStringify(Player)) ServerPlayerInventorySync();
 			CharacterAppearanceValidate(Player);
 			AsylumGGTSSAddItems();

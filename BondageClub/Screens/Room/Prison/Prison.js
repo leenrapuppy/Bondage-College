@@ -3,18 +3,6 @@ var PrisonBackground = "Prison";
 /** @type {null | number} */
 var PrisonNextEventTimer = null;
 var PrisonNextEvent = false;
-/** @type {boolean} */
-var PrisonerMetalCuffsKey = false;
-/** @type {boolean} */
-var PrisonerMetalPadlockKey = false;
-/** @type {boolean} */
-var PrisonerIntricatePadlockKey = false;
-/** @type {boolean} */
-var PrisonerSleepingPills = false;
-/** @type {boolean} */
-var PrisonerSpankingToys = false;
-/** @type {InventoryItem[] | null} */
-var PrisonerConfiscatedHandhelds = null;
 
 var PrisonBehavior = 0;
 
@@ -244,26 +232,33 @@ function PrisonCellPlayerIn() {
 //Player leave in cell
 function PrisonCellPlayerOut() {
 	PrisonPlayerBehindBars = false;
-	if (PrisonerMetalCuffsKey != null) {
-		InventoryAdd(Player, "MetalCuffsKey", "ItemMisc");
-		PrisonerMetalCuffsKey = null;
+	PrisonRestoreConfiscatedItems();
+}
+
+/**
+ * @param {InventoryItem[]} items
+ */
+function PrisonSaveConfiscatedItems(items) {
+	if (!Array.isArray(Player.ConfiscatedItems))
+		Player.ConfiscatedItems = [];
+
+	for (const item of items) {
+		if (Player.ConfiscatedItems.find(i => i.Group === item.Group && i.Name === item.Name))
+			continue;
+
+		Player.ConfiscatedItems.push({ Group: item.Group, Name: item.Name });
 	}
-	if (PrisonerMetalPadlockKey != null) {
-		InventoryAdd(Player, "MetalPadlockKey", "ItemMisc");
-		PrisonerMetalPadlockKey = null;
-	}
-	if (PrisonerIntricatePadlockKey != null) {
-		InventoryAdd(Player, "IntricatePadlockKey", "ItemMisc");
-		PrisonerIntricatePadlockKey = null;
-	}
-	if (PrisonerSleepingPills != null) {
-		InventoryAdd(Player, "RegularSleepingPill", "ItemMouth");
-		PrisonerSleepingPills = null;
-	}
-	if (Array.isArray(PrisonerConfiscatedHandhelds)) {
-		InventoryAddMany(Player, PrisonerConfiscatedHandhelds);
-		PrisonerConfiscatedHandhelds = null;
-	}
+
+	ServerAccountUpdate.QueueData({ ConfiscatedItems: Player.ConfiscatedItems });
+}
+
+/** */
+function PrisonRestoreConfiscatedItems() {
+	if (Array.isArray(Player.ConfiscatedItems))
+		InventoryAddMany(Player, Player.ConfiscatedItems);
+
+	Player.ConfiscatedItems = [];
+	ServerAccountUpdate.QueueData({ ConfiscatedItems: Player.ConfiscatedItems });
 }
 
 //Maid leave the Prison for 5-15 second
@@ -312,7 +307,7 @@ function PrisonHavySearch(C) {
 
 // The Light Search Prozess for the Player
 function PrisonLightSearch(C) {
-	if (PrisonerMetalCuffsKey == null) {
+	if (Player.ConfiscatedItems && Player.ConfiscatedItems.length === 0) {
 		PrisonMaidIsAngry = true;
 		InventoryWear(C, "MetalCuffs", "ItemArms");
 		if (!C.CanTalk) InventoryWear(Player, "HarnessBallGag", "ItemMouth");
@@ -407,18 +402,16 @@ function PrisonMaidHevyTorture() {
 
 //get Hadcuffed Key from Prisoner
 function PrisonDisableKey(C) {
-	if (InventoryAvailable(C, "MetalCuffsKey", "ItemMisc")) {
-		PrisonerMetalCuffsKey = true;
-		InventoryDelete(Player, "MetalCuffsKey", "ItemMisc");
+	const keys = ["MetalCuffsKey", "MetalPadlockKey", "IntricatePadlockKey"];
+
+	for (const keyName of keys) {
+		const item = InventoryDelete(Player, keyName, "ItemMisc", false);
+		if (!item) continue;
+
+		PrisonSaveConfiscatedItems([item]);
 	}
-	if (InventoryAvailable(C, "MetalPadlockKey", "ItemMisc")) {
-		PrisonerMetalPadlockKey = true;
-		InventoryDelete(Player, "MetalPadlockKey", "ItemMisc");
-	}
-	if (InventoryAvailable(C, "IntricatePadlockKey", "ItemMisc")) {
-		PrisonerIntricatePadlockKey = true;
-		InventoryDelete(Player, "IntricatePadlockKey", "ItemMisc");
-	}
+
+	ServerPlayerInventorySync();
 }
 
 /*      Player Dialog     */
@@ -738,14 +731,13 @@ function PrisonArrestHandoverKeys() {
 }
 
 function PrisonArrestHandoverSleepingPills() {
-	PrisonerSleepingPills = true;
-	InventoryDelete(Player, "RegularSleepingPill", "ItemMouth");
+	const pills = InventoryDelete(Player, "RegularSleepingPill", "ItemMouth");
+	PrisonSaveConfiscatedItems([pills]);
 	PrisonSetBehavior(1);
 }
 
 function PrisonArrestHandoverSpankingToys() {
-	PrisonerSpankingToys = true;
-	PrisonerConfiscatedHandhelds = InventoryDeleteGroup(Player, "ItemHandheld");
+	PrisonSaveConfiscatedItems(InventoryDeleteGroup(Player, "ItemHandheld"));
 	PrisonSetBehavior(1);
 }
 
@@ -812,14 +804,14 @@ function PrisonArrestConfiscatKeys() {
 }
 
 function PrisonArrestConfiscatSleepingPills() {
-	PrisonerSleepingPills = true;
-	InventoryDelete(Player, "RegularSleepingPill", "ItemMouth");
+	const pills = InventoryDelete(Player, "RegularSleepingPill", "ItemMouth");
+	PrisonSaveConfiscatedItems([pills]);
 	PrisonSetBehavior(-1);
 	PrisonArrestEquipmentSearch();
 }
 
 function PrisonArrestConfiscatSpankingToys() {
-	PrisonerConfiscatedHandhelds = InventoryDeleteGroup(Player, "ItemHandheld");
+	PrisonSaveConfiscatedItems(InventoryDeleteGroup(Player, "ItemHandheld"));
 	PrisonSetBehavior(-1);
 	PrisonArrestEquipmentSearch();
 }

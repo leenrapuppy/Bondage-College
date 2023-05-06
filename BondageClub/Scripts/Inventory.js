@@ -88,13 +88,14 @@ function InventoryItemCreate(C, Group, Name) {
 * @param {string} DelItemName - The name of the item to delete
 * @param {AssetGroupName} DelItemGroup - The group name of the item to delete
 * @param {boolean} [Push=true] - Set to TRUE to push to the server
+* @return {InventoryItem}
 */
 function InventoryDelete(C, DelItemName, DelItemGroup, Push) {
-
+	let item = null;
 	// First, we remove the item from the player inventory
 	for (let I = 0; I < C.Inventory.length; I++)
 		if ((C.Inventory[I].Name == DelItemName) && (C.Inventory[I].Group == DelItemGroup)) {
-			C.Inventory.splice(I, 1);
+			item = C.Inventory.splice(I, 1);
 			break;
 		}
 
@@ -102,6 +103,7 @@ function InventoryDelete(C, DelItemName, DelItemGroup, Push) {
 	if ((C.ID == 0) && ((Push == null) || Push))
 		ServerPlayerInventorySync();
 
+	return item ? item[0] : null;
 }
 
 /**
@@ -121,6 +123,8 @@ function InventoryDeleteGroup(C, group, push) {
 
 		deleted.push(item);
 		C.Inventory.splice(I, 1);
+		// Move back one to not skip over items
+		I--;
 	}
 
 	if (deleted.length > 0 && (C.ID == 0) && ((push == null) || push))
