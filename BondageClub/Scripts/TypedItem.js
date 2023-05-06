@@ -340,6 +340,9 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 		case "ExtendedItemOption":
 			PermissionFailure = InventoryBlockedOrLimited(C, item, option.Name);
 			break;
+		case "VariableHeightOption":
+		case "TextItemOption":
+			break;
 		default:
 			console.error(`Unsupported extended item option type: ${option.OptionType}`);
 			return "";
@@ -717,8 +720,6 @@ function TypedItemSetType(data, C, newOption) {
 	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
 	if (newOption.HasSubscreen) {
 		ExtendedItemSubscreen = newOption.Name;
-		CommonCallFunctionByNameWarn(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Load`);
-	} else {
-		DialogLeave();
+		CommonCallFunctionByNameWarn(`${data.functionPrefix}${ExtendedItemSubscreen}Load`);
 	}
 }

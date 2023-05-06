@@ -263,6 +263,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 		case "ModularItemOption":
 		case "VibratingItemOption":
 		case "TypedItemOption":
+		case "VariableHeightOption":
 		case "ExtendedItemOption": {
 			Type = (Option.OptionType === "TypedItemOption") ? (Option.Property && Option.Property.Type) || null : Option.Name;
 			Effect = Option.Property && Option.Property.Effect || null;
@@ -332,6 +333,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 			Type = (Option.Property && Option.Property.Type) || null;
 			IsFirst = Type == null;
 			break;
+		case "VariableHeightOption":
 		case "ExtendedItemOption":
 			Type = Option.Name;
 			break;

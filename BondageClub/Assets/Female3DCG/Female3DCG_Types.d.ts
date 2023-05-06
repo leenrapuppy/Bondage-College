@@ -817,6 +817,8 @@ interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> 
 		Header?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
 		Chat?: string | ExtendedItemChatCallback<VariableHeightOption>;
+		/** The dialogue prefix for the name of each option */
+		Option: string;
 	};
 	/** The function that handles finding the current variable height setting */
 	GetHeightFunction?: (property: ItemProperties) => number | null;
