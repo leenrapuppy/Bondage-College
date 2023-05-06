@@ -1225,31 +1225,63 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // CeilingShackles
 		BitchSuit: {
-			Archetype: ExtendedArchetype.TYPED,
+			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
-				Options: [
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				Modules: [
 					{
-						Name: "Zipped",
-						Property: {
-							Type: null,
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
-						}
+						Name: "Zipped", Key: "z",
+						Options: [
+							{ // z0 - Zipped up
+								Property: {
+									Type: "z1",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
+									
+								}
+							},
+							{ // z1 - Unzipped
+								Property: {
+									Type: "z3",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+								}
+							},
+							{ // z2 - Seemless
+								Property: {
+									Type: "z1",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
+									
+								}
+							},
+							{ // z3 - Exposed
+								Property: {
+									Type: "z4",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+								}
+							},
+						],
 					},
 					{
-						Name: "z1", // Unzipped
-						Property: {
-							Type: "z1",
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
+						Name: "Straps", Key: "st",
+						Options: [ 
+							{},
+							{ Property: { Difficulty: 3 }, },
+						],
 					},
 					{
-						Name: "z2", // Exposed
-						Property: {
-							Type: "z2",
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
+						Name: "Clothes", Key: "cl",
+						Options: [
+							{ Property: { Hide: ["Cloth", "ClothLower"], } },
+							{},
+						],
+					},
+					{
+						Name: "Underwear", Key: "un",
+						Options: [
+							{ Property: { Hide: ["Corset", "Garters"], } },
+							{ Property: { OverridePriority: 14, Hide: ["SuitLower", "Socks"], }, },
+						],
 					},
 				],
 				ChangeWhenLocked: false,
