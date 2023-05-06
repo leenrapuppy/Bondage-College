@@ -860,7 +860,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PantBoots", Gender: "F", Prerequisite: ["HasVagina"], Value: 40, Left: 120, Top: 450, Extended: true,
+				Name: "PantBoots", Gender: "F", Prerequisite: ["HasVagina"], Value: 40, Left: 120, Top: 450, Priority: 22, Extended: true,
 				Layer: [
 					{ Name: "Base", HasType: false, },
 					{ Name: "Stripe", HasType: false, AllowModuleTypes: ["s1"], },
