@@ -558,7 +558,7 @@ function CharacterAppearanceBuildCanvas(C) {
 /**
  * Returns a value from the character current appearance
  * @param {Character} C - The character to get values from
- * @param {string} Group - The name of the group, whose values we want to get
+ * @param {AssetGroupName} Group - The name of the group, whose values we want to get
  * @param {string} Type - The name of the value, we want to get
  * @returns {*} - The return value
  */
@@ -964,14 +964,14 @@ function AppearancePreviewUseCharacter(assetGroup) {
 /**
  * Sets an item in the character appearance
  * @param {Character} C - The character whose appearance should be changed
- * @param {string} Group - The name of the corresponding groupr for the item
+ * @param {AssetGroupName} Group - The name of the corresponding groupr for the item
  * @param {Asset|null} ItemAsset - The asset collection of the item to be changed
  * @param {string|string[]} [NewColor] - The new color (as "#xxyyzz" hex value) for that item
  * @param {number} [DifficultyFactor=0] - The difficulty, on top of the base asset difficulty, that should be assigned
  * to the item
  * @param {number} [ItemMemberNumber=-1] - The member number of the player adding the item - defaults to -1
  * @param {boolean} [Refresh=true] - Determines, wether the character should be redrawn after the item change
- * @returns {void} - Nothing
+ * @returns {null | Item} - Thew newly created item or `null` if the asset does not exist
  */
 function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFactor, ItemMemberNumber, Refresh) {
 	// Sets the difficulty factor
@@ -989,9 +989,10 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
 	} else if (ItemAsset != null) ItemColor = ItemAsset.DefaultColor ? ItemAsset.DefaultColor : ItemAsset.Group.ColorSchema[0];
 
 	// Add the new item to the character appearance
+	/** @type {null | Item} */
+	let NA = null;
 	if (ItemAsset != null) {
-		/** @type {Item} */
-		const NA = {
+		NA = {
 			Asset: ItemAsset,
 			Difficulty: parseInt((ItemAsset.Difficulty == null) ? 0 : ItemAsset.Difficulty) + parseInt(DifficultyFactor),
 			Color: ((NewColor == null) ? ItemColor : NewColor),
@@ -1003,13 +1004,13 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
 
 	// Draw the character canvas and calculate the effects on the character
 	if (Refresh == null || Refresh) CharacterRefresh(C, false);
-
+	return NA;
 }
 
 /**
  * Cycle in the appearance assets to find the next item in a group
  * @param {Character} C - The character whose assets are used
- * @param {string} Group - The name of the group to cycle
+ * @param {AssetGroupName} Group - The name of the group to cycle
  * @param {boolean} [Forward=true] - Sets the direction of the cycling
  * @returns {Asset|null} - The next item to select, or null if there's none applicable
  */

@@ -594,21 +594,21 @@ function InventoryWearCraft(Item, C, Craft) {
 }
 
 /**
-* Makes the character wear an item on a body area
-* @param {Character} C - The character that must wear the item
-* @param {string} AssetName - The name of the asset to wear
-* @param {AssetGroupName} AssetGroup - The name of the asset group to wear
-* @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
-* @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
-* @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
-* @param {CraftingItem} [Craft] - The crafting properties of the item
-* @param {boolean} [Refresh] - Whether to refresh the character and push the changes to the server
-*/
+ * Makes the character wear an item on a body area
+ * @param {Character} C - The character that must wear the item
+ * @param {string} AssetName - The name of the asset to wear
+ * @param {AssetGroupName} AssetGroup - The name of the asset group to wear
+ * @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
+ * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
+ * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
+ * @param {CraftingItem} [Craft] - The crafting properties of the item
+ * @param {boolean} [Refresh] - Whether to refresh the character and push the changes to the server
+ * @returns {null | Item} - Thew newly created item or `null` if the asset does not exist
+ */
 function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft, Refresh=true) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
-	if (!A) return;
-	CharacterAppearanceSetItem(C, AssetGroup, A, (ItemColor == null || ItemColor == "Default") ? [...A.DefaultColor] : ItemColor, Difficulty, MemberNumber, false);
-	let Item = InventoryGet(C, AssetGroup);
+	if (!A) return null;
+	const item = CharacterAppearanceSetItem(C, AssetGroup, A, (ItemColor == null || ItemColor == "Default") ? [...A.DefaultColor] : ItemColor, Difficulty, MemberNumber, false);
 
 	/**
 	 * TODO: grant tighter control over setting expressions.
@@ -619,10 +619,11 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	if (A.ExpressionTrigger != null) {
 		InventoryExpressionTriggerApply(C, A.ExpressionTrigger);
 	}
-	InventoryWearCraft(Item, C, Craft);
+	InventoryWearCraft(item, C, Craft);
 	if (Refresh) {
 		CharacterRefresh(C, true);
 	}
+	return item;
 }
 
 /**
