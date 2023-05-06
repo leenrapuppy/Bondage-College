@@ -388,6 +388,20 @@ type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 
 type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
 
+type ActivityPrerequisite =
+	"UseMouth" | "UseTongue" | "TargetMouthBlocked" | "IsGagged" | "TargetKneeling" | "UseHands" |
+	"UseArms" | "UseFeet" | "CantUseArms" | "CantUseFeet" | "TargetCanUseTongue" | "TargetMouthOpen" |
+	"VulvaEmpty" | "AssEmpty" | "UseVulva" | "UseAss" | "MoveHead" | "ZoneAccessible" |
+	"TargetZoneAccessible" | "ZoneNaked" | "TargetZoneNaked" | "TargetHasPenis" | "HasPenis" |
+	"CanUsePenis" | "TargetHasVagina" | "HasVagina" | "TargetHasBreasts" | "HasBreasts" |
+	"Sisters" | "Brothers" | "SiblingsWithDifferentGender" | "TargetHasFlatChest" | "HasFlatChest" |
+
+	"Needs-SpankItem" | "Needs-TickleItem" | "Needs-RubItem" | "Needs-RollItem" | "Needs-MasturbateItem" |
+	"Needs-PourItem" | "Needs-ShockItem" | "Needs-Inject" | "Needs-PenetrateItem" | "Needs-SipItem"
+	;
+
+type AssetCategory = "Medical" | "Extreme" | "Pony" | "SciFi" | "ABDL" | "Fantasy";
+
 //#endregion
 
 //#region Server Messages
@@ -437,18 +451,25 @@ interface IChatRoomSyncArousalMessage {
 
 //#region Chat
 
+type ChatRoomLovershipOption = "" | "CanOfferBeginWedding" | "CanBeginWedding";
+type ChatRoomOwnershipOption = "" | "CanOfferEndTrial" | "CanOfferTrial" | "CanEndTrial";
+type ChatRoomSpaceType = "X" | "" | "M" | "Asylum";
+type ChatRoomGame = "" | "LARP" | "MagicBattle" | "GGTS";
+type ChatRoomBlockCategory = AssetCategory | "Leashing" | "Photos" | "Arousal";
+type ChatRoomLanguage = "EN" | "DE" | "FR" | "ES" | "CN" | "RU";
+
 interface ChatRoom {
 	Name: string;
 	Description: string;
 	Admin: number[];
 	Ban: number[];
 	Limit: number;
-	Game: string;
+	Game: ChatRoomGame;
 	Background: string;
 	Private: boolean;
 	Locked: boolean;
-	BlockCategory: string[];
-	Language: string;
+	BlockCategory: ChatRoomBlockCategory[];
+	Language: ChatRoomLanguage;
 	Character?: any[]; /* From server, not really a Character object */
 }
 
@@ -1134,7 +1155,7 @@ interface Asset {
 	MinOpacity: number;
 	MaxOpacity: number;
 	Audio?: string;
-	Category?: readonly string[];
+	Category?: readonly AssetCategory[];
 	Fetish?: readonly FetishName[];
 	CustomBlindBackground?: string;
 	ArousalZone: AssetGroupItemName;
@@ -1226,7 +1247,7 @@ interface Activity {
 	Name: ActivityName;
 	MaxProgress: number;
 	MaxProgressSelf?: number;
-	Prerequisite: string[];
+	Prerequisite: ActivityPrerequisite[];
 	Target: AssetGroupItemName[];
 	TargetSelf?: AssetGroupItemName[] | true;
 	/** Whether to reverse the prerequisite checks for that one */
@@ -3583,6 +3604,23 @@ interface ArousalSettingsType {
 	OrgasmStage?: number;
 	OrgasmCount?: number;
 	DisableAdvancedVibes: boolean;
+}
+
+// #end region
+
+// #region fortune wheel
+
+/** A union of valid wheel of fortune button colors */
+type WheelFortuneColor = "Blue" | "Gold" | "Gray" | "Green" | "Orange" | "Purple" | "Red" | "Yellow";
+
+/** Base type for fortune wheel options */
+interface WheelFortuneOptionType {
+    /** A single-character UTF16 string with the option's ID */
+    ID: string;
+    /** The color of the option button */
+    Color: WheelFortuneColor;
+    /** An optional script that will be executed whenever the option is picked */
+    Script?: () => void;
 }
 
 // #end region

@@ -2,8 +2,9 @@
 var PrivateBedBackground = "Private";
 /** @type {Character[]} */
 var PrivateBedCharacter = [];
+/** @type {ActivityName} */
 var PrivateBedActivity = "Caress";
-/** @type {string[]} */
+/** @type {ActivityName[]} */
 var PrivateBedActivityList = [];
 /** @type {string[]} */
 var PrivateBedLog = [];
@@ -195,7 +196,7 @@ function PrivateBedRun() {
  * @param {Character} Source - The source character.
  * @param {Character} Target - The target character.
  * @param {AssetGroup} Group - The zone / group to target.
- * @param {String} Activity - The activity to do.
+ * @param {ActivityName} Activity - The activity to do.
  * @returns {boolean} - TRUE if the activity could start.
  */
 function PrivateBedActivityStart(Source, Target, Group, Activity) {

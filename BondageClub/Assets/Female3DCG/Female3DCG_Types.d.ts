@@ -228,7 +228,7 @@ interface AssetDefinition {
 	Audio?: string;
 
 	/** A list of categories. Used to prevent the asset to be used, per chatroom settings */
-	Category?: string[];
+	Category?: AssetCategory[];
 
 	Fetish?: FetishName[];
 	ArousalZone?: AssetGroupItemName;

@@ -1444,7 +1444,7 @@ function InventoryStringify(C) {
 
 /**
  * Returns TRUE if the inventory category is blocked in the current chat room
- * @param {readonly string[]} Category - An array of string containing all the categories to validate
+ * @param {readonly AssetCategory[]} Category - An array of string containing all the categories to validate
  * @return {boolean} - TRUE if it's blocked
  */
 function InventoryChatRoomAllow(Category) {

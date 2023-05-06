@@ -9265,7 +9265,7 @@ var PoseFemale3DCG = [
 
 /**
  * List of all available pose names in the game
- * @constant {string[]}
+ * @constant {AssetPoseName[]}
  */
 var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 
@@ -9695,7 +9695,7 @@ var ActivityFemale3DCG = [
 
 /**
  * Display order for activities.
- * @type string[]
+ * @type {ActivityName[]}
  */
 let ActivityFemale3DCGOrdering = ActivityFemale3DCG.map(a => a.Name);
 

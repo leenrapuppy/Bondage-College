@@ -1,7 +1,8 @@
 "use strict";
 var ChatBlockItemBackground = "Sheet";
+/** @type {ChatRoomBlockCategory[]} */
 var ChatBlockItemList = ["ABDL", "SciFi", "Fantasy", "Leashing", "Photos", "Arousal"];
-/** @type {string[]} */
+/** @type {ChatRoomBlockCategory[]} */
 var ChatBlockItemCategory = [];
 var ChatBlockItemEditable = true;
 /** @type { { Screen?: string; } } */
