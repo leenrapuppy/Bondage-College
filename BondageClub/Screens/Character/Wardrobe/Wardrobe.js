@@ -237,10 +237,19 @@ function WardrobeFastLoad(C, W, Update) {
 			.forEach(g => {
 				if (C.Appearance.find(a => a.Asset.Group.Name == g.Name) == null) {
 					// For a group with a mirrored group, we copy the opposite if it exists
-					if (g.MirrorGroup && InventoryGet(C, g.MirrorGroup)) {
-						C.Appearance.push({ Asset: AssetGet(C.AssetFamily, g.Name, InventoryGet(C, g.MirrorGroup).Asset.Name), Difficulty: 0, Color: InventoryGet(C, g.MirrorGroup).Color });
+					const mirrorItem = g.MirrorGroup ? InventoryGet(C, g.MirrorGroup) : null;
+					if (mirrorItem) {
+						CharacterAppearanceSetItem(
+							C, g.Name,
+							AssetGet(C.AssetFamily, g.Name, mirrorItem.Asset.Name),
+							mirrorItem.Color, null, null, false,
+						);
 					} else {
-						C.Appearance.push({ Asset: AssetGroupGet(C.AssetFamily, g.Name).Asset[0], Difficulty: 0, Color: "Default" });
+						CharacterAppearanceSetItem(
+							C, g.Name,
+							AssetGroupGet(C.AssetFamily, g.Name).Asset[0],
+							null, null, null, false,
+						);
 					}
 				}
 			});

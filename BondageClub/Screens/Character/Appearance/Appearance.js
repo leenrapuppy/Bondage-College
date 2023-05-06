@@ -96,7 +96,7 @@ function CharacterAppearanceValidate(C) {
 		if (!AssetGroup[A].AllowNone && (CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Name") == "None"))
 			for (let B = 0; B < Asset.length; B++)
 				if (Asset[B].Group.Name == AssetGroup[A].Name) {
-					C.Appearance.push({ Asset: Asset[B], Color: Asset[B].Group.ColorSchema[0] });
+					CharacterAppearanceSetItem(C, Asset[B].Group.Name, Asset[B], Asset[B].Group.ColorSchema[0], null, null, false);
 					Refresh = true;
 					break;
 				}

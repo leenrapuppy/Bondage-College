@@ -745,6 +745,7 @@ function InventoryRandomExtend(C, GroupName) {
  * @returns {Asset|null} - The randomly selected asset or `null` if none found
  */
 function InventoryGetRandom(C, GroupName, AllowedAssets, IgnorePrerequisites = false) {
+	/** @type {{ Asset: Asset, Rank: number }[]} */
 	var List = [];
 	var AssetList = AllowedAssets || Asset;
 	var RandomOnly = (AllowedAssets == null);
