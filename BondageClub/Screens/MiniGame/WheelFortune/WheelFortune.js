@@ -1,5 +1,6 @@
 "use strict";
 var WheelFortuneBackground = "Black";
+/** @type {"" | ModuleType} */
 var WheelFortuneEntryModule = "";
 var WheelFortuneEntryScreen = "";
 /** @type {null | Character} */
@@ -20,6 +21,8 @@ var WheelFortuneEncaseList = ["Coffin", "VacBedDeluxe", "CryoCapsule", "DisplayC
 var WheelFortuneEncaseClosedList = ["Coffin", "CryoCapsule"];
 var WheelFortunePasswordChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var WheelFortuneDefault = "ABCFGHKLMNPQRSUVWabcfgj$!-()0123456";
+
+/** @type {WheelFortuneOptionType[]} */
 var WheelFortuneOption = [
 	{
 		// Gagged
@@ -906,7 +909,9 @@ function WheelFortuneResult() {
 		let Msg = TextGet("Result" + (WheelFortuneRoleplay ? "Roleplay" : "")) + " " + TextGet("Option" + WheelFortuneValue);
 		ServerSend("ChatRoomChat", { Content: Msg, Type: "Emote" });
 	}
-	CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	if (WheelFortuneEntryModule) {
+		CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	}
 	if (!WheelFortuneRoleplay)
 		for (let O of WheelFortuneOption)
 			if (O.ID == WheelFortuneValue)
@@ -919,5 +924,7 @@ function WheelFortuneResult() {
  * @returns {void} - Nothing
  */
 function WheelFortuneExit() {
-	if ((WheelFortuneVelocity == 0) && !WheelFortuneForced) CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	if (WheelFortuneVelocity == 0 && !WheelFortuneForced && WheelFortuneEntryModule) {
+		CommonSetScreen(WheelFortuneEntryModule, WheelFortuneEntryScreen);
+	}
 }

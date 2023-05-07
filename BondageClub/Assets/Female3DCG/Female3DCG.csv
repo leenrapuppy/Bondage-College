@@ -69,6 +69,7 @@ Cloth,SlaveRags,Slave Rags
 Cloth,Hoodie,Cropped Hoodie
 Cloth,LatexTankTop, Tank Top
 Cloth,CheerleaderTop,Cheerleader Top
+Cloth,FrilledShirt,Latex Shirt
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -162,6 +163,7 @@ ClothLower,CrossSkirt,Cross Skirt
 ClothLower,CheerleaderSkirt,Cheerleader Skirt
 ClothLower,CrossSkirtLight,Cross Skirt (light)
 ClothLower,TulleSkirt,Fitted Pleated Skirt
+ClothLower,PantBoots,Long Latex Pants
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
@@ -518,6 +520,7 @@ Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
 Gloves,BikerGloves,Biker Gloves
 Gloves,CheerleaderPomPoms,Pom Poms
+Gloves,LatexShortGloves,Latex Gloves
 LeftHand,,Left Hand
 LeftHand,Rings,Rings
 RightHand,,Right Hand
@@ -1104,7 +1107,6 @@ ItemArms,SteelCuffs,Steel Cuffs
 ItemArms,FuturisticCuffs,Futuristic Cuffs
 ItemArms,OrnateCuffs,Ornate Cuffs
 ItemArms,HighStyleSteelCuffs,HighStyle Steel Cuffs
-ItemArms,MittenChain1,Mittens Chain
 ItemArms,FourLimbsShackles,Four Limbs Shackles
 ItemArms,Manacles,Manacles
 ItemArms,FullBodyShackles,Full Body Shackles
@@ -1162,6 +1164,7 @@ ItemArms,BondageBra,Bondage Bra
 ItemArms,SmoothLeatherArmbinder1,Smooth Lacing Leather Armbinder
 ItemArms,CanvasStraitjacket1,Canvas Straitjacket 1
 ItemArms,SleepSac,SleepSac
+ItemArms,PrisonSJ,Latex SJ
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1578,6 +1581,7 @@ ItemHood,LatexBunny,Latex Bunny
 ItemHood,FoxHood,Fox Hood
 ItemHood,Pantyhood,Panty hood
 ItemHood,VacHood, Vac Hood
+ItemHood,SensoryDeprivationHood,Sensory Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
@@ -1596,7 +1600,7 @@ ItemMisc,TimerPasswordPadlock,Timer Password Lock
 ItemMisc,OwnerPadlock,Owner Padlock
 ItemMisc,OwnerTimerPadlock,Owner Timer Padlock
 ItemMisc,LoversPadlock,Lovers Padlock
-ItemMisc,FamilyPadlock,Family Padlock
+ItemMisc,FamilyPadlock,D/s Family Padlock
 ItemMisc,LoversTimerPadlock,Lovers Timer Padlock
 ItemMisc,MistressPadlock,Mistress Padlock
 ItemMisc,PandoraPadlock,Pandora's Box Padlock
@@ -1606,7 +1610,7 @@ ItemMisc,SafewordPadlock,Safeword Padlock
 ItemMisc,MetalPadlockKey,Metal Padlock Key
 ItemMisc,OwnerPadlockKey,Owner Padlock Key
 ItemMisc,LoversPadlockKey,Lovers Padlock Key
-ItemMisc,FamilyPadlockKey,Family Padlock Key
+ItemMisc,FamilyPadlockKey,D/s Family Padlock Key
 ItemMisc,MistressPadlockKey,Mistress Padlock Key
 ItemMisc,PandoraPadlockKey,Pandora's Box Padlock Key
 ItemMisc,MetalCuffsKey,Metal Cuffs Key

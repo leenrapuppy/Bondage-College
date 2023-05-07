@@ -398,17 +398,16 @@ function MovieStudioProgress(Movie, Scene, Role) {
 		if (Math.random() >= 0.5) { InventoryWear(MovieStudioActor2, "Catsuit", "Suit", "#202020"); InventoryWear(MovieStudioActor2, "Catsuit", "SuitLower", "#202020"); }
 		else { InventoryWear(MovieStudioActor2, "CorsetBikini1", "Bra", "#202020"); InventoryWear(MovieStudioActor2, "Stockings1", "Socks"); }
 		InventoryWear(MovieStudioActor2, "Glasses1", "Glasses", "#333333");
-		InventoryWear((Maid ? MovieStudioActor1 : MovieStudioActor2), "LeatherCuffs", "ItemArms");
-		InventoryWear((Maid ? MovieStudioActor1 : MovieStudioActor2), "LeatherLegCuffs", "ItemLegs");
-		InventoryWear((Maid ? MovieStudioActor1 : MovieStudioActor2), "LeatherAnkleCuffs", "ItemFeet");
-		if (Math.random() >= 0.5) InventoryWear((Maid ? MovieStudioActor1 : MovieStudioActor2), "X-Cross", "ItemDevices");
+
+		const C = Maid ? MovieStudioActor1 : MovieStudioActor2;
+		InventoryWear(C, "LeatherCuffs", "ItemArms");
+		InventoryWear(C, "LeatherLegCuffs", "ItemLegs");
+		InventoryWear(C, "LeatherAnkleCuffs", "ItemFeet");
+		if (Math.random() >= 0.5) InventoryWear(C, "X-Cross", "ItemDevices");
 		else {
-			var Cuffs = InventoryGet((Maid ? MovieStudioActor1 : MovieStudioActor2), "ItemArms");
-			Cuffs.Property = {};
-			Cuffs.Property.Type = "Wrist";
-			Cuffs.Property.SetPose = ["BackBoxTie"];
-			Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
-			CharacterSetActivePose((Maid ? MovieStudioActor1 : MovieStudioActor2), "Kneel", true);
+			var Cuffs = InventoryGet(C, "ItemArms");
+			TypedItemSetOptionByName(C, Cuffs, "Wrist");
+			CharacterSetActivePose(C, "Kneel", true);
 		}
 	}
 	if ((Movie == "OpenHouse") && (Scene == "1")) {
@@ -467,10 +466,7 @@ function MovieStudioDoActivity(Activity) {
 		InventoryRemove(Player, "ItemFeet");
 		InventoryRemove(Player, "ItemDevices");
 		let Cuffs = InventoryGet(Player, "ItemArms");
-		Cuffs.Property = {};
-		Cuffs.Property.Type = "Wrist";
-		Cuffs.Property.SetPose = ["BackBoxTie"];
-		Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
+		TypedItemSetOptionByName(Player, Cuffs, "Wrist");
 		CharacterRefresh(Player);
 		MovieStudioActor2.FixedImage = "Screens/Room/MovieStudio/XCross.png";
 		MovieStudioActor2.Stage = "20";
@@ -483,10 +479,7 @@ function MovieStudioDoActivity(Activity) {
 		InventoryWear(Player, "LeatherAnkleCuffs", "ItemFeet");
 		InventoryRemove(Player, "ItemDevices");
 		let Cuffs = InventoryGet(Player, "ItemArms");
-		Cuffs.Property = {};
-		Cuffs.Property.Type = "Wrist";
-		Cuffs.Property.SetPose = ["BackBoxTie"];
-		Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
+		TypedItemSetOptionByName(Player, Cuffs, "Wrist");
 		CharacterSetActivePose(Player, "Kneel", true);
 		MovieStudioActor2.FixedImage = "Screens/Room/MovieStudio/XCross.png";
 	}
@@ -496,16 +489,12 @@ function MovieStudioDoActivity(Activity) {
 		InventoryWear(Player, "LeatherAnkleCuffs", "ItemFeet");
 		InventoryRemove(Player, "ItemDevices");
 		let Cuffs = InventoryGet(Player, "ItemArms");
-		Cuffs.Property = {};
-		Cuffs.Property.Type = "Wrist";
-		Cuffs.Property.SetPose = ["BackBoxTie"];
-		Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
+		TypedItemSetOptionByName(Player, Cuffs, "Wrist");
 		CharacterRefresh(Player);
 	}
 	if (Activity == "InterviewMaidTighten") {
 		let Cuffs = InventoryGet(Player, "ItemArms");
-		Cuffs.Property.Type = "Elbow";
-		Cuffs.Property.SetPose = ["BackElbowTouch"];
+		TypedItemSetOptionByName(Player, Cuffs, "Elbow");
 		CharacterRefresh(Player);
 	}
 	if ((Activity == "InterviewMaidOral1") || (Activity == "InterviewMaidOral2") || (Activity == "InterviewMaidOral3") || (Activity == "InterviewMaidOral4") || (Activity == "InterviewMaidOral5")) {
@@ -525,10 +514,7 @@ function MovieStudioDoActivity(Activity) {
 		InventoryWear(MovieStudioActor1, "LeatherLegCuffs", "ItemLegs");
 		InventoryWear(MovieStudioActor1, "LeatherAnkleCuffs", "ItemFeet");
 		let Cuffs = InventoryGet(MovieStudioActor1, "ItemArms");
-		Cuffs.Property = {};
-		Cuffs.Property.Type = "Wrist";
-		Cuffs.Property.SetPose = ["BackBoxTie"];
-		Cuffs.Property.Effect = ["Block", "Prone", "Lock"];
+		TypedItemSetOptionByName(MovieStudioActor1, Cuffs, "Wrist");
 		CharacterRefresh(MovieStudioActor1);
 	}
 	if (Activity == "InterviewMaidBreast") { InventoryWear(MovieStudioActor1, "MaidOutfit2", "Cloth"); InventoryRemove(MovieStudioActor1, "Bra"); }
@@ -1113,7 +1099,7 @@ function MovieStudioDoActivity(Activity) {
 	}
 	if (Activity == "OpenHouseGirlfriendInKennel") {
 		InventoryWear(MovieStudioActor1, "Kennel", "ItemDevices");
-		InventoryGet(MovieStudioActor1, "ItemDevices").Property.Type = "d1p0";
+		ModularItemSetOptionByName(MovieStudioActor1, InventoryGet(MovieStudioActor1, "ItemDevices"), "d1p0");
 		CharacterSetFacialExpression(MovieStudioActor1, "Blush", "ShortBreath", 8);
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes", "Angry", 8);
 		CharacterSetFacialExpression(MovieStudioActor1, "Eyes2", "Angry", 8);
@@ -1121,7 +1107,7 @@ function MovieStudioDoActivity(Activity) {
 	if (Activity == "OpenHouseGirlfriendOutKennel") InventoryRemove(MovieStudioActor1, "ItemDevices");
 	if (Activity == "OpenHouseClientInKennel") {
 		InventoryWear(MovieStudioActor2, "Kennel", "ItemDevices");
-		InventoryGet(MovieStudioActor2, "ItemDevices").Property.Type = "d1p0";
+		ModularItemSetOptionByName(MovieStudioActor2, InventoryGet(MovieStudioActor2, "ItemDevices"), "d1p0");
 		CharacterSetFacialExpression(MovieStudioActor2, "Blush", "ShortBreath", 8);
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes", "Angry", 8);
 		CharacterSetFacialExpression(MovieStudioActor2, "Eyes2", "Angry", 8);

@@ -2,8 +2,7 @@
 
 /**
  * An enum for the options for chat room spaces
- * @readonly
- * @enum {string}
+ * @type {{ MIXED: "X", FEMALE_ONLY: "", MALE_ONLY: "M", ASYLUM: "Asylum" }}
  */
 const ChatRoomSpaceType = {
 	MIXED: "X",
@@ -23,13 +22,17 @@ var ChatRoomLastMessage = [""];
 var ChatRoomLastMessageIndex = 0;
 /** @type {null | number} */
 var ChatRoomTargetMemberNumber = null;
+/** @type {ChatRoomOwnershipOption} */
 var ChatRoomOwnershipOption = "";
+/** @type {ChatRoomLovershipOption} */
 var ChatRoomLovershipOption = "";
 var ChatRoomPlayerCanJoin = false;
 var ChatRoomMoneyForOwner = 0;
 /** @type {number[]} */
 var ChatRoomQuestGiven = [];
+/** @type {ChatRoomSpaceType} */
 var ChatRoomSpace = ChatRoomSpaceType.MIXED;
+/** @type {ChatRoomGame} */
 var ChatRoomGame = "";
 /** @type {null | number} */
 var ChatRoomMoveTarget = null;
@@ -297,13 +300,13 @@ function DialogCanChangeClothes() {
 }
 /**
  * Checks if the specified owner option is available.
- * @param {string} Option - The option to check for availability
+ * @param {ChatRoomOwnershipOption} Option - The option to check for availability
  * @returns {boolean} - TRUE if the current ownership option is the specified one.
  */
 function ChatRoomOwnershipOptionIs(Option) { return (Option == ChatRoomOwnershipOption); }
 /**
  * Checks if the specified lover option is available.
- * @param {string} Option - The option to check for availability
+ * @param {ChatRoomLovershipOption} Option - The option to check for availability
  * @returns {boolean} - TRUE if the current lover option is the specified one.
  */
 function ChatRoomLovershipOptionIs(Option) { return (Option == ChatRoomLovershipOption); }
@@ -793,11 +796,11 @@ function ChatRoomClearAllElements() {
 /**
  * Starts the chatroom selection screen.
  * @param {ChatRoomSpaceType} Space - Name of the chatroom space
- * @param {string} Game - Name of the chatroom game to play
- * @param {string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
- * @param {string} LeaveSpace - Name of the space to go back to when exiting chatsearch.
+ * @param {ChatRoomGame} Game - Name of the chatroom game to play
+ * @param {null | string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
+ * @param {null | ModuleType} LeaveSpace - Name of the space to go back to when exiting chatsearch.
  * @param {string} Background - Name of the background to use in chatsearch.
- * @param {string[]} BackgroundTagList - List of available backgrounds in the chatroom space.
+ * @param {BackgroundTag[]} BackgroundTagList - List of available backgrounds in the chatroom space.
  * @returns {void} - Nothing.
  */
 function ChatRoomStart(Space, Game, LeaveRoom, LeaveSpace, Background, BackgroundTagList) {
@@ -2686,9 +2689,10 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 	}
 	else if (data.Content == "GiveLockpicks") DialogLentLockpicks = true;
 	else if (data.Content == "RequestFullKinkyDungeonData") {
-		KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
-		if (CurrentScreen == "KinkyDungeon")
+		if (CurrentScreen == "KinkyDungeon") {
+			KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
 			KinkyDungeonSendData(KinkyDungeonPackData(true, true, true, true));
+		}
 	}
 	else if (data.Content == "TakeSuitcase") {
 		if (!Player.CanInteract() && ServerChatRoomGetAllowItem(SenderCharacter, Player)) {
@@ -3990,7 +3994,7 @@ function DialogChangeClothes() {
 
 /**
  * Triggered when the player selects an ownership dialog option. (It can change money and reputation)
- * @param {string} RequestType - Type of request being performed.
+ * @param {"Propose" | "Accept" | "Release"} RequestType - Type of request being performed.
  * @returns {void} - Nothing
  */
 function ChatRoomSendOwnershipRequest(RequestType) {
@@ -4006,7 +4010,7 @@ function ChatRoomSendOwnershipRequest(RequestType) {
 
 /**
  * Triggered when the player selects an lovership dialog option. (It can change money and reputation)
- * @param {string} RequestType - Type of request being performed.
+ * @param {"Propose" | "Accept" | "Break"} RequestType - Type of request being performed.
  * @returns {void} - Nothing
  */
 function ChatRoomSendLovershipRequest(RequestType) {
@@ -4045,7 +4049,7 @@ function ChatRoomForbiddenWords() { ForbiddenWordsOpen(); }
 /**
  * Sends a rule / restriction / punishment to the player's slave/lover client, it will be handled on the slave/lover's
  * side when received.
- * @param {string} RuleType - The rule selected.
+ * @param {LogNameType[keyof LogNameType]} RuleType - The rule selected.
  * @param {"Quest" | "Leave"} Option - If the rule is a quest or we should just leave the dialog.
  * @param {"Owner" | "Lover"} Sender - Type of the sender
  * @returns {void} - Nothing
@@ -4059,7 +4063,16 @@ function ChatRoomSendRule(RuleType, Option, Sender) {
 	if ((Option == "Leave") || (Option == "Quest")) DialogLeave();
 }
 
+/**
+ * @param {LogNameType["LoverRule"]} RuleType
+ * @returns {boolean}
+ */
 function ChatRoomGetLoverRule(RuleType) { return ChatRoomGetRule(RuleType, "Lover"); }
+
+/**
+ * @param {LogNameType["OwnerRule"]} RuleType
+ * @returns {boolean}
+ */
 function ChatRoomGetOwnerRule(RuleType) { return ChatRoomGetRule(RuleType, "Owner"); }
 
 /**
@@ -4069,8 +4082,7 @@ function ChatRoomGetOwnerRule(RuleType) { return ChatRoomGetRule(RuleType, "Owne
  * @returns {boolean} - The owner or lover rule corresponding to the requested rule name
  */
 function ChatRoomGetRule(RuleType, Sender) {
-	const QueryLogGroup = /** @type {"OwnerRule" | "LoverRule"}*/(Sender + "Rule");
-	return LogQueryRemote(CurrentCharacter, RuleType, QueryLogGroup);
+	return LogQueryRemote(CurrentCharacter, RuleType, `${Sender}Rule`);
 }
 
 
@@ -4323,9 +4335,11 @@ function ChatRoomOnlineBountyHandleData(data, sender) {
  * @returns {void} - Nothing
  */
 function ChatRoomGameResponse(data) {
-	if (data.Data.KinkyDungeon)
-		KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
-	else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
+	if (data.Data.KinkyDungeon) {
+		if (CurrentScreen == "KinkyDungeon") {
+			KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
+		}
+	} else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
 		ChatRoomOnlineBountyHandleData(data.Data.OnlineBounty, data.Sender);
 	else if (ChatRoomGame == "LARP") GameLARPProcess(data);
 	else if (ChatRoomGame == "MagicBattle") GameMagicBattleProcess(data);
@@ -4445,7 +4459,7 @@ function ChatRoomGetLoadRules(C) {
 /**
  * Handles a response from another player containing the rules that the current player is allowed to read.
  * @param {Character} C - Character to set the rules on
- * @param {LogRecord[]} Rule - An array of rules that the current player can read.
+ * @param {readonly LogRecord[]} Rule - An array of rules that the current player can read.
  * @returns {void} - Nothing
  */
 function ChatRoomSetLoadRules(C, Rule) {
@@ -4490,7 +4504,7 @@ function DialogPhotoPlayer() {
  * @param {number} Top - Position of the area to capture from the top of the canvas
  * @param {number} Width - Width of the area to capture
  * @param {number} Height - Height of the area to capture
- * @param {any} Characters - The characters that will be included in the screenshot
+ * @param {readonly Character[]} Characters - The characters that will be included in the screenshot
  * @returns {void} - Nothing
  */
 function ChatRoomPhoto(Left, Top, Width, Height, Characters) {

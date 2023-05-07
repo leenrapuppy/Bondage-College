@@ -966,11 +966,11 @@ const CraftingValidationRecord = {
 /**
  * Validate and sanitinize crafting properties of the passed item inplace.
  * @param {CraftingItem} Craft - The crafted item properties or `null`
- * @param {Asset | null} Asset - The matching Asset. Will be extracted from the player inventory if `null`
+ * @param {Asset | null} asset - The matching Asset. Will be extracted from the player inventory if `null`
  * @param {boolean} Warn - Whether a warning should logged whenever the crafting validation fails
  * @return {CraftingStatusType} - One of the {@link CraftingStatusType} status codes; 0 denoting an unrecoverable validation error
  */
-function CraftingValidate(Craft, Asset=null, Warn=true) {
+function CraftingValidate(Craft, asset=null, Warn=true) {
 	if (Craft == null) {
 		return CraftingStatusType.CRITICAL_ERROR;
 	}
@@ -979,12 +979,10 @@ function CraftingValidate(Craft, Asset=null, Warn=true) {
 	const Name = Craft.Name;
 
 	// Manually search for the Asset if it has not been provided
-	if (Asset == null) {
-		const Item = Player.Inventory.find((a) => a.Name === Craft.Item);
-		if (Item === undefined) {
+	if (asset == null) {
+		asset = Asset.find(a => a.Name === Craft.Item);
+		if (asset === undefined) {
 			StatusMap.set("Item", CraftingStatusType.CRITICAL_ERROR);
-		} else {
-			Asset = Item.Asset;
 		}
 	}
 
@@ -994,12 +992,12 @@ function CraftingValidate(Craft, Asset=null, Warn=true) {
 	 * can't properly validate them. Note that this will introduce the potential for false negatives.
 	 */
 	for (const [AttrName, {Validate, GetDefault, StatusCode}] of Object.entries(CraftingValidationRecord)) {
-		if (!Validate(Craft, Asset)) {
+		if (!Validate(Craft, asset)) {
 			const AttrValue = (typeof Craft[AttrName] === "string") ? `"${Craft[AttrName]}"` : Craft[AttrName];
 			if (Warn) {
 				console.warn(`Invalid "Craft.${AttrName}" value for crafted item "${Name}": ${AttrValue}`);
 			}
-			Craft[AttrName] = GetDefault(Craft, Asset);
+			Craft[AttrName] = GetDefault(Craft, asset);
 			StatusMap.set(AttrName, StatusCode);
 		} else {
 			StatusMap.set(AttrName, CraftingStatusType.OK);
@@ -1007,9 +1005,9 @@ function CraftingValidate(Craft, Asset=null, Warn=true) {
 	}
 
 	// If the Asset has been explicetly passed then `Craft.Item` errors are fully recoverable
-	if ((Asset != null) && (StatusMap.get("Item") === CraftingStatusType.CRITICAL_ERROR)) {
+	if ((asset != null) && (StatusMap.get("Item") === CraftingStatusType.CRITICAL_ERROR)) {
 		StatusMap.set("Item", CraftingStatusType.ERROR);
-		Craft.Item = Asset.Name;
+		Craft.Item = asset.Name;
 	}
 
 	// Check for extra attributes

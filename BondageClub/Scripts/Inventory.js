@@ -88,13 +88,14 @@ function InventoryItemCreate(C, Group, Name) {
 * @param {string} DelItemName - The name of the item to delete
 * @param {AssetGroupName} DelItemGroup - The group name of the item to delete
 * @param {boolean} [Push=true] - Set to TRUE to push to the server
+* @return {InventoryItem}
 */
 function InventoryDelete(C, DelItemName, DelItemGroup, Push) {
-
+	let item = null;
 	// First, we remove the item from the player inventory
 	for (let I = 0; I < C.Inventory.length; I++)
 		if ((C.Inventory[I].Name == DelItemName) && (C.Inventory[I].Group == DelItemGroup)) {
-			C.Inventory.splice(I, 1);
+			item = C.Inventory.splice(I, 1);
 			break;
 		}
 
@@ -102,6 +103,7 @@ function InventoryDelete(C, DelItemName, DelItemGroup, Push) {
 	if ((C.ID == 0) && ((Push == null) || Push))
 		ServerPlayerInventorySync();
 
+	return item ? item[0] : null;
 }
 
 /**
@@ -121,6 +123,8 @@ function InventoryDeleteGroup(C, group, push) {
 
 		deleted.push(item);
 		C.Inventory.splice(I, 1);
+		// Move back one to not skip over items
+		I--;
 	}
 
 	if (deleted.length > 0 && (C.ID == 0) && ((push == null) || push))
@@ -290,6 +294,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
 
 		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
+		case "NeedsHarness": return !CharacterHasItemWithAttribute(C, "CanAttachMittens") ? "NeedsHarness" : "";
 
 		// Returns no message, indicating that all prerequisites are fine
 		case "GagFlat": return "";
@@ -564,63 +569,6 @@ function InventoryCraftPropertyIs(Item, Property) {
 }
 
 /**
-* Helper function for `InventoryWearCraft` for handling Modular items
-* @param {Item} Item - The item being applied
-* @param {Character} C - The character that must wear the item
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftModular(Item, C, Type) {
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	if (Data === undefined) {
-		return;
-	}
-
-	// Validate that the requirements are met for all chosen options
-	const NewModuleValues = ModularItemParseCurrent(Data, Type);
-	const PreviousModuleValues = NewModuleValues.map((value) => 0);
-	NewModuleValues.forEach((value, i) => {
-		const Options = Data.modules[i].Options;
-		const NewOption = Options[value];
-		if (!NewOption || ExtendedItemRequirementCheckMessage(Item, C, NewOption, Options[0])) {
-			NewModuleValues[i] = 0;
-		}
-	});
-
-	ModularItemSetOption(C, Item, PreviousModuleValues, NewModuleValues, Data);
-}
-
-/**
-* Helper function for `InventoryWearCraft` for handling Typed items
-* @param {Item} Item - The item being applied
-* @param {Character} C - The character that must wear the item
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftTyped(Item, C, Type) {
-	if (Type != null) {
-		TypedItemSetOptionByName(C, Item, Type);
-	}
-}
-
-/**
-* Helper function for `InventoryWearCraft` for handling Vibrating items
-* @param {Item} Item - The item being applied
-* @param {Character} C - The character that must wear the item
-* @param {string} Type - The type string for a modular item
-* @returns {void}
-*/
-function InventoryWearCraftVibrating(Item, C, Type) {
-	const Data = VibratorModeDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	if (Data === undefined) {
-		return;
-	}
-
-	const option = Data.options.find(o => o.Name === Type) || VibratorModeOff;
-	TypedItemSetOption(C, Item, Data.options, option);
-}
-
-/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {Character} C - The character that must wear the item
@@ -630,18 +578,18 @@ function InventoryWearCraft(Item, C, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
 
-	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
-		switch(Item.Asset.Archetype) {
-			case ExtendedArchetype.TYPED:
-				InventoryWearCraftTyped(Item, C, Craft.Type);
-				break;
-			case ExtendedArchetype.MODULAR:
-				InventoryWearCraftModular(Item, C, Craft.Type);
-				break;
-			case ExtendedArchetype.VIBRATING:
-				InventoryWearCraftVibrating(Item, C, Craft.Type);
-				break;
-		}
+	switch(Item.Asset.Archetype) {
+		case ExtendedArchetype.TYPED:
+			if (Craft.Type != null) {
+				TypedItemSetOptionByName(C, Item, Craft.Type);
+			}
+			break;
+		case ExtendedArchetype.MODULAR:
+			ModularItemSetOptionByName(C, Item, Craft.Type);
+			break;
+		case ExtendedArchetype.VIBRATING:
+			VibratorModeSetOptionByName(C, Item, Craft.Type);
+			break;
 	}
 }
 
@@ -1123,7 +1071,7 @@ function InventoryLoverOnlyItem(Item) {
 }
 
 /**
-* Returns TRUE if the item has a FamilyOnly flag, such as the family padlock
+* Returns TRUE if the item has a FamilyOnly flag, such as the D/s family padlock
 * @param {Item} Item - The item from appearance that must be scanned
 * @returns {Boolean} - TRUE if family only
 */
@@ -1500,7 +1448,7 @@ function InventoryStringify(C) {
 
 /**
  * Returns TRUE if the inventory category is blocked in the current chat room
- * @param {readonly string[]} Category - An array of string containing all the categories to validate
+ * @param {readonly AssetCategory[]} Category - An array of string containing all the categories to validate
  * @return {boolean} - TRUE if it's blocked
  */
 function InventoryChatRoomAllow(Category) {

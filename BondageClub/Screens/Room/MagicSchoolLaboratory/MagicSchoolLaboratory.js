@@ -11,7 +11,7 @@ var MagicSchoolLaboratorySpellCount = 0;
 /**
  * Dresses a character C as a witch, the colors and clothes can changes based on the house
  * @param {Character} C - The character that will wear the clothes
- * @param {String} House - The house name
+ * @param {"" | "Maiestas" | "Vincula" | "Amplector" | "Corporis"} House - The house name
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryPrepareNPC(C, House) {
@@ -134,7 +134,7 @@ function MagicSchoolLaboratorySpellPracticeEnd() {
 
 /**
  * Check if someone is a member of a magic house or not
- * @param {string} House - The house name
+ * @param {"" | "Maiestas" | "Vincula" | "Amplector" | "Corporis"} House - The house name
  * @returns {boolean} - TRUE if a member, FALSE if not
  */
 function MagicSchoolLaboratoryInHouse(House) {
@@ -144,7 +144,7 @@ function MagicSchoolLaboratoryInHouse(House) {
 
 /**
  * Joins a specific magic house, sets the reputation to 1 and clear all other reputations
- * @param {string} House - The house name
+ * @param {"" | MagicSchoolHouse} House - The house name
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryJoinHouse(House) {
@@ -158,8 +158,7 @@ function MagicSchoolLaboratoryJoinHouse(House) {
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	}
 	if (House != "") {
-		const dynamicHouse = /** @type {ReputationType} */("House" + House);
-		DialogSetReputation(dynamicHouse, 1);
+		DialogSetReputation(`House${House}`, 1);
 		MagicSchoolLaboratoryPrepareNPC(Player, House);
 	}
 }
@@ -169,6 +168,7 @@ function MagicSchoolLaboratoryJoinHouse(House) {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryDressHouse() {
+	/** @type {"" | MagicSchoolHouse} */
 	let House = "";
 	if (ReputationGet("HouseMaiestas") > 0) House = "Maiestas";
 	if (ReputationGet("HouseVincula") > 0) House = "Vincula";
@@ -179,7 +179,7 @@ function MagicSchoolLaboratoryDressHouse() {
 
 /**
  * Check if a NPC is a member of a magic house or not
- * @param {string} House - The house name
+ * @param {MagicSchoolHouse} House - The house name
  * @returns {boolean} - TRUE if a member, FALSE if not
  */
 function MagicSchoolLaboratoryFromHouse(House) {
@@ -189,7 +189,7 @@ function MagicSchoolLaboratoryFromHouse(House) {
 
 /**
  * Check if a NPC is a member of the player's house
- * @param {string} House - The house name
+ * @param {MagicSchoolHouse} House - The house name
  * @returns {boolean} - TRUE if from same house, FALSE if not
  */
 function MagicSchoolLaboratoryFromSameHouse(House) {
@@ -203,7 +203,7 @@ function MagicSchoolLaboratoryFromSameHouse(House) {
 
 /**
  * Check if a NPC is a member of the player's rival house
- * @param {string} House - The house name
+ * @param {MagicSchoolHouse} House - The house name
  * @returns {boolean} - TRUE if a rival, FALSE if not
  */
 function MagicSchoolLaboratoryFromRivalHouse(House) {
@@ -244,6 +244,7 @@ function MagicSchoolLaboratoryMagicBattleEnd() {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryBuildSister() {
+	/** @type {MagicSchoolHouse} */
 	let NPCHouse = "Maiestas";
 	if (ReputationGet("HouseVincula") > 0) NPCHouse = "Vincula";
 	if (ReputationGet("HouseAmplector") > 0) NPCHouse = "Amplector";
@@ -269,6 +270,7 @@ function MagicSchoolLaboratoryFindStudent() {
 	if (Math.random() > 0.80) return MagicSchoolLaboratoryBuildSister();
 
 	// Builds a list of all possible houses for that student, based on the player house
+	/** @type {MagicSchoolHouse[]} */
 	let Houses = [];
 	if (ReputationGet("HouseMaiestas") > 0) {
 		Houses.push("Vincula");
@@ -300,6 +302,7 @@ function MagicSchoolLaboratoryFindStudent() {
 	}
 
 	// Creates the student NPC and gives her a house
+	/** @type {MagicSchoolHouse | ""} */
 	let NPCHouse = CommonRandomItemFromList("", Houses);
 	let NPCType = (ReputationGet("House" + NPCHouse) >= 100) ? "Master" : "Student";
 	CharacterDelete("NPC_MagicSchoolLaboratory_" + NPCType);

@@ -322,7 +322,7 @@ type AssetPrerequisite =
 	"AllFours" | "BlockedMouth" | "ButtEmpty" | "CanBeCeilingTethered" | "CanCloseLegs" | "CanKneel" | "CannotBeSuited" | "CannotHaveWand" |
 	"ClitEmpty" | "Collared" | "CuffedArms" | "CuffedArmsOrEmpty" | "CuffedFeet" | "CuffedFeetOrEmpty" | "CuffedLegs" | "CuffedLegsOrEmpty" |
 	"DisplayFrame" | "EyesEmpty" | "GagCorset" | "GagFlat" | "GagUnique" | "GasMask" | "HasBreasts" | "HasFlatChest" | "HasPenis" | "HasVagina" |
-	"HoodEmpty" | "LegsOpen" | "NakedFeet" | "NakedHands" | "NeedsNippleRings" | "NoChastityCage" | "NoClothLower" | "NoFeetSpreader" | "NoItemArms" |
+	"HoodEmpty" | "LegsOpen" | "NakedFeet" | "NakedHands" | "NeedsHarness" | "NeedsNippleRings" | "NoChastityCage" | "NoClothLower" | "NoFeetSpreader" | "NoItemArms" |
 	"NoItemFeet" | "NoItemHands" | "NoItemLegs" | "NoMaidTray" | "NoOuterClothes" | "NotChained" | "NotChaste" | "NotHogtied" | "NotHorse" | "NotKneeling" |
 	"NotKneelingSpread" | "NotLifted" | "NotMasked" | "NotMounted" | "NotProtrudingFromMouth" | "NotShackled" | "NotSuspended" | "NotYoked" | "OnBed" |
 	"RemotesAllowed" | "VulvaEmpty" | "VulvaNotBlockedByBelt"
@@ -365,58 +365,42 @@ type FetishName =
 	"Pony" | "ABDL" | "Forniphilia"
 	;
 
-//#endregion
+type BackgroundTag =
+	"Filter by tag" | "Indoor" | "Outdoor" | "Aquatic" | "Special Events" | "SciFi & Fantasy" |
+	"Club & College" | "Regular house" | "Dungeon" | "Asylum"
+	;
 
-//#region index.html
+// NOTE: `NPCArchetype` is for NPC's only
+type TitleName =
+	NPCArchetype | "None" | "Mistress" | "ClubSlave" | "Maid" | "HeadMaid" | "BondageMaid" | "Kidnapper" |
+	"MasterKidnapper" | "Patient" | "PermanentPatient" | "EscapedPatient" | "Nurse" | "Doctor" |
+	"LadyLuck" | "Patron" | "CollegeStudent" |"Nawashi" | "Houdini" | "PonyAlicorn" |
+	"PonyPegasus" | "PonyUnicorn" | "PonyWild" | "PonyHot" | "PonyWarm" | "PonyCold" | "PonyFarm" |
+	"PonyFoal" | "InfilrationMole" | "InfilrationInfiltrator" | "InfilrationAgent" |
+	"InfilrationOperative" | "InfilrationSuperspy" | "MagicSchoolWizard" | "MagicSchoolMagus" |
+	"MagicSchoolMagician" | "MagicSchoolSorcerer" | "MagicSchoolSage" | "MagicSchoolOracle" |
+	"MagicSchoolWitch" | "MagicSchoolWarlock" | "Duchess" | "LittleOne" | "Baby" | "DL" |
+	"BondageBaby" | "Switch" | "Kitten" | "Puppy" | "Foxy" | "Bunny" | "Doll" | "Demon" | "Angel" |
+	"Succubus" | "GoodGirl" | "GoodSlaveGirl" | "GoodSlave" | "Drone"
+	;
 
-/**
- * Main game running state, runs the drawing
- * @param {number} Timestamp
- */
-declare function MainRun(Timestamp: number): void;
+type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 
-/**
- * When the user presses a key, we send the KeyDown event to the current screen if it can accept it
- * @param {KeyboardEvent} event
- */
-declare function KeyDown(event: KeyboardEvent): void;
+type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
 
-/**
- * Handler for document-wide keydown event
- * @param {KeyboardEvent} event
- */
-declare function DocumentKeyDown(event: KeyboardEvent): void;
+type ActivityPrerequisite =
+	"UseMouth" | "UseTongue" | "TargetMouthBlocked" | "IsGagged" | "TargetKneeling" | "UseHands" |
+	"UseArms" | "UseFeet" | "CantUseArms" | "CantUseFeet" | "TargetCanUseTongue" | "TargetMouthOpen" |
+	"VulvaEmpty" | "AssEmpty" | "UseVulva" | "UseAss" | "MoveHead" | "ZoneAccessible" |
+	"TargetZoneAccessible" | "ZoneNaked" | "TargetZoneNaked" | "TargetHasPenis" | "HasPenis" |
+	"CanUsePenis" | "TargetHasVagina" | "HasVagina" | "TargetHasBreasts" | "HasBreasts" |
+	"Sisters" | "Brothers" | "SiblingsWithDifferentGender" | "TargetHasFlatChest" | "HasFlatChest" |
 
-/**
- * When the user clicks, we fire the click event for other screens
- * @param {MouseEvent} event
- */
-declare function Click(event: MouseEvent): void;
+	"Needs-SpankItem" | "Needs-TickleItem" | "Needs-RubItem" | "Needs-RollItem" | "Needs-MasturbateItem" |
+	"Needs-PourItem" | "Needs-ShockItem" | "Needs-Inject" | "Needs-PenetrateItem" | "Needs-SipItem"
+	;
 
-/**
- * When the user touches the screen (mobile only), we fire the click event for other screens
- * @param {TouchEvent} event
- */
-declare function TouchStart(event: TouchEvent): void;
-
-/**
- * When touch moves, we keep it's position for other scripts
- * @param {Touch} touch
- */
-declare function TouchMove(touch: Touch): void;
-
-/**
- * When mouse move, we keep the mouse position for other scripts
- * @param {MouseEvent} event
- */
-declare function MouseMove(event: MouseEvent): void;
-
-/**
- * When the mouse is away from the control, we stop keeping the coordinates,
- * we also check for false positives with "relatedTarget"
- * @param {MouseEvent} event
- */
-declare function LoseFocus(event: MouseEvent): void;
+type AssetCategory = "Medical" | "Extreme" | "Pony" | "SciFi" | "ABDL" | "Fantasy";
 
 //#endregion
 
@@ -467,18 +451,25 @@ interface IChatRoomSyncArousalMessage {
 
 //#region Chat
 
+type ChatRoomLovershipOption = "" | "CanOfferBeginWedding" | "CanBeginWedding";
+type ChatRoomOwnershipOption = "" | "CanOfferEndTrial" | "CanOfferTrial" | "CanEndTrial";
+type ChatRoomSpaceType = "X" | "" | "M" | "Asylum";
+type ChatRoomGame = "" | "LARP" | "MagicBattle" | "GGTS";
+type ChatRoomBlockCategory = AssetCategory | "Leashing" | "Photos" | "Arousal";
+type ChatRoomLanguage = "EN" | "DE" | "FR" | "ES" | "CN" | "RU";
+
 interface ChatRoom {
 	Name: string;
 	Description: string;
 	Admin: number[];
 	Ban: number[];
 	Limit: number;
-	Game: string;
+	Game: ChatRoomGame;
 	Background: string;
 	Private: boolean;
 	Locked: boolean;
-	BlockCategory: string[];
-	Language: string;
+	BlockCategory: ChatRoomBlockCategory[];
+	Language: ChatRoomLanguage;
 	Character?: any[]; /* From server, not really a Character object */
 }
 
@@ -520,7 +511,8 @@ type CharacterReferenceTag =
 
 type CommonChatTags =
 	| CharacterReferenceTag
-	| "AssetName";
+	| "AssetName"
+	| "Automatic";
 
 /**
  * A dictionary entry containing a replacement tag to be replaced by some value. The replacement strategy depends on
@@ -1163,7 +1155,7 @@ interface Asset {
 	MinOpacity: number;
 	MaxOpacity: number;
 	Audio?: string;
-	Category?: readonly string[];
+	Category?: readonly AssetCategory[];
 	Fetish?: readonly FetishName[];
 	CustomBlindBackground?: string;
 	ArousalZone: AssetGroupItemName;
@@ -1255,7 +1247,7 @@ interface Activity {
 	Name: ActivityName;
 	MaxProgress: number;
 	MaxProgressSelf?: number;
-	Prerequisite: string[];
+	Prerequisite: ActivityPrerequisite[];
 	Target: AssetGroupItemName[];
 	TargetSelf?: AssetGroupItemName[] | true;
 	/** Whether to reverse the prerequisite checks for that one */
@@ -1537,7 +1529,7 @@ interface Character {
 	ArousalSettings?: ArousalSettingsType;
 	AppearanceFull?: Item[];
 	// Online character properties
-	Title?: string;
+	Title?: TitleName;
 	LabelColor?: any;
 	Creation?: any;
 	Description?: any;
@@ -1583,7 +1575,10 @@ type NPCArchetype =
 	/* Pandora NPCs */
 	"MemberNew"|"MemberOld"|"Cosplay"|"Mistress"|"Slave"|"Maid"|"Guard"|
 	/* Pandora Special */
-	"Victim"|"Target"|"Chest";
+	"Victim"|"Target"|"Chest"|
+	// Misc
+	"Dominatrix" | "Nurse" | "Submissive" | "Mistress" | "Patient" | "Maid" | "Mistress" | "Maiestas" | "Vincula" | "Amplector" | "Corporis"
+	;
 
 /** NPC Character extension */
 // FIXME: That one should find its way down to NPCCharacter, but
@@ -1674,7 +1669,7 @@ interface Character {
 
 /** Magic School */
 interface Character {
-	House?: string;
+	House?: "" | MagicSchoolHouse;
 }
 
 /** MovieStudio */
@@ -1846,6 +1841,8 @@ interface PlayerCharacter extends Character {
 		HideShopItems: GenderSetting;
 		AutoJoinSearch: GenderSetting;
 	};
+	/** The list of items we got confiscated in the Prison */
+	ConfiscatedItems?: { Group: AssetGroupName, Name: string }[];
 }
 
 /**
@@ -1949,6 +1946,7 @@ interface ExtendedItemScriptHookStruct<
 	validate: null | ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	publishAction: null | ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	init: null | ExtendedItemScriptHookCallbacks.Init<DataType>,
+	setOption: null | ExtendedItemScriptHookCallbacks.SetOption<DataType, OptionType>,
 	beforeDraw: null | ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
 	afterDraw: null | ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
 	scriptDraw: null | ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
@@ -1966,6 +1964,7 @@ interface ExtendedItemCapsScriptHooksStruct<
 	Validate?: ExtendedItemScriptHookCallbacks.Validate<DataType, OptionType>,
 	PublishAction?: ExtendedItemScriptHookCallbacks.PublishAction<DataType, OptionType>,
 	Init?: ExtendedItemScriptHookCallbacks.Init<DataType>,
+	SetOption?: ExtendedItemScriptHookCallbacks.SetOption<DataType, OptionType>,
 	BeforeDraw?: ExtendedItemScriptHookCallbacks.BeforeDraw<DataType>,
 	AfterDraw?: ExtendedItemScriptHookCallbacks.AfterDraw<DataType>,
 	ScriptDraw?: ExtendedItemScriptHookCallbacks.ScriptDraw<DataType>,
@@ -1982,6 +1981,7 @@ interface ExtendedItemCallbackStruct<
 	validate?: ExtendedItemCallbacks.Validate<OptionType>,
 	publishAction?: ExtendedItemCallbacks.PublishAction<OptionType>,
 	init?: ExtendedItemCallbacks.Init,
+	setOption?: ExtendedItemCallbacks.SetOption<OptionType>,
 	beforeDraw?: ExtendedItemCallbacks.BeforeDraw,
 	afterDraw?: ExtendedItemCallbacks.AfterDraw,
 	scriptDraw?: ExtendedItemCallbacks.ScriptDraw,
@@ -2041,6 +2041,17 @@ declare namespace ExtendedItemCallbacks {
 	 * @returns Whether the items properties were actually updated or not
 	 */
 	type Init = ExtendedItemCallback<[C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `SetOption` functions.
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @param push Whether to push to changes to the server
+	 */
+	type SetOption<
+		OptionType extends ExtendedItemOption
+	> = ExtendedItemCallback<[C: Character, item: Item, newOption: OptionType, previousOption: OptionType, push: boolean], string>;
 	/**
 	 * Callback for extended item `AfterDraw` functions.
 	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
@@ -2151,6 +2162,21 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	type Init<
 		DataType extends ExtendedItemData<any>
 	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, refresh: boolean], boolean>;
+	/**
+	 * Callback for extended item `SetOption` functions.
+	 * @param data The items extended item data
+	 * @param originalFunction The function (if any) that is normally called when an archetypical item reaches this point
+	 * @param C The character that has the item equiped
+	 * @param item The item in question
+	 * @param newOption The newly selected extended item option
+	 * @param previousOption The previusly selected extended item option
+	 * @param push Whether to push to changes to the server
+	 * @returns
+	 */
+	type SetOption<
+		DataType extends ExtendedItemData<any>,
+		OptionType extends ExtendedItemOption
+	> = ExtendedItemScriptHookCallback<DataType, [C: Character, item: Item, newOption: OptionType, previousOption: OptionType, push: boolean], string>;
 	/**
 	 * Callback for extended item `AfterDraw` functions.
 	 * Relevant for assets that define {@link Asset.DynamicAfterDraw}.
@@ -2834,6 +2860,8 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 		header: string,
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chat: string | ExtendedItemChatCallback<VariableHeightOption>;
+		/** The dialogue prefix for the name of each option */
+		option: string;
 	};
 	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, VariableHeightOption>;
 	/** The function that handles finding the current variable height setting */
@@ -3580,6 +3608,23 @@ interface ArousalSettingsType {
 	OrgasmStage?: number;
 	OrgasmCount?: number;
 	DisableAdvancedVibes: boolean;
+}
+
+// #end region
+
+// #region fortune wheel
+
+/** A union of valid wheel of fortune button colors */
+type WheelFortuneColor = "Blue" | "Gold" | "Gray" | "Green" | "Orange" | "Purple" | "Red" | "Yellow";
+
+/** Base type for fortune wheel options */
+interface WheelFortuneOptionType {
+    /** A single-character UTF16 string with the option's ID */
+    ID: string;
+    /** The color of the option button */
+    Color: WheelFortuneColor;
+    /** An optional script that will be executed whenever the option is picked */
+    Script?: () => void;
 }
 
 // #end region

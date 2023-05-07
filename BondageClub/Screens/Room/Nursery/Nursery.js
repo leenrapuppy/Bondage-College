@@ -239,18 +239,17 @@ function NurseryNPCResrained(CurrentNPC, RestraintSet) {
 	}
 	if (RestraintSet == 4) {
 		InventoryWear(CurrentNPC, "PacifierGag", "ItemMouth");
-		InventoryWear(CurrentNPC, "PaddedMittens", "ItemHands");
 		InventoryWear(CurrentNPC, "AdultBabyHarness", "ItemTorso");
-		InventoryWear(CurrentNPC, "MittenChain1", "ItemArms");
+		InventoryWear(CurrentNPC, "PaddedMittens", "ItemHands");
+		TypedItemSetOptionByName(CurrentNPC, InventoryGet(CurrentNPC, "ItemHands"), "Chained");
 	}
 	if (RestraintSet == 5) {
 		InventoryWear(CurrentNPC, "HarnessPacifierGag", "ItemMouth");
-		InventoryWear(CurrentNPC, "PaddedMittens", "ItemHands");
 		InventoryWear(CurrentNPC, "AdultBabyHarness", "ItemTorso");
-		InventoryWear(CurrentNPC, "MittenChain1", "ItemArms");
+		InventoryWear(CurrentNPC, "PaddedMittens", "ItemHands");
+		TypedItemSetOptionByName(CurrentNPC, InventoryGet(CurrentNPC, "ItemHands"), "Chained");
 		InventoryLock(CurrentNPC, InventoryGet(CurrentNPC, "ItemMouth"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 		InventoryLock(CurrentNPC, InventoryGet(CurrentNPC, "ItemTorso"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
-		InventoryLock(CurrentNPC, InventoryGet(CurrentNPC, "ItemArms"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 		InventoryLock(CurrentNPC, InventoryGet(CurrentNPC, "ItemHands"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 	}
 	if (RestraintSet >= 6) InventoryWear(CurrentNPC, "PaddedMittens", "ItemHands");
@@ -329,28 +328,26 @@ function NurseryPlayerRestrained(RestraintSet) {
 		InventoryWear(Player, "PacifierGag", "ItemMouth", "Default");
 	}
 	if (RestraintSet == 2) {
-		InventoryWear(Player, "PaddedMittens", "ItemHands", "Default");
 		InventoryWear(Player, "AdultBabyHarness", "ItemTorso", "Default");
-		InventoryWear(Player, "MittenChain1", "ItemArms", "Default");
+		InventoryWear(Player, "PaddedMittens", "ItemHands", "Default");
+		TypedItemSetOptionByName(Player, InventoryGet(Player, "ItemHands"), "Chained");
 	}
 	if (RestraintSet == 3) {
 		InventoryWear(Player, "HarnessPacifierGag", "ItemMouth", "Default");
 		InventoryWear(Player, "AdultBabyHarness", "ItemTorso", "Default");
-		InventoryWear(Player, "MittenChain1", "ItemArms", "Default");
 		InventoryWear(Player, "PaddedMittens", "ItemHands", "Default");
+		TypedItemSetOptionByName(Player, InventoryGet(Player, "ItemHands"), "Chained");
 		InventoryLock(Player, InventoryGet(Player, "ItemMouth"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 		InventoryLock(Player, InventoryGet(Player, "ItemTorso"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
-		InventoryLock(Player, InventoryGet(Player, "ItemArms"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 		InventoryLock(Player, InventoryGet(Player, "ItemHands"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 		NurseryPlayerNeedsPunishing(2);
 	}
 	if (RestraintSet == 4) {
 		if (!Player.IsRestrained()) {
 			InventoryWear(Player, "AdultBabyHarness", "ItemTorso", "Default");
-			InventoryWear(Player, "MittenChain1", "ItemArms", "Default");
 			InventoryWear(Player, "PaddedMittens", "ItemHands", "Default");
+			TypedItemSetOptionByName(Player, InventoryGet(Player, "ItemHands"), "Chained");
 			InventoryLock(Player, InventoryGet(Player, "ItemTorso"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
-			InventoryLock(Player, InventoryGet(Player, "ItemArms"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 			InventoryLock(Player, InventoryGet(Player, "ItemHands"), { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")}, "Nursery property");
 		}
 	}

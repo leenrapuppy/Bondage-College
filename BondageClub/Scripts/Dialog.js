@@ -90,6 +90,7 @@ var DialogLockMenu = false;
 var DialogCraftingMenu = false;
 var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
+/** @type {"" | ModuleType} */
 var DialogGamingPreviousModule = "";
 var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
 /**
@@ -527,7 +528,9 @@ function DialogStartKinkyDungeon() {
 	}
 	DialogGamingPreviousRoom = CurrentScreen;
 	DialogGamingPreviousModule = CurrentModule;
-	MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
+	if (ArcadeKinkyDungeonLoad()) {
+		MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
+	}
 }
 
 
@@ -536,7 +539,9 @@ function DialogStartKinkyDungeon() {
  * @returns {void}
  */
 function DialogEndKinkyDungeon() {
-	CommonSetScreen(DialogGamingPreviousModule, DialogGamingPreviousRoom);
+	if (DialogGamingPreviousModule) {
+		CommonSetScreen(DialogGamingPreviousModule, DialogGamingPreviousRoom);
+	}
 }
 
 /**
@@ -629,7 +634,7 @@ function DialogLeave() {
 	DialogSelfMenuSelected = null;
 	DialogSavedExpressionPreviews = [];
 	DialogFacialExpressionsSelected = -1;
-	ClearButtons();
+	ControllerClearAreas();
 	DialogFacialExpressions = [];
 }
 
@@ -651,7 +656,7 @@ function DialogRemove() {
 
 /**
  * Generic dialog function to remove any dialog from a specific group
- * @param {AssetGroupName} GroupName - All dialog options are removed from this group
+ * @param {string} GroupName - All dialog options are removed from this group
  * @returns {void} - Nothing
  */
 function DialogRemoveGroup(GroupName) {
@@ -2492,8 +2497,8 @@ function DialogFindAutoReplace(C, KeyWord1, KeyWord2, ReturnPrevious) {
  * @returns {void} - Nothing
  */
 function DialogDraw() {
-	if (ControllerActive == true) {
-		ClearButtons();
+	if (ControllerIsActive()) {
+		ControllerClearAreas();
 	}
 	// Draw both the player and the interaction character
 	if (CurrentCharacter.ID != 0) DrawCharacter(Player, 0, 0, 1);

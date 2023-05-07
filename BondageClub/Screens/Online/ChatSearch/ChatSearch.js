@@ -1,6 +1,6 @@
 "use strict";
 var ChatSearchBackground = "Introduction";
-/** @type {{ Name: string, CreatorMemberNumber: number, MemberLimit: number, MemberCount: number, DisplayName: string, BlockCategory: string[], Game: string, Friends: { MemberName: string, MemberNumber: number, Type: string }[], Description: string, Creator: string, Order: number }[]} */
+/** @type {{ Name: string, CreatorMemberNumber: number, MemberLimit: number, MemberCount: number, DisplayName: string, BlockCategory: ChatRoomBlockCategory[], Game: ChatRoomGame, Friends: { MemberName: string, MemberNumber: number, Type: string }[], Description: string, Creator: string, Order: number }[]} */
 var ChatSearchResult = [];
 /** @type {typeof ChatSearchResult} */
 var ChatSearchHiddenResult = [];
@@ -12,6 +12,7 @@ var ChatSearchResultOffset = 0;
 var ChatSearchRoomsPerPage = 24;
 var ChatSearchMessage = "";
 var ChatSearchLeaveRoom = "MainHall";
+/** @type {ModuleType} */
 var ChatSearchLeaveSpace = "Room";
 /** @type {null | Item[]} */
 var ChatSearchSafewordAppearance = null;
@@ -19,17 +20,21 @@ var ChatSearchSafewordAppearance = null;
 var ChatSearchSafewordPose = null;
 /** @type {null | AssetPoseName[]} */
 var ChatSearchPreviousActivePose = null;
+/** @type {number[]} */
 var ChatSearchTempHiddenRooms = [];
+/** @type {"" | "Filter"} */
 var ChatSearchMode = "";
 var ChatSearchGhostPlayerOnClickActive = false;
 var ChatSearchShowHiddenRoomsActive = false;
 var ChatSearchFilterHelpActive = false;
-/** @type {{ Index: number, RoomLabel: string, MemberLabel: string, WordsLabel: string }} */
+/** @type {null | { Index: number, RoomLabel: string, MemberLabel: string, WordsLabel: string }} */
 var ChatSearchFilterUnhideConfirm = null;
 var ChatSearchRejoinIncrement = 1;
 /** @type {null | string} */
 var ChatSearchReturnToScreen = null;
+/** @type {"" | ChatRoomLanguage} */
 var ChatSearchLanguage = "";
+/** @type {"" | ChatRoomLanguage} */
 var ChatSearchLanguageTemp = "";
 var ChatSearchFilterTermsTemp = "";
 
@@ -54,7 +59,7 @@ function ChatSearchLoad() {
 	}
 	AsylumGGTSIntroDone = false;
 	AsylumGGTSTask = null;
-	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+	AsylumGGTSPreviousPose = [...Player.Pose];
 	Player.ArousalSettings.OrgasmCount = 0;
 	ElementCreateInput("InputSearch", "text", "", "20");
 	ChatSearchQuery();
@@ -176,7 +181,7 @@ function ChatSearchClick() {
 		if (MouseIn(1885, 885, 90, 90)) ChatSearchExit();
 	} else {
 		if (MouseIn(895, 898, 280, 64)) {
-			let Pos = ChatCreateLanguageList.indexOf(ChatSearchLanguageTemp) + 1;
+			let Pos = !ChatSearchLanguageTemp ? 0 : ChatCreateLanguageList.indexOf(ChatSearchLanguageTemp) + 1;
 			if (Pos >= ChatCreateLanguageList.length)
 				ChatSearchLanguageTemp = "";
 			else
@@ -939,7 +944,7 @@ function ChatSearchGetFilterReasons(Room) {
  * Check if a room matches filtered-out terms and should thus be hidden.
  * Also used when deciding which terms need to be removed from the filter option in order to make a room be no longer hidden.
  * Only checks the room name, not the description.
- * @param {object} Room - the room object to check
+ * @param {{ Name: string }} Room - the room object to check
  * @param {string[]} Terms - list of terms to check
  * @returns {boolean} - true if room matches, false otherwise
  */

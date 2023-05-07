@@ -511,31 +511,22 @@ function AsylumGGTSConfigureGag(Group) {
 		return;
 	}
 
-	let Type = (Item.Property.Type == null) ? "" : Item.Property.Type;
+	let Type = (Item.Property && Item.Property.Type) ? Item.Property.Type : "g0p0t0";
 	if (Item.Asset.Name === "FuturisticHarnessBallGag"){
-		Type = CommonRandomItemFromList(Type, ["", "Ball", "Plug"]);
-	}
-	else if ((Item.Asset.Name === "FuturisticPanelGag") || (Item.Asset.Name === "FuturisticHarnessPanelGag")){
-		Type = CommonRandomItemFromList(Type, ["", "LightBall", "Ball", "Plug"]);
+		Type = CommonRandomItemFromList(Type, ["g0p0t0", "g1p0t0", "g2p0t0"]);
+	} else if ((Item.Asset.Name === "FuturisticPanelGag") || (Item.Asset.Name === "FuturisticHarnessPanelGag")){
+		Type = CommonRandomItemFromList(Type, ["g0p0t0", "g1p0t0", "g2p0t0", "g3p0t0"]);
 	}
 
-	if(Type === ""){
-		Item.Property.Effect = ['BlockMouth', 'GagLight'];
+	if (Type === "g0p0t0") {
 		Item.Color = ['#50913C', 'Default'];
-	}
-	else if(Type === "LightBall") {
-		Item.Property.Effect = ['BlockMouth', 'GagVeryLight'];
+	} else if (Type === "g1p0t0") {
 		Item.Color = ['#80713C', 'Default'];
-	}
-	else if(Type === "Ball"){
-		Item.Property.Effect = ['BlockMouth', 'GagMedium'];
+	} else if (Type === "g2p0t0") {
 		Item.Color = ['#B0513C', 'Default'];
-	}
-	else if(Type === "Plug"){
-		Item.Property.Effect = ['BlockMouth', 'GagTotal'];
+	} else if (Type === "g3p0t0") {
 		Item.Color = ['#E0313C', 'Default'];
 	}
-	Item.Property.Type = (Type == "") ? null : Type;
 }
 
 /**
@@ -556,9 +547,14 @@ function AsylumGGTSSetForcedPoseForItem(Item, AdditionalPoses, Effects) {
 		Item.Property = { SetPose: [], Difficulty: 0, Effect: [], Type: null };
 	else
 		Item.Property = { SetPose: /** @type {AssetPoseName[]} */ ([Pose]), Difficulty: 10, Effect: Effects };
-	if (Pose == "BackBoxTie") Item.Property.Type = "Wrist";
-	if (Pose == "BackElbowTouch") Item.Property.Type = "Elbow";
-	if (Pose == "LegsClosed") Item.Property.Type = "Closed";
+
+	if (Pose == "BackBoxTie") {
+		TypedItemSetOptionByName(Player, Item, "Wrist");
+	} else if (Pose == "BackElbowTouch") {
+		TypedItemSetOptionByName(Player, Item, "Elbow");
+	} else if (Pose == "LegsClosed") {
+		TypedItemSetOptionByName(Player, Item, "Closed");
+	}
 }
 
 /**
@@ -574,9 +570,11 @@ function AsylumGGTSAutomaticTask() {
 			AsylumGGTSSetForcedPoseForItem(Item, ["BackBoxTie", "BackElbowTouch"], ["Block", "Prone"]);
 		}
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticStraitjacket")) {
-			if (Item.Property == null) Item.Property = {};
-			if (Item.Property.Type === "cl0co0np0vp0a1") Item.Property.Type = "cl0co0np0vp0a0";
-			else Item.Property.Type = "cl0co0np0vp0a1";
+			if (Item.Property && Item.Property.Type === "cl0co0np0vp0a1") {
+				ModularItemSetOptionByName(Player, Item, "cl0co0np0vp0a0");
+			} else {
+				ModularItemSetOptionByName(Player, Item, "cl0co0np0vp0a1");
+			}
 		}
 		Item = InventoryGet(Player, "ItemFeet");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticAnkleCuffs")) {
@@ -634,10 +632,7 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemChaste") {
 		let Item = InventoryGet(Player, "ItemPelvis");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticChastityBelt")) {
-			if (Item.Property == null) Item.Property = {};
-			Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
-			Item.Property.Effect = ["UseRemote", "Chaste"];
-			Item.Property.Type = "m0f1b1t0o0";
+			ModularItemSetOptionByName(Player, Item, "m0f1b1t0o0");
 			Item.Color = ["#D06060", "#803030", "Default", "Default", "Default", "Default", "#222222", "Default"];
 		}
 		CharacterRefresh(Player);
@@ -649,10 +644,7 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemUnchaste") {
 		let Item = InventoryGet(Player, "ItemPelvis");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticChastityBelt")) {
-			if (Item.Property == null) Item.Property = {};
-			Item.Property.Block = [];
-			Item.Property.Effect = ["UseRemote"];
-			Item.Property.Type = "m0f0b0t0o0";
+			ModularItemSetOptionByName(Player, Item, "m0f0b0t0o0");
 			Item.Color = ["#93C48C", "#3B7F2C", "Default", "Default", "Default", "Default", "#222222", "Default"];
 		}
 		CharacterRefresh(Player);
@@ -664,11 +656,9 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemIntensity") {
 		let Item = InventoryGet(Player, "ItemPelvis");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticTrainingBelt")) {
-			if (Item.Property == null) Item.Property = {};
-			Item.Property.Effect = ["Vibrating", "Egged", "UseRemote"];
-			let Intensity = Item.Property.Intensity;
-			while ((Item.Property.Intensity == null) || (Item.Property.Intensity == Intensity))
-				Item.Property.Intensity = /** @type {VibratorIntensity} */ (Math.floor(Math.random() * 5) - 1);
+			let Mode = (Item.Property && Item.Property.Mode) ? Item.Property.Mode : VibratorMode.OFF;
+			Mode = CommonRandomItemFromList(Mode, VibratorModeOptions[VibratorModeSet.STANDARD].map(o => o.Name));
+			VibratorModeSetOptionByName(Player, Item, Mode);
 			if (Item.Property.Intensity == -1) Item.Color = ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"];
 			if (Item.Property.Intensity == 0) Item.Color = ["#4F7F2C", "#A3C48C", "#A3C48C", "Default", "Default", "Default"];
 			if (Item.Property.Intensity == 1) Item.Color = ["#6F6F2C", "#AFAF8C", "#AFAF8C", "Default", "Default", "Default"];
@@ -684,18 +674,13 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemEarsDeaf") {
 		let Item = InventoryGet(Player, "ItemEars");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticEarphones")) {
-			if (Item.Property == null) Item.Property = {};
-			let Type = (Item.Property.Type == null) ? "" : Item.Property.Type;
-			Type = CommonRandomItemFromList(Type, ["Light", "Heavy", "NoiseCancelling", ""]);
-			if (Type == "") Item.Property.Effect = [];
-			if (Type == "Light") Item.Property.Effect = ["DeafLight"];
-			if (Type == "Heavy") Item.Property.Effect = ["DeafHeavy"];
-			if (Type == "NoiseCancelling") Item.Property.Effect = ["DeafTotal"];
-			if (Type == "") Item.Color = ["Default", "#50913C", "Default"];
+			let Type = (Item.Property && Item.Property.Type) ? Item.Property.Type : "Off";
+			Type = CommonRandomItemFromList(Type, ["Light", "Heavy", "NoiseCancelling", "Off"]);
+			TypedItemSetOptionByName(Player, Item, Type);
+			if (Type == "Off") Item.Color = ["Default", "#50913C", "Default"];
 			if (Type == "Light") Item.Color = ["Default", "#80713C", "Default"];
 			if (Type == "Heavy") Item.Color = ["Default", "#B0513C", "Default"];
 			if (Type == "NoiseCancelling") Item.Color = ["Default", "#E0313C", "Default"];
-			Item.Property.Type = (Type == "") ? null : Type;
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);
@@ -706,14 +691,9 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemMaskBlind") {
 		let Item = InventoryGet(Player, "ItemHead");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticMask")) {
-			if (Item.Property == null) Item.Property = {};
-			let Type = (Item.Property.Type == null) ? "" : Item.Property.Type;
-			Type = CommonRandomItemFromList(Type, ["LightTint", "HeavyTint", "Blind", ""]);
-			if (Type == "") Item.Property.Effect = [];
-			if (Type == "LightTint") Item.Property.Effect = ["BlindLight", "Prone"];
-			if (Type == "HeavyTint") Item.Property.Effect = ["BlindNormal", "Prone"];
-			if (Type == "Blind") Item.Property.Effect = ["BlindHeavy", "Prone"];
-			Item.Property.Type = (Type == "") ? null : Type;
+			let Type = (Item.Property && Item.Property.Type) ? Item.Property.Type : "Transparent";
+			Type = CommonRandomItemFromList(Type, ["LightTint", "HeavyTint", "Blind", "Transparent"]);
+			TypedItemSetOptionByName(Player, Item, Type);
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);
@@ -724,16 +704,9 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemFuckMachineIntensity") {
 		let Item = InventoryGet(Player, "ItemDevices");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuckMachine")) {
-			if (Item.Property == null) Item.Property = {};
-			let Intensity = Item.Property.Intensity;
-			while ((Item.Property.Intensity == null) || (Item.Property.Intensity == Intensity))
-				Item.Property.Intensity = /** @type {VibratorIntensity} */ (Math.floor(Math.random() * 5) - 1);
-			if (Item.Property.Intensity == -1) Item.Property.Mode = "Off";
-			if (Item.Property.Intensity == 0) Item.Property.Mode = "Low";
-			if (Item.Property.Intensity == 1) Item.Property.Mode = "Medium";
-			if (Item.Property.Intensity == 2) Item.Property.Mode = "High";
-			if (Item.Property.Intensity == 3) Item.Property.Mode = "Maximum";
-			Item.Property.Effect = (Item.Property.Intensity >= 0) ? ["Egged"] : ["Vibrating", "Egged"];
+			let Mode = (Item.Property && Item.Property.Mode) ? Item.Property.Mode : VibratorMode.OFF;
+			Mode = CommonRandomItemFromList(Mode, VibratorModeOptions[VibratorModeSet.STANDARD].map(o => o.Name));
+			VibratorModeSetOptionByName(Player, Item, Mode);
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);

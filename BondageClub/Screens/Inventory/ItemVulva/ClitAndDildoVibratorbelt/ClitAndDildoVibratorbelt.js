@@ -17,15 +17,16 @@ function InventoryItemVulvaClitAndDildoVibratorbeltDrawHook(Data, OriginalFuncti
 	}
 }
 
-/** @type {ExtendedItemScriptHookCallbacks.Exit<ModularItemData>} */
-function InventoryItemVulvaClitAndDildoVibratorbeltExitHook(Data) {
-	// Ensure that the vibrator intensity is set to the maximum of the egg and dildo intensity
-	const CurrentModuleValues = ModularItemParseCurrent(Data);
-	const Intensities = Data.modules.map((m, i) => m.Options[CurrentModuleValues[i]].Property.Intensity);
-	DialogFocusItem.Property.Intensity = /** @type {VibratorIntensity}*/(Math.max(...Intensities));
+/** @type {ExtendedItemScriptHookCallbacks.SetOption<ModularItemData, ModularItemOption>} */
+function InventoryItemVulvaClitAndDildoVibratorbeltSetOptionHook(data, originalFunction, C, item, newOption, previousOption, push) {
+	const msg = originalFunction(C, item, newOption, previousOption, false);
+	if (msg) {
+		return msg;
+	}
 
-	const GroupName = Data.asset.Group.Name;
-	const C = CharacterGetCurrent();
-	CharacterRefresh(C, true, false);
-	ChatRoomCharacterItemUpdate(C, GroupName);
+	// Ensure that the vibrator intensity is set to the maximum of the egg and dildo intensity
+	const CurrentModuleValues = ModularItemParseCurrent(data);
+	const Intensities = data.modules.map((m, i) => m.Options[CurrentModuleValues[i]].Property.Intensity);
+	item.Property.Intensity = /** @type {VibratorIntensity}*/(Math.max(...Intensities));
+	CharacterRefresh(C, push, false);
 }

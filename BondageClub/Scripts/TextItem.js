@@ -158,8 +158,10 @@ const TextItem = {
 	 * Load function for items with text input fields.
 	 * @param {TextItemData} data
 	 */
-	Load: function ({ dialogPrefix, asset, eventListeners, maxLength, parentOption }) {
-		ExtendedItemLoad(dialogPrefix.header, parentOption != null);
+	Load: function (data) {
+		ExtendedItemLoad(data);
+
+		const { asset, eventListeners, maxLength } = data;
 		const item = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
 		const C = CharacterGetCurrent();
 		for (const [name, length] of CommonEntries(maxLength)) {
@@ -229,20 +231,19 @@ const TextItem = {
 	 */
 	Exit: function (data, publishAction=true) {
 		if (publishAction) {
-			const { newOption, previousOption } = TextItemConstructOptions(data, DialogFocusItem);
 			const C = CharacterGetCurrent();
-			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<TextItemOption>>} */
-			const args = [CharacterGetCurrent(), DialogFocusItem, newOption, previousOption];
-			/** @type {string | undefined} */
-			const isInvalid = CommonCallFunctionByName(`${data.functionPrefix}Validate`, ...args);
-			if (!isInvalid) {
+			const { newOption, previousOption } = TextItemConstructOptions(data, DialogFocusItem);
+			const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+			if (requirementMessage) {
+				TextItemPropertyRevert(data, DialogFocusItem);
+			} else {
+				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<TextItemOption>>} */
+				const args = [C, DialogFocusItem, newOption, previousOption];
 				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
 				if (data.pushOnPublish) {
 					CharacterRefresh(C, false, false);
 					ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
 				}
-			} else {
-				TextItemPropertyRevert(data, DialogFocusItem);
 			}
 		}
 

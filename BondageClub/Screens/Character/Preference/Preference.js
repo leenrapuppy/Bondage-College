@@ -486,7 +486,8 @@ function PreferenceInitPlayer() {
 	ControllerDPadDown = C.ControllerSettings.ControllerDPadDown;
 	ControllerDPadLeft = C.ControllerSettings.ControllerDPadLeft;
 	ControllerDPadRight = C.ControllerSettings.ControllerDPadRight;
-	ControllerActive = C.ControllerSettings.ControllerActive;
+
+	ControllerStart();
 
 	// Gameplay settings
 	// @ts-ignore: Individual properties validated separately
@@ -806,13 +807,8 @@ function PreferenceRun() {
 
 	// Draw all the buttons to access the submenus
 	for (let A = 0; A < PreferenceSubscreenList.length; A++) {
-		ControllerIgnoreButton = true;
 		DrawButton(500 + 420 * Math.floor(A / 7), 160 + 110 * (A % 7), 400, 90, "", "White", "Icons/" + PreferenceSubscreenList[A] + ".png");
-		ControllerIgnoreButton = false;
 		DrawTextFit(TextGet("Homepage" + PreferenceSubscreenList[A]), 745 + 420 * Math.floor(A / 7), 205 + 110 * (A % 7), 310, "Black");
-		if (ControllerActive == true) {
-			setButton(745 + 420 * Math.floor(A / 7), 205 + 110 * (A % 7));
-		}
 	}
 
 }
@@ -938,8 +934,8 @@ function PreferenceSubscreenRestrictionRun() {
  * @returns {void} - Nothing
  */
 function PreferenceClick() {
-	if (ControllerActive == true) {
-		ClearButtons();
+	if (ControllerIsActive()) {
+		ControllerClearAreas();
 	}
 	// Pass the click into the opened subscreen
 	if (PreferenceSubscreen != "") return CommonDynamicFunction("PreferenceSubscreen" + PreferenceSubscreen + "Click()");
@@ -1253,7 +1249,7 @@ function PreferenceSubscreenControllerRun() {
 		DrawText(TextGet("ControllerPreferences"), 500, 125, "Black", "Gray");
 		DrawText(TextGet("Sensitivity"), 800, 225, "Black", "Gray");
 		DrawText(TextGet("DeadZone"), 800, 625, "Black", "Gray");
-		DrawCheckbox(500, 272, 64, 64, TextGet("ControllerActive"), ControllerActive);
+		DrawCheckbox(500, 272, 64, 64, TextGet("ControllerActive"), ControllerIsEnabled());
 
 		DrawButton(500, 380, 400, 90, "", "White");
 		DrawTextFit(TextGet("MapButtons"), 590, 425, 310, "Black");
@@ -1874,9 +1870,9 @@ function PreferenceSubscreenControllerClick() {
 		}
 
 		if (MouseIn(500, 272, 64, 64)) {
-			ControllerActive = !ControllerActive;
-			Player.ControllerSettings.ControllerActive = ControllerActive;
-			ClearButtons();
+			Player.ControllerSettings.ControllerActive = !Player.ControllerSettings.ControllerActive;
+			ControllerClearAreas();
+			ControllerStart();
 		}
 	}
 }

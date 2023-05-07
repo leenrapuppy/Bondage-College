@@ -89,6 +89,7 @@ function ModularItemRegister(asset, config) {
 			validate: ExtendedItemValidate,
 			publishAction: (...args) => ModularItemPublishAction(data, ...args),
 			init: (...args) => ModularItemInit(data, ...args),
+			setOption: (...args) => ExtendedItemSetOption(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
@@ -651,98 +652,96 @@ function ModularItemDeconstructType(Type) {
 function ModularItemSetType(module, index, data) {
 	const C = CharacterGetCurrent();
 	DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-	const option = module.Options[index];
+	const newOption = module.Options[index];
 	const currentModuleValues = ModularItemParseCurrent(data);
 	const moduleIndex = data.modules.indexOf(module);
-	const currentOption = module.Options[currentModuleValues[moduleIndex]];
+	const previousOption = module.Options[currentModuleValues[moduleIndex]];
 
-	// Make a final requirement check before actually modifying the item
-	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, option, currentOption);
+	// Do not sync appearance while in the wardrobe
+	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
+
+	/** @type {Parameters<ExtendedItemCallbacks.SetOption<ModularItemOption>>} */
+	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
+	/** @type {string | undefined} */
+	const requirementMessage = CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
 	}
 
-	let changed = false;
-	const newModuleValues = currentModuleValues.map((value, i) => {
-		if (i === moduleIndex && index !== value) {
-			changed = true;
-			return index;
-		}
-		return value;
-	});
+	if (!IsCloth) {
+		const groupName = data.asset.Group.Name;
+		CharacterRefresh(C);
+		ChatRoomCharacterItemUpdate(C, groupName);
 
-	if (changed) {
-		// Do not sync appearance while in the wardrobe
-		const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-
-		ModularItemSetOption(
-			C, DialogFocusItem, currentModuleValues, newModuleValues, data, option, currentOption,
-			!IsCloth, option.DynamicProperty,
-		);
-
-		if (!IsCloth) {
-			const groupName = data.asset.Group.Name;
-
-			// If the item triggers an expression, start the expression change
-			if (option.Expression) {
-				InventoryExpressionTriggerApply(C, option.Expression);
-			}
-			CharacterRefresh(C);
-			ChatRoomCharacterItemUpdate(C, groupName);
-
-			if (ServerPlayerIsInChatRoom()) {
-				/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ModularItemOption>>} */
-				const args = [C, DialogFocusItem, option, currentOption];
-				CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
-			} else if (C.ID === 0) {
-				DialogMenuButtonBuild(C);
-			} else {
-				C.CurrentDialog = DialogFind(C, data.key + DialogFocusItem.Property.Type, groupName);
-			}
+		if (ServerPlayerIsInChatRoom()) {
+			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ModularItemOption>>} */
+			const args = [C, DialogFocusItem, newOption, previousOption];
+			CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
+		} else if (C.ID === 0) {
+			DialogMenuButtonBuild(C);
+		} else {
+			C.CurrentDialog = DialogFind(C, data.key + DialogFocusItem.Property.Type, groupName);
 		}
 	}
 
 	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
-	if (option.HasSubscreen) {
-		ExtendedItemSubscreen = option.Name;
+	if (newOption.HasSubscreen) {
+		ExtendedItemSubscreen = newOption.Name;
 		CommonCallFunctionByName(`${data.functionPrefix}${ExtendedItemSubscreen}Load`);
 	} else {
 		ModularItemModuleTransition(ModularItemBase, data);
 	}
 }
 
-// TODO: Refactor `ModularItemSetOption()` to closer resemble `TypedItemSetOption()`
 /**
- * Sets a modular item's type and properties to the option provided.
+ * Sets a modular item's type and properties to the option whose name matches the provided option name parameter.
  * @param {Character} C - The character on whom the item is equipped
- * @param {Item} Item - The item whose type to set
- * @param {readonly number[]} previousModuleValues - The previous module values
- * @param {readonly number[]} newModuleValues - The new module values
- * @param {ModularItemData} data - The modular item data
- * @param {ModularItemOption} [newOption] - The new item option; only relevant if it links to a subscreen
- * @param {ModularItemOption} [previousOption] - The previous item option; only relevant if it links to a subscreen
+ * @param {Item | AssetGroupName} itemOrGroupName - The item whose type to set, or the group name for the item
+ * @param {string} optionNames - The name of the option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
- * @param {null | DynamicPropertyCallback} dynamicProperty - An optional callback for dynamically setting the item's properties.
- * Executed after the conventional properties have been assigned.
- * @returns {void} Nothing
+ * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
+ * informing the player of the requirements that are not met.
  */
-function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, newOption=null, previousOption=null, push=false, dynamicProperty=null) {
-	if (newOption && newOption.HasSubscreen) {
-		/** @type {Parameters<ExtendedItemCallbacks.Init>} */
-		const args = [C, Item, false];
-		CommonCallFunctionByName(`${data.functionPrefix}${newOption.Name}Init`, ...args);
+function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = false) {
+	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
+	if (!item) return;
+
+	const assetName = item.Asset.Name;
+	const groupName = item.Asset.Group.Name;
+	const warningMessage = `Cannot set option for ${groupName}:${assetName} to ${optionNames}`;
+
+	if (item.Asset.Archetype !== ExtendedArchetype.MODULAR) {
+		const msg = `${warningMessage}: item does not use the modular archetype`;
+		console.warn(msg);
+		return msg;
 	}
 
-	const previousProperty = PropertyUnion(
-		ModularItemMergeModuleValues(data, previousModuleValues),
-		(previousOption ? ExtendedItemGatherSubscreenProperty(Item, previousOption) : {}),
-	);
-	CommonKeys(data.baselineProperty || {}).forEach(i => delete previousProperty[i]);
+	if (!item.Asset.AllowType.includes(optionNames)) {
+		const msg = `${warningMessage}: option "${optionNames}" does not exist`;
+		console.warn(msg);
+		return msg;
+	}
 
-	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);
-	ExtendedItemSetOption(C, Item, previousProperty, newProperty, push, dynamicProperty);
+	const data = ModularItemDataLookup[`${groupName}${assetName}`];
+	const newModuleValues = ModularItemParseCurrent(data, optionNames);
+	const previousModuleValues = ModularItemParseCurrent(data, item.Property && item.Property.Type);
+
+	let i = -1;
+	for (const mod of data.modules) {
+		i += 1;
+		const newOption = mod.Options[newModuleValues[i]];
+		const previousOption = mod.Options[previousModuleValues[i]];
+		const requirementMessage = ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
+		if (requirementMessage && newOption.Name !== previousOption.Name) {
+			console.warn(`Cannot set option for ${groupName}:${assetName} to ${newOption.Name}: ${DialogFindPlayer(requirementMessage)}`);
+		}
+	}
+
+	if (push) {
+		ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
+	}
 }
 
 /**

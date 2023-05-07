@@ -228,7 +228,7 @@ interface AssetDefinition {
 	Audio?: string;
 
 	/** A list of categories. Used to prevent the asset to be used, per chatroom settings */
-	Category?: string[];
+	Category?: AssetCategory[];
 
 	Fetish?: FetishName[];
 	ArousalZone?: AssetGroupItemName;
@@ -504,11 +504,6 @@ interface ExtendedItemOption {
 	 * then its value must be set `"ExtendedItemOption"`.
 	 */
 	OptionType: "ExtendedItemOption" | "TypedItemOption" | "VariableHeightOption" | "ModularItemOption" | "VibratingItemOption" | "TextItemOption";
-	/**
-	 * A callback for dynamically assigning item properties.
-	 * Called after assigning all normal non-dynamic properties (_i.e._ {@link Property}) by the likes of {@link ExtendedItemSetOption}.
-	 */
-	DynamicProperty?: DynamicPropertyCallback;
 }
 
 /** Extended item option subtype for typed items */
@@ -548,12 +543,6 @@ interface VariableHeightOption extends ExtendedItemOption {
 	Property: Pick<Required<ItemProperties>, "OverrideHeight">;
 	Name: "newOption" | "previousOption";
 }
-
-/**
- * An extended item option callback for dynamically assigning item properties.
- * @param property - The properties in question; must be modified inplace
- */
-type DynamicPropertyCallback = (property: ItemProperties) => void;
 
 /**
  * An object containing data about the type change that triggered the chat message
@@ -828,6 +817,8 @@ interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> 
 		Header?: string;
 		/** The dialogue prefix that will be used for each of the item's chatroom messages */
 		Chat?: string | ExtendedItemChatCallback<VariableHeightOption>;
+		/** The dialogue prefix for the name of each option */
+		Option: string;
 	};
 	/** The function that handles finding the current variable height setting */
 	GetHeightFunction?: (property: ItemProperties) => number | null;

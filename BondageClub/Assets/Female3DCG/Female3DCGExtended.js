@@ -720,6 +720,38 @@ var AssetFemale3DCGExtended = {
 			}
 		}, //KissMark
 	}, // ClothAccessory
+	ClothLower: {
+		PantBoots: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Stripe", Key: "s",
+						Options:[
+							{ // s0 - No stripe
+								Property: { Effect: [] }
+							},
+							{ // s1 - Striped
+								Property: { Effect: [] }
+							},
+						]
+					},
+					{
+						Name: "Boot", Key: "b",
+						Options:[
+							{ // b0 - Detached Boots
+								Property: { Effect: [] }
+							},
+							{ // b1 - Attached Boots
+								Property: { Effect: [] }
+
+							}
+						]
+					},
+				],
+			},
+		}, //PantBoots
+	}, // ClothLower
 	ItemBreast: {
 		Ribbons: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -1193,31 +1225,63 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // CeilingShackles
 		BitchSuit: {
-			Archetype: ExtendedArchetype.TYPED,
+			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
-				Options: [
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				Modules: [
 					{
-						Name: "Zipped",
-						Property: {
-							Type: null,
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
-						}
+						Name: "Zipped", Key: "z",
+						Options: [
+							{ // z0 - Zipped up
+								Property: {
+									Type: "z1",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
+									
+								}
+							},
+							{ // z1 - Unzipped
+								Property: {
+									Type: "z3",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+								}
+							},
+							{ // z2 - Seemless
+								Property: {
+									Type: "z1",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
+									
+								}
+							},
+							{ // z3 - Exposed
+								Property: {
+									Type: "z4",
+									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+								}
+							},
+						],
 					},
 					{
-						Name: "z1", // Unzipped
-						Property: {
-							Type: "z1",
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
+						Name: "Straps", Key: "st",
+						Options: [ 
+							{},
+							{ Property: { Difficulty: 3 }, },
+						],
 					},
 					{
-						Name: "z2", // Exposed
-						Property: {
-							Type: "z2",
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
+						Name: "Clothes", Key: "cl",
+						Options: [
+							{ Property: { Hide: ["Cloth", "ClothLower"], } },
+							{},
+						],
+					},
+					{
+						Name: "Underwear", Key: "un",
+						Options: [
+							{ Property: { Hide: ["Corset", "Garters"], } },
+							{ Property: { OverridePriority: 14, Hide: ["SuitLower", "Socks"], }, },
+						],
 					},
 				],
 				ChangeWhenLocked: false,
@@ -2602,6 +2666,37 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // TransportJacket
+		PrisonSJ: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Stripes", Key: "p",
+						Options:[
+							{ // p0 - Prison Stripe
+								Property: { Effect: [] }
+							},
+							{ // p1 - No Stripes
+								Property: { Effect: [] }
+							},
+						]
+					},
+					{
+						Name: "Zipper", Key: "c",
+						Options:[
+							{ // c0 - closed
+								Property: { Effect: ["Chaste"] }
+							},
+							{ // c1 - Exposed
+								Property: { Effect: [] }
+
+							}
+
+						]
+					},
+				],
+			},
+		}, //PrisonSJ
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -5834,7 +5929,7 @@ var AssetFemale3DCGExtended = {
 				],
 				ScriptHooks: {
 					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDrawHook,
-					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExitHook,
+					SetOption: InventoryItemVulvaClitAndDildoVibratorbeltSetOptionHook,
 				},
 				DialogPrefix: {
 					Chat: ({previousOption, newOption}) => {
@@ -5858,6 +5953,29 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LoversVibrator
+		FuturisticVibrator: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.AUTOMATIC,
+				],
+				ScriptHooks: {
+					Load: InventoryItemVulvaFuturisticVibratorLoadHook,
+					Draw: InventoryItemVulvaFuturisticVibratorDrawHook,
+					Click: InventoryItemVulvaFuturisticVibratorClickHook,
+					Exit: InventoryItemVulvaFuturisticVibratorExitHook,
+					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemVulvaFuturisticVibratorScriptDrawHook,
+				},
+				BaselineProperty: {
+					AccessMode: "",
+					TriggerValues: CommonConvertArrayToString(ItemVulvaFuturisticVibratorTriggers),
+				}
+			},
+		}, // FuturisticVibrator
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -7500,6 +7618,8 @@ var AssetFemale3DCGExtended = {
 					Draw: InventoryItemMouthFuturisticPanelGagDrawHook,
 					Exit: FuturisticAccessExit,
 					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemMouthFuturisticPanelGagScriptDrawHook,
+					BeforeDraw: AssetsItemMouthFuturisticPanelGagBeforeDrawHook,
 				},
 				DialogPrefix: {
 					Header: "ItemMouthFuturisticPanelGagSelect",
@@ -9199,7 +9319,7 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { ShowText: true },
 				ScriptHooks: {
-					Click: InventoryItemPelvisLoveChastityBeltClick,
+					SetOption: InventoryItemPelvisLoveChastityBeltSetOptionHook,
 					Draw: InventoryItemPelvisLoveChastityBeltDraw,
 					Validate: InventoryItemPelvisLoveChastityBeltValidate,
 				},
@@ -9208,6 +9328,35 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // LoveChastityBelt
+		FuturisticTrainingBelt: {
+			Archetype: ExtendedArchetype.VIBRATING,
+			Config: {
+				Options: [VibratorModeSet.STANDARD],
+				ScriptHooks: {
+					Load: InventoryItemPelvisFuturisticTrainingBeltLoadHook,
+					Click: InventoryItemPelvisFuturisticTrainingBeltClickHook,
+					Draw: InventoryItemPelvisFuturisticTrainingBeltDrawHook,
+					Exit: InventoryItemPelvisFuturisticTrainingBeltExitHook,
+					Validate: FuturisticAccessValidate,
+					ScriptDraw: AssetsItemPelvisFuturisticTrainingBeltScriptDraw,
+				},
+				BaselineProperty: {
+					ShowText: false,
+					NextShockTime: 0,
+					PunishStruggle: false,
+					PunishStruggleOther: false,
+					PunishOrgasm: false,
+					PunishStandup: false,
+					PunishSpeech: 0,
+					PunishRequiredSpeech: 0,
+					PunishRequiredSpeechWord: "Miss",
+					PunishProhibitedSpeech: 0,
+					PunishProhibitedSpeechWords: "I,me,am,my,im",
+					PublicModeCurrent: 0,
+					PublicModePermission: 0,
+				},
+			},
+		}, // FuturisticTrainingBelt
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {
@@ -10368,6 +10517,32 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // FuturisticMittens
+		PaddedMittens: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Unchained",
+						Property: {
+							Type: "Unchained",
+						},
+					},
+					{
+						Name: "Chained",
+						Prerequisite: ["NeedsHarness", "NoItemArms"],
+						Property: {
+							Type: "Chained",
+							SetPose: ["BaseUpper"],
+							Block: ["ItemArms", "ItemTorso", "ItemTorso2"],
+						}
+					}
+				],
+			}
+		}, // PaddedMittens
+		PawMittens: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { AssetName: "PaddedMittens" },
+		}, // PawMittens
 	}, // ItemHands
 	ItemAddon: {
 		CeilingChain: {
