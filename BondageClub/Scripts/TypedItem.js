@@ -415,7 +415,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
 	const requirementMessage = ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
 	if (requirementMessage) {
 		if (requirementMessage && newOption.Name !== previousOption.Name) {
-			console.warn(`${warningMessage}: ${DialogFindPlayer(requirementMessage)}`);
+			console.warn(`${warningMessage}: ${requirementMessage}`);
 		}
 		return DialogFindPlayer(requirementMessage);
 	}
