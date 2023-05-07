@@ -1237,7 +1237,7 @@ var AssetFemale3DCGExtended = {
 									Type: "z1",
 									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
 									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
-									
+
 								}
 							},
 							{ // z1 - Unzipped
@@ -1251,7 +1251,7 @@ var AssetFemale3DCGExtended = {
 									Type: "z1",
 									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
 									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
-									
+
 								}
 							},
 							{ // z3 - Exposed
@@ -1264,7 +1264,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Straps", Key: "st",
-						Options: [ 
+						Options: [
 							{},
 							{ Property: { Difficulty: 3 }, },
 						],
