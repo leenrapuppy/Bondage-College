@@ -1377,7 +1377,11 @@ function DialogBuildSavedExpressionsMenu() {
 			const PreviewCharacter = CharacterLoadSimple("SavedExpressionPreview-" + i);
 			PreviewCharacter.Appearance = BaseAppearance.slice();
 			ExpressionGroups.forEach(I =>
-				PreviewCharacter.Appearance.push({ Asset: I.Asset, Color: I.Color })
+				PreviewCharacter.Appearance.push({
+					Asset: I.Asset,
+					Color: I.Color,
+					Property: I.Property ? { ...I.Property } : undefined,
+				})
 			);
 
 			for (let x = 0; x < expression.length; x++) {
