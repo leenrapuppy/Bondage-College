@@ -8033,7 +8033,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{Name: "Thick", HasType: false, AllowTypes: ["Thick"]},
 					{Name: "Thin", HasType: false, CopyLayerColor: "Thick", AllowTypes: ["Thin"], Top: 29, Left: 122, Alpha: [{ Group: ["Head"], Masks: [[0, 0, 214, 260], [285, 0, 205, 260]] }]},
-					{Name: "Lock", LockLayer: true, AllowColorize: false},
+					{Name: "Lock", LockLayer: true, AllowColorize: false, Left:108,},
 
 				],
 			},
