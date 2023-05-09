@@ -144,7 +144,7 @@ function InventoryItemMouthFuturisticPanelGagTrigger(data, C, Item, Deflate) {
 
 	// After automatically changing it, we store the original setting again
 	const OriginalSetting = Item.Property.OriginalSetting;
-	ExtendedItemSetOption(data, C, Item, newOption, previousOption);
+	ExtendedItemSetOption(data, C, Item, { ...newOption, ChangeWhenLocked: true }, previousOption);
 	Item.Property.OriginalSetting = OriginalSetting;
 	InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, newOption.Name, Deflate);
 

@@ -192,7 +192,7 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
  * @param {VibratingItemOption} previousOption
  */
 function InventoryItemVulvaFuturisticVibratorSetMode(data, C, Item, newOption, previousOption) {
-	if (ExtendedItemSetOption(data, C, Item, newOption, previousOption, true)) {
+	if (ExtendedItemSetOption(data, C, Item, { ...newOption, ChangeWhenLocked: true }, previousOption, true)) {
 		return;
 	}
 	ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
