@@ -8402,6 +8402,30 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: TypedItemChatSetting.SILENT,
 			}
 		}, // SpreaderMetal
+		HeavySpreaderMetal: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Narrow",
+						Property: {
+							Type: null, Effect: ["Prone", "Freeze"], SetPose: ["LegsOpen"],
+						}
+					},
+					{
+						Name: "Wide",
+						Property: {
+							Type: "Wide", Effect: ["Prone", "Freeze"], SetPose: ["Spread"],
+						}
+					}
+				],
+				DialogPrefix: {
+					Header: "SelectSpreaderType",
+					Option: "HeavySpreaderMetalPose",
+				},
+				ChatSetting: TypedItemChatSetting.SILENT,
+			}
+		}, // HeavySpreaderMetal
 		Chains: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {

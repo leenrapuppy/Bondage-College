@@ -372,9 +372,11 @@ Shoes,Shoes2,Style 2
 Shoes,Shoes4,Style 3
 Shoes,Sneakers1,Sneakers Light
 Shoes,Sneakers2,Sneakers Dark
+Shoes,SneakersSport,Sneakers Sport
 Shoes,Heels1,Heels
 Shoes,Heels2,Heels Strap
 Shoes,Boots1,Boots
+Shoes,AnkleBoots1,Ankle Boots
 Shoes,MistressBoots,Mistress Boots
 Shoes,PonyBoots,Pony Boots
 Shoes,Sandals,Strap Sandals
@@ -841,6 +843,7 @@ ItemFeet,HempRope,Hemp Rope
 ItemFeet,LeatherBelt,Leather Belt
 ItemFeet,SturdyLeatherBelts,Sturdy Leather Belt
 ItemFeet,Irish8Cuffs,Irish 8 Feet Cuffs
+ItemFeet,HeavyAnkleCuffs,Heavy Ankle Cuffs
 ItemFeet,DuctTape,Duct Tape
 ItemFeet,LeatherAnkleCuffs,Leather Ankle Cuffs
 ItemFeet,LeatherDeluxeAnkleCuffs,Leather Deluxe Ankle Cuffs
@@ -851,6 +854,7 @@ ItemFeet,FuturisticAnkleCuffs,Futuristic Ankle Cuffs
 ItemFeet,OrnateAnkleCuffs,Ornate Ankle Cuffs
 ItemFeet,HighStyleSteelAnkleCuffs,HighStyle Steel Ankle Cuffs
 ItemFeet,SpreaderMetal, Metal Leg Spreader
+ItemFeet,HeavySpreaderMetal, Heavy Leg Spreader
 ItemFeet,BallChain,Ball And Chain
 ItemFeet,AnkleShackles, Ankle Shackles
 ItemFeet,Zipties, Zip Ties
@@ -1125,6 +1129,7 @@ ItemArms,StraitDressOpen,Open Crotch Strait Dress
 ItemArms,SeamlessStraitDress,Seamless Strait Dress
 ItemArms,SeamlessStraitDressOpen,Seamless Open Crotch Strait Dress
 ItemArms,Yoke,Yoke
+ItemArms,HeavyYoke,Heavy Yoke
 ItemArms,Pillory,Pillory
 ItemArms,FullLatexSuit,Full LockDown Latex Suit
 ItemArms,Zipties,Zip Ties

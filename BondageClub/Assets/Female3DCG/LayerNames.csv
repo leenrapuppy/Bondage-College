@@ -369,6 +369,10 @@ ItemFeetOrnateAnkleCuffsChain,Chain
 ItemFeetHighStyleSteelAnkleCuffsCuffs,Cuffs
 ItemFeetHighStyleSteelAnkleCuffsPanel,Panel
 ItemFeetHighStyleSteelAnkleCuffsChain,Chain
+ItemFeetHeavyAnkleCuffsFrame,Frame
+ItemFeetHeavyAnkleCuffsCuffs,Cuffs
+ItemFeetHeavySpreaderMetalFrame,Frame
+ItemFeetHeavySpreaderMetalCuffs,Cuffs
 ItemFeetFloorShacklesChain,Chain
 ItemFeetFloorShacklesCuffs,Cuffs
 ItemFeetFuturisticAnkleCuffsChain,Chain
@@ -556,6 +560,8 @@ ItemArmsHighSecurityStraitJacketStrapsLoose,Jacket
 ItemArmsHighSecurityStraitJacketCrotchStrapsSingle,Crotch
 ItemArmsYokeStraps,Straps
 ItemArmsYokeBars,Bars
+ItemArmsHeavyYokeFrame,Frame
+ItemArmsHeavyYokeCuffs,Cuffs
 ItemArmsWristShacklesCuffs,Cuffs
 ItemArmsWristShacklesChain,Chain
 ItemArmsPilloryWood,Wood
@@ -914,6 +920,9 @@ ShoesSneakers1Front,Front
 ShoesSneakers1Laces,Laces
 ShoesSneakers2Shoes,Shoes
 ShoesSneakers2Laces,Laces
+ShoesSneakersSportMain,Main
+ShoesSneakersSportFront,Edging
+ShoesSneakersSportLaces,Laces
 ShoesFuturisticHeels2Mesh,Body
 ShoesFuturisticHeels2Shine,Shine
 ShoesFuturisticHeels2Cuffs,Cuffs
@@ -923,6 +932,9 @@ ShoesFuturisticHeels2Lock,Lock
 ShoesBoots1Shoes,Inner
 ShoesBoots1Sides,Outer
 ShoesBoots1Laces,Laces
+ShoesAnkleBoots1Shoes,Boots
+ShoesAnkleBoots1Sides,Edging
+ShoesAnkleBoots1Laces,Laces
 ShoesSandalsRSTop,Top
 ShoesSandalsRSSoles,Soles
 ShoesFlippersShoes,Shoes
