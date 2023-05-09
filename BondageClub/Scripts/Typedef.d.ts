@@ -388,18 +388,6 @@ type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 
 type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
 
-type ActivityPrerequisite =
-	"UseMouth" | "UseTongue" | "TargetMouthBlocked" | "IsGagged" | "TargetKneeling" | "UseHands" |
-	"UseArms" | "UseFeet" | "CantUseArms" | "CantUseFeet" | "TargetCanUseTongue" | "TargetMouthOpen" |
-	"VulvaEmpty" | "AssEmpty" | "UseVulva" | "UseAss" | "MoveHead" | "ZoneAccessible" |
-	"TargetZoneAccessible" | "ZoneNaked" | "TargetZoneNaked" | "TargetHasPenis" | "HasPenis" |
-	"CanUsePenis" | "TargetHasVagina" | "HasVagina" | "TargetHasBreasts" | "HasBreasts" |
-	"Sisters" | "Brothers" | "SiblingsWithDifferentGender" | "TargetHasFlatChest" | "HasFlatChest" |
-
-	"Needs-SpankItem" | "Needs-TickleItem" | "Needs-RubItem" | "Needs-RollItem" | "Needs-MasturbateItem" |
-	"Needs-PourItem" | "Needs-ShockItem" | "Needs-Inject" | "Needs-PenetrateItem" | "Needs-SipItem"
-	;
-
 type AssetCategory = "Medical" | "Extreme" | "Pony" | "SciFi" | "ABDL" | "Fantasy";
 
 //#endregion
@@ -1230,17 +1218,28 @@ interface Pose {
 	MovePosition?: { Group: AssetGroupName; X: number; Y: number; }[];
 }
 
-type ActivityName = "Bite" | "Caress" | "Choke" | "Cuddle" | "FrenchKiss" |
-	"GagKiss" | "GaggedKiss" | "Grope" | "HandGag" | "Inject" | "Kick" |
+type ActivityNameBasic = "Bite" | "Caress" | "Choke" | "Cuddle" | "FrenchKiss" |
+	"GagKiss" | "GaggedKiss" | "Grope" | "HandGag" | "Kick" |
 	"Kiss" | "Lick" | "MassageFeet" | "MassageHands" | "MasturbateFist" |
-	"MasturbateFoot" |"MasturbateHand" | "MasturbateItem" | "MasturbateTongue" |
-	"MoanGag" |"MoanGagAngry" | "MoanGagGiggle" | "MoanGagGroan" | "MoanGagTalk" |
-	"MoanGagWhimper" | "Nibble" | "Nod" | "PenetrateFast" | "PenetrateItem" |
-	"PenetrateSlow" | "Pet" | "Pinch" | "PoliteKiss" | "PourItem" | "Pull" |
-	"RestHead" | "RollItem" | "Rub" | "RubItem" | "ShockItem" | "SipItem" | "Sit" |
-	"Slap" | "Spank" | "SpankItem" | "Step" | "StruggleArms" | "StruggleLegs" |
-	"Suck" | "TakeCare" | "Tickle" | "TickleItem" | "Whisper" | "Wiggle" |
+	"MasturbateFoot" |"MasturbateHand" | "MasturbateTongue" |
+	"MoanGag" | "MoanGagAngry" | "MoanGagGiggle" | "MoanGagGroan" | "MoanGagTalk" |
+	"MoanGagWhimper" | "Nibble" | "Nod" | "PenetrateFast" |
+	"PenetrateSlow" | "Pet" | "Pinch" | "PoliteKiss" | "Pull" |
+	"RestHead" | "Rub" | "Sit" | "Slap" | "Spank" | "Step" | "StruggleArms" | "StruggleLegs" |
+	"Suck" | "TakeCare" | "Tickle" | "Whisper" | "Wiggle" |
 	"SistersHug" | "BrothersHandshake" | "SiblingsCheekKiss"
+;
+
+type ActivityNameItem = "Inject" | "MasturbateItem" | "PenetrateItem" | "PourItem" | "RollItem" | "RubItem" | "ShockItem" | "SipItem" | "SpankItem" | "TickleItem";
+
+type ActivityName = ActivityNameBasic | ActivityNameItem;
+
+type ActivityPrerequisite =
+	"AssEmpty" | "CantUseArms" | "CantUseFeet" | "CanUsePenis" | "CanUseTongue" | "HasVagina" | "IsGagged" | "MoveHead" |
+	`Needs-${ActivityNameItem}` |
+	"TargetCanUseTongue" | "TargetKneeling" | "TargetMouthBlocked" | "TargetMouthOpen" | "TargetZoneAccessible" | "TargetZoneNaked" |
+	"UseArms" | "UseFeet" | "UseHands" | "UseMouth" | "UseTongue" | "VulvaEmpty" | "ZoneAccessible" | "ZoneNaked" |
+	"Sisters" | "Brothers" | "SiblingsWithDifferentGender"
 ;
 
 interface Activity {

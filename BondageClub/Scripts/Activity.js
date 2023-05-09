@@ -199,10 +199,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			if (group.Name === "ItemButt")
 				return !acted.IsPlugged();
 			break;
-		case "UseVulva":
-			return acting.HasVagina() && !acting.IsVulvaFull();
-		case "UseAss":
-			return !acted.IsAssFull();
 		case "MoveHead":
 			if (group.Name === "ItemHead")
 				return !acted.IsFixedHead();
@@ -230,32 +226,18 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 				return InventoryPrerequisiteMessage(actor, "NakedHands") === "";
 			break;
 		}
-		case "TargetHasPenis":
-			return acted.HasPenis();
-		case "HasPenis":
-			return acting.HasPenis();
 		case "CanUsePenis":
 			if (acting.HasPenis())
 				return InventoryPrerequisiteMessage(acting, "AccessVulva") === "";
 			break;
-		case "TargetHasVagina":
-			return acted.HasVagina();
-		case "HasVagina":
-			return acting.HasVagina();
-		case "TargetHasBreasts":
-			return !acted.IsFlatChested();
-		case "HasBreasts":
-			return !acting.IsFlatChested();
-		case "TargetHasFlatChest":
-			return acted.IsFlatChested();
-		case "HasFlatChest":
-			return acting.IsFlatChested();
 		case "Sisters":
 			return !acting.HasPenis() && !acted.HasPenis() && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
 		case "Brothers":
 			return acting.HasPenis() && acted.HasPenis() && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
 		case "SiblingsWithDifferentGender":
 			return (acting.HasPenis() != acted.HasPenis()) && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
+		default:
+			break;
 	}
 	return true;
 }
