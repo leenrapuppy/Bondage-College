@@ -104,6 +104,10 @@ const CONTRIBUTOR_NAMES = {
 	"Leo L. Schwab": "ewhac",
 	"Leo Schwab": "ewhac",
 	"tui": "tui",
+	"Marie": "Marie",
+	"EllieThePink": "EllieThePink",
+	"Constantan2": "Constantan2",
+	"Fareeha": "Fareeha",
 };
 
 async function generateChangelogHtml() {
