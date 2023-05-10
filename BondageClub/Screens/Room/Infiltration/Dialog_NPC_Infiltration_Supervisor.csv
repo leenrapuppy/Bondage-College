@@ -12,7 +12,7 @@ PlayerGagged,,,(She frowns at you.)  Go see a maid girl.  I don't have time for 
 0,30,What are the perks?,"You can train some perks to help you, before going into a mission.  Do you need details?",,
 0,40,I'd like to take a mission.,Very good comrade DialogPlayerName!  (She salutes you.)  What kind of challenge are you up to?,,"DialogSkillGreater(""Infiltration"", 3)"
 0,40,I'd like to take a mission.,Very good!  What kind of challenge are you up to?,,"!DialogSkillGreater(""Infiltration"", 3)"
-0,Brainwash0,"Comrade, I've a prisoner from Pandora in my private room.",Very good comrade DialogPlayerName! We can send someone to pick her up for interrogation!,,PandoraPrisonerPresent()
+0,Brainwash0,"Comrade, I've got a prisoner from Pandora in my private room.",Very good comrade DialogPlayerName! We can send someone to pick her up for interrogation!,,PandoraPrisonerPresent()
 0,,I need to go.  (Leave her.),,DialogLeave(),
 10,,Pandora's Box?,"Yes, they opened their BDSM club right next to us a few months ago.  At first it was healthy competition, until they started to play dirty.",,
 10,,They play dirty?,"They sell our slaves, attack our Mistresses, jail our members, hack our computers and steal our money.  Is that dirty enough?",,
