@@ -800,7 +800,7 @@ var AssetFemale3DCG = [
 				Name: "AsymmetricSkirt", Value: 80, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], Left: 0,
 				Hide: ["ItemFeet"],
 				HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
-				HideItemExclude: ["ItemFeetLeatherAnkleCuffs", "ItemFeetLeatherDeluxeAnkleCuffs", "ItemFeetSteelAnkleCuffs", "ItemFeetEscortAnkleCuffs", "ItemFeetFuturisticAnkleCuffs", "ItemFeetOrnateAnkleCuffs", "HighStyleSteelAnkleCuffs", "ItemFeetWoodenCuffs", ""],
+				HideItemExclude: ["ItemFeetLeatherAnkleCuffs", "ItemFeetLeatherDeluxeAnkleCuffs", "ItemFeetSteelAnkleCuffs", "ItemFeetEscortAnkleCuffs", "ItemFeetFuturisticAnkleCuffs", "ItemFeetOrnateAnkleCuffs", "HighStyleSteelAnkleCuffs", "ItemFeetWoodenCuffs", "ItemFeetHeavySpreaderMetal", "ItemFeetHeavyAnkleCuffs"],
 				AllowPose: ["Kneel", "KneelingSpread"],
 				Layer: [
 					{ Name: "Back", ParentGroup: null, Priority: 6 },
@@ -3551,7 +3551,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{ Name: "Irish8Cuffs", Fetish: ["Metal"], Value: 25, Difficulty: 5, Time: 10, RemoveTime: 5, AllowLock: true, Audio: "CuffsMetal", SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"] },
-			{ Name: "HeavyAnkleCuffs", Fetish: ["Metal"], Value: 25, Difficulty: 7, Time: 10, RemoveTime: 5, AllowLock: true, Audio: "CuffsMetal", SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"],
+			{ Name: "HeavyAnkleCuffs", Fetish: ["Metal"], Priority: 24, Value: 25, Difficulty: 7, Time: 10, RemoveTime: 5, AllowLock: true, Audio: "CuffsMetal", SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"],
 				Layer: [
 					{ Name: "Frame" },
 					{ Name: "Cuffs" },
@@ -3619,7 +3619,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "SpreaderMetal", Fetish: ["Metal"], Value: 50, Difficulty: 3, Time: 10, Random: false, AllowLock: true, Prerequisite: ["NotKneeling", "LegsOpen"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], Extended: true, RemoveAtLogin: true, SetPose: ["LegsOpen"] },
-			{ Name: "HeavySpreaderMetal", Fetish: ["Metal"], Value: 50, Difficulty: 7, Time: 10, Random: false, AllowLock: true, Prerequisite: ["NotKneeling", "LegsOpen"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], Extended: true, RemoveAtLogin: true, SetPose: ["LegsOpen"],
+			{ Name: "HeavySpreaderMetal", Fetish: ["Metal"], Priority: 24, Value: 50, Difficulty: 7, Time: 10, Random: false, AllowLock: true, Prerequisite: ["NotKneeling", "LegsOpen"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], Extended: true, RemoveAtLogin: true, SetPose: ["LegsOpen"],
 				Layer: [
 					{ Name: "Frame" },
 					{ Name: "Cuffs" },
@@ -3730,13 +3730,15 @@ var AssetFemale3DCG = [
 					{ Name: "Rings" },
 				]
 			},
-			{ Name: "LeatherDeluxeLegCuffs", Fetish: ["Leather"], Priority: 24, Value: 50, Difficulty: 6, Time: 10, Random: false, AllowLock: true, AllowTighten: true, AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"], Effect: ["CuffedLegs"], Extended: true, AllowActivePose: ["Kneel", "KneelingSpread"], FreezeActivePose: [], HasType: false,
+			{
+				Name: "LeatherDeluxeLegCuffs", Fetish: ["Leather"], Priority: 24, Value: 10, Difficulty: 6, Time: 10, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"], Effect: ["CuffedLegs"], Extended: true, AllowActivePose: ["Kneel", "KneelingSpread"], FreezeActivePose: [], HasType: false,
 				DefaultColor: ["Default", "Default", "#612C2C", "Default"],
 				Layer: [
 					{ Name: "Chain", ParentGroup: null, AllowTypes: ["Chained"]},
 					{ Name: "Cuffs" },
 					{ Name: "Rings" },
 					{ Name: "Buckets" },
+					{ Name: "Lock", LockLayer: true, AllowColorize: false },
 				]
 			},
 			{ Name: "FuturisticLegCuffs",  Category: ["SciFi"], Fetish: ["Metal"], DefaultColor: ["Default", "#40812C", "#707070"], Audio: "FuturisticApply", Priority: 24, Value: 30, Difficulty: 3, Time: 10, Random: false, AllowLock: true, DrawLocks: false,
