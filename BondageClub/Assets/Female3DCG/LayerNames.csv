@@ -1602,10 +1602,10 @@ ItemHoodPantyhoodBase, Pantyhose
 ItemHoodPantyhoodHairUnder, Hair 
 ClothLatexTankTopBase, Tank Top
 ClothLatexTankTopCollar, Collar
-ClothLatexTankTophoodDown, Loose Hood
-ClothLatexTankTophoodFull, Pulled Hood
-ClothLatexTankTophoodHigh, Hoddie Up
-ClothLatexTankTophoodLow, Hoodie Down
+ClothLatexTankTopHoodDown, Loose Hood
+ClothLatexTankTopHoodFull, Pulled Hood
+ClothLatexTankTopHoodHigh, Hoddie Up
+ClothLatexTankTopHoodLow, Hoodie Down
 ItemHoodVacHoodBase, hood
 ItemHoodVacHoodLenses, Lens
 ItemHoodVacHoodTube, Breathing Tube

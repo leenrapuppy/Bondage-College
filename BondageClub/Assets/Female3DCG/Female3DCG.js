@@ -316,7 +316,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{Name: "Base", HasType: false, Top: 45, Left: 124 },
 					{Name: "Collar", HasType: false, Top: 45, Left: 124 },
-					{Name: "hoodDown", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh1"],},
+					{Name: "HoodDown", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh1"],},
 					{Name: "HoodFull", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh2"], CopyLayerColor: "HoodDown", Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [183,238,14,12], [303,238,14,12]] },], },
 					{Name: "HoodLow", HasType: false, Top: 53, Left: 124, AllowModuleTypes: ["lh1"], CopyLayerColor: "HoodDown", },
 					{Name: "HoodHigh", HasType: false, Top: -3, Left: 122, AllowModuleTypes: ["lh2"], Priority: 55, CopyLayerColor: "HoodDown", },
