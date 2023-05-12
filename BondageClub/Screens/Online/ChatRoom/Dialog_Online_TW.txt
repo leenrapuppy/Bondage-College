@@ -1,7 +1,7 @@
 ###_NPC
 (You can use or remove items by selecting specific body regions.)
 (你可以選擇身體部位來使用或移除物品)
-(You don't have access to use or remove items on DialogCharacterPossessive.)
+(You don't have access to use or remove items on DialogCharacterObject.)
 (你沒有使用或移除她身上物品的權限)
 ###_PLAYER
 (View DialogCharacterPossessive profile.)
@@ -20,7 +20,7 @@
 (There's a variety of drinks.  Some are offered by the club and some are more expensive.)
 (這裡有許多飲料，部分由俱樂部免費提供，還有一些較為昂貴)
 ###_PLAYER
-(Try to take DialogCharacterObject suitcase.)
+(Try to take DialogCharacterPossessive suitcase.)
 (嘗試拿走她的文件箱)
 ###_NPC
 (It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!)

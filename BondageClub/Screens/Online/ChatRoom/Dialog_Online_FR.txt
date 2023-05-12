@@ -15,7 +15,7 @@ buys a beer pitcher for everyone, from DialogCharacterName.
 achète une carafe de bière de DialogCharacterName.
 (You can use or remove items by selecting specific body regions.)
 (Vous pouvez utiliser ou enlever des objets en sélectionnant les parties du corps.)
-(You don't have access to use or remove items on DialogCharacterPossessive.)
+(You don't have access to use or remove items on DialogCharacterObject.)
 (Vous n'avez pas accès à utiliser ou enlever des objets sur elle.)
 ###_PLAYER
 (View DialogCharacterPossessive profile.)
