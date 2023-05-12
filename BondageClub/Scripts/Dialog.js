@@ -556,7 +556,14 @@ function DialogHasKey(C, Item) {
 	const lock = InventoryGetLock(Item);
 	if (lock && lock.Asset.FamilyOnly && Item.Asset.Enable && LogQuery("BlockFamilyKey", "OwnerRule") && (Player.Ownership != null) && (Player.Ownership.Stage >= 1)) return false;
 	if (C.IsLoverOfPlayer() && InventoryAvailable(Player, "LoversPadlockKey", "ItemMisc") && Item.Asset.Enable && Item.Property && Item.Property.LockedBy && !Item.Property.LockedBy.startsWith("Owner")) return true;
-	if (lock && lock.Asset.ExclusiveUnlock && ((!Item.Property.MemberNumberListKeys && Item.Property.LockMemberNumber != Player.MemberNumber) || (Item.Property.MemberNumberListKeys && CommonConvertStringToArray("" + Item.Property.MemberNumberListKeys).indexOf(Player.MemberNumber) < 0))) return false;
+	if (lock && lock.Asset.ExclusiveUnlock) {
+		// Locks with exclusive access (intricate, high-sec)
+		const allowedMembers = CommonConvertStringToArray(Item.Property.MemberNumberListKeys);
+		// High-sec, check if we're in the keyholder list
+		if (Item.Property.MemberNumberListKeys != null) return allowedMembers.includes(Player.MemberNumber);
+		// Intricate, check that we added that lock
+		if (Item.Property.LockMemberNumber == Player.MemberNumber) return true;
+	}
 	if (lock && lock.Asset.FamilyOnly && Item.Asset.Enable && (C.ID != 0) && !C.IsFamilyOfPlayer()) return false;
 	let UnlockName = /** @type {EffectName} */("Unlock-" + Item.Asset.Name);
 	if ((Item.Property != null) && (Item.Property.LockedBy != null))
