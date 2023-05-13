@@ -2165,6 +2165,7 @@ ItemArmsBitchSuitSetcl0,,,SourceCharacter dresses DestinationCharacter with the 
 ItemArmsBitchSuitSetcl1,,,SourceCharacter dresses DestinationCharacter with clothes over TargetPronounPossessive AssetName.,,
 ItemArmsBitchSuitSetun0,,,SourceCharacter dresses DestinationCharacter with the AssetName over TargetPronounPossessive underwear.,,
 ItemArmsBitchSuitSetun1,,,SourceCharacter dresses DestinationCharacter with underwear over TargetPronounPossessive AssetName.,,
+ItemArmsBitchSuitSetun2,,,SourceCharacter dresses DestinationCharacter with underwear and socks over TargetPronounPossessive AssetName.,,
 ItemVulvaClitAndDildoVibratorbeltDecreasee0,,,DestinationCharacterName vibrating egg stops vibrating.,,
 ItemVulvaClitAndDildoVibratorbeltDecreasee1,,,DestinationCharacterName vibrating egg slows down into a light tease.,,
 ItemVulvaClitAndDildoVibratorbeltDecreasee2,,,DestinationCharacterName vibrating egg returns to a moderate pace.,,
