@@ -275,7 +275,7 @@ function AssetsItemVulvaFuturisticVibratorScriptDrawHook(data, originalFunction,
 	if (C.ID !== 0 && C.MemberNumber !== null) return;
 
 	// Default to some number that just means all messages are viable
-	if (typeof PersistentData.CheckTime !== "number") PersistentData.CheckTime = 0;
+	if (typeof PersistentData.CheckTime !== "number") PersistentData.CheckTime = CurrentTime;
 
 	// Trigger a check if a new message is detected
 	let lastMsgIndex = ChatRoomChatLog.length - 1;
