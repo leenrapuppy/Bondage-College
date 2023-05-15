@@ -312,14 +312,15 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexTankTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, Effect: ["Slow"], AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
+				Name: "LatexTankTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
 				Layer: [
 					{Name: "Base", HasType: false, Top: 45, Left: 124 },
-					{Name: "Collar", HasType: false, Top: 45, Left: 124 },
-					{Name: "HoodDown", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh1"],},
-					{Name: "HoodFull", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh2"], CopyLayerColor: "HoodDown", Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [183,238,14,12], [303,238,14,12]] },], },
-					{Name: "HoodLow", HasType: false, Top: 53, Left: 124, AllowModuleTypes: ["lh1"], CopyLayerColor: "HoodDown", },
-					{Name: "HoodHigh", HasType: false, Top: -3, Left: 122, AllowModuleTypes: ["lh2"], Priority: 55, CopyLayerColor: "HoodDown", },
+					{Name: "Collar", HasType: false, Top: 45, Left: 124, HideAs: { Group: "ItemNeck" }},
+					{Name: "HoodDown", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh1"], HideAs: { Group: "ItemHood" }},
+					{Name: "HoodFull", HasType: false, Top: 45, Left: 124, AllowModuleTypes: ["rh2"], CopyLayerColor: "HoodDown", HideAs: { Group: "ItemHood" },
+						Alpha: [{ Group: ["ItemHood", "ItemHead", "ItemMouth", "ItemMouth2", "ItemMouth3", "Hat", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Masks: [[0, 0, 185, 500], [315, 0, 232, 500], [0, 250, 500, 1000], [183,238,14,12], [303,238,14,12]] },], },
+					{Name: "HoodLow", HasType: false, Top: 53, Left: 124, AllowModuleTypes: ["lh1"], CopyLayerColor: "HoodDown", HideAs: { Group: "ItemHood" }},
+					{Name: "HoodHigh", HasType: false, Top: -3, Left: 122, AllowModuleTypes: ["lh2"], Priority: 55, CopyLayerColor: "HoodDown", HideAs: { Group: "ItemHood" }},
 				],
 			},
 			{
@@ -7895,7 +7896,7 @@ var AssetFemale3DCG = [
 				DefaultTint: "#765d4e",
 			},
 			{
-				Name: "Pantyhood", Value: 10, Time: 5,
+				Name: "PantyHood", Value: 10, Time: 5,
 				Hide: ["Glasses", "Mask", "HairFront", "FacialHair", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				HideItem: ["ItemHeadSnorkel", "ItemEarsFuturisticEarphones","HatFurHeadband"],
 				Effect: ["BlindLight", "Prone"],
