@@ -899,7 +899,8 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
  * informing the player of the requirements that are not met.
  */
 function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=false) {
-	if (newOption.Name === previousOption.Name) {
+	// TODO: decouple `...Validate` from `...SetOption`
+	if (newOption.Name === previousOption.Name && !newOption.HasSubscreen) {
 		return DialogFindPlayer("AlreadySet");
 	}
 

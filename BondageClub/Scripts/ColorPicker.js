@@ -146,8 +146,7 @@ function ColorPickerGetCoordinates(Event) {
 	if (isTouchEvent(Event)) {
 		if (Event.changedTouches) {
 			// Mobile
-			var Touch = Event.changedTouches[0];
-			TouchMove(Touch);
+			TouchMove(Event);
 		}
 	} else {
 		// PC

@@ -35,7 +35,7 @@ buys a cappuccino from DialogCharacterName tray.
 kauft einen Cappuccino von DialogCharacterName Servierplatte.
 (You can use or remove items by selecting specific body regions.)
 (Wähle eine Körperregion, um Items zu benutzen oder zu entfernen.)
-(You don't have access to use or remove items on DialogCharacterPossessive.)
+(You don't have access to use or remove items on DialogCharacterObject.)
 (Es ist dir nicht möglich, Items an ihr zu benutzen oder zu entfernen.)
 ###_PLAYER
 (View DialogCharacterPossessive profile.)
