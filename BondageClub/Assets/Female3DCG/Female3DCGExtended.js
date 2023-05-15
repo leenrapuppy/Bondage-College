@@ -2672,6 +2672,7 @@ var AssetFemale3DCGExtended = {
 		PrisonSJ: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChangeWhenLocked: false,
 				Modules: [
 					{
 						Name: "Stripes", Key: "p",
@@ -2682,19 +2683,23 @@ var AssetFemale3DCGExtended = {
 							{ // p1 - No Stripes
 								Property: { Effect: [] }
 							},
-						]
+						],
 					},
 					{
 						Name: "Zipper", Key: "c",
 						Options:[
 							{ // c0 - closed
-								Property: { Effect: ["Chaste"] }
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings",]
+								}
 							},
 							{ // c1 - Exposed
-								Property: { Effect: [] }
-
+								Property: {
+									Effect: [],
+									Block: [],
+								},
 							}
-
 						]
 					},
 				],
