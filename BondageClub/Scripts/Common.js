@@ -551,7 +551,7 @@ function CommonRandomItemFromList(ItemPrevious, ItemList) {
  */
 function CommonConvertStringToArray(s) {
 	var arr = [];
-	if (s != "") {
+	if (typeof s === "string") {
 		arr = s.split(',').reduce((list, curr) => {
 			if (!(!curr || Number.isNaN(Number(curr)))) list.push(Number(curr));
 			return list;

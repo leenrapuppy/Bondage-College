@@ -1,13 +1,13 @@
 PlayerGagged,,,(You can use or remove items by selecting specific body regions.),,DialogDoAllowItem(CurrentCharacter)
-PlayerGagged,,,(You don't have access to use or remove items on DialogCharacterPossessive.),,!DialogDoAllowItem(CurrentCharacter)
+PlayerGagged,,,(You don't have access to use or remove items on DialogCharacterObject.),,!DialogDoAllowItem(CurrentCharacter)
 0,,,(You can use or remove items by selecting specific body regions.),,DialogDoAllowItem(CurrentCharacter)
-0,,,(You don't have access to use or remove items on DialogCharacterPossessive.),,!DialogDoAllowItem(CurrentCharacter)
+0,,,(You don't have access to use or remove items on DialogCharacterObject.),,!DialogDoAllowItem(CurrentCharacter)
 0,,(View DialogCharacterPossessive profile.),,DialogViewProfile(),
 0,,(Change DialogCharacterPossessive clothes.),,DialogChangeClothes(),DialogCanChangeClothes()
 0,10,(Manage your relationship.),"(You can give more access to your items by putting DialogCharacterObject on your whitelist, or less control by putting DialogCharacterObject on your blacklist.)",,
 0,20,(Check DialogCharacterObject drink tray.),(There's a variety of drinks.  Some are offered by the club and some are more expensive.),,CanTakeDrink()
-0,0,(Try to take DialogCharacterObject suitcase.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!),TryToTakeSuitcase(),CanTakeSuitcase()
-0,0,(Try to take DialogCharacterObject suitcase.),(You will need to tie DialogCharacterObject first so DialogCharacterSubject can't escape or resist!),,CantTakeSuitcase()
+0,0,(Try to take DialogCharacterPossessive suitcase.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!),TryToTakeSuitcase(),CanTakeSuitcase()
+0,0,(Try to take DialogCharacterPossessive suitcase.),(You will need to tie DialogCharacterObject first so DialogCharacterSubject can't escape or resist!),,CantTakeSuitcase()
 0,0,(Use the laptop to steal data.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure DialogCharacterSubject is secure!),TryToTakeSuitcase(),CanTakeSuitcaseOpened()
 0,0,(Use the laptop to steal data.),(You will need to tie DialogCharacterObject first so DialogCharacterSubject can't escape or resist!),,CantTakeSuitcaseOpened()
 0,30,(Room administrator action.),"(As a room administrator, you can take these actions with DialogCharacterObject.)",,PlayerIsAdmin()

@@ -503,11 +503,13 @@ function StruggleStrengthDraw(C) {
 	if (StruggleAllowLoosen())
 		DrawButton(1300, 880, 400, 65, DialogFindPlayer("TryLoosen"), "White");
 	else {
-		if (ControllerIsActive()) {
-			DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeys"), 1500, 900, "White", "Black");
-		} else {
-			DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeysController"), 1500, 900, "White", "Black");
+		let msg = "ProgressKeys";
+		if (CommonIsMobile) {
+			msg = "ProgressClick";
+		} else if (ControllerIsActive()) {
+			msg = "ProgressKeysController";
 		}
+		DrawText(DialogFindPlayer(msg), 1500, 900, "White", "Black");
 	}
 
 }
