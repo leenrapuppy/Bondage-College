@@ -9121,6 +9121,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
+									HideItem: ["ItemVulvaPiercingsChastityClitShield", "ItemVulvaPiercingsHighSecurityVulvaShield"],
 								}
 							},
 							{ // 2 - close back
@@ -9133,6 +9134,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+									HideItem: ["ItemVulvaPiercingsChastityClitShield", "ItemVulvaPiercingsHighSecurityVulvaShield"],
 								}
 							}
 						],
