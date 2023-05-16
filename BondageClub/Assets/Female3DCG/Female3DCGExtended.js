@@ -2676,10 +2676,13 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Stripes", Key: "p",
 						Options:[
-							{ // p0 - Prison Stripe
+							{ // p0 - No Stripes
 								Property: { Effect: [] }
 							},
-							{ // p1 - No Stripes
+							{ // p1 - Prison Stripes
+								Property: { Effect: [] }
+							},
+							{ // p2 - Sides
 								Property: { Effect: [] }
 							},
 						]

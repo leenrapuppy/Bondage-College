@@ -5431,15 +5431,16 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PrisonSJ", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 100, Left: 52, Top: 196, Difficulty: 13, SelfBondage: 4, Time: 35, RemoveTime: 15, AllowLock: true, DrawLocks: false,
-				Hide: ["ItemVulva", "LeftHand", "RightHand","Cloth","Panties","Bra"],
+				Hide: ["ItemVulva", "LeftHand", "RightHand","Cloth","Panties","Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemHands", "ItemHandheld"],
-				SetPose: ["BackElbowTouch"], Extended: true,
+				SetPose: ["BackElbowTouch"], Extended: true, HasType: false, DefaultColor: ["666666","EEEEEE","FF1A1A"],
 				Effect: ["Block", "Prone", "Slow"],
 				Layer: [
-					{ Name: "Base", HasType: false, },
-					{ Name: "Stripe", HasType: false, AllowModuleTypes: ["p0"],},
-					{ Name: "OpenZip", HasType: false, AllowModuleTypes: ["c1"],},
-					{ Name: "CloseZip", HasType: false, AllowModuleTypes: ["c0"],CopyLayerColor: "OpenZip", },
+					{ Name: "Base",},
+					{ Name: "Stripe", AllowModuleTypes: ["p1"],},
+					{ Name: "Sides", AllowModuleTypes: ["p2"], CopyLayerColor: "Stripe"},
+					{ Name: "OpenZip", AllowModuleTypes: ["c1"],},
+					{ Name: "CloseZip", AllowModuleTypes: ["c0"],CopyLayerColor: "OpenZip", },
 				]
 			},
 			// Flat Chest Compatible Items
