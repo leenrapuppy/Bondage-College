@@ -312,7 +312,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexTankTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
+				Name: "LatexTankTop", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Extended: true, AllowPose: ["AllFours", "Hogtied"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemTorso", "ItemTorso2",],
 				Layer: [
 					{Name: "Base", HasType: false, Top: 45, Left: 124 },
 					{Name: "Collar", HasType: false, Top: 45, Left: 124, HideAs: { Group: "ItemNeck" }},
