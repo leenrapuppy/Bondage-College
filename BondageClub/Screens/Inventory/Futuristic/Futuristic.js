@@ -103,7 +103,7 @@ function FuturisticAccessExit() {
  * @type {ExtendedItemScriptHookCallbacks.Validate<ExtendedItemData<any>, any>}
  */
 function FuturisticAccessValidate(Data, OriginalFunction, C, Item, Option, CurrentOption) {
-	let futureString = InventoryItemFuturisticValidate(C, Item);
+	let futureString = InventoryItemFuturisticValidate(C, Item, CurrentOption.ChangeWhenLocked);
 	if (futureString) return futureString;
 	else return OriginalFunction(C, Item, Option, CurrentOption);
 }
@@ -173,12 +173,13 @@ function InventoryItemFuturisticExitAccessDenied() {
  * Validates, if the chosen option is possible. Sets the global variable 'DialogExtendedMessage' to the appropriate error message, if not.
  * @param {Character} C - The character to validate the option
  * @param {Item} Item - The equipped item
+ * @param {boolean} changeWhenLocked - See {@link ExtendedItemOption.ChangeWhenLocked}
  * @returns {string} - Returns false and sets DialogExtendedMessage, if the chosen option is not possible.
  */
-function InventoryItemFuturisticValidate(C, Item = DialogFocusItem) {
+function InventoryItemFuturisticValidate(C, Item = DialogFocusItem, changeWhenLocked=false) {
 	var Allowed = "";
 
-	if (Item && Item.Property && Item.Property.LockedBy && !DialogCanUnlock(C, Item)) {
+	if (Item && Item.Property && Item.Property.LockedBy && !DialogCanUnlock(C, Item) && !changeWhenLocked) {
 		var collar = InventoryGet(C, "ItemNeck");
 		if (!collar || (!collar.Property ||
 			(FuturisticAccessCollarGroups.includes(Item.Asset.Group.Name) && collar.Property.OpenPermission != true) ||

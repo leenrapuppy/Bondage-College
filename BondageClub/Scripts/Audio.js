@@ -118,8 +118,39 @@ var AudioActions = [
 			"Suctightens",
 			"InflatableBodyBagSet",
 			"ItemButtInflVibeButtPlugIncreaseTof",
+			"InflatableVibratingPantiesIncreaseTof"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Inflation"
+	},
+	{
+		IsAction: (data) => [
+			"deflates",
+			"Sucloosens",
+			"ItemButtInflVibeButtPlugDecreaseTof",
+			"InflatableVibratingPantiesDecreaseTof"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Deflation"
+	},
+	{
+		IsAction: (data) => [
+			"ItemMouthFuturisticPanelGagSetPumpInflateg",
+			"ItemMouthFuturisticHarnessGagSetPumpInflateg",
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Inflation"
+	},
+	{
+		IsAction: (data) => [
+			"ItemMouthFuturisticPanelGagSetPumpDeflateg",
+			"ItemMouthFuturisticHarnessGagSetPumpDeflateg",
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Deflation"
+	},
+	{
+		IsAction: (data) => [
+			"ItemMouthFuturisticPanelGagSetg",
+			"ItemMouthFuturisticHarnessBallGagSetg",
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "SciFiPump"
 	},
 	{
 		IsAction: (data) => [
@@ -195,20 +226,6 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"ItemMouthFuturisticPanelGagSetg",
-		].some(A => data.Content.includes(A)),
-		GetSoundEffect: () => "SciFiPump"
-	},
-	{
-		IsAction: (data) => [
-			"deflates",
-			"Sucloosens",
-			"ItemButtInflVibeButtPlugDecreaseTof",
-		].some(A => data.Content.includes(A)),
-		GetSoundEffect: () => "Deflation"
-	},
-	{
-		IsAction: (data) => [
 			"ChainSet",
 			"CeilingShacklesSet"
 		].some(A => data.Content.includes(A)),
@@ -257,18 +274,6 @@ var AudioActions = [
 			"ItemPelvisSciFiPleasurePantiesSeto",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiBeeps"
-	},
-	{
-		IsAction: (data) => [
-			"ItemMouthFuturisticPanelGagSetPumpInflate",
-		].some(A => data.Content.includes(A)),
-		GetSoundEffect: () => "Inflation"
-	},
-	{
-		IsAction: (data) => [
-			"ItemMouthFuturisticPanelGagSetPumpDeflate",
-		].some(A => data.Content.includes(A)),
-		GetSoundEffect: () => "Deflation"
 	},
 	{
 		IsAction: (data) => [

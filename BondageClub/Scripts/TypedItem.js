@@ -144,7 +144,7 @@ function TypedItemCreateTypedItemData(asset, {
  * @param {TypedItemOption} previousOption
  */
 function TypedItemPublishAction(data, C, item, newOption, previousOption) {
-	if (data.chatSetting === TypedItemChatSetting.SILENT) {
+	if (data.chatSetting === TypedItemChatSetting.SILENT || newOption.Name === previousOption.Name) {
 		return;
 	}
 

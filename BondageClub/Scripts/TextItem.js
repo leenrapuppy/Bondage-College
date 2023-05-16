@@ -175,7 +175,7 @@ const TextItem = {
 				const callback = eventListeners[name];
 				textInput.pattern = DynamicDrawTextInputPattern;
 				textInput.addEventListener("input", (e) => {
-					callback(C, item.Property, name, /** @type {HTMLInputElement} */ (e.target).value);
+					callback(C, item, name, /** @type {HTMLInputElement} */ (e.target).value);
 				});
 			}
 		}
@@ -295,9 +295,9 @@ const TextItem = {
  * Throttled callback for handling text changes.
  * @type {TextItemEventListener}
  */
-const TextItemChange = CommonLimitFunction((C, textRecord, name, text) => {
+const TextItemChange = CommonLimitFunction((C, item, name, text) => {
 	if (DynamicDrawTextRegex.test(text)) {
-		textRecord[name] = text;
+		item.Property[name] = text;
 		CharacterLoadCanvas(C);
 	}
 });
@@ -306,9 +306,9 @@ const TextItemChange = CommonLimitFunction((C, textRecord, name, text) => {
  * Throttled callback for handling text changes that do not require a canvas.
  * @type {TextItemEventListener}
  */
-const TextItemChangeNoCanvas = CommonLimitFunction((C, textRecord, name, text) => {
+const TextItemChangeNoCanvas = CommonLimitFunction((C, item, name, text) => {
 	if (DynamicDrawTextRegex.test(text)) {
-		textRecord[name] = text;
+		item.Property[name] = text;
 	}
 });
 

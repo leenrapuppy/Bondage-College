@@ -754,6 +754,10 @@ function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = fals
  * @returns {void} - Nothing
  */
 function ModularItemPublishAction(data, C, item, newOption, previousOption) {
+	if (newOption.Name === previousOption.Name) {
+		return;
+	}
+
 	const chatData = {
 		C,
 		newOption,
