@@ -2672,6 +2672,7 @@ var AssetFemale3DCGExtended = {
 		PrisonSJ: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChangeWhenLocked: false,
 				Modules: [
 					{
 						Name: "Stripes", Key: "p",
@@ -2685,19 +2686,23 @@ var AssetFemale3DCGExtended = {
 							{ // p2 - Sides
 								Property: { Effect: [] }
 							},
-						]
+						],
 					},
 					{
 						Name: "Zipper", Key: "c",
 						Options:[
 							{ // c0 - closed
-								Property: { Effect: ["Chaste"] }
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings",]
+								}
 							},
 							{ // c1 - Exposed
-								Property: { Effect: [] }
-
+								Property: {
+									Effect: [],
+									Block: [],
+								},
 							}
-
 						]
 					},
 				],
@@ -4396,13 +4401,20 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Modules: [
 					{
-						Name: "HandPump", Key: "hp",
+						Name: "Breathplay", Key: "bp",
 						Options:[
 							{ // hp0 - None
-								Property: { Effect: [] }
+								Property: { Effect: [] },
 							},
-							{ // hp1 - Pumped Mouth
-								Property: { Effect: ["GagMedium","BlockMouth"] }
+							{ // hp1 - Hand Pump
+								Property: {
+									Effect: ["GagMedium", "BlockMouth"],
+								},
+							},
+							{ // r1 - Rebreather
+								Property: {
+									Effect: ["GagMedium", "BlockMouth"],
+								},
 							},
 						]
 					},
@@ -4413,22 +4425,11 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // pc1 - Tube Clamped
-								Property: { Effect: ["GagMedium","BlockMouth"] }
-
+								Property: {
+									Effect: ["GagMedium", "BlockMouth"]
+								}
 							}
 
-						]
-					},
-					{
-						Name: "Rebreather", Key: "r",
-						Options:[
-							{ // r0 - None
-								Property: { Effect: [] }
-							},
-							{ // r1 - Rebreather Gagged
-								Property: { Effect: ["GagMedium","BlockMouth"] }
-
-							},
 						]
 					},
 				],

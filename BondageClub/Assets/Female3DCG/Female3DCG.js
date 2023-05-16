@@ -5431,8 +5431,8 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PrisonSJ", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 100, Left: 52, Top: 196, Difficulty: 13, SelfBondage: 4, Time: 35, RemoveTime: 15, AllowLock: true, DrawLocks: false,
-				Hide: ["ItemVulva", "LeftHand", "RightHand","Cloth","Panties","Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"],
-				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemHands", "ItemHandheld"],
+				Hide: ["ItemVulva", "LeftHand", "RightHand", "Cloth", "Panties", "Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"],
+				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemButt", "ItemHands", "ItemHandheld"],
 				SetPose: ["BackElbowTouch"], Extended: true, HasType: false, DefaultColor: ["666666","EEEEEE","FF1A1A"],
 				Effect: ["Block", "Prone", "Slow"],
 				Layer: [
@@ -5440,7 +5440,7 @@ var AssetFemale3DCG = [
 					{ Name: "Stripe", AllowModuleTypes: ["p1"],},
 					{ Name: "Sides", AllowModuleTypes: ["p2"], CopyLayerColor: "Stripe"},
 					{ Name: "OpenZip", AllowModuleTypes: ["c1"],},
-					{ Name: "CloseZip", AllowModuleTypes: ["c0"],CopyLayerColor: "OpenZip", },
+					{ Name: "CloseZip", AllowModuleTypes: ["c0"], CopyLayerColor: "OpenZip", },
 				]
 			},
 			// Flat Chest Compatible Items
@@ -8349,18 +8349,18 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true,
+				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true, HasType: false,
 				Hide: ["Head", "HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
 				Layer: [
-					{ Name: "Lenses",Top: 60, Left: 132, HasType: false, },
-					{ Name: "Base", Top: 48, Left: 134, HasType: false, },
-					{ Name: "Tube", Top: 48, Left: 134, HasType: false, },
-					{ Name: "HandPump", Top: 48, Left: 134, HasType: false, AllowModuleTypes: ["hp1"]},
-					{ Name: "PlasticClip", Top: 48, Left: 134, HasType: false, AllowModuleTypes: ["pc1"]},
-					{ Name: "ClipHose", Top: 48, Left: 134, HasType: false,CopyLayerColor: "Tube", AllowModuleTypes: ["pc1"]},
-					{ Name: "Rebreather", Top: 134, Left: 134, HasType: false,CopyLayerColor: "HandPump", AllowModuleTypes: ["r1"]},
+					{ Name: "Lenses",Top: 60, Left: 132, },
+					{ Name: "Base", Top: 48, Left: 134, },
+					{ Name: "Tube", Top: 48, Left: 134, },
+					{ Name: "HandPump", Top: 48, Left: 134, AllowModuleTypes: ["bp1"], },
+					{ Name: "Rebreather", Top: 134, Left: 134, AllowModuleTypes: ["bp2"], CopyLayerColor: "HandPump", },
+					{ Name: "PlasticClip", Top: 48, Left: 134, AllowModuleTypes: ["pc1"], },
+					{ Name: "ClipHose", Top: 48, Left: 134, AllowModuleTypes: ["pc1"], CopyLayerColor: "Tube", },
 
 				],
 			},
