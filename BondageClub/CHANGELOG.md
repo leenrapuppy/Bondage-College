@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2023-05-10
-* Last recorded PR: [#4197](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4197)
-* Last recorded commit hash: `3e51b0aab487f12a365c93e3f905d04df8508f4c`
+* Changelog last updated: 2023-05-16
+* Last recorded PR: [#4224](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4224)
+* Last recorded commit hash: `0e1f137c10df5c550556867fc531fd61c42cb940`
 
 ## [R92]
 
@@ -33,8 +33,8 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * shion - Added a Latex-frilled Shirt and Short Latex Gloves ([#4184](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4184))
 * Constantan - Added Sport Sneakers, Ankle Boots, Heavy Ankle Cuffs, Heavy Metal Spreader, and Heavy Yoke ([#4195](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4195))
 
-
 ### [Removed]
+* Nothing this release
 
 ### [Changed]
 * Estsanatlehi - Made the two chastity shields block clit activities ([#4138](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4138))
@@ -92,6 +92,20 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Made a couple changes to the typing of the activity prerequisites and removed the unused ones ([#4192](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4192))
 * Rama - Avoided directly constructing items without using something like `CharacterAppearanceSetItem`, which would lead to issues with their initialization ([#4197](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4197))
 
+### [Beta fixes]
+
+* shion, Sepia Oulomenohn, Estsanatlehi - A load of fixes to the Latex Tank Top, the Prison Straightjacket, the Latex Frilled Shirt, the Latex Short Gloves, the Inflatable Vibrating Panties, the Vac Hood and the Pantyhood ([#4201](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4201), [#4211](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4211), [#4217](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4217), [#4219](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4219), [#4218](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4218), [#4220](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4220), [#4221](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4221), [#4222](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4222), [#4224](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4224))
+* Estsanatlehi - Fix the high-sec and intricate locks not being unlockable ([#4202](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4202))
+* Estsanatlehi - Made the two chastity shields block clit activities ([#4203](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4203))
+* Estsanatlehi - Fixed a crash with the color picker when on mobile ([#4204](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4204))
+* Estsanatlehi - Fixed incorrect substitution tags in dialogs ([#4205](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4205))
+* Constantan2 - Fixed an issue with some of the new "Heavy Set" assets not overlaying correctly ([#4206](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4206)), and some coloring ([#4214](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4214))
+* Rama - Fixed subscreens not opening when the respective super-screen option was previously already selected ([#4207](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4207))
+* Estsanatlehi - Fixed the label being wrong when strength-struggling ([#4208](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4208))
+* Rama - Explicitly set `ChangeWhenLocked: true` when automatically setting extended item options: part 2 ([#4209](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4209))
+* Estsanatlehi - Fixed missing inflation sound effects ([#4212](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4212))
+* Rama - BUG: 4 beta bug fixes ([#4215](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4215))
+* Rama - Added a missing activity description for `SipItem` ([#4216](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4216))
 
 ## [R91]
 
@@ -110,6 +124,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * MAKeevchanin - Updated the Russian translation
 
 ### [Removed]
+* Nothing this release
 
 ### [Changed]
 * KyraObscura - Updated the Fishnet option of the Custom Latex Hood to be more visible ([#4021](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4021))
@@ -195,6 +210,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Add a new set of steel items courtesy of Constantan ([#4016](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/4016))
 
 ### [Removed]
+* Nothing this release
 
 ### [Changed]
 * MAKeevchanin - Updated the Russian translation
@@ -289,6 +305,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 
 ### [Removed]
+* Nothing this release
 
 ### [Changed]
 * Fareeha - Improved the Traditional Chinese translation ([#3864](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3864))
