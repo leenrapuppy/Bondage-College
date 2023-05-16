@@ -175,7 +175,8 @@ const TextItem = {
 				const callback = eventListeners[name];
 				textInput.pattern = DynamicDrawTextInputPattern;
 				textInput.addEventListener("input", (e) => {
-					callback(C, item, name, /** @type {HTMLInputElement} */ (e.target).value);
+					const innerItem = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
+					callback(C, innerItem, name, /** @type {HTMLInputElement} */ (e.target).value);
 				});
 			}
 		}
