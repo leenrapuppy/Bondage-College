@@ -335,10 +335,10 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "FrilledShirt", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Priority: 30, Top: 163, Left: 50,
+				Name: "FrilledShirt", Gender: "F", Prerequisite: ["HasBreasts"], Value: 40, Priority: 30, Top: 68, Left: 50, HasType: false,
 				Layer: [
-					{ Name: "Base", HasType: false, },
-					{ Name: "Frill", HasType: false, CopyLayerColor: "Base", },
+					{ Name: "Base", },
+					{ Name: "Frill", CopyLayerColor: "Base", },
 				],
 			},
 			// Flat Chest Compatible Clothing
