@@ -257,10 +257,10 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 			break;
 
 		case "AccessCrotch":
-			return (!InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"])
+			return (InventoryDoItemsBlockGroup(C, "ItemPelvis", ["Cloth", "ClothLower", "Socks"])
+				|| (!InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"])
 				&& !InventoryDoItemsExposeGroup(C, "ItemVulvaPiercings", ["ClothLower", "Panties"])
-				&& !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])
-				&& InventoryDoItemsBlockGroup(C, "ItemPelvis", ["ClothLower", "Panties"]))
+				&& !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])))
 				? "RemoveClothesForItem" : "";
 
 		case "CanCoverVulva":
