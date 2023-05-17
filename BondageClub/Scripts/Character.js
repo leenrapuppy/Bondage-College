@@ -1934,11 +1934,10 @@ function CharacterClearOwnership(C) {
  * @returns {string} - The nickname to return
  */
 function CharacterNickname(C) {
-	let Regex = /^[a-zA-Z\s]*$/;
 	let Nick = C.Nickname;
 	if (Nick == null) Nick = "";
 	Nick = Nick.trim().substring(0, 20);
-	if ((Nick == "") || !Regex.test(Nick)) Nick = C.Name;
+	if ((Nick == "") || !ServerCharacterNicknameRegex.test(Nick)) Nick = C.Name;
 	return AsylumGGTSCharacterName(C, Nick);
 }
 
