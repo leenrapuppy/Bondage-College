@@ -5826,6 +5826,7 @@ var AssetFemale3DCGExtended = {
 		InflatableVibratingPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "InflateLevel",
