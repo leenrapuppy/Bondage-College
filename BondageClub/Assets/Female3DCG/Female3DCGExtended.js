@@ -508,7 +508,7 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // lh2 - Pulled Up
-								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2",] }
+								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat"] }
 							},
 						]
 					},
@@ -524,7 +524,7 @@ var AssetFemale3DCGExtended = {
 							{ // rh2 - Pulled Up
 								Property: {
 									Effect: ["Slow"],
-									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "Head"],
+									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Head"],
 								}
 
 							}
