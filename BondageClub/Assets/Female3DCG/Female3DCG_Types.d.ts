@@ -676,6 +676,8 @@ interface ModularItemModuleBase {
 	 * Options array. Keys should be alphabetical only (a-z, A-Z)
 	 */
 	Key: string;
+	/** Whether the module shows up in the UI. Useful for modules that are managed programmatically. */
+	Hidden?: true;
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOptionBase[];
 	/** Whether or not this module can be selected by the wearer */

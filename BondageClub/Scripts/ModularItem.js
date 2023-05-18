@@ -210,8 +210,9 @@ function ModularItemCreateModularData(asset, {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
 	const ModulesParsed = ModularItemBuildModules(asset, Modules, ChangeWhenLocked);
+	const VisibleModules = ModulesParsed.filter(m => !m.Hidden);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
-	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
+	const BaseDrawImages = (typeof DrawImages !== "boolean") ? VisibleModules.every((m) => m.DrawImages) : DrawImages;
 
 	const key = `${asset.Group.Name}${asset.Name}`;
 	DialogPrefix = DialogPrefix || {};
@@ -237,7 +238,7 @@ function ModularItemCreateModularData(asset, {
 		modules: ModulesParsed,
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
-		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length, asset, BaseDrawImages) },
+		drawData: { [ModularItemBase]: ModularItemCreateDrawData(VisibleModules.length, asset, BaseDrawImages) },
 		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		drawFunctions: {},
 		clickFunctions: {},
@@ -248,7 +249,7 @@ function ModularItemCreateModularData(asset, {
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
-	for (const module of ModulesParsed) {
+	for (const module of VisibleModules) {
 		data.pages[module.Name] = 0;
 		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length, asset, module.DrawImages);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);
@@ -295,11 +296,13 @@ function ModularItemCreateDrawData(itemCount, asset, drawImages) {
 function ModularItemCreateDrawBaseFunction(data) {
 	return () => {
 		/** @type {ModularItemButtonDefinition[]} */
-		const buttonDefinitions = data.modules.map((module, i) => {
-			const currentValues = ModularItemParseCurrent(data);
-			const currentOption = module.Options[currentValues[i]];
-			return [module, currentOption, data.dialogPrefix.module];
-		});
+		const buttonDefinitions = data.modules
+			.filter((m) => !m.Hidden)
+			.map((module, i) => {
+				const currentValues = ModularItemParseCurrent(data);
+				const currentOption = module.Options[currentValues[i]];
+				return [module, currentOption, data.dialogPrefix.module];
+			});
 		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
 	};
 }
@@ -345,10 +348,10 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 	const pageStart = pageNumber * itemsPerPage;
 	const page = buttonDefinitions.slice(pageStart, pageStart + itemsPerPage);
 
-	page.forEach(([option, currentOption, prefix], i) => {
+	for (const [i, [option, currentOption, prefix]] of page.entries()) {
 		const [x, y] = positions[i];
 		ExtendedItemDrawButton(option, currentOption, prefix, x, y, drawImages);
-	});
+	}
 
 	if (paginate) {
 		DrawButton(1665, 240, 90, 90, "", "White", "Icons/Prev.png");
