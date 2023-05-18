@@ -7900,6 +7900,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "PantyHood", Value: 10, Time: 5,
 				Hide: ["Glasses", "Mask", "HairFront", "FacialHair", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Attribute: ["ShortHair"],
 				HideItem: ["ItemHeadSnorkel", "ItemEarsFuturisticEarphones","HatFurHeadband"],
 				Effect: ["BlindLight", "Prone"],
 				Prerequisite: ["NotProtrudingFromMouth"],
