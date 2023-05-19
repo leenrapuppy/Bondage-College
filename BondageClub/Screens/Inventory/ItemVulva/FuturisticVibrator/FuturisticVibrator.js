@@ -221,15 +221,18 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(data, C, Item, LastTime)
 
 	// Search from latest message backwards, allowing early exit
 	for (let CH = ChatRoomChatLog.length - 1; CH >= 0; CH--) {
+		const logEntry = ChatRoomChatLog[CH];
 
 		// Messages are in order, no need to keep looping
-		if (ChatRoomChatLog[CH].Time <= LastTime) break;
+		if (logEntry.Time <= LastTime) break;
 
 		// Skip messages from unauthorized users
-		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.PROHIBIT_SELF && ChatRoomChatLog[CH].SenderMemberNumber === Player.MemberNumber) continue;
-		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.LOCK_MEMBER_ONLY && ChatRoomChatLog[CH].SenderMemberNumber !== Item.Property.LockMemberNumber) continue;
+		const sender = ChatRoomCharacter.find(c => c.MemberNumber === logEntry.SenderMemberNumber);
+		if (!sender || !ServerChatRoomGetAllowItem(sender, C)) continue;
+		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.PROHIBIT_SELF && logEntry.SenderMemberNumber === C.MemberNumber) continue;
+		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.LOCK_MEMBER_ONLY && logEntry.SenderMemberNumber !== Item.Property.LockMemberNumber) continue;
 
-		var msg = InventoryItemVulvaFuturisticVibratorDetectMsg(ChatRoomChatLog[CH].Chat.toUpperCase(), TriggerValues);
+		var msg = InventoryItemVulvaFuturisticVibratorDetectMsg(logEntry.Chat.toUpperCase(), TriggerValues);
 
 		if (msg.length > 0) {
 			/** @type {null | VibratingItemOption} */
