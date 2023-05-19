@@ -1670,7 +1670,7 @@ var AssetFemale3DCG = [
 				], Alpha: [
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 860, 350, 120]] },
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 870, 350, 150]] },
-				], Height: 30
+				],
 			},
 			{
 				Name: "ThighBoots", Fetish: ["Latex"], Value: 50, Left: 105,
@@ -7900,6 +7900,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "PantyHood", Value: 10, Time: 5,
 				Hide: ["Glasses", "Mask", "HairFront", "FacialHair", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Attribute: ["ShortHair"],
 				HideItem: ["ItemHeadSnorkel", "ItemEarsFuturisticEarphones","HatFurHeadband"],
 				Effect: ["BlindLight", "Prone"],
 				Prerequisite: ["NotProtrudingFromMouth"],

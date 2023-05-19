@@ -508,7 +508,7 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // lh2 - Pulled Up
-								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2",] }
+								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat"] }
 							},
 						]
 					},
@@ -524,7 +524,7 @@ var AssetFemale3DCGExtended = {
 							{ // rh2 - Pulled Up
 								Property: {
 									Effect: ["Slow"],
-									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "Head"],
+									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Head"],
 								}
 
 							}
@@ -5826,6 +5826,7 @@ var AssetFemale3DCGExtended = {
 		InflatableVibratingPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "InflateLevel",
@@ -9247,6 +9248,7 @@ var AssetFemale3DCGExtended = {
 		PortalPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "CrotchShield", Key: "c",

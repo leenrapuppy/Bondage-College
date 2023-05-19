@@ -32,7 +32,8 @@ PlayerGagged,,,(You can use or remove items by selecting specific body regions o
 100,120,(Use your safeword.),"(A safeword is serious and should not be used to cheat.  It can revert your clothes and restraints to when you entered the lobby, or release you completely.)",,DialogChatRoomCanSafeword()
 100,,(Take a photo of yourself.),(You can use or remove items by selecting specific body regions on yourself.),DialogPhotoPlayer(),DialogCanTakePhotos()
 100,,(Craft an item.),(You can use or remove items by selecting specific body regions on yourself.),DialogOpenCraftingScreen(),DialogCanCraft()
-100,,(Play Kinky Dungeon),,DialogStartKinkyDungeon(),DialogHasGamingHeadset()
+100,,(Boot Kinky Dungeon),(The helmet chimes as Kinky Dungeon starts up),DialogStartKinkyDungeon(),DialogHasGamingHeadset()
+100,,(Play Kinky Dungeon),,DialogStartKinkyDungeon(),DialogHasGamingHeadsetReady()
 100,0,(Back to main menu.),(Main menu.),,
 101,,,"(By default, you restrain using your full bondage skill.  You can use less of your skill and make it easier for your victims to escape.)",,
 101,100,(Use your full bondage skill.  100%),(You will now use your full bondage skill when using a restraint.  100%),"DialogSetSkillRatio(""Bondage"", 100)",
@@ -4434,10 +4435,10 @@ ItemPelvisPortalPantiesOptionc0,,,Open,,
 ItemPelvisPortalPantiesOptionc1,,,Close Front,,
 ItemPelvisPortalPantiesOptionc2,,,Close Back,,
 ItemPelvisPortalPantiesOptionc3,,,Close Both,,
-ItemPelvisPortalPantiesSetc0,,,The front and rear chastity shields on DestinationCharacter AssetName open.,,
-ItemPelvisPortalPantiesSetc1,,,The front chastity shield on DestinationCharacter AssetName closes.,,
-ItemPelvisPortalPantiesSetc2,,,The read chastity shield on DestinationCharacter AssetName closes.,,
-ItemPelvisPortalPantiesSetc3,,,The front and rear chastity shields on DestinationCharacter AssetName close.,,
+ItemPelvisPortalPantiesSetc0,,,The front and rear chastity shields on DestinationCharacterName AssetName open.,,
+ItemPelvisPortalPantiesSetc1,,,The front chastity shield on DestinationCharacterName AssetName closes.,,
+ItemPelvisPortalPantiesSetc2,,,The read chastity shield on DestinationCharacterName AssetName closes.,,
+ItemPelvisPortalPantiesSetc3,,,The front and rear chastity shields on DestinationCharacterName AssetName close.,,
 ClothLowerPantBootsSelectBase,,,Choose Design,,
 ClothLowerPantBootsModuleBoot,,,Boot,,
 ClothLowerPantBootsSelectBoot,,,Boot Options,,
