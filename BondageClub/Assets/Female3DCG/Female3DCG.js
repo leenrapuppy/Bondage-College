@@ -5515,8 +5515,8 @@ var AssetFemale3DCG = [
 					{ Name: "Gloves", },
 					{ Name: "Straps", },
 					{ Name: "Buckles", },
-					{ Name: "Chain", AllowTypes: ["Chained"], },
-					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false, }
+					{ Name: "Chain", AllowTypes: ["Chained"],  HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]},
+					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false,  HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]}
 				]
 			},
 			{
@@ -5531,8 +5531,8 @@ var AssetFemale3DCG = [
 					{ Name: "Straps", },
 					{ Name: "Buckles", },
 					{ Name: "Paws", },
-					{ Name: "Chain", AllowTypes: ["Chained"], },
-					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false, }
+					{ Name: "Chain", AllowTypes: ["Chained"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]},
+					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false, HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]}
 				]
 			},
 			{ Name: "LeatherMittens", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 60, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, AllowTighten: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["ItemHandheld"] },
