@@ -992,7 +992,7 @@ var AssetFemale3DCG = [
 			{ Name: "Swimsuit2", Gender: "F", Prerequisite: ["HasBreasts"], Value: 25, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{ Name: "BunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Nylon", "Pet"], Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{
-				Name: "LatexBunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"],
+				Name: "LatexBunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], DrawLocks: false,
 				Layer: [
 					{ Name: "Bottom", AllowColorize: true, HideForPose: ["Hogtied"] },
 					{ Name: "BottomShine", AllowColorize: false, HideForPose: ["Hogtied"] },
@@ -5446,7 +5446,8 @@ var AssetFemale3DCG = [
 			},
 			// Flat Chest Compatible Items
 			{
-				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, AllowTighten: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false,
+				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, AllowTighten: true,
+				SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false, DrawLocks: false,
 				Extended: true,
 				AlwaysInteract: true,
 				ParentGroup: null,
@@ -5563,7 +5564,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CheerleaderPomPoms", Value: 30, BuyGroup: "CheerleaderPomPoms", Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, ParentGroup: null, DefaultColor: "#e0b51d",
+				Name: "CheerleaderPomPoms", Value: 30, BuyGroup: "CheerleaderPomPoms", Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, ParentGroup: null, DefaultColor: "#e0b51d",
 				AllowPose: ["OverTheHead", "BackCuffs", "Yoked", "AllFours"],
 				HideForPose: ["BackBoxTie", "BackElbowTouch"],
 				Effect: ["Block", "Prone", "MergedFingers"],
@@ -5932,7 +5933,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HighStyleSteelCollar", Fetish: ["Metal"], Value: 80, Difficulty: 50, Time: 5, AllowLock: true, Audio: "CuffsMetal",
+				Name: "HighStyleSteelCollar", Fetish: ["Metal"], Value: 80, Difficulty: 50, Time: 5, AllowLock: true, Audio: "CuffsMetal", DrawLocks: false,
 				Layer: [
 					{ Name: "Collar" },
 					{ Name: "Panel" }
@@ -6283,7 +6284,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -6635,7 +6636,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "OTNPlugGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, Extended: true,
+				Name: "OTNPlugGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, DrawLocks: false, Extended: true,
 				DefaultColor: ["#665D5D", "#514D57", "#979595"],
 				Hide: ["Mouth"],
 				Effect: ["GagMedium", "OpenMouth"],
@@ -6829,7 +6830,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -7202,7 +7203,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -7603,7 +7604,7 @@ var AssetFemale3DCG = [
 			{ Name: "PrisonLockdownBlindfold", Priority: 34, Value: -1, Time: 5, AllowTighten: true, BuyGroup: "PrisonLockdownSuit", DefaultColor: "#77511f", Hide: ["Glasses"], Effect: ["BlindNormal", "Prone"] },
 			{ Name: "Pantyhose", Value: 10, Time: 5, Hide: ["Glasses", "Mask", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"], BuyGroup: "Pantyhose", Effect: ["BlindLight", "Prone"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"], Audio: "ClothSlip", Tint: [{Color: 0, Strength: 0.2}], DefaultTint: "#765d4e" },
 			{
-				Name: "Snorkel", Priority: 55, Value: 30, Top: 30, Difficulty: 5, Time: 15, Random: false, AllowLock: true, Block: [],
+				Name: "Snorkel", Priority: 55, Value: 30, Top: 30, Difficulty: 5, Time: 15, Random: false, AllowLock: true, DrawLocks: false, Block: [],
 				Layer: [
 					{ Name: "Mask", AllowColorize: false },
 					{ Name: "Tube", Priority: 56, AllowColorize: true },
@@ -8017,7 +8018,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CowHood", Fetish: ["Pet", "Latex"], Value: 30, Difficulty: 5, Time: 15, Top: 25, Left: 124, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
+				Name: "CowHood", Fetish: ["Pet", "Latex"], Value: 30, Difficulty: 5, Time: 15, Top: 25, Left: 124, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
 				Layer:[
 					{Name: "Base"},
 					{Name: "Spots"},
@@ -8307,7 +8308,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true,
+				Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true, DrawLocks: false,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8324,7 +8325,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexBunny", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 1, Left:134, AllowLock: true, AllowTighten: true,
+				Name: "LatexBunny", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 1, Left:134, AllowLock: true, AllowTighten: true, DrawLocks: false,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", "DeafLight"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8338,7 +8339,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "FoxHood", Fetish: ["Latex", "Pet"], Random: false, Value: 30, Difficulty: 5, Top: 21, Left:122, AllowLock: true, AllowTighten: true,
+				Name: "FoxHood", Fetish: ["Latex", "Pet"], Random: false, Value: 30, Difficulty: 5, Top: 21, Left:122, AllowLock: true, AllowTighten: true, DrawLocks: false,
 				Hide: ["Head","HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", ],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8353,7 +8354,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true, HasType: false,
+				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true, HasType: false, DrawLocks: false,
 				Hide: ["Head", "HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8369,7 +8370,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "SensoryDeprivationHood", Fetish: ["Latex"], Value: 20, Difficulty: 8, Top: 22, Left:124, AllowLock: true, Effect: ['DeafTotal', "BlindHeavy", "BlockMouth", "GagVeryHeavy"],
+				Name: "SensoryDeprivationHood", Fetish: ["Latex"], Value: 20, Difficulty: 8, Top: 22, Left:124, AllowLock: true, Effect: ['DeafTotal', "BlindHeavy", "BlockMouth", "GagVeryHeavy"], DrawLocks: false,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
