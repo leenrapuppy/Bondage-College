@@ -9009,7 +9009,7 @@ var AssetFemale3DCG = [
 				Name: "WoodenHorse", Priority: 34, Value: 200, Difficulty: 2, Time: 10, Top: 488, Left: 137, Random: false,
 				Prerequisite: ["NotKneeling", "LegsOpen", "NotSuspended", "NotHogtied", "NotShackled"],
 				Hide: ["Shoes", "ItemBoots"], HideItem: ["ClothLowerWaspie1", "ClothLowerWaspie2", "ClothLowerWaspie3", "ClothLowerGown2Skirt", "ItemMiscTeddyBear", "ItemDevicesLittleMonster", "ItemDevicesFamiliar"],
-				SetPose: ["KneelingSpread"], Effect: ["Prone", "Freeze", "Mounted"],
+				SetPose: ["KneelingSpread"], AllowPose: ["KneelingSpread"], Effect: ["Prone", "Freeze", "Mounted"],
 				OverrideHeight: { Height: -75, Priority: 21 },
 				Alpha: [{ Masks: [[160, 720, 200, 240]] }], Block: ["ItemFeet", "ItemBoots"],
 				AllowActivityOn: ["ItemFeet", "ItemBoots"],
