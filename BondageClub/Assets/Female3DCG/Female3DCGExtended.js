@@ -4805,7 +4805,7 @@ var AssetFemale3DCGExtended = {
 							{}, // d0 - No devvice
 							{ // s1 - Pleasure module
 								HasSubscreen: true,
-								Prerequisite: ["AccessVulva", "VulvaEmpty", "VulvaNotBlockedByBelt"],
+								Prerequisite: ["AccessVulva", "VulvaEmpty"],
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],

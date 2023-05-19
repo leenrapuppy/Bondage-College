@@ -242,27 +242,19 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "AccessBreastSuitZip": return !InventoryDoItemsExposeGroup(C, "ItemNipplesPiercings", ["Cloth"]) || !InventoryDoItemsExposeGroup(
 			C, "ItemNipplesPiercings", ["Suit"]) ? "UnZipSuitForItem" : "";
 
-		// Vulva/Butt items can be blocked by clothes, panties and some socks
-		case "AccessVulva":
-			if (InventoryDoItemsBlockGroup(C, "ItemVulva", ["Cloth", "Socks"])
-				|| !InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"]))
-				return "RemoveClothesForItem";
-
-			if (InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis", "ItemVulvaPiercings"]))
-				return "RemoveRestraintsFirst";
-
-			return "";
-
+		// Vulva/Butt items can be blocked by clothes, panties and some socks, as well as chastity
 		case "AccessButt":
-			if (InventoryDoItemsBlockGroup(C, "ItemButt", ["Cloth", "Socks"])
-				|| !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"]))
+		case "AccessVulva": {
+			const target = Prerequisite === "AccessVulva" ? "ItemVulva" : "ItemButt";
+
+			if (InventoryDoItemsBlockGroup(C, target, ["Cloth", "Socks"]) || !InventoryDoItemsExposeGroup(C, target, ["ClothLower", "Panties"]))
 				return "RemoveClothesForItem";
 
-
-			if (InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis", "ItemVulvaPiercings"]))
-				return "RemoveRestraintsFirst";
-
-			return "";
+			// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
+			if (InventoryDoItemsBlockGroup(C, target, ["ItemPelvis", "ItemVulvaPiercings"]))
+				return "RemoveChastityFirst";
+		}
+			break;
 
 		case "AccessCrotch":
 			return (!InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"])
@@ -276,12 +268,6 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "BlockedMouth": return !C.IsMouthBlocked() ? "MustBeUsedOverGag" : "";
 		case "HoodEmpty": return InventoryGet(C, "ItemHood") ? "CannotBeUsedOverMask" : "";
 		case "EyesEmpty": return InventoryGet(C, "ItemHead") ? "CannotBeUsedOverHood" : "";
-
-		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
-		case "VulvaNotBlockedByBelt":
-			return InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis"])
-		|| InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemVulvaPiercings"])
-			? "RemoveChastityFirst" : "";
 
 		// Ensure crotch is empty
 		case "VulvaEmpty": return (InventoryGet(C, "ItemVulva") != null) ? "MustFreeVulvaFirst" : "";
