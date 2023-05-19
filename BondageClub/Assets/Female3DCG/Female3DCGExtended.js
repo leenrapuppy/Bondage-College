@@ -2971,6 +2971,7 @@ var AssetFemale3DCGExtended = {
 					{ Name: "Puppy", Property: { Type: "Puppy" } },
 					{ Name: "Racoon", Property: { Type: "Racoon" } },
 					{ Name: "Sloth", Property: { Type: "Sloth" } },
+					{ Name: "Mummy", Property: { Type: "Mummy" } },
 				],
 			},
 		}, // CollarNameTagPet
