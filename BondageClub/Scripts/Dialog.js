@@ -908,7 +908,7 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 	/** @type {InventoryIcon[]} */
 	let icons = [];
 	if (favoriteStateDetails.Icon) icons.push(favoriteStateDetails.Icon);
-	if (InventoryItemHasEffect(item, "Lock", true)) icons.push(isWorn ? "Locked" : "Unlocked");
+	icons = icons.concat(DialogGetLockIcon(item, isWorn));
 	if (!C.IsPlayer() && InventoryIsAllowedLimited(C, item)) icons.push("AllowedLimited");
 	icons = icons.concat(DialogGetAssetIcons(asset));
 	icons = icons.concat(DialogGetEffectIcons(item));
@@ -935,6 +935,27 @@ function DialogGetFavoriteStateDetails(C, asset, type = null) {
 	const isTargetFavorite = InventoryIsFavorite(C, asset.Name, asset.Group.Name, type);
 	const isPlayerFavorite = C.ID !== 0 && InventoryIsFavorite(Player, asset.Name, asset.Group.Name, type);
 	return DialogFavoriteStateDetails.find(F => F.TargetFavorite == isTargetFavorite && F.PlayerFavorite == isPlayerFavorite);
+}
+
+/**
+ * Return icons representing the asset's current lock state
+ * @param {Item} item
+ * @param {boolean} isWorn
+ */
+function DialogGetLockIcon(item, isWorn) {
+	/** @type {InventoryIcon[]} */
+	const icons = [];
+	if (InventoryItemHasEffect(item, "Lock")) {
+		if (item.Property && item.Property.LockedBy)
+			icons.push(item.Property.LockedBy);
+		else
+			// One of the default-locked items
+			icons.push(isWorn ? "Locked" : "Unlocked");
+	} else if (item.Craft && item.Craft.Lock) {
+		if (!isWorn || InventoryItemHasEffect(item, "Lock"))
+			icons.push(item.Craft.Lock);
+	}
+	return icons;
 }
 
 /**

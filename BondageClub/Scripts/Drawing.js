@@ -1463,7 +1463,6 @@ function DrawAssetPreview(X, Y, A, Options) {
 	if ((Description == null) && (Craft != null) && (Craft.Name != null) && (Craft.Name != "")) Description = Craft.Name;
 	if (Description == null) Description = C ? A.DynamicDescription(C) : A.Description;
 	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons });
-	if ((Craft != null) && (Craft.Lock != null) && (Craft.Lock != "")) DrawImageResize("Assets/" + Player.AssetFamily + "/ItemMisc/Preview/" + Craft.Lock + ".png", X + 150, Y + 150, 75, 75);
 }
 
 /**
@@ -1514,9 +1513,15 @@ function DrawPreviewIcons(icons, X, Y) {
 		icons.forEach((icon, index) => {
 			const iconX = X + (iconSize + 5) * Math.floor(index / iconsPerCol);
 			const iconY = Y + (iconSize + 5) * (index % iconsPerCol);
-			DrawImageResize(`Icons/Previews/${icon}.png`, iconX, iconY, iconSize, iconSize);
+			let path = `Icons/Previews/${icon}.png`;
+			let text = DialogFindPlayer("PreviewIcon" + icon);
+			if (icon.endsWith("Padlock")) {
+				path = `Assets/Female3DCG/ItemMisc/Preview/${icon}.png`;
+				text = DialogFindPlayer("PreviewIconPadlock").replace("AssetName", AssetGet("Female3DCG", "ItemMisc", icon).Description);
+			}
+			DrawImageResize(path, iconX, iconY, iconSize, iconSize);
 			if (MouseIn(iconX, iconY, iconSize * 0.9, iconSize * 0.9)) {
-				DrawHoverElements.push(() => DrawButtonHover(iconX, iconY, 100, 65, DialogFindPlayer("PreviewIcon" + icon)));
+				DrawHoverElements.push(() => DrawButtonHover(iconX, iconY, 100, 65, text));
 			}
 		});
 	}
