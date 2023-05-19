@@ -844,7 +844,7 @@ function AppearanceRun() {
 			const Hover = MouseIn(X, Y, 225, 275) && !CommonIsMobile;
 			const Background = AppearanceGetPreviewImageColor(C, Item, Hover);
 
-			if (Item.Hidden) {
+			if (CharacterAppearanceItemIsHidden(Item.Asset.Name, Item.Asset.Group.Name)) {
 				DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Item.Asset.Description, { Background });
 			} else if (AppearancePreviewUseCharacter(C.FocusGroup)) {
 				const Z = C.FocusGroup.PreviewZone;

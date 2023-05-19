@@ -1455,7 +1455,11 @@ function DrawProcessHoverElements() {
 function DrawAssetPreview(X, Y, A, Options) {
 	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Craft} = (Options || {});
 	const DynamicPreviewImage = C ? A.DynamicPreviewImage(C) : "";
-	const Path = `${AssetGetPreviewPath(A)}/${A.Name}${DynamicPreviewImage}.png`;
+	let Path = `${AssetGetPreviewPath(A)}/${A.Name}${DynamicPreviewImage}.png`;
+
+	if (CharacterAppearanceItemIsHidden(A.Name, A.Group.Name))
+		Path = "Icons/HiddenItem.png";
+
 	if ((Description == null) && (Craft != null) && (Craft.Name != null) && (Craft.Name != "")) Description = Craft.Name;
 	if (Description == null) Description = C ? A.DynamicDescription(C) : A.Description;
 	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons });

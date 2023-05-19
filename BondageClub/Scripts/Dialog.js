@@ -919,7 +919,6 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 		Worn: isWorn,
 		Icons: icons,
 		SortOrder: sortOrder.toString() + asset.Description,
-		Hidden: CharacterAppearanceItemIsHidden(asset.Name, asset.Group.Name),
 		Vibrating: isWorn && InventoryItemHasEffect(item, "Vibrating", true)
 	};
 	return inventoryItem;
@@ -2487,10 +2486,7 @@ function DialogDrawItemMenu(C) {
 		const Hover = MouseIn(X, Y, 225, 275) && !CommonIsMobile;
 		const Background = AppearanceGetPreviewImageColor(C, Item, Hover);
 
-		if (Item.Hidden)
-			DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Item.Asset.DynamicDescription(Player), { Background });
-		else
-			DrawAssetPreview(X, Y, Item.Asset, { C: Player, Background, Vibrating: Item.Vibrating, Icons: Item.Icons, Craft: Item.Craft });
+		DrawAssetPreview(X, Y, Item.Asset, { C: Player, Background, Vibrating: Item.Vibrating, Icons: Item.Icons, Craft: Item.Craft });
 
 		X = X + 250;
 		if (X > 1800) {

@@ -3523,7 +3523,6 @@ interface DialogInventoryItem extends Item {
 	Worn: boolean;
 	Icons: InventoryIcon[];
 	SortOrder: string;
-	Hidden: boolean;
 	Vibrating: boolean;
 }
 
