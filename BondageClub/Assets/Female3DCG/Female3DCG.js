@@ -5432,7 +5432,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PrisonSJ", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 100, Left: 52, Top: 196, Difficulty: 13, SelfBondage: 4, Time: 35, RemoveTime: 15, AllowLock: true, DrawLocks: false,
-				Hide: ["ItemVulva", "LeftHand", "RightHand", "Cloth", "Panties", "Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"],
+				Hide: ["ItemVulva", "LeftHand", "RightHand", "Cloth", "Panties", "Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemButt", "ItemHands", "ItemHandheld"],
 				SetPose: ["BackElbowTouch"], Extended: true, HasType: false, DefaultColor: ["#666666", "#EAEAEA", "#FF1A1A"],
 				Effect: ["Block", "Prone", "Slow"],
