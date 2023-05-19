@@ -263,8 +263,8 @@ const TextItem = {
 	 * @param {TextItemOption} previousOption
 	 */
 	PublishAction: function (data, C, item, newOption, previousOption) {
-		const oldText = data.textNames.map((p) => newOption.Property[p]).filter(Boolean).join(" ");
-		const newText = data.textNames.map((p) => previousOption.Property[p]).filter(Boolean).join(" ");
+		const oldText = data.textNames.map((p) => previousOption.Property[p]).filter(Boolean).join(" ");
+		const newText = data.textNames.map((p) => newOption.Property[p]).filter(Boolean).join(" ");
 		if (oldText === newText) {
 			return;
 		}
