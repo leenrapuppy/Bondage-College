@@ -5814,7 +5814,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "Mug", ParentGroup: null, Value: 10, Priority: 46, IsRestraint: false, Random: false, AllowColorize: true,
-				HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"],
+				HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"],
 				AllowActivity: ["RubItem", "SipItem"],
 				DefaultColor: ["#9A9694", "#3E170B"],
 				Layer: [
@@ -5823,7 +5823,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalTablet", ParentGroup: null, Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Effect: [ "Unlock-PortalPanties"]
+				Name: "PortalTablet", ParentGroup: null, Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Effect: ["Unlock-PortalPanties"], HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"]
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
