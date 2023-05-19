@@ -1007,6 +1007,20 @@ function InventoryItemIsPickable(Item) {
 	else return false;
 }
 
+const PropertiesArrayLike = new Set([
+	"Alpha", "Attribute", "Block", "Category", "DefaultColor", "Effect", "Expose", "ExpressionTrigger", "Prerequisite", "Require", "Fetish", "Tint",
+	"AllowPose", "AllowActivePose", "FreezeActivePose", "SetPose", "WhitelistActivePose",
+	"AllowActivity", "AllowActivityOn",
+	"Hide", "HideForPose", "HideItem", "HideItemExclude", "UnHide",
+	"MemberNumberList", "Texts",
+	"AllowBlock", "AllowEffect", "AllowExpression", "AllowHide", "AllowHideItem", "AllowLockType", "AllowType",
+	"AvailableLocations", "ExpressionPrerequisite",
+]);
+
+const PropertiesObjectLike = new Set([
+	"ActivityExpression", "PoseMapping", "RemoveItemOnRemove",
+]);
+
 /**
  * Returns the value of a given property of an appearance item, prioritizes the Property object.
  * @template {keyof ItemProperties | keyof Asset | keyof AssetGroup} Name
@@ -1014,11 +1028,19 @@ function InventoryItemIsPickable(Item) {
  * @param {Name} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
- * @returns {undefined | (ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
+ * @returns {(ItemProperties & Asset & AssetGroup)[Name] | undefined} - The value of the requested property for the given item. Returns undefined if the property or the
  * item itself does not exist.
  */
 function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
-	if (!Item || !PropertyName || !Item.Asset) return;
+	/** @type {(ItemProperties & Asset & AssetGroup)[Name] | undefined} */
+	let value = undefined;
+
+	// @ts-expect-error Transparently return an empty array, which confuses TS
+	if (PropertiesArrayLike.has(PropertyName)) value = [];
+	// @ts-expect-error Transparently return an empty object, which confuses TS
+	else if (PropertiesObjectLike.has(PropertyName)) value = {};
+
+	if (!Item || !PropertyName || !Item.Asset) return value;
 	const PropertyRecords = /** @type {(ItemProperties & Asset & AssetGroup)[]} */(
 		[Item.Property || {}, Item.Asset, (CheckGroup) ? Item.Asset.Group : {}]
 	);
@@ -1028,7 +1050,7 @@ function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
 			return record[PropertyName];
 		}
 	}
-	return undefined;
+	return value;
 }
 
 /**
