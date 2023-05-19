@@ -263,6 +263,9 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 				&& InventoryDoItemsBlockGroup(C, "ItemPelvis", ["ClothLower", "Panties"]))
 				? "RemoveClothesForItem" : "";
 
+		case "CanCoverVulva":
+			return C.HasEffect("VulvaShaft") ? "CantCloseOnShaft" : "";
+
 		// Items that require access to a certain character's zone
 		case "AccessMouth": return C.IsMouthBlocked() ? "CannotBeUsedOverGag" : "";
 		case "BlockedMouth": return !C.IsMouthBlocked() ? "MustBeUsedOverGag" : "";
