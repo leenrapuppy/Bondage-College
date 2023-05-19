@@ -364,7 +364,7 @@ function InventoryDoesItemHavePrerequisite(C, ItemGroup, Prerequisite) {
 function InventoryDoItemsBlockGroup(C, TargetGroup, GroupsToCheck) {
 	return GroupsToCheck.some((Group) => {
 		const Item = InventoryGet(C, Group);
-		return Item && Item.Asset.Block && Item.Asset.Block.includes(TargetGroup);
+		return Item && InventoryGetItemProperty(Item, "Block").includes(TargetGroup);
 	});
 }
 
@@ -380,7 +380,7 @@ function InventoryDoItemsBlockGroup(C, TargetGroup, GroupsToCheck) {
 function InventoryDoItemsExposeGroup(C, TargetGroup, GroupsToCheck) {
 	return GroupsToCheck.every((Group) => {
 		const Item = InventoryGet(C, Group);
-		return !Item || Item.Asset.Expose.includes(TargetGroup);
+		return !Item || InventoryGetItemProperty(Item, "Expose").includes(TargetGroup);
 	});
 }
 
