@@ -1913,18 +1913,6 @@ function DialogChangeMode(mode) {
 	// Clear status so that messages don't bleed through from one group to another
 	DialogStatusClear();
 
-	if (DialogMenuMode === "items") {
-		DialogSetStatus(DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
-	} else if (DialogMenuMode === "permissions") {
-		DialogSetStatus(DialogFind(Player, "DialogPermissionMode"));
-	} else if (DialogMenuMode === "activities") {
-		DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
-	} else if (DialogMenuMode === "locking") {
-		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
-	} else {
-		DialogSetStatus("");
-	}
-
 	switch (DialogMenuMode) {
 		case "activities":
 		case "color":
@@ -1959,6 +1947,22 @@ function DialogChangeMode(mode) {
 		default:
 			console.warn(`Asked to change to mode ${DialogMenuMode}, but setup missing`);
 			break;
+	}
+
+	// Set the status message
+	if (DialogMenuMode === "items") {
+		DialogSetStatus(DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
+	} else if (DialogMenuMode === "permissions") {
+		DialogSetStatus(DialogFind(Player, "DialogPermissionMode"));
+	} else if (DialogMenuMode === "activities") {
+		if (DialogActivity.length > 0)
+			DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
+		else
+			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
+	} else if (DialogMenuMode === "locking") {
+		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
+	} else {
+		DialogSetStatus("");
 	}
 }
 
