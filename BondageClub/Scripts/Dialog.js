@@ -1275,11 +1275,6 @@ function DialogMenuButtonBuild(C) {
 			else
 				DialogMenuButton.push("DialogPermissionMode");
 		}
-
-		// Make sure the previous button doesn't overflow the menu
-		if ((DialogMenuButton.length >= 10) && (DialogMenuButton.indexOf("Prev") >= 0))
-			DialogMenuButton.splice(DialogMenuButton.indexOf("Prev"), 1);
-
 	}
 }
 
@@ -1571,19 +1566,22 @@ function DialogLoadPoseMenu() {
 
 /**
  * Handles the Click events in the Dialog Screen
- * @returns {void} - Nothing
+ * @returns {boolean} - Whether a button was clicked
  */
 function DialogMenuButtonClick() {
 
-	// Finds the current icon
-	for (let I = 0; I < DialogMenuButton.length; I++)
-		if (MouseXIn(1885 - I * 110, 90)) {
+	// Hack because those panes handle their menu icons themselves
+	if (["color", "extended", "tighten"].includes(DialogMenuMode)) return false;
 
-			// Gets the current character and item
-			/** The focused character */
-			const C = CharacterGetCurrent();
-			/** The focused item */
-			const Item = InventoryGet(C, C.FocusGroup.Name);
+	// Gets the current character and item
+	/** The focused character */
+	const C = CharacterGetCurrent();
+	/** The focused item */
+	const Item = C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
+
+	// Finds the current icon
+	for (let I = 0; I < DialogMenuButton.length; I++) {
+		if (MouseIn(1885 - I * 110, 15, 90, 90)) {
 
 			// Exit Icon - Go back one level in the menu
 			if (DialogMenuButton[I] == "Exit") {
@@ -1596,7 +1594,7 @@ function DialogMenuButtonClick() {
 				let contents = DialogMenuMode === "activities" ? DialogActivity : DialogInventory;
 				DialogInventoryOffset = DialogInventoryOffset + 12;
 				if (DialogInventoryOffset >= contents.length) DialogInventoryOffset = 0;
-				return;
+				return true;
 			}
 
 			// Prev Icon - Shows the previous 12 items
@@ -1604,19 +1602,19 @@ function DialogMenuButtonClick() {
 				let contents = DialogMenuMode === "activities" ? DialogActivity : DialogInventory;
 				DialogInventoryOffset = DialogInventoryOffset - 12;
 				if (DialogInventoryOffset < 0) { DialogInventoryOffset = contents.length - ((contents.length % 12) == 0 ? 12 : contents.length % 12); }
-				return;
+				return true;
 			}
 
 			// Use Icon - Pops the item extension for the focused item
 			else if ((DialogMenuButton[I] == "Use") && (Item != null)) {
 				DialogExtendItem(Item);
-				return;
+				return true;
 			}
 
 			// Remote Icon - Pops the item extension
 			else if ((DialogMenuButton[I] == "Remote") && DialogCanUseRemoteState(C, Item) === "Available") {
 				DialogExtendItem(Item);
-				return;
+				return true;
 			}
 
 			// Lock Icon - Rebuilds the inventory list with locking items
@@ -1624,7 +1622,7 @@ function DialogMenuButtonClick() {
 				if (Item && InventoryDoesItemAllowLock(Item)) {
 					DialogChangeMode("locking");
 				}
-				return;
+				return true;
 			}
 
 			// Unlock Icon - If the item is padlocked, we immediately unlock.  If not, we start the struggle progress.
@@ -1640,13 +1638,13 @@ function DialogMenuButtonClick() {
 					}
 				} else
 					DialogStruggleStart(C, "ActionUnlock", Item, null);
-				return;
+				return true;
 			}
 
 			// Tighten/Loosen Icon - Opens the sub menu
 			else if (((DialogMenuButton[I] == "TightenLoosen")) && (Item != null)) {
 				DialogSetTightenLoosenItem(Item);
-				return;
+				return true;
 			}
 
 			// Remove/Struggle Icon - Starts the struggling mini-game (can be impossible to complete)
@@ -1658,21 +1656,21 @@ function DialogMenuButtonClick() {
 				else if (C.IsPlayer())
 					action = /** @type {DialogStruggleActionType} */("Action" + DialogMenuButton[I]);
 				DialogStruggleStart(C, action, Item, null);
-				return;
+				return true;
 			}
 
 			// PickLock Icon - Starts the lockpicking mini-game
 			else if (((DialogMenuButton[I] == "PickLock")) && (Item != null)) {
 				StruggleMinigameStart(C, "LockPick", Item, null, DialogStruggleStop);
 				DialogMenuButtonBuild(C);
-				return;
+				return true;
 			}
 
 			// When the player inspects a lock
 			else if ((DialogMenuButton[I] == "InspectLock") && (Item != null)) {
 				var Lock = InventoryGetLock(Item);
 				if (Lock != null) DialogExtendItem(Lock, Item);
-				return;
+				return true;
 			}
 
 			// Color picker Icon - Starts the color picking, keeps the original color and shows it at the bottom
@@ -1691,7 +1689,7 @@ function DialogMenuButtonClick() {
 					});
 				}
 				DialogChangeMode("color");
-				return;
+				return true;
 			}
 
 			// When the user selects a color, applies it to the item
@@ -1699,7 +1697,7 @@ function DialogMenuButtonClick() {
 				DialogColorSelect = ElementValue("InputColor");
 				ElementRemove("InputColor");
 				DialogChangeMode("items");
-				return;
+				return true;
 			}
 
 			// When the user cancels out of color picking, we recall the original color
@@ -1707,40 +1705,42 @@ function DialogMenuButtonClick() {
 				DialogColorSelect = null;
 				ElementRemove("InputColor");
 				DialogChangeMode("items");
-				return;
+				return true;
 			}
 
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "LockMenu") {
 				DialogChangeMode("locked");
-				return;
+				return true;
 			}
 
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "Crafting") {
 				DialogChangeMode("crafted");
-				return;
+				return true;
 			}
 
 			// When the user wants to select a sexual activity to perform
 			else if (DialogMenuButton[I] == "Activity") {
 				DialogChangeMode("activities");
-				return;
+				return true;
 			}
 
 			// When we enter item permission mode, we rebuild the inventory to set permissions
 			else if (DialogMenuButton[I] == "DialogPermissionMode") {
 				DialogChangeMode("permissions");
-				return;
+				return true;
 			}
 
 			// When we leave item permission mode, we upload the changes for everyone in the room
 			else if (DialogMenuButton[I] == "DialogNormalMode") {
 				DialogChangeMode("items");
-				return;
+				return true;
 			}
 		}
+	}
 
+	return false;
 }
 
 /**
@@ -2020,6 +2020,9 @@ function DialogClick() {
 	// Gets the current character
 	let C = CharacterGetCurrent();
 
+	// Check if the user clicked on one of the top menu icons
+	if (DialogMenuButtonClick()) return;
+
 	// User clicked on the interacted character or herself, check if we need to update the menu
 	if (MouseIn(0, 0, 1000, 1000) && (CurrentCharacter.AllowItem || (MouseX < 500)) && ((CurrentCharacter.ID != 0) || (MouseX > 500)) && (DialogIntro() != "") && DialogAllowItemScreenException()) {
 		C = (MouseX < 500) ? Player : CurrentCharacter;
@@ -2092,10 +2095,6 @@ function DialogClick() {
 		CharacterAppearanceForceUpCharacter = -1;
 		CharacterRefresh(CurrentCharacter, false, false);
 	}
-
-	// If the user wants to click on one of icons in the item menu
-	if (MouseIn(1000, 15, 1000, 90) && !["extended", "tighten", "color"].includes(DialogMenuMode))
-		DialogMenuButtonClick();
 
 	// If the user wants to speed up the add / swap / remove progress
 	if (MouseIn(1000, 200, 1000, 800) && DialogMenuMode === "struggle") {
