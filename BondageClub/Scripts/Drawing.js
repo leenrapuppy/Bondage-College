@@ -1434,6 +1434,41 @@ function DrawProcessHoverElements() {
 }
 
 /**
+ *
+ * @param {Item | DialogInventoryItem} itemOrDialogItem
+ * @param {Character} char - The character using the item (used to calculate dynamic item descriptions/previews)
+ * @param {number} X
+ * @param {number} Y
+ * @param {object} [options]
+ * @param {string} [options.Background] - The background color to draw the preview box in - defaults to white
+ * @param {string} [options.Foreground] - The foreground (text) color to draw the description in - defaults to black
+ * @param {boolean} [options.Border] - Whether or not to draw a border around the preview box
+ * @param {boolean} [options.Hover] - Whether or not the button should enable hover behavior (background color change)
+ * @param {string} [options.HoverBackground] - The background color that should be used on mouse hover, if any
+ * @param {boolean} [options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
+ */
+function DrawItemPreview(itemOrDialogItem, char, X, Y, options) {
+	const item = /** @type {DialogInventoryItem} */(itemOrDialogItem);
+	// Now we act like this is a real DialogInventoryItem, reusing its properties or generating them otherwise
+
+	const Vibrating = typeof item.Vibrating === "undefined" ? InventoryItemHasEffect(item, "Vibrating", true) : item.Vibrating;
+	/** @type {InventoryIcon[]} */
+	let Icons = [];
+	if (typeof item.Icons === "undefined") {
+		// We're an item, so it makes sense to default to "worn"
+		Icons = Icons.concat(DialogGetLockIcon(item, true));
+		Icons = Icons.concat(DialogGetAssetIcons(item.Asset));
+		Icons = Icons.concat(DialogGetEffectIcons(item));
+	} else {
+		Icons = item.Icons;
+	}
+
+	const Description = item.Craft && item.Craft.Name != "" ? item.Craft.Name : null;
+	options = Object.assign({}, options, { C: char, Icons, Vibrating, Description });
+	DrawAssetPreview(X, Y, item.Asset, options);
+}
+
+/**
  * Draws an asset's preview box
  * @param {number} X - Position of the preview box on the X axis
  * @param {number} Y - Position of the preview box on the Y axis
@@ -1449,18 +1484,17 @@ function DrawProcessHoverElements() {
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
  * @param {readonly InventoryIcon[]} [Options.Icons] - A list of small icons to display in the top-left corner
- * @param {object} [Options.Craft] - The crafted properties of the item
  * @returns {void} - Nothing
  */
 function DrawAssetPreview(X, Y, A, Options) {
-	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Craft} = (Options || {});
+	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons } = (Options || {});
+
 	const DynamicPreviewImage = C ? A.DynamicPreviewImage(C) : "";
 	let Path = `${AssetGetPreviewPath(A)}/${A.Name}${DynamicPreviewImage}.png`;
 
-	if (CharacterAppearanceItemIsHidden(A.Name, A.Group.Name))
+	if (CharacterAppearanceItemIsHidden(A.Name, A.DynamicGroupName || A.Group.Name))
 		Path = "Icons/HiddenItem.png";
 
-	if ((Description == null) && (Craft != null) && (Craft.Name != null) && (Craft.Name != "")) Description = Craft.Name;
 	if (Description == null) Description = C ? A.DynamicDescription(C) : A.Description;
 	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons });
 }

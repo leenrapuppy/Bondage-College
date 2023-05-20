@@ -2487,8 +2487,7 @@ function DialogDrawItemMenu(C) {
 		const Hover = MouseIn(x, y, width, height) && !CommonIsMobile;
 		const Background = AppearanceGetPreviewImageColor(C, item, Hover);
 
-		DrawAssetPreview(x, y, item.Asset, { C: Player, Background, Vibrating: item.Vibrating, Icons: item.Icons, Craft: item.Craft });
-
+		DrawItemPreview(item, Player, x, y, { Background, Width: width, Height: height });
 		return false;
 	});
 }
@@ -2656,10 +2655,10 @@ function DialogDraw() {
 		} else {
 			// Draw previews for the assets we're swapping/struggling
 			if ((DialogStrugglePrevItem != null) && (DialogStruggleNextItem != null)) {
-				DrawAssetPreview(1200, 150, DialogStrugglePrevItem.Asset);
-				DrawAssetPreview(1575, 150, DialogStruggleNextItem.Asset);
+				DrawItemPreview(DialogStrugglePrevItem, C, 1200, 150);
+				DrawItemPreview(DialogStruggleNextItem, C, 1200, 150);
 			} else
-				DrawAssetPreview(1387, 150, (DialogStrugglePrevItem != null) ? DialogStrugglePrevItem.Asset : DialogStruggleNextItem.Asset);
+				DrawItemPreview((DialogStrugglePrevItem != null ? DialogStrugglePrevItem : DialogStruggleNextItem), C, 1387, 150);
 
 			// Draw UI to select struggling minigame
 			DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
@@ -2751,8 +2750,7 @@ function DialogDraw() {
  */
 function DialogDrawItemMessage(C, msg, item) {
 	if (item !== null && !C.CanInteract()) {
-		const Vibrating = InventoryItemHasEffect(item, "Vibrating", true);
-		DrawAssetPreview(1387, 250, item.Asset, { C, Vibrating, Craft: item.Craft });
+		DrawItemPreview(item, C, 1387, 250);
 	}
 	DrawText(msg, 1500, 700, "White", "Black");
 }

@@ -851,7 +851,7 @@ function AppearanceRun() {
 				const PreviewCanvas = DrawCharacterSegment(AppearancePreviews[I], Z[0], Z[1], Z[2], Z[3]);
 				DrawCanvasPreview(X, Y, PreviewCanvas, Item.Asset.Description, { Background, Vibrating: Item.Vibrating, Icons: Item.Icons });
 			} else {
-				DrawAssetPreview(X, Y, Item.Asset, { Background, Vibrating: Item.Vibrating, Icons: Item.Icons });
+				DrawItemPreview(Item, Player, X, Y, { Hover: true, Background });
 			}
 
 			ControllerAddActiveArea(X, Y);

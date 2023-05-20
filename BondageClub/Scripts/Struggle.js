@@ -214,9 +214,12 @@ function StruggleMinigameDrawCommon(Offset) {
 	if (!Offset) Offset = 0;
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
-		DrawAssetPreview(1200, 250 + Offset, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
-		DrawAssetPreview(1575, 250 + Offset, StruggleProgressNextItem.Asset, { Craft: StruggleProgressNextItem.Craft });
-	} else DrawAssetPreview(1387, 250 + Offset, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Craft : StruggleProgressNextItem.Craft });
+		DrawItemPreview(StruggleProgressPrevItem, Player, 1200, 250 + Offset);
+		DrawItemPreview(StruggleProgressNextItem, Player, 1200, 250 + Offset);
+	} else {
+		let Item = StruggleProgressPrevItem != null ? StruggleProgressPrevItem : StruggleProgressNextItem;
+		DrawItemPreview(Item, Player, 1387, 250 + Offset);
+	}
 
 	// Add or subtract to the automatic progression, doesn't move in color picking mode
 	StruggleProgress = StruggleProgress + StruggleProgressAuto;
