@@ -30,12 +30,13 @@ var DialogInventoryOffset = 0;
  */
 const DialogInventoryGrid = {
 	x: 1000,
-	y: 125,
+	y: 175,
 	width: 975,
-	height: 875,
-	itemWidth: 225,
-	itemHeight: 275,
+	height: 800,
+	itemWidth: 230,
+	itemHeight: 255,
 };
+
 /**
  * The item currently selected in the Dialog and showing its extended screen.
  *
@@ -2312,12 +2313,12 @@ function DialogStatusDraw(C) {
 		DialogStatusClear();
 	}
 
-	// Only draw if we can interact, there's some space left and it won't mess up the UI
-	if (!Player.CanInteract() || InventoryGroupIsBlocked(C) || DialogMenuButton.length >= 8) return;
+	// Only draw status if we can interact
+	if (!Player.CanInteract() || InventoryGroupIsBlocked(C)) return;
 
 	if (["extended", "tighten", "color", "struggle", "crafted"].includes(DialogMenuMode)) return;
 
-	DrawTextWrap(status, 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
+	DrawTextWrap(status, 1000, 113, 975, 60, "White", null, 1);
 }
 
 /**
@@ -2409,7 +2410,7 @@ function DialogDrawActivityMenu(C) {
 		};
 		const background = colors[item.Blocked] || "white";
 
-		DrawPreviewBox(x, y, image, ActivityDictionaryText(label), { Hover: true, Icons: icons, Background: background });
+		DrawPreviewBox(x, y, image, ActivityDictionaryText(label), { Hover: true, Icons: icons, Background: background, Width: width, Height: height });
 		return false;
 	});
 }
