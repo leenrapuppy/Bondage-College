@@ -17,12 +17,25 @@ var DialogColorSelect = null;
  * The list of available items for the selected group.
  * @type DialogInventoryItem[]
  */
+var DialogInventory = [];
 /**
  * The current page offset of the item list. Also used for activities.
- * @type {DialogInventoryItem[]}
+ * @type {number}
  */
-var DialogInventory = [];
 var DialogInventoryOffset = 0;
+
+/**
+ * The grid configuration for most item views (items, permissions, activities)
+ * @type {CommonGenerateGridParameters}
+ */
+const DialogInventoryGrid = {
+	x: 1000,
+	y: 125,
+	width: 975,
+	height: 875,
+	itemWidth: 225,
+	itemHeight: 275,
+};
 /**
  * The item currently selected in the Dialog and showing its extended screen.
  *
@@ -914,13 +927,13 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 	icons = icons.concat(DialogGetEffectIcons(item));
 
 	/** @type {DialogInventoryItem} */
-	const inventoryItem = {
+	const inventoryItem = Object.assign(item, {
 		Asset: asset,
 		Worn: isWorn,
 		Icons: icons,
 		SortOrder: sortOrder.toString() + asset.Description,
 		Vibrating: isWorn && InventoryItemHasEffect(item, "Vibrating", true)
-	};
+	});
 	return inventoryItem;
 }
 
@@ -2117,69 +2130,47 @@ function DialogClick() {
 	}
 
 	// In activity mode, we check if the user clicked on an activity box
-	if (MouseIn(1000, 125, 975, 875) && DialogMenuMode === "activities") {
+	if (MouseIn(DialogInventoryGrid.x, DialogInventoryGrid.y, DialogInventoryGrid.width, DialogInventoryGrid.height) && DialogMenuMode === "activities") {
 
 		// For each activities in the list
-		let X = 1000;
-		let Y = 125;
-		for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
-			const act = DialogActivity[A];
+		CommonGenerateGrid(DialogActivity, DialogInventoryOffset, DialogInventoryGrid, (item, x, y, width, height) => {
 			// If this specific activity is clicked, we run it
-			if (MouseIn(X, Y, 225, 275)) {
-				const type = (act.Item && act.Item.Property ? act.Item.Property.Type : null);
-				if (!act.Blocked || act.Blocked === "limited" && InventoryCheckLimitedPermission(C, act.Item, type)) {
-					if (C.IsNpc() && act.Item) {
-						let Line = C.FocusGroup.Name + act.Item.Asset.DynamicName(Player);
-						let D = DialogFind(C, Line, null, false);
-						if (D != "") {
-							C.CurrentDialog = D;
-						}
+			if (!MouseIn(x, y, width, height)) return false;
+			const type = (item.Item && item.Item.Property ? item.Item.Property.Type : null);
+			if (!item.Blocked || item.Blocked === "limited" && InventoryCheckLimitedPermission(C, item.Item, type)) {
+				if (C.IsNpc() && item.Item) {
+					let Line = C.FocusGroup.Name + item.Item.Asset.DynamicName(Player);
+					let D = DialogFind(C, Line, null, false);
+					if (D != "") {
+						C.CurrentDialog = D;
 					}
-					IntroductionJobProgress("SubActivity", act.Activity.MaxProgress.toString(), true);
-					if (act.Item && act.Item.Asset.Name === "ShockRemote") {
-						let targetItem = InventoryGet(C, C.FocusGroup.Name);
-						if (targetItem && targetItem.Property && typeof targetItem.Property.TriggerCount === "number") {
-							targetItem.Property.TriggerCount++;
-							ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
-						}
-					}
-					ActivityRun(C, act);
 				}
-				return;
+				IntroductionJobProgress("SubActivity", item.Activity.MaxProgress.toString(), true);
+				if (item.Item && item.Item.Asset.Name === "ShockRemote") {
+					let targetItem = InventoryGet(C, C.FocusGroup.Name);
+					if (targetItem && targetItem.Property && typeof targetItem.Property.TriggerCount === "number") {
+						targetItem.Property.TriggerCount++;
+						ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
+					}
+				}
+				ActivityRun(C, item);
+				return true;
 			}
-
-			// Change the X and Y position to get the next square
-			X = X + 250;
-			if (X > 1800) {
-				X = 1000;
-				Y = Y + 300;
-			}
-		}
+		});
 		return;
 	}
 
 	// If the user clicks on one of the items
-	if (MouseIn(1000, 125, 975, 875) && DialogModeShowsInventory() && (DialogMenuMode === "permissions" || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true)))) {
+	if (MouseIn(DialogInventoryGrid.x, DialogInventoryGrid.y, DialogInventoryGrid.width, DialogInventoryGrid.height) && DialogModeShowsInventory() && (DialogMenuMode === "permissions" || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true)))) {
 		// For each items in the player inventory
-		let X = 1000;
-		let Y = 125;
-		for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + 12); I++) {
-
+		CommonGenerateGrid(DialogInventory, DialogInventoryOffset, DialogInventoryGrid, (item, x, y, width, height) => {
 			// If the item is clicked
-			if (MouseIn(X, Y, 225, 275))
-				if (DialogInventory[I].Asset.Enable || (DialogInventory[I].Asset.Extended && DialogInventory[I].Asset.OwnerOnly && CurrentCharacter.IsOwnedByPlayer())) {
-					DialogItemClick(DialogInventory[I]);
-					break;
-				}
-
-			// Change the X and Y position to get the next square
-			X = X + 250;
-			if (X > 1800) {
-				X = 1000;
-				Y = Y + 300;
+			if (!MouseIn(x, y, width, height)) return false;
+			if (item.Asset.Enable || (item.Asset.Extended && item.Asset.OwnerOnly && CurrentCharacter.IsOwnedByPlayer())) {
+				DialogItemClick(item);
+				return true;
 			}
-
-		}
+		});
 	}
 }
 
@@ -2395,23 +2386,20 @@ function DialogChangeItemColor(C, Color) {
  */
 function DialogDrawActivityMenu(C) {
 
-	// Prepares a 4x3 square selection with all activities in the buffer
-	var X = 1000;
-	var Y = 125;
-	for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
-		const itemAct = DialogActivity[A];
-		const Act = itemAct.Activity;
+	// Draw a grid with all activities
+	CommonGenerateGrid(DialogActivity, DialogInventoryOffset, DialogInventoryGrid, (item, x, y, width, height) => {
+		const Act = item.Activity;
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
 		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
 		/** @type {InventoryIcon[]} */
 		let icons = [];
-		if (itemAct.Blocked === "limited") {
+		if (item.Blocked === "limited") {
 			icons.push("AllowedLimited");
 		}
 
-		if (itemAct.Item) {
-			image = `${AssetGetPreviewPath(itemAct.Item.Asset)}/${itemAct.Item.Asset.Name}.png`;
+		if (item.Item) {
+			image = `${AssetGetPreviewPath(item.Item.Asset)}/${item.Item.Asset.Name}.png`;
 			icons.push("Handheld");
 		}
 
@@ -2419,15 +2407,11 @@ function DialogDrawActivityMenu(C) {
 			"blocked": "red",
 			"unavail": "grey",
 		};
-		const background = colors[itemAct.Blocked] || "white";
+		const background = colors[item.Blocked] || "white";
 
-		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile, Icons: icons, Background: background});
-		X = X + 250;
-		if (X > 1800) {
-			X = 1000;
-			Y = Y + 300;
-		}
-	}
+		DrawPreviewBox(x, y, image, ActivityDictionaryText(label), { Hover: true, Icons: icons, Background: background });
+		return false;
+	});
 }
 
 /**
@@ -2499,22 +2483,14 @@ function DialogDrawItemMenu(C) {
 	// Safe-guard against the item list not being set
 	if (DialogInventory == null) DialogInventoryBuild(C, 0, DialogMenuMode === "locking");
 
-	// Draw all possible items in that category (12 per screen)
-	let X = 1000;
-	let Y = 125;
-	for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + 12); I++) {
-		const Item = DialogInventory[I];
-		const Hover = MouseIn(X, Y, 225, 275) && !CommonIsMobile;
-		const Background = AppearanceGetPreviewImageColor(C, Item, Hover);
+	CommonGenerateGrid(DialogInventory, DialogInventoryOffset, DialogInventoryGrid, (item, x, y, width, height) => {
+		const Hover = MouseIn(x, y, width, height) && !CommonIsMobile;
+		const Background = AppearanceGetPreviewImageColor(C, item, Hover);
 
-		DrawAssetPreview(X, Y, Item.Asset, { C: Player, Background, Vibrating: Item.Vibrating, Icons: Item.Icons, Craft: Item.Craft });
+		DrawAssetPreview(x, y, item.Asset, { C: Player, Background, Vibrating: item.Vibrating, Icons: item.Icons, Craft: item.Craft });
 
-		X = X + 250;
-		if (X > 1800) {
-			X = 1000;
-			Y = Y + 300;
-		}
-	}
+		return false;
+	});
 }
 
 /**

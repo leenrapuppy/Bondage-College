@@ -66,6 +66,23 @@ type RectTuple = [number, number, number, number];
 type CommonSubstituteReplacer = (match: string, offset: number, replacement: string, string: string) => string;
 type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?: CommonSubstituteReplacer];
 
+interface CommonGenerateGridParameters {
+	/** Starting X coordinate of the grid */
+	x: number,
+	/** Starting Y coordinate of the grid */
+	y: number,
+	/** Maximum width of the grid */
+	width: number,
+	/** Maximum height of the grid */
+	height: number,
+	/** Width of one grid item */
+	itemWidth: number,
+	/** Height of one grid item */
+	itemHeight: number,
+}
+
+type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: number, height: number) => boolean;
+
 //#endregion
 
 //#region Enums
