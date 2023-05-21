@@ -67,9 +67,9 @@ Cloth,MaleTankTop1,Male Cloth Tank-Top
 Cloth,ButtonShirt,Button Shirt
 Cloth,SlaveRags,Slave Rags
 Cloth,Hoodie,Cropped Hoodie
-Cloth,LatexTankTop, Tank Top
+Cloth,LatexTankTop,Latex Tank Top
 Cloth,CheerleaderTop,Cheerleader Top
-Cloth,FrilledShirt,Latex Shirt
+Cloth,FrilledShirt,Latex Frilled Shirt
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -1169,7 +1169,7 @@ ItemArms,BondageBra,Bondage Bra
 ItemArms,SmoothLeatherArmbinder1,Smooth Lacing Leather Armbinder
 ItemArms,CanvasStraitjacket1,Canvas Straitjacket 1
 ItemArms,SleepSac,SleepSac
-ItemArms,PrisonSJ,Latex SJ
+ItemArms,PrisonSJ,Prison Straitjacket
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1584,7 +1584,7 @@ ItemHood,InflatableGagMask,Inflatable Gag Mask
 ItemHood,LatexDogMask,Latex Dog Mask
 ItemHood,LatexBunny,Latex Bunny
 ItemHood,FoxHood,Fox Hood
-ItemHood,Pantyhood,Panty Hood
+ItemHood,PantyHood,Panty Hood
 ItemHood,VacHood, Vac Hood
 ItemHood,SensoryDeprivationHood,Sensory Hood
 ItemEars,,Ears

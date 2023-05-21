@@ -1598,21 +1598,21 @@ ItemHoodFoxHoodInnerEar, Ear Canal
 ItemHoodFoxHoodOuterEar, Ear 
 ItemHoodFoxHoodEarFuzz, Fuzz
 ItemHoodFoxHoodFace, Face
-ItemHoodPantyhoodBase, Pantyhose
-ItemHoodPantyhoodHairUnder, Hair 
+ItemHoodPantyHoodBase, Pantyhose
+ItemHoodPantyHoodHairUnder, Hair 
 ClothLatexTankTopBase, Tank Top
 ClothLatexTankTopCollar, Collar
 ClothLatexTankTopHoodDown, Loose Hood
 ClothLatexTankTopHoodFull, Pulled Hood
 ClothLatexTankTopHoodHigh, Hoddie Up
 ClothLatexTankTopHoodLow, Hoodie Down
-ItemHoodVacHoodBase, hood
-ItemHoodVacHoodLenses, Lens
-ItemHoodVacHoodTube, Breathing Tube
-ItemHoodVacHoodPlasticClip, Clip
-ItemHoodVacHoodClipHose, Clipped Hose
-ItemHoodVacHoodHandPump, Pump
-ItemHoodVacHoodRebreather, Rebreather Bag
+ItemHoodVacHoodBase,Hood
+ItemHoodVacHoodLenses,Lenses
+ItemHoodVacHoodTube,Breathing Tube
+ItemHoodVacHoodPlasticClip,Clip
+ItemHoodVacHoodClipHose,Clipped Hose
+ItemHoodVacHoodHandPump,Pump
+ItemHoodVacHoodRebreather,Rebreather Bag
 ItemPelvisPortalPantiesBase, Latex
 ItemPelvisPortalPantiesSlit, Slit
 ItemPelvisPortalPantiesMetal, Portal Unit

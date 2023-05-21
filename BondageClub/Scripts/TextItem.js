@@ -175,7 +175,8 @@ const TextItem = {
 				const callback = eventListeners[name];
 				textInput.pattern = DynamicDrawTextInputPattern;
 				textInput.addEventListener("input", (e) => {
-					callback(C, item.Property, name, /** @type {HTMLInputElement} */ (e.target).value);
+					const innerItem = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
+					callback(C, innerItem, name, /** @type {HTMLInputElement} */ (e.target).value);
 				});
 			}
 		}
@@ -262,8 +263,8 @@ const TextItem = {
 	 * @param {TextItemOption} previousOption
 	 */
 	PublishAction: function (data, C, item, newOption, previousOption) {
-		const oldText = data.textNames.map((p) => newOption.Property[p]).filter(Boolean).join(" ");
-		const newText = data.textNames.map((p) => previousOption.Property[p]).filter(Boolean).join(" ");
+		const oldText = data.textNames.map((p) => previousOption.Property[p]).filter(Boolean).join(" ");
+		const newText = data.textNames.map((p) => newOption.Property[p]).filter(Boolean).join(" ");
 		if (oldText === newText) {
 			return;
 		}
@@ -295,9 +296,9 @@ const TextItem = {
  * Throttled callback for handling text changes.
  * @type {TextItemEventListener}
  */
-const TextItemChange = CommonLimitFunction((C, textRecord, name, text) => {
+const TextItemChange = CommonLimitFunction((C, item, name, text) => {
 	if (DynamicDrawTextRegex.test(text)) {
-		textRecord[name] = text;
+		item.Property[name] = text;
 		CharacterLoadCanvas(C);
 	}
 });
@@ -306,9 +307,9 @@ const TextItemChange = CommonLimitFunction((C, textRecord, name, text) => {
  * Throttled callback for handling text changes that do not require a canvas.
  * @type {TextItemEventListener}
  */
-const TextItemChangeNoCanvas = CommonLimitFunction((C, textRecord, name, text) => {
+const TextItemChangeNoCanvas = CommonLimitFunction((C, item, name, text) => {
 	if (DynamicDrawTextRegex.test(text)) {
-		textRecord[name] = text;
+		item.Property[name] = text;
 	}
 });
 

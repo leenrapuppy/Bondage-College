@@ -508,7 +508,7 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // lh2 - Pulled Up
-								Property: {Hide: ["HairFront", "HairAccessory1", "HairAccessory2",]}
+								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat"] }
 							},
 						]
 					},
@@ -522,7 +522,10 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // rh2 - Pulled Up
-								Property: {Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "Head"]}
+								Property: {
+									Effect: ["Slow"],
+									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Head"],
+								}
 
 							}
 
@@ -543,7 +546,25 @@ var AssetFemale3DCGExtended = {
 					Header: "ClothCheerleaderTopTextLabel",
 				},
 			},
-		},
+		}, // CheerleaderTop
+		FrilledShirt: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Opacity",
+						Property: { Type: null },
+					},
+				],
+				BaselineProperty: { Opacity: 1.0 },
+				ScriptHooks: {
+					Load: PropertyOpacityLoad,
+					Draw: PropertyOpacityDraw,
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
+				},
+			},
+		}, // FrilledShirt
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
@@ -2668,29 +2689,37 @@ var AssetFemale3DCGExtended = {
 		PrisonSJ: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChangeWhenLocked: false,
 				Modules: [
 					{
 						Name: "Stripes", Key: "p",
 						Options:[
-							{ // p0 - Prison Stripe
+							{ // p0 - No Stripes
 								Property: { Effect: [] }
 							},
-							{ // p1 - No Stripes
+							{ // p1 - Prison Stripes
 								Property: { Effect: [] }
 							},
-						]
+							{ // p2 - Sides
+								Property: { Effect: [] }
+							},
+						],
 					},
 					{
 						Name: "Zipper", Key: "c",
 						Options:[
 							{ // c0 - closed
-								Property: { Effect: ["Chaste"] }
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings",]
+								}
 							},
 							{ // c1 - Exposed
-								Property: { Effect: [] }
-
+								Property: {
+									Effect: [],
+									Block: [],
+								},
 							}
-
 						]
 					},
 				],
@@ -4389,13 +4418,20 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Modules: [
 					{
-						Name: "HandPump", Key: "hp",
+						Name: "Breathplay", Key: "bp",
 						Options:[
 							{ // hp0 - None
-								Property: { Effect: [] }
+								Property: { Effect: [] },
 							},
-							{ // hp1 - Pumped Mouth
-								Property: { Effect: ["GagMedium","BlockMouth"] }
+							{ // hp1 - Hand Pump
+								Property: {
+									Effect: ["GagMedium", "BlockMouth"],
+								},
+							},
+							{ // r1 - Rebreather
+								Property: {
+									Effect: ["GagMedium", "BlockMouth"],
+								},
 							},
 						]
 					},
@@ -4406,22 +4442,11 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // pc1 - Tube Clamped
-								Property: { Effect: ["GagMedium","BlockMouth"] }
-
+								Property: {
+									Effect: ["GagMedium", "BlockMouth"]
+								}
 							}
 
-						]
-					},
-					{
-						Name: "Rebreather", Key: "r",
-						Options:[
-							{ // r0 - None
-								Property: { Effect: [] }
-							},
-							{ // r1 - Rebreather Gagged
-								Property: { Effect: ["GagMedium","BlockMouth"] }
-
-							},
 						]
 					},
 				],
@@ -5800,6 +5825,7 @@ var AssetFemale3DCGExtended = {
 		InflatableVibratingPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "InflateLevel",
@@ -9221,6 +9247,7 @@ var AssetFemale3DCGExtended = {
 		PortalPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "CrotchShield", Key: "c",

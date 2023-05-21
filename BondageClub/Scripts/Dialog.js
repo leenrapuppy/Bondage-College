@@ -493,10 +493,17 @@ function DialogPrerequisite(D) {
  * @returns {boolean} - Whether or not the player is wearing a VR headset with Gaming type
  */
 function DialogHasGamingHeadset() {
-	if (Player.Effect.includes("KinkyDungeonParty")) return true;
-
-	return false;
+	return (!KinkyDungeonReady && Player.Effect.includes("KinkyDungeonParty"));
 }
+
+/**
+ * Checks if the player can play VR games
+ * @returns {boolean} - Whether or not the player is wearing a VR headset with Gaming type
+ */
+function DialogHasGamingHeadsetReady() {
+	return (KinkyDungeonReady && Player.Effect.includes("KinkyDungeonParty"));
+}
+
 /**
  * Checks if the player can watch VR games
  * @returns {boolean} - Whether or not the player is wearing a VR headset with Gaming type
@@ -516,19 +523,19 @@ function DialogCanWatchKinkyDungeon() {
  * @returns {void}
  */
 function DialogStartKinkyDungeon() {
-	if (CurrentCharacter) {
-		if (KinkyDungeonPlayerCharacter != CurrentCharacter) {
-			KinkyDungeonGameRunning = false; // Reset the game to prevent carrying over spectator data
-		}
-		KinkyDungeonPlayerCharacter = CurrentCharacter;
-		if (KinkyDungeonPlayerCharacter != Player && CurrentCharacter.MemberNumber) {
-			KinkyDungeonGameData = null;
-			ServerSend("ChatRoomChat", { Content: "RequestFullKinkyDungeonData", Type: "Hidden", Target: CurrentCharacter.MemberNumber });
-		}
-	}
-	DialogGamingPreviousRoom = CurrentScreen;
-	DialogGamingPreviousModule = CurrentModule;
 	if (ArcadeKinkyDungeonLoad()) {
+		if (CurrentCharacter) {
+			if (KinkyDungeonPlayerCharacter != CurrentCharacter) {
+				KinkyDungeonGameRunning = false; // Reset the game to prevent carrying over spectator data
+			}
+			KinkyDungeonPlayerCharacter = CurrentCharacter;
+			if (KinkyDungeonPlayerCharacter != Player && CurrentCharacter.MemberNumber) {
+				KinkyDungeonGameData = null;
+				ServerSend("ChatRoomChat", { Content: "RequestFullKinkyDungeonData", Type: "Hidden", Target: CurrentCharacter.MemberNumber });
+			}
+		}
+		DialogGamingPreviousRoom = CurrentScreen;
+		DialogGamingPreviousModule = CurrentModule;
 		MiniGameStart("KinkyDungeon", 0, "DialogEndKinkyDungeon");
 	}
 }
