@@ -105,7 +105,7 @@ function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	const persistentData = data.PersistentData();
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
-	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = 0;
+	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = CommonTime();
 
 	if (!data.Item.Property) data.Item.Property = {};
 	if (typeof data.Item.Property.NextShockTime !== "number") data.Item.Property.NextShockTime = 0;
