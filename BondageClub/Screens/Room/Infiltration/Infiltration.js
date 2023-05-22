@@ -63,14 +63,21 @@ function InfiltrationReverseMaidCanComplete() { return ((PandoraReverseMaidDone 
 
 /**
  * Returns TRUE if the player hasat least 1 NPC from Pandora in their private room and has reached 5 infiltration
- * @returns (boolean) - TRUE if successful
+ * @returns {boolean} - TRUE if successful
  */
 function InfiltrationPandoraPrisonerPresent() { return InfiltrationPandoraPrisoner != null && SkillGetLevel(Player, "Infiltration") >= 5;}
 
 /**
- * Returns TRUE if the player brought back a Mistress from Pandora's Box
+ * Returns TRUE if the player brought back a Mistress from Pandoras Box
+ * @returns {boolean} - TRUE if successful
  */
 function InfiltrationPartyPrisonerIsMistress() { return (InfiltrationPartyPrisoner.Archetype === "Mistress");}
+
+/**
+ * Returns TRUE if there is still free space in private room.
+ * @returns {boolean} - TRUE if successful
+ */
+function InfiltrationCanJoinPrivateRoom() { return (LogQuery("RentRoom", "PrivateRoom") && (PrivateCharacter.length < PrivateCharacterMax) && !LogQuery("LockOutOfPrivateRoom", "Rule")); }
 
 /**
  * Loads the infiltration screen by generating the supervisor.
