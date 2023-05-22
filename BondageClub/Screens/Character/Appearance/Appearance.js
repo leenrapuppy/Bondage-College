@@ -1515,6 +1515,12 @@ function CharacterAppearanceStringify(C) {
 	return AppearanceItemStringify(C.Appearance);
 }
 
+/**
+ * Serialize items to JSON, breaking the cyclic link between Item, Asset & Group
+ * by serializing that into a single string representing the link.
+ * @param {Item[] | Item | any} Item
+ * @returns {string}
+ */
 function AppearanceItemStringify(Item) {
 	return JSON.stringify(Item, (key, value) => {
 		if (key === "Asset") {
