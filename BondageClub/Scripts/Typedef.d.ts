@@ -87,7 +87,7 @@ type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: numb
 
 //#region Enums
 
-type DialogMenuMode = "dialog" | "items" | "color" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
+type DialogMenuMode = "dialog" | "items" | "colorDefault" | "colorExpression" | "colorItem" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 

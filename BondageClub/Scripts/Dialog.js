@@ -6,8 +6,6 @@ var DialogTextDefaultTimer = -1;
  * @type {number}
  */
 var DialogTextDefaultDuration = 5000;
-/** @type {null | string} */
-var DialogExpressionColor = null;
 /**
  * The default color to use when applying items.
  * @type {string}
@@ -85,6 +83,13 @@ var DialogCraftingMenu = false;
 var DialogAllowBlush = false;
 var DialogAllowEyebrows = false;
 var DialogAllowFluids = false;
+
+/**
+ * The group that was selected before we entered the expression coloring screen
+ * @type {AssetItemGroup}
+ */
+var DialogExpressionGroup = null;
+
 /** @type {ExpressionItem[]} */
 var DialogFacialExpressions = [];
 /** The maximum number of expressions per page for a given asset group. */
@@ -742,11 +747,16 @@ function DialogEndExpression() {
 function DialogMenuBack() {
 	switch (DialogMenuMode) {
 		case "activities":
-		case "color":
+		case "colorItem":
+		case "colorDefault":
 		case "crafted":
 		case "locked":
 		case "locking":
 			DialogChangeMode("items");
+			break;
+
+		case "colorExpression":
+			DialogChangeFocusToGroup(Player, DialogExpressionGroup);
 			break;
 
 		case "dialog":
@@ -1109,7 +1119,8 @@ function DialogMenuButtonBuild(C) {
 	DialogMenuButton = [];
 
 	// The "Exit" button is always available
-	DialogMenuButton = ["Exit"];
+	if (!["colorDefault", "colorExpression", "colorItem"].includes(DialogMenuMode))
+		DialogMenuButton = ["Exit"];
 
 	// There's no group focused, hence no menu to draw
 	if (C.FocusGroup == null) return;
@@ -1121,11 +1132,9 @@ function DialogMenuButtonBuild(C) {
 	const IsGroupBlocked = InventoryGroupIsBlocked(C);
 	const CanAccessLockpicks = Player.CanInteract() || Player.CanWalk(); // If the character can access her tools. Maybe in the future you will be able to hide a lockpick in your panties :>
 
-	if (DialogMenuMode === "color") {
-		if (Item == null) {
-			DialogMenuButton.push("ColorCancel");
-			DialogMenuButton.push("ColorSelect");
-		}
+	if (DialogMenuMode === "colorDefault") {
+		DialogMenuButton.push("ColorCancel");
+		DialogMenuButton.push("ColorSelect");
 	}
 
 	else if (DialogMenuMode === "struggle") {
@@ -1571,7 +1580,7 @@ function DialogLoadPoseMenu() {
 function DialogMenuButtonClick() {
 
 	// Hack because those panes handle their menu icons themselves
-	if (["color", "extended", "tighten"].includes(DialogMenuMode)) return false;
+	if (["colorExpression", "colorItem", "extended", "tighten"].includes(DialogMenuMode)) return false;
 
 	// Gets the current character and item
 	/** The focused character */
@@ -1676,9 +1685,11 @@ function DialogMenuButtonClick() {
 			// Color picker Icon - Starts the color picking, keeps the original color and shows it at the bottom
 			else if (DialogMenuButton[I] == "ColorPick") {
 				if (!Item) {
+					DialogChangeMode("colorDefault");
 					ElementCreateInput("InputColor", "text", (DialogColorSelect != null) ? DialogColorSelect.toString() : "");
 				} else {
 					const originalColor = Item.Color;
+					DialogChangeMode("colorItem");
 					ItemColorLoad(C, Item, 1300, 25, 675, 950);
 					ItemColorOnExit((save) => {
 						DialogChangeMode("items");
@@ -1688,12 +1699,11 @@ function DialogMenuButtonClick() {
 						}
 					});
 				}
-				DialogChangeMode("color");
 				return true;
 			}
 
 			// When the user selects a color, applies it to the item
-			else if (!Item && (DialogMenuButton[I] == "ColorSelect") && CommonIsColor(ElementValue("InputColor"))) {
+			else if (DialogMenuButton[I] == "ColorSelect" && CommonIsColor(ElementValue("InputColor"))) {
 				DialogColorSelect = ElementValue("InputColor");
 				ElementRemove("InputColor");
 				DialogChangeMode("items");
@@ -1701,7 +1711,7 @@ function DialogMenuButtonClick() {
 			}
 
 			// When the user cancels out of color picking, we recall the original color
-			else if (!Item && DialogMenuButton[I] == "ColorCancel") {
+			else if (DialogMenuButton[I] == "ColorCancel") {
 				DialogColorSelect = null;
 				ElementRemove("InputColor");
 				DialogChangeMode("items");
@@ -1908,6 +1918,14 @@ function DialogChangeMode(mode) {
 	}
 
 	const C = CharacterGetCurrent();
+
+	// Handle changing to/from the expression color picker having to restore the selected group
+	if (mode === "colorExpression") {
+		DialogExpressionGroup = C.FocusGroup;
+	} else if (DialogMenuMode === "colorExpression") {
+		C.FocusGroup = DialogExpressionGroup;
+	}
+
 	DialogMenuMode = mode;
 
 	// Clear status so that messages don't bleed through from one group to another
@@ -1915,7 +1933,9 @@ function DialogChangeMode(mode) {
 
 	switch (DialogMenuMode) {
 		case "activities":
-		case "color":
+		case "colorItem":
+		case "colorDefault":
+		case "colorExpression":
 		case "permissions":
 		case "items":
 		case "locked":
@@ -1985,7 +2005,8 @@ function DialogChangeFocusToGroup(C, Group) {
 	// acts as cancelling out of a in-progress edit.
 	DialogFocusItem = null;
 	DialogTightenLoosenItem = null;
-	ItemColorCancelAndExit();
+	if (DialogMenuMode === "colorExpression" || DialogMenuMode === "colorItem")
+		ItemColorCancelAndExit();
 
 	// Stop sounds & expressions from struggling/swapping items
 	AudioDialogStop();
@@ -2123,10 +2144,12 @@ function DialogClick() {
 		if (DialogTightenLoosenItem != null)
 			TightenLoosenItemClick();
 		return;
-	} else if (DialogMenuMode === "color") {
+	} else if (DialogMenuMode === "colorItem" || DialogMenuMode === "colorExpression") {
 		if (MouseIn(1300, 25, 675, 950) && FocusItem) {
 			ItemColorClick(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
+			return;
 		}
+	} else if (DialogMenuMode === "colorDefault") {
 		return;
 	} else if (DialogMenuMode === "crafted") {
 		// Nothing to click here
@@ -2269,7 +2292,7 @@ function DialogFindFacialExpressionMenuGroup(ExpressionGroup) {
 	let I = DialogFacialExpressions.findIndex(expr => expr.Group == ExpressionGroup);
 	if (I != -1) {
 		DialogFacialExpressionsSelected = I;
-		if (DialogExpressionColor != null) ItemColorSaveAndExit();
+		if (DialogMenuMode === "colorExpression") ItemColorSaveAndExit();
 		return true;
 	}
 	return false;
@@ -2319,7 +2342,7 @@ function DialogStatusDraw(C) {
 	// Only draw status if we can interact
 	if (!Player.CanInteract() || InventoryGroupIsBlocked(C)) return;
 
-	if (["extended", "tighten", "color", "struggle", "crafted"].includes(DialogMenuMode)) return;
+	if (["extended", "tighten", "colorDefault", "colorExpression", "colorItem", "struggle", "crafted"].includes(DialogMenuMode)) return;
 
 	DrawTextWrap(status, 1000, 113, 975, 60, "White", null, 1);
 }
@@ -2577,7 +2600,7 @@ function DialogDrawTopMenu(C) {
 	for (let I = DialogMenuButton.length - 1; I >= 0; I--) {
 		const ButtonColor = DialogGetMenuButtonColor(DialogMenuButton[I]);
 		const ButtonImage = DialogGetMenuButtonImage(DialogMenuButton[I], FocusItem);
-		const ButtonHoverText = (DialogMenuMode !== "color") ? DialogFindPlayer(DialogMenuButton[I]) : null;
+		const ButtonHoverText = DialogFindPlayer(DialogMenuButton[I]);
 		const ButtonDisabled = DialogIsMenuButtonDisabled(DialogMenuButton[I]);
 		DrawButton(1885 - I * 110, 15, 90, 90, "", ButtonColor, "Icons/" + ButtonImage + ".png", ButtonHoverText, ButtonDisabled);
 	}
@@ -2649,7 +2672,7 @@ function DialogDraw() {
 	const FocusItem = InventoryGet(C, C.FocusGroup.Name);
 
 	// Draws the top menu text & icons
-	if (!["extended", "tighten", "color"].includes(DialogMenuMode))
+	if (!["extended", "tighten", "colorExpression", "colorItem"].includes(DialogMenuMode))
 		DialogDrawTopMenu(C);
 
 	// If the player is struggling or lockpicking
@@ -2695,15 +2718,14 @@ function DialogDraw() {
 		} else {
 			DialogChangeMode("items");
 		}
-	} else if (DialogMenuMode === "color") {
-		if (FocusItem) {
-			ItemColorDraw(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
-		} else {
-			ElementPosition("InputColor", 1450, 65, 300);
-			ColorPickerDraw(1300, 145, 675, 830,
-				/** @type {HTMLInputElement} */(document.getElementById("InputColor")),
-				function (Color) { DialogChangeItemColor(C, Color); });
-		}
+	} else if ((DialogMenuMode === "colorItem" || DialogMenuMode === "colorExpression") && FocusItem) {
+		ItemColorDraw(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
+		return;
+	} else if (DialogMenuMode === "colorDefault") {
+		ElementPosition("InputColor", 1450, 65, 300);
+		ColorPickerDraw(1300, 145, 675, 830,
+			/** @type {HTMLInputElement} */(document.getElementById("InputColor")),
+			function (Color) { DialogChangeItemColor(C, Color); });
 		return;
 	} else if (DialogMenuMode === "crafted") {
 		if (FocusItem && FocusItem.Craft) {
@@ -2826,7 +2848,7 @@ function DialogClickExpressionMenu() {
 			CharacterSetFacialExpression(Player, FE.Group, null, null, Color);
 			FE.CurrentExpression = null;
 		});
-		if (DialogExpressionColor != null) ItemColorSaveAndExit();
+		if (DialogMenuMode === "colorExpression") ItemColorSaveAndExit();
 	} else if (MouseIn(120, 50, 90, 90)) {
 		const CurrentExpression = DialogFacialExpressions.find(FE => FE.Group == "Eyes").CurrentExpression;
 		const EyesExpression = WardrobeGetExpression(Player);
@@ -2842,17 +2864,15 @@ function DialogClickExpressionMenu() {
 			DialogFacialExpressionsSelectedBlindnessLevel = 1;
 	} else if (MouseIn(320, 50, 90, 90)) {
 		if (typeof DialogFacialExpressionsSelected === 'number' && DialogFacialExpressionsSelected >= 0 && DialogFacialExpressionsSelected < DialogFacialExpressions.length && DialogFacialExpressions[DialogFacialExpressionsSelected].Appearance.Asset.Group.AllowColorize && DialogFacialExpressions[DialogFacialExpressionsSelected].Group !== "Eyes") {
+			DialogChangeMode("colorExpression");
 			const GroupName = DialogFacialExpressions[DialogFacialExpressionsSelected].Appearance.Asset.Group.Name;
 			const Item = InventoryGet(Player, GroupName);
 			const originalColor = Item.Color;
 			Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(Player.AssetFamily, GroupName));
-			DialogChangeMode("color");
-			DialogExpressionColor = "";
 			ItemColorLoad(Player, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((save) => {
 				DialogChangeMode("items");
-				DialogExpressionColor = null;
-				Player.FocusGroup = null;
+				DialogExpressionGroup = null;
 				if (save && !CommonColorsEqual(originalColor, Item.Color)) {
 					ServerPlayerAppearanceSync();
 					ChatRoomCharacterItemUpdate(Player, GroupName);
@@ -2867,7 +2887,7 @@ function DialogClickExpressionMenu() {
 					DialogFacialExpressionsSelected = I;
 					DialogFacialExpressionsSelectedPage = DialogGetCurrentExpressionPage(DialogFacialExpressions[I]);
 				}
-				if (DialogExpressionColor != null) ItemColorSaveAndExit();
+				if (DialogMenuMode === "colorExpression") ItemColorSaveAndExit();
 			}
 		}
 

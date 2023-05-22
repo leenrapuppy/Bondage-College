@@ -1236,7 +1236,7 @@ function CharacterRefreshDialog(C) {
 		DialogInventoryBuild(C, DialogInventoryOffset, !!DialogFocusSourceItem);
 		DialogBuildActivities(C);
 	}
-	if (DialogMenuMode === "color") {
+	if (DialogMenuMode === "colorItem" || DialogMenuMode === "colorExpression") {
 		const FocusItem = C && C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
 		if ((ItemColorItem && !FocusItem) || (!ItemColorItem && FocusItem) || InventoryGetItemProperty(ItemColorItem, "Name") !== InventoryGetItemProperty(FocusItem, "Name")) {
 			ItemColorCancelAndExit();
