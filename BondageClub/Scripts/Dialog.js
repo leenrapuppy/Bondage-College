@@ -1595,7 +1595,7 @@ function DialogMenuButtonClick() {
 			// Exit Icon - Go back one level in the menu
 			if (DialogMenuButton[I] == "Exit") {
 				DialogMenuBack();
-				return;
+				return true;
 			}
 
 			// Next Icon - Shows the next 12 items
