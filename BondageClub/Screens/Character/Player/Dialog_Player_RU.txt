@@ -447,11 +447,11 @@ Show all zones
 Показать все зоны
 Use the butt plug's pump
 Используйте насос анальной пробки
-Color of next item
+Pick default color
 Цвет следующего предмета
 Unable to change color due to player permissions
 Невозможно изменить цвет из-за разрешений игрока
-Change color
+Change item color
 Изменить цвет
 Use this color
 Использовать этот цвет

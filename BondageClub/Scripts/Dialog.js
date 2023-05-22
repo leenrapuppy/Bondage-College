@@ -53,7 +53,7 @@ var DialogFocusSourceItem = null;
 var DialogFocusItemColorizationRedrawTimer = null;
 /**
  * The list of currently visible menu item buttons.
- * @type {string[]}
+ * @type {DialogMenuButton[]}
  */
 var DialogMenuButton = [];
 /**
@@ -1082,7 +1082,7 @@ function DialogCanUseRemoteState(C, Item) {
  * @returns {boolean} - TRUE if the player is able to color the item, FALSE otherwise
  */
 function DialogCanColor(C, Item) {
-	const ItemColorable = !Item || (Item && Item.Asset && Item.Asset.ColorableLayerCount > 0);
+	const ItemColorable = Item && Item.Asset && Item.Asset.ColorableLayerCount > 0;
 	const CanUnlock = InventoryItemHasEffect(Item, "Lock", true) ? DialogCanUnlock(C, Item) : true;
 	return (Player.CanInteract() && CanUnlock && ItemColorable) || DialogAlwaysAllowRestraint();
 }
@@ -1259,7 +1259,8 @@ function DialogMenuButtonBuild(C) {
 			}
 
 			if (!DialogMenuButton.includes("Use") && canUseRemoteState !== "InvalidItem") {
-				let button = "";
+				/** @type {DialogMenuButton} */
+				let button = null;
 				switch (canUseRemoteState) {
 					case "Available":
 						button = ItemBlockedOrLimited ? "RemoteDisabled" : "Remote";
@@ -1273,7 +1274,11 @@ function DialogMenuButtonBuild(C) {
 		}
 
 		// Color selection
-		if (DialogCanColor(C, Item)) DialogMenuButton.push(ItemBlockedOrLimited ? "ColorPickDisabled" : "ColorPick");
+		if (DialogCanColor(C, Item)) {
+			DialogMenuButton.push(ItemBlockedOrLimited ? "ColorPickDisabled" : "ColorChange");
+		} else {
+			DialogMenuButton.push("ColorDefault");
+		}
 
 		if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
 
@@ -1682,23 +1687,24 @@ function DialogMenuButtonClick() {
 				return true;
 			}
 
-			// Color picker Icon - Starts the color picking, keeps the original color and shows it at the bottom
-			else if (DialogMenuButton[I] == "ColorPick") {
-				if (!Item) {
-					DialogChangeMode("colorDefault");
-					ElementCreateInput("InputColor", "text", (DialogColorSelect != null) ? DialogColorSelect.toString() : "");
-				} else {
-					const originalColor = Item.Color;
-					DialogChangeMode("colorItem");
-					ItemColorLoad(C, Item, 1300, 25, 675, 950);
-					ItemColorOnExit((save) => {
-						DialogChangeMode("items");
-						if (save && !CommonColorsEqual(originalColor, Item.Color)) {
-							if (C.ID == 0) ServerPlayerAppearanceSync();
-							ChatRoomPublishAction(C, "ActionChangeColor", Object.assign({}, Item, { Color: originalColor }), Item);
-						}
-					});
-				}
+			// Color picker Icon - Select a default color to batch-apply on items
+			else if (DialogMenuButton[I] == "ColorDefault") {
+				DialogChangeMode("colorDefault");
+				ElementCreateInput("InputColor", "text", (DialogColorSelect != null) ? DialogColorSelect.toString() : "");
+				return true;
+
+			// Starts picking colors for the item, keeps the original color and shows it at the bottom
+			} else if (DialogMenuButton[I] === "ColorChange" && Item != null) {
+				const originalColor = Item.Color;
+				DialogChangeMode("colorItem");
+				ItemColorLoad(C, Item, 1300, 25, 675, 950);
+				ItemColorOnExit((save) => {
+					DialogChangeMode("items");
+					if (save && !CommonColorsEqual(originalColor, Item.Color)) {
+						if (C.ID == 0) ServerPlayerAppearanceSync();
+						ChatRoomPublishAction(C, "ActionChangeColor", Object.assign({}, Item, { Color: originalColor }), Item);
+					}
+				});
 				return true;
 			}
 
@@ -2443,12 +2449,12 @@ function DialogDrawActivityMenu(C) {
 
 /**
  * Returns the button image name for a dialog menu button based on the button name.
- * @param {string} ButtonName - The menu button name
+ * @param {DialogMenuButton} ButtonName - The menu button name
  * @param {Item} FocusItem - The focused item
  * @returns {string} - The button image name
  */
 function DialogGetMenuButtonImage(ButtonName, FocusItem) {
-	if (ButtonName === "ColorPick" || ButtonName === "ColorPickDisabled") {
+	if (ButtonName === "ColorDefault" || ButtonName === "ColorPickDisabled") {
 		return ItemColorIsSimple(FocusItem) ? "ColorPick" : "MultiColorPick";
 	} else if (DialogIsMenuButtonDisabled(ButtonName)) {
 		return ButtonName.replace(DialogButtonDisabledTester, "");
@@ -2459,13 +2465,13 @@ function DialogGetMenuButtonImage(ButtonName, FocusItem) {
 
 /**
  * Returns the background color of a dialog menu button based on the button name.
- * @param {string} ButtonName - The menu button name
+ * @param {DialogMenuButton} ButtonName - The menu button name
  * @returns {string} - The background color that the menu button should use
  */
 function DialogGetMenuButtonColor(ButtonName) {
 	if (DialogIsMenuButtonDisabled(ButtonName)) {
 		return "#808080";
-	} else if (ButtonName === "ColorPick") {
+	} else if (ButtonName === "ColorDefault") {
 		return DialogColorSelect || "#fff";
 	} else {
 		return "#fff";
@@ -2474,7 +2480,7 @@ function DialogGetMenuButtonColor(ButtonName) {
 
 /**
  * Determines whether or not a given dialog menu button should be disabled based on the button name.
- * @param {string} ButtonName - The menu button name
+ * @param {DialogMenuButton} ButtonName - The menu button name
  * @returns {boolean} - TRUE if the menu button should be disabled, FALSE otherwise
  */
 function DialogIsMenuButtonDisabled(ButtonName) {

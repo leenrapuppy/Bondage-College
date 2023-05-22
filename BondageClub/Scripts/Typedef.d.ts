@@ -89,6 +89,19 @@ type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: numb
 
 type DialogMenuMode = "dialog" | "items" | "colorDefault" | "colorExpression" | "colorItem" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
 
+type DialogMenuButton = "Activity" |
+	"ColorCancel" | "ColorChange" | "ColorDefault" | "ColorPickDisabled" | "ColorSelect" |
+	"Crafting" |
+	"DialogNormalMode" | "DialogPermissionMode" |
+	"Dismount" | "Escape" | "Remove" |
+	"Exit" |
+	"GGTSControl" |
+	"InspectLock" | "InspectLockDisabled" |
+	"Lock" | "LockDisabled" | "LockMenu" |
+	"Next" | "Prev" | "PickLock" |
+	"Remote" | "RemoteDisabled" | `RemoteDisabledFor${VibratorRemoteAvailability}` |
+	"Unlock" | "Use" | "UseDisabled" | "Struggle" | "TightenLoosen";
+
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 type DialogStruggleActionType = "ActionUse" | "ActionSwap" | "ActionRemove" | "ActionUnlock" | "ActionUnlockAndRemove" | "ActionStruggle" | "ActionEscape" | "ActionDismount";
