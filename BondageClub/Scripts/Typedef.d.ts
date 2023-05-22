@@ -2237,6 +2237,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
  * _e.g._ `drawImages: false` if an archetype does have any images in its UI.
  */
 interface ExtendedItemData<OptionType extends ExtendedItemOption> {
+	archetype: ExtendedArchetype;
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
@@ -2658,6 +2659,7 @@ interface ModularItemDrawData {
  * item's load, draw & click handlers.
  */
 interface ModularItemData extends ExtendedItemData<ModularItemOption> {
+	archetype: "modular";
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -2723,6 +2725,7 @@ type TypedItemSetTypeCallback = (NewType: string) => void;
  * load, draw & click handlers.
  */
 interface TypedItemData extends ExtendedItemData<TypedItemOption> {
+	archetype: "typed";
 	/** The list of extended item options available for the item */
 	options: TypedItemOption[];
 	/** A record containing various dialog keys used by the extended item screen */
@@ -2824,6 +2827,7 @@ interface AppearanceValidationWrapper {
 //#region Vibrating items
 
 interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
+	archetype: "vibrating";
 	/** The list of extended item options available for the item */
 	options: VibratingItemOption[];
 	/** The list with all groups of extended item options available for the item */
@@ -2866,6 +2870,7 @@ interface StateAndIntensity {
  * load, draw & click handlers.
  */
 interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
+	archetype: "variableheight";
 	/** The highest Y co-ordinate that can be set  */
 	maxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
@@ -2902,6 +2907,7 @@ interface TextItemDrawData extends Omit<ModularItemDrawData, "positions"> {
 }
 
 interface TextItemData extends ExtendedItemData<TextItemOption> {
+	archetype: "text";
 	/** A record with the maximum length for each text-based properties with an input field. */
 	maxLength: TextItemRecord<number>;
 	/** A record containing various dialog keys used by the extended item screen */

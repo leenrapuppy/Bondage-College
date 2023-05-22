@@ -59,6 +59,7 @@ function VariableHeightCreateData(asset,
 	const key = `${asset.Group.Name}${asset.Name}${parentOption ? parentOption.Name : ""}`;
 	DialogPrefix = DialogPrefix || {};
 	return VariableHeightDataLookup[key] = {
+		archetype: ExtendedArchetype.VARIABLEHEIGHT,
 		key,
 		asset,
 		functionPrefix: `Inventory${key}`,

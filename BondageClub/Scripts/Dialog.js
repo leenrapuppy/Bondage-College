@@ -928,14 +928,13 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 	icons = icons.concat(DialogGetEffectIcons(item));
 
 	/** @type {DialogInventoryItem} */
-	const inventoryItem = Object.assign(item, {
-		Asset: asset,
+	return {
+		...item,
 		Worn: isWorn,
 		Icons: icons,
 		SortOrder: sortOrder.toString() + asset.Description,
-		Vibrating: isWorn && InventoryItemHasEffect(item, "Vibrating", true)
-	});
-	return inventoryItem;
+		Vibrating: isWorn && InventoryItemHasEffect(item, "Vibrating", true),
+	};
 }
 
 /**
