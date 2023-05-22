@@ -111,6 +111,7 @@ function TypedItemCreateTypedItemData(asset, {
 	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
 	return TypedItemDataLookup[key] = {
+		archetype: ExtendedArchetype.TYPED,
 		asset,
 		options: optionsParsed,
 		key,

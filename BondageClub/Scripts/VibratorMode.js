@@ -238,6 +238,7 @@ function VibratorModeCreateData(asset,
 	const modeSet = Array.isArray(Options) ? Options : Object.values(VibratorModeSet);
 	DialogPrefix = DialogPrefix || {};
 	return VibratorModeDataLookup[key] = {
+		archetype: ExtendedArchetype.VIBRATING,
 		key,
 		asset,
 		parentOption,
