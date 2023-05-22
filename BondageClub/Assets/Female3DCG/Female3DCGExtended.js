@@ -2684,6 +2684,7 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemArmsTransportJacketLoadHook,
 					Draw: InventoryItemArmsTransportJacketDrawHook,
 					Exit: InventoryItemArmsTransportJacketExitHook,
+					PublishAction: InventoryItemArmsTransportJacketPublishActionHook,
 				}
 			},
 		}, // TransportJacket
