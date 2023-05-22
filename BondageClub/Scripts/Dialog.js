@@ -770,7 +770,7 @@ function DialogMenuBack() {
 			if (StruggleMinigameIsRunning()) {
 				StruggleMinigameStop();
 				// Move back to the item list only if we automatically started to struggle
-				if (DialogStruggleSelectMinigame) {
+				if (!DialogStruggleSelectMinigame) {
 					DialogStruggleSelectMinigame = false;
 					DialogChangeMode("items");
 				}
