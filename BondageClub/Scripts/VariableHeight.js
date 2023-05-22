@@ -70,7 +70,7 @@ function VariableHeightCreateData(asset,
 		dialogPrefix: {
 			header: DialogPrefix.Header || "VariableHeightSelect",
 			chat: DialogPrefix.Chat || `${key}Set`,
-			option: DialogPrefix.Option | "VariableHeight",
+			option: DialogPrefix.Option || "VariableHeight",
 		},
 		chatTags: Array.isArray(ChatTags) ? ChatTags : [
 			CommonChatTags.SOURCE_CHAR,
