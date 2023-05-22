@@ -701,6 +701,8 @@ function TypedItemSetType(data, C, newOption) {
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
+	} else if (data.archetype === ExtendedArchetype.VIBRATING) {
+		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${DialogFocusItem.Property.Intensity}`);
 	}
 
 	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC
