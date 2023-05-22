@@ -713,7 +713,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptDraw(data, originalFunction
 	const property = (drawData.Item.Property = drawData.Item.Property || {});
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
-	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = 0;
+	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = CommonTime();
 
 
 	// Non persistent properties
