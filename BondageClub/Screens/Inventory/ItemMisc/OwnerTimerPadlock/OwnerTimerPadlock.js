@@ -18,8 +18,18 @@ function InventoryItemMiscOwnerTimerPadlockInit(C, Item) {
 function InventoryItemMiscOwnerTimerPadlockLoad() {
 }
 
-/** @type {ExtendedItemCallbacks.Draw} */
-function InventoryItemMiscOwnerTimerPadlockDraw() {
+/**
+ * @param {Character} C
+ * @returns {boolean} - Whether the passed character is elligble for full control over the lock
+ */
+function InventoryItemMiscOwnerTimerPadlockValidator(C) {
+	return C.IsOwnedByPlayer();
+}
+
+/**
+ * @param {(C: Character) => boolean} validator
+ */
+function InventoryItemMiscOwnerTimerPadlockDraw(validator=InventoryItemMiscOwnerTimerPadlockValidator) {
 	const property = DialogFocusSourceItem.Property;
 
 	if (!DialogFocusItem || property.RemoveTimer < CurrentTime) {
@@ -39,7 +49,7 @@ function InventoryItemMiscOwnerTimerPadlockDraw() {
 	DrawText(DialogFindPlayer(asset.Group.Name + asset.Name + "Intro"), 1500, 600, "white", "gray");
 
 	// Draw the settings
-	if (Player.CanInteract() && C.IsOwnedByPlayer()) {
+	if (Player.CanInteract() && validator(C)) {
 		MainCanvas.textAlign = "left";
 		DrawButton(1100, 666, 64, 64, "", "White", property.RemoveItem ? "Icons/Checked.png" : "");
 		DrawText(DialogFindPlayer("RemoveItemWithTimer"), 1200, 698, "white", "gray");
@@ -75,8 +85,10 @@ function InventoryItemMiscOwnerTimerPadlockDraw() {
 	}
 }
 
-/** @type {ExtendedItemCallbacks.Click} */
-function InventoryItemMiscOwnerTimerPadlockClick() {
+/**
+ * @param {(C: Character) => boolean} validator
+ */
+function InventoryItemMiscOwnerTimerPadlockClick(validator=InventoryItemMiscOwnerTimerPadlockValidator) {
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemMiscOwnerTimerPadlockExit();
 		return;
@@ -89,7 +101,7 @@ function InventoryItemMiscOwnerTimerPadlockClick() {
 	const C = CharacterGetCurrent();
 	const property = DialogFocusSourceItem.Property;
 
-	if (C.IsOwnedByPlayer()) { // Owner gets full control over lock
+	if (validator(C)) { // Owner gets full control over lock
 		if (MouseIn(1100, 666, 64, 64)) { // Remove when timer runs out checkbox
 			property.RemoveItem = !property.RemoveItem;
 			ChatRoomCharacterItemUpdate(C);
