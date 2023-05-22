@@ -1257,8 +1257,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Type: "z1",
 									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
-
+									Hide: ["ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Suit", "SuitLower"],
 								}
 							},
 							{ // z1 - Unzipped
@@ -1271,8 +1270,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Type: "z1",
 									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
-
+									Hide: ["ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Suit", "SuitLower"],
 								}
 							},
 							{ // z3 - Exposed
@@ -1300,8 +1298,9 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Underwear", Key: "un",
 						Options: [
-							{ Property: { Hide: ["Corset", "Garters"], } },
-							{ Property: { OverridePriority: 14, Hide: ["SuitLower", "Socks"], }, },
+							{ Property: { Hide: ["Corset", "Garters", "Socks", "SocksLeft", "SocksRight"], } },
+							{ Property: { OverridePriority: 14, Hide: ["Suit", "SuitLower", "Socks", "SocksLeft", "SocksRight"], }, },
+							{ Property: { OverridePriority: 14, }, },
 						],
 					},
 				],
