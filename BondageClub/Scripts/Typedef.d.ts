@@ -66,9 +66,28 @@ type RectTuple = [number, number, number, number];
 type CommonSubstituteReplacer = (match: string, offset: number, replacement: string, string: string) => string;
 type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?: CommonSubstituteReplacer];
 
+interface CommonGenerateGridParameters {
+	/** Starting X coordinate of the grid */
+	x: number,
+	/** Starting Y coordinate of the grid */
+	y: number,
+	/** Maximum width of the grid */
+	width: number,
+	/** Maximum height of the grid */
+	height: number,
+	/** Width of one grid item */
+	itemWidth: number,
+	/** Height of one grid item */
+	itemHeight: number,
+}
+
+type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: number, height: number) => boolean;
+
 //#endregion
 
 //#region Enums
+
+type DialogMenuMode = "dialog" | "items" | "color" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
@@ -1283,7 +1302,7 @@ interface Item {
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
 type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
-type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "FamilyOnly" | "OwnerOnly" | "Unlocked";
+type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "FamilyOnly" | "OwnerOnly" | "Unlocked" | AssetLockType;
 
 interface InventoryItem {
 	Group: AssetGroupName;
@@ -3521,7 +3540,6 @@ interface DialogInventoryItem extends Item {
 	Worn: boolean;
 	Icons: InventoryIcon[];
 	SortOrder: string;
-	Hidden: boolean;
 	Vibrating: boolean;
 }
 

@@ -1115,3 +1115,43 @@ function CommonEntries(record) {
 function CommonIncludes(array, searchElement, fromIndex) {
 	return array.includes(/** @type {T} */(searchElement), fromIndex);
 }
+
+/**
+ * Automatically generate a grid based on parameters.
+ *
+ * This function takes a list of items, grid parameters, and a callback to manage
+ * creating a grid of them. It'll find the best value for margins between each cell,
+ * then will call the callback passing each item with its calculated coordinates in turn.
+ *
+ * Returning true from the callback to stop the iteration, useful for click handlers
+ * so you don't keep checking items after handling one.
+ *
+ * @template T
+ * @param {T[]} items
+ * @param {number} offset
+ * @param {CommonGenerateGridParameters} grid
+ * @param {CommonGenerateGridCallback<T>} callback
+ * @returns {number}
+ */
+function CommonGenerateGrid(items, offset, grid, callback) {
+	// Calculate horizontal & vertical margins
+	const itemCountX = Math.floor(grid.width / grid.itemWidth);
+	const marginX = (grid.width - (itemCountX * grid.itemWidth)) / (itemCountX - 1);
+	const itemCountY = Math.floor(grid.height / grid.itemHeight);
+	const marginY = (grid.height - (itemCountY * grid.itemHeight)) / (itemCountY - 1);
+
+	let index;
+	let x = grid.x;
+	let y = grid.y;
+	for (index = offset; index < items.length && y <= grid.height; index++) {
+		if (callback(items[index], x, y, grid.itemWidth, grid.itemHeight))
+			break;
+		x += grid.itemWidth + marginX;
+		if (x - grid.x >= grid.width) {
+			x = grid.x;
+			y += grid.itemHeight + marginY;
+		}
+	}
+	return index - offset;
+}
+

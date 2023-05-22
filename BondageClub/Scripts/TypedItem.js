@@ -627,6 +627,12 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 		else ExtendedItemSetOffset(ItemOptionsOffset + OptionsPerPage);
 	}
 
+	// If the assets allows tightening / loosening
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock") && MouseIn(1050, 220, 300, 65)) {
+		DialogSetTightenLoosenItem(DialogFocusItem);
+		return;
+	}
+
 	// Options
 	for (let I = ItemOptionsOffset; I < data.options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
 		const PageOffset = I - ItemOptionsOffset;
@@ -636,12 +642,6 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 		if (MouseIn(X, Y, 225, 55 + ImageHeight)) {
 			TypedItemHandleOptionClick(data, C, Option);
 		}
-	}
-
-	// If the assets allows tightening / loosening
-	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock") && MouseIn(1050, 220, 300, 65)) {
-		DialogTightenLoosenItem = DialogFocusItem;
-		TightenLoosenItemLoad();
 	}
 }
 
