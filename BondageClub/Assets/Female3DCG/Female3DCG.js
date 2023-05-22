@@ -992,7 +992,7 @@ var AssetFemale3DCG = [
 			{ Name: "Swimsuit2", Gender: "F", Prerequisite: ["HasBreasts"], Value: 25, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{ Name: "BunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Nylon", "Pet"], Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{
-				Name: "LatexBunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"],
+				Name: "LatexBunnySuit", Gender: "F", Prerequisite: ["HasBreasts"], Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], DrawLocks: false,
 				Layer: [
 					{ Name: "Bottom", AllowColorize: true, HideForPose: ["Hogtied"] },
 					{ Name: "BottomShine", AllowColorize: false, HideForPose: ["Hogtied"] },
@@ -5438,7 +5438,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PrisonSJ", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 100, Left: 52, Top: 196, Difficulty: 13, SelfBondage: 4, Time: 35, RemoveTime: 15, AllowLock: true, DrawLocks: false,
-				Hide: ["ItemVulva", "LeftHand", "RightHand", "Cloth", "Panties", "Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"],
+				Hide: ["ItemVulva", "LeftHand", "RightHand", "Cloth", "Panties", "Bra"], AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemButt", "ItemHands", "ItemHandheld"],
 				SetPose: ["BackElbowTouch"], Extended: true, HasType: false, DefaultColor: ["#666666", "#EAEAEA", "#FF1A1A"],
 				Effect: ["Block", "Prone", "Slow"],
@@ -5452,7 +5452,8 @@ var AssetFemale3DCG = [
 			},
 			// Flat Chest Compatible Items
 			{
-				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, AllowTighten: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false,
+				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, AllowTighten: true,
+				SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false, DrawLocks: false,
 				Extended: true,
 				AlwaysInteract: true,
 				ParentGroup: null,
@@ -5520,8 +5521,8 @@ var AssetFemale3DCG = [
 					{ Name: "Gloves", },
 					{ Name: "Straps", },
 					{ Name: "Buckles", },
-					{ Name: "Chain", AllowTypes: ["Chained"], },
-					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false, }
+					{ Name: "Chain", AllowTypes: ["Chained"],  HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]},
+					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false,  HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]}
 				]
 			},
 			{
@@ -5536,8 +5537,8 @@ var AssetFemale3DCG = [
 					{ Name: "Straps", },
 					{ Name: "Buckles", },
 					{ Name: "Paws", },
-					{ Name: "Chain", AllowTypes: ["Chained"], },
-					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false, }
+					{ Name: "Chain", AllowTypes: ["Chained"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]},
+					{ Name: "ChainLock", AllowTypes: ["Chained"], LockLayer: true, AllowColorize: false, HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"]}
 				]
 			},
 			{ Name: "LeatherMittens", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 60, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, AllowTighten: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["ItemHandheld"] },
@@ -5569,7 +5570,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CheerleaderPomPoms", Value: 30, BuyGroup: "CheerleaderPomPoms", Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, ParentGroup: null, DefaultColor: "#e0b51d",
+				Name: "CheerleaderPomPoms", Value: 30, BuyGroup: "CheerleaderPomPoms", Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, ParentGroup: null, DefaultColor: "#e0b51d",
 				AllowPose: ["OverTheHead", "BackCuffs", "Yoked", "AllFours"],
 				HideForPose: ["BackBoxTie", "BackElbowTouch"],
 				Effect: ["Block", "Prone", "MergedFingers"],
@@ -5819,7 +5820,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "Mug", ParentGroup: null, Value: 10, Priority: 46, IsRestraint: false, Random: false, AllowColorize: true,
-				HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"],
+				HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"],
 				AllowActivity: ["RubItem", "SipItem"],
 				DefaultColor: ["#9A9694", "#3E170B"],
 				Layer: [
@@ -5828,7 +5829,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalTablet", ParentGroup: null, Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Effect: [ "Unlock-PortalPanties"]
+				Name: "PortalTablet", ParentGroup: null, Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Effect: ["Unlock-PortalPanties"], HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"]
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5938,7 +5939,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HighStyleSteelCollar", Fetish: ["Metal"], Value: 80, Difficulty: 50, Time: 5, AllowLock: true, Audio: "CuffsMetal",
+				Name: "HighStyleSteelCollar", Fetish: ["Metal"], Value: 80, Difficulty: 50, Time: 5, AllowLock: true, Audio: "CuffsMetal", DrawLocks: false,
 				Layer: [
 					{ Name: "Collar" },
 					{ Name: "Panel" }
@@ -6289,7 +6290,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -6641,7 +6642,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "OTNPlugGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, Extended: true,
+				Name: "OTNPlugGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, DrawLocks: false, Extended: true,
 				DefaultColor: ["#665D5D", "#514D57", "#979595"],
 				Hide: ["Mouth"],
 				Effect: ["GagMedium", "OpenMouth"],
@@ -6835,7 +6836,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -7037,6 +7038,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: true, HideColoring: true },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
+					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal" },
 
 
 					//ExtraStraps
@@ -7207,7 +7209,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -7408,6 +7410,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: true, HideColoring: true },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
+					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal" },
 
 
 					//ExtraStraps
@@ -7607,7 +7610,7 @@ var AssetFemale3DCG = [
 			{ Name: "PrisonLockdownBlindfold", Priority: 34, Value: -1, Time: 5, AllowTighten: true, BuyGroup: "PrisonLockdownSuit", DefaultColor: "#77511f", Hide: ["Glasses"], Effect: ["BlindNormal", "Prone"] },
 			{ Name: "Pantyhose", Value: 10, Time: 5, Hide: ["Glasses", "Mask", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"], BuyGroup: "Pantyhose", Effect: ["BlindLight", "Prone"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"], Audio: "ClothSlip", Tint: [{Color: 0, Strength: 0.2}], DefaultTint: "#765d4e" },
 			{
-				Name: "Snorkel", Priority: 55, Value: 30, Top: 30, Difficulty: 5, Time: 15, Random: false, AllowLock: true, Block: [],
+				Name: "Snorkel", Priority: 55, Value: 30, Top: 30, Difficulty: 5, Time: 15, Random: false, AllowLock: true, DrawLocks: false, Block: [],
 				Layer: [
 					{ Name: "Mask", AllowColorize: false },
 					{ Name: "Tube", Priority: 56, AllowColorize: true },
@@ -8021,7 +8024,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CowHood", Fetish: ["Pet", "Latex"], Value: 30, Difficulty: 5, Time: 15, Top: 25, Left: 124, Random: false, AllowLock: true, AllowTighten: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
+				Name: "CowHood", Fetish: ["Pet", "Latex"], Value: 30, Difficulty: 5, Time: 15, Top: 25, Left: 124, Random: false, AllowLock: true, DrawLocks: false, AllowTighten: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
 				Layer:[
 					{Name: "Base"},
 					{Name: "Spots"},
@@ -8311,7 +8314,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true,
+				Name: "LatexDogMask", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 28, Left:147, AllowLock: true, AllowTighten: true, Extended: true, DrawLocks: false,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8328,7 +8331,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LatexBunny", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 1, Left:134, AllowLock: true, AllowTighten: true,
+				Name: "LatexBunny", Fetish: ["Latex", "Pet"], Random: false, Value: 10, Difficulty: 5, Top: 1, Left:134, AllowLock: true, AllowTighten: true, DrawLocks: false,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", "DeafLight"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8342,7 +8345,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "FoxHood", Fetish: ["Latex", "Pet"], Random: false, Value: 30, Difficulty: 5, Top: 21, Left:122, AllowLock: true, AllowTighten: true,
+				Name: "FoxHood", Fetish: ["Latex", "Pet"], Random: false, Value: 30, Difficulty: 5, Top: 21, Left:122, AllowLock: true, AllowTighten: true, DrawLocks: false,
 				Hide: ["Head","HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Mask"],Effect: ["Prone", "GagHeavy", "BlockMouth", ],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8357,7 +8360,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true, HasType: false,
+				Name: "VacHood", Fetish: ["Latex"], Random: false, Value: 10, Difficulty: 5, AllowLock: true, AllowTighten: true, Extended: true, HasType: false, DrawLocks: false,
 				Hide: ["Head", "HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -8373,7 +8376,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "SensoryDeprivationHood", Fetish: ["Latex"], Value: 20, Difficulty: 8, Top: 22, Left:124, AllowLock: true, Effect: ['DeafTotal', "BlindHeavy", "BlockMouth", "GagVeryHeavy"],
+				Name: "SensoryDeprivationHood", Fetish: ["Latex"], Value: 20, Difficulty: 8, Top: 22, Left:124, AllowLock: true, Effect: ['DeafTotal', "BlindHeavy", "BlockMouth", "GagVeryHeavy"], DrawLocks: false,
 				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
 				DefaultColor: [],
@@ -9015,7 +9018,7 @@ var AssetFemale3DCG = [
 				Name: "WoodenHorse", Priority: 34, Value: 200, Difficulty: 2, Time: 10, Top: 488, Left: 137, Random: false,
 				Prerequisite: ["NotKneeling", "LegsOpen", "NotSuspended", "NotHogtied", "NotShackled"],
 				Hide: ["Shoes", "ItemBoots"], HideItem: ["ClothLowerWaspie1", "ClothLowerWaspie2", "ClothLowerWaspie3", "ClothLowerGown2Skirt", "ItemMiscTeddyBear", "ItemDevicesLittleMonster", "ItemDevicesFamiliar"],
-				SetPose: ["KneelingSpread"], Effect: ["Prone", "Freeze", "Mounted"],
+				SetPose: ["KneelingSpread"], AllowPose: ["KneelingSpread"], Effect: ["Prone", "Freeze", "Mounted"],
 				OverrideHeight: { Height: -75, Priority: 21 },
 				Alpha: [{ Masks: [[160, 720, 200, 240]] }], Block: ["ItemFeet", "ItemBoots"],
 				AllowActivityOn: ["ItemFeet", "ItemBoots"],
@@ -9121,9 +9124,9 @@ var AssetFemale3DCG = [
 			{ Name: "PonyBoots", Fetish: ["Leather", "Pony"], Value: -1, Difficulty: 6, Time: 10, RemoveTime: 15, AllowLock: true, AllowTighten: true, Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 875, 350, 200]] }], Height: 35, HideForPose: ["Spread", "KneelingSpread"] },
 			{ Name: "BalletHeels", Fetish: ["Leather"], Value: 75, Difficulty: 6, Time: 10, RemoveTime: 15, AllowLock: true, AllowTighten: true, Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 825, 350, 200]] }], Height: 35, HideForPose: ["Spread", "KneelingSpread"] },
 			{ Name: "BalletWedges", Fetish: ["Leather"], Value: 50, Difficulty: 6, Time: 10, RemoveTime: 15, AllowLock: true, AllowTighten: true, Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 825, 350, 200]] }], Height: 35, HideForPose: ["Spread", "KneelingSpread"] },
-			{ Name: "ToeCuffs", Fetish: ["Metal"], Value: 35, Difficulty: 4, Time: 10, RemoveTime: 5, AllowLock: true, Prerequisite: ["CanCloseLegs"], Audio: "LockSmall", SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], FreezeActivePose: ["BodyLower"], HideForPose: ["Spread", "KneelingSpread"] },
-			{ Name: "LeatherToeCuffs", Fetish: ["Leather"], Value: 50, Difficulty: 3, Time: 10, RemoveTime: 5, AllowLock: true, AllowTighten: true, Prerequisite: ["CanCloseLegs"], SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], FreezeActivePose: ["BodyLower"], HideForPose: ["Spread", "KneelingSpread"] },
-			{ Name: "ToeTie", Fetish: ["Rope"], Value: 15, Difficulty: 2, Time: 10, RemoveTime: 5, AllowTighten: true, DefaultColor: "#956B1C", CraftGroup: "HempRope", Prerequisite: ["CanCloseLegs"], Audio: "RopeShort", SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], FreezeActivePose: ["BodyLower"], HideForPose: ["Spread", "KneelingSpread"] },
+			{ Name: "ToeCuffs", Fetish: ["Metal"], Value: 35, Difficulty: 4, Time: 10, RemoveTime: 5, AllowLock: true, DrawLocks: false, Prerequisite: ["CanCloseLegs"], Audio: "LockSmall", ParentGroup: null, SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], FreezeActivePose: ["BodyLower"], HideForPose: ["Spread", "KneelingSpread"] },
+			{ Name: "LeatherToeCuffs", Fetish: ["Leather"], Value: 50, Difficulty: 3, Time: 10, RemoveTime: 5, AllowLock: true, DrawLocks: false, AllowTighten: true, Prerequisite: ["CanCloseLegs"], ParentGroup: null, SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], FreezeActivePose: ["BodyLower"], HideForPose: ["Spread", "KneelingSpread"] },
+			{ Name: "ToeTie", Fetish: ["Rope"], Value: 15, Difficulty: 2, Time: 10, RemoveTime: 5, AllowTighten: true, DefaultColor: "#956B1C", CraftGroup: "HempRope", Prerequisite: ["CanCloseLegs"], Audio: "RopeShort", ParentGroup: null, SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], FreezeActivePose: ["BodyLower"], HideForPose: ["Spread", "KneelingSpread"] },
 			{ Name: "ThighHighLatexHeels", Fetish: ["Latex"], Value: -1, Time: 10, RemoveTime: 15, AllowLock: true, AllowTighten: true, BuyGroup: "ThighHighLatexHeels",
 				Alpha: [
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 680, 350, 320]] },
@@ -9173,8 +9176,8 @@ var AssetFemale3DCG = [
 					{ Name: "Straps" }
 				]
 			},
-			{ Name: "ToeTape", Fetish: ["Tape"], Extended: true, Value: 50, BuyGroup: "DuctTape", CraftGroup: "DuctTape", Audio: "DuctTape", Difficulty: 2, Time: 10, RemoveTime: 5, Prerequisite: ["CanCloseLegs"], SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"], HideForPose: ["Spread", "KneelingSpread"] },
-			{ Name: "Zipties", Value: 20, Difficulty: 6, Time: 5, RemoveTime: 6, BuyGroup: "Zipties", Audio: "ZipTie", Prerequisite: ["CanCloseLegs"], SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], HideForPose: ["Spread", "KneelingSpread"] },
+			{ Name: "ToeTape", Fetish: ["Tape"], Extended: true, Value: 50, BuyGroup: "DuctTape", CraftGroup: "DuctTape", Audio: "DuctTape", Difficulty: 2, Time: 10, RemoveTime: 5, Prerequisite: ["CanCloseLegs"], ParentGroup: null, SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"], HideForPose: ["Spread", "KneelingSpread"] },
+			{ Name: "Zipties", Value: 20, Difficulty: 6, Time: 5, RemoveTime: 6, BuyGroup: "Zipties", Audio: "ZipTie", Prerequisite: ["CanCloseLegs"], ParentGroup: null, SetPose: ["LegsClosed"], Effect: ["Freeze", "Prone"], AllowActivePose: ["Kneel"], HideForPose: ["Spread", "KneelingSpread"] },
 			{ Name: "HighThighBoots", Value: 100, Time: 10, RemoveTime: 10, AllowLock: true, Hide: ["ItemFeet", "Shoes"], AllowPose: ["LegsClosed", "Kneel", "Hogtied", "Spread", "KneelingSpread"],
 				Alpha: [
 					{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 680, 350, 320]] },
