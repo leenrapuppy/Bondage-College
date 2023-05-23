@@ -1,13 +1,28 @@
 "use strict";
 var AppearanceBackground = "Dressing";
+/** Offset for the group view */
 var CharacterAppearanceOffset = 0;
-var CharacterAppearanceNumPerPage = 9;
+/** Number of entries per group page */
+var CharacterAppearanceNumGroupPerPage = 9;
+
+/** Number of entries per cloth page */
+var CharacterAppearanceNumClothPerPage = 9;
+
+/** Number of entries per wardrobe page */
+var CharacterAppearanceWardrobeNumPerPage = 6;
+
 var CharacterAppearanceHeaderText = "";
 var CharacterAppearanceHeaderTextTime = 0;
 /** @type {null | string} */
 var CharacterAppearanceBackup = null;
 /** @type {null | string} */
 var CharacterAppearanceInProgressBackup = null;
+
+/**
+ * The list of all customizable groups
+ * @type {AssetGroup[]}
+ */
+var CharacterAppearanceGroups = [];
 /**
  * The list of all assets (owned or available)
  *
@@ -616,6 +631,8 @@ function AppearanceLoad() {
 	CharacterAppearanceOffset = 0;
 	if (!CharacterAppearanceSelection) CharacterAppearanceSelection = Player;
 	var C = CharacterAppearanceSelection;
+	// Build the list of customizable groups for the selected character
+	CharacterAppearanceGroups = AssetGroup.filter(g => g.Family === C.AssetFamily && g.Category === "Appearance" && g.AllowCustomize);
 	CharacterAppearanceBuildAssets(Player);
 	CharacterAppearanceBackup = CharacterAppearanceStringify(C);
 	AppearanceMenuBuild(C);
@@ -638,7 +655,7 @@ function AppearanceMenuBuild(C) {
 				if (DialogMenuMode !== "permissions") AppearanceMenu.push("WearRandom");
 				AppearanceMenu.push("Random");
 			} else AppearanceMenu.push(LogQuery("Wardrobe", "PrivateRoom") ? "Wardrobe" : "WardrobeDisabled");
-			AppearanceMenu.push("Naked", "Character", "Next");
+			AppearanceMenu.push("Naked", "Character", "Prev", "Next");
 			break;
 		case "Wardrobe":
 			AppearanceMenu.push("Naked", "Prev", "Next");
@@ -656,7 +673,8 @@ function AppearanceMenuBuild(C) {
 					AppearanceMenu.push(ButtonName);
 				}
 			}
-			if (DialogInventory.length > 9) AppearanceMenu.push("Next");
+			if (DialogInventoryOffset >= CharacterAppearanceNumClothPerPage) AppearanceMenu.push("Prev");
+			if (DialogInventory.length > CharacterAppearanceNumClothPerPage) AppearanceMenu.push("Next");
 			break;
 	}
 
@@ -772,10 +790,8 @@ function AppearanceRun() {
 	if (CharacterAppearanceMode == "") {
 
 		// Creates buttons for all groups
-		for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
-			const Group = AssetGroup[A];
-			// Only show customizable Appearance groups from our character family
-			if (Group.Family !== C.AssetFamily || Group.Category !== "Appearance" || !Group.AllowCustomize) continue;
+		for (let A = CharacterAppearanceOffset; A < CharacterAppearanceGroups.length && A < CharacterAppearanceOffset + CharacterAppearanceNumGroupPerPage; A++) {
+			const Group = CharacterAppearanceGroups[A];
 
 			// If it's a locked group, just draw a label and continue
 			if (!AppearanceGroupAllowed(C, Group.Name)) {
@@ -836,7 +852,7 @@ function AppearanceRun() {
 		ElementPosition("InputWardrobeName", 1645, 315, 690);
 
 		// Draw 6 wardrobe options
-		for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + 6; W++) {
+		for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + CharacterAppearanceWardrobeNumPerPage; W++) {
 			DrawButton(1300, 430 + (W - CharacterAppearanceWardrobeOffset) * 95, 500, 65, "", "White", "");
 			DrawTextFit((W + 1).toString() + (W < 9 ? ":  " : ": ") + Player.WardrobeCharacterNames[W], 1550, 463 + (W - CharacterAppearanceWardrobeOffset) * 95, 496, "Black");
 			DrawButton(1820, 430 + (W - CharacterAppearanceWardrobeOffset) * 95, 160, 65, "Save", "White", "");
@@ -857,7 +873,7 @@ function AppearanceRun() {
 		// Prepares a 3x3 square of clothes to present all the possible options
 		let X = 1250;
 		let Y = 125;
-		for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + 9); I++) {
+		for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + CharacterAppearanceNumClothPerPage); I++) {
 			const Item = DialogInventory[I];
 			const Hover = MouseIn(X, Y, 225, 275) && !CommonIsMobile;
 			const Background = AppearanceGetPreviewImageColor(C, Item, Hover);
@@ -1097,14 +1113,11 @@ function CharacterAppearanceNextColor(C, Group) {
  * @param {number} Move - The amount the next asset group should be moved before it is displayed
  * @returns {void} - Nothing
  */
-function CharacterAppearanceMoveOffset(C, Move) {
-
+function CharacterAppearanceMoveGroup(C, Move) {
 	// Calculate the new offset
-	CharacterAppearanceOffset = CharacterAppearanceOffset + Move;
-	if (CharacterAppearanceOffset >= AssetGroup.length) CharacterAppearanceOffset = 0;
-	if ((AssetGroup[CharacterAppearanceOffset].Category != "Appearance") || !AssetGroup[CharacterAppearanceOffset].AllowCustomize) CharacterAppearanceOffset = 0;
-	if (CharacterAppearanceOffset < 0) CharacterAppearanceOffset = Math.floor(AssetGroup.length / CharacterAppearanceNumPerPage) * CharacterAppearanceNumPerPage;
-
+	CharacterAppearanceOffset = CharacterAppearanceOffset + Move * CharacterAppearanceNumGroupPerPage;
+	if (CharacterAppearanceOffset >= CharacterAppearanceGroups.length) CharacterAppearanceOffset = 0;
+	if (CharacterAppearanceOffset < 0) CharacterAppearanceOffset = Math.floor(CharacterAppearanceGroups.length / CharacterAppearanceNumGroupPerPage) * CharacterAppearanceNumGroupPerPage;
 }
 
 /**
@@ -1145,9 +1158,9 @@ function AppearanceClick() {
 	// In regular dress-up mode
 	else if (CharacterAppearanceMode == "") {
 
-		for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
-			const Group = AssetGroup[A];
-			if (Group.Family !== C.AssetFamily || Group.Category !== "Appearance" || !WardrobeGroupAccessible(C, Group) || !AppearanceGroupAllowed(C, Group.Name))
+		for (let A = CharacterAppearanceOffset; A < CharacterAppearanceGroups.length && A < CharacterAppearanceOffset + CharacterAppearanceNumGroupPerPage; A++) {
+			const Group = CharacterAppearanceGroups[A];
+			if (!WardrobeGroupAccessible(C, Group) || !AppearanceGroupAllowed(C, Group.Name))
 				continue;
 
 			const Item = InventoryGet(C, Group.Name);
@@ -1231,13 +1244,13 @@ function AppearanceClick() {
 
 		// In warehouse mode, we draw the 12 possible warehouse slots for the character to save & load
 		if ((MouseX >= 1300) && (MouseX < 1800) && (MouseY >= 430) && (MouseY < 970))
-			for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + 6; W++)
+			for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + CharacterAppearanceWardrobeNumPerPage; W++)
 				if ((MouseY >= 430 + (W - CharacterAppearanceWardrobeOffset) * 95) && (MouseY <= 495 + (W - CharacterAppearanceWardrobeOffset) * 95)) {
 					WardrobeFastLoad(C, W, false);
 					ElementValue("InputWardrobeName", Player.WardrobeCharacterNames[W]);
 				}
 		if ((MouseX >= 1820) && (MouseX < 1975) && (MouseY >= 430) && (MouseY < 970))
-			for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + 6; W++)
+			for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + CharacterAppearanceWardrobeNumPerPage; W++)
 				if ((MouseY >= 430 + (W - CharacterAppearanceWardrobeOffset) * 95) && (MouseY <= 495 + (W - CharacterAppearanceWardrobeOffset) * 95)) {
 					WardrobeFastSave(C, W);
 					var LS = /^[a-zA-Z0-9 ]+$/;
@@ -1258,7 +1271,7 @@ function AppearanceClick() {
 		// Prepares a 3x3 square of clothes to present all the possible options
 		var X = 1250;
 		var Y = 125;
-		for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + 9); I++) {
+		for (let I = DialogInventoryOffset; (I < DialogInventory.length) && (I < DialogInventoryOffset + CharacterAppearanceNumClothPerPage); I++) {
 			if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
 				const Item = DialogInventory[I];
 				const CurrentItem = InventoryGet(C, C.FocusGroup.Name);
@@ -1311,7 +1324,8 @@ function AppearanceMenuClick(C) {
 					if (Button === "Random") CharacterAppearanceFullRandom(C);
 					if (Button === "Naked") CharacterAppearanceStripLayer(C);
 					if (Button === "Character")  AppearanceUseCharacterInPreviewsSetting = !AppearanceUseCharacterInPreviewsSetting;
-					if (Button === "Next") CharacterAppearanceMoveOffset(C, CharacterAppearanceNumPerPage);
+					if (Button === "Prev") CharacterAppearanceMoveGroup(C, -1);
+					if (Button === "Next") CharacterAppearanceMoveGroup(C, 1);
 					if (Button === "Cancel") CharacterAppearanceExit(C);
 					if (Button === "Accept") CharacterAppearanceReady(C);
 					if (Button === "WardrobeDisabled") CharacterAppearanceHeaderText = TextGet("WardrobeDisabled");
@@ -1319,11 +1333,11 @@ function AppearanceMenuClick(C) {
 				case "Wardrobe":
 					switch (Button) {
 						case "Prev":
-							CharacterAppearanceWardrobeOffset -= 6;
-							if (CharacterAppearanceWardrobeOffset < 0) CharacterAppearanceWardrobeOffset = Math.max(0, Player.Wardrobe.length - 6);
+							CharacterAppearanceWardrobeOffset -= CharacterAppearanceWardrobeNumPerPage;
+							if (CharacterAppearanceWardrobeOffset < 0) CharacterAppearanceWardrobeOffset = Math.max(0, Player.Wardrobe.length - CharacterAppearanceWardrobeNumPerPage);
 							break;
 						case "Next":
-							CharacterAppearanceWardrobeOffset += 6;
+							CharacterAppearanceWardrobeOffset += CharacterAppearanceWardrobeNumPerPage;
 							if (CharacterAppearanceWardrobeOffset >= Player.Wardrobe.length) CharacterAppearanceWardrobeOffset = 0;
 							break;
 						case "Naked":
@@ -1362,9 +1376,10 @@ function AppearanceMenuClick(C) {
 					if (Button === "Naked") CharacterAppearanceSetItem(C, C.FocusGroup.Name, null);
 
 					// Jumps to the cloth page
-					if (Button === "Next") {
-						DialogInventoryOffset = DialogInventoryOffset + 9;
-						if (DialogInventoryOffset >= DialogInventory.length) DialogInventoryOffset = 0;
+					if (Button === "Next" || Button === "Prev") {
+						const offset = Button === "Next" ? CharacterAppearanceNumClothPerPage : -CharacterAppearanceNumClothPerPage;
+						DialogInventoryOffset = DialogInventoryOffset + offset;
+						if (DialogInventoryOffset >= DialogInventory.length || DialogInventoryOffset < 0) DialogInventoryOffset = 0;
 					}
 
 					// Opens the color picker
