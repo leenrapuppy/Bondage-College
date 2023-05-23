@@ -1310,15 +1310,13 @@ function DialogCanUseCraftedItem(C, Craft) {
  * @param {Character} C - The character whose inventory must be built
  * @param {number} [Offset] - The offset to be at, if specified.
  * @param {boolean} [locks=false] - If TRUE we build a list of locks instead.
- * @param {boolean} [redrawPreviews=false] - If TRUE and if building a list of preview character images, redraw the canvases
  * @returns {void} - Nothing
  */
-function DialogInventoryBuild(C, Offset, locks = false, redrawPreviews = false) {
+function DialogInventoryBuild(C, Offset, locks = false) {
 
 	// Make sure there's a focused group
 	DialogInventoryOffset = Offset == null ? 0 : Offset;
 
-	const DialogInventoryBefore = DialogInventoryStringified(C);
 	DialogInventory = [];
 	if (C.FocusGroup == null) return;
 
@@ -1399,11 +1397,6 @@ function DialogInventoryBuild(C, Offset, locks = false, redrawPreviews = false) 
 	}
 
 	DialogInventorySort();
-
-	// Build the list of preview images
-	const DialogInventoryAfter = DialogInventoryStringified(C);
-	const redraw = redrawPreviews || (DialogInventoryBefore !== DialogInventoryAfter);
-	AppearancePreviewBuild(C, redraw);
 }
 
 /**

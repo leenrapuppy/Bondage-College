@@ -882,7 +882,7 @@ function AppearanceRun() {
 				DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Item.Asset.Description, { Background });
 			} else if (AppearancePreviewUseCharacter(C.FocusGroup)) {
 				const Z = C.FocusGroup.PreviewZone;
-				const PreviewCanvas = DrawCharacterSegment(AppearancePreviews[I], Z[0], Z[1], Z[2], Z[3]);
+				const PreviewCanvas = DrawCharacterSegment(AppearancePreviews[I % CharacterAppearanceNumClothPerPage], Z[0], Z[1], Z[2], Z[3]);
 				DrawCanvasPreview(X, Y, PreviewCanvas, Item.Asset.Description, { Background, Vibrating: Item.Vibrating, Icons: Item.Icons });
 			} else {
 				DrawItemPreview(Item, Player, X, Y, { Hover: true, Background });
@@ -961,7 +961,7 @@ function AppearancePreviewBuild(C, buildCanvases) {
 			}
 		}
 		// Add each preview character to the list, building their canvas if necessary
-		DialogInventory.forEach(item => {
+		DialogInventory.slice(DialogInventoryOffset, DialogInventoryOffset + CharacterAppearanceNumClothPerPage).forEach(item => {
 			let PreviewChar = CharacterLoadSimple("AppearancePreview-" + item.Asset.Name);
 			if (buildCanvases) {
 				PreviewChar.Appearance = Array.from(baseAppearance);
@@ -1214,6 +1214,7 @@ function AppearanceClick() {
 					// This is a cheat to get DialogInventoryBuild to work and reuse its output. We don't actually need the group.
 					C.FocusGroup = /** @type {AssetItemGroup} */ (Group);
 					DialogInventoryBuild(C, null, false);
+					AppearancePreviewBuild(C, true);
 					CharacterAppearanceCloth = InventoryGet(C, C.FocusGroup.Name);
 					CharacterAppearanceMode = "Cloth";
 					return;
@@ -1288,6 +1289,7 @@ function AppearanceClick() {
 						} else {
 							CharacterAppearanceSetItem(C, C.FocusGroup.Name, DialogInventory[I].Asset);
 							DialogInventoryBuild(C, DialogInventoryOffset);
+							AppearancePreviewBuild(C, true);
 							AppearanceMenuBuild(C);
 						}
 					} else {
@@ -1380,6 +1382,7 @@ function AppearanceMenuClick(C) {
 						const offset = Button === "Next" ? CharacterAppearanceNumClothPerPage : -CharacterAppearanceNumClothPerPage;
 						DialogInventoryOffset = DialogInventoryOffset + offset;
 						if (DialogInventoryOffset >= DialogInventory.length || DialogInventoryOffset < 0) DialogInventoryOffset = 0;
+						AppearancePreviewBuild(C, true);
 					}
 
 					// Opens the color picker
