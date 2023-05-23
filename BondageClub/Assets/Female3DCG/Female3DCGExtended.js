@@ -6833,14 +6833,11 @@ var AssetFemale3DCGExtended = {
 				Modules: [
 					{
 						Name: "Layer", Key: "l",
-						Options:[
-							{ // l0 - Smooth
-								Property: { Effect: [] }
-							},
-							{ // l1 - Pulled
-								Property: { Effect: [] }
-							},
-						]
+						Options:[{}, {}, {}, ] // None, Sock, Thigh High
+					},
+					{
+						Name: "Band", Key: "b",
+						Options:[{}, {}, ] // None, Band
 					},
 				],
 			},
