@@ -84,6 +84,7 @@ function TextItemCreateTextItemData(asset, {
 	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}${parentOption == null ? "" : parentOption.Name}`;
 	return TextItemDataLookup[key] = {
+		archetype: ExtendedArchetype.TEXT,
 		asset,
 		key,
 		maxLength: MaxLength,
@@ -263,8 +264,8 @@ const TextItem = {
 	 * @param {TextItemOption} previousOption
 	 */
 	PublishAction: function (data, C, item, newOption, previousOption) {
-		const oldText = data.textNames.map((p) => newOption.Property[p]).filter(Boolean).join(" ");
-		const newText = data.textNames.map((p) => previousOption.Property[p]).filter(Boolean).join(" ");
+		const oldText = data.textNames.map((p) => previousOption.Property[p]).filter(Boolean).join(" ");
+		const newText = data.textNames.map((p) => newOption.Property[p]).filter(Boolean).join(" ");
 		if (oldText === newText) {
 			return;
 		}

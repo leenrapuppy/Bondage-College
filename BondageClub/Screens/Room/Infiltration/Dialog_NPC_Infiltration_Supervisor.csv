@@ -125,7 +125,7 @@ Ransom0,Ransom10,This Pandora's bitch will make me rich and famous.,(She nods sl
 Ransom0,Ransom10,I kidnapped one of their employees.,This is impressive.  We can keep her for ransom until they pay.  Would you like to get your cut?,"DialogChangeReputation(""Dominant"", 2)",!PartyPrisonerIsMistress()
 Ransom0,,Give me a minute.  (Leave her.),,DialogLeave(),
 Ransom10,End,"Yes, I'll take the money.",Here you go comrade.  (She gives you a money envelope.)  Are you ready to go back?,"PayRansom(""Money"")",
-Ransom10,End,"Actually, I could use a new slave.","Very well, comrade.  We'll break her and send her to your room in 3 days.  Are you ready to go back?","PayRansom(""Private"")",
+Ransom10,End,"Actually, I could use a new slave.","Very well, comrade.  We'll break her and send her to your room in 3 days.  Are you ready to go back?","PayRansom(""Private"")",CanJoinPrivateRoom()
 Ransom10,End,"No, but I want some infiltration training.","Of course, comrade.  (She gives you great infiltration tricks.)  Are you ready to go back?","PayRansom(""Skill"")",
 Ransom10,End,I don't want anything.,You make us proud comrade.  (She salutes you.)  Are you ready to go back?,"PayRansom(""None"")",
 100,,,Comrade DialogPlayerName!  (She gives you a military salute.)  What's wrong?  You look worried.,,"DialogSkillGreater(""Infiltration"", 7)"

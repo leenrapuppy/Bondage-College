@@ -256,6 +256,7 @@ function MainHallRun() {
 		DrawButton(1885, 265, 90, 90, "", "White", "Icons/Management.png", TextGet("ClubManagement"));
 
 		// Kidnap League, Dojo, Explore/Sarah
+		if (MainHallAllow("T")) DrawButton(1525, 385, 90, 90, "", "White", "Icons/ClubCard.png", TextGet("ClubCard"));
 		if (MainHallAllow("E")) DrawButton(1645, 385, 90, 90, "", "White", "Icons/Kidnap.png", TextGet("KidnapLeague"));
 		if (MainHallAllow("F")) DrawButton(1765, 385, 90, 90, "", "White", "Icons/Dojo.png", TextGet("ShibariDojo"));
 		if (SarahRoomAvailable && MainHallAllow("G")) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Explore.png", TextGet(SarahRoomLabel()));
@@ -424,6 +425,7 @@ function MainHallClick() {
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 265) && (MouseY < 355)) MainHallWalk("Management");
 
 		// Kidnap League, Dojo & Explore/Sarah
+		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 385) && (MouseY < 475) && MainHallAllow("T")) MainHallWalk("ClubCardLounge");
 		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 385) && (MouseY < 475) && MainHallAllow("E")) MainHallWalk("KidnapLeague");
 		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 385) && (MouseY < 475) && MainHallAllow("F")) MainHallWalk("Shibari");
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && SarahRoomAvailable && MainHallAllow("G")) MainHallWalk("Sarah");

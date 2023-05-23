@@ -234,13 +234,8 @@ function CraftingRun() {
 			let Item = CraftingItemList[I];
 			let X = ((I - CraftingOffset) % 8) * 249 + 17;
 			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
-			let Hidden = CharacterAppearanceItemIsHidden(Item.Name, Item.DynamicGroupName);
-			let Description = Item.Description;
-			let Background = MouseIn(X, Y, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
-			let Foreground = "Black";
 			let Icons = DialogGetAssetIcons(Item);
-			if (Hidden) DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Description, { Background, Foreground });
-			else DrawAssetPreview(X, Y, Item, { Description, Background, Foreground, Icons });
+			DrawAssetPreview(X, Y, Item, { Icons, Hover: true });
 		}
 	}
 
@@ -273,7 +268,7 @@ function CraftingRun() {
 					let Background = MouseIn(X, Y, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
 					let Foreground = "Black";
 					let Icons = DialogGetAssetIcons(Item.Asset);
-					DrawAssetPreview(X, Y, Item.Asset, { Description, Background, Foreground, Icons });
+					DrawAssetPreview(X, Y, Item.Asset, { Hover: true, Description, Background, Foreground, Icons });
 					Pos++;
 				}
 	}
@@ -282,18 +277,12 @@ function CraftingRun() {
 	if (CraftingMode == "Name") {
 		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Accept.png", TextGet("Accept"));
 		DrawText(TextGet("SelectName").replace("AssetDescription", CraftingSelectedItem.Asset.Description).replace("PropertyName", TextGet("Property" + CraftingSelectedItem.Property)), 830, 60, "White", "Black");
-		let Hidden = CharacterAppearanceItemIsHidden(CraftingSelectedItem.Asset.Name, CraftingSelectedItem.Asset.DynamicGroupName);
-		let Description = CraftingSelectedItem.Asset.Description;
-		let Background = MouseIn(80, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
-		let Foreground = "Black";
 		let Icons = DialogGetAssetIcons(CraftingSelectedItem.Asset);
-		if (Hidden) DrawPreviewBox(80, 250, "Icons/HiddenItem.png", Description, { Background, Foreground });
-		else DrawAssetPreview(80, 250, CraftingSelectedItem.Asset, { Description, Background, Foreground, Icons });
+		DrawAssetPreview(80, 250, CraftingSelectedItem.Asset, { Hover: true, Icons });
 		if (CraftingSelectedItem.Lock != null) {
-			Description = CraftingSelectedItem.Lock.Description;
-			Background = MouseIn(425, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
+			let Description = CraftingSelectedItem.Lock.Description;
 			Icons = DialogGetAssetIcons(CraftingSelectedItem.Lock);
-			DrawAssetPreview(425, 250, CraftingSelectedItem.Lock, { Description, Background, Foreground, Icons });
+			DrawAssetPreview(425, 250, CraftingSelectedItem.Lock, { Hover: true, Description, Icons });
 		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
 		DrawButton(80, 650, 570, 190, "", "White");
 		DrawCharacter(CraftingPreview, 700, 100, 0.9, false);

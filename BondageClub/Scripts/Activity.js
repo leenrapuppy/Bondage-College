@@ -217,9 +217,9 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			if (group.Name === "ItemButt")
 				return InventoryPrerequisiteMessage(actor, "AccessButt") === "" && !(actor.IsPlugged() || actor.IsButtChaste());
 			else if (group.Name === "ItemVulva")
-				return (InventoryPrerequisiteMessage(actor, "AccessVulva") === "") && !actor.IsVulvaChaste();
+				return (InventoryPrerequisiteMessage(actor, "AccessCrotch") === "") && !actor.IsVulvaChaste();
 			else if (group.Name === "ItemVulvaPiercings")
-				return (InventoryPrerequisiteMessage(actor, "AccessVulva") === "") && !actor.IsVulvaChaste();
+				return (InventoryPrerequisiteMessage(actor, "AccessCrotch") === "") && !actor.IsVulvaChaste();
 			else if (group.Name === "ItemBreast" || group.Name === "ItemNipples")
 				return (InventoryPrerequisiteMessage(actor, "AccessBreast") === "") && !actor.IsBreastChaste();
 			else if (group.Name === "ItemBoots")
@@ -230,7 +230,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		}
 		case "CanUsePenis":
 			if (acting.HasPenis())
-				return InventoryPrerequisiteMessage(acting, "AccessVulva") === "";
+				return InventoryPrerequisiteMessage(acting, "AccessCrotch") === "";
 			break;
 		case "Sisters":
 			return !acting.HasPenis() && !acted.HasPenis() && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);

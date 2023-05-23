@@ -1,0 +1,23 @@
+PlayerGagged,,,(She looks at you and giggles.)  I'm guessing you lost your last game?,
+0,,,Welcome to the Club Card Lounge.  Can I help you?,
+0,,Who are you?,I'm DialogCharacterName.  I'm the BDSM Club Card tutor.,DialogRemove()
+0,,What's going on here?,I teach members on how to play the Club Card game.  Would you like to learn?,DialogRemove()
+0,10,What is the Club Card game?,It's a kinky trading card game you can play with other members.  Would you like more details?,
+0,20,I have questions on the rules.,Of course.  How can I help you?,
+0,30,Can we practice a game?,"Yes!  The best way to learn is to practice.  Don't worry, there are no consequences for winning or losing.",
+0,,Can I tie you up?,"(She laughs.)  Only if you beat me, that's the usual wager.",DialogRemove()
+0,,I need to go.  (Leave her.),,DialogLeave()
+10,,Who can play this game?,"Anyone can play the game, there are no restrictions.  You can find players everywhere in the club.",
+10,,How much does it cost?,"The game is free, each player get the basic cards for no cost.  But if you want unique cards, you'll need to defeat some girls in the club first.",
+10,,How do you win?,"The goal of the game is build the best BDSM club in town, obtaining 100 fame before your opponent.",
+10,,How do I gain fame?,You need to play cards that will increase your fame.  You'll need money to make your club bigger and invite more members.,
+10,,Which card can I play?,You can use the basic deck or build your own deck.  All decks must have 30 cards.,
+10,20,I have questions on the rules.,Of course.  How can I help you?,
+10,0,Thanks for your time.,No problem.  Is there anything else you want?,
+20,,Who begins the game?,"It's random.  The player that begins draws 5 cards, the other draws 6.",
+20,,How many cards can I play?,You can only play one card per turn.  But some cards might alter that rule when they are in play.,
+20,,When do I gain money and fame?,At the end of your turn.,
+20,,What happens if I go negative?,"Fame can go negative, it takes you further away from winning.  If money goes negative, your fame will drop every turn.",
+20,0,Thanks for your time.,No problem.  Is there anything else you want?,
+30,,(Play a Club Card game with her.),TO DO,
+30,0,I've changed my mind.,No problem.  Is there anything else you want?,

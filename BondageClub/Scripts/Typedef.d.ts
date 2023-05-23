@@ -66,9 +66,28 @@ type RectTuple = [number, number, number, number];
 type CommonSubstituteReplacer = (match: string, offset: number, replacement: string, string: string) => string;
 type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?: CommonSubstituteReplacer];
 
+interface CommonGenerateGridParameters {
+	/** Starting X coordinate of the grid */
+	x: number,
+	/** Starting Y coordinate of the grid */
+	y: number,
+	/** Maximum width of the grid */
+	width: number,
+	/** Maximum height of the grid */
+	height: number,
+	/** Width of one grid item */
+	itemWidth: number,
+	/** Height of one grid item */
+	itemHeight: number,
+}
+
+type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: number, height: number) => boolean;
+
 //#endregion
 
 //#region Enums
+
+type DialogMenuMode = "dialog" | "items" | "color" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
@@ -318,7 +337,7 @@ type AssetAttribute =
 	;
 
 type AssetPrerequisite =
-	"AccessBreast" | "AccessBreastSuitZip" | "AccessButt" | "AccessFullPenis" | "AccessMouth" | "AccessTorso" | "AccessVulva" |
+	"AccessBreast" | "AccessBreastSuitZip" | "AccessButt" | "AccessFullPenis" | "AccessMouth" | "AccessTorso" | "AccessVulva" | "AccessCrotch" |
 	"AllFours" | "BlockedMouth" | "ButtEmpty" | "CanBeCeilingTethered" | "CanCloseLegs" | "CanKneel" | "CannotBeSuited" | "CannotHaveWand" |
 	"ClitEmpty" | "Collared" | "CuffedArms" | "CuffedArmsOrEmpty" | "CuffedFeet" | "CuffedFeetOrEmpty" | "CuffedLegs" | "CuffedLegsOrEmpty" |
 	"DisplayFrame" | "EyesEmpty" | "GagCorset" | "GagFlat" | "GagUnique" | "GasMask" | "HasBreasts" | "HasFlatChest" | "HasPenis" | "HasVagina" |
@@ -1283,7 +1302,7 @@ interface Item {
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
 type ItemEffectIcon = "BlindLight" | "BlindNormal" | "BlindHeavy" | "DeafLight" | "DeafNormal" | "DeafHeavy" | "GagLight" | "GagNormal" | "GagHeavy" | "GagTotal";
-type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "FamilyOnly" | "OwnerOnly" | "Unlocked";
+type InventoryIcon = FavoriteIcon | ItemEffectIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "FamilyOnly" | "OwnerOnly" | "Unlocked" | AssetLockType;
 
 interface InventoryItem {
 	Group: AssetGroupName;
@@ -2218,6 +2237,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
  * _e.g._ `drawImages: false` if an archetype does have any images in its UI.
  */
 interface ExtendedItemData<OptionType extends ExtendedItemOption> {
+	archetype: ExtendedArchetype;
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
@@ -2639,6 +2659,7 @@ interface ModularItemDrawData {
  * item's load, draw & click handlers.
  */
 interface ModularItemData extends ExtendedItemData<ModularItemOption> {
+	archetype: "modular";
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -2704,6 +2725,7 @@ type TypedItemSetTypeCallback = (NewType: string) => void;
  * load, draw & click handlers.
  */
 interface TypedItemData extends ExtendedItemData<TypedItemOption> {
+	archetype: "typed";
 	/** The list of extended item options available for the item */
 	options: TypedItemOption[];
 	/** A record containing various dialog keys used by the extended item screen */
@@ -2805,6 +2827,7 @@ interface AppearanceValidationWrapper {
 //#region Vibrating items
 
 interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
+	archetype: "vibrating";
 	/** The list of extended item options available for the item */
 	options: VibratingItemOption[];
 	/** The list with all groups of extended item options available for the item */
@@ -2847,6 +2870,7 @@ interface StateAndIntensity {
  * load, draw & click handlers.
  */
 interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
+	archetype: "variableheight";
 	/** The highest Y co-ordinate that can be set  */
 	maxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
@@ -2883,6 +2907,7 @@ interface TextItemDrawData extends Omit<ModularItemDrawData, "positions"> {
 }
 
 interface TextItemData extends ExtendedItemData<TextItemOption> {
+	archetype: "text";
 	/** A record with the maximum length for each text-based properties with an input field. */
 	maxLength: TextItemRecord<number>;
 	/** A record containing various dialog keys used by the extended item screen */
@@ -3521,7 +3546,6 @@ interface DialogInventoryItem extends Item {
 	Worn: boolean;
 	Icons: InventoryIcon[];
 	SortOrder: string;
-	Hidden: boolean;
 	Vibrating: boolean;
 }
 

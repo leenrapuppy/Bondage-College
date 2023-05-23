@@ -136,12 +136,6 @@ function PhotographicSubClothRemove(Group) {
 
 function PhotographicStartInventoryPlayer(ItemGroup) {
 	DialogLeaveItemMenu();
-	const Group = AssetGroupGet("Female3DCG", ItemGroup);
-	if (!Group) return;
-
-	Player.FocusGroup =  /** @type {AssetItemGroup} */ (Group);
-	DialogItemToLock = null;
-	DialogFocusItem = null;
-	DialogInventoryBuild(Player);
+	DialogChangeFocusToGroup(Player, ItemGroup);
 }
 

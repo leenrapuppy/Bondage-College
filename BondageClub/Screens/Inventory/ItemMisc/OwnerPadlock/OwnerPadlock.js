@@ -19,5 +19,7 @@ function InventoryItemMiscOwnerPadlockDraw() {
 
 /** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscOwnerPadlockClick() {
-	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
+	if (MouseIn(1885, 25, 90, 90)) {
+		DialogFocusItem = null;
+	}
 }

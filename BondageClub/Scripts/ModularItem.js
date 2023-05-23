@@ -206,6 +206,7 @@ function ModularItemCreateModularData(asset, {
 	DialogPrefix = DialogPrefix || {};
 	/** @type {ModularItemData} */
 	const data = ModularItemDataLookup[key] = {
+		archetype: ExtendedArchetype.MODULAR,
 		asset,
 		chatSetting: ChatSetting || ModularItemChatSetting.PER_OPTION,
 		key,

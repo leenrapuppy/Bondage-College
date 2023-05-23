@@ -749,9 +749,7 @@ function ExtendedItemDrawHeader(X=1387, Y=55, Item=DialogFocusItem) {
 	if (Item == null) {
 		return;
 	}
-	const Vibrating = Item.Property && Item.Property.Intensity != null && Item.Property.Intensity >= 0;
-	const Locked = InventoryItemHasEffect(Item, "Lock", true);
-	DrawAssetPreview(X, Y, Item.Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
+	DrawItemPreview(Item, Player, X, Y);
 }
 
 /**

@@ -21,9 +21,7 @@ function TightenLoosenItemDraw() {
 
 	// Draws the title, tightness and item image
 	DrawText(DialogFindPlayer("TightenLoosenTitle"), 1500, 70, "White", "Silver");
-	const Vibrating = DialogTightenLoosenItem.Property && DialogTightenLoosenItem.Property.Intensity != null && DialogTightenLoosenItem.Property.Intensity >= 0;
-	const Locked = InventoryItemHasEffect(DialogTightenLoosenItem, "Lock", true);
-	DrawAssetPreview(1200, 200, DialogTightenLoosenItem.Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
+	DrawItemPreview(DialogTightenLoosenItem, Player, 1200, 200);
 	DrawText(DialogFindPlayer("Tightness") + " " + DialogTightenLoosenItem.Difficulty.toString(), 1660, 240, "White", "Silver");
 	DrawText(DialogFindPlayer("MaximumTightness") + " " + TightenLoosenItemMaximumDifficulty.toString(), 1660, 340, "White", "Silver");
 	DrawText(DialogFindPlayer("MinimumTightness") + " " + TightenLoosenItemMinimumDifficulty.toString(), 1660, 440, "White", "Silver");

@@ -191,10 +191,7 @@ function GameLARPRunProcess() {
 			var Y = 110;
 			for (let A = GameLARPInventoryOffset; (A < GameLARPInventory.length) && (A < GameLARPInventoryOffset + 12); A++) {
 				const asset = GameLARPInventory[A];
-				const Hover = MouseIn(X, Y, 225, 275) && !CommonIsMobile;
-				const Hidden = CharacterAppearanceItemIsHidden(asset.Name, asset.Group.Name);
-				if (Hidden) DrawPreviewBox(X, Y, "Icons/HiddenItem.png", asset.Description, { Background: Hover ? "cyan" : "#fff" });
-				else DrawAssetPreview(X, Y, asset, {Hover: true});
+				DrawAssetPreview(X, Y, asset, { Hover: true });
 
 				X = X + 250;
 				if (X > 800) {

@@ -111,6 +111,7 @@ function TypedItemCreateTypedItemData(asset, {
 	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
 	return TypedItemDataLookup[key] = {
+		archetype: ExtendedArchetype.TYPED,
 		asset,
 		options: optionsParsed,
 		key,
@@ -627,6 +628,12 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 		else ExtendedItemSetOffset(ItemOptionsOffset + OptionsPerPage);
 	}
 
+	// If the assets allows tightening / loosening
+	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock") && MouseIn(1050, 220, 300, 65)) {
+		DialogSetTightenLoosenItem(DialogFocusItem);
+		return;
+	}
+
 	// Options
 	for (let I = ItemOptionsOffset; I < data.options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
 		const PageOffset = I - ItemOptionsOffset;
@@ -636,12 +643,6 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 		if (MouseIn(X, Y, 225, 55 + ImageHeight)) {
 			TypedItemHandleOptionClick(data, C, Option);
 		}
-	}
-
-	// If the assets allows tightening / loosening
-	if ((DialogFocusItem != null) && (DialogFocusItem.Asset != null) && DialogFocusItem.Asset.AllowTighten && !InventoryItemHasEffect(DialogFocusItem, "Lock") && MouseIn(1050, 220, 300, 65)) {
-		DialogTightenLoosenItem = DialogFocusItem;
-		TightenLoosenItemLoad();
 	}
 }
 
@@ -700,6 +701,8 @@ function TypedItemSetType(data, C, newOption) {
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
+	} else if (data.archetype === ExtendedArchetype.VIBRATING) {
+		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${DialogFocusItem.Property.Intensity}`);
 	}
 
 	// For a restraint, we might publish an action, change the expression or change the dialog of a NPC

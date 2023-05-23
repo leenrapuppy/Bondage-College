@@ -119,13 +119,10 @@ function ShopRun() {
 		var X = 1000;
 		var Y = 125;
 		for (let A = ShopItemOffset; (A < ShopCart.length && A < ShopItemOffset + 12); A++) {
-			const Hidden = CharacterAppearanceItemIsHidden(ShopCart[A].Name, ShopCart[A].Group.Name);
 			const Description = ShopCart[A].Description + " $" + (Math.ceil(ShopCart[A].Value * (ShopBuyMode ? 1 : 0.5))).toString();
-			const Background = MouseIn(X, Y, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
 			const Foreground = InventoryAvailable(Player, ShopCart[A].Name, ShopCart[A].Group.Name) ? "green" : "red";
 			const Icons = DialogGetAssetIcons(ShopCart[A]);
-			if (Hidden) DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Description, { Background, Foreground });
-			else DrawAssetPreview(X, Y, ShopCart[A], { Description, Background, Foreground, Icons });
+			DrawAssetPreview(X, Y, ShopCart[A], { Description, Foreground, Icons });
 			X = X + 250;
 			if (X > 1800) {
 				X = 1000;

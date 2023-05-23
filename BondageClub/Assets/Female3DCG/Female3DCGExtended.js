@@ -508,7 +508,7 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 							{ // lh2 - Pulled Up
-								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2",] }
+								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat"] }
 							},
 						]
 					},
@@ -524,7 +524,7 @@ var AssetFemale3DCGExtended = {
 							{ // rh2 - Pulled Up
 								Property: {
 									Effect: ["Slow"],
-									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "Head"],
+									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Head"],
 								}
 
 							}
@@ -1257,8 +1257,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Type: "z1",
 									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
-
+									Hide: ["ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Suit", "SuitLower"],
 								}
 							},
 							{ // z1 - Unzipped
@@ -1271,8 +1270,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Type: "z1",
 									Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-									Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Socks", "Suit", "SuitLower"],
-
+									Hide: ["ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemVulva", "ItemVulvaPiercings", "Suit", "SuitLower"],
 								}
 							},
 							{ // z3 - Exposed
@@ -1300,8 +1298,9 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Underwear", Key: "un",
 						Options: [
-							{ Property: { Hide: ["Corset", "Garters"], } },
-							{ Property: { OverridePriority: 14, Hide: ["SuitLower", "Socks"], }, },
+							{ Property: { Hide: ["Corset", "Garters", "Socks", "SocksLeft", "SocksRight"], } },
+							{ Property: { OverridePriority: 14, Hide: ["Suit", "SuitLower", "Socks", "SocksLeft", "SocksRight"], }, },
+							{ Property: { OverridePriority: 14, }, },
 						],
 					},
 				],
@@ -2684,6 +2683,7 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemArmsTransportJacketLoadHook,
 					Draw: InventoryItemArmsTransportJacketDrawHook,
 					Exit: InventoryItemArmsTransportJacketExitHook,
+					PublishAction: InventoryItemArmsTransportJacketPublishActionHook,
 				}
 			},
 		}, // TransportJacket
@@ -2971,6 +2971,7 @@ var AssetFemale3DCGExtended = {
 					{ Name: "Puppy", Property: { Type: "Puppy" } },
 					{ Name: "Racoon", Property: { Type: "Racoon" } },
 					{ Name: "Sloth", Property: { Type: "Sloth" } },
+					{ Name: "Mummy", Property: { Type: "Mummy" } },
 				],
 			},
 		}, // CollarNameTagPet
@@ -5826,6 +5827,7 @@ var AssetFemale3DCGExtended = {
 		InflatableVibratingPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "InflateLevel",
@@ -9117,6 +9119,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
+									HideItem: ["ItemVulvaPiercingsChastityClitShield", "ItemVulvaPiercingsHighSecurityVulvaShield"],
 								}
 							},
 							{ // 2 - close back
@@ -9129,6 +9132,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+									HideItem: ["ItemVulvaPiercingsChastityClitShield", "ItemVulvaPiercingsHighSecurityVulvaShield"],
 								}
 							}
 						],
@@ -9244,6 +9248,7 @@ var AssetFemale3DCGExtended = {
 		PortalPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "CrotchShield", Key: "c",

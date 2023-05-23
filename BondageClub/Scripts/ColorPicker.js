@@ -269,6 +269,7 @@ function ColorPickerHide() {
 	ColorPickerInitialHSV = null;
 	ColorPickerLastHSV = null;
 	ColorPickerCallback = null;
+	ColorPickerEndPick();
 	ColorPickerRemoveEventListener();
 }
 

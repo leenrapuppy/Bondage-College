@@ -368,7 +368,7 @@ function DrawCharacter(C, X, Y, Zoom, IsHeightResizeAllowed, DrawCanvas) {
 		}
 
 		// Draws the character focus zones if we need too
-		if ((C.FocusGroup != null) && (C.FocusGroup.Zone != null) && (CurrentScreen != "Preference") && (DialogColor == null)) {
+		if ((C.FocusGroup != null) && (C.FocusGroup.Zone != null) && (CurrentScreen != "Preference") && (DialogMenuMode !== "color")) {
 
 			// Draw all the possible zones in transparent colors (gray if free, yellow if occupied, red if blocker)
 			for (const group of AssetGroup) {
@@ -1434,6 +1434,43 @@ function DrawProcessHoverElements() {
 }
 
 /**
+ *
+ * @param {Item | DialogInventoryItem} itemOrDialogItem
+ * @param {Character} char - The character using the item (used to calculate dynamic item descriptions/previews)
+ * @param {number} X
+ * @param {number} Y
+ * @param {object} [options]
+ * @param {string} [options.Background] - The background color to draw the preview box in - defaults to white
+ * @param {string} [options.Foreground] - The foreground (text) color to draw the description in - defaults to black
+ * @param {boolean} [options.Border] - Whether or not to draw a border around the preview box
+ * @param {boolean} [options.Hover] - Whether or not the button should enable hover behavior (background color change)
+ * @param {string} [options.HoverBackground] - The background color that should be used on mouse hover, if any
+ * @param {boolean} [options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
+ * @param {number} [options.Width] - The width of the preview rectangle. Defaults to 225.
+ * @param {number} [options.Height] - The width of the preview rectangle. Defaults to 275.
+ */
+function DrawItemPreview(itemOrDialogItem, char, X, Y, options) {
+	const item = /** @type {DialogInventoryItem} */(itemOrDialogItem);
+	// Now we act like this is a real DialogInventoryItem, reusing its properties or generating them otherwise
+
+	const Vibrating = typeof item.Vibrating === "undefined" ? InventoryItemHasEffect(item, "Vibrating", true) : item.Vibrating;
+	/** @type {InventoryIcon[]} */
+	let Icons = [];
+	if (typeof item.Icons === "undefined") {
+		// We're an item, so it makes sense to default to "worn"
+		Icons = Icons.concat(DialogGetLockIcon(item, true));
+		Icons = Icons.concat(DialogGetAssetIcons(item.Asset));
+		Icons = Icons.concat(DialogGetEffectIcons(item));
+	} else {
+		Icons = item.Icons;
+	}
+
+	const Description = item.Craft && item.Craft.Name != "" ? item.Craft.Name : null;
+	options = Object.assign({}, options, { C: char, Icons, Vibrating, Description });
+	DrawAssetPreview(X, Y, item.Asset, options);
+}
+
+/**
  * Draws an asset's preview box
  * @param {number} X - Position of the preview box on the X axis
  * @param {number} Y - Position of the preview box on the Y axis
@@ -1449,18 +1486,28 @@ function DrawProcessHoverElements() {
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
  * @param {readonly InventoryIcon[]} [Options.Icons] - A list of small icons to display in the top-left corner
- * @param {object} [Options.Craft] - The crafted properties of the item
+ * @param {number} [Options.Width] - The width of the preview rectangle. Defaults to 225.
+ * @param {number} [Options.Height] - The width of the preview rectangle. Defaults to 275.
  * @returns {void} - Nothing
  */
 function DrawAssetPreview(X, Y, A, Options) {
-	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Craft} = (Options || {});
+	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Width, Height } = (Options || {});
+
 	const DynamicPreviewImage = C ? A.DynamicPreviewImage(C) : "";
-	const Path = `${AssetGetPreviewPath(A)}/${A.Name}${DynamicPreviewImage}.png`;
-	if ((Description == null) && (Craft != null) && (Craft.Name != null) && (Craft.Name != "")) Description = Craft.Name;
+	let Path = `${AssetGetPreviewPath(A)}/${A.Name}${DynamicPreviewImage}.png`;
+
+	if (CharacterAppearanceItemIsHidden(A.Name, A.DynamicGroupName || A.Group.Name))
+		Path = "Icons/HiddenItem.png";
+
 	if (Description == null) Description = C ? A.DynamicDescription(C) : A.Description;
-	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons });
-	if ((Craft != null) && (Craft.Lock != null) && (Craft.Lock != "")) DrawImageResize("Assets/" + Player.AssetFamily + "/ItemMisc/Preview/" + Craft.Lock + ".png", X + 150, Y + 150, 75, 75);
+
+	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Width, Height});
 }
+
+/** The default width of item previews */
+const DrawAssetPreviewDefaultWidth = 225;
+/** The default height of item previews */
+const DrawAssetPreviewDefaultHeight = 275;
 
 /**
  * Draws an item preview box for the provided image path
@@ -1477,23 +1524,57 @@ function DrawAssetPreview(X, Y, A, Options) {
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
  * @param {readonly InventoryIcon[]} [Options.Icons] - A list of images to draw in the top-left of the preview box
+ * @param {number} [Options.Width] - The width of the preview rectangle. Defaults to 225.
+ * @param {number} [Options.Height] - The width of the preview rectangle. Defaults to 275.
  * @returns {void} - Nothing
  */
 function DrawPreviewBox(X, Y, Path, Description, Options) {
-	let {Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons} = (Options || {});
-	const Height = Description ? 275 : 225;
+	let { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Width, Height } = (Options || {});
+	Width = Width || DrawAssetPreviewDefaultWidth;
+	Height = Height || DrawAssetPreviewDefaultHeight;
+
+	const Padding = 2;
+	// Only reserve space if we have text to draw
+	const TextGutter = (Description ? 44 : 0);
+
+	// Default background and foreground colors
 	Background = Background || "#fff";
 	Foreground = Foreground || "#000";
 	if (Disabled === true) Background = "#888";
-	else if (Hover && MouseHovering(X, Y, 225, Height)) Background = (HoverBackground || "cyan");
-	DrawRect(X, Y, 225, Height, Background);
+	else if (Hover && MouseHovering(X, Y, Width, Height)) Background = (HoverBackground || "cyan");
+
+	// Do a bunch of math to keep the image scaled
+	let ImageX = X + Padding;
+	let ImageY = Y + Padding;
+	let ImageWidth = Width;
+	let ImageHeight = Height - TextGutter;
+
+	if (ImageWidth > ImageHeight) {
+		const Ratio = ImageHeight / ImageWidth;
+		ImageWidth *= Ratio;
+		ImageX += (Width - ImageWidth) / 2;
+	} else if (ImageWidth < ImageHeight) {
+		const Ratio = ImageWidth / ImageHeight;
+		ImageHeight *= Ratio;
+		ImageY += (Height - ImageHeight - TextGutter) / 2;
+	}
+
+	ImageWidth -= 2 * Padding;
+	ImageHeight -= 2 * Padding;
+
+	if (Vibrating) {
+		ImageX += 1 + Math.floor(Math.random() * 3);
+		ImageY += 1 + Math.floor(Math.random() * 3);
+	}
+
+	// Now draw the preview box
+	DrawRect(X, Y, Width, Height, Background);
 	ControllerAddActiveArea(X, Y);
-	if (Border) DrawEmptyRect(X, Y, 225, Height, Foreground);
-	const ImageX = Vibrating ? X + 1 + Math.floor(Math.random() * 3) : X + 2;
-	const ImageY = Vibrating ? Y + 1 + Math.floor(Math.random() * 3) : Y + 2;
-	if (Path !== "") DrawImageResize(Path, ImageX, ImageY, 221, 221);
+	if (Border) DrawEmptyRect(X, Y, Width, Height, Foreground);
+	// DrawRect(ImageX, ImageY, ImageWidth, ImageHeight, "pink"); // Debug rect
+	if (Path !== "") DrawImageResize(Path, ImageX, ImageY, ImageWidth, ImageHeight);
 	DrawPreviewIcons(Icons, X, Y);
-	if (Description) DrawTextFit(Description, X + 110, Y + 250, 221, Foreground);
+	if (Description) DrawTextFit(Description, X + Width / 2, Y + Height - 25, Width - 2 * Padding, Foreground);
 }
 
 /**
@@ -1510,9 +1591,15 @@ function DrawPreviewIcons(icons, X, Y) {
 		icons.forEach((icon, index) => {
 			const iconX = X + (iconSize + 5) * Math.floor(index / iconsPerCol);
 			const iconY = Y + (iconSize + 5) * (index % iconsPerCol);
-			DrawImageResize(`Icons/Previews/${icon}.png`, iconX, iconY, iconSize, iconSize);
+			let path = `Icons/Previews/${icon}.png`;
+			let text = DialogFindPlayer("PreviewIcon" + icon);
+			if (icon.endsWith("Padlock")) {
+				path = `Assets/Female3DCG/ItemMisc/Preview/${icon}.png`;
+				text = DialogFindPlayer("PreviewIconPadlock").replace("AssetName", AssetGet("Female3DCG", "ItemMisc", icon).Description);
+			}
+			DrawImageResize(path, iconX, iconY, iconSize, iconSize);
 			if (MouseIn(iconX, iconY, iconSize * 0.9, iconSize * 0.9)) {
-				DrawHoverElements.push(() => DrawButtonHover(iconX, iconY, 100, 65, DialogFindPlayer("PreviewIcon" + icon)));
+				DrawHoverElements.push(() => DrawButtonHover(iconX, iconY, 100, 65, text));
 			}
 		});
 	}

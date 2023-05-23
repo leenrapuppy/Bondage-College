@@ -28,6 +28,23 @@ function InventoryItemArmsTransportJacketDrawHook(Data, OriginalFunction) {
 	MainCanvas.textAlign = "center";
 }
 
+/** @type {ExtendedItemScriptHookCallbacks.PublishAction<TypedItemData, any>} */
+function InventoryItemArmsTransportJacketPublishActionHook(data, originalFunction, C, item, newOption, previousOption) {
+	switch (newOption.OptionType) {
+		case "TextItemOption": {
+			const textData = ExtendedItemGetData(item, ExtendedArchetype.TEXT);
+			if (textData === null) {
+				return;
+			}
+			TextItem.PublishAction(textData, C, item, newOption, previousOption);
+			return;
+		}
+		case "TypedItemOption":
+			originalFunction(C, item, newOption, previousOption);
+			return;
+	}
+}
+
 /** @type {ExtendedItemScriptHookCallbacks.Exit<TypedItemData>} */
 function InventoryItemArmsTransportJacketExitHook(Data, OriginalFunction) {
 	const textData = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TEXT);
