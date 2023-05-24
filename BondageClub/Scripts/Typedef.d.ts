@@ -90,7 +90,7 @@ type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: numb
 type DialogMenuMode = "dialog" | "items" | "colorDefault" | "colorExpression" | "colorItem" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
 
 type DialogMenuButton = "Activity" |
-	"ColorCancel" | "ColorChange" | "ColorDefault" | "ColorPickDisabled" | "ColorSelect" | "ColorSelectMulti" |
+	"ColorCancel" | "ColorChange" | "ColorChangeMulti" | "ColorDefault" | "ColorPickDisabled" | "ColorSelect" |
 	"Crafting" |
 	"DialogNormalMode" | "DialogPermissionMode" |
 	"Dismount" | "Escape" | "Remove" |
