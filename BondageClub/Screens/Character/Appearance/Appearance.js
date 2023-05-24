@@ -48,7 +48,7 @@ var CharacterAppearanceMode = "";
 var CharacterAppearanceMenuMode = "";
 /** @type {null | Item} */
 var CharacterAppearanceCloth = null;
-/** @type {string[]} */
+/** @type {DialogMenuButton[]} */
 var AppearanceMenu = [];
 /** @type {Character[]} */
 var AppearancePreviews = [];
@@ -667,9 +667,9 @@ function AppearanceMenuBuild(C) {
 				if (C.IsPlayer()) AppearanceMenu.push("DialogPermissionMode");
 				if (C.FocusGroup.AllowNone) AppearanceMenu.push("Naked");
 				if (Item && DialogCanColor(C, Item)) {
-					let ButtonName = ItemColorIsSimple(Item) ? "ColorPick" : "MultiColorPick";
+					let ButtonName = ItemColorIsSimple(Item) ? "ColorSelect" : "ColorSelectMulti";
 					if (InventoryBlockedOrLimited(C, Item)) ButtonName += "Disabled";
-					AppearanceMenu.push(ButtonName);
+					AppearanceMenu.push(/** @type {DialogMenuButton} */(ButtonName));
 				}
 			}
 			if (DialogInventoryOffset >= CharacterAppearanceNumClothPerPage) AppearanceMenu.push("Prev");
@@ -1385,7 +1385,7 @@ function AppearanceMenuClick(C) {
 					}
 
 					// Opens the color picker
-					if (Button === "ColorPick" || Button === "MultiColorPick") {
+					if (Button === "ColorSelect" || Button === "ColorSelectMulti") {
 						const Item = InventoryGet(C, C.FocusGroup.Name);
 						AppearanceItemColor(C, Item, C.FocusGroup.Name, "Cloth");
 					}
