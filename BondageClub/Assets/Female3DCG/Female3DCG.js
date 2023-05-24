@@ -339,7 +339,7 @@ var AssetFemale3DCG = [
 				MinOpacity: 0.75, Opacity: 1.0,
 				Layer: [
 					{ Name: "Base", },
-					{ Name: "Frill", MinOpacity: 1, CopyLayerColor: "Base", },
+					{ Name: "Frill", MinOpacity: 1,},
 				],
 			},
 			// Flat Chest Compatible Clothing
@@ -1673,15 +1673,15 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "ThighBoots", Fetish: ["Latex"], Value: 50, Left: 105,
+				Name: "ThighBoots", Fetish: ["Latex"], Value: 50, Left: 91,
 				HideItem: ["SocksSocks4", "SocksSocks5", "LeftAnkletRibbon1", "RightAnkletRibbon1"],
 				Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 875, 350, 200]] }],
-				Height: 35, HideForPose: ["KneelingSpread"], Extended: true,
+				Height: 35, Extended: true, AllowPose: ["LegsClosed", "Spread", "Kneel", "KneelingSpread"],
 				Layer: [
 
 					{ Name: "Base", HasType: false, },
-					{ Name: "Thigh", HasType: false, CopyLayerColor: "Base",  },
-					{ Name: "Layer", HasType: false, CopyLayerColor: "Base", AllowModuleTypes: ["l1"], },
+					{ Name: "Thigh", HasType: false, AllowModuleTypes: ["l1"]},
+					{ Name: "Layer", HasType: false, CopyLayerColor: "Base", AllowModuleTypes: ["l2"], },
 					{ Name: "Band", HasType: false, },
 
 				],
@@ -8302,7 +8302,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, HasType: false,
+				Name: "InflatableGagMask", Fetish: ["Latex"], Value: 80, Difficulty: 5, Time: 10,  Top: 62, Left: 169, AllowLock: true, DrawLocks: false, HasType: false, Extended: true,
 				Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"], DefaultColor: ["#777777","#BDBDBD","#1A1A1A"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose", "ItemEars"],
 				Layer: [
