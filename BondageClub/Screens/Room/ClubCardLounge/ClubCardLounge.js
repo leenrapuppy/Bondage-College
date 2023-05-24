@@ -9,8 +9,8 @@ var ClubCardLoungeTutor = null;
  */
 function ClubCardLoungeLoad() {
 	if (ClubCardLoungeTutor == null) {
-		CollegeEntranceStudent = CharacterLoadNPC("NPC_ClubCardLounge_Tutor");
-		CollegeEntranceStudent.AllowItem = false;
+		ClubCardLoungeTutor = CharacterLoadNPC("NPC_ClubCardLounge_Tutor");
+		ClubCardLoungeTutor.AllowItem = false;
 	}
 }
 
@@ -20,7 +20,7 @@ function ClubCardLoungeLoad() {
  */
 function ClubCardLoungeRun() {
 	DrawCharacter(Player, 500, 0, 1);
-	DrawCharacter(CollegeEntranceStudent, 1000, 0, 1);
+	DrawCharacter(ClubCardLoungeTutor, 1000, 0, 1);
 	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 131, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
 	DrawButton(1885, 237, 90, 90, "", "White", "Icons/ClubCard.png", TextGet("Build"));
@@ -32,7 +32,23 @@ function ClubCardLoungeRun() {
  */
 function ClubCardLoungeClick() {
 	if (MouseIn(500, 0, 500, 1000)) CharacterSetCurrent(Player);
-	if (MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(CollegeEntranceStudent);
+	if (MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(ClubCardLoungeTutor);
 	if (MouseIn(1885, 25, 90, 90)) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 131, 90, 90)) InformationSheetLoadCharacter(Player);
+}
+
+/**
+ * When the practice game starts
+ * @returns {void} - Nothing
+ */
+function ClubCardLoungePraticeGameStart() {
+	ClubCardOpponent = ClubCardLoungeTutor;
+	MiniGameStart("ClubCard", 0, "ClubCardLoungePraticeGameEnd");
+}
+
+/**
+ * When the practice game ends
+ * @returns {void} - Nothing
+ */
+function ClubCardLoungePraticeGameEnd() {
 }

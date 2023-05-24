@@ -19,5 +19,5 @@ PlayerGagged,,,(She looks at you and giggles.)  I'm guessing you lost your last 
 20,,When do I gain money and fame?,At the end of your turn.,
 20,,What happens if I go negative?,"Fame can go negative, it takes you further away from winning.  If money goes negative, your fame will drop every turn.",
 20,0,Thanks for your time.,No problem.  Is there anything else you want?,
-30,,(Play a Club Card game with her.),TO DO,
+30,,(Play a Club Card game with her.),,PraticeGameStart()
 30,0,I've changed my mind.,No problem.  Is there anything else you want?,
