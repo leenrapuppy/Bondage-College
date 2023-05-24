@@ -1664,7 +1664,7 @@ SourceCharacter облизывает свои губы.
 SourceCharacter nibbles PronounPossessive lips.
 SourceCharacter прикусывает свои губы.
 SourceCharacter caresses and wipes PronounPossessive mouth clean.
-SourceCharacter гладит и вытирает свой рот.
+SourceCharacter ласкает и вытирает свой рот.
 SourceCharacter bites PronounPossessive lips.
 SourceCharacter кусает свои губы.
 SourceCharacter clamps PronounPossessive hand over PronounPossessive mouth.
@@ -1710,6 +1710,7 @@ SourceCharacter ласкает и очищает рот TargetCharacter's .
 SourceCharacter clamps PronounPossessive hand over TargetCharacter's mouth.
 SourceCharacter зажимает рукой рот TargetCharacter's .
 SourceCharacter rubs TargetCharacter's mouth with PronounPossessive UsedAsset.
+SourceCharacter трет рот TargetCharacter с помощью UsedAsset.
 SourceCharacter gives TargetCharacter a sip from PronounPossessive UsedAsset.
 SourceCharacter поит TargetCharacter из своей UsedAsset.
 SourceCharacter трет рот TargetCharacter's  с помощью UsedAsset.

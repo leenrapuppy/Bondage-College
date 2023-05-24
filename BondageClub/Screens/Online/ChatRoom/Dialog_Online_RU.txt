@@ -519,7 +519,7 @@
 (DialogCharacterSubject не сможет получить доступ к другим участникам, если находится в одной комнате с вами.)
 ###_PLAYER
 (Allow DialogCharacterObject to buy keys.)
-(Разреши DialogCharacterObject купить ключи.)
+(Разрешить DialogCharacterObject купить ключи.)
 ###_NPC
 (The store will sell keys to DialogCharacterObject.)
 (В магазине DialogCharacterObject продадут ключи.)
@@ -531,22 +531,34 @@
 (DialogCharacterSubject потеряла все DialogCharacterPossessive ключи.)
 ###_PLAYER
 (Block DialogCharacterObject from buying keys.)
-(Запрети DialogCharacterObject покупать ключи.)
+(Запретить DialogCharacterObject покупать ключи.)
 ###_NPC
 (The store will not sell keys to DialogCharacterObject anymore.)
 (Магазин больше не будет продавать DialogCharacterObject ключи.)
 ###_PLAYER
-(Allow DialogCharacterObject to use owner locks on DialogCharacterSelf.)
-(Разрешить DialogCharacterObject использовать замки владельца на DialogCharacterSelf.)
+(Allow DialogCharacterObject to use family keys.)
+(Разрешить DialogCharacterObject использовать семейные ключи.)
 ###_NPC
-(DialogCharacterSubject will be able to use owner locks on DialogCharacterSelf.)
-(DialogCharacterSubject сможет использовать замки владельца на DialogCharacterSelf.)
+(DialogCharacterObject will now be able to use family keys.)
+(DialogCharacterObject теперь сможет использовать семейные ключи.)
+###_NPC
+(DialogCharacterObject won't be able to use family keys.)
+(DialogCharacterObject не сможет использовать семейные ключи.)
 ###_PLAYER
-(Block DialogCharacterObject from using owner locks on DialogCharacterSelf.)
-(Заблокируй DialogCharacterObject от использования замков владельца на DialogCharacterSelf.)
+(Block DialogCharacterObject from using family keys.)
+(Запретить DialogCharacterObject использовать семейные ключи.)
+###_PLAYER
+(Allow DialogCharacterObject to use owner/family locks on DialogCharacterSelf.)
+(Разрешить DialogCharacterObject использовать замки владельца/семейные на DialogCharacterSelf.)
 ###_NPC
-(DialogCharacterSubject will not be able to use owner locks on DialogCharacterSelf anymore.)
-(DialogCharacterSubject больше не сможет использовать на DialogCharacterSelf замки владельца.)
+(DialogCharacterSubject will be able to use owner & family locks on DialogCharacterSelf.)
+(DialogCharacterSubject сможет использовать замки владельца/семейные на DialogCharacterSelf.)
+###_PLAYER
+(Block DialogCharacterObject from using owner/family locks on DialogCharacterSelf.)
+(Запретить DialogCharacterObject использовать замки владельца/семейные на DialogCharacterSelf.)
+###_NPC
+(DialogCharacterSubject will not be able to use owner & family locks on DialogCharacterSelf anymore.)
+(DialogCharacterSubject больше не сможет использовать на DialogCharacterSelf замки владельца/семейные.)
 ###_PLAYER
 (Allow DialogCharacterObject to buy remotes.)
 (Разреши DialogCharacterObject купить пульты.)

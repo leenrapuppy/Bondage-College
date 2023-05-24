@@ -447,11 +447,11 @@ Show all zones
 Показать все зоны
 Use the butt plug's pump
 Используйте насос анальной пробки
-Pick default color
+Color of next item
 Цвет следующего предмета
 Unable to change color due to player permissions
 Невозможно изменить цвет из-за разрешений игрока
-Change item color
+Change color
 Изменить цвет
 Use this color
 Использовать этот цвет
@@ -1560,6 +1560,12 @@ Can only be locked or unlocked by TargetPronounPossessive lover
 Может быть заблокирована или разблокирована только TargetPronounPossessive любовью
 Can only be unlocked or extended by TargetPronounPossessive lover
 Может быть разблокирована или продлена только TargetPronounPossessive любовью
+"Family bonds are unbreakable"
+"Семейные узы нерушимы"
+Can only be used by members of TargetPronounPossessive D/s family
+Может использоваться только членами TargetPronounPossessive Д/с семьи.
+Your owner forbids you from using family keys
+Ваш/а Хозяин/йка запрещает вам использовать семейные ключи
 Can only be locked or unlocked by a Club Mistress
 Может быть заблокирована или разблокирована только Хозяйкой Клуба.
 "Once inside the Box, you may never leave."
@@ -5226,6 +5232,8 @@ Held
 Удерживать
 Lovers only
 Только возлюбленные
+D/s Family only
+Только Д/с семья
 Owner only
 Только Хозяйка
 Automatically locks
@@ -7039,3 +7047,129 @@ SourceCharacter fits the hood's collar around DestinationCharacter neck.
 SourceCharacter снимает ошейник вокруг DestinationCharacter шеи.
 SourceCharacter removes the collar from DestinationCharacter hood.
 SourceCharacter застегивает ошейник с DestinationCharacter капюшона.
+Choose options
+Выберите варианты
+Choose options.
+Выберите варианты.
+Choose style
+Выберите стиль
+Back Hood
+Капюшон сзади
+Set back hood style
+Выбирите стиль капюшона сзади
+Down
+Откинут
+Pulled Up
+Поднят
+SourceCharacter adds a hood to DestinationCharacter latex tank top.
+SourceCharacter добавляет задний капюшон к DestinationCharacter латексной майке.
+SourceCharacter pulls up the hood on DestinationCharacter latex tank top.
+SourceCharacter поднимает задний капюшон на DestinationCharacter латексной майке.
+Reverse Hood
+Капюшон спереди
+Set front hood style
+Выбирите стиль капюшона спереди
+SourceCharacter adds a front hood to DestinationCharacter latex tank top.
+SourceCharacter добавляет передний капюшон к DestinationCharacter латексной майке.
+SourceCharacter pulls up the front hood on DestinationCharacter latex tank top.
+SourceCharacter поднимает передний капюшон на DestinationCharacter латексной майке.
+Stripe Options
+Настройте полосы
+Regular Design
+Обычный дизайн
+Prison Stripes
+Тюремные полосы
+Boot
+Обувь
+Boot Options
+Настройте обувь
+No Boot
+Без обуви
+Wear Boot
+Надеть обувь
+SourceCharacter removes pants from DestinationCharacter boots.
+SourceCharacter снимает с DestinationCharacter  обуви.
+SourceCharacter adds pants to DestinationCharacter boots.
+SourceCharacter надевает на DestinationCharacter обувь.
+SourceCharacter removes the stripes on DestinationCharacter boots.
+SourceCharacter удаляет полосы с DestinationCharacter одежды.
+SourceCharacter reveals the stripes on DestinationCharacter boots.
+SourceCharacter показывает полосы на DestinationCharacter одежду.
+Layer
+Слой
+Layer Options
+Настройте слой
+Second Layer
+Второй слой
+Crotch Cover
+Щиток промежности
+Select Crotch Cover
+Настройте щиток промежности
+Detached Unit
+Отдельный блок
+Attached Unit
+Прикрепленный блок
+SourceCharacter detaches the unit on DestinationCharacter portal panties.
+SourceCharacter отсоединяет блок от DestinationCharacter портальных трусиков.
+SourceCharacter attaches the unit on DestinationCharacter portal panties.
+SourceCharacter прикрепляет блок к DestinationCharacter портальным трусикам.
+The front and rear chastity shields on DestinationCharacter AssetName open.
+Передний и задний щиты целомудрия на DestinationCharacter AssetName открываются.
+The front chastity shield on DestinationCharacter AssetName closes.
+Передний щит целомудрия на DestinationCharacter AssetName закрывается.
+The read chastity shield on DestinationCharacter AssetName closes.
+Задний щит целомудрия на DestinationCharacter AssetName закрывается.
+The front and rear chastity shields on DestinationCharacter AssetName close.
+Передний и задний щиты целомудрия на DestinationCharacter AssetName закрываются.
+Pattern Options
+Настройки узора
+Colored Sides
+Цветные стороны
+Zipper Options
+Настройки молнии
+SourceCharacter removes DestinationCharacter straitjacket pattern.
+SourceCharacter удаляет узор с DestinationCharacter смирительной рубашки.
+SourceCharacter adds DestinationCharacter straitjacket stripes.
+SourceCharacter добавляет тюремные полоски на DestinationCharacter смирительную рубашку.
+SourceCharacter adds DestinationCharacter straitjacket sides.
+SourceCharacter добавляет цветные вставки на DestinationCharacter смирительную рубашку.
+SourceCharacter closes the zipper of DestinationCharacter prison straitjacket.
+SourceCharacter застегивает молнию на DestinationCharacter тюремной смирительной рубашки.
+SourceCharacter opens the zipper of DestinationCharacter prison straitjacket.
+SourceCharacter растегивает молнию на DestinationCharacter тюремной смирительной рубашки.
+Breathplay
+Игры с дыханием
+Choose breathplay options
+Выберите параметры игры с дыханием
+Pump
+Помпа
+SourceCharacter clears DestinationCharacter vachood's breathing tube.
+SourceCharacter очищает DestinationCharacter дыхательную трубку.
+SourceCharacter adds a pump to DestinationCharacter vachood's breathing tube.
+SourceCharacter добавляет помпу в DestinationCharacter дыхательную трубку.
+SourceCharacter adds a rebreather bag to DestinationCharacter vachood's breathing tube.
+SourceCharacter добавляет ребризерный мешок к DestinationCharacter дыхательной трубке.
+Plastic Clip
+Пластиковый зажим
+Plastic Clip Options
+Варианты пластиковых зажимов
+No Clip
+Без зажима
+Clipped Tube
+Обрезанная трубка
+SourceCharacter removes the clip from DestinationCharacter vachood's breathing tube.
+SourceCharacter снимает зажим с DestinationCharacter дыхательной трубки.
+SourceCharacter adds a clip to DestinationCharacter vachood's breathing tube.
+SourceCharacter добавляет зажим к DestinationCharacter дыхательную трубки.
+Unchained
+Освободить
+Chained
+Сковать
+SourceCharacter detaches DestinationCharacter padded mittens from the harness.
+SourceCharacter отстегивает варежки с набивкой от DestinationCharacter сбруи.
+SourceCharacter chains DestinationCharacter padded mittens to the harness.
+SourceCharacter пристегивает варежки с набивкой к DestinationCharacter сбруи.
+SourceCharacter detaches DestinationCharacter paw mittens from the harness.
+SourceCharacter отсоединяет лапы-варежки от DestinationCharacter сбруи.
+SourceCharacter chains DestinationCharacter paw mittens to the harness.
+SourceCharacter пристегивает лапы-варежки к DestinationCharacter сбруи

@@ -11,7 +11,7 @@ Student Black
 Student Bow
 Юнга
 Student Top
-Студенческа верх
+Студенческий топ
 Babydoll Dress
 кукольное платье
 Teacher
@@ -29,7 +29,7 @@ Tennis
 Sweater
 свитер
 Mistress Top
-верх Госпожи
+Топ Госпожи
 Puffy Dress
 Пышное платье
 Bows Dress
@@ -41,7 +41,7 @@ Shiny dress
 Nurse Uniform
 униформа медсестры
 Bunny Girl Accessories
-аксессуары для девочек-зайчиков
+Аксессуары для заек
 Robe
 халат
 Suspender Top
@@ -55,7 +55,7 @@ Nomadic Dress
 Lace Babydoll
 гипюровая куколка
 Sleeveless Top
-верх без руковов
+Топ без руковов
 Dress with Fur
 платье с мехом
 Towel
@@ -63,7 +63,9 @@ Towel
 Yukata
 кимоно
 Steampunk Corset
-корсет стимпанк
+Корсет стимпанк
+Boned Underbust Corset
+Костяной корсет под грудь
 Bondage Dress Style 1
 платье  бондаж стиль 1
 Bondage Dress Style 2
@@ -91,19 +93,19 @@ Maid Apron
 Exposed Maid Apron
 Открытый фартук горничной
 Admiral Top
-Адмиральский верх
+Адмиральский топ
 Virgin Killer
 Убийца девственница
 Reverse Bunny Suit Top
-Обратный костюм кролика топ
+Верх костюма кролика
 Leather Crop Top
 Кожаный укороченный топ
 Corset Shirt
 Корсетная рубашка
 Bondage Bustier 1
-бондаж бюстье 1
+бюстье бондаж 1
 Bondage Bustier 2
-бондаж бюстье 2
+бюстье бондаж 2
 Leather Bolero
 Кожаное болеро
 Bodice
@@ -117,7 +119,7 @@ Blouse
 Laced Latex Top
 Кружевной Латексный Топ
 Latex Laced Suit
-Костюм Со шнуровкой из латекса
+Латексный сюит со шнуровкой
 Fur Coat
 шуба
 Fuzzy Dress
@@ -127,7 +129,7 @@ Crop Top
 Laurel Top
 Торжественный Топ
 See-through Top
-Прозрачный верх
+Прозрачный топ
 Jacket
 Кофта
 Male Cloth Tank-Top 
@@ -138,8 +140,12 @@ Slave Rags
 Тряпки раба
 Cropped Hoodie
 Короткая толстовка
+Latex Tank Top
+Латексная майка
 Cheerleader Top
 Топ чирлидерши
+Latex Frilled Shirt
+Латексная блуза с оборками
 Cloth Accessory
 Аксессуар для верха
 Student Scarf
@@ -182,6 +188,14 @@ Latex Dog Mask
 Латексная маска собаки
 Latex Bunny
 Латексный кролик
+Fox Hood
+Капюшон лисы
+Panty Hood
+Капюшон из трусиков
+Vac Hood
+Вакуумный капюшон
+Sensory Hood
+Сенсорный капюшон
 Lipstick Marks
 Следы помады
 Jewelry
@@ -215,7 +229,7 @@ Black Heart
 Ball Gag
 Кляп с шариком
 Elegant Heart Necklace
-Элегантное Ожерелье в виде Сердца
+Элегантное ожерелье-сердечко
 Bandana
 Бандана
 Fur Scarf
@@ -252,6 +266,8 @@ Slim Latex Leotard (Sleeveless)
 Тонкий латексный купальник (без рукавов)
 Dominatrix Leotard
 Купальник Госпожи
+Strap Bra
+Бюстгалтер из ремней
 Male Seamless Catsuit
 Мужской бесшовный кэтсьют
 Bottom
@@ -271,11 +287,11 @@ Pajama
 Mistress Bottom
 низ Госпожи
 Bondage Waspie
-бондаж пояс 
+Бондаж юбка
 Royal Waspie
-роскошный пояс
+Роскошная юбка
 Straps Waspie
-юбка из планок
+юбка из ремней
 Latex Pants
 латексные брюки
 Latex Skirt
@@ -293,7 +309,7 @@ Ripped Jeans
 Chinese Skirt
 Китайская юбка
 Hobble Gown Skirt
-Стреноживающая ябка
+Стреноживающая юбка
 Admiral Skirt
 Адмиральская Юбка
 Jean Skirt
@@ -336,6 +352,10 @@ Cheerleader Skirt
 Юбка чирлидерши
 Cross Skirt (light)
 Поперечная юбка (легкая)
+Fitted Pleated Skirt
+Облегающая плиссированная юбка
+Long Latex Pants
+Длинные латексные штаны
 Suit Lower
 Нижний костюм
 Catsuit Panties
@@ -404,6 +424,8 @@ Canvas Straitjacket 1
 Холщовая смирительная рубашка 1
 SleepSac
 Спальный мешок
+Prison Straitjacket
+Тюремная смирительная рубашка
 Latex Bra
 Латексный Бюстгальтер
 Bondage Harness
@@ -450,6 +472,8 @@ Ribbons
 Ленты
 Leather Breast Binder
 Кожаная нагрудная перевязь
+Tickle Bra
+Щекочущий бюстгальтер
 Silk Straps
 Шелковые ремни
 Full Latex Bra
@@ -650,6 +674,8 @@ Woolly Boots
 Вязаные Сапоги
 Latex Heels
 Латексные каблуки
+Latex ThighBoots
+Латексные высокие сапоги
 Multi-Strap Heels
 Каблуки с несколькими ремешками
 Barefoot Sandals
@@ -836,7 +862,7 @@ See-through Gloves
 Cow Printed Gloves
 Перчатки с коровьим принтом
 Latex Elbow Gloves
-Латексные перчатки
+Латексные перчатки (длинные)
 Fishnet Gloves
 Перчатки в сеточку
 Harem Gloves
@@ -845,6 +871,8 @@ Biker Gloves
 Байкерские перчатки
 Pom Poms
 Пом Помы
+Latex Gloves
+Латексные перчатки (короткие)
 Left Hand
 Левая рука
 Right Hand
@@ -885,6 +913,8 @@ V Glasses
 V Очки
 Gradient Sunglasses
 Солнцезащитные очки с градиентом
+Goggles
+Гоглы
 Mask
 Маска
 Venetian Mask
@@ -1352,19 +1382,21 @@ Suspension Hemp Rope
 Duct Tape
 клейкая лента
 Leather Ankle Cuffs
-Кожаные Манжеты для щиколоток
+Кожаные нащиколотники
+Leather Deluxe Ankle Cuffs
+Роскошные кожаные нащиколотники
 Floor Shackles
 Напольные кандалы
 Steel Ankle Cuffs
-Стальные манжеты на щиколотки
+Стальные манжеты нащиколотники
 Escort Ankle Cuffs
-Конвойные манжеты на щиколотки
+Конвойные манжеты нащиколотники
 Futuristic Ankle Cuffs
-Футуристические манжеты на щиколотки
+Футуристические нащиколотники
 Ornate Ankle Cuffs
-Богато украшенные манжеты на щиколотки
+Богато украшенные нащиколотники
 HighStyle Steel Ankle Cuffs
-Стильные стальные манжеты на щиколотки
+Стильные стальные нащиколотники
 Metal Leg Spreader
 Металическая распорка
 Heavy Leg Spreader
@@ -1380,13 +1412,13 @@ Chains
 Spreader Dildo Bar
 Распорка с дилдо на стержне
 Vibrating Spreader Dildo Bar
-Распорка с вибрирующим дилдо на стержне
+Распорка с вибрирующим дилдо
 Plastic Wrap
 Пластиковая упаковка
 Wooden Cuffs
 Деревянные манжеты
 Medical Bed Restraints
-Ограничения для медицинских кроватей
+Ограничения для медицинской кровати
 Suspension Cuffs
 Подвесные манжеты
 Slime
@@ -1395,6 +1427,8 @@ Legs
 Ноги
 Leather Leg Cuffs
 Кожаные наножники
+Leather Deluxe Leg Cuffs
+Роскошные Кожаные наножники
 Futuristic Leg Cuffs
 Футуристические манжеты для ног
 Ornate Leg Cuffs
@@ -1420,7 +1454,7 @@ Vulva
 Vibrating Egg
 Вибрирующее Яйцо
 Vibrating Wand
-Вибруящая палочка
+Вибрирующая палочка
 Vibrating Items Remote
 Дистанционная виброигрушка
 Vibrating Latex Panties
@@ -1473,6 +1507,8 @@ Techno Chastity Cage
 Техно клетка верности
 Flat Chastity Cage
 Плоская клетка верности
+Inflatable Vibrating Panties
+Надувные вибрирующие трусики
 Clitoris
 Клитор
 Straight Clitoris Piercing
@@ -1578,7 +1614,7 @@ Cow Tail
 Hollow Butt Plug
 Полая анальная пробка
 Locking Vibrating Butt Plug
-Фиксирующая вибрационная анальная пробка
+Фиксирующий вибрационный плаг
 Pelvis
 Таз
 Strap-On Panties
@@ -1621,6 +1657,8 @@ Hybrid Chastity Belt
 Гибридный пояс целомудрия
 Obedience Belt
 Пояс послушания
+Portal Panties
+Портальные трусики
 Torso
 Туловище
 Leather Harness
@@ -1689,6 +1727,8 @@ Nipple Stretchers
 Растяжки для сосков
 Nipple Clamps 2
 Зажимы для сосков 2
+Nipple Vibrator
+Вибратор для сосков
 Straight Piercings
 Прямой Пирсинг
 Round Piercings
@@ -1730,7 +1770,7 @@ Futuristic Bra
 Ornate Chastity Bra
 Богато украшенный бюстгальтер целомудрия
 Arms
-Обьтья
+Предплечья
 Metal Cuffs
 Металлические Манжеты
 Leather Armbinder
@@ -1739,6 +1779,8 @@ Armbinder Jacket
 Куртка-армбиндер
 Leather Cuffs
 Кожаные Манжеты
+Leather Deluxe Cuffs
+Роскошные кожаные манжеты
 Ceiling Shackles
 Потолочные кандалы
 Steel Cuffs
@@ -1969,10 +2011,14 @@ Medical Injector
 медицинский инъектор
 Mug
 Кружка
+Tablet
+Планшет
 Neck
 Шея
 Leather Collar
-кожаный ошейник
+Кожаный ошейник
+Leather Deluxe Collar
+Роскошный кожаный ошейник
 Bell Collar
 Ошейник с колокольчиком
 Bow Collar
@@ -2406,13 +2452,13 @@ Headphones
 Body
 Тело
 Metal Padlock
-Металлический Висячий Замок
+Металлический Замок
 Intricate Padlock
-Замысловатый Висячий Замок
+Замысловатый Замок
 High-Security Padlock
-Навесной замок повышенной надежности
+Замок повышенной надежности
 Five Minutes Padlock
-Пятиминутный Висячий Замок
+Пятиминутный Замок
 Combination Padlock
 Кодовый Замок
 Password Lock
@@ -2420,33 +2466,37 @@ Password Lock
 Timer Password Lock
 Блокировка Паролем Таймера
 Owner Padlock
-Навесной Замок Хозяйки
+Замок Хозяйки
 Owner Timer Padlock
-Навесной замок с Таймером Хозяйки
+Замок с таймером Хозяйки
 Lovers Padlock
-Висячий замок влюбленных
+Замок влюбленных
+D/s Family Padlock
+Замок Д/с семьи
 Lovers Timer Padlock
-Висячий замок влюбленных с таймером
+Замок влюбленных с таймером
 Mistress Padlock
-Висячий Замок Госпожи
+Замок Госпожи
 Pandora's Box Padlock
-Висячий замок ящика Пандоры
+Замок Ящика Пандоры
 Mistress Timer Padlock
 Замок с Таймером Госпожи
 Exclusive Padlock
-Эксклюзивный Навесной Замок
+Эксклюзивный Замок
 Safeword Padlock
-Висячий замок Сейв-слова
+Навесной замок Сейв-слова
 Metal Padlock Key
 Металлический Ключ
 Owner Padlock Key
 Ключ Хозяйки
 Lovers Padlock Key
-Ключ От Висячего замка Влюбленных
+Ключ от замка Влюбленных
+D/s Family Padlock Key
+Ключ от замка Д/с семьи
 Mistress Padlock Key
 Ключ Госпожи
 Pandora's Box Padlock Key
-Ключ от замка ящика Пандоры
+Ключ от замка Ящика Пандоры
 Metal Cuffs Key
 Металлический Ключ для Манжет 
 Lockpicks
@@ -2520,7 +2570,7 @@ Doll Box
 Exposed Head Wooden Box
 Деревянный ящик с открытой головой
 Exposed Head Small Wooden Box
-Маленький деревянный ящик с открытой головой
+Маленький ящик с проемом для головы
 Wooden Stocks
 Деревянные Колодки
 Vacbed
@@ -2604,7 +2654,7 @@ Toe Tie
 Locking Heels
 Запирающиеся Каблуки
 Multi-Strap Locking Heels
-Запирающиеся каблуки с несколькими ремешками
+Запирающиеся каблуки с ремешками
 Locking Strap Shoes
 Обувь с запирающимся Ремешком
 Locking Full Shoes
