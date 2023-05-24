@@ -151,7 +151,7 @@ function ModularItemDraw(data) {
  * @param {boolean | undefined} [changeWhenLocked] - See {@link ModularItemConfig.ChangeWhenLocked}
  * @returns {ModularItemModule[]} - The updated modules and options
  */
-function ModularItemUpdateModules(asset, modules, changeWhenLocked) {
+function ModularItemBuildModules(asset, modules, changeWhenLocked) {
 	return modules.map(protoMod => {
 		/** @type {ModularItemModule} */
 		return {
@@ -204,7 +204,7 @@ function ModularItemCreateModularData(asset, {
 }) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
-	const ModulesParsed = ModularItemUpdateModules(asset, Modules, ChangeWhenLocked);
+	const ModulesParsed = ModularItemBuildModules(asset, Modules, ChangeWhenLocked);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
 	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 

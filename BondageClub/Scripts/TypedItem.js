@@ -80,6 +80,40 @@ function TypedItemRegister(asset, config) {
 }
 
 /**
+ * Parse and pre-process the passed item options.
+ * @param {Asset} asset - The item options asset
+ * @param {readonly TypedItemOptionBase[]} protoOptions - The unparsed extended item options
+ * @param {boolean} [changeWhenLocked] - See {@link TypedItemConfig.ChangeWhenLocked}
+ * @returns {TypedItemOption[]} The newly generated extended item options
+ */
+function TypedItemBuildOptions(protoOptions, asset, changeWhenLocked) {
+	return protoOptions.map((protoOption, i) => {
+		/** @type {TypedItemOption} */
+		const option = {
+			...protoOption,
+			OptionType: "TypedItemOption",
+			Property: {
+				...(protoOption.Property || {}),
+				Type: i === 0 ? null : protoOption.Name,
+			},
+		};
+
+		if (typeof changeWhenLocked === "boolean" && typeof option.ChangeWhenLocked !== "boolean") {
+			option.ChangeWhenLocked = changeWhenLocked;
+		}
+
+		// @ts-expect-error: potentially copied from the protoOption via the spread operator
+		delete option.ArchetypeConfig;
+		if (protoOption.ArchetypeConfig) {
+			option.ArchetypeData = /** @type {TypedItemOption["ArchetypeData"]} */(AssetBuildExtended(
+				asset, protoOption.ArchetypeConfig, AssetFemale3DCGExtended, option,
+			));
+		}
+		return option;
+	});
+}
+
+/**
  * Generates an asset's typed item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {TypedItemConfig} config - The item's extended item configuration
@@ -96,26 +130,7 @@ function TypedItemCreateTypedItemData(asset, {
 	ScriptHooks,
 	BaselineProperty=null,
 }) {
-	const optionsParsed = Options.map((o, i) => {
-		/** @type {TypedItemOption} */
-		const ret = {
-			...o,
-			OptionType: "TypedItemOption",
-			Property: {
-				...(o.Property || {}),
-				Type: i === 0 ? null : o.Name,
-			},
-		};
-		if (typeof ChangeWhenLocked === "boolean" && typeof ret.ChangeWhenLocked !== "boolean") {
-			ret.ChangeWhenLocked = ChangeWhenLocked;
-		}
-		// @ts-expect-error: potentially copied from the protoOption via the spread operator
-		delete ret.ArchetypeConfig;
-		ret.ArchetypeData = /** @type {TypedItemOption["ArchetypeData"]} */(AssetBuildExtended(
-			asset, o.ArchetypeConfig, AssetFemale3DCGExtended, ret,
-		));
-		return ret;
-	});
+	const optionsParsed = TypedItemBuildOptions(Options, asset, ChangeWhenLocked);
 
 	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
