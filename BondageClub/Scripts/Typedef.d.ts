@@ -90,7 +90,7 @@ type CommonGenerateGridCallback<T> = (item: T, x: number, y: number, width: numb
 type DialogMenuMode = "dialog" | "items" | "colorDefault" | "colorExpression" | "colorItem" | "permissions" | "activities" | "locking" | "locked" | "extended" | "tighten" | "crafted" | "struggle";
 
 type DialogMenuButton = "Activity" |
-	"ColorCancel" | "ColorChange" | "ColorDefault" | "ColorPickDisabled" | "ColorSelect" |
+	"ColorCancel" | "ColorChange" | "ColorChangeMulti" | "ColorDefault" | "ColorPickDisabled" | "ColorSelect" |
 	"Crafting" |
 	"DialogNormalMode" | "DialogPermissionMode" |
 	"Dismount" | "Escape" | "Remove" |
@@ -100,7 +100,10 @@ type DialogMenuButton = "Activity" |
 	"Lock" | "LockDisabled" | "LockMenu" |
 	"Next" | "Prev" | "PickLock" |
 	"Remote" | "RemoteDisabled" | `RemoteDisabledFor${VibratorRemoteAvailability}` |
-	"Unlock" | "Use" | "UseDisabled" | "Struggle" | "TightenLoosen";
+	"Unlock" | "Use" | "UseDisabled" | "Struggle" | "TightenLoosen" |
+	// Wardrobe buttons
+	"Wardrobe" | "WardrobeDisabled" | "Reset" | "WearRandom" | "Random" | "Naked" | "Accept" | "Cancel" | "Character"
+	;
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 

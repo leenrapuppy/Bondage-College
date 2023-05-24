@@ -48,7 +48,7 @@ var CharacterAppearanceMode = "";
 var CharacterAppearanceMenuMode = "";
 /** @type {null | Item} */
 var CharacterAppearanceCloth = null;
-/** @type {string[]} */
+/** @type {DialogMenuButton[]} */
 var AppearanceMenu = [];
 /** @type {Character[]} */
 var AppearancePreviews = [];
@@ -667,9 +667,9 @@ function AppearanceMenuBuild(C) {
 				if (C.IsPlayer()) AppearanceMenu.push("DialogPermissionMode");
 				if (C.FocusGroup.AllowNone) AppearanceMenu.push("Naked");
 				if (Item && DialogCanColor(C, Item)) {
-					let ButtonName = ItemColorIsSimple(Item) ? "ColorPick" : "MultiColorPick";
+					let ButtonName = ItemColorIsSimple(Item) ? "ColorChange" : "ColorChangeMulti";
 					if (InventoryBlockedOrLimited(C, Item)) ButtonName += "Disabled";
-					AppearanceMenu.push(ButtonName);
+					AppearanceMenu.push(/** @type {DialogMenuButton} */(ButtonName));
 				}
 			}
 			if (DialogInventoryOffset >= CharacterAppearanceNumClothPerPage) AppearanceMenu.push("Prev");
@@ -839,7 +839,7 @@ function AppearanceRun() {
 
 			// Draw color swatch and picker widgets
 			DrawButton(1725, 145 + (A - CharacterAppearanceOffset) * 95, 160, 65, ColorButtonText, CanCycleColors ? ColorButtonColor : "#aaa", null, null, !CanCycleColors);
-			DrawButton(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", CanPickColor ? "#fff" : "#aaa", CanPickColor ? ColorIsSimple ? "Icons/Color.png" : "Icons/MultiColor.png" : "Icons/ColorBlocked.png", null, !CanPickColor);
+			DrawButton(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", CanPickColor ? "#fff" : "#aaa", CanPickColor ? ColorIsSimple ? "Icons/Small/ColorChange.png" : "Icons/Small/ColorChangeMulti.png" : "Icons/Small/ColorBlocked.png", null, !CanPickColor);
 		}
 	}
 
@@ -1385,7 +1385,7 @@ function AppearanceMenuClick(C) {
 					}
 
 					// Opens the color picker
-					if (Button === "ColorPick" || Button === "MultiColorPick") {
+					if (Button === "ColorChange" || Button === "ColorChangeMulti") {
 						const Item = InventoryGet(C, C.FocusGroup.Name);
 						AppearanceItemColor(C, Item, C.FocusGroup.Name, "Cloth");
 					}

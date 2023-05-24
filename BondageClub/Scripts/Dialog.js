@@ -2446,8 +2446,8 @@ function DialogDrawActivityMenu(C) {
  * @returns {string} - The button image name
  */
 function DialogGetMenuButtonImage(ButtonName, FocusItem) {
-	if (ButtonName === "ColorDefault" || ButtonName === "ColorPickDisabled") {
-		return ItemColorIsSimple(FocusItem) ? "ColorPick" : "MultiColorPick";
+	if (ButtonName === "ColorDefault" || ButtonName === "ColorChange" || ButtonName === "ColorPickDisabled") {
+		return ItemColorIsSimple(FocusItem) ? "ColorChange" : "ColorChangeMulti";
 	} else if (DialogIsMenuButtonDisabled(ButtonName)) {
 		return ButtonName.replace(DialogButtonDisabledTester, "");
 	} else {
@@ -2790,7 +2790,7 @@ function DialogDrawExpressionMenu() {
 	// Draw the expression groups
 	DrawText(DialogFindPlayer("FacialExpression"), 165, 25, "White", "Black");
 	if (typeof DialogFacialExpressionsSelected === 'number' && DialogFacialExpressionsSelected >= 0 && DialogFacialExpressionsSelected < DialogFacialExpressions.length && DialogFacialExpressions[DialogFacialExpressionsSelected].Appearance.Asset.Group.AllowColorize && DialogFacialExpressions[DialogFacialExpressionsSelected].Group !== "Eyes") {
-		DrawButton(320, 50, 90, 90, "", "White", "Icons/ColorPick.png", DialogFindPlayer("ColorChange"));
+		DrawButton(320, 50, 90, 90, "", "White", "Icons/ColorChange.png", DialogFindPlayer("ColorChange"));
 	}
 	DrawButton(220, 50, 90, 90, "", "White", "Icons/BlindToggle" + DialogFacialExpressionsSelectedBlindnessLevel + ".png", DialogFindPlayer("BlindToggleFacialExpressions"));
 	const Expression = WardrobeGetExpression(Player);
