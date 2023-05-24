@@ -910,7 +910,7 @@ function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=fa
 	/** @type {ItemProperties} */
 	let previousOptionProperty;
 	/** @type {ItemProperties} */
-	let newProperty;
+	let newOptionProperty;
 	switch (newOption.OptionType) {
 		case "ModularItemOption": {
 			const moduleData = /** @type {ModularItemData} */(data);
@@ -919,13 +919,13 @@ function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=fa
 			const newModuleValues = [...previousModuleValues];
 			newModuleValues[moduleIndex] = newOption.Index;
 
-			newProperty = ModularItemMergeModuleValues(moduleData, newModuleValues);
+			newOptionProperty = ModularItemMergeModuleValues(moduleData, newModuleValues);
 			previousOptionProperty = ModularItemMergeModuleValues(moduleData, previousModuleValues);
 			break;
 		}
 		case "VibratingItemOption":
 		case "TypedItemOption":
-			newProperty = JSON.parse(JSON.stringify(newOption.Property));
+			newOptionProperty = JSON.parse(JSON.stringify(newOption.Property));
 			previousOptionProperty = { ...previousOption.Property };
 			break;
 		default:
@@ -939,6 +939,10 @@ function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=fa
 		CommonCallFunctionByNameWarn(`${data.functionPrefix}${newOption.Name}Init`, ...args);
 	}
 
+	const newProperty = PropertyUnion(
+		newOptionProperty,
+		ExtendedItemGatherSubscreenProperty(item, newOption),
+	);
 	const previousProperty = PropertyUnion(
 		previousOptionProperty,
 		ExtendedItemGatherSubscreenProperty(item, previousOption),
