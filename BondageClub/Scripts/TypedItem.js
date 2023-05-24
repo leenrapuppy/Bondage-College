@@ -491,25 +491,12 @@ function TypedItemInit(Data, C, Item, Refresh=true) {
 		return false;
 	}
 
-	// Default to the first option if no property is set
-	let InitialProperty = Data.options[0].Property;
-	Item.Property = JSON.parse(JSON.stringify(Data.options[0].Property));
-
-	// If the default type is not the null type, check whether the default type is blocked
-	if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, Item, InitialProperty.Type)) {
-		// If the first option is blocked by the character, switch to the null type option
-		const InitialOption = Data.options.find(O => O.Property.Type == null);
-		if (InitialOption) InitialProperty = InitialOption.Property;
-	}
-
-	// If there is an initial and/or baseline property, set it and update the character
-	if (InitialProperty || Data.baselineProperty) {
-		Item.Property = (Data.baselineProperty != null) ? JSON.parse(JSON.stringify(Data.baselineProperty)) : {};
-		Item.Property = Object.assign(
-			Item.Property,
-			(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-		);
-	}
+	// Always pick the first option unless NPCs are involved (in which case `NPCDefault` must be respected)
+	const initialProperty = C.IsNpc() ? (Data.options.find(o => o.NPCDefault) || Data.options[0]) : Data.options[0];
+	Item.Property = {
+		...(Data.baselineProperty == null ? {} : CommonCloneDeep(Data.baselineProperty)),
+		...CommonCloneDeep(initialProperty.Property),
+	};
 
 	if (Refresh) {
 		CharacterRefresh(C, true, false);
