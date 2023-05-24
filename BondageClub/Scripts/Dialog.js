@@ -780,7 +780,7 @@ function DialogMenuBack() {
 			if (StruggleMinigameIsRunning()) {
 				StruggleMinigameStop();
 				// Move back to the item list only if we automatically started to struggle
-				if (DialogStruggleSelectMinigame) {
+				if (!DialogStruggleSelectMinigame) {
 					DialogStruggleSelectMinigame = false;
 					DialogChangeMode("items");
 				}
@@ -2686,11 +2686,13 @@ function DialogDraw() {
 			// Minigame running and drawn
 		} else {
 			// Draw previews for the assets we're swapping/struggling
-			if ((DialogStrugglePrevItem != null) && (DialogStruggleNextItem != null)) {
+			if (DialogStrugglePrevItem && DialogStruggleNextItem) {
 				DrawItemPreview(DialogStrugglePrevItem, C, 1200, 150);
 				DrawItemPreview(DialogStruggleNextItem, C, 1200, 150);
-			} else
-				DrawItemPreview((DialogStrugglePrevItem != null ? DialogStrugglePrevItem : DialogStruggleNextItem), C, 1387, 150);
+			} else if (DialogStrugglePrevItem || DialogStruggleNextItem) {
+				const item = DialogStrugglePrevItem || DialogStruggleNextItem;
+				DrawItemPreview(item, C, 1387, 150);
+			}
 
 			// Draw UI to select struggling minigame
 			DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
