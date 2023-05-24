@@ -441,11 +441,11 @@ Show all zones
 显示所有区域
 Use the butt plug's pump
 使用肛塞气泵
-Color of next item
+Pick default color
 下一件物品的颜色
 Unable to change color due to player permissions
 因玩家权限设置无法更改颜色
-Change color
+Change item color
 更换颜色
 Use this color
 使用该颜色
