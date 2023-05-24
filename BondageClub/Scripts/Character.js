@@ -921,14 +921,9 @@ function CharacterItemsHavePoseAvailable(C, Type, Pose) {
 	for (let i = 0, Item = null; i < C.Appearance.length; i++) {
 		Item = C.Appearance[i];
 
-		const WhitelistActivePose = InventoryGetItemProperty(Item, "WhitelistActivePose");
-		if (WhitelistActivePose != null && WhitelistActivePose.includes(Pose)) continue;
-
-		const AllowActivePose = InventoryGetItemProperty(Item, "AllowActivePose");
-		if (AllowActivePose != null && AllowActivePose.includes(Pose)) continue;
-
-		const SetPose = InventoryGetItemProperty(Item, "SetPose", true);
-		if (SetPose != null && SetPose.find(P => ConflictingPoses.includes(P))) return false;
+		if (InventoryGetItemProperty(Item, "WhitelistActivePose", true).includes(Pose)) continue;
+		if (InventoryGetItemProperty(Item, "AllowActivePose", true).includes(Pose)) continue;
+		if (InventoryGetItemProperty(Item, "SetPose", true).find(P => ConflictingPoses.includes(P))) return false;
 	}
 	return true;
 }
@@ -956,8 +951,7 @@ function CharacterDoItemsSetPose(C, pose, excludeClothes = false) {
 	return C.Appearance
 		.filter(item => !excludeClothes || !item.Asset.Group.Clothing)
 		.some(item => {
-			const setPose = InventoryGetItemProperty(item, "SetPose", true);
-			return setPose && setPose.includes(pose);
+			return InventoryGetItemProperty(item, "SetPose", true).includes(pose);
 		});
 }
 
@@ -971,14 +965,10 @@ function CharacterDoItemsSetPose(C, pose, excludeClothes = false) {
 function CharacterItemsHavePoseType(C, Type, OnlyItems) {
 	var PossiblePoses = PoseFemale3DCG.filter(P => P.Category == Type || P.Category == "BodyFull").map(P => P.Name);
 
-	for (let A = 0; A < C.Appearance.length; A++) {
-		if (!OnlyItems && C.Appearance[A].Asset.AllowActivePose != null && (C.Appearance[A].Asset.AllowActivePose.find(P => PossiblePoses.includes(P) && C.AllowedActivePose.includes(P))))
+	for (const item of C.Appearance) {
+		if (!OnlyItems && InventoryGetItemProperty(item, "AllowActivePose", true).find(P => PossiblePoses.includes(P) && C.AllowedActivePose.includes(P)))
 			return true;
-		if ((C.Appearance[A].Property != null) && (C.Appearance[A].Property.SetPose != null) && (C.Appearance[A].Property.SetPose.find(P => PossiblePoses.includes(P))))
-			return true;
-		else if (C.Appearance[A].Asset.SetPose != null && (C.Appearance[A].Asset.SetPose.find(P => PossiblePoses.includes(P))))
-			return true;
-		else if (C.Appearance[A].Asset.Group.SetPose != null && (C.Appearance[A].Asset.Group.SetPose.find(P => PossiblePoses.includes(P))))
+		if (InventoryGetItemProperty(item, "SetPose", true).find(P => PossiblePoses.includes(P)))
 			return true;
 	}
 	return false;
@@ -995,11 +985,8 @@ function CharacterLoadPose(C) {
 
 	for (let i = 0, Item = null; i < C.Appearance.length; i++) {
 		Item = C.Appearance[i];
-		const AllowActivePose = InventoryGetItemProperty(Item, "AllowActivePose");
-		if (Array.isArray(AllowActivePose)) AllowActivePose.forEach(Pose => C.AllowedActivePose.push(Pose));
-
-		const SetPose = InventoryGetItemProperty(Item, "SetPose", true);
-		if (SetPose != null) CharacterAddPose(C, SetPose);
+		C.AllowedActivePose.concat(InventoryGetItemProperty(Item, "AllowActivePose"));
+		CharacterAddPose(C, InventoryGetItemProperty(Item, "SetPose", true));
 	}
 
 	// Add possible active poses (Bodyfull can only be alone, and cannot have two of upperbody or bodylower)
@@ -1102,11 +1089,7 @@ function CharacterLoadTints(C) {
 	/** @type {ResolvedTintDefinition[]} */
 	const tints = [];
 	for (const item of C.Appearance) {
-		/** @type {TintDefinition[]} */
-		const itemTints = InventoryGetItemProperty(item, "Tint");
-		if (Array.isArray(itemTints)) {
-			tints.push(...itemTints.map(({Color, Strength, DefaultColor}) => ({Color, Strength, DefaultColor, Item: item})));
-		}
+		tints.push(...InventoryGetItemProperty(item, "Tint").map(({Color, Strength, DefaultColor}) => ({Color, Strength, DefaultColor, Item: item})));
 	}
 	C.Tints = tints;
 }
@@ -1630,8 +1613,7 @@ function CharacterDecompressWardrobe(Wardrobe) {
  */
 function CharacterHasItemWithAttribute(C, Attribute) {
 	return C.Appearance.some(item => {
-		const attrs = InventoryGetItemProperty(item, "Attribute");
-		return attrs && attrs.includes(Attribute);
+		return InventoryGetItemProperty(item, "Attribute").includes(Attribute);
 	});
 }
 
@@ -1643,8 +1625,7 @@ function CharacterHasItemWithAttribute(C, Attribute) {
  */
 function CharacterItemsForActivity(C, Activity) {
 	return C.Appearance.filter(item => {
-		const allowed = InventoryGetItemProperty(item, "AllowActivity");
-		return allowed && allowed.includes(Activity);
+		return InventoryGetItemProperty(item, "AllowActivity").includes(Activity);
 	});
 }
 

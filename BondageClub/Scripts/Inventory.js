@@ -242,46 +242,35 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "AccessBreastSuitZip": return !InventoryDoItemsExposeGroup(C, "ItemNipplesPiercings", ["Cloth"]) || !InventoryDoItemsExposeGroup(
 			C, "ItemNipplesPiercings", ["Suit"]) ? "UnZipSuitForItem" : "";
 
-		// Vulva/Butt items can be blocked by clothes, panties and some socks
-		case "AccessVulva":
-			if (InventoryDoItemsBlockGroup(C, "ItemVulva", ["Cloth", "Socks"])
-				|| !InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"]))
-				return "RemoveClothesForItem";
-
-			if (InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis", "ItemVulvaPiercings"]))
-				return "RemoveRestraintsFirst";
-
-			return "";
-
+		// Vulva/Butt items can be blocked by clothes, panties and some socks, as well as chastity
 		case "AccessButt":
-			if (InventoryDoItemsBlockGroup(C, "ItemButt", ["Cloth", "Socks"])
-				|| !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"]))
+		case "AccessVulva": {
+			const target = Prerequisite === "AccessVulva" ? "ItemVulva" : "ItemButt";
+
+			if (InventoryDoItemsBlockGroup(C, target, ["Cloth", "Socks"]) || !InventoryDoItemsExposeGroup(C, target, ["ClothLower", "Panties"]))
 				return "RemoveClothesForItem";
 
-
-			if (InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis", "ItemVulvaPiercings"]))
-				return "RemoveRestraintsFirst";
-
-			return "";
+			// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
+			if (InventoryDoItemsBlockGroup(C, target, ["ItemPelvis", "ItemVulvaPiercings"]))
+				return "RemoveChastityFirst";
+		}
+			break;
 
 		case "AccessCrotch":
-			return (!InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"])
+			return (InventoryDoItemsBlockGroup(C, "ItemPelvis", ["Cloth", "ClothLower", "Socks"])
+				|| (!InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"])
 				&& !InventoryDoItemsExposeGroup(C, "ItemVulvaPiercings", ["ClothLower", "Panties"])
-				&& !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])
-				&& InventoryDoItemsBlockGroup(C, "ItemPelvis", ["ClothLower", "Panties"]))
+				&& !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])))
 				? "RemoveClothesForItem" : "";
+
+		case "CanCoverVulva":
+			return C.HasEffect("VulvaShaft") ? "CantCloseOnShaft" : "";
 
 		// Items that require access to a certain character's zone
 		case "AccessMouth": return C.IsMouthBlocked() ? "CannotBeUsedOverGag" : "";
 		case "BlockedMouth": return !C.IsMouthBlocked() ? "MustBeUsedOverGag" : "";
 		case "HoodEmpty": return InventoryGet(C, "ItemHood") ? "CannotBeUsedOverMask" : "";
 		case "EyesEmpty": return InventoryGet(C, "ItemHead") ? "CannotBeUsedOverHood" : "";
-
-		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
-		case "VulvaNotBlockedByBelt":
-			return InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis"])
-		|| InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemVulvaPiercings"])
-			? "RemoveChastityFirst" : "";
 
 		// Ensure crotch is empty
 		case "VulvaEmpty": return (InventoryGet(C, "ItemVulva") != null) ? "MustFreeVulvaFirst" : "";
@@ -364,7 +353,7 @@ function InventoryDoesItemHavePrerequisite(C, ItemGroup, Prerequisite) {
 function InventoryDoItemsBlockGroup(C, TargetGroup, GroupsToCheck) {
 	return GroupsToCheck.some((Group) => {
 		const Item = InventoryGet(C, Group);
-		return Item && Item.Asset.Block && Item.Asset.Block.includes(TargetGroup);
+		return Item && InventoryGetItemProperty(Item, "Block").includes(TargetGroup);
 	});
 }
 
@@ -380,7 +369,7 @@ function InventoryDoItemsBlockGroup(C, TargetGroup, GroupsToCheck) {
 function InventoryDoItemsExposeGroup(C, TargetGroup, GroupsToCheck) {
 	return GroupsToCheck.every((Group) => {
 		const Item = InventoryGet(C, Group);
-		return !Item || Item.Asset.Expose.includes(TargetGroup);
+		return !Item || InventoryGetItemProperty(Item, "Expose").includes(TargetGroup);
 	});
 }
 
@@ -1007,6 +996,20 @@ function InventoryItemIsPickable(Item) {
 	else return false;
 }
 
+const PropertiesArrayLike = new Set([
+	"Alpha", "Attribute", "Block", "Category", "DefaultColor", "Effect", "Expose", "ExpressionTrigger", "Prerequisite", "Require", "Fetish", "Tint",
+	"AllowPose", "AllowActivePose", "FreezeActivePose", "SetPose", "WhitelistActivePose",
+	"AllowActivity", "AllowActivityOn",
+	"Hide", "HideForPose", "HideItem", "HideItemExclude", "UnHide",
+	"MemberNumberList", "Texts",
+	"AllowBlock", "AllowEffect", "AllowExpression", "AllowHide", "AllowHideItem", "AllowLockType", "AllowType",
+	"AvailableLocations", "ExpressionPrerequisite",
+]);
+
+const PropertiesObjectLike = new Set([
+	"ActivityExpression", "PoseMapping", "RemoveItemOnRemove",
+]);
+
 /**
  * Returns the value of a given property of an appearance item, prioritizes the Property object.
  * @template {keyof ItemProperties | keyof Asset | keyof AssetGroup} Name
@@ -1014,11 +1017,19 @@ function InventoryItemIsPickable(Item) {
  * @param {Name} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
- * @returns {undefined | (ItemProperties & Asset & AssetGroup)[Name]} - The value of the requested property for the given item. Returns undefined if the property or the
+ * @returns {(ItemProperties & Asset & AssetGroup)[Name] | undefined} - The value of the requested property for the given item. Returns undefined if the property or the
  * item itself does not exist.
  */
 function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
-	if (!Item || !PropertyName || !Item.Asset) return;
+	/** @type {(ItemProperties & Asset & AssetGroup)[Name] | undefined} */
+	let value = undefined;
+
+	// @ts-expect-error Transparently return an empty array, which confuses TS
+	if (PropertiesArrayLike.has(PropertyName)) value = [];
+	// @ts-expect-error Transparently return an empty object, which confuses TS
+	else if (PropertiesObjectLike.has(PropertyName)) value = {};
+
+	if (!Item || !PropertyName || !Item.Asset) return value;
 	const PropertyRecords = /** @type {(ItemProperties & Asset & AssetGroup)[]} */(
 		[Item.Property || {}, Item.Asset, (CheckGroup) ? Item.Asset.Group : {}]
 	);
@@ -1028,7 +1039,7 @@ function InventoryGetItemProperty(Item, PropertyName, CheckGroup=false) {
 			return record[PropertyName];
 		}
 	}
-	return undefined;
+	return value;
 }
 
 /**

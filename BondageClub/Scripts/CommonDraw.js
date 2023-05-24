@@ -69,8 +69,7 @@ function CommonDrawAppearanceBuild(C, {
 			CurrentExpression = InventoryGetItemProperty(MirroredItem, "Expression");
 		}
 		if (CurrentExpression) {
-			const AllowExpression = InventoryGetItemProperty(CA, "AllowExpression", true);
-			if (CurrentExpression && AllowExpression && AllowExpression.includes(CurrentExpression)) {
+			if (InventoryGetItemProperty(CA, "AllowExpression", true).includes(CurrentExpression)) {
 				Expression = CurrentExpression + "/";
 			}
 		}

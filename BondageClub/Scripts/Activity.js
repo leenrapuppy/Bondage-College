@@ -943,8 +943,7 @@ function ActivityFetishItemFactor(C, Type) {
 	}
 
 	for (const item of C.Appearance) {
-		const fetish = InventoryGetItemProperty(item, "Fetish") || [];
-		if (fetish.includes(Type)) {
+		if (InventoryGetItemProperty(item, "Fetish").includes(Type)) {
 			return Factor;
 		}
 	}

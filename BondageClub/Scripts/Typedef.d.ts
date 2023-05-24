@@ -144,6 +144,9 @@ type ItemVulvaFuturisticVibratorAccessMode = "" | "ProhibitSelf" | "LockMember";
  * @property Slow - Indicates the character is slowed. Used when exiting chatrooms.
  * @property FillVulva - Marks the item as filling the character's vulva.
  *   Used when checking activities' prerequisites and the auto-stimulation events.
+ * @property ShaftVulva - Marks the item as being some sort of shaft extending out of the vulva.
+ *   Used to block things like chastity from closing.
+ * @property IsPlugged - Marks the item as filling the character's butt.
  * @property IsPlugged - Marks the item as filling the character's butt.
  *   Used when checking activities' prerequisites and the auto-stimulation events.
  *
@@ -208,7 +211,7 @@ type EffectName =
 
 	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" | "Suspended" |
 
-	"Slow" | "FillVulva" | "IsPlugged" |
+	"Slow" | "FillVulva" | "VulvaShaft" | "IsPlugged" |
 
 	"Egged" | "Vibrating" |
 
@@ -351,13 +354,13 @@ type AssetAttribute =
 
 type AssetPrerequisite =
 	"AccessBreast" | "AccessBreastSuitZip" | "AccessButt" | "AccessFullPenis" | "AccessMouth" | "AccessTorso" | "AccessVulva" | "AccessCrotch" |
-	"AllFours" | "BlockedMouth" | "ButtEmpty" | "CanBeCeilingTethered" | "CanCloseLegs" | "CanKneel" | "CannotBeSuited" | "CannotHaveWand" |
+	"AllFours" | "BlockedMouth" | "ButtEmpty" | "CanBeCeilingTethered" | "CanCloseLegs" | "CanCoverVulva" | "CanKneel" | "CannotBeSuited" | "CannotHaveWand" |
 	"ClitEmpty" | "Collared" | "CuffedArms" | "CuffedArmsOrEmpty" | "CuffedFeet" | "CuffedFeetOrEmpty" | "CuffedLegs" | "CuffedLegsOrEmpty" |
 	"DisplayFrame" | "EyesEmpty" | "GagCorset" | "GagFlat" | "GagUnique" | "GasMask" | "HasBreasts" | "HasFlatChest" | "HasPenis" | "HasVagina" |
 	"HoodEmpty" | "LegsOpen" | "NakedFeet" | "NakedHands" | "NeedsHarness" | "NeedsNippleRings" | "NoChastityCage" | "NoClothLower" | "NoFeetSpreader" | "NoItemArms" |
 	"NoItemFeet" | "NoItemHands" | "NoItemLegs" | "NoMaidTray" | "NoOuterClothes" | "NotChained" | "NotChaste" | "NotHogtied" | "NotHorse" | "NotKneeling" |
 	"NotKneelingSpread" | "NotLifted" | "NotMasked" | "NotMounted" | "NotProtrudingFromMouth" | "NotShackled" | "NotSuspended" | "NotYoked" | "OnBed" |
-	"RemotesAllowed" | "VulvaEmpty" | "VulvaNotBlockedByBelt"
+	"RemotesAllowed" | "VulvaEmpty"
 ;
 
 type CraftingStatusType = 0 | 1 | 2;

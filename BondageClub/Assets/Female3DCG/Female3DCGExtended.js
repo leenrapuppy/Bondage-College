@@ -4805,11 +4805,11 @@ var AssetFemale3DCGExtended = {
 							{}, // d0 - No devvice
 							{ // s1 - Pleasure module
 								HasSubscreen: true,
-								Prerequisite: ["AccessVulva", "VulvaEmpty", "VulvaNotBlockedByBelt"],
+								Prerequisite: ["AccessVulva", "VulvaEmpty"],
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
-									Effect: ["Prone", "Freeze", "BlockKneel"],
+									Effect: ["Prone", "Freeze", "BlockKneel", "VulvaShaft"],
 									OverrideHeight: { Height: 0, Priority: 60 },
 								},
 								Archetype: ExtendedArchetype.VIBRATING,
@@ -8955,6 +8955,7 @@ var AssetFemale3DCGExtended = {
 								},
 							},
 							{
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
 									Effect: ["Chaste"],
@@ -9119,6 +9120,7 @@ var AssetFemale3DCGExtended = {
 						Options: [
 							{}, // 0 - open
 							{ // 1 - close front
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
@@ -9132,6 +9134,7 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{ // 3 - close both
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
@@ -9186,6 +9189,7 @@ var AssetFemale3DCGExtended = {
 						Options: [
 							{}, // 0 - open
 							{ // 1 - close front
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
@@ -9198,6 +9202,7 @@ var AssetFemale3DCGExtended = {
 								},
 							},
 							{ // 3 - close both
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
@@ -9259,6 +9264,7 @@ var AssetFemale3DCGExtended = {
 						Options: [
 							{}, // 0 - open
 							{ // 1 - close front
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
@@ -9271,6 +9277,7 @@ var AssetFemale3DCGExtended = {
 								},
 							},
 							{ // 3 - close both
+								Prerequisite: ["CanCoverVulva"],
 								Property: {
 									Effect: ["Chaste"],
 									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
@@ -9315,6 +9322,7 @@ var AssetFemale3DCGExtended = {
 								Expression: [{ Name: "Low", Group: "Blush", Timer: 10 }],
 							},
 							{ // 1 - close front
+								Prerequisite: ["CanCoverVulva"],
 								Expression: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 								Property: {
 									Effect: ["Chaste"],
@@ -9322,6 +9330,7 @@ var AssetFemale3DCGExtended = {
 								},
 							},
 							{ // 2 - close front & vibrator
+								Prerequisite: ["CanCoverVulva"],
 								Expression: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 								Property: {
 									Effect: ["Chaste", "Egged"],
@@ -9329,6 +9338,7 @@ var AssetFemale3DCGExtended = {
 								},
 							},
 							{ // 3 - close front & shock unit
+								Prerequisite: ["CanCoverVulva"],
 								Expression: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 								Property: {
 									Effect: ["Chaste"],
