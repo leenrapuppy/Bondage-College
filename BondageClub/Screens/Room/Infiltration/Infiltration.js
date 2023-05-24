@@ -290,7 +290,7 @@ function InfiltrationPayRansom(Type) {
 		}
 		let C = PrivateAddCharacter(InfiltrationPartyPrisoner, PrisonerArchetype);
 		C.FromPandora = true;
-		NPCEventAdd(C,"LastInteraction",CurrentTime+20000)
+		NPCEventAdd(C,"LastInteraction",CurrentTime+20000);
 		//Set PandoraPrisoner to new private room character and send to interrogation
 		InfiltrationPandoraPrisoner = C;
 		ServerPrivateCharacterSync();
