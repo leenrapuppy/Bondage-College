@@ -3670,9 +3670,9 @@ interface WheelFortuneOptionType {
 
 interface ClubCardPlayer {
 	Character: Character;
-	Control: String;
+	Control: string;
 	Index?: Number;
-	Sleeve?: String;
+	Sleeve?: string;
 	Deck?: Object[];
 	FullDeck?: Object[];
 	Hand?: Object[];

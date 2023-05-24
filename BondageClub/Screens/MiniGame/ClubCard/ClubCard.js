@@ -2,6 +2,7 @@
 var ClubCardBackground = "ClubCardPlayBoard1";
 var ClubCardColor = ["#808080", "#FFFFFF", "#B0FFB0", "#B0B0FF", "#FF80FF", "#FF8080", "#FFD700"];
 var ClubCardOpponent = null;
+var ClubCardHover = null;
 var ClubCardFocus = null;
 var ClubCardTurnIndex = 0;
 var ClubCardFameGoal = 100;
@@ -706,7 +707,7 @@ function ClubCardPlayerDrawCard(CCPlayer, Amount) {
     while (Amount > 0) {
         if (CCPlayer.Deck.length > 0) {
             CCPlayer.Hand.push(CCPlayer.Deck[0]);
-            CCPlayer.Deck = CCPlayer.Deck.splice(0, 1);
+            CCPlayer.Deck.splice(0, 1);
         }
         Amount--;
     }
@@ -739,7 +740,7 @@ function ClubCardAddPlayer(Char, Cont, Cards) {
     let P = {
         Character: {...Char},
         Control: Cont,
-        Deck: ClubCardLoadDeck(Cards),
+        Deck: ClubCardShuffle(ClubCardLoadDeck(Cards)),
         FullDeck: ClubCardLoadDeck(Cards),
         Index: ClubCardPlayer.length,
         Sleeve: "Default",
@@ -764,17 +765,22 @@ function ClubCardLoad() {
     ClubCardAddPlayer(ClubCardOpponent, "AI", ClubCardDefaultDeck.Cards);
 }
 
+function ClubCardRenderBubble(Value, X, Y, W, Image) {
+    DrawImageResize("Screens/MiniGame/ClubCard/Bubble/" + Image + ".png", X, Y - W / 20, W, W);
+    DrawTextWrap(Value, X, Y, W, W, "Black");
+    return Y + W * 1.5;
+}
+
 /**
  * Draw the club card player hand on screen, show only sleeves if not controlled by player
  * @param {Object|Number} Card - The card to draw
  * @param {number} X - The X on screen position
  * @param {number} Y - The Y on screen position
  * @param {number} W - The width of the card
- * @param {number} H - The height of the card
  * @param {string|null} Sleeve - The sleeve image to draw instead of the card
  * @returns {void} - Nothing
  */
-function ClubCardRenderCard(Card, X, Y, W, H, Sleeve = null) {
+function ClubCardRenderCard(Card, X, Y, W, Sleeve = null) {
 
     // Make sure the card object is valid, find it in the list if possible
     if (Card == null) return;
@@ -790,23 +796,31 @@ function ClubCardRenderCard(Card, X, Y, W, H, Sleeve = null) {
 
     // Draw the sleeved version if required
     if (Sleeve != null) {
-        DrawImageResize("Screens/MiniGame/ClubCard/Sleeve/" + Sleeve + ".png", X, Y, W, H);
+        DrawImageResize("Screens/MiniGame/ClubCard/Sleeve/" + Sleeve + ".png", X, Y, W, W * 2);
         return;
     }
+
+    // Keeps the hover card
+    if (MouseIn(X, Y, W, W * 2)) ClubCardHover = Card;
 
     // Gets the text and frame color
     let Level = ((Card.RequiredLevel == null) || (Card.RequiredLevel <= 1)) ? 1 : Card.RequiredLevel;
     let Color = ClubCardColor[(Card.Unique == true) ? 6 : Level];
 
     // Draw the images and texts on the screen
-    DrawImageResize("Screens/MiniGame/ClubCard/Frame/Member" + ((Card.Unique == true) ? "6" : Level.toString()) + ".png", X, Y, W, H);
-    DrawImageResize("Screens/MiniGame/ClubCard/Image/" + Card.Name + ".png", X + W * 0.01, Y + H * 0.01, W * 0.98, H * 0.48);
-	MainCanvas.font = CommonGetFont(Math.round(H / 15));
-    DrawTextWrap(Card.Title, X + W * 0.05, Y + H * 0.05, W * 0.9, H * 0.1, Color);
-    DrawTextWrap(Level.toString(), X + W * 0.05, Y + H * 0.15, W * 0.3, H * 0.1, Color);
-    if (Card.FamePerTurn != null) DrawTextWrap(Card.FamePerTurn.toString(), X + W * 0.35, Y + H * 0.15, W * 0.3, H * 0.1, Color);
-    if (Card.MoneyPerTurn != null) DrawTextWrap(Card.MoneyPerTurn.toString(), X + W * 0.65, Y + H * 0.15, W * 0.3, H * 0.1, Color);
-    if (Card.Text != null) DrawTextWrap(Card.Text, X + W * 0.05, Y + H * 0.75, W * 0.9, H * 0.2, Color);
+    DrawImageResize("Screens/MiniGame/ClubCard/Frame/Member" + ((Card.Unique == true) ? "6" : Level.toString()) + ".png", X, Y, W, W * 2);
+    DrawImageResize("Screens/MiniGame/ClubCard/Card/" + Card.Name + ".png", X + W * 0.05, Y + W * 0.18, W * 0.9, W * 1.8);
+	MainCanvas.font = "bold " + Math.round(W / 12) + "px arial";
+    DrawTextWrap(Card.Title, X + W * 0.05, Y + W * 0.05, W * 0.9, W * 0.1, "Black");
+    let BubblePos = Y + W * 0.2;
+    if (Level > 1) BubblePos = ClubCardRenderBubble(Level.toString(), X + W * 0.05, BubblePos, W * 0.1, "Level");
+    if (Card.FamePerTurn != null) BubblePos = ClubCardRenderBubble(Card.FamePerTurn.toString(), X + W * 0.05, BubblePos, W * 0.1, "Fame");
+    if (Card.MoneyPerTurn != null) BubblePos = ClubCardRenderBubble(Card.MoneyPerTurn.toString(), X + W * 0.05, BubblePos, W * 0.1, "Money");
+    if (Card.Text != null) {
+        MainCanvas.font = ((Card.Text.startsWith("<F>")) ? "italic " : "") + Math.round(W / 12) + "px arial";
+        DrawRect(X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.48, Color + "80");
+        DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.48, "Black");
+    }
 	MainCanvas.font = CommonGetFont(36);
 
 }
@@ -830,7 +844,7 @@ function ClubCardRenderBoard(CCPlayer, X, Y, W, H, TextY) {
     if ((CCPlayer == null) || (CCPlayer.Board == null)) return;
     let PosX = X;
     for (let C of CCPlayer.Board) {
-        ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 7) - 5, H * 0.8);
+        ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 7) - 5);
         PosX = PosX + (W / ((CCPlayer.Board.length >= 8) ? CCPlayer.Board.length : 7));
     }
 	MainCanvas.font = CommonGetFont(36);
@@ -838,7 +852,7 @@ function ClubCardRenderBoard(CCPlayer, X, Y, W, H, TextY) {
 
 /**
  * Draw the club card player hand on screen, show only sleeves if not controlled by player
- * @param {Object} CCPlayer - The club card player that draws it's hand
+ * @param {ClubCardPlayer} CCPlayer - The club card player that draws it's hand
  * @param {number} X - The X on screen position
  * @param {number} Y - The Y on screen position
  * @param {number} W - The width of the game board
@@ -847,11 +861,15 @@ function ClubCardRenderBoard(CCPlayer, X, Y, W, H, TextY) {
  */
  function ClubCardRenderHand(CCPlayer, X, Y, W, H) {
     if ((CCPlayer == null) || (CCPlayer.Hand == null)) return;
-    let PosX = X + (W / 2) - (CCPlayer.Hand.length * W / 16);
-    if (PosX < X + W * 0.25) PosX = X + W * 0.25;
+    let PosX = Math.round(X + (W / 2) - (CCPlayer.Hand.length * W / 16));
+    let IncX = Math.round(W / 8);
+    if (PosX < X) {
+        PosX = X;
+        IncX = Math.round(W / CCPlayer.Hand.length);
+    }
     for (let C of CCPlayer.Hand) {
-        ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 7) - 5, H * 0.8, (CCPlayer.Control == "Player") ? null : CCPlayer.Sleeve);
-        PosX = PosX + ((W / ((CCPlayer.Board.length >= 8) ? CCPlayer.Board.length : 7)) / 2);
+        ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 10) - 5, (CCPlayer.Control == "Player") ? null : CCPlayer.Sleeve);
+        PosX = PosX + IncX;
     }
 }
 
@@ -869,12 +887,14 @@ function ClubCardRun() {
         }
 
     // Render the controls
+    ClubCardHover = null;
     let Width = (ClubCardFocus == null) ? 2000 : 1500;
-    ClubCardRenderBoard(ClubCardPlayer[0], 0, 500, Width, 500, 525);
-    ClubCardRenderBoard(ClubCardPlayer[1], 0, 0, Width, 500, 475);
+    ClubCardRenderBoard(ClubCardPlayer[0], 0, 500, Width, 500, 500);
+    ClubCardRenderBoard(ClubCardPlayer[1], 0, 0, Width, 500, 440);
+    DrawRect(0, 499, 2000, 2, "White");
     ClubCardRenderHand(ClubCardPlayer[0], 0, 750, Width, 300);
     ClubCardRenderHand(ClubCardPlayer[1], 0, -250, Width, 300);
-    ClubCardRenderCard(ClubCardFocus, 1500, 0, 500, 1000);
+    ClubCardRenderCard(ClubCardFocus, 1500, 0, 500);
 
 }
 
@@ -883,4 +903,6 @@ function ClubCardRun() {
  * @returns {void} - Nothing
  */
 function ClubCardClick() {
+    if ((ClubCardFocus != null) && (MouseX >= 1500)) return ClubCardFocus = null;
+    if (ClubCardHover != null) ClubCardFocus = ClubCardHover;
 }
