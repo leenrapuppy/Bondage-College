@@ -424,34 +424,34 @@ var AssetFemale3DCGExtended = {
 		LatexTankTop: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Modules: [
-					{
-						Name: "BackHood", Key: "lh",
-						Options:[
-							{ // lh0 - None
-								Property: { Effect: [] }
-							},
-							{ // lh1 - Down
-								Property: { Effect: [] }
-							},
-							{ // lh2 - Pulled Up
-								Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat"] }
-							},
-						]
-					},
-					{
-						Name: "ReverseHood", Key: "rh",
-						Options:[
-							{ // rh0 - None
-								Property: { Effect: [] }
-							},
-							{ // rh1 - Loose
-								Property: { Effect: [] }
-							},
-							{ // rh2 - Pulled Up
-								Property: {
-									Effect: ["Slow"],
-									Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Head"],
-								}
+				{
+					Name: "BackHood", Key: "lh",
+					Options:[
+						{ // lh0 - None
+							Property: { Effect: [] }
+						},
+						{ // lh1 - Down
+							Property: { Effect: [] }
+						},
+						{ // lh2 - Pulled Up
+							Property: { Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat"] }
+						},
+					]
+				},
+				{
+					Name: "ReverseHood", Key: "rh",
+					Options:[
+						{ // rh0 - None
+							Property: { Effect: [] }
+						},
+						{ // rh1 - Loose
+							Property: { Effect: [] }
+						},
+						{ // rh2 - Pulled Up
+							Property: {
+								Effect: ["Slow"],
+								Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Hat", "Head"],
+							}
 
 						}
 					]
