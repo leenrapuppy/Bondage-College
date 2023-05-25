@@ -6,6 +6,18 @@ Level4,Mansion
 Level5,Manor
 Fame,Fame:
 Money,Money:
+PlayCard,Play this card
+EndDraw,End by drawing
+PlayerTurn,Your opponent ends.  It's your turn.
+PlayerTurnEndDraw,Your opponent ends by drawing.  It's your turn.
+OtherTurn,It's now your opponent turn.
+FirstPlayerTurn,You were chosen to start the game.
+FirstOtherTurn,Your opponent will start the game.
+PlayerTurnButton,Draw your card
+PlayerTurnEndDrawButton,Draw your card
+OtherTurnButton,Watch her draw
+FirstPlayerTurnButton,Do the first draw
+FirstOtherTurnButton,Watch her start
 Title Kinky Neighbor,Kinky Neighbor
 Text Kinky Neighbor,+1 Money per turn if Cute Girl Next Door is present.
 Title Cute Girl Next Door,Cute Girl Next Door

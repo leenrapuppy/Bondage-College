@@ -4,12 +4,17 @@ var ClubCardColor = ["#808080", "#FFFFFF", "#B0FFB0", "#B0B0FF", "#FF80FF", "#FF
 var ClubCardOpponent = null;
 var ClubCardHover = null;
 var ClubCardFocus = null;
+var ClubCardFirstTurn = true;
 var ClubCardTurnIndex = 0;
+var ClubCardTurnPhase = "Draw";
+var ClubCardTurnEndDraw = false;
 var ClubCardFameGoal = 100;
 var ClubCardDefaultDeck = {
 	Name: "DEFAULT",
 	Cards: [1000, 1001, 1002, 1003, 1004, 1006, 1007, 1008, 2000, 2001, 2002, 2003, 4000, 4002, 4003, 4004, 4005, 6000, 6001, 6002, 6003, 6004, 8000, 8001, 8002, 8003, 8004, 9000, 9001, 9002]
 };
+var ClubCardLevelLimit = [0, 4, 7, 12, 20, 1000000];
+var ClubCardLevelCost = [0, 10, 20, 40, 80, 1000000];
 /** @type {ClubCardPlayer[]} */
 var ClubCardPlayer = [];
 var ClubCardList = [
@@ -701,7 +706,7 @@ function ClubCardShuffle(array) {
  * @param {number|null} Amount - The amount of cards to draw, 1 if null
  * @returns {void} - Nothing
  */
-function ClubCardPlayerDrawCard(CCPlayer, Amount) {
+function ClubCardPlayerDrawCard(CCPlayer, Amount = 1) {
 	if ((CCPlayer == null) || (CCPlayer.Deck == null) || (CCPlayer.Hand == null)) return;
 	if (Amount == null) Amount = 1;
 	while (Amount > 0) {
@@ -759,15 +764,26 @@ function ClubCardAddPlayer(Char, Cont, Cards) {
  * @returns {void} - Nothing
  */
 function ClubCardLoad() {
+	ClubCardFirstTurn = true;
+	ClubCardTurnPhase = "Draw";
 	ClubCardTurnIndex = Math.floor(Math.random() * 2);
 	ClubCardPlayer = [];
 	ClubCardAddPlayer(Player, "Player", ClubCardDefaultDeck.Cards);
 	ClubCardAddPlayer(ClubCardOpponent, "AI", ClubCardDefaultDeck.Cards);
 }
 
+/**
+ * Draw the club card player hand on screen, show only sleeves if not controlled by player
+ * @param {Number} Value - The card to draw
+ * @param {number} X - The X on screen position
+ * @param {number} Y - The Y on screen position
+ * @param {number} W - The width of the card
+ * @param {string} Image - The buble 
+ * @returns {Number} - The next bubble Y position
+ */
 function ClubCardRenderBubble(Value, X, Y, W, Image) {
 	DrawImageResize("Screens/MiniGame/ClubCard/Bubble/" + Image + ".png", X, Y - W / 20, W, W);
-	DrawTextWrap(Value, X, Y, W, W, "Black");
+	DrawTextWrap(Value.toString(), X, Y, W, W, "Black");
 	return Y + W * 1.5;
 }
 
@@ -778,9 +794,10 @@ function ClubCardRenderBubble(Value, X, Y, W, Image) {
  * @param {number} Y - The Y on screen position
  * @param {number} W - The width of the card
  * @param {string|null} Sleeve - The sleeve image to draw instead of the card
+ * @param {string|null} Source - The source from where it's called
  * @returns {void} - Nothing
  */
-function ClubCardRenderCard(Card, X, Y, W, Sleeve = null) {
+function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 
 	// Make sure the card object is valid, find it in the list if possible
 	if (Card == null) return;
@@ -801,7 +818,10 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null) {
 	}
 
 	// Keeps the hover card
-	if (MouseIn(X, Y, W, W * 2)) ClubCardHover = Card;
+	if (MouseIn(X, Y, W, W * 2)) {
+		ClubCardHover = {...Card};
+		ClubCardHover.Source = Source;
+	}
 
 	// Gets the text and frame color
 	let Level = ((Card.RequiredLevel == null) || (Card.RequiredLevel <= 1)) ? 1 : Card.RequiredLevel;
@@ -837,10 +857,10 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null) {
  */
 function ClubCardRenderBoard(CCPlayer, X, Y, W, H, TextY) {
 	MainCanvas.font = CommonGetFont(Math.round(H / 20));
-	if (CCPlayer.Character != null) DrawTextWrap(CharacterNickname(CCPlayer.Character), X + W * 0.01, TextY + H * 0.01, W * 0.23, H * 0.1, "White");
-	if (CCPlayer.Fame != null) DrawTextWrap(TextGet("Fame") + " " + CCPlayer.Fame, X + W * 0.26, TextY + H * 0.01, W * 0.23, H * 0.1, (CCPlayer.Fame >= 0) ? "White" : "Pink");
-	if (CCPlayer.Money != null) DrawTextWrap(TextGet("Money") + " " + CCPlayer.Money, X + W * 0.51, TextY + H * 0.01, W * 0.23, H * 0.1, (CCPlayer.Money >= 0) ? "White" : "Pink");
-	if (CCPlayer.Level != null) DrawTextWrap(TextGet("Level" + CCPlayer.Level), X + W * 0.76, TextY + H * 0.01, W * 0.23, H * 0.1, (CCPlayer.Money >= 0) ? "White" : "Pink");
+	if (CCPlayer.Character != null) DrawTextWrap(CharacterNickname(CCPlayer.Character), X + W * 0.01, TextY + H * 0.01, W * 0.19, H * 0.1, "White");
+	if (CCPlayer.Fame != null) DrawTextWrap(TextGet("Fame") + " " + CCPlayer.Fame, X + W * 0.21, TextY + H * 0.01, W * 0.19, H * 0.1, (CCPlayer.Fame >= 0) ? "White" : "Pink");
+	if (CCPlayer.Money != null) DrawTextWrap(TextGet("Money") + " " + CCPlayer.Money, X + W * 0.61, TextY + H * 0.01, W * 0.19, H * 0.1, (CCPlayer.Money >= 0) ? "White" : "Pink");
+	if (CCPlayer.Level != null) DrawTextWrap(TextGet("Level" + CCPlayer.Level) + " (" + CCPlayer.Board.length + " / " + ClubCardLevelLimit[CCPlayer.Level] + ")", X + W * 0.81, TextY + H * 0.01, W * 0.19, H * 0.1, ClubCardColor[CCPlayer.Level]);
 	if ((CCPlayer == null) || (CCPlayer.Board == null)) return;
 	let PosX = X;
 	for (let C of CCPlayer.Board) {
@@ -868,9 +888,21 @@ function ClubCardRenderHand(CCPlayer, X, Y, W, H) {
 		IncX = Math.round(W / CCPlayer.Hand.length);
 	}
 	for (let C of CCPlayer.Hand) {
-		ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 10) - 5, (CCPlayer.Control == "Player") ? null : CCPlayer.Sleeve);
+		ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 10) - 5, (CCPlayer.Control == "Player") ? null : CCPlayer.Sleeve, (CCPlayer.Control == "Player") ? "PlayerHand" : "OtherHand");
 		PosX = PosX + IncX;
 	}
+}
+
+/**
+ * Returns TRUE if a specific card can be played by the player
+ * @param {ClubCardPlayer} CCPlayer - The club card player
+ * @param {Object} Card - The card to play
+ * @returns {boolean} - TRUE if the card can be played
+ */
+function ClubCardCanPlayCard(CCPlayer, Card) {
+	if ((CCPlayer == null) || (Card == null) || (Card.Source == null)) return;
+	if ((Card.RequiredLevel != null) && (CCPlayer.Level != null) && (Card.RequiredLevel > CCPlayer.Level)) return;
+	return true;
 }
 
 /**
@@ -894,8 +926,45 @@ function ClubCardRun() {
 	DrawRect(0, 499, 2000, 2, "White");
 	ClubCardRenderHand(ClubCardPlayer[0], 0, 750, Width, 300);
 	ClubCardRenderHand(ClubCardPlayer[1], 0, -250, Width, 300);
-	ClubCardRenderCard(ClubCardFocus, 1500, 0, 500);
+	ClubCardRenderCard(ClubCardFocus, 1500, 5, 495);
 
+	// Render the "Draw" popup
+	if (ClubCardTurnPhase == "Draw") {
+		let X = (ClubCardFocus == null) ? 850 : 600;
+		DrawRect(X, 350, 300, 300, "Black");
+		DrawEmptyRect(X, 350, 300, 300, "White", 2);
+		let Text = (ClubCardFirstTurn ? "First" : "") + ((ClubCardTurnIndex == 0) ? "PlayerTurn" : "OtherTurn");
+		if (!ClubCardFirstTurn && ClubCardTurnEndDraw && (ClubCardTurnIndex == 0)) Text = Text + "EndDraw";
+		DrawTextWrap(TextGet(Text), X + 20, 360, 280, 200, "White");
+		DrawButton(X + 10, 580, 280, 60, TextGet(Text + "Button"), "White");
+	}
+
+	// Render the "End Turn" button
+	if ((ClubCardTurnPhase == "Play") && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) {
+		DrawButton(((ClubCardFocus == null) ? 860 : 610), 470, 280, 60, TextGet("EndDraw"), "White");
+		if (ClubCardCanPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus)) DrawButton(1600, 470, 300, 60, TextGet("PlayCard"), "White");
+	}
+
+}
+
+/**
+ * When the AI plays it's move
+ * @returns {void} - Nothing
+ */
+function ClubCardEndTurn(Draw = false) {
+	ClubCardTurnEndDraw = Draw;
+	if (Draw) ClubCardPlayerDrawCard(ClubCardPlayer[ClubCardTurnIndex]);
+	ClubCardTurnIndex++;
+	if (ClubCardTurnIndex >= ClubCardPlayer.length) ClubCardTurnIndex = 0;
+	ClubCardTurnPhase = "Draw";
+}
+
+/**
+ * When the AI plays it's move
+ * @returns {void} - Nothing
+ */
+function ClubCardAIPlay() {
+	ClubCardEndTurn(true);
 }
 
 /**
@@ -904,5 +973,16 @@ function ClubCardRun() {
  */
 function ClubCardClick() {
 	if ((ClubCardFocus != null) && (MouseX >= 1500)) return ClubCardFocus = null;
-	if (ClubCardHover != null) ClubCardFocus = ClubCardHover;
+	if (ClubCardHover != null) return ClubCardFocus = {...ClubCardHover};
+	if ((ClubCardTurnPhase == "Draw") && MouseIn(((ClubCardFocus == null) ? 860 : 610), 580, 280, 60)) {
+		ClubCardFirstTurn = false;
+		ClubCardPlayerDrawCard(ClubCardPlayer[ClubCardTurnIndex]);
+		ClubCardTurnPhase = "Play";
+		if (ClubCardPlayer[ClubCardTurnIndex].Control == "AI")
+			setTimeout(ClubCardAIPlay, 2000);
+		return;
+	}
+	if ((ClubCardTurnPhase == "Play") && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && MouseIn(((ClubCardFocus == null) ? 860 : 610), 470, 280, 60)) {
+		ClubCardEndTurn(true);
+	}
 }
