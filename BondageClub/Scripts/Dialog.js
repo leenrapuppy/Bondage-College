@@ -799,10 +799,15 @@ function DialogMenuBack() {
 	switch (DialogMenuMode) {
 		case "activities":
 		case "colorItem":
-		case "colorDefault":
 		case "crafted":
 		case "locked":
 		case "locking":
+			DialogChangeMode("items");
+			break;
+
+		case "colorDefault":
+			DialogColorSelect = null;
+			ElementRemove("InputColor");
 			DialogChangeMode("items");
 			break;
 
@@ -1171,8 +1176,8 @@ function DialogMenuButtonBuild(C) {
 
 	DialogMenuButton = [];
 
-	// The "Exit" button is always available
-	if (!["colorDefault", "colorExpression", "colorItem"].includes(DialogMenuMode))
+	// Hide "Exit" button for the screens where
+	if (!["colorExpression", "colorItem"].includes(DialogMenuMode))
 		DialogMenuButton = ["Exit"];
 
 	// There's no group focused, hence no menu to draw
