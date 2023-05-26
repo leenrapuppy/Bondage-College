@@ -370,10 +370,7 @@ function ModularItemCreateClickBaseFunction(data) {
 		ModularItemClickCommon(
 			DrawData,
 			() => {
-				ExtendedItemExit();
-				// The item's lock may have been automatically removed in a module change, so rebuild buttons
-				DialogInventoryBuild(CharacterGetCurrent(), DialogInventoryOffset);
-				DialogMenuButtonBuild(CharacterGetCurrent());
+				DialogLeaveFocusItem();
 			},
 			i => {
 				const pageNumber = Math.min(DrawData.pageCount - 1, data.pages[ModularItemBase] || 0);
@@ -679,9 +676,7 @@ function ModularItemSetType(module, index, data) {
 			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<ModularItemOption>>} */
 			const args = [C, DialogFocusItem, newOption, previousOption];
 			CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
-		} else if (C.ID === 0) {
-			DialogMenuButtonBuild(C);
-		} else {
+		} else if (!C.IsPlayer()) {
 			C.CurrentDialog = DialogFind(C, data.key + DialogFocusItem.Property.Type, groupName);
 		}
 	}

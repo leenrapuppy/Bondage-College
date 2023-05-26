@@ -53,7 +53,4 @@ function InventoryItemMiscTimerPadlockReset() {
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemMiscTimerPadlockExit() {
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
-}
+function InventoryItemMiscTimerPadlockExit() {}

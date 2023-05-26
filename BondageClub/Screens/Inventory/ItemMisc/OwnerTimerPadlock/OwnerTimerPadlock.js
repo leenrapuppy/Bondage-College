@@ -167,9 +167,4 @@ function InventoryItemMiscOwnerTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToLi
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemMiscOwnerTimerPadlockExit() {
-	DialogFocusItem = null;
-	if (DialogInventory != null) {
-		DialogMenuButtonBuild(CharacterGetCurrent());
-	}
-}
+function InventoryItemMiscOwnerTimerPadlockExit() {}

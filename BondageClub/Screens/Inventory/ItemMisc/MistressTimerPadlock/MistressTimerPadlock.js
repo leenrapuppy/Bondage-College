@@ -156,9 +156,4 @@ function InventoryItemMiscMistressTimerPadlockAdd(TimeToAdd, PlayerMemberNumberT
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemMiscMistressTimerPadlockExit() {
-	DialogFocusItem = null;
-	if (DialogInventory != null) {
-		DialogMenuButtonBuild(CharacterGetCurrent());
-	}
-}
+function InventoryItemMiscMistressTimerPadlockExit() {}

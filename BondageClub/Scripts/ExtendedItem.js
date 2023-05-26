@@ -715,11 +715,10 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
  *     ChatRoomPublishCustomAction(Name, false, Dictionary);
  * }
  * @param {string} Name - Tag of the action to send
- * @param {Character} C - The affected character
  * @param {ChatMessageDictionary | null} Dictionary - Dictionary of tags and data to send to the room (if any).
  * @returns {void} Nothing
  */
-function ExtendedItemCustomExit(Name, C, Dictionary=null) {
+function ExtendedItemCustomExit(Name, Dictionary=null) {
 	// The logic below is largely adapted from the exiting functionality within `TypedItemSetType`
 	if (ServerPlayerIsInChatRoom()) {
 		if (Dictionary != null) {
@@ -728,12 +727,7 @@ function ExtendedItemCustomExit(Name, C, Dictionary=null) {
 			DialogLeave();
 		}
 	} else {
-		ExtendedItemExit();
-		if (C.ID === Player.ID) {
-			DialogMenuButtonBuild(C);
-		} else {
-			C.FocusGroup = null;
-		}
+		DialogLeaveFocusItem();
 	}
 }
 

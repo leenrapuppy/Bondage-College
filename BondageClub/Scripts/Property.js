@@ -202,7 +202,7 @@ function PropertyShockPublishAction(C=null, Item=DialogFocusItem, Automatic=fals
 
 	// Exit the dialog menu when triggering a manual shock
 	if (!Automatic) {
-		ExtendedItemCustomExit(ActionTag, C, null);
+		ExtendedItemCustomExit(ActionTag);
 	}
 }
 

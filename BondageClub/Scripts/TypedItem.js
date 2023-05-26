@@ -713,9 +713,7 @@ function TypedItemSetType(data, C, newOption) {
 			/** @type {Parameters<ExtendedItemCallbacks.PublishAction<T>>} */
 			const args = [C, DialogFocusItem, newOption, previousOption];
 			CommonCallFunctionByName(`${FunctionPrefix}PublishAction`, ...args);
-		} else if (C.IsPlayer()) {
-			DialogMenuButtonBuild(C);
-		} else {
+		} else if (!C.IsPlayer()) {
 			CommonCallFunctionByName(`${FunctionPrefix}NpcDialog`, C, newOption, previousOption);
 		}
 	}
