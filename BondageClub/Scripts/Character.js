@@ -1195,37 +1195,65 @@ function CharacterRefresh(C, Push, RefreshDialog = true) {
  * @returns {void} - Nothing
  */
 function CharacterRefreshDialog(C) {
-	if (DialogFocusItem && DialogFocusItem.Asset) {
-		if (!DialogFocusItem.Asset.IsLock) {
-			let DFI = C.Appearance.find(Item =>
-				Item.Asset.Name == DialogFocusItem.Asset.Name && Item.Asset.Group.Name == DialogFocusItem.Asset.Group.Name
-			);
-			if (!DFI) DialogLeaveFocusItem();
-			else {
-				DialogFocusItem = DFI;
-				if (DialogFocusItem.Asset.Extended)
-					DialogExtendItem(DFI);
-			}
-		} else {
-			const DFSI = DialogFocusSourceItem && DialogFocusSourceItem.Asset && C.Appearance.find(Item =>
-				Item.Asset.Name == DialogFocusSourceItem.Asset.Name && Item.Asset.Group.Name == DialogFocusSourceItem.Asset.Group.Name
-			);
-			const Lock = DFSI && InventoryGetLock(DFSI);
-			if (!DFSI || !Lock) DialogLeaveFocusItem();
-			else DialogExtendItem(Lock, DFSI);
+	// Get a reference to the currently focused item
+	const focusItem = C && C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
+
+	if (DialogMenuMode === "items" || DialogMenuMode === "activities" || DialogMenuMode === "permissions") {
+		// We were looking at some inventory, reload it to update the UI
+		DialogChangeMode(DialogMenuMode);
+	} else if (DialogMenuMode === "extended" || DialogMenuMode === "tighten") {
+		if (!focusItem) {
+			// Focused item was removed
+			DialogLeaveFocusItem();
+			return;
 		}
-	} else if (DialogFocusItem) DialogLeaveFocusItem();
-	if (!DialogFocusItem) {
-		DialogInventoryBuild(C, DialogInventoryOffset, !!DialogFocusSourceItem);
-		DialogBuildActivities(C);
-	}
-	if (DialogMenuMode === "colorItem" || DialogMenuMode === "colorExpression") {
-		const FocusItem = C && C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
-		if ((ItemColorItem && !FocusItem) || (!ItemColorItem && FocusItem) || InventoryGetItemProperty(ItemColorItem, "Name") !== InventoryGetItemProperty(FocusItem, "Name")) {
+
+		// We were looking at an extended screen
+		const wasLock = DialogFocusItem.Asset.IsLock;
+		const sourceItem = wasLock ? DialogFocusSourceItem : DialogFocusItem;
+		const previousItem = sourceItem ? InventoryGet(C, sourceItem.Asset.Group.Name) : null;
+		if (!previousItem || previousItem.Asset.Name !== focusItem.Asset.Name) {
+			// Unable to reload the source item, or it's different now
+			DialogLeaveFocusItem();
+			return;
+		}
+
+		const lock = InventoryGetLock(focusItem);
+		if (wasLock && !lock) {
+			// The lock on the focused item was removed
+			DialogLeaveFocusItem();
+			return;
+		} else if (!focusItem.Asset.Extended) {
+			// Shouldn't happen but we don't want to open an extended screen on that
+			DialogChangeMode("items");
+			return;
+		}
+
+		// Replace the focus items from underneath us so we get the updated data
+		if (wasLock) {
+			DialogFocusItem = lock;
+			DialogFocusSourceItem = focusItem;
+		} else {
+			DialogFocusItem = focusItem;
+		}
+
+	} else if (DialogMenuMode === "colorItem") {
+		const itemRemovedOrDifferent = !focusItem || InventoryGetItemProperty(ItemColorItem, "Name") !== InventoryGetItemProperty(focusItem, "Name");
+		if (itemRemovedOrDifferent) {
 			ItemColorCancelAndExit();
 			DialogChangeMode("items");
-			DialogColorSelect = null;
+			return;
 		}
+	} else if (DialogMenuMode === "locking" || DialogMenuMode === "locked") {
+		if (!focusItem || !DialogCanCheckLock(C, focusItem)) {
+			// Focused item was removed, or lost its lock
+			DialogChangeMode("items");
+		} else {
+			// Refresh by resetting the mode
+			DialogChangeMode(DialogMenuMode);
+		}
+	} else if (DialogMenuMode === "crafted") {
+		// Automatically updates in DialogDraw()
 	}
 }
 
