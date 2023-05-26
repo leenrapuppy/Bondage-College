@@ -328,11 +328,8 @@ function ControllerButton(buttons) {
 			if (buttons[ControllerB].pressed == true) {
 				if (CurrentScreenFunctions.Exit) {
 					CurrentScreenFunctions.Exit();
-				} else if ((CurrentCharacter != null) && Array.isArray(DialogMenuButton) && (DialogMenuButton.indexOf("Exit") >= 0)) {
-					if (!DialogLeaveFocusItem())
-						DialogLeaveItemMenu();
-				} else if ((CurrentCharacter != null) && (CurrentScreen == "ChatRoom")) {
-					DialogLeave();
+				} else if (CurrentCharacter != null) {
+					DialogMenuBack();
 				} else if ((CurrentCharacter == null) && (CurrentScreen == "ChatRoom") && (document.getElementById("TextAreaChatLog") != null)) {
 					ElementScrollToEnd("TextAreaChatLog");
 				}

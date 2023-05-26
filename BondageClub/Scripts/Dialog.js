@@ -816,7 +816,7 @@ function DialogMenuBack() {
 			break;
 
 		case "dialog":
-			// That's handled in DialogClick via DialogLeave
+			DialogLeave();
 			break;
 
 		case "extended":
@@ -874,7 +874,6 @@ function DialogLeaveItemMenu() {
 /**
  * Leaves the item menu of the focused item. Constructs a function name from the
  * item's asset group name and the item's name and tries to call that.
- * @returns {boolean} - Returns true, if an item specific exit function was called, false otherwise
  */
 function DialogLeaveFocusItem() {
 	if (DialogTightenLoosenItem != null) {
@@ -884,15 +883,10 @@ function DialogLeaveFocusItem() {
 			DialogChangeMode("extended");
 		else
 			DialogChangeMode("items");
-	} else {
-		if (DialogFocusItem != null) {
-			const FuncName = ExtendedItemFunctionPrefix() + "Exit";
-			ExtendedItemExit();
-			DialogChangeMode("items");
-			return (typeof window[FuncName] === "function");
-		}
+	} else if (DialogFocusItem != null) {
+		ExtendedItemExit();
+		DialogChangeMode("items");
 	}
-	return false;
 }
 
 /**
@@ -2114,7 +2108,7 @@ function DialogClick() {
 	if (DialogMenuMode === "dialog") {
 		// If we need to leave the dialog (only allowed when there's an entry point to the dialog, not in the middle of a conversation)
 		if (MouseIn(1885, 25, 90, 90) && DialogIntro() != "" && DialogIntro() != "NOEXIT")
-			DialogLeave();
+			DialogMenuBack();
 
 		// If the user clicked on a text dialog option, we trigger it
 		if (MouseIn(1025, 100, 950, 890) && CurrentCharacter != null) {
