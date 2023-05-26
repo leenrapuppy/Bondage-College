@@ -57,7 +57,7 @@ function InventoryItemMiscTimerPasswordPadlockDraw() {
 		!DialogFocusSourceItem.Property ||
 		DialogFocusSourceItem.Property.RemoveTimer < CurrentTime
 	) {
-		return InventoryItemMiscTimerPasswordPadlockExit();
+		return DialogLeaveFocusItem();
 	}
 
 	const Property = DialogFocusSourceItem.Property;
@@ -147,7 +147,7 @@ function InventoryItemMiscTimerPasswordPadlockDraw() {
 function InventoryItemMiscTimerPasswordPadlockClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemMiscTimerPasswordPadlockExit();
+		DialogLeaveFocusItem();
 	}
 
 	if (!DialogFocusSourceItem) return;
@@ -157,9 +157,11 @@ function InventoryItemMiscTimerPasswordPadlockClick() {
 	if (InventoryGroupIsBlocked(C, C.FocusGroup.Name)) return;
 
 	if (InventoryItemMiscPasswordPadlockIsSet() && MouseIn(1775, 575, 200, 64)) {
-		InventoryItemMiscPasswordPadlockHandleOpenClick(InventoryItemMiscTimerPasswordPadlockExit);
+		InventoryItemMiscPasswordPadlockHandleOpenClick();
+		DialogLeaveFocusItem();
 	} else if (MouseIn(1765, 591, 200, 64)) {
-		InventoryItemMiscPasswordPadlockHandleFirstSet(InventoryItemMiscTimerPasswordPadlockExit);
+		InventoryItemMiscPasswordPadlockHandleFirstSet();
+		DialogLeaveFocusItem();
 	}
 
 	if (!Player.CanInteract()) return;
@@ -249,7 +251,7 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 		CharacterRefresh(C);
 	}
 
-	InventoryItemMiscTimerPasswordPadlockExit();
+	DialogLeaveFocusItem();
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */

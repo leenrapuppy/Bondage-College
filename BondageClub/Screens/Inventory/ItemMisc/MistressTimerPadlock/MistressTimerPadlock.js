@@ -23,7 +23,7 @@ function InventoryItemMiscMistressTimerPadlockDraw() {
 	const property = DialogFocusSourceItem.Property;
 
 	if (!DialogFocusItem || property.RemoveTimer < CurrentTime) {
-		InventoryItemMiscMistressTimerPadlockExit();
+		DialogLeaveFocusItem();
 		return;
 	}
 
@@ -71,7 +71,7 @@ function InventoryItemMiscMistressTimerPadlockDraw() {
 /** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscMistressTimerPadlockClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemMiscMistressTimerPadlockExit();
+		DialogLeaveFocusItem();
 		return;
 	}
 
@@ -150,9 +150,8 @@ function InventoryItemMiscMistressTimerPadlockAdd(TimeToAdd, PlayerMemberNumberT
 
 		ChatRoomPublishCustomAction(msg, true, dictionary);
 	} else {
-		CharacterRefresh(C);
+		DialogLeaveFocusItem();
 	}
-	InventoryItemMiscMistressTimerPadlockExit();
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */

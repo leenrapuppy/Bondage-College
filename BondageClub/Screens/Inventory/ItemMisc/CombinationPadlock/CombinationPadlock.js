@@ -139,25 +139,13 @@ function InventoryItemMiscCombinationPadlockDraw() {
 	}
 }
 
-
-function InventoryItemMiscCombinationPadlockUnlock(C, Item) {
-	delete Item.Property.CombinationNumber;
-	for (let A = 0; A < C.Appearance.length; A++) {
-		if (C.Appearance[A].Asset.Group.Name == C.FocusGroup.Name)
-			C.Appearance[A] = Item;
-	}
-	InventoryUnlock(C, C.FocusGroup.Name);
-	if (ChatRoomPublishAction(C, "ActionUnlock", Item, null))
-		DialogLeave();
-}
-
 /** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscCombinationPadlockClick() {
 	var C = CharacterGetCurrent();
 
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemMiscCombinationPadlockExit();
+		DialogLeaveFocusItem();
 	}
 
 	// If the zone is blocked, cannot interact with the lock
@@ -166,8 +154,8 @@ function InventoryItemMiscCombinationPadlockClick() {
 	// Opens the padlock
 	if (MouseIn(1600, 771, 350, 64)) {
 		if (ElementValue("CombinationNumber") == DialogFocusSourceItem.Property.CombinationNumber) {
-			InventoryItemMiscCombinationPadlockUnlock(C, DialogFocusSourceItem);
-			InventoryItemMiscCombinationPadlockExit();
+			CommonPadlockUnlock(C, DialogFocusSourceItem);
+			DialogLeaveFocusItem();
 		}
 
 		// Send fail message if online
@@ -179,7 +167,6 @@ function InventoryItemMiscCombinationPadlockClick() {
 				.text("CombinationNumber", ElementValue("CombinationNumber"))
 				.build();
 			ChatRoomPublishCustomAction("CombinationFail", true, Dictionary);
-			InventoryItemMiscCombinationPadlockExit();
 		} else { DialogExtendedMessage = "CombinationError"; }
 	}
 	// Changes the code
@@ -201,10 +188,8 @@ function InventoryItemMiscCombinationPadlockClick() {
 						.focusGroup(C.FocusGroup.Name)
 						.build();
 					ChatRoomPublishCustomAction("CombinationChangeSuccess", true, Dictionary);
-					InventoryItemMiscCombinationPadlockExit();
 				} else {
-					CharacterRefresh(C);
-					InventoryItemMiscCombinationPadlockExit();
+					DialogLeaveFocusItem();
 				}
 			} else { DialogExtendedMessage = "CombinationErrorInput"; }
 		}
@@ -217,7 +202,6 @@ function InventoryItemMiscCombinationPadlockClick() {
 				.build();
 
 			ChatRoomPublishCustomAction("CombinationChangeFail", true, Dictionary);
-			InventoryItemMiscCombinationPadlockExit();
 		} else { DialogExtendedMessage = "CombinationError"; }
 	}
 }

@@ -2036,8 +2036,7 @@ function DialogChangeFocusToGroup(C, Group) {
 	// Deselect any extended screen and color picking in progress
 	// It's done without calling DialogLeaveFocusItem() so it
 	// acts as cancelling out of a in-progress edit.
-	DialogFocusItem = null;
-	DialogTightenLoosenItem = null;
+	DialogLeaveFocusItem();
 	if (DialogMenuMode === "colorExpression" || DialogMenuMode === "colorItem")
 		ItemColorCancelAndExit();
 

@@ -45,7 +45,7 @@ function InventoryItemMiscPasswordPadlockLoad() {
 
 /** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscPasswordPadlockDraw() {
-	if (!DialogFocusItem || !DialogFocusSourceItem) return InventoryItemMiscPasswordPadlockExit();
+	if (!DialogFocusItem || !DialogFocusSourceItem) return DialogLeaveFocusItem();
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
 
@@ -101,32 +101,33 @@ function InventoryItemMiscPasswordPadlockDrawControls() {
 function InventoryItemMiscPasswordPadlockClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		return InventoryItemMiscPasswordPadlockExit();
+		DialogLeaveFocusItem();
 	}
 
 	const C = CharacterGetCurrent();
 	if (InventoryGroupIsBlocked(C, C.FocusGroup.Name)) return;
 
-	InventoryItemMiscPasswordPadlockControlsClick(InventoryItemMiscPasswordPadlockExit);
+	InventoryItemMiscPasswordPadlockControlsClick();
 }
 
-function InventoryItemMiscPasswordPadlockControlsClick(ExitCallback) {
+function InventoryItemMiscPasswordPadlockControlsClick() {
 	if (!DialogFocusSourceItem) return;
 
 	if (InventoryItemMiscPasswordPadlockIsSet()) {
 		if (MouseIn(1360, 871, 250, 64)) {
-			InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback);
+			InventoryItemMiscPasswordPadlockHandleOpenClick();
 		}
 	} else {
 		if (MouseIn(1600, 820, 250, 64)) {
 			DialogFocusSourceItem.Property.RemoveOnUnlock = !DialogFocusSourceItem.Property.RemoveOnUnlock;
 		} else if (MouseIn(1360, 891, 250, 64)) {
-			InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback);
+			InventoryItemMiscPasswordPadlockHandleFirstSet();
+			DialogLeaveFocusItem();
 		}
 	}
 }
 
-function InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback) {
+function InventoryItemMiscPasswordPadlockHandleOpenClick() {
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
 
@@ -139,7 +140,6 @@ function InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback) {
 			}
 		}
 		CommonPadlockUnlock(C, DialogFocusSourceItem);
-		ExitCallback();
 	}
 
 	// Send fail message if online
@@ -151,11 +151,10 @@ function InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback) {
 			.text("Password", ElementValue("Password"))
 			.build();
 		ChatRoomPublishCustomAction("PasswordFail", true, Dictionary);
-		ExitCallback();
 	} else { DialogExtendedMessage = "PasswordPadlockError"; }
 }
 
-function InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback) {
+function InventoryItemMiscPasswordPadlockHandleFirstSet() {
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
 
@@ -174,13 +173,11 @@ function InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback) {
 			}
 		}
 
-		if (CurrentScreen === "ChatRoom") {
-			InventoryItemMiscPasswordPadlockPublishPasswordChange(C);
-			ExitCallback();
-		} else {
-			CharacterRefresh(C);
-			ExitCallback();
-		}
+		ChatRoomCharacterItemUpdate(C);
+		CharacterRefresh(C);
+
+		InventoryItemMiscPasswordPadlockPublishPasswordChange(C);
+
 	} else { DialogExtendedMessage = "PasswordPadlockErrorInput"; }
 }
 
@@ -203,10 +200,14 @@ function InventoryItemMiscPasswordPadlockIsSet() {
 }
 
 function InventoryItemMiscPasswordPadlockPublishPasswordChange(C) {
-	const Dictionary = new DictionaryBuilder()
-		.sourceCharacter(Player)
-		.destinationCharacter(C)
-		.focusGroup(C.FocusGroup.Name)
-		.build();
-	ChatRoomPublishCustomAction("PasswordChangeSuccess", true, Dictionary);
+	if (CurrentScreen === "ChatRoom") {
+		const Dictionary = new DictionaryBuilder()
+			.sourceCharacter(Player)
+			.destinationCharacter(C)
+			.focusGroup(C.FocusGroup.Name)
+			.build();
+		ChatRoomPublishCustomAction("PasswordChangeSuccess", true, Dictionary);
+	} else {
+		DialogLeaveFocusItem();
+	}
 }

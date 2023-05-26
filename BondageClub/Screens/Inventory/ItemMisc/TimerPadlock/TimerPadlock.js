@@ -11,7 +11,7 @@ function InventoryItemMiscTimerPadlockLoad() {
 
 /** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscTimerPadlockDraw() {
-	if ((DialogFocusItem == null) || (DialogFocusSourceItem.Property.RemoveTimer < CurrentTime)) { InventoryItemMiscTimerPadlockExit(); return; }
+	if ((DialogFocusItem == null) || (DialogFocusSourceItem.Property.RemoveTimer < CurrentTime)) { DialogLeaveFocusItem(); return; }
 	DrawText(DialogFindPlayer("TimerLeft") + " " + TimerToString(DialogFocusSourceItem.Property.RemoveTimer - CurrentTime), 1500, 150, "white", "gray");
 	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
 	DrawText(DialogFindPlayer(DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Intro"), 1500, 600, "white", "gray");
@@ -28,28 +28,28 @@ function InventoryItemMiscTimerPadlockDraw() {
 
 /** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscTimerPadlockClick() {
-	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) InventoryItemMiscTimerPadlockExit();
+	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogLeaveFocusItem();
 	if ((MouseX >= 1100) && (MouseX <= 1164) && (MouseY >= 836) && (MouseY <= 900) && (Player.MemberNumber == DialogFocusSourceItem.Property.LockMemberNumber) && Player.CanInteract()) {
 		DialogFocusSourceItem.Property.RemoveItem = !(DialogFocusSourceItem.Property.RemoveItem);
 		if (CurrentScreen == "ChatRoom") ChatRoomCharacterItemUpdate(CharacterGetCurrent());
 	}
-	if ((MouseX >= 1350) && (MouseX <= 1650) && (MouseY >= 910) && (MouseY <= 975) && Player.CanInteract()) InventoryItemMiscTimerPadlockReset();
+	if ((MouseX >= 1350) && (MouseX <= 1650) && (MouseY >= 910) && (MouseY <= 975) && Player.CanInteract()) {
+		InventoryItemMiscTimerPadlockReset();
+		DialogLeaveFocusItem();
+	}
 }
 
 // When the timer resets
 function InventoryItemMiscTimerPadlockReset() {
+	const C = CharacterGetCurrent();
 	if (DialogFocusItem.Asset.RemoveTimer > 0) DialogFocusSourceItem.Property.RemoveTimer = Math.round(CurrentTime + (DialogFocusItem.Asset.RemoveTimer * 1000));
-	if (CurrentScreen == "ChatRoom") {
-		var C = CharacterGetCurrent();
-		var msg = "TimerRestart";
-		/** @type {ChatMessageDictionary} */
-		var Dictionary = [];
-		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name});
-		ChatRoomPublishCustomAction(msg, true, Dictionary);
-	}
-	InventoryItemMiscTimerPadlockExit();
+
+	const Dictionary = new DictionaryBuilder()
+		.sourceCharacter(Player)
+		.destinationCharacter(C)
+		.focusGroup(C.FocusGroup.Name)
+		.build();
+	ChatRoomPublishCustomAction("TimerRestart", true, Dictionary);
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */

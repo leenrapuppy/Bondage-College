@@ -139,7 +139,7 @@ function InventoryItemPelvisFuturisticTrainingBeltDrawHook(data, originalFunctio
 function InventoryItemPelvisFuturisticTrainingBeltClickHook(data, originalFunction) {
 	const Item = DialogFocusItem;
 	let canViewMode = false;
-	if (MouseIn(1885, 25, 90, 90)) ExtendedItemExit();
+	if (MouseIn(1885, 25, 90, 90)) DialogLeaveFocusItem();
 	if (!FuturisticAccessClick()) {
 		// Fallthrough as there's the mode change controls
 	} else {
@@ -241,10 +241,10 @@ function InventoryItemPelvisFuturisticTrainingBeltExitHook(data, originalFunctio
 		InventoryItemPelvisFuturisticTrainingBeltPublishGeneric(CurrentCharacter, "FuturisticTrainingBeltSetGeneric");
 	}
 
-	InventoryItemFuturisticExitAccessDenied();
-
 	ElementRemove("PunishRequiredSpeechWord");
 	ElementRemove("PunishProhibitedSpeechWords");
+
+	FuturisticAccessExit();
 }
 
 /** @type {ExtendedItemCallbacks.PublishAction<ExtendedItemOption>} */

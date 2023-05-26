@@ -604,7 +604,7 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 			CommonCallFunctionByName(`${data.functionPrefix}${ExtendedItemSubscreen}Exit`);
 			ExtendedItemSubscreen = null;
 		} else {
-			ExtendedItemExit();
+			DialogLeaveFocusItem();
 		}
 		return;
 	}

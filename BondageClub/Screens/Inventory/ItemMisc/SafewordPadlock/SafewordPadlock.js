@@ -13,7 +13,7 @@ function InventoryItemMiscSafewordPadlockInit(C, Item) {
 
 /** @type {ExtendedItemCallbacks.Load} */
 function InventoryItemMiscSafewordPadlockLoad() {
-	if (!DialogFocusItem || !DialogFocusSourceItem) return InventoryItemMiscSafewordPadlockExit();
+	if (!DialogFocusItem || !DialogFocusSourceItem) return DialogLeaveFocusItem();
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
 
@@ -61,10 +61,10 @@ function InventoryItemMiscSafewordPadlockDraw() {
 function InventoryItemMiscSafewordPadlockClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		return InventoryItemMiscSafewordPadlockExit();
+		return DialogLeaveFocusItem();
 	}
 
-	InventoryItemMiscPasswordPadlockControlsClick(InventoryItemMiscSafewordPadlockExit);
+	InventoryItemMiscPasswordPadlockControlsClick();
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
