@@ -848,9 +848,10 @@ function GetWrapTextSize(Text, Width, MaxLine) {
  * @param {string} ForeColor - Foreground color
  * @param {string} [BackColor] - Background color
  * @param {number} [MaxLine] - Maximum of lines the word can wrap for
+ * @param {number} LineSpacing - The number of pixels between each lines (default to 23)
  * @returns {void} - Nothing
  */
-function DrawTextWrap(Text, X, Y, Width, Height, ForeColor, BackColor, MaxLine) {
+function DrawTextWrap(Text, X, Y, Width, Height, ForeColor, BackColor, MaxLine, LineSpacing = 23) {
 	ControllerAddActiveArea(X, Y);
 
 	// Draw the rectangle if we need too
@@ -892,13 +893,13 @@ function DrawTextWrap(Text, X, Y, Width, Height, ForeColor, BackColor, MaxLine) 
 
 		// Splits the words and draw the text
 		line = '';
-		Y = Y - ((LineCount - 1) * 23) + (Height / 2);
+		Y = Y - ((LineCount - 1) * LineSpacing) + (Height / 2);
 		for (let n = 0; n < words.length; n++) {
 			const testLine = line + words[n] + ' ';
 			if (MainCanvas.measureText(testLine).width > Width && n > 0) {
 				MainCanvas.fillText(line, X + Width / 2, Y);
 				line = words[n] + ' ';
-				Y += 46;
+				Y += LineSpacing * 2;
 			}
 			else {
 				line = testLine;

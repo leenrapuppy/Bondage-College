@@ -7,17 +7,38 @@ Level5,Manor
 Fame,Fame:
 Money,Money:
 PlayCard,Play this card
-EndDraw,End by drawing
-PlayerTurn,Your opponent ends.  It's your turn.
-PlayerTurnEndDraw,Your opponent ends by drawing.  It's your turn.
-OtherTurn,It's now your opponent turn.
-FirstPlayerTurn,You were chosen to start the game.
-FirstOtherTurn,Your opponent will start the game.
-PlayerTurnButton,Draw your card
-PlayerTurnEndDrawButton,Draw your card
-OtherTurnButton,Watch her draw
-FirstPlayerTurnButton,Do the first draw
-FirstOtherTurnButton,Watch her start
+EndDraw,Draw a card
+Concede,Concede
+OpponentPlaying,Your opponent is playing...
+PlayACard,PLAYERNAME plays CARDNAME.
+StartPlayer,You've been chosen to start the game.  Select a card to play or end your turn by drawing.
+StartOpponent,Your opponent has been chosen to start the game.  Please wait for her move.
+EndTurnPlayer,FAMEMONEY.  It's your opponent turn.
+EndTurnOpponent,FAMEMONEY.  It's your turn.
+EndDrawPlayer,FAMEMONEY.  You draw a card.  It's your opponent turn.
+EndDrawOpponent,FAMEMONEY.  Your opponent draws a card.  It's your turn.
+UpgradeToLevel2,Get Cottage (MONEY)
+UpgradeToLevel3,Get House (MONEY)
+UpgradeToLevel4,Get Mansion (MONEY)
+UpgradeToLevel5,Get Manor (MONEY)
+UpgradedToLevel2,PLAYERNAME upgraded to Cottage for MONEY.
+UpgradedToLevel3,PLAYERNAME upgraded to House for MONEY.
+UpgradedToLevel4,PLAYERNAME upgraded to Mansion for MONEY.
+UpgradedToLevel5,PLAYERNAME upgraded to Manor for MONEY.
+GroupLiability,Liability
+GroupStaff,Staff
+GroupPolice,Police
+GroupCriminal,Criminal
+GroupFetishist,Fetishist
+GroupPorn,Porn
+GroupMaid,Maid
+GroupPatient,Patient
+GroupNurse,Nurse
+GroupDominant,Dominant
+GroupMistress,Mistress
+GroupBaby,Baby
+GroupStudent,Student
+GroupTeacher,Teacher
 Title Kinky Neighbor,Kinky Neighbor
 Text Kinky Neighbor,+1 Money per turn if Cute Girl Next Door is present.
 Title Cute Girl Next Door,Cute Girl Next Door
@@ -26,3 +47,35 @@ Title Voyeur,Voyeur
 Text Voyeur,+4 Money per turn if Exhibitionist is present.
 Title Exhibitionist,Exhibitionist
 Text Exhibitionist,<F>We prefer the term naturist.
+Title Party Animal,Party Animal
+Text Party Animal,<F>The best plans always begin by: Hold my beer.
+Title Auctioneer,Auctioneer
+Text Auctioneer,Double all bonuses from auctions.
+Title Uptown Girl,Uptown Girl
+Text Uptown Girl,<F>She's been living in her white bread world.
+Title Tourist,Tourist
+Text Tourist,<F>I'll need a vacation from my vacation.
+Title Diplomat,Diplomat
+Text Diplomat,<F>Business or leasure?  Pain and pleasure.
+Title Gambler,Gambler
+Text Gambler,+4 Money when she enters your club.
+Title Waitress,Waitress
+Text Waitress,+1 Money per turn if Party Animal is present.
+Title Bouncer,Bouncer
+Text Bouncer,<F>Your ass will bounce on the street if you make me mad.
+Title Accountant,Accountant
+Text Accountant,+1 Money per turn at Cottage level or better.  +1 Money per turn at Manor level.
+Title Secretary,Secretary
+Text Secretary,Your 3 turns event cards will last one extra turn.
+Title Associate,Associate
+Text Associate,You can play one extra card per turn.
+Title Human Resource,Human Resource
+Human Resource,Draw an extra card each time you draw a card.
+Title Policewoman,Policewoman
+Text Policewoman,<F>I took the job for the free handcuffs.
+Title Pusher,Pusher
+Text Pusher,Will leave the club at the end of a turn if a Police is present.
+Title Junkie,Junkie
+Text Junkie,+2 Money per turn if Pusher is present.  Will leave the club at the end of a turn if a Police is present.
+Title Zealous Cop,Zealous Cop
+Text Zealous Cop,"<F>Rules are rules, and I'll make sure they will be followed."

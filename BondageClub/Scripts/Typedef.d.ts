@@ -3671,16 +3671,35 @@ interface WheelFortuneOptionType {
 
 // #end region
 
+interface ClubCard {
+	ID: Number,
+	Name: string,
+	Type?: string,
+	Title?: string,
+	Text?: string,
+	Unique?: boolean,
+	MoneyPerTurn?: number,
+	FamePerTurn?: number,
+	RequiredLevel?: number,
+	ExtraTime?: number,
+	ExtraDraw?: number,
+	ExtraPlay?: number,
+	Group?: Array,
+	Location?: String,
+	OnTurnEnd?: function
+	OnBoardEntry?: function
+}
+
 interface ClubCardPlayer {
 	Character: Character;
 	Control: string;
-	Index?: Number;
-	Sleeve?: string;
-	Deck?: Object[];
-	FullDeck?: Object[];
-	Hand?: Object[];
-	Board?: Object[];
-	Level?: Number;
-	Money?: Number;
-	Fame?: Number;
+	Index: number;
+	Sleeve: string;
+	Deck: ClubCard[];
+	FullDeck: ClubCard[];
+	Hand: ClubCard[];
+	Board: ClubCard[];
+	Level: number;
+	Money: number;
+	Fame: number;
 }
