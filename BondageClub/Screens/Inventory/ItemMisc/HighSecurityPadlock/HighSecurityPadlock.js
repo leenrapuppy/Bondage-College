@@ -148,7 +148,4 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 /** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscHighSecurityPadlockExit() {
 	ElementRemove("MemberNumberList");
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

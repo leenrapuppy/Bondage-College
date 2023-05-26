@@ -135,7 +135,7 @@ function InventoryItemMiscCombinationPadlockDraw() {
 		ElementPosition("NewCombinationNumber", 1500, 880, 125);
 		DrawButton(1600, 771, 350, 64, DialogFindPlayer("CombinationEnter"), "White", "");
 		DrawButton(1600, 851, 350, 64, DialogFindPlayer("CombinationChange"), "White", "");
-		if (PreferenceMessage != "") DrawText(DialogFindPlayer(PreferenceMessage), 1500, 963, "Red", "Black");
+		if (DialogExtendedMessage != "") DrawText(DialogFindPlayer(DialogExtendedMessage), 1500, 963, "Red", "Black");
 	}
 }
 
@@ -180,7 +180,7 @@ function InventoryItemMiscCombinationPadlockClick() {
 				.build();
 			ChatRoomPublishCustomAction("CombinationFail", true, Dictionary);
 			InventoryItemMiscCombinationPadlockExit();
-		} else { PreferenceMessage = "CombinationError"; }
+		} else { DialogExtendedMessage = "CombinationError"; }
 	}
 	// Changes the code
 	else if (MouseIn(1600, 871, 350, 64)) {
@@ -206,7 +206,7 @@ function InventoryItemMiscCombinationPadlockClick() {
 					CharacterRefresh(C);
 					InventoryItemMiscCombinationPadlockExit();
 				}
-			} else { PreferenceMessage = "CombinationErrorInput"; }
+			} else { DialogExtendedMessage = "CombinationErrorInput"; }
 		}
 		// Fails to change
 		else if (CurrentScreen == "ChatRoom") {
@@ -218,7 +218,7 @@ function InventoryItemMiscCombinationPadlockClick() {
 
 			ChatRoomPublishCustomAction("CombinationChangeFail", true, Dictionary);
 			InventoryItemMiscCombinationPadlockExit();
-		} else { PreferenceMessage = "CombinationError"; }
+		} else { DialogExtendedMessage = "CombinationError"; }
 	}
 }
 
@@ -227,7 +227,4 @@ function InventoryItemMiscCombinationPadlockExit() {
 	CombinationPadlockLoaded = false;
 	ElementRemove("CombinationNumber");
 	ElementRemove("NewCombinationNumber");
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

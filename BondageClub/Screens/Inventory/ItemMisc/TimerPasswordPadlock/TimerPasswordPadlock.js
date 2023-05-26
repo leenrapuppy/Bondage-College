@@ -93,7 +93,7 @@ function InventoryItemMiscTimerPasswordPadlockDraw() {
 		ElementPosition("Password", 1585, 605, 350);
 		MainCanvas.textAlign = "center";
 		DrawButton(1775, 575, 200, 64, DialogFindPlayer("PasswordPadlockEnter"), "White", "");
-		if (PreferenceMessage != "") DrawText(DialogFindPlayer(PreferenceMessage), 1500, 200, "Red", "Black");
+		if (DialogExtendedMessage != "") DrawText(DialogFindPlayer(DialogExtendedMessage), 1500, 200, "Red", "Black");
 	} else {
 		ElementPosition("SetHint", 1675, 550, 600);
 		ElementPosition("SetPassword", 1563, 620, 375);
@@ -102,7 +102,7 @@ function InventoryItemMiscTimerPasswordPadlockDraw() {
 		DrawText(DialogFindPlayer("PasswordPadlockSetPassword"), 1100, 623, "white", "gray");
 		MainCanvas.textAlign = "center";
 		DrawButton(1765, 591, 200, 64, DialogFindPlayer("PasswordPadlockChangePassword"), "White", "");
-		if (PreferenceMessage != "") DrawText(DialogFindPlayer(PreferenceMessage), 1500, 200, "Red", "Black");
+		if (DialogExtendedMessage != "") DrawText(DialogFindPlayer(DialogExtendedMessage), 1500, 200, "Red", "Black");
 	}
 
 	// Draw the settings

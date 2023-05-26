@@ -79,7 +79,7 @@ function InventoryItemMiscPasswordPadlockDrawControls() {
 		ElementPosition("Password", 1643, 805, 550);
 		MainCanvas.textAlign = "center";
 		DrawButton(1360, 871, 250, 64, DialogFindPlayer("PasswordPadlockEnter"), "White", "");
-		if (PreferenceMessage != "") DrawText(DialogFindPlayer(PreferenceMessage), 1500, 963, "Red", "Black");
+		if (DialogExtendedMessage != "") DrawText(DialogFindPlayer(DialogExtendedMessage), 1500, 963, "Red", "Black");
 	} else {
 		ElementPosition("SetHint", 1643, 700, 550);
 		ElementPosition("SetPassword", 1643, 770, 550);
@@ -88,7 +88,7 @@ function InventoryItemMiscPasswordPadlockDrawControls() {
 		DrawText(DialogFindPlayer("PasswordPadlockSetPassword"), 1100, 775, "white", "gray");
 		MainCanvas.textAlign = "center";
 		DrawButton(1360, 891, 250, 64, DialogFindPlayer("PasswordPadlockChangePassword"), "White", "");
-		if (PreferenceMessage != "") DrawText(DialogFindPlayer(PreferenceMessage), 1500, 963, "Red", "Black");
+		if (DialogExtendedMessage != "") DrawText(DialogFindPlayer(DialogExtendedMessage), 1500, 963, "Red", "Black");
 
 		if (Property) {
 			DrawButton(1600, 820, 64, 64, "", "White", Property.RemoveOnUnlock ? "Icons/Checked.png" : "");
@@ -152,7 +152,7 @@ function InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback) {
 			.build();
 		ChatRoomPublishCustomAction("PasswordFail", true, Dictionary);
 		ExitCallback();
-	} else { PreferenceMessage = "PasswordPadlockError"; }
+	} else { DialogExtendedMessage = "PasswordPadlockError"; }
 }
 
 function InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback) {
@@ -181,7 +181,7 @@ function InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback) {
 			CharacterRefresh(C);
 			ExitCallback();
 		}
-	} else { PreferenceMessage = "PasswordPadlockErrorInput"; }
+	} else { DialogExtendedMessage = "PasswordPadlockErrorInput"; }
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
@@ -189,9 +189,6 @@ function InventoryItemMiscPasswordPadlockExit() {
 	ElementRemove("Password");
 	ElementRemove("SetPassword");
 	ElementRemove("SetHint");
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }
 
 function InventoryItemMiscPasswordPadlockIsSet() {
