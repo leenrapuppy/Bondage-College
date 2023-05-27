@@ -68,6 +68,11 @@ const ModularItemChatSetting = {
 	PER_OPTION: "perOption",
 };
 
+/** A regular expression that knows how to split modular types into [module key, option index] components */
+const ModularItemTypeSplitter = new RegExp(/([a-zA-Z]+\d+)/);
+/** A regular expression that knows how to split a [key, index] into its parts */
+const ModularItemSubtypeSplitter = new RegExp(/([a-zA-Z]+)(\d+)/);
+
 /**
  * Registers a modular extended item. This automatically creates the item's load, draw and click functions. It will
  * also generate the asset's AllowType array, as AllowType arrays on modular items can get long due to the
@@ -854,42 +859,6 @@ function ModularItemGenerateAllowLockType(data) {
 }
 
 /**
- * Generates and sets the AllowTypes property on an asset layer based on its AllowModuleTypes property.
- * @param {AssetLayer} layer - The layer to generate AllowTypes for
- * @param {ModularItemData} data - The modular item's data
- * @returns {void} - Nothing
- */
-function ModularItemGenerateLayerAllowTypes(layer, data) {
-	if (Array.isArray(layer.AllowModuleTypes)) {
-		const allowedModuleCombinations = layer.AllowModuleTypes.map((shorthand) => {
-			const regex = /([a-zA-Z]+)(\d+)/g;
-			const values = [];
-			let match;
-			while ((match = regex.exec(shorthand))) {
-				values.push([match[1], Number.parseInt(match[2])]);
-			}
-			return values;
-		});
-
-		const GeneratedAllowTypes = ModularItemGenerateTypeList(data, (combination) => {
-			return allowedModuleCombinations.some(allowedCombination => {
-				return allowedCombination.every(combo => combination[combo[0]] === combo[1]);
-			});
-		});
-
-		// Append to the existing AllowTypes
-		layer.AllowTypes = Array.isArray(layer.AllowTypes) ? layer.AllowTypes : [];
-		layer.AllowTypes = layer.AllowTypes.concat(GeneratedAllowTypes);
-
-		// When option 0 is an allowed module, it means the undefined/null type is allowed.
-		if (allowedModuleCombinations.find(arr => arr.find(combo => combo[1] === 0))) {
-			// @ts-ignore: ignore `readonly` while still building the asset
-			layer.AllowTypes.push("");
-		}
-	}
-}
-
-/**
  * Generates and assigns a modular asset's AllowType, AllowEffect and AllowBlock properties, along with the AllowTypes
  * properties on the asset layers based on the values set in its module definitions.
  * @param {ModularItemData} data - The modular item's data
@@ -920,7 +889,6 @@ function ModularItemGenerateValidationProperties(data) {
 			}
 		}
 	}
-	asset.Layer.forEach((layer) => ModularItemGenerateLayerAllowTypes(layer, data));
 	ModularItemGenerateAllowLockType(data);
 }
 
