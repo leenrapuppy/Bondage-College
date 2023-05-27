@@ -1668,6 +1668,7 @@ function DialogMenuButtonClick() {
 			// PickLock Icon - Starts the lockpicking mini-game
 			else if (((DialogMenuButton[I] == "PickLock")) && (Item != null)) {
 				StruggleMinigameStart(C, "LockPick", Item, null, DialogStruggleStop);
+				DialogChangeMode("struggle");
 				DialogMenuButtonBuild(C);
 				return true;
 			}
