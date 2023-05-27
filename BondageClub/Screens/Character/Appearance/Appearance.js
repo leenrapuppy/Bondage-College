@@ -349,18 +349,39 @@ function CharacterAppearanceStripLayer(C) {
  * @returns {boolean} - TRUE if the layer should be visible, FALSE otherwise
  */
 function CharacterAppearanceIsLayerVisible(C, layer, asset, type= "") {
-	return (
-		// Only include layers that permit the current type (if AllowTypes is not defined, also include the layer)
-		(!layer.AllowTypes || layer.AllowTypes.includes(type))
-		// Hide the layer if its HideAs proxy asset should be hidden
-		&& (!layer.HideAs || CharacterAppearanceVisible(C, layer.HideAs.Asset, layer.HideAs.Group))
-		// Hide the layer if it should be hidden for the current pose
-		&& (!layer.HideForPose || !layer.HideForPose.includes(CommonDrawResolveAssetPose(C, asset, layer)))
-		// Hide the layer if it should be hidden by an attribute on an item that the character has equipped
-		&& (!layer.HideForAttribute || layer.HideForAttribute.every((attribute) => !C.HasAttribute(attribute)))
-		// Only show the layer if the character has at least one attribute that it requires
-		&& (!layer.ShowForAttribute || layer.ShowForAttribute.some((attribute) => C.HasAttribute(attribute)))
-	);
+	if (layer.AllowModuleTypes) {
+		// Only happens for modular items' layers, do some splitting to check the layer visibility
+		const splitModuleTypes = layer.AllowModuleTypes.map(modType => modType.split(ModularItemTypeSplitter).filter(t => t));
+		const splitType = type.split(ModularItemTypeSplitter).filter(t => t);
+		if (type === "") {
+			// Special-case for the null type: we check if the layer allows option 0
+			if (!splitModuleTypes.some(subtypes => subtypes.every(subtype => subtype.split(ModularItemSubtypeSplitter).filter(t => t)[1] === "0")))
+				return false;
+		} else if (!splitModuleTypes.some(subtypes => subtypes.every(subtype => splitType.includes(subtype)))) {
+			return false;
+		}
+	} else if (layer.AllowTypes) {
+		// This has an AllowTypes property, use it
+		if (!layer.AllowTypes.includes(type)) return false;
+	}
+
+	// Hide the layer if its HideAs proxy asset should be hidden
+	if (layer.HideAs && !CharacterAppearanceVisible(C, layer.HideAs.Asset, layer.HideAs.Group))
+		return false;
+
+	// Hide the layer if it should be hidden for the current pose
+	if (layer.HideForPose && layer.HideForPose.includes(CommonDrawResolveAssetPose(C, asset, layer)))
+		return false;
+
+	// Hide the layer if it should be hidden by an attribute on an item that the character has equipped
+	if (layer.HideForAttribute && layer.HideForAttribute.every((attribute) => !C.HasAttribute(attribute)))
+		return false;
+
+	// Only show the layer if the character has at least one attribute that it requires
+	if (layer.ShowForAttribute && !layer.ShowForAttribute.some((attribute) => C.HasAttribute(attribute)))
+		return false;
+
+	return true;
 }
 
 /**
