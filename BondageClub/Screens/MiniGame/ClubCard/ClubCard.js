@@ -688,14 +688,14 @@ function ClubCardCreatePopup(Text, Button1, Button2, Function1, Function2) {
 		Button2: Button2,
 		Function1: Function1,
 		Function2: Function2
-	}
+	};
 }
 
 /**
  * Destroys the current popup
  * @returns {void} - Nothing
  */
- function ClubCardDestroyPopup() {
+function ClubCardDestroyPopup() {
 	ClubCardPopup = null;
 }
 
@@ -777,8 +777,8 @@ function ClubCardGroupOnBoardCount(Board, CardGroup) {
 	for (let Card of Board)
 		if (Card.Group != null)
 			for (let Group of Card.Group)
-					if (Group === CardGroup)
-						Count++;
+				if (Group === CardGroup)
+					Count++;
 	return Count;
 }
 
@@ -897,7 +897,7 @@ function ClubCardEndTurn(Draw = false) {
 	if ((CCPlayer.Money < 0) && (CCPlayer.Fame > StartingFame)) CCPlayer.Fame = StartingFame;
 	CCPlayer.LastFamePerTurn = CCPlayer.Fame - StartingFame;
 	CCPlayer.LastMoneyPerTurn = CCPlayer.Money - StartingMoney;
-	FameMoneyText = ((CCPlayer.LastFamePerTurn >= 0) ? "+" : "") + CCPlayer.LastFamePerTurn.toString() + " Fame,  " + ((CCPlayer.LastMoneyPerTurn >= 0) ? "+" : "") + CCPlayer.LastMoneyPerTurn.toString() + " Money"
+	FameMoneyText = ((CCPlayer.LastFamePerTurn >= 0) ? "+" : "") + CCPlayer.LastFamePerTurn.toString() + " Fame,  " + ((CCPlayer.LastMoneyPerTurn >= 0) ? "+" : "") + CCPlayer.LastMoneyPerTurn.toString() + " Money";
 
 	// If that player wins the game from Fame gain
 	if (CCPlayer.Fame >= ClubCardFameGoal) {
@@ -1036,7 +1036,7 @@ function ClubCardConcede() {
  * @returns {void} - Nothing
  */
 function ClubCardEndGame(Victory) {
-	ElementRemove("CCLog")
+	ElementRemove("CCLog");
 	MiniGameEnded = true;
 	if (Victory != null) MiniGameVictory = Victory;
 	MiniGameEnd();
@@ -1099,7 +1099,7 @@ function ClubCardLoad() {
  * @param {number} X - The X on screen position
  * @param {number} Y - The Y on screen position
  * @param {number} W - The width of the card
- * @param {string} Image - The buble 
+ * @param {string} Image - The buble
  * @returns {Number} - The next bubble Y position
  */
 function ClubCardRenderBubble(Value, X, Y, W, Image) {
@@ -1171,6 +1171,8 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 	if (Level > 1) BubblePos = ClubCardRenderBubble(Level, X + W * 0.05, BubblePos, W * 0.1, "Level");
 	if (Card.FamePerTurn != null) BubblePos = ClubCardRenderBubble(Card.FamePerTurn, X + W * 0.05, BubblePos, W * 0.1, "Fame");
 	if (Card.MoneyPerTurn != null) BubblePos = ClubCardRenderBubble(Card.MoneyPerTurn, X + W * 0.05, BubblePos, W * 0.1, "Money");
+	// eslint-disable-next-line
+	BubblePos;
 	if (Card.Text != null) {
 		DrawRect(X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.48, Color + "A0");
 		let GroupText = ClubCardGetGroupText(Card.Group);
@@ -1178,11 +1180,11 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 			MainCanvas.font = "bold " + Math.round(W / 16) + "px arial";
 			DrawTextWrap(GroupText, X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.1, "Black");
 			MainCanvas.font = ((Card.Text.startsWith("<F>")) ? "italic " : "bold") + Math.round(W / 12) + "px arial";
-			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.6, W * 0.9, W * 0.38, "Black", null, null, Math.round(W / 20));
+			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.6, W * 0.9, W * 0.38, "Black", null, Math.round(W / 20));
 		}
 		else {
 			MainCanvas.font = ((Card.Text.startsWith("<F>")) ? "italic " : "bold") + Math.round(W / 12) + "px arial";
-			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.48, "Black", null, null, Math.round(W / 20));
+			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.48, "Black", null, Math.round(W / 20));
 		}
 	}
 	MainCanvas.font = CommonGetFont(36);
@@ -1273,7 +1275,7 @@ function ClubCardRenderPanel() {
 		ElementScrollToEnd("CCLog");
 		ClubCardLogScroll = false;
 	}
-	
+
 	// Draw the bottom butttons and texts
 	if (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") {
 		DrawButton(1725, 860, 250, 60, TextGet("EndDraw"), "White");
@@ -1306,7 +1308,7 @@ function ClubCardRenderPopup() {
  */
 function ClubCardRun() {
 	ClubCardHover = null;
-	ClubCardLoadCaption()
+	ClubCardLoadCaption();
 	ClubCardRenderBoard(ClubCardPlayer[0], 0, 500, 1700, 500, false);
 	ClubCardRenderBoard(ClubCardPlayer[1], 0, 0, 1700, 500, true);
 	DrawRect(0, 499, 1700, 2, "White");
@@ -1322,7 +1324,7 @@ function ClubCardRun() {
  * @returns {void} - Nothing
  */
 function ClubCardClick() {
-	
+
 	// In popup mode, no other clicks can be done but the popup buttons
 	if (ClubCardPopup != null) {
 		if ((ClubCardPopup.Button2 == null) && MouseIn(700, 570, 300, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
