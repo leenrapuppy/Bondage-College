@@ -2256,6 +2256,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
  * _e.g._ `drawImages: false` if an archetype does have any images in its UI.
  */
 interface ExtendedItemData<OptionType extends ExtendedItemOption> {
+	/** The archetype of the extended item data */
 	archetype: ExtendedArchetype;
 	/**
 	 * The chat message setting for the item. This can be provided to allow

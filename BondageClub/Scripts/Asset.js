@@ -234,68 +234,94 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 	Group.Asset.push(A);
 	AssetMap.set(Group.Name + "/" + A.Name, A);
 	Asset.push(A);
-	if (ExtendedConfig) AssetBuildExtended(A, ExtendedConfig);
+
+	// Initialize the extended item data of archetypical items
+	if (ExtendedConfig) {
+		const assetBaseConfig = AssetFindExtendedConfig(ExtendedConfig, A.Group.Name, A.Name);
+		if (assetBaseConfig != null) {
+			AssetBuildExtended(A, assetBaseConfig, ExtendedConfig);
+		}
+	}
 }
 
 /**
- * Constructs extended item functions for an asset, if extended item configuration exists for the asset.
+ * Construct the items extended item config, merging via {@link AssetArchetypeConfig.CopyConfig} if required.
+ * Potentially updates the passed {@link AssetArchetypeConfig} object inplace.
  * @param {Asset} A - The asset to configure
- * @param {ExtendedItemMainConfig} ExtendedConfig - The extended item configuration object for the asset's family
- * @returns {void} - Nothing
+ * @param {AssetArchetypeConfig} config - The extended item configuration of the base item
+ * @param {ExtendedItemMainConfig} extendedConfig - The extended item configuration object for the asset's family
+ * @returns {null | AssetArchetypeConfig} - The oiginally passed base item configuration, potentially updated inplace.
+ * Returns `null` insstead if an error was encountered.
  */
-function AssetBuildExtended(A, ExtendedConfig) {
-	let AssetConfig = AssetFindExtendedConfig(ExtendedConfig, A.Group.Name, A.Name);
+function AssetBuildConfig(A, config, extendedConfig) {
+	const visited = new Set([`${A.Group.Name}:${A.Name}`]);
+	while (config.CopyConfig) {
+		const { GroupName, AssetName } = config.CopyConfig;
 
-	if (!AssetConfig) {
-		return;
-	}
-
-	const visited = new Set([`${A.Group.Name}${A.Name}`]);
-	while (AssetConfig.CopyConfig) {
-		const { Config: Overrides, Archetype } = /** @type {AssetArchetypeConfig} */(AssetConfig);
-		const { GroupName, AssetName } = AssetConfig.CopyConfig;
-
-		const key = `${GroupName || A.Group.Name}${AssetName}`;
+		const key = `${GroupName || A.Group.Name}:${AssetName}`;
 		if (visited.has(key)) {
-			console.error(`Found cyclic CopyConfig reference in ${A.Group.Name}:${A.Name}:`, visited);
-			return;
+			console.error(`Found cyclic CopyConfig reference ${key} in ${A.Group.Name}:${A.Name}:`, visited);
+			return null;
 		} else {
 			visited.add(key);
 		}
 
-		AssetConfig = AssetFindExtendedConfig(ExtendedConfig, GroupName || A.Group.Name, AssetName);
-		if (!AssetConfig) {
+		const superConfig = AssetFindExtendedConfig(extendedConfig, GroupName || A.Group.Name, AssetName);
+		if (!superConfig) {
 			console.error(`CopyConfig ${GroupName || A.Group.Name}:${AssetName} not found for ${A.Group.Name}:${A.Name}`);
-			return;
+			return null;
 		}
-		if (AssetConfig.Archetype !== Archetype) {
-			console.error(`Archetype for ${GroupName || A.Group.Name}:${AssetName} (${AssetConfig.Archetype}) doesn't match archetype for ${A.Group.Name}:${A.Name} (${Archetype})`);
-			return;
+		if (config.Archetype !== superConfig.Archetype) {
+			console.error(`Archetype for ${GroupName || A.Group.Name}:${AssetName} (${superConfig.Archetype}) doesn't match archetype for ${A.Group.Name}:${A.Name} (${config.Archetype})`);
+			return null;
 		}
-		if (Overrides) {
-			const MergedConfig = Object.assign({}, AssetConfig.Config, Overrides);
-			AssetConfig = Object.assign({}, AssetConfig, {Config: MergedConfig});
-		}
+
+		config = Object.assign({}, superConfig, config);
+		delete config.CopyConfig;
+	}
+	return config;
+}
+
+/**
+ * Constructs extended item functions for an asset, if extended item configuration exists for the asset.
+ * Updates the passed config inplace if {@link ExtendedItem.CopyConfig} is present.
+ * @param {Asset} A - The asset to configure
+ * @param {AssetArchetypeConfig} baseConfig - The extended item configuration of the base item
+ * @param {ExtendedItemMainConfig} extendedConfig - The extended item configuration object for the asset's family
+ * @param {null | ExtendedItemOption} parentOption
+ * @param {boolean} createCallbacks
+ * @returns {null | ExtendedItemData<any>} - The extended itemdata or `null` if an error was encoutered
+ */
+function AssetBuildExtended(A, baseConfig, extendedConfig, parentOption=null, createCallbacks=true) {
+	const config = AssetBuildConfig(A, baseConfig, extendedConfig);
+	if (config === null) {
+		return null;
 	}
 
-	switch (AssetConfig.Archetype) {
+	/** @type {null | ExtendedItemData<any>} */
+	let data = null;
+	switch (config.Archetype) {
 		case ExtendedArchetype.MODULAR:
-			ModularItemRegister(A, AssetConfig.Config || {});
+			data = ModularItemRegister(A, config);
 			break;
 		case ExtendedArchetype.TYPED:
-			TypedItemRegister(A, AssetConfig.Config || {});
+			data = TypedItemRegister(A, config);
 			break;
 		case ExtendedArchetype.VIBRATING:
-			VibratorModeRegister(A, AssetConfig.Config || {});
+			data = VibratorModeRegister(A, config, parentOption);
 			break;
 		case ExtendedArchetype.VARIABLEHEIGHT:
-			VariableHeightRegister(A, /** @type {VariableHeightConfig} */(AssetConfig.Config));
+			data = VariableHeightRegister(A, config, parentOption);
 			break;
 		case ExtendedArchetype.TEXT:
-			TextItemRegister(A, /** @type {TextItemConfig} */(AssetConfig.Config));
+			data = TextItemRegister(A, config, parentOption, createCallbacks);
 			break;
 	}
-	A.Archetype = AssetConfig.Archetype;
+
+	if (!A.Archetype) {
+		A.Archetype = config.Archetype;
+	}
+	return data;
 }
 
 /**
