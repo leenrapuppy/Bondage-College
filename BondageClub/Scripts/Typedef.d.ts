@@ -3702,4 +3702,6 @@ interface ClubCardPlayer {
 	Level: number;
 	Money: number;
 	Fame: number;
+	LastFamePerTurn?: number;
+	LastMoneyPerTurn?: number;
 }

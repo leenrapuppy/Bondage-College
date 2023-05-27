@@ -12,6 +12,7 @@ var ClubCardTurnIndex = 0;
 var ClubCardTurnCardPlayed = 0;
 var ClubCardTurnEndDraw = false;
 var ClubCardFameGoal = 100;
+var ClubCardPopup = null;
 var ClubCardDefaultDeck = {
 	Name: "DEFAULT",
 	Cards: [1000, 1001, 1002, 1003, 1004, 1006, 1007, 1009, 2000, 2002, 2004, 2005, 4000, 4002, 4003, 4004, 4005, 6000, 6001, 6002, 6003, 6004, 8000, 8001, 8002, 8003, 8004, 9000, 9001, 9002]
@@ -30,7 +31,7 @@ var ClubCardList = [
 		Type: "Member",
 		MoneyPerTurn: 1,
 		OnTurnEnd: function(CCPlayer) {
-			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Cute Girl Next Door")) ClubCardPlayerAddMoney(CCPlayer, 1);
+			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Cute Girl Next Door")) ClubCardPlayerAddMoney(CCPlayer, 2);
 		}
 	},
 	{
@@ -75,7 +76,8 @@ var ClubCardList = [
 	{
 		ID: 1008,
 		Name: "Diplomat",
-		MoneyPerTurn: 5,
+		MoneyPerTurn: 2,
+		FamePerTurn: 3,
 		RequiredLevel: 5
 	},
 	{
@@ -84,6 +86,29 @@ var ClubCardList = [
 		MoneyPerTurn: 1,
 		OnBoardEntry: function(CCPlayer) {
 			ClubCardPlayerAddMoney(CCPlayer, 4);
+		}
+	},
+	{
+		ID: 1010,
+		Name: "Red Twin",
+		MoneyPerTurn: 1,
+		RequiredLevel: 2
+	},
+	{
+		ID: 1011,
+		Name: "Blue Twin",
+		MoneyPerTurn: 1,
+		RequiredLevel: 2,
+		OnTurnEnd: function(CCPlayer) {
+			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Red Twin")) ClubCardPlayerAddFame(CCPlayer, 4);
+		}
+	},
+	{
+		ID: 1012,
+		Name: "Rope Bunny",
+		MoneyPerTurn: 1,
+		OnTurnEnd: function(CCPlayer) {
+			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Dominant")) ClubCardPlayerAddMoney(CCPlayer, 1);
 		}
 	},
 
@@ -206,7 +231,7 @@ var ClubCardList = [
 	},
 	{
 		ID: 4003,
-		Name: "Feet Lover",
+		Name: "Feet Worshiper",
 		Group: ["Fetishist"],
 		OnTurnEnd: function(CCPlayer) {
 			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Dominant"))
@@ -227,16 +252,18 @@ var ClubCardList = [
 		Group: ["Fetishist"],
 		RequiredLevel: 3,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Dominant") * 2);
+			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Dominant"));
+			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Mistress") * 2);
 		}
 	},
 	{
 		ID: 4006,
-		Name: "Porn Adict",
+		Name: "Porn Addict",
 		Group: ["Fetishist"],
 		MoneyPerTurn: 1,
+		FamePerTurn: -1,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Porn"));
+			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "PornActress"));
 		}
 	},
 
@@ -244,33 +271,43 @@ var ClubCardList = [
 	{
 		ID: 5000,
 		Name: "Porn Amateur",
-		Group: ["Porn"],
-		MoneyPerTurn: 1,
-		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Porn"));
-		}
+		Group: ["PornActress"],
+		MoneyPerTurn: 1
 	},
 	{
 		ID: 5001,
 		Name: "Porn Movie Director",
 		RequiredLevel: 2,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Porn") * 2);
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "PornActress"));
+			ClubCardPlayerAddMoney(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "PornActress"));
 		}
 	},
 	{
 		ID: 5002,
-		Name: "Porn Actress",
-		Group: ["Porn"],
+		Name: "Porn Lesbian",
+		Group: ["PornActress"],
 		MoneyPerTurn: 1,
 		FamePerTurn: 1,
-		RequiredLevel: 3
+		RequiredLevel: 3,
+		OnTurnEnd: function(CCPlayer) {
+			if (ClubCardGroupOnBoardCount(CCPlayer.Board, "PornActress") >= 2)
+				ClubCardPlayerAddMoney(CCPlayer, 1);
+		}
+	},
+	{
+		ID: 5002,
+		Name: "Porn Veteran",
+		Group: ["PornActress"],
+		MoneyPerTurn: 1,
+		FamePerTurn: 2,
+		RequiredLevel: 4
 	},
 	{
 		ID: 5003,
 		Name: "Porn Star",
-		Group: ["Porn"],
-		MoneyPerTurn: 2,
+		Group: ["PornActress"],
+		MoneyPerTurn: 1,
 		FamePerTurn: 4,
 		RequiredLevel: 5
 	},
@@ -308,10 +345,10 @@ var ClubCardList = [
 		Name: "Head Maid",
 		Group: ["Maid"],
 		MoneyPerTurn: -2,
-		FamePerTurn: 2,
+		FamePerTurn: 3,
 		RequiredLevel: 4,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Maid"));
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Maid") - 1);
 		}
 	},
 
@@ -319,47 +356,55 @@ var ClubCardList = [
 	{
 		ID: 7000,
 		Name: "Curious Patient",
-		Group: ["Patient"],
-		MoneyPerTurn: 1,
+		Group: ["AsylumPatient"],
+		MoneyPerTurn: 1
 	},
 	{
 		ID: 7001,
-		Name: "Nurse",
-		Group: ["Nurse"],
-		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Patient"));
+		Name: "Part-Time Patient",
+		Group: ["AsylumPatient"],
+		OnBoardEntry: function(CCPlayer) {
+			ClubCardPlayerAddMoney(CCPlayer, 6);
 		}
 	},
 	{
 		ID: 7002,
+		Name: "Rookie Nurse",
+		Group: ["AsylumNurse"],
+		OnTurnEnd: function(CCPlayer) {
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "AsylumPatient"));
+		}
+	},
+	{
+		ID: 7003,
 		Name: "Commited Patient",
-		Group: ["Patient"],
+		Group: ["AsylumPatient"],
 		MoneyPerTurn: 2,
 		RequiredLevel: 2
 	},
 	{
-		ID: 7003,
-		Name: "Head Nurse",
-		Group: ["Nurse"],
+		ID: 7004,
+		Name: "Veteran Nurse",
+		Group: ["AsylumNurse"],
 		RequiredLevel: 3,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Patient") * 2);
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "AsylumPatient") * 2);
 		}
 	},
 	{
-		ID: 7004,
+		ID: 7005,
 		Name: "Permanent Patient",
-		Group: ["Patient"],
+		Group: ["AsylumPatient"],
 		MoneyPerTurn: 3,
 		RequiredLevel: 4
 	},
 	{
-		ID: 7005,
+		ID: 7006,
 		Name: "Doctor",
-		Group: ["Nurse"],
+		Group: ["AsylumNurse"],
 		RequiredLevel: 5,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Patient") * 3);
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "AsylumPatient") * 3);
 		}
 	},
 
@@ -460,7 +505,7 @@ var ClubCardList = [
 		Name: "No-Fap Advocate",
 		Group: ["Liability"],
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Porn") * -2);
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "PornActress") * -2);
 		}
 	},
 
@@ -468,21 +513,22 @@ var ClubCardList = [
 	{
 		ID: 10000,
 		Name: "Baby Girl",
-		Group: ["Baby"],
+		Group: ["ABDLBaby"],
 		MoneyPerTurn: 1,
 		OnTurnEnd: function(CCPlayer) {
-			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Mommy")) ClubCardPlayerAddMoney(CCPlayer, 1);
+			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "ABDLMommy")) ClubCardPlayerAddMoney(CCPlayer, 1);
 		}
 	},
 	{
 		ID: 10001,
-		Name: "Mommy",
+		Name: "Caring Mother",
+		Group: ["ABDLMommy"],
 		MoneyPerTurn: 1
 	},
 	{
 		ID: 10002,
 		Name: "Diaper Lover",
-		Group: ["Baby"],
+		Group: ["ABDLBaby"],
 		OnTurnEnd: function(CCPlayer) {
 			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Maid")) ClubCardPlayerAddMoney(CCPlayer, 2);
 		}
@@ -490,17 +536,18 @@ var ClubCardList = [
 	{
 		ID: 10003,
 		Name: "Sugar Baby",
-		Group: ["Baby"],
+		Group: ["ABDLBaby"],
 		RequiredLevel: 4,
-		MoneyPerTurn: 3
+		MoneyPerTurn: 4
 	},
 	{
 		ID: 10004,
 		Name: "Babysitter",
-		Group: ["Staff"],
+		Group: ["ABDLMommy", "Staff"],
+		RequiredLevel: 2,
 		MoneyPerTurn: -1,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Baby") * 2);
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "ABDLBaby") * 2);
 		}
 	},
 
@@ -508,14 +555,14 @@ var ClubCardList = [
 	{
 		ID: 11000,
 		Name: "Amanda",
-		Group: ["Student"],
+		Group: ["CollegeStudent"],
 		Unique: true,
 		FamePerTurn: 1
 	},
 	{
 		ID: 11001,
 		Name: "Sarah",
-		Group: ["Student"],
+		Group: ["CollegeStudent"],
 		Unique: true,
 		FamePerTurn: 1,
 		OnTurnEnd: function(CCPlayer) {
@@ -525,14 +572,14 @@ var ClubCardList = [
 	{
 		ID: 11002,
 		Name: "Sidney",
-		Group: ["Student"],
+		Group: ["CollegeStudent"],
 		Unique: true,
 		FamePerTurn: 1
 	},
 	{
 		ID: 11003,
 		Name: "Jennifer",
-		Group: ["Student"],
+		Group: ["CollegeStudent"],
 		Unique: true,
 		FamePerTurn: 1
 		// Remove one of your current member on entry
@@ -540,7 +587,7 @@ var ClubCardList = [
 	{
 		ID: 11004,
 		Name: "College Freshwoman",
-		Group: ["Student"],
+		Group: ["CollegeStudent"],
 		FamePerTurn: 1,
 		OnTurnEnd: function(CCPlayer) {
 			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Julia")) ClubCardPlayerAddFame(CCPlayer, 1);
@@ -549,7 +596,7 @@ var ClubCardList = [
 	{
 		ID: 11005,
 		Name: "College Nerd",
-		Group: ["Student"],
+		Group: ["CollegeStudent"],
 		FamePerTurn: 1,
 		OnTurnEnd: function(CCPlayer) {
 			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Yuki")) ClubCardPlayerAddMoney(CCPlayer, 1);
@@ -557,25 +604,25 @@ var ClubCardList = [
 	},
 	{
 		ID: 11006,
-		Name: "College Senior",
-		Group: ["Student"],
+		Name: "College Hidden Genius",
+		Group: ["CollegeStudent"],
 		OnTurnEnd: function(CCPlayer) {
-			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Mildred")) ClubCardPlayerAddFame(CCPlayer, 3);
+			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Mildred")) ClubCardPlayerAddFame(CCPlayer, 4);
 		}
 	},
 	{
 		ID: 11007,
 		Name: "College Teacher",
-		Group: ["Teacher"],
+		Group: ["CollegeTeacher"],
 		MoneyPerTurn: -1,
 		OnTurnEnd: function(CCPlayer) {
-			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "Student"));
+			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "CollegeStudent"));
 		}
 	},
 	{
 		ID: 11008,
 		Name: "Julia",
-		Group: ["Teacher"],
+		Group: ["CollegeTeacher"],
 		Unique: true,
 		RequiredLevel: 2,
 		FamePerTurn: 2
@@ -583,7 +630,7 @@ var ClubCardList = [
 	{
 		ID: 11009,
 		Name: "Yuki",
-		Group: ["Teacher"],
+		Group: ["CollegeTeacher"],
 		Unique: true,
 		RequiredLevel: 3,
 		FamePerTurn: 2,
@@ -592,7 +639,7 @@ var ClubCardList = [
 	{
 		ID: 11010,
 		Name: "Mildred",
-		Group: ["Teacher"],
+		Group: ["CollegeTeacher"],
 		Unique: true,
 		RequiredLevel: 4,
 		FamePerTurn: 3,
@@ -626,6 +673,42 @@ function ClubCardPlayerAddMoney(CCPlayer, Amount) {
 }
 
 /**
+ * Creates a popop in the middle of the board that pauses the game
+ * @param {string} Text - The text to display
+ * @param {string} Button1 - The label of the first button
+ * @param {string|null} Button2 - The label of the second button
+ * @param {string} Function1 - The function of the first button
+ * @param {string|null} Function2 - The function of the second button
+ * @returns {void} - Nothing
+ */
+function ClubCardCreatePopup(Text, Button1, Button2, Function1, Function2) {
+	ClubCardPopup = {
+		Text: Text,
+		Button1: Button1,
+		Button2: Button2,
+		Function1: Function1,
+		Function2: Function2
+	}
+}
+
+/**
+ * Destroys the current popup
+ * @returns {void} - Nothing
+ */
+ function ClubCardDestroyPopup() {
+	ClubCardPopup = null;
+}
+
+/**
+ * Returns TRUE if the card is a liability (should be played on the opponent side)
+ * @param {ClubCard} Card - The card to evaluate
+ * @returns {boolean} - TRUE if the card is a liability
+ */
+function ClubCardIsLiability(Card) {
+	return ((Card != null) && (Card.Group != null) && (Card.Group.indexOf("Liability") >= 0));
+}
+
+/**
  * Adds fame to the club card player stats, can trigger a victory
  * @param {Object} CCPlayer - The club card player
  * @param {Number} Amount - The amount to add
@@ -634,10 +717,6 @@ function ClubCardPlayerAddMoney(CCPlayer, Amount) {
 function ClubCardPlayerAddFame(CCPlayer, Amount) {
 	if (CCPlayer.Fame == null) CCPlayer.Fame = 0;
 	CCPlayer.Fame = CCPlayer.Fame + Amount;
-	if (CCPlayer.Fame >= ClubCardFameGoal) {
-		MiniGameEnded = true;
-		MiniGameVictory = (CCPlayer.Control == "Player");
-	}
 }
 
 /**
@@ -806,18 +885,28 @@ function ClubCardEndTurn(Draw = false) {
 
 	// Adds fame, money and run custom card scripts
 	let CCPlayer = ClubCardPlayer[ClubCardTurnIndex];
-	let Fame = 0;
-	let Money = 0;
+	let StartingFame = CCPlayer.Fame;
+	let StartingMoney = CCPlayer.Money;
 	let FameMoneyText = "";
 	if (CCPlayer.Board != null)
 		for (let Card of CCPlayer.Board) {
-			if (Card.FamePerTurn != null) Fame = Fame + Card.FamePerTurn;
-			if (Card.MoneyPerTurn != null) Money = Money + Card.MoneyPerTurn;
+			if (Card.FamePerTurn != null) ClubCardPlayerAddFame(CCPlayer, Card.FamePerTurn);
+			if (Card.MoneyPerTurn != null) ClubCardPlayerAddMoney(CCPlayer, Card.MoneyPerTurn);
 			if (Card.OnTurnEnd != null) Card.OnTurnEnd(CCPlayer);
 		}
-	ClubCardPlayerAddFame(CCPlayer, Fame);
-	ClubCardPlayerAddMoney(CCPlayer, Money);
-	FameMoneyText = ((Fame >= 0) ? "+" : "") + Fame.toString() + " Fame,  " + ((Money >= 0) ? "+" : "") + Money.toString() + " Money"
+	if ((CCPlayer.Money < 0) && (CCPlayer.Fame > StartingFame)) CCPlayer.Fame = StartingFame;
+	CCPlayer.LastFamePerTurn = CCPlayer.Fame - StartingFame;
+	CCPlayer.LastMoneyPerTurn = CCPlayer.Money - StartingMoney;
+	FameMoneyText = ((CCPlayer.LastFamePerTurn >= 0) ? "+" : "") + CCPlayer.LastFamePerTurn.toString() + " Fame,  " + ((CCPlayer.LastMoneyPerTurn >= 0) ? "+" : "") + CCPlayer.LastMoneyPerTurn.toString() + " Money"
+
+	// If that player wins the game from Fame gain
+	if (CCPlayer.Fame >= ClubCardFameGoal) {
+		MiniGameVictory = (CCPlayer.Control == "Player");
+		MiniGameEnded = true;
+		ClubCardLogAdd(TextGet("VictoryFor" + CCPlayer.Control));
+		ClubCardCreatePopup(TextGet("VictoryFor" + CCPlayer.Control), TextGet("Return"), null, "ClubCardEndGame()", null);
+		return;
+	}
 
 	// Adds an entry to the log
 	ClubCardTurnEndDraw = Draw;
@@ -867,7 +956,8 @@ function ClubCardCanPlayCard(CCPlayer, Card) {
  * @returns {void} - Nothing
  */
 function ClubCardPlayCard(CCPlayer, Card) {
-	let Text = TextGet("PlayACard");
+	let Liability = ClubCardIsLiability(Card);
+	let Text = TextGet(Liability ? "PlayACardOpponentBoard" : "PlayACard");
 	Text = Text.replace("PLAYERNAME", CharacterNickname(CCPlayer.Character));
 	Text = Text.replace("CARDNAME", Card.Title);
 	ClubCardLogAdd(Text);
@@ -876,7 +966,10 @@ function ClubCardPlayCard(CCPlayer, Card) {
 		let Index = 0;
 		for (let C of CCPlayer.Hand) {
 			if (C.ID == Card.ID) {
-				CCPlayer.Board.push(Card);
+				if (Liability) {
+					let Opponent = (ClubCardTurnIndex == 0) ? ClubCardPlayer[1] : ClubCardPlayer[0];
+					Opponent.Board.push(Card);
+				} else CCPlayer.Board.push(Card);
 				CCPlayer.Hand.splice(Index, 1);
 				Card.Location = "Board";
 			}
@@ -892,23 +985,61 @@ function ClubCardPlayCard(CCPlayer, Card) {
  * @returns {void} - Nothing
  */
 function ClubCardAIPlay() {
+
+	// Make sure the current player is an AI
+	let CCPlayer = ClubCardPlayer[ClubCardTurnIndex];
+	if (CCPlayer.Control != "AI") return;
+
+	// If the AI can upgrade, there's a 50/50 odds he does it
+	if ((Math.random() >= 0.5) && (CCPlayer.Level < ClubCardLevelCost.length - 1) && (CCPlayer.Money >= ClubCardLevelCost[CCPlayer.Level + 1]))
+		return ClubCardUpgradeLevel(CCPlayer);
+
+	// Builds an array of all valid cards
+	let ValidCards = [];
+	if (CCPlayer.Hand != null)
+		for (let Card of CCPlayer.Hand) {
+			Card.Location = "OpponentHand";
+			if (ClubCardCanPlayCard(CCPlayer, Card))
+				ValidCards.push(Card);
+		}
+
+	// If we have valid cards, we play one at random
+	if (ValidCards.length > 0)
+		return ClubCardPlayCard(CCPlayer, CommonRandomItemFromList(null, ValidCards));
+
+	// Since nothing could be done, we end the turn by skipping
 	ClubCardEndTurn(true);
+
 }
 
 /**
- * When starts it's turn
+ * When the opponent (AI) starts it's turn, gives 3 seconds before it's move
  * @returns {void} - Nothing
  */
 function ClubCardAIStart() {
-	if (ClubCardPlayer[ClubCardTurnIndex].Control == "AI")
-		setTimeout(ClubCardAIPlay, 2000);
+	if (!MiniGameEnded && ClubCardPlayer[ClubCardTurnIndex].Control == "AI")
+		setTimeout(ClubCardAIPlay, 3000);
 }
 
 /**
- * When a player concedes the game TO DO
+ * When a player concedes the game
  * @returns {void} - Nothing
  */
 function ClubCardConcede() {
+	ClubCardDestroyPopup();
+	ClubCardEndGame(false);
+}
+
+/**
+ * When the game ends
+ * @param {boolean} Victory - TRUE if the player is victorious
+ * @returns {void} - Nothing
+ */
+function ClubCardEndGame(Victory) {
+	ElementRemove("CCLog")
+	MiniGameEnded = true;
+	if (Victory != null) MiniGameVictory = Victory;
+	MiniGameEnd();
 }
 
 /**
@@ -948,9 +1079,11 @@ function ClubCardLoadCaption() {
  * @returns {void} - Nothing
  */
 function ClubCardLoad() {
+	ClubCardList[0].Title = null;
 	ClubCardFirstTurn = true;
 	ClubCardTurnCardPlayed = 0;
 	ClubCardLogText = "";
+	ClubCardPopup = null;
 	ClubCardLogScroll = false;
 	ClubCardLog = [];
 	ClubCardTurnIndex = Math.floor(Math.random() * 2);
@@ -971,7 +1104,7 @@ function ClubCardLoad() {
  */
 function ClubCardRenderBubble(Value, X, Y, W, Image) {
 	DrawImageResize("Screens/MiniGame/ClubCard/Bubble/" + Image + ".png", X, Y - W / 20, W, W);
-	DrawTextWrap(Value.toString(), X, Y, W, W, "Black");
+	if (Value != null) DrawTextWrap(Value.toString(), X, Y, W, W, "Black");
 	return Y + W * 1.5;
 }
 
@@ -1034,6 +1167,7 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 	MainCanvas.font = "bold " + Math.round(W / 12) + "px arial";
 	DrawTextWrap(Card.Title, X + W * 0.05, Y + W * 0.05, W * 0.9, W * 0.1, "Black");
 	let BubblePos = Y + W * 0.2;
+	if (ClubCardIsLiability(Card)) BubblePos = ClubCardRenderBubble(null, X + W * 0.05, BubblePos, W * 0.1, "Liability");
 	if (Level > 1) BubblePos = ClubCardRenderBubble(Level, X + W * 0.05, BubblePos, W * 0.1, "Level");
 	if (Card.FamePerTurn != null) BubblePos = ClubCardRenderBubble(Card.FamePerTurn, X + W * 0.05, BubblePos, W * 0.1, "Fame");
 	if (Card.MoneyPerTurn != null) BubblePos = ClubCardRenderBubble(Card.MoneyPerTurn, X + W * 0.05, BubblePos, W * 0.1, "Money");
@@ -1062,17 +1196,18 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
  * @param {number} Y - The Y on screen position
  * @param {number} W - The width of the game board
  * @param {number} H - The height of the game board
- * @param {number} TextY - The Y on screen position of the text
+ * @param {boolean} Mirror - If the board should be rendered bottom to top
  * @returns {void} - Nothing
  */
-function ClubCardRenderBoard(CCPlayer, X, Y, W, H, TextY) {
+function ClubCardRenderBoard(CCPlayer, X, Y, W, H, Mirror) {
 
 	// Draws the money, fame and level
 	MainCanvas.font = CommonGetFont(Math.round(H / 20));
-	if (CCPlayer.Character != null) DrawTextWrap(CharacterNickname(CCPlayer.Character), X + W * 0.01, TextY + H * 0.01, W * 0.19, H * 0.1, "White");
-	if (CCPlayer.Fame != null) DrawTextWrap(TextGet("Fame") + " " + CCPlayer.Fame, X + W * 0.21, TextY + H * 0.01, W * 0.19, H * 0.1, (CCPlayer.Fame >= 0) ? "White" : "Pink");
-	if (CCPlayer.Money != null) DrawTextWrap(TextGet("Money") + " " + CCPlayer.Money, X + W * 0.61, TextY + H * 0.01, W * 0.19, H * 0.1, (CCPlayer.Money >= 0) ? "White" : "Pink");
-	if (CCPlayer.Level != null) DrawTextWrap(TextGet("Level" + CCPlayer.Level) + " (" + CCPlayer.Board.length + " / " + ClubCardLevelLimit[CCPlayer.Level] + ")", X + W * 0.81, TextY + H * 0.01, W * 0.19, H * 0.1, ClubCardColor[CCPlayer.Level]);
+	let TextY = Mirror ? Y + H * 0.895 : Y + H * 0.01;
+	if (CCPlayer.Character != null) DrawTextWrap(CharacterNickname(CCPlayer.Character), X + W * 0.01, TextY, W * 0.19, H * 0.1, "White");
+	if (CCPlayer.Fame != null) DrawTextWrap(TextGet("Fame") + " " + CCPlayer.Fame + (((CCPlayer.LastFamePerTurn != null) && (CCPlayer.LastFamePerTurn != 0)) ? " (" + ((CCPlayer.LastFamePerTurn > 0) ? "+" : "") + CCPlayer.LastFamePerTurn.toString() + ")" : ""), X + W * 0.21, TextY, W * 0.19, H * 0.1, (CCPlayer.Fame >= 0) ? "White" : "Pink");
+	if (CCPlayer.Money != null) DrawTextWrap(TextGet("Money") + " " + CCPlayer.Money + (((CCPlayer.LastMoneyPerTurn != null) && (CCPlayer.LastMoneyPerTurn != 0)) ? " (" + ((CCPlayer.LastMoneyPerTurn > 0) ? "+" : "") + CCPlayer.LastMoneyPerTurn.toString() + ")" : ""), X + W * 0.61, TextY, W * 0.19, H * 0.1, (CCPlayer.Money >= 0) ? "White" : "Pink");
+	if (CCPlayer.Level != null) DrawTextWrap(TextGet("Level" + CCPlayer.Level) + " (" + CCPlayer.Board.length + " / " + ClubCardLevelLimit[CCPlayer.Level] + ")", X + W * 0.81, TextY, W * 0.19, H * 0.1, ClubCardColor[CCPlayer.Level]);
 
 	// Draws the played cards
 	if ((CCPlayer == null) || (CCPlayer.Board == null)) return;
@@ -1080,10 +1215,11 @@ function ClubCardRenderBoard(CCPlayer, X, Y, W, H, TextY) {
 	let IncX = Math.round(W / 10);
 	if (PosX < X) {
 		PosX = X;
-		IncX = Math.round(W / CCPlayer.Hand.length);
+		IncX = Math.round(W / CCPlayer.Board.length);
 	}
 	for (let C of CCPlayer.Board) {
-		ClubCardRenderCard(C, PosX + 5, Y + 5 + (H * 0.1), (W / 12) - 5);
+		let PosY = Mirror ? Y + H - (H * 0.65) : Y + (H * 0.1);
+		ClubCardRenderCard(C, PosX + 5, PosY, (W / 12) - 5);
 		PosX = PosX + IncX;
 	}
 
@@ -1150,19 +1286,35 @@ function ClubCardRenderPanel() {
 }
 
 /**
+ * Renders the popup on the top of the game board
+ * @returns {void} - Nothing
+ */
+function ClubCardRenderPopup() {
+	if (ClubCardPopup == null) return;
+	DrawRect(648, 348, 404, 304, "White");
+	DrawRect(650, 350, 400, 300, "Black");
+	DrawTextWrap(ClubCardPopup.Text, 670, 360, 370, 210, "White");
+	if (ClubCardPopup.Button2 != null) {
+		DrawButton(660, 570, 180, 60, ClubCardPopup.Button1, "White");
+		DrawButton(860, 570, 180, 60, ClubCardPopup.Button2, "White");
+	} else DrawButton(700, 570, 300, 60, ClubCardPopup.Button1, "White");
+}
+
+/**
  * Runs the club card game, draws all the controls
  * @returns {void} - Nothing
  */
 function ClubCardRun() {
 	ClubCardHover = null;
 	ClubCardLoadCaption()
-	ClubCardRenderBoard(ClubCardPlayer[0], 0, 500, 1700, 500, 500);
-	ClubCardRenderBoard(ClubCardPlayer[1], 0, 0, 1700, 500, 440);
+	ClubCardRenderBoard(ClubCardPlayer[0], 0, 500, 1700, 500, false);
+	ClubCardRenderBoard(ClubCardPlayer[1], 0, 0, 1700, 500, true);
 	DrawRect(0, 499, 1700, 2, "White");
 	ClubCardRenderHand(ClubCardPlayer[0], 0, 800, 1700, 300);
-	ClubCardRenderHand(ClubCardPlayer[1], 0, -250, 1700, 300);
+	ClubCardRenderHand(ClubCardPlayer[1], 0, -200, 1700, 300);
 	ClubCardRenderPanel();
-	if ((ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && (ClubCardPlayer[ClubCardTurnIndex].Level < ClubCardLevelCost.length - 1) && (ClubCardPlayer[ClubCardTurnIndex].Money >= ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1])) DrawButton(1390, 435, 300, 60, TextGet("UpgradeToLevel" + (ClubCardPlayer[ClubCardTurnIndex].Level + 1).toString()).replace("MONEY", ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1].toString()), "White");
+	if ((ClubCardPopup == null) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && (ClubCardPlayer[ClubCardTurnIndex].Level < ClubCardLevelCost.length - 1) && (ClubCardPlayer[ClubCardTurnIndex].Money >= ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1])) DrawButton(1390, 435, 300, 60, TextGet("UpgradeToLevel" + (ClubCardPlayer[ClubCardTurnIndex].Level + 1).toString()).replace("MONEY", ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1].toString()), "White");
+	ClubCardRenderPopup();
 }
 
 /**
@@ -1170,10 +1322,23 @@ function ClubCardRun() {
  * @returns {void} - Nothing
  */
 function ClubCardClick() {
+	
+	// In popup mode, no other clicks can be done but the popup buttons
+	if (ClubCardPopup != null) {
+		if ((ClubCardPopup.Button2 == null) && MouseIn(700, 570, 300, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
+		if ((ClubCardPopup.Button2 != null) && MouseIn(660, 570, 180, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
+		if ((ClubCardPopup.Button2 != null) && MouseIn(860, 570, 180, 60)) CommonDynamicFunction(ClubCardPopup.Function2);
+		return;
+	}
+
+	// Runs the basic game buttons
 	if (MouseIn(1725, 300, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && ClubCardCanPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus)) return ClubCardPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus);
 	if (MouseIn(1700, 0, 300, 600) && (ClubCardFocus != null)) return ClubCardFocus = null;
 	if (MouseIn(1725, 860, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardEndTurn(true);
-	if (MouseIn(1725, 930, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardConcede();
+	if (MouseIn(1725, 930, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardCreatePopup(TextGet("ConfirmConcede"), TextGet("Yes"), TextGet("No"), "ClubCardConcede()", "ClubCardDestroyPopup()");
 	if (MouseIn(1390, 435, 300, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && (ClubCardPlayer[ClubCardTurnIndex].Level < ClubCardLevelCost.length - 1) && (ClubCardPlayer[ClubCardTurnIndex].Money >= ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1])) return ClubCardUpgradeLevel(ClubCardPlayer[ClubCardTurnIndex]);
+
+	// Sets the focus card if nothing else was clicked
 	if (ClubCardHover != null) return ClubCardFocus = {...ClubCardHover};
+
 }
