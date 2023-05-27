@@ -642,6 +642,57 @@ function DialogCanUnlock(C, Item) {
 }
 
 /**
+ * Checks whether we can lockpick a lock.
+ * @param {Character} C
+ * @param {Item} Item
+ * @returns {boolean}
+ */
+function DialogCanPickLock(C, Item) {
+	if (!C || !Item) return;
+
+	// Check that the character allows lockpicking
+	if (!C.IsPlayer() && C.OnlineSharedSettings && C.OnlineSharedSettings.DisablePickingLocksOnSelf)
+		return false;
+
+	// Check that the lock is accessible, and that we're free to do so
+	const groupIsBlocked = InventoryGroupIsBlocked(C, /** @type {AssetGroupItemName} */(Item.Asset.Group.Name));
+	const playerHandsAreBlocked = InventoryGroupIsBlocked(Player, "ItemHands");
+	if (!InventoryAllow(C, Item.Asset) || groupIsBlocked || playerHandsAreBlocked || !InventoryItemIsPickable(Item))
+		return false;
+
+	// Check that he player can access their tools.
+	// Maybe in the future you will be able to hide a lockpick in your panties :>
+	const CanAccessLockpicks = (Player.CanInteract() || Player.CanWalk()) && InventoryAvailable(Player, "Lockpicks", "ItemMisc");
+	if (!CanAccessLockpicks && !DialogLentLockpicks)
+		return false;
+
+	return true;
+}
+
+/**
+ * Checks whether we can access a lock.
+ *
+ * This function is used to enable the locked submenu
+ *
+ * @param {Character} C - The character wearing the lock
+ * @param {Item} Item - The locked item to inspect
+ * @returns {boolean}
+ */
+function DialogCanCheckLock(C, Item) {
+	if (!Item) return false;
+
+	// Check that this is a locked item
+	const lockedBy = InventoryGetItemProperty(Item, "LockedBy");
+	if (!InventoryItemHasEffect(Item, "Lock", true) || !lockedBy)
+		return false;
+
+	if (!DialogCanInspectLock(Item) && !DialogCanPickLock(C, Item) && !DialogCanUnlock(C, Item))
+		return false;
+
+	return true;
+}
+
+/**
  * Some specific screens like the movie studio cannot allow the player to use items on herself, return FALSE if it's the case
  * @returns {boolean} - Returns TRUE if we allow using items
  */
@@ -1088,11 +1139,14 @@ function DialogCanColor(C, Item) {
 
 /**
  * Checks whether a lock can be inspected while blind.
- * @param {AssetLockType} lockName - The lock type
+ * @param {Item} Item - The locked item
  * @returns {boolean}
  */
-function DialogCanInspectLockWhileBlind(lockName) {
-	return ["SafewordPadlock", "CombinationPadlock"].includes(lockName);
+function DialogCanInspectLock(Item) {
+	if (!Item) return false;
+
+	const lockedBy = InventoryGetItemProperty(Item, "LockedBy");
+	return !Player.IsBlind() || ["SafewordPadlock", "CombinationPadlock"].includes(lockedBy);
 }
 
 /**
@@ -1152,17 +1206,10 @@ function DialogMenuButtonBuild(C) {
 				C, Item.Asset) && !IsGroupBlocked)) {
 			DialogMenuButton.push("Unlock");
 		}
-		if (InventoryAllow(C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item) && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf))) {
-			if (DialogLentLockpicks)
-				DialogMenuButton.push("PickLock");
-			else if (CanAccessLockpicks)
-				for (let I = 0; I < Player.Inventory.length; I++)
-					if (Player.Inventory[I].Name == "Lockpicks") {
-						DialogMenuButton.push("PickLock");
-						break;
-					}
+		if (InventoryItemIsPickable(Item)) {
+			DialogMenuButton.push(DialogCanPickLock(C, Item) ? "PickLock" : "PickLockDisabled");
 		}
-		if (Lock && (!Player.IsBlind() || DialogCanInspectLockWhileBlind(/** @type {AssetLockType} */ (Lock.Asset.Name)))) {
+		if (DialogCanInspectLock(Item)) {
 			DialogMenuButton.push(LockBlockedOrLimited ? "InspectLockDisabled" : "InspectLock");
 		}
 
@@ -1197,27 +1244,8 @@ function DialogMenuButtonBuild(C) {
 		if (!IsItemLocked && !IsGroupBlocked && (Item != null) && (Item.Asset != null) && Item.Asset.AllowTighten && Player.CanInteract() && InventoryAllow(C, Item.Asset))
 			DialogMenuButton.push("TightenLoosen");
 
-		if (
-			IsItemLocked && Item.Property && Item.Property.LockedBy &&
-			(
-				(
-					!Player.IsBlind() ||
-					(Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy))
-				) ||
-				(
-					InventoryAllow(C, Item.Asset) &&
-					!IsGroupBlocked &&
-					!InventoryGroupIsBlocked(Player, "ItemHands") &&
-					InventoryItemIsPickable(Item)
-				) &&
-				(
-					C.ID == 0 ||
-					(C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)
-				)
-			)
-		) {
+		if (DialogCanCheckLock(C, Item))
 			DialogMenuButton.push("LockMenu");
-		}
 
 		if ((Item != null) && (C.ID == 0) && (!Player.CanInteract() || (IsItemLocked && !DialogCanUnlock(C, Item))) && (DialogMenuButton.indexOf("Unlock") < 0) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked)
 			DialogMenuButton.push("Struggle");

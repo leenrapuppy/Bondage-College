@@ -98,7 +98,7 @@ type DialogMenuButton = "Activity" |
 	"GGTSControl" |
 	"InspectLock" | "InspectLockDisabled" |
 	"Lock" | "LockDisabled" | "LockMenu" |
-	"Next" | "Prev" | "PickLock" |
+	"Next" | "Prev" | "PickLock" | "PickLockDisabled" |
 	"Remote" | "RemoteDisabled" | `RemoteDisabledFor${VibratorRemoteAvailability}` |
 	"Unlock" | "Use" | "UseDisabled" | "Struggle" | "TightenLoosen" |
 	// Wardrobe buttons
