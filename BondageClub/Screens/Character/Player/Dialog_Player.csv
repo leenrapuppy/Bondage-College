@@ -80,6 +80,8 @@ ItemArmsWrappedBlanketSetFullWrapped,,,SourceCharacter fully wraps TargetCharact
 SelectItem,,,Select an item to use.,,
 SelectItemGroup,,,Select an item to use on the GroupName.,,
 SelectLock,,,Select a lock to use on the GroupName.,,
+SelectLocked,,,This looks like its locked by a AssetName.,,
+SelectLockedUnknown,,,This looks like its locked by something.,,
 SelectActivityGroup,,,Select an activity to use on the GroupName.,,
 SelectActivityNone,,,No activity available on the GroupName.,,
 CraftedItemProperties,,,Crafted item properties.,,

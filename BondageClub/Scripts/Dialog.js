@@ -2013,6 +2013,13 @@ function DialogChangeMode(mode) {
 			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
 	} else if (DialogMenuMode === "locking") {
 		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
+	} else if (DialogMenuMode === "locked") {
+		const item = InventoryGet(C, C.FocusGroup.Name);
+		const lock = InventoryGetLock(item);
+		if (!lock || !DialogCanInspectLock(item))
+			DialogSetStatus(DialogFindPlayer("SelectLockedUnknown"));
+		else
+			DialogSetStatus(DialogFindPlayer("SelectLocked").replace("AssetName", lock.Asset.DynamicDescription(C).toLowerCase()));
 	} else {
 		DialogSetStatus("");
 	}
