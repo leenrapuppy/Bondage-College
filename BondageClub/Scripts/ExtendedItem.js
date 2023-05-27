@@ -834,48 +834,26 @@ function ExtendedItemCustomChatPrefix(Name, Data) {
 }
 
 /**
- * Register archetypical subscreens for the passed extended item options
- * @param {Asset} asset - The asset whose subscreen is being registered
- * @param {VariableHeightConfig | VibratingItemConfig | TextItemConfig} config - The subscreens extended item config
- * @param {TypedItemOption | ModularItemOption} option - The parent item's extended item option
- * @returns {null | VariableHeightData | VibratingItemData | TextItemData} - The subscreens extended item data or `null` if no archetypical subscreen is present
- */
-function ExtendedItemRegisterSubscreen(asset, config, option) {
-	switch (option.Archetype) {
-		case ExtendedArchetype.VARIABLEHEIGHT:
-			return VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(config), option);
-		case ExtendedArchetype.VIBRATING:
-			return VibratorModeRegister(asset, /** @type {VibratingItemConfig} */(config || {}), option);
-		case ExtendedArchetype.TEXT:
-			return TextItemRegister(asset, /** @type {TextItemConfig} */(config), option);
-		default:
-			return null;
-	}
-}
-
-/**
  * Gather and return all subscreen properties of the passed option.
  * @param {Item} item - The item in question
- * @param {ExtendedItemOption} option - The extended item option
+ * @param {ExtendedItemOption & { ArchetypeData?: VibratingItemData | VariableHeightData | TextItemData }} option - The extended item option
  * @returns {ItemProperties} - The item properties of the option's subscreen (if any)
  */
 function ExtendedItemGatherSubscreenProperty(item, option) {
-	if (!("Archetype" in option && "ArchetypeData" in option)) {
+	const data = option.ArchetypeData;
+	if (!data) {
 		return {};
 	}
 
-	switch (option.Archetype) {
-		case ExtendedArchetype.VIBRATING: {
-			const vibeData = /** @type {VibratingItemData} */(option.ArchetypeData);
-			return TypedItemFindPreviousOption(item, vibeData.options, "Mode").Property;
-		}
+	switch (data.archetype) {
+		case ExtendedArchetype.VIBRATING:
+			return TypedItemFindPreviousOption(item, data.options, "Mode").Property;
 		case ExtendedArchetype.VARIABLEHEIGHT:
 			return { OverrideHeight: item.Property.OverrideHeight };
 		case ExtendedArchetype.TEXT: {
-			const textData = /** @type {TextItemData} */(option.ArchetypeData);
 			/** @type {TextItemRecord<string>} */
 			const ret = {};
-			textData.textNames.forEach(i => ret[i] = item.Property[i]);
+			data.textNames.forEach(i => ret[i] = item.Property[i]);
 			return ret;
 		}
 		default:
@@ -964,15 +942,13 @@ function ExtendedItemManualRegister() {
 			name: "TransportJacket",
 			config: {
 				Archetype: ExtendedArchetype.TEXT,
-				Config: {
-					MaxLength: { Text: 14 },
-					Font: "'Saira Stencil One', 'Arial', sans-serif",
-					DrawData: {
-						Positions: [[1505, 850]],
-					},
-					DialogPrefix: {
-						Header: "ItemArmsTransportJacketSelect",
-					},
+				MaxLength: { Text: 14 },
+				Font: "'Saira Stencil One', 'Arial', sans-serif",
+				DrawData: {
+					Positions: [[1505, 850]],
+				},
+				DialogPrefix: {
+					Header: "ItemArmsTransportJacketSelect",
 				},
 			},
 		},
@@ -981,16 +957,14 @@ function ExtendedItemManualRegister() {
 			name: "WoodenBox",
 			config: {
 				Archetype: ExtendedArchetype.TEXT,
-				Config: {
-					MaxLength: { Text: 20 },
-					Font: "'Saira Stencil One', 'Arial', sans-serif",
-					PushOnPublish: false,
-					DrawData: {
-						Positions: [[1505, 850]],
-					},
-					DialogPrefix: {
-						Header: "ItemDevicesWoodenBoxSelect",
-					},
+				MaxLength: { Text: 20 },
+				Font: "'Saira Stencil One', 'Arial', sans-serif",
+				PushOnPublish: false,
+				DrawData: {
+					Positions: [[1505, 850]],
+				},
+				DialogPrefix: {
+					Header: "ItemDevicesWoodenBoxSelect",
 				},
 			},
 		},
@@ -998,10 +972,6 @@ function ExtendedItemManualRegister() {
 
 	for (const { group, name, config } of items) {
 		const asset = AssetGet("Female3DCG", group, name);
-		switch (config.Archetype) {
-			case ExtendedArchetype.TEXT:
-				TextItemRegister(asset, /** @type {TextItemConfig} */(config.Config), null, false);
-				break;
-		}
+		AssetBuildExtended(asset, config, AssetFemale3DCGExtended, null, false);
 	}
 }

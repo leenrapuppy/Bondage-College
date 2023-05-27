@@ -80,6 +80,40 @@ function TypedItemRegister(asset, config) {
 }
 
 /**
+ * Parse and pre-process the passed item options.
+ * @param {Asset} asset - The item options asset
+ * @param {readonly TypedItemOptionBase[]} protoOptions - The unparsed extended item options
+ * @param {boolean} [changeWhenLocked] - See {@link TypedItemConfig.ChangeWhenLocked}
+ * @returns {TypedItemOption[]} The newly generated extended item options
+ */
+function TypedItemBuildOptions(protoOptions, asset, changeWhenLocked) {
+	return protoOptions.map((protoOption, i) => {
+		/** @type {TypedItemOption} */
+		const option = {
+			...protoOption,
+			OptionType: "TypedItemOption",
+			Property: {
+				...(protoOption.Property || {}),
+				Type: i === 0 ? null : protoOption.Name,
+			},
+		};
+
+		if (typeof changeWhenLocked === "boolean" && typeof option.ChangeWhenLocked !== "boolean") {
+			option.ChangeWhenLocked = changeWhenLocked;
+		}
+
+		// @ts-expect-error: potentially copied from the protoOption via the spread operator
+		delete option.ArchetypeConfig;
+		if (protoOption.ArchetypeConfig) {
+			option.ArchetypeData = /** @type {TypedItemOption["ArchetypeData"]} */(AssetBuildExtended(
+				asset, protoOption.ArchetypeConfig, AssetFemale3DCGExtended, option,
+			));
+		}
+		return option;
+	});
+}
+
+/**
  * Generates an asset's typed item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {TypedItemConfig} config - The item's extended item configuration
@@ -96,17 +130,7 @@ function TypedItemCreateTypedItemData(asset, {
 	ScriptHooks,
 	BaselineProperty=null,
 }) {
-	const optionsParsed = Options.map(o => {
-		/** @type {TypedItemOption} */
-		const ret = { ...o, OptionType: "TypedItemOption" };
-		if (typeof ChangeWhenLocked === "boolean" && typeof ret.ChangeWhenLocked !== "boolean") {
-			ret.ChangeWhenLocked = ChangeWhenLocked;
-		}
-		// @ts-expect-error: potentially copied from the protoOption via the spread operator
-		delete ret.ArchetypeConfig;
-		ret.ArchetypeData = ExtendedItemRegisterSubscreen(asset, o.ArchetypeConfig, ret);
-		return ret;
-	});
+	const optionsParsed = TypedItemBuildOptions(Options, asset, ChangeWhenLocked);
 
 	DialogPrefix = DialogPrefix || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
@@ -482,25 +506,12 @@ function TypedItemInit(Data, C, Item, Refresh=true) {
 		return false;
 	}
 
-	// Default to the first option if no property is set
-	let InitialProperty = Data.options[0].Property;
-	Item.Property = JSON.parse(JSON.stringify(Data.options[0].Property));
-
-	// If the default type is not the null type, check whether the default type is blocked
-	if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, Item, InitialProperty.Type)) {
-		// If the first option is blocked by the character, switch to the null type option
-		const InitialOption = Data.options.find(O => O.Property.Type == null);
-		if (InitialOption) InitialProperty = InitialOption.Property;
-	}
-
-	// If there is an initial and/or baseline property, set it and update the character
-	if (InitialProperty || Data.baselineProperty) {
-		Item.Property = (Data.baselineProperty != null) ? JSON.parse(JSON.stringify(Data.baselineProperty)) : {};
-		Item.Property = Object.assign(
-			Item.Property,
-			(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-		);
-	}
+	// Always pick the first option unless NPCs are involved (in which case `NPCDefault` must be respected)
+	const initialProperty = C.IsNpc() ? (Data.options.find(o => o.NPCDefault) || Data.options[0]) : Data.options[0];
+	Item.Property = {
+		...(Data.baselineProperty == null ? {} : CommonCloneDeep(Data.baselineProperty)),
+		...CommonCloneDeep(initialProperty.Property),
+	};
 
 	if (Refresh) {
 		CharacterRefresh(C, true, false);

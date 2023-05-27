@@ -407,36 +407,21 @@ type ExtendedArchetype = "modular" | "typed" | "vibrating" | "variableheight" | 
 
 /**
  * An object containing extended item configurations keyed by group name.
- * @see {@link ExtendedItemAssetConfig}
  */
 type ExtendedItemMainConfig = Record<string, ExtendedItemGroupConfig>;
 
 /**
  * An object containing extended item definitions for a group.
  * Maps asset names within the group to their extended item configuration
- * @see {@link ExtendedItemAssetConfig}
  */
 type ExtendedItemGroupConfig = Record<string, AssetArchetypeConfig>;
 
-/**
- * Valid extended item configuration types
- */
-type AssetArchetypeConfig = TypedItemAssetConfig | ModularItemAssetConfig | VibratingItemAssetConfig | VariableHeightAssetConfig | TextItemAssetConfig;
-
-/**
- * An object containing the extended item definition for an asset.
- * @template Archetype, Config
- */
-interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config extends ExtendedItemConfig<any>> {
-	/** The extended item archetype that this asset uses. */
-	Archetype: Archetype;
-	/** The specific configuration for the item (type will vary based on the item's archetype) */
-	Config?: Config;
-	/** The group name and asset name of a configuration to copy - useful if multiple items share the same config */
-	CopyConfig?: { GroupName?: AssetGroupName, AssetName: string };
-}
+/** A union of all (non-abstract) extended item configs */
+type AssetArchetypeConfig = TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig | TextItemConfig;
 
 interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
+	/** The archetype of the extended item config */
+	Archetype: ExtendedArchetype;
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
@@ -461,6 +446,8 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
 	BaselineProperty?: ItemPropertiesNoArray;
 	/** A boolean indicating whether or not images should be drawn for the option and/or module selection screen. */
 	DrawImages?: boolean;
+	/** The group name and asset name of a configuration to copy - useful if multiple items share the same config */
+	CopyConfig?: { GroupName?: AssetGroupName, AssetName: string };
 }
 
 /** Defines a single extended item option */
@@ -508,15 +495,12 @@ interface ExtendedItemOption {
 
 /** Extended item option subtype for typed items */
 interface TypedItemOptionBase extends Omit<ExtendedItemOption, "OptionType"> {
-	Property: ItemProperties & Pick<Required<ItemProperties>, "Type">;
-	/** A unique (automatically assigned) identifier of the struct type */
-	OptionType?: "TypedItemOption";
-	/** If the option has a subscreen, this can set a particular archetype to use */
-	Archetype?: "vibrating" | "variableheight" | "text";
+	Property?: Omit<ItemProperties, "Type">;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig | TextItemConfig;
 	/** Whether or not this option can be selected randomly */
 	Random?: boolean;
+	NPCDefault?: boolean;
 }
 
 /** Extended item option subtype for typed items */
@@ -524,6 +508,7 @@ interface TypedItemOption extends Omit<TypedItemOptionBase, "ArchetypeConfig"> {
 	OptionType: "TypedItemOption";
 	/** If the option has an archetype, sets the data to use */
 	ArchetypeData?: VibratingItemData | VariableHeightData | TextItemData;
+	Property: ItemProperties & Pick<Required<ItemProperties>, "Type">;
 }
 
 /** Extended item option subtype for vibrating items */
@@ -589,13 +574,11 @@ type ExtendedItemNPCCallback<OptionType extends ExtendedItemOption> = (
 
 //#region Typed items
 
-/** An object containing the extended item definition for a modular asset. */
-type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
-
 type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
 
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig extends ExtendedItemConfig<TypedItemOption> {
+	Archetype: "typed";
 	/** The list of extended item options available for the item */
 	Options?: TypedItemOptionBase[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
@@ -646,11 +629,9 @@ type ExtendedItemDictionaryCallback<OptionType extends ExtendedItemOption> = (
 
 //#region Modular items
 
-/** An object containing the extended item definition for a modular asset. */
-type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConfig>;
-
 /** An object defining all of the required configuration for registering a modular item */
 interface ModularItemConfig extends ExtendedItemConfig<ModularItemOption> {
+	Archetype: "modular";
 	/** The module definitions for the item */
 	Modules?: ModularItemModuleBase[];
 	/**
@@ -737,18 +718,9 @@ interface ModularItemOptionBase extends Omit<ExtendedItemOption, "OptionType" | 
 	SetPose?: AssetPoseName;
 	/** A list of activities enabled by that module */
 	AllowActivity?: ActivityName[];
-	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
-	Name?: string;
-	/** A unique (automatically assigned) identifier of the struct type */
-	OptionType?: "ModularItemOption";
-	/** The option's (automatically assigned) parent module name */
-	ModuleName?: string;
-	/** The option's (automatically assigned) index within the parent module */
-	Index?: number;
-	/** If the option has a subscreen, this can set a particular archetype to use */
-	Archetype?: "vibrating" | "variableheight" | "text";
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: VibratingItemConfig | VariableHeightConfig | TextItemConfig;
+	Property?: Omit<ItemProperties, "Type">;
 }
 
 /** An object describing a single option within a module for a modular item. */
@@ -769,11 +741,9 @@ interface ModularItemOption extends Omit<ModularItemOptionBase, "ArchetypeConfig
 
 //#region Vibrating Items
 
-/** An object containing the extended item definition for a vibrating asset. */
-type VibratingItemAssetConfig = ExtendedItemAssetConfig<"vibrating", VibratingItemConfig>;
-
 /** An object defining all of the required configuration for registering a vibrator item */
 interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
+	Archetype: "vibrating";
 	/** The list of vibrator mode sets that are available on this item */
 	Options?: VibratorModeSet[];
 	/**
@@ -801,10 +771,8 @@ type VibratorModeSet = "Standard" | "Advanced";
 
 //#region Variable Height items
 
-/** An object containing the extended item definition for a variable height asset. */
-type VariableHeightAssetConfig = ExtendedItemAssetConfig<"variableheight", VariableHeightConfig>;
-
 interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> {
+	Archetype: "variableheight";
 	/** The highest Y co-ordinate that can be set  */
 	MaxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
@@ -842,9 +810,8 @@ interface VariableHeightSliderConfig {
 
 //#region text items
 
-type TextItemAssetConfig = ExtendedItemAssetConfig<"text", TextItemConfig>;
-
 interface TextItemConfig extends ExtendedItemConfig<TextItemOption> {
+	Archetype: "text";
 	/** A record with the maximum length for each text-based properties with an input field. */
 	MaxLength: TextItemRecord<number>;
 	/** A record containing various dialog keys used by the extended item screen */
