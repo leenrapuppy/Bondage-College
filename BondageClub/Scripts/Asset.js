@@ -206,8 +206,6 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Layer: [],
 		ColorableLayerCount: 0,
 		CustomBlindBackground: typeof AssetDef.CustomBlindBackground === 'string' ? AssetDef.CustomBlindBackground : undefined,
-		FuturisticRecolor: typeof AssetDef.FuturisticRecolor === 'boolean' ? AssetDef.FuturisticRecolor : false,
-		FuturisticRecolorDisplay: typeof AssetDef.FuturisticRecolorDisplay === 'boolean' ? AssetDef.FuturisticRecolorDisplay : false,
 		Attribute: AssetDef.Attribute || [],
 		PreviewIcons: AssetDef.PreviewIcons || [],
 		PoseMapping: AssetDef.PoseMapping || {},

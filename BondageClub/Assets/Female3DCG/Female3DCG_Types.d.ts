@@ -293,8 +293,6 @@ interface AssetDefinition {
 	Layer?: AssetLayerDefinition[];
 
 	Archetype?: ExtendedArchetype;
-	FuturisticRecolor?: boolean;
-	FuturisticRecolorDisplay?: boolean;
 
 	/** A list of attributes the asset has */
 	Attribute?: AssetAttribute[];
