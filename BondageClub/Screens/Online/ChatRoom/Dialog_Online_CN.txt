@@ -512,17 +512,29 @@
 (The store will not sell keys to DialogCharacterObject anymore.)
 (商店将不会卖给DialogCharacterObject任何钥匙)
 ###_PLAYER
-(Allow DialogCharacterObject to use owner locks on DialogCharacterSelf.)
-(允许DialogCharacterObject对自己使用主人锁)
+(Allow DialogCharacterObject to use family keys.)
+(允许DialogCharacterObject使用家族钥匙)
 ###_NPC
-(DialogCharacterSubject will be able to use owner locks on DialogCharacterSelf.)
-(DialogCharacterObject将可以对自己使用主人锁)
+(DialogCharacterObject will now be able to use family keys.)
+(现在DialogCharacterObject能使用家族钥匙)
 ###_PLAYER
-(Block DialogCharacterObject from using owner locks on DialogCharacterSelf.)
-(禁止DialogCharacterObject对自己使用主人锁)
+(Block DialogCharacterObject from using family keys.)
+(禁止DialogCharacterObject使用家族钥匙)
 ###_NPC
-(DialogCharacterSubject will not be able to use owner locks on DialogCharacterSelf anymore.)
-(DialogCharacterObject将无法对自己使用主人锁)
+(DialogCharacterObject won't be able to use family keys.)
+(DialogCharacterObject将不能使用家族钥匙)
+###_PLAYER
+(Allow DialogCharacterObject to use owner/family locks on DialogCharacterSelf.)
+(允许DialogCharacterObject对自己使用家族锁)
+###_NPC
+(DialogCharacterSubject will be able to use owner & family locks on DialogCharacterSelf.)
+(现在DialogCharacterObject对自己使用家族锁)
+###_PLAYER
+(Block DialogCharacterObject from using owner/family locks on DialogCharacterSelf.)
+(禁止DialogCharacterObject对自己使用家族锁)
+###_NPC
+(DialogCharacterSubject will not be able to use owner & family locks on DialogCharacterSelf anymore.)
+(DialogCharacterObject将不能对自己使用家族锁)
 ###_PLAYER
 (Allow DialogCharacterObject to buy remotes.)
 (允许DialogCharacterObject购买遥控器)

@@ -68,7 +68,7 @@ I don't want to be a part of the Bad Girls Gang anymore.
 Well, if you promise to be good, we'll leave you alone.
 好吧，如果你保证做个好人，我们就不再麻烦你了。
 ###_PLAYER
-(return the dice)
+(Return the dice)
 （归还骰子）
 ###_NPC
 Thanks.

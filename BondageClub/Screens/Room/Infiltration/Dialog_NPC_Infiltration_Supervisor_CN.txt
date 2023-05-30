@@ -52,8 +52,8 @@ Very good comrade DialogPlayerName!  (She salutes you.)  What kind of challenge 
 Very good!  What kind of challenge are you up to?
 很好！你准备迎接什么样的挑战？
 ###_PLAYER
-Comrade, I've captured an infiltrator from Pandora in my private room.
-同志，我在我的私人房间里面抓住了一个来自潘多拉的潜入者。
+Comrade, I've got a prisoner from Pandora in my private room.
+同志，我的私人房间里面有一个来自潘多拉的囚犯。
 ###_NPC
 Very good comrade DialogPlayerName! We can send someone to pick her up for interrogation!
 做的很好，DialogPlayerName同志！我们会派人把她抓来审讯的！
@@ -481,8 +481,8 @@ You should know that I never fail.
 ###_NPC
 (She bows her head and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
 （她低下头，给你一个密封的信封，里面装着你的薪水。）想做更多任务时，随时回来。
-(She looks at the Dominatrix that came with you and grins.)  Comrade!  Who did you bring with you?
-（她看着和你一起来的女王，咧嘴一笑）同志！你带谁来了？
+(She looks at the prisoner that came with you and grins.)  Comrade!  Who did you bring with you?
+（她看着你携带着的囚犯，咧嘴笑起来。）同志！你这是带谁来了？
 ###_PLAYER
 You think we can get a ransom for her?
 你觉得我们可以用她来取得赎金吗？
@@ -496,8 +496,8 @@ This Pandora's bitch will make me rich and famous.
 (She nods slowly.)  We can keep her for ransom until they pay.  Would you like to get your cut?
 （她慢慢地点点头。）我们可以扣留她，直到他们付清赎金。你想得到你的一份吗？
 ###_PLAYER
-I kidnapped one of their administrators.
-我绑架了一名他们的管理员。
+I kidnapped one of their employees.
+我绑架了一个她们的雇员。
 ###_NPC
 This is impressive.  We can keep her for ransom until they pay.  Would you like to get your cut?
 令人惊叹。我们可以扣留她，直到他们付清赎金。你想得到你的一份吗？
@@ -507,6 +507,12 @@ Yes, I'll take the money.
 ###_NPC
 Here you go comrade.  (She gives you a money envelope.)  Are you ready to go back?
 给你，同志。（她给你一个装着钱的信封。）你准备好回去了吗？
+###_PLAYER
+Actually, I could use a new slave.
+实际上，我可以使用一个新的奴隶。
+###_NPC
+Very well, comrade.  We'll break her and send her to your room in 3 days.  Are you ready to go back?
+很好，同志。我们会弄坏她，并在3天内把她送到你的房间。你准备好回去了了吗？
 ###_PLAYER
 No, but I want some infiltration training.
 不，但我想要一些潜入训练。
@@ -607,8 +613,8 @@ No. While we would normally reward for any information about Pandora's Box, inte
 Please proceed comrade.
 请继续吧，同志。
 ###_NPC
-Very well, one less infiltrator in the Club's halls.
-很好，俱乐部的大厅里面又少了一个潜入者。
+Very well, the Club will be much safer thanks to you.
+很好，多亏你的贡献，俱乐部更安全了。
 ###_PLAYER
 Let me think about it. (Leave her.)
 让我考虑一下。（离开她。）

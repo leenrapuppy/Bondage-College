@@ -580,6 +580,12 @@ Please unlock the clitoris piercing.  (Pay her $25.)
 Alright.  (You remove your clothes and she unlocks the piercing.)  How does it feel?
 好吧。（你脱掉衣服，她解锁了穿刺。）感觉如何？
 ###_PLAYER
+Please unlock the vulva.  (Pay her $25.)
+请解锁阴部。（付给她$25。）
+###_NPC
+Alright.  (You remove your clothes and she unlocks the chastity.)  How does it feel?
+好吧。（你脱掉衣服，她解锁了贞操带。）感觉如何？
+###_PLAYER
 Please unlock the plug.  (Pay her $25.)
 请解锁肛塞。（付给她$25。）
 ###_NPC
@@ -691,6 +697,8 @@ Very well, undress subbie girl.  (You remove your clothes and she unlocks the pi
 很好，脱衣服吧，顺从的女孩。（你脱掉衣服，她打开穿刺。）
 Very well, undress subbie girl.  (You remove your clothes and she unlocks the piercing.)
 很好，脱衣服吧，顺从的女孩。（你脱掉衣服，她打开穿刺。）
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the chastity.)
+很好，脱衣服吧，顺从的女孩。（你脱掉衣服，她打开贞操带。）
 Very well, undress subbie girl.  (You remove your clothes and she unlocks the plug.)
 很好，脱衣服吧，顺从的女孩。（你脱掉衣服，她打开塞子。）
 ###_PLAYER
@@ -979,6 +987,8 @@ No, you're not submissive enough.
 （她检查你的锁。）不，你的女主人给你上了主人锁，你先想办法被放开吧。
 (She checks your locks.)  No, your Lover has put a lover lock on you, get released first.
 （她检查你的锁。）不，你的恋人给你上了爱人锁，你先想办法被放开吧。
+(She checks your locks.)  No, you have family locks on you, get released first.
+（她检查你的锁。）不，你身上是家族锁，你先想办法被放开吧。
 You could, are you sure you understand the terms and commitments?  Do you accept the contract?
 你可以，你确定你了解条款和承诺吗？你接受合约吗？
 Alright girl, but don't waste my time.
