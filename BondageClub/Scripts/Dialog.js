@@ -885,7 +885,8 @@ function DialogLeaveFocusItem() {
 			DialogChangeMode("items");
 	} else if (DialogFocusItem != null) {
 		ExtendedItemExit();
-		DialogChangeMode("items");
+		if (!DialogFocusItem)
+			DialogChangeMode("items");
 	}
 }
 

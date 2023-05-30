@@ -385,10 +385,15 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 /**
  * Exit function for the extended item dialog.
  *
- * Used for:
- *  1. Removing the cache from memory
- *  2. Calling item-appropriate `Exit` functions
- *  3. Setting {@link DialogFocusItem} and {@link ExtendedItemSubscreen} back to `null`
+ * This function will check if there's an extended subscreen and unload it to move back
+ * to the main extended subscreen, or unload the whole extended subscreen and unfocus the item.
+ *
+ * It will cleanup the shared state from extended screens appropriately, call their unload (Exit)
+ * callback, and set either {@link DialogFocusItem} or {@link ExtendedItemSubscreen} back to `null`.
+ *
+ * Note that you shouldn't need to call this function directly. The correct way to "exit" from an
+ * extended item is to call {@link DialogLeaveFocusItem}, which will call this and refresh the dialog
+ * UI.
  * @returns {void} - Nothing
  */
 function ExtendedItemExit() {
@@ -400,13 +405,16 @@ function ExtendedItemExit() {
 	// invalidate the cache
 	ExtendedItemRequirementCheckMessageMemo.clearCache();
 
-	// Run the subscreen's Exit function if any
-	const FuncName = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "") + "Exit";
-	CommonCallFunctionByName(FuncName);
-	DialogFocusItem = null;
-	DialogExtendedMessage = "";
-	ExtendedItemSubscreen = null;
-	ExtendedItemPermissionMode = false;
+	if (ExtendedItemSubscreen) {
+		// Run the subscreen's Exit function if any
+		CommonCallFunctionByName(`${ExtendedItemFunctionPrefix()}${ExtendedItemSubscreen}Exit`);
+		ExtendedItemSubscreen = null;
+		ExtendedItemPermissionMode = false;
+	} else {
+		CommonCallFunctionByName(`${ExtendedItemFunctionPrefix()}Exit`);
+		DialogFocusItem = null;
+		DialogExtendedMessage = "";
+	}
 }
 
 /**
