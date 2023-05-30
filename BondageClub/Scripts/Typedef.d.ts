@@ -3673,7 +3673,7 @@ interface WheelFortuneOptionType {
 // #end region
 
 interface ClubCard {
-	ID: Number,
+	ID: number,
 	Name: string,
 	Type?: string,
 	Title?: string,
@@ -3685,10 +3685,10 @@ interface ClubCard {
 	ExtraTime?: number,
 	ExtraDraw?: number,
 	ExtraPlay?: number,
-	Group?: Array,
-	Location?: String,
-	OnTurnEnd?: function
-	OnBoardEntry?: function
+	Group?: any[],
+	Location?: string,
+	OnTurnEnd?: (C: ClubCardPlayer) => void;
+	OnBoardEntry?: (C: ClubCardPlayer) => void;
 }
 
 interface ClubCardPlayer {
