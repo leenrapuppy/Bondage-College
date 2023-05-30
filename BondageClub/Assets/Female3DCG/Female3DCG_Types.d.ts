@@ -408,7 +408,7 @@ type ExtendedArchetype = "modular" | "typed" | "vibrating" | "variableheight" | 
 /**
  * An object containing extended item configurations keyed by group name.
  */
-type ExtendedItemMainConfig = Record<string, ExtendedItemGroupConfig>;
+type ExtendedItemMainConfig = Partial<Record<AssetGroupName, ExtendedItemGroupConfig>>;
 
 /**
  * An object containing extended item definitions for a group.
