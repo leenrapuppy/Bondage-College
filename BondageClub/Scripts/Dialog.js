@@ -798,10 +798,14 @@ function DialogEndExpression() {
 function DialogMenuBack() {
 	switch (DialogMenuMode) {
 		case "activities":
-		case "colorItem":
 		case "crafted":
 		case "locked":
 		case "locking":
+			DialogChangeMode("items");
+			break;
+
+		case "colorItem":
+			ItemColorCancelAndExit();
 			DialogChangeMode("items");
 			break;
 
