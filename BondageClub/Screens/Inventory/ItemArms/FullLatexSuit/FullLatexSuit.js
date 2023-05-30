@@ -2,14 +2,7 @@
 
 /** @type {ExtendedItemScriptHookCallbacks.Draw<TypedItemData>} */
 function InventoryItemArmsFullLatexSuitDrawHook(Data, OriginalFunction) {
-	if (!DialogFocusItem) {
-		return;
-	}
-
-	// Manually call `TypedItemDraw` (rather than `OriginalFunction`) for tighter control over the button positions
-	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
-	TypedItemDraw(Data, XYCoords.length, XYCoords);
-
+	OriginalFunction();
 	const C = CharacterGetCurrent();
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
 	ExtendedItemCustomDraw(`${Data.dialogPrefix.option}Wand`, ...ExtendedXY[6][4], true, !CanEquip);
@@ -17,14 +10,7 @@ function InventoryItemArmsFullLatexSuitDrawHook(Data, OriginalFunction) {
 
 /** @type {ExtendedItemScriptHookCallbacks.Click<TypedItemData>} */
 function InventoryItemArmsFullLatexSuitClickHook(Data, OriginalFunction) {
-	if (!DialogFocusItem) {
-		return;
-	}
-
-	// Manually call `TypedItemDraw` (rather than `OriginalFunction`) for tighter control over the button positions
-	const XYCoords = [ExtendedXY[6][0], ExtendedXY[6][2]];
-	TypedItemClick(Data, XYCoords.length, XYCoords);
-
+	OriginalFunction();
 	if (MouseIn(...ExtendedXY[6][4], 225, 275)) {
 		const C = CharacterGetCurrent();
 		const VulvaItem = InventoryGet(C, "ItemVulva");

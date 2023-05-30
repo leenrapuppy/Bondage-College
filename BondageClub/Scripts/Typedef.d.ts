@@ -61,7 +61,11 @@ interface RGBAColor extends RGBColor {
 	a: number;
 }
 
-type RectTuple = [number, number, number, number];
+/** A 4-tuple with X & Y coordinates, width and height */
+type RectTuple = [X: number, Y: number, W: number, H: number];
+
+/** A 4-tuple with X & Y coordinates and, optionally, width and height */
+type PartialRectTuple = [X: number, Y: number, W?: number, H?: number];
 
 type CommonSubstituteReplacer = (match: string, offset: number, replacement: string, string: string) => string;
 type CommonSubtituteSubstitution = [tag: string, substitution: string, replacer?: CommonSubstituteReplacer];
@@ -1929,6 +1933,71 @@ interface NPCTrait {
 
 //#region Extended items
 
+/**
+ * An interface with all available element metadata fields.
+ * Note that only a subset of fields are generally used by a given archetype.
+ * @see {@link ElementData}
+ * @see {@link ExtendedItemDrawData}
+ */
+interface ElementMetaData {
+	/** Whether to draw an element-accompanying image or not */
+	drawImage?: boolean,
+	/** The name of a supported thumbnail image in \CSS\Styles.css that will show the current position on the slider */
+	icon?: string,
+	/** Whether an options shows up in the UI. Useful for options that are managed programmatically. */
+	hidden?: boolean,
+}
+
+declare namespace ElementMetaData {
+	interface Typed { drawImage: boolean, hidden: boolean }
+	interface Modular { drawImage: boolean, hidden: boolean }
+	interface Vibrating  { drawImage: false, hidden: false }
+	interface Text {}
+	interface VariableHeight { icon: string }
+}
+
+/** @see {@link ElementData} */
+type ElementConfigData<MetaData extends ElementMetaData> = {
+	/** A 4-tuple with X & Y coordinates, width and height. */
+	position?: PartialRectTuple,
+} & MetaData;
+
+/**
+ * An interface with element coordinates and additional (archetype-specific metadata).
+ * @template MetaData A record with (archetype-specific) additional element metadata
+ * @see {@link ExtendedItemDrawData}
+ */
+type ElementData<MetaData extends ElementMetaData> = {
+	/** A 4-tuple with X & Y coordinates, width and height. */
+	position: RectTuple,
+} & MetaData;
+
+/** @see {@link ExtendedItemDrawData} */
+interface ExtendedItemConfigDrawData<MetaData extends ElementMetaData> {
+	/** An array with two-tuples of X and Y coordinates for the buttons and, optionally, the buttons width and height */
+	elementData?: ElementConfigData<MetaData>[],
+	/** The number of buttons to be drawn per page */
+	itemsPerPage?: number,
+}
+
+/** @see {@link ExtendedItemDrawData} */
+interface VariableHeightConfigDrawData extends ExtendedItemConfigDrawData<{}> {
+	elementData: { position: RectTuple, icon: string }[],
+}
+
+/**
+ * An interface with element-specific drawing data for a given screen.
+ * @template MetaData A record with (archetype-specific) additional element metadata
+ */
+interface ExtendedItemDrawData<MetaData extends ElementMetaData> extends Required<ExtendedItemConfigDrawData<MetaData>> {
+	/** A list of {@link ElementData} interfaces, one for each to-be drawn element (_e.g._ buttons) */
+	elementData: ElementData<MetaData>[],
+	/** The number of pages */
+	pageCount: number,
+	/** Whether pagination is required; i.e. if the number of buttons is larger than {@link ExtendedItemDrawData.itemsPerPage} */
+	paginate: boolean,
+}
+
 /** A record containing various dialog keys used by the extended item screen */
 interface ExtendedItemDialog<
 	OptionType extends ExtendedItemOption
@@ -2255,8 +2324,7 @@ declare namespace ExtendedItemScriptHookCallbacks {
 
 /**
  * Abstract extended item data interface that all archetypical item data interfaces must implement.
- * Archetypes are free to demand any appropriate subtype for a given property,
- * _e.g._ `drawImages: false` if an archetype does have any images in its UI.
+ * Archetypes are free to demand any appropriate subtype for a given property.
  */
 interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	/** The archetype of the extended item data */
@@ -2287,8 +2355,6 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	chatTags: CommonChatTags[];
 	/** Contains custom dictionary entries in the event that the base ones do not suffice. */
 	dictionary: ExtendedItemDictionaryCallback<OptionType>[];
-	/** A boolean indicating whether or not images should be drawn in this item's extended item menu. */
-	drawImages: boolean;
 	/**
 	 * To-be initialized properties independent of the selected item module(s).
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ExtendedItemData.scriptHooks} functions.
@@ -2296,6 +2362,8 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	baselineProperty: ItemPropertiesNoArray | null;
 	/** The extended item option of the super screen that this archetype was initialized from (if any) */
 	parentOption: null | ExtendedItemOption;
+	/** An interface with element-specific drawing data for a given screen. */
+	drawData: ExtendedItemDrawData<{}>;
 }
 
 /** A struct-type that maps archetypes to their respective extended item data.  */
@@ -2666,20 +2734,6 @@ type ItemPropertiesNoArray = { [k in keyof ItemProperties]: ItemProperties[k] ex
 
 //#endregion
 
-/** A struct with drawing data for a given module. */
-interface ModularItemDrawData {
-	/** The number of pages */
-	pageCount: number,
-	/** Whether pagination is required; i.e. if the number of buttons is larger than {@link ModularItemDrawData.itemsPerPage} */
-	paginate: boolean,
-	/** An array with two-tuples of X and Y coordinates for the buttons */
-	positions: [X: number, Y: number][],
-	/** Whether each button should be accompanied by a preview image */
-	drawImages: boolean,
-	/** The number of buttons to be drawn per page */
-	itemsPerPage: number
-}
-
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the
  * item's load, draw & click handlers.
  */
@@ -2710,7 +2764,7 @@ interface ModularItemData extends ExtendedItemData<ModularItemOption> {
 	/** A lookup for the current page in the extended item menu for each of the item's modules */
 	pages: Record<string, number>;
 	/** A lookup for the draw data for each of the item's modules */
-	drawData: Record<string, ModularItemDrawData>;
+	drawData: ExtendedItemDrawData<ElementMetaData.Modular>;
 	/** A lookup for the draw functions for each of the item's modules */
 	drawFunctions: Record<string, () => void>;
 	/** A lookup for the click functions for each of the item's modules */
@@ -2751,6 +2805,7 @@ type TypedItemSetTypeCallback = (NewType: string) => void;
  */
 interface TypedItemData extends ExtendedItemData<TypedItemOption> {
 	archetype: "typed";
+	drawData: ExtendedItemDrawData<ElementMetaData.Typed>;
 	/** The list of extended item options available for the item */
 	options: TypedItemOption[];
 	/** A record containing various dialog keys used by the extended item screen */
@@ -2853,6 +2908,7 @@ interface AppearanceValidationWrapper {
 
 interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	archetype: "vibrating";
+	drawData: ExtendedItemDrawData<ElementMetaData.Vibrating>;
 	/** The list of extended item options available for the item */
 	options: VibratingItemOption[];
 	/** The list with all groups of extended item options available for the item */
@@ -2873,7 +2929,6 @@ interface VibratingItemData extends ExtendedItemData<VibratingItemOption> {
 	 */
 	scriptHooks: ExtendedItemScriptHookStruct<VibratingItemData, VibratingItemOption>;
 	chatSetting: "default";
-	drawImages: false;
 }
 
 /**
@@ -2900,8 +2955,6 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 	maxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
 	minHeight: number;
-	/** Settings for the range input element the user can use to change the height */
-	slider: VariableHeightSliderConfig;
 	/** A record containing various dialog keys used by the extended item screen */
 	dialogPrefix: {
 		/** The dialog key for the item's load text (usually a prompt to select the type) */
@@ -2916,20 +2969,13 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 	getHeight: (property: ItemProperties) => number | null;
 	/** The function that handles applying the height setting to the character */
 	setHeight: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
-	drawImages: false;
 	chatSetting: "default";
+	drawData: ExtendedItemDrawData<ElementMetaData.VariableHeight>;
 }
 
 //#endregion
 
 // #region TextItem
-
-/** A struct with drawing data for a given module. */
-interface TextItemDrawData extends Omit<ModularItemDrawData, "positions"> {
-	/** An array with tuples of X and Y coordinates for the buttons and, optionally, the buttons width and height */
-	positions: [X: number, Y: number, W?: number, H?: number][],
-	drawImages: false,
-}
 
 interface TextItemData extends ExtendedItemData<TextItemOption> {
 	archetype: "text";
@@ -2943,11 +2989,10 @@ interface TextItemData extends ExtendedItemData<TextItemOption> {
 		chat: string | ExtendedItemChatCallback<TextItemOption>;
 	};
 	scriptHooks: ExtendedItemScriptHookStruct<TextItemData, TextItemOption>;
-	drawImages: false;
 	chatSetting: "default";
 	baselineProperty: ItemPropertiesNoArray;
 	eventListeners: TextItemRecord<TextItemEventListener>;
-	drawData: TextItemDrawData;
+	drawData: ExtendedItemDrawData<ElementMetaData.Text>;
 	pushOnPublish: boolean;
 	textNames: TextItemNames[];
 	/**

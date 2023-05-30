@@ -968,10 +968,10 @@ var AssetFemale3DCGExtended = {
 						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
 						MaxHeight: 0,
 						MinHeight: -575,
-						Slider: {
-							Icon: "player",
-							Top: 125,
-							Height: 675,
+						DrawData: {
+							elementData: [
+								{ position: [1140, 465, 100, 675], icon: "Player" },
+							],
 						},
 						DialogPrefix: {
 							Chat: "SuspensionChange",
@@ -2041,10 +2041,10 @@ var AssetFemale3DCGExtended = {
 						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
 						MaxHeight: 0,
 						MinHeight: -250,
-						Slider: {
-							Icon: "rope",
-							Top: 175,
-							Height: 400,
+						DrawData: {
+							elementData: [
+								{ position: [1140, 375, 100, 400], icon: "rope" },
+							],
 						},
 						DialogPrefix: {
 							Chat: "SuspensionChange",
@@ -2069,10 +2069,10 @@ var AssetFemale3DCGExtended = {
 						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
 						MaxHeight: 0,
 						MinHeight: -575,
-						Slider: {
-							Icon: "rope",
-							Top: 125,
-							Height: 675,
+						DrawData: {
+							elementData: [
+								{ position: [1140, 465, 100, 675], icon: "rope" },
+							],
 						},
 						DialogPrefix: {
 							Chat: "SuspensionChange",
@@ -2097,10 +2097,10 @@ var AssetFemale3DCGExtended = {
 						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
 						MaxHeight: 0,
 						MinHeight: -560,
-						Slider: {
-							Icon: "rope",
-							Top: 125,
-							Height: 675,
+						DrawData: {
+							elementData: [
+								{ position: [1140, 465, 100, 675], icon: "rope" },
+							],
 						},
 						DialogPrefix: {
 							Chat: "SuspensionChange",
@@ -2125,10 +2125,10 @@ var AssetFemale3DCGExtended = {
 						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
 						MaxHeight: -50,
 						MinHeight: -600,
-						Slider: {
-							Icon: "rope",
-							Top: 100,
-							Height: 700,
+						DrawData: {
+							elementData: [
+								{ position: [1140, 450, 100, 700], icon: "rope" },
+							],
 						},
 						DialogPrefix: {
 							Chat: "SuspensionChange",
@@ -2153,10 +2153,10 @@ var AssetFemale3DCGExtended = {
 						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
 						MaxHeight: 0,
 						MinHeight: -560,
-						Slider: {
-							Icon: "rope",
-							Top: 100,
-							Height: 700,
+						DrawData: {
+							elementData: [
+								{ position: [1140, 450, 100, 700], icon: "rope" },
+							],
 						},
 						DialogPrefix: {
 							Chat: "SuspensionChange",
@@ -2260,6 +2260,12 @@ var AssetFemale3DCGExtended = {
 					Name: "UnZip",
 				},
 			],
+			DrawData: {
+				elementData: [
+					{ position: ExtendedXY[6][0] },
+					{ position: ExtendedXY[6][2] },
+				],
+			},
 			ScriptHooks: {
 				Draw: InventoryItemArmsFullLatexSuitDrawHook,
 				Click: InventoryItemArmsFullLatexSuitClickHook,
@@ -2580,9 +2586,8 @@ var AssetFemale3DCGExtended = {
 				{ Name: "UseMe" },
 				{ Name: "Whore" },
 			],
+			DrawData: InventoryItemNeckAccessoriesCollarNameTagGetDrawData(36),
 			ScriptHooks: {
-				Draw: InventoryItemNeckAccessoriesCollarNameTagDrawHook,
-				Click: InventoryItemNeckAccessoriesCollarNameTagClickHook,
 				PublishAction: InventoryItemNeckAccessoriesCollarNameTagPublishActionHook,
 			},
 			DrawImages: false,
@@ -2632,6 +2637,7 @@ var AssetFemale3DCGExtended = {
 				{ Name: "Violent" },
 				{ Name: "Worm" },
 			],
+			DrawData: InventoryItemNeckAccessoriesCollarNameTagGetDrawData(38),
 		}, // CollarNameTagOval
 		CollarNameTagPet: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2655,6 +2661,7 @@ var AssetFemale3DCGExtended = {
 				{ Name: "Sloth" },
 				{ Name: "Mummy" },
 			],
+			DrawData: InventoryItemNeckAccessoriesCollarNameTagGetDrawData(17),
 		}, // CollarNameTagPet
 		CollarNameTagLover: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2666,6 +2673,7 @@ var AssetFemale3DCGExtended = {
 				{ Name: "Lover" },
 				{ Name: "Muffin" },
 			],
+			DrawData: InventoryItemNeckAccessoriesCollarNameTagGetDrawData(5),
 		}, // CollarNameTagLover
 		CollarNameTagLivestock: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2679,6 +2687,7 @@ var AssetFemale3DCGExtended = {
 				{ Name: "MilkMe" },
 				{ Name: "Pig" },
 			],
+			DrawData: InventoryItemNeckAccessoriesCollarNameTagGetDrawData(7),
 		}, // CollarNameTagLivestock
 		CollarShockUnit: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -5403,9 +5412,11 @@ var AssetFemale3DCGExtended = {
 		}, // ClitAndDildoVibratorbelt
 		LoversVibrator: {
 			Archetype: ExtendedArchetype.VIBRATING,
+			DrawData: VibratorModeGetDrawData(
+				[VibratorModeSet.ADVANCED, VibratorModeSet.STANDARD], {}, 525
+			),
 			ScriptHooks: {
 				Draw: InventoryItemVulvaLoversVibratorDrawHook,
-				Click: InventoryItemVulvaLoversVibratorClickHook,
 			},
 		}, // LoversVibrator
 		FuturisticVibrator: {
@@ -8345,7 +8356,6 @@ var AssetFemale3DCGExtended = {
 				},
 				{
 					Name: "CrotchShield", Key: "c",
-					Hidden: true,
 					Options: [
 						{}, // 0 - open
 						{ // 1 - close front
@@ -8374,6 +8384,12 @@ var AssetFemale3DCGExtended = {
 					],
 				},
 			],
+			DrawData: {
+				elementData: [
+					{},
+					{ hidden: true },
+				],
+			},
 			BaselineProperty: {
 				PortalLinkCode: "00000000",
 			},

@@ -446,6 +446,8 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
 	DrawImages?: boolean;
 	/** The group name and asset name of a configuration to copy - useful if multiple items share the same config */
 	CopyConfig?: { GroupName?: AssetGroupName, AssetName: string };
+	/** An interface with element-specific drawing data for a given screen. */
+	DrawData?: ExtendedItemConfigDrawData<{}>;
 }
 
 /** Defines a single extended item option */
@@ -606,6 +608,7 @@ interface TypedItemConfig extends ExtendedItemConfig<TypedItemOption> {
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<TypedItemData, TypedItemOption>;
+	DrawData?: ExtendedItemConfigDrawData<Partial<ElementMetaData.Typed>>;
 }
 
 /**
@@ -660,6 +663,7 @@ interface ModularItemConfig extends ExtendedItemConfig<ModularItemOption> {
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<ModularItemData, ModularItemOption>;
+	DrawData?: ExtendedItemConfigDrawData<Partial<ElementMetaData.Modular>>;
 }
 
 type ModularItemChatSetting = "perModule" | "perOption";
@@ -676,8 +680,6 @@ interface ModularItemModuleBase {
 	 * Options array. Keys should be alphabetical only (a-z, A-Z)
 	 */
 	Key: string;
-	/** Whether the module shows up in the UI. Useful for modules that are managed programmatically. */
-	Hidden?: true;
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOptionBase[];
 	/** Whether or not this module can be selected by the wearer */
@@ -686,16 +688,18 @@ interface ModularItemModuleBase {
 	OptionType?: "ModularItemModule";
 	/** A boolean indicating whether or not images should be drawn within this particular module. */
 	DrawImages?: boolean;
+	DrawData?: ExtendedItemConfigDrawData<Partial<ElementMetaData.Modular>>;
 }
 
 /** An object describing a single module for a modular item. */
-interface ModularItemModule extends ModularItemModuleBase {
+interface ModularItemModule extends Omit<ModularItemModuleBase, "DrawData"> {
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType: "ModularItemModule";
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOption[];
 	/** A boolean indicating whether or not images should be drawn within this particular module. */
 	DrawImages: boolean;
+	drawData: ExtendedItemDrawData<ElementMetaData.Typed>;
 }
 
 /** A (partially parsed) object describing a single option within a module for a modular item. */
@@ -763,6 +767,7 @@ interface VibratingItemConfig extends ExtendedItemConfig<VibratingItemOption> {
 	};
 	DrawImages?: false;
 	ChatSetting?: "default";
+	DrawData?: ExtendedItemConfigDrawData<Partial<ElementMetaData.Vibrating>>;
 }
 
 type VibratorModeSet = "Standard" | "Advanced";
@@ -777,8 +782,6 @@ interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> 
 	MaxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
 	MinHeight: number;
-	/** Settings for the range input element the user can use to change the height */
-	Slider: VariableHeightSliderConfig;
 	/** A record containing various dialog keys used by the extended item screen */
 	DialogPrefix: {
 		/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */
@@ -795,15 +798,7 @@ interface VariableHeightConfig extends ExtendedItemConfig<VariableHeightOption> 
 	DrawImages?: false;
 	ChatSetting?: "default";
 	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<VariableHeightData, VariableHeightOption>;
-}
-
-interface VariableHeightSliderConfig {
-	/** The name of a supported thumbnail image in \CSS\Styles.css that will show the current position on the slider */
-	Icon: string;
-	/** The Y co-ordinate of the topmost point of the slider */
-	Top: number;
-	/** The height in pixels of the slider */
-	Height: number;
+	DrawData: VariableHeightConfigDrawData;
 }
 
 //#endregion
@@ -825,10 +820,7 @@ interface TextItemConfig extends ExtendedItemConfig<TextItemOption> {
 	ChatSetting?: "default";
 	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<TextItemData, TextItemOption>;
 	EventListeners?: TextItemRecord<TextItemEventListener>;
-	DrawData?: {
-		ItemsPerPage?: number;
-		Positions?: [X: number, Y: number, W?: number, H?: number][],
-	}
+	DrawData?: ExtendedItemConfigDrawData<Partial<ElementMetaData.Text>>;
 	PushOnPublish?: boolean;
 	/**
 	 * The font used for dynamically drawing text.

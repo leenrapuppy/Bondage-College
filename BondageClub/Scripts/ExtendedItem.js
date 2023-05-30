@@ -85,18 +85,6 @@ var ExtendedItemPermissionMode = false;
 var ExtendedItemSubscreen = null;
 
 /**
- * Get an asset-appropriate array with button coordinates, based on the number to be displayed per page.
- * @param {Asset} Asset - The relevant asset
- * @param {boolean} ShowImages - Whether images should be shown or not.
- * Note that whether an asset is clothing-based or not takes priority over this option.
- * @returns {[number, number][][]} The coordinates array
- */
-function ExtendedItemGetXY(Asset, ShowImages=true) {
-	const IsCloth = Asset.Group.Clothing;
-	return !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
-}
-
-/**
  * @template {any[]} T
  * @template RT
  * @param {ExtendedItemData<any>} data
@@ -237,22 +225,24 @@ function ExtendedItemLoad({ functionPrefix, dialogPrefix, parentOption }) {
  * Draw a single button in the extended item type selection screen.
  * @param {ExtendedItemOption | ModularItemModule} Option - The new extended item option
  * @param {ExtendedItemOption} CurrentOption - The current extended item option
- * @param {number} X - The X coordinate of the button
- * @param {number} Y - The Y coordinate of the button
+ * @param {ElementData<{ drawImage?: boolean, hidden?: boolean }>} buttonData - The X coordinate of the button
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
  *     The full dialog key will be <Prefix><Option.Name>
- * @param {boolean} ShowImages - Denotes whether images should be shown for the specific item
  * @param {Item} Item - The item in question; defaults to {@link DialogFocusItem}
  * @param {boolean | null} IsSelected - Whether the button is already selected or not. If `null` compute this value by checking if the item's current type matches `Option`.
  * @see {@link TypedItemDraw}
  */
-function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowImages=true, Item=DialogFocusItem, IsSelected=null) {
+function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, buttonData, Item=DialogFocusItem, IsSelected=null) {
+	if (buttonData.hidden) {
+		return;
+	}
+
 	/** @type {[null | string, string, boolean]} */
 	let [Type, AssetSource, IsFavorite] = [null, null, false];
 	const Asset = Item.Asset;
 	const C = CharacterGetCurrent();
-	const ImageHeight = ShowImages ? 220 : 0;
-	const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
+	const [x, y, width, height] = buttonData.position;
+	const Hover = MouseIn(...buttonData.position) && !CommonIsMobile;
 	let Effect = null;
 
 	switch (Option.OptionType) {
@@ -291,16 +281,24 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	}
 
 	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
-	DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
-	if (ShowImages) {
-		DrawImageResize(AssetSource, X + 2, Y, 221, 221);
+	DrawButton(...buttonData.position, "", ButtonColor, null, null, IsSelected);
+	if (buttonData.drawImage) {
+		let imageWidthHeight = Math.min(width - 4, height);
+		const imageX = x + (width - imageWidthHeight) / 2;
+		const imageY = y + (height - imageWidthHeight - 54) / 2;
+		DrawImageResize(AssetSource, imageX, imageY, imageWidthHeight, imageWidthHeight);
 		if (Option.OptionType !== "ModularItemModule") {
-			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type, Effect), X + 2, Y);
+			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type, Effect), x + 2, y);
 		}
 	}
-	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
+	DrawTextFit(
+		(IsFavorite && !buttonData.drawImage ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name),
+		x + width / 2,
+		y + height - 25,
+		width, "black",
+	);
 
-	ControllerAddActiveArea(X + 112, Y + 30 + ImageHeight);
+	ControllerAddActiveArea(x + width / 2, y + height / 2);
 }
 
 /**
@@ -675,15 +673,17 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
  * @param {string} Name - The name of the button and its pseudo-type
  * @param {number} X - The X coordinate of the button
  * @param {number} Y - The Y coordinate of the button
- * @param {boolean} ShowImages — Denotes whether images should be shown for the specific item
+ * @param {boolean} drawImage — Denotes whether images should be shown for the specific item
  * @param {boolean} IsSelected - Whether the button is selected or not
  * @returns {void} Nothing
  */
-function ExtendedItemCustomDraw(Name, X, Y, ShowImages=false, IsSelected=false) {
+function ExtendedItemCustomDraw(Name, X, Y, drawImage=false, IsSelected=false) {
 	// Use a `name` for a "fictional" item option for interfacing with the extended item API
 	/** @type {ExtendedItemOption} */
 	const Option = { OptionType: "ExtendedItemOption", Name: Name };
-	return ExtendedItemDrawButton(Option, Option, "", X, Y, ShowImages, DialogFocusItem, IsSelected);
+	/** @type {ElementData<{ drawImage: boolean }>} */
+	const elementData = { position: [X, Y, 225, drawImage ? 275 : 50], drawImage };
+	return ExtendedItemDrawButton(Option, Option, "", elementData, DialogFocusItem, IsSelected);
 }
 
 /**
@@ -947,7 +947,9 @@ function ExtendedItemManualRegister() {
 				MaxLength: { Text: 14 },
 				Font: "'Saira Stencil One', 'Arial', sans-serif",
 				DrawData: {
-					Positions: [[1505, 850]],
+					elementData: [
+						{ position: [1505, 850] },
+					],
 				},
 				DialogPrefix: {
 					Header: "ItemArmsTransportJacketSelect",
@@ -963,7 +965,9 @@ function ExtendedItemManualRegister() {
 				Font: "'Saira Stencil One', 'Arial', sans-serif",
 				PushOnPublish: false,
 				DrawData: {
-					Positions: [[1505, 850]],
+					elementData: [
+						{ position: [1505, 850] },
+					],
 				},
 				DialogPrefix: {
 					Header: "ItemDevicesWoodenBoxSelect",
@@ -976,4 +980,53 @@ function ExtendedItemManualRegister() {
 		const asset = AssetGet("Female3DCG", group, name);
 		AssetBuildExtended(asset, config, AssetFemale3DCGExtended, null, false);
 	}
+}
+
+/**
+ * Parse the passed draw data as passed via the extended item config
+ * @template {ElementMetaData} MetaData
+ * @param {ExtendedItemConfigDrawData<Partial<MetaData>> | undefined} drawData - The to-be parsed draw data
+ * @param {Pick<ExtendedItemDrawData<MetaData>, "elementData" | "itemsPerPage">} defaults - The default draw data
+ * @return {ExtendedItemDrawData<MetaData>} - The parsed draw data
+ */
+function ExtendedItemGetDrawData(drawData, defaults) {
+	if (!drawData) {
+		drawData = {};
+	}
+
+	const itemsPerPage = drawData.itemsPerPage == null ? defaults.itemsPerPage : drawData.itemsPerPage;
+
+	/** @type {ElementData<MetaData>[]} */
+	let elementData;
+	if (Array.isArray(drawData.elementData)) {
+		if (drawData.elementData.length !== defaults.elementData.length) {
+			throw new Error(`Custom DrawData.elementData length (${drawData.elementData.length}) not equal to expected length (${defaults.elementData.length})`);
+		}
+		elementData = defaults.elementData.map((buttonDataRef, i) => {
+			const buttonData = drawData.elementData[i];
+			/** @type {RectTuple} */
+			let position;
+			if (buttonData.position) {
+				position = /** @type {RectTuple} */(buttonDataRef.position.map((j, idx) => {
+					return buttonData.position[idx] || j;
+				}));
+			} else {
+				position = buttonDataRef.position;
+			}
+			return {
+				...buttonDataRef,
+				...buttonData,
+				position,
+			};
+		});
+	} else {
+		elementData = CommonCloneDeep(defaults.elementData);
+	}
+
+	return {
+		itemsPerPage,
+		elementData,
+		paginate: elementData.length > itemsPerPage,
+		pageCount: Math.ceil(elementData.length / itemsPerPage),
+	};
 }

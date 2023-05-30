@@ -46,6 +46,21 @@ function VariableHeightRegister(asset, config, parentOption=null) {
 }
 
 /**
+ * Parse the passed variable height draw data as passed via the extended item config
+ * @param {VariableHeightConfigDrawData} drawData - The to-be parsed draw data
+ * @return {ExtendedItemDrawData<ElementMetaData.VariableHeight>} - The parsed draw data
+ */
+function VariableHeightGetDrawData(drawData) {
+	const itemsPerPage = 1;
+	if (!drawData) {
+		throw new Error("Missing vibrating item drawData");
+	} else if (drawData.elementData.length !== 1) {
+		throw new Error("Vibrating item drawData.elementData length must be equal to 1");
+	}
+	return ExtendedItemGetDrawData(drawData, { elementData: drawData.elementData, itemsPerPage });
+}
+
+/**
  * Generates an asset's variable height data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {VariableHeightConfig} config - The variable height configuration
@@ -53,7 +68,18 @@ function VariableHeightRegister(asset, config, parentOption=null) {
  * @returns {VariableHeightData} - The generated variable height data for the asset
  */
 function VariableHeightCreateData(asset,
-	{ MaxHeight, MinHeight, Slider, DialogPrefix, ChatTags, Dictionary, GetHeightFunction, SetHeightFunction, ScriptHooks, BaselineProperty },
+	{
+		MaxHeight,
+		MinHeight,
+		DialogPrefix,
+		ChatTags,
+		Dictionary,
+		GetHeightFunction,
+		SetHeightFunction,
+		ScriptHooks,
+		BaselineProperty,
+		DrawData,
+	},
 	parentOption=null)
 {
 	const key = `${asset.Group.Name}${asset.Name}${parentOption ? parentOption.Name : ""}`;
@@ -66,7 +92,6 @@ function VariableHeightCreateData(asset,
 		dynamicAssetsFunctionPrefix: `Assets${asset.Group.Name}${asset.Name}`,
 		maxHeight: MaxHeight,
 		minHeight: MinHeight,
-		slider: Slider,
 		baselineProperty: BaselineProperty,
 		dialogPrefix: {
 			header: DialogPrefix.Header || "VariableHeightSelect",
@@ -83,16 +108,16 @@ function VariableHeightCreateData(asset,
 		setHeight: SetHeightFunction || VariableHeightSetOverrideHeight,
 		parentOption,
 		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
-		drawImages: false,
 		chatSetting: "default",
 		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
+		drawData: VariableHeightGetDrawData(DrawData),
 	};
 }
 
 /**
  * @param {VariableHeightData} data - The variable height data for the asset
  */
-function VariableHeightLoad({ maxHeight, minHeight, slider, getHeight, setHeight, dialogPrefix }) {
+function VariableHeightLoad({ maxHeight, minHeight, drawData, getHeight, setHeight, dialogPrefix }) {
 	DialogExtendedMessage = DialogFindPlayer(dialogPrefix.header);
 	DialogFocusItem.Property.Revert = true;
 
@@ -109,7 +134,7 @@ function VariableHeightLoad({ maxHeight, minHeight, slider, getHeight, setHeight
 
 	// Create the controls and listeners
 	const currentHeight = getHeight(DialogFocusItem.Property);
-	const heightSlider = ElementCreateRangeInput(VariableHeightSliderId, currentHeight, 0, 1, 0.01, slider.Icon, true);
+	const heightSlider = ElementCreateRangeInput(VariableHeightSliderId, currentHeight, 0, 1, 0.01, drawData.elementData[0].icon, true);
 	if (heightSlider) {
 		heightSlider.addEventListener("input", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value), VariableHeightSliderId));
 	}
@@ -125,11 +150,11 @@ function VariableHeightLoad({ maxHeight, minHeight, slider, getHeight, setHeight
  * @param {VariableHeightData} data - The variable height data for the asset
  * @returns {void} - Nothing
  */
-function VariableHeightDraw({ slider, drawImages, dialogPrefix }) {
+function VariableHeightDraw({ dialogPrefix, drawData }) {
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "white", "gray");
 
-	ElementPosition(VariableHeightSliderId, 1140, slider.Top + slider.Height / 2, 100, slider.Height);
+	ElementPosition(VariableHeightSliderId, ...drawData.elementData[0].position);
 
 	DrawTextFit(DialogFindPlayer("VariableHeightPercent"), 1405, 555, 250, "white", "gray");
 	ElementPosition(VariableHeightNumerId, 1640, 550, 175);
@@ -137,7 +162,7 @@ function VariableHeightDraw({ slider, drawImages, dialogPrefix }) {
 	const { newOption, previousOption } = VariableHeightConstructOptions(DialogFocusItem);
 	ExtendedItemDrawButton(
 		newOption, previousOption, dialogPrefix.option,
-		1350, 700, drawImages, DialogFocusItem, false,
+		{ position: [1350, 700, 225, 55] }, DialogFocusItem, false,
 	);
 }
 
