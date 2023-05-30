@@ -352,7 +352,8 @@ type AssetAttribute =
 	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens" |
 	"PenisLayer" | "PussyLayer" | "GenitaliaCover" |
-	"CagePlastic2" | "CageTechno" | "CageFlat"
+	"CagePlastic2" | "CageTechno" | "CageFlat" |
+	"FuturisticRecolor" | "FuturisticRecolorDisplay"
 	;
 
 type AssetPrerequisite =
@@ -1225,9 +1226,6 @@ interface Asset {
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
 	ExpressionPrerequisite?: readonly AssetPrerequisite[];
-
-	FuturisticRecolor?: boolean;
-	FuturisticRecolorDisplay?: boolean;
 }
 
 //#endregion

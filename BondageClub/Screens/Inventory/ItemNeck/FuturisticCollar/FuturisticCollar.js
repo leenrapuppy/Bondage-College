@@ -384,7 +384,8 @@ function InventoryItemNeckFuturisticCollarUnlock(C) {
  */
 function InventoryItemNeckFuturisticCollarColor(C, FromItem) {
 	for (const item of C.Appearance) {
-		if (item.Asset && item.Asset.FuturisticRecolor && item.Asset.Group.Name != "ItemNeck") {
+		const canRecolor = InventoryGetItemProperty(item, "Attribute").includes("FuturisticRecolor");
+		if (item.Asset && canRecolor && item.Asset.Group.Name != "ItemNeck") {
 
 			let colors = null;
 			if (item.Asset.Layer.length > 1 && typeof item.Color === "string") {
@@ -402,10 +403,11 @@ function InventoryItemNeckFuturisticCollarColor(C, FromItem) {
 
 			for (let L = item.Asset.Layer.length - 1; L >= 0; L--) {
 
+				const canRecolorDisplay = InventoryGetItemProperty(item, "Attribute").includes("FuturisticRecolorDisplay");
 				if (item.Asset.Layer[L].Name != "Light" && item.Asset.Layer[L].Name != "Shine") {
 					if (!item.Asset.Layer[L].Name) {
 						if (FromItem.Color[3] != "Default")
-							item.Color = (item.Asset.FuturisticRecolorDisplay) ? FromItem.Color[0] : FromItem.Color[3];
+							item.Color = (canRecolorDisplay) ? FromItem.Color[0] : FromItem.Color[3];
 					} else if (item.Asset.Layer[L].Name == "Lock") {
 						if (FromItem.Color[3] != "Default")
 							colors[L] = FromItem.Color[3];
