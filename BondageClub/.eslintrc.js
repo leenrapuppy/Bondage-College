@@ -34,7 +34,7 @@ module.exports = {
 		"no-shadow": ["warn", { "hoist": "all" }],
 		"strict": ["error", "global"],
 		"no-constant-condition": ["error", { "checkLoops": false }],
-		"no-unused-vars": ["warn", { "vars": "local", "args": "none" }],
+		"no-unused-vars": ["warn", { "vars": "local", "args": "none", "varsIgnorePattern": "^_" }],
 		"no-trailing-spaces": "warn",
 		"semi": "warn",
 		"indent": ["warn", "tab", { "SwitchCase": 1, "ignoredNodes": ["ConditionalExpression"] }],
