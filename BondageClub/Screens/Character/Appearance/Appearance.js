@@ -378,7 +378,7 @@ function CharacterAppearanceIsLayerVisible(C, layer, asset, type= "") {
 		return false;
 
 	// Only show the layer if the character has at least one attribute that it requires
-	if (layer.ShowForAttribute && !layer.ShowForAttribute.some((attribute) => C.HasAttribute(attribute)))
+	if (layer.ShowForAttribute && layer.ShowForAttribute.some((attribute) => C.HasAttribute(attribute)))
 		return false;
 
 	return true;
