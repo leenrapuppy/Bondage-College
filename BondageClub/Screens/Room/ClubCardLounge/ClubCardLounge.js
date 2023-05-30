@@ -8,6 +8,7 @@ var ClubCardLoungeTutor = null;
  * @returns {void} - Nothing
  */
 function ClubCardLoungeLoad() {
+	CommonReadCSV("NoArravVar", "MiniGame", "ClubCard", "Text_ClubCard");
 	if (ClubCardLoungeTutor == null) {
 		ClubCardLoungeTutor = CharacterLoadNPC("NPC_ClubCardLounge_Tutor");
 		ClubCardLoungeTutor.AllowItem = false;
@@ -19,11 +20,12 @@ function ClubCardLoungeLoad() {
  * @returns {void} - Nothing
  */
 function ClubCardLoungeRun() {
+	ClubCardLoadCaption();
 	DrawCharacter(Player, 500, 0, 1);
 	DrawCharacter(ClubCardLoungeTutor, 1000, 0, 1);
 	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
-	DrawButton(1885, 131, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
-	DrawButton(1885, 237, 90, 90, "", "White", "Icons/ClubCard.png", TextGet("Build"));
+	DrawButton(1885, 140, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
+	DrawButton(1885, 255, 90, 90, "", "White", "Icons/ClubCard.png", TextGet("Build"));
 }
 
 /**
@@ -34,7 +36,8 @@ function ClubCardLoungeClick() {
 	if (MouseIn(500, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if (MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(ClubCardLoungeTutor);
 	if (MouseIn(1885, 25, 90, 90)) CommonSetScreen("Room", "MainHall");
-	if (MouseIn(1885, 131, 90, 90)) InformationSheetLoadCharacter(Player);
+	if (MouseIn(1885, 140, 90, 90)) InformationSheetLoadCharacter(Player);
+	if (MouseIn(1885, 255, 90, 90)) CommonSetScreen("MiniGame", "ClubCardBuilder");
 }
 
 /**
