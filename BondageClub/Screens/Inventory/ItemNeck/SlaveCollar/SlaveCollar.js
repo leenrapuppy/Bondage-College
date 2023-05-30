@@ -176,7 +176,7 @@ function InventoryItemNeckSlaveCollarClick() {
 	// When the user exits the screen
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) {
 		ElementRemove("InputColor");
-		DialogFocusItem = null;
+		DialogLeaveFocusItem();
 		return;
 	}
 
@@ -194,7 +194,7 @@ function InventoryItemNeckSlaveCollarClick() {
 					ElementRemove("InputColor");
 					ChatRoomCharacterItemUpdate(C);
 					if (CurrentScreen != "ChatRoom") CharacterRefresh(C);
-					DialogFocusItem = null;
+					DialogLeaveFocusItem();
 				}
 			}
 			if ((MouseX >= 1775) && (MouseX <= 1865) && (MouseY >= 25) && (MouseY <= 110)) {

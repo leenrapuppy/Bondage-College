@@ -123,11 +123,10 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 						.focusGroup(C.FocusGroup.Name)
 						.build();
 					ChatRoomPublishCustomAction("HighSecurityUpdate", true, Dictionary);
-					InventoryItemMiscHighSecurityPadlockExit();
 				}
 				else {
 					CharacterRefresh(C);
-					InventoryItemMiscHighSecurityPadlockExit();
+					DialogLeaveFocusItem();
 				}
 			}
 
@@ -138,7 +137,7 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 		if (MouseIn(1450, 780, 64, 64)) {HighSecurityPadlockConfigLover = !HighSecurityPadlockConfigLover; return;}
 		if (MouseIn(1450, 860, 64, 64)) {HighSecurityPadlockConfigWhitelist = !HighSecurityPadlockConfigWhitelist; return;}
 	}
-	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) InventoryItemMiscHighSecurityPadlockExit();
+	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogLeaveFocusItem();
 
 
 
@@ -148,7 +147,4 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 /** @type {ExtendedItemCallbacks.Exit} */
 function InventoryItemMiscHighSecurityPadlockExit() {
 	ElementRemove("MemberNumberList");
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

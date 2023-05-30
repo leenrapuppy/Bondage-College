@@ -642,6 +642,57 @@ function DialogCanUnlock(C, Item) {
 }
 
 /**
+ * Checks whether we can lockpick a lock.
+ * @param {Character} C
+ * @param {Item} Item
+ * @returns {boolean}
+ */
+function DialogCanPickLock(C, Item) {
+	if (!C || !Item) return;
+
+	// Check that the character allows lockpicking
+	if (!C.IsPlayer() && C.OnlineSharedSettings && C.OnlineSharedSettings.DisablePickingLocksOnSelf)
+		return false;
+
+	// Check that the lock is accessible, and that we're free to do so
+	const groupIsBlocked = InventoryGroupIsBlocked(C, /** @type {AssetGroupItemName} */(Item.Asset.Group.Name));
+	const playerHandsAreBlocked = InventoryGroupIsBlocked(Player, "ItemHands");
+	if (!InventoryAllow(C, Item.Asset) || groupIsBlocked || playerHandsAreBlocked || !InventoryItemIsPickable(Item))
+		return false;
+
+	// Check that he player can access their tools.
+	// Maybe in the future you will be able to hide a lockpick in your panties :>
+	const CanAccessLockpicks = (Player.CanInteract() || Player.CanWalk()) && InventoryAvailable(Player, "Lockpicks", "ItemMisc");
+	if (!CanAccessLockpicks && !DialogLentLockpicks)
+		return false;
+
+	return true;
+}
+
+/**
+ * Checks whether we can access a lock.
+ *
+ * This function is used to enable the locked submenu
+ *
+ * @param {Character} C - The character wearing the lock
+ * @param {Item} Item - The locked item to inspect
+ * @returns {boolean}
+ */
+function DialogCanCheckLock(C, Item) {
+	if (!Item) return false;
+
+	// Check that this is a locked item
+	const lockedBy = InventoryGetItemProperty(Item, "LockedBy");
+	if (!InventoryItemHasEffect(Item, "Lock", true) || !lockedBy)
+		return false;
+
+	if (!DialogCanInspectLock(Item) && !DialogCanPickLock(C, Item) && !DialogCanUnlock(C, Item))
+		return false;
+
+	return true;
+}
+
+/**
  * Some specific screens like the movie studio cannot allow the player to use items on herself, return FALSE if it's the case
  * @returns {boolean} - Returns TRUE if we allow using items
  */
@@ -748,10 +799,15 @@ function DialogMenuBack() {
 	switch (DialogMenuMode) {
 		case "activities":
 		case "colorItem":
-		case "colorDefault":
 		case "crafted":
 		case "locked":
 		case "locking":
+			DialogChangeMode("items");
+			break;
+
+		case "colorDefault":
+			DialogColorSelect = null;
+			ElementRemove("InputColor");
 			DialogChangeMode("items");
 			break;
 
@@ -760,7 +816,7 @@ function DialogMenuBack() {
 			break;
 
 		case "dialog":
-			// That's handled in DialogClick via DialogLeave
+			DialogLeave();
 			break;
 
 		case "extended":
@@ -818,7 +874,6 @@ function DialogLeaveItemMenu() {
 /**
  * Leaves the item menu of the focused item. Constructs a function name from the
  * item's asset group name and the item's name and tries to call that.
- * @returns {boolean} - Returns true, if an item specific exit function was called, false otherwise
  */
 function DialogLeaveFocusItem() {
 	if (DialogTightenLoosenItem != null) {
@@ -828,15 +883,10 @@ function DialogLeaveFocusItem() {
 			DialogChangeMode("extended");
 		else
 			DialogChangeMode("items");
-	} else {
-		if (DialogFocusItem != null) {
-			const FuncName = ExtendedItemFunctionPrefix() + "Exit";
-			ExtendedItemExit();
-			DialogChangeMode("items");
-			return (typeof window[FuncName] === "function");
-		}
+	} else if (DialogFocusItem != null) {
+		ExtendedItemExit();
+		DialogChangeMode("items");
 	}
-	return false;
 }
 
 /**
@@ -1088,11 +1138,14 @@ function DialogCanColor(C, Item) {
 
 /**
  * Checks whether a lock can be inspected while blind.
- * @param {AssetLockType} lockName - The lock type
+ * @param {Item} Item - The locked item
  * @returns {boolean}
  */
-function DialogCanInspectLockWhileBlind(lockName) {
-	return ["SafewordPadlock", "CombinationPadlock"].includes(lockName);
+function DialogCanInspectLock(Item) {
+	if (!Item) return false;
+
+	const lockedBy = InventoryGetItemProperty(Item, "LockedBy");
+	return !Player.IsBlind() || ["SafewordPadlock", "CombinationPadlock"].includes(lockedBy);
 }
 
 /**
@@ -1117,8 +1170,8 @@ function DialogMenuButtonBuild(C) {
 
 	DialogMenuButton = [];
 
-	// The "Exit" button is always available
-	if (!["colorDefault", "colorExpression", "colorItem"].includes(DialogMenuMode))
+	// Hide "Exit" button for the screens where
+	if (!["colorExpression", "colorItem"].includes(DialogMenuMode))
 		DialogMenuButton = ["Exit"];
 
 	// There's no group focused, hence no menu to draw
@@ -1152,17 +1205,10 @@ function DialogMenuButtonBuild(C) {
 				C, Item.Asset) && !IsGroupBlocked)) {
 			DialogMenuButton.push("Unlock");
 		}
-		if (InventoryAllow(C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item) && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf))) {
-			if (DialogLentLockpicks)
-				DialogMenuButton.push("PickLock");
-			else if (CanAccessLockpicks)
-				for (let I = 0; I < Player.Inventory.length; I++)
-					if (Player.Inventory[I].Name == "Lockpicks") {
-						DialogMenuButton.push("PickLock");
-						break;
-					}
+		if (InventoryItemIsPickable(Item)) {
+			DialogMenuButton.push(DialogCanPickLock(C, Item) ? "PickLock" : "PickLockDisabled");
 		}
-		if (Lock && (!Player.IsBlind() || DialogCanInspectLockWhileBlind(/** @type {AssetLockType} */ (Lock.Asset.Name)))) {
+		if (DialogCanInspectLock(Item)) {
 			DialogMenuButton.push(LockBlockedOrLimited ? "InspectLockDisabled" : "InspectLock");
 		}
 
@@ -1197,27 +1243,8 @@ function DialogMenuButtonBuild(C) {
 		if (!IsItemLocked && !IsGroupBlocked && (Item != null) && (Item.Asset != null) && Item.Asset.AllowTighten && Player.CanInteract() && InventoryAllow(C, Item.Asset))
 			DialogMenuButton.push("TightenLoosen");
 
-		if (
-			IsItemLocked && Item.Property && Item.Property.LockedBy &&
-			(
-				(
-					!Player.IsBlind() ||
-					(Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy))
-				) ||
-				(
-					InventoryAllow(C, Item.Asset) &&
-					!IsGroupBlocked &&
-					!InventoryGroupIsBlocked(Player, "ItemHands") &&
-					InventoryItemIsPickable(Item)
-				) &&
-				(
-					C.ID == 0 ||
-					(C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)
-				)
-			)
-		) {
+		if (DialogCanCheckLock(C, Item))
 			DialogMenuButton.push("LockMenu");
-		}
 
 		if ((Item != null) && (C.ID == 0) && (!Player.CanInteract() || (IsItemLocked && !DialogCanUnlock(C, Item))) && (DialogMenuButton.indexOf("Unlock") < 0) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked)
 			DialogMenuButton.push("Struggle");
@@ -1668,6 +1695,7 @@ function DialogMenuButtonClick() {
 			// PickLock Icon - Starts the lockpicking mini-game
 			else if (((DialogMenuButton[I] == "PickLock")) && (Item != null)) {
 				StruggleMinigameStart(C, "LockPick", Item, null, DialogStruggleStop);
+				DialogChangeMode("struggle");
 				DialogMenuButtonBuild(C);
 				return true;
 			}
@@ -1979,6 +2007,13 @@ function DialogChangeMode(mode) {
 			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
 	} else if (DialogMenuMode === "locking") {
 		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
+	} else if (DialogMenuMode === "locked") {
+		const item = InventoryGet(C, C.FocusGroup.Name);
+		const lock = InventoryGetLock(item);
+		if (!lock || !DialogCanInspectLock(item))
+			DialogSetStatus(DialogFindPlayer("SelectLockedUnknown"));
+		else
+			DialogSetStatus(DialogFindPlayer("SelectLocked").replace("AssetName", lock.Asset.DynamicDescription(C).toLowerCase()));
 	} else {
 		DialogSetStatus("");
 	}
@@ -2001,8 +2036,7 @@ function DialogChangeFocusToGroup(C, Group) {
 	// Deselect any extended screen and color picking in progress
 	// It's done without calling DialogLeaveFocusItem() so it
 	// acts as cancelling out of a in-progress edit.
-	DialogFocusItem = null;
-	DialogTightenLoosenItem = null;
+	DialogLeaveFocusItem();
 	if (DialogMenuMode === "colorExpression" || DialogMenuMode === "colorItem")
 		ItemColorCancelAndExit();
 
@@ -2073,7 +2107,7 @@ function DialogClick() {
 	if (DialogMenuMode === "dialog") {
 		// If we need to leave the dialog (only allowed when there's an entry point to the dialog, not in the middle of a conversation)
 		if (MouseIn(1885, 25, 90, 90) && DialogIntro() != "" && DialogIntro() != "NOEXIT")
-			DialogLeave();
+			DialogMenuBack();
 
 		// If the user clicked on a text dialog option, we trigger it
 		if (MouseIn(1025, 100, 950, 890) && CurrentCharacter != null) {

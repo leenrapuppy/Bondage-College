@@ -69,7 +69,7 @@ function InventoryItemVulvaFuturisticVibratorClickHook(data, originalFunction) {
 	if (!FuturisticAccessClick()) {
 		return;
 	} else if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
+		DialogLeaveFocusItem();
 	} else if (MouseIn(1525, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64)) {
 		InventoryItemVulvaFuturisticVibratorClickSet();
 	} else if (MouseIn(1100, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64)) {
@@ -113,7 +113,7 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 
 /** @type {ExtendedItemScriptHookCallbacks.Exit<VibratingItemData>} */
 function InventoryItemVulvaFuturisticVibratorExitHook(data, originalFunction) {
-	InventoryItemFuturisticExitAccessDenied();
+	FuturisticAccessExit();
 	ItemVulvaFuturisticVibratorTriggers.forEach(i => ElementRemove(`FuturisticVibe${i}`));
 }
 

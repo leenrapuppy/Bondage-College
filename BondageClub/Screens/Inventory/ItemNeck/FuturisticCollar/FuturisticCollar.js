@@ -133,7 +133,7 @@ function InventoryItemNeckFuturisticCollarDraw() {
 function InventoryItemNeckFuturisticCollarExit() {
 	ElementRemove("FutureCollarPasswordField");
 	ElementRemove("FutureCollarTimeField");
-	InventoryItemFuturisticExitAccessDenied();
+	FuturisticAccessExit();
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
@@ -146,7 +146,7 @@ function InventoryItemNeckFuturisticCollarClick() {
 
 		var CollarAction = 0; // 0 - nothing, 1 - Lock, 2 - Unlock, 3 - Color
 
-		if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) InventoryItemNeckFuturisticCollarExit();
+		if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogLeaveFocusItem();
 		else if (FuturisticCollarPage == 0) {
 
 
@@ -197,7 +197,7 @@ function InventoryItemNeckFuturisticCollarClick() {
 
 			}
 		}
-		if (CollarAction > 0) InventoryItemNeckFuturisticCollarExit();
+		if (CollarAction > 0) DialogLeaveFocusItem();
 
 		// Pagination buttons
 		if (MouseIn(1675, 240, 150, 90) && FuturisticCollarPage > 0) {

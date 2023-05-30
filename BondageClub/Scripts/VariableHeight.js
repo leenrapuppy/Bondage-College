@@ -152,7 +152,7 @@ function VariableHeightClick(data) {
 			CommonCallFunctionByName(`${data.functionPrefix}Exit`);
 			ExtendedItemSubscreen = null;
 		} else {
-			ExtendedItemExit();
+			DialogLeaveFocusItem();
 		}
 	}
 
@@ -170,7 +170,7 @@ function VariableHeightClick(data) {
 		const args = [C, DialogFocusItem, newOption, previousOption];
 		DialogFocusItem.Property.Revert = false;
 		CommonCallFunctionByNameWarn(`${data.functionPrefix}PublishAction`, ...args);
-		ExtendedItemExit();
+		DialogLeaveFocusItem();
 	}
 }
 

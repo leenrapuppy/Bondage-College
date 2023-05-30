@@ -213,7 +213,7 @@ const TextItem = {
 				CommonCallFunctionByName(`${functionPrefix}Exit`);
 				ExtendedItemSubscreen = null;
 			} else {
-				ExtendedItemExit();
+				DialogLeaveFocusItem();
 			}
 		} else if (drawData.paginate) {
 			const currentPage = Math.floor(ExtendedItemGetOffset() / drawData.itemsPerPage);

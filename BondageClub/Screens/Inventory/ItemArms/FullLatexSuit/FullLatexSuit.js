@@ -45,5 +45,5 @@ function InventoryItemArmsFullLatexSuitSetWand(Data, C) {
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
 	];
 
-	ExtendedItemCustomExit(`${Prefix}Wand`, C, Dictionary);
+	ExtendedItemCustomExit(`${Prefix}Wand`, Dictionary);
 }

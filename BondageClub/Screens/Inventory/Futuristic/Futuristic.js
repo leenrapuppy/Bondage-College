@@ -26,7 +26,7 @@
 
 // In the exit function, add:
 /*
-	InventoryItemFuturisticExitAccessDenied()
+	FuturisticAccessExit()
 */
 
 // In the validate function, add:
@@ -95,7 +95,8 @@ function FuturisticAccessDraw(Data=null, OriginalFunction=null) {
  * @returns {void} - Nothing
  */
 function FuturisticAccessExit() {
-	InventoryItemFuturisticExitAccessDenied();
+	ElementRemove("PasswordField");
+	FuturisticAccessDeniedMessage = "";
 }
 
 /**
@@ -131,28 +132,20 @@ function InventoryItemFuturisticDrawAccessDenied() {
 
 // Click the futuristic item ACCESS DENIED screen
 function InventoryItemFuturisticClickAccessDenied() {
-	if (MouseIn(1885, 25, 90, 90)) InventoryItemFuturisticExitAccessDenied();
+	if (MouseIn(1885, 25, 90, 90)) DialogLeaveFocusItem();
 
 	if (MouseIn(1400, 800, 200, 64)) {
-		var pw = ElementValue("PasswordField").toUpperCase();
+		const pw = ElementValue("PasswordField").toUpperCase();
+		const C = CharacterGetCurrent();
 		if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "PasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = CharacterGetCurrent();
 			CommonPadlockUnlock(C, DialogFocusItem);
-			DialogFocusItem = null;
-			Player.FocusGroup = null;
-			InventoryItemFuturisticExitAccessDenied();
+			DialogLeaveFocusItem();
 		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "TimerPasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = CharacterGetCurrent();
 			CommonPadlockUnlock(C, DialogFocusItem);
-			DialogFocusItem = null;
-			Player.FocusGroup = null;
-			InventoryItemFuturisticExitAccessDenied();
+			DialogLeaveFocusItem();
 		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "CombinationPadlock" && pw == DialogFocusItem.Property.CombinationNumber) {
-			let C = CharacterGetCurrent();
-			InventoryItemMiscCombinationPadlockUnlock(C, DialogFocusItem);
-			DialogFocusItem = null;
-			Player.FocusGroup = null;
-			InventoryItemFuturisticExitAccessDenied();
+			CommonPadlockUnlock(C, DialogFocusItem);
+			DialogLeaveFocusItem();
 		} else {
 			FuturisticAccessDeniedMessage = DialogFindPlayer("CantChangeWhileLockedFuturistic");
 			AudioPlayInstantSound("Audio/AccessDenied.mp3");
@@ -161,12 +154,6 @@ function InventoryItemFuturisticClickAccessDenied() {
 			}
 		}
 	}
-}
-
-function InventoryItemFuturisticExitAccessDenied() {
-	ElementRemove("PasswordField");
-	FuturisticAccessDeniedMessage = "";
-	DialogFocusItem = null;
 }
 
 /**

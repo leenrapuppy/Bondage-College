@@ -21,7 +21,7 @@ function InventoryClothFrilledShirtDraw() {
 /** @type {ExtendedItemCallbacks.Click} */
 function InventoryClothFrilledShirtClick() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		ExtendedItemExit();
+		DialogLeaveFocusItem();
 	}
 }
 

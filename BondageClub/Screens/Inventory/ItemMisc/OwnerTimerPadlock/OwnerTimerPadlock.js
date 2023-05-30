@@ -33,7 +33,7 @@ function InventoryItemMiscOwnerTimerPadlockDraw(validator=InventoryItemMiscOwner
 	const property = DialogFocusSourceItem.Property;
 
 	if (!DialogFocusItem || property.RemoveTimer < CurrentTime) {
-		InventoryItemMiscOwnerTimerPadlockExit();
+		DialogLeaveFocusItem();
 		return;
 	}
 
@@ -90,7 +90,7 @@ function InventoryItemMiscOwnerTimerPadlockDraw(validator=InventoryItemMiscOwner
  */
 function InventoryItemMiscOwnerTimerPadlockClick(validator=InventoryItemMiscOwnerTimerPadlockValidator) {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemMiscOwnerTimerPadlockExit();
+		DialogLeaveFocusItem();
 		return;
 	}
 
@@ -161,15 +161,9 @@ function InventoryItemMiscOwnerTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToLi
 
 		ChatRoomPublishCustomAction(msg, true, dictionary);
 	} else {
-		CharacterRefresh(C);
+		DialogLeaveFocusItem();
 	}
-	InventoryItemMiscOwnerTimerPadlockExit();
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
-function InventoryItemMiscOwnerTimerPadlockExit() {
-	DialogFocusItem = null;
-	if (DialogInventory != null) {
-		DialogMenuButtonBuild(CharacterGetCurrent());
-	}
-}
+function InventoryItemMiscOwnerTimerPadlockExit() {}
