@@ -337,7 +337,7 @@ type AssetLockType =
 	"IntricatePadlock" | "LoversPadlock" | "LoversTimerPadlock" | "FamilyPadlock" |
 	"MetalPadlock" | "MistressPadlock" | "MistressTimerPadlock" |
 	"OwnerPadlock" | "OwnerTimerPadlock" | "PandoraPadlock" |
-	"PasswordPadlock" | "SafewordPadlock" | "TimerPadlock" |
+	"PasswordPadlock" | "PortalLinkPadlock" | "SafewordPadlock" | "TimerPadlock" |
 	"TimerPasswordPadlock"
 	;
 
@@ -353,7 +353,8 @@ type AssetAttribute =
 	"CanAttachMittens" |
 	"PenisLayer" | "PussyLayer" | "GenitaliaCover" |
 	"CagePlastic2" | "CageTechno" | "CageFlat" |
-	"FuturisticRecolor" | "FuturisticRecolorDisplay"
+	"FuturisticRecolor" | "FuturisticRecolorDisplay" |
+	"PortalLinkLockable" | `PortalLinkChastity${string}` | `PortalLinkActivity${ActivityName}` | `PortalLinkTarget${AssetGroupItemName}`
 	;
 
 type AssetPrerequisite =
@@ -428,6 +429,9 @@ type MagicSchoolHouse = "Maiestas" | "Vincula" | "Amplector" | "Corporis";
 type ModuleType = "Character" | "Cutscene" | "MiniGame" | "Online" | "Room";
 
 type AssetCategory = "Medical" | "Extreme" | "Pony" | "SciFi" | "ABDL" | "Fantasy";
+
+type PortalLinkStatus = "PortalLinkInvalidCode" | "PortalLinkClipboardError" | "PortalLinkValidCode" | `PortalLinkSearching${number}` | "PortalLinkDuplicateCode" | "PortalLinkTargetNotFound" | "PortalLinkEstablished";
+type PortalLinkFunction = "PortalLinkFunctionLock" | "PortalLinkFunctionUnlock" | "PortalLinkFunctionCycleChastity" | `PortalLinkFunctionActivity${ActivityName}`;
 
 //#endregion
 
@@ -2650,6 +2654,8 @@ interface ItemPropertiesCustom {
 	/** Lucky Wheel: the angle the wheel should spin to */
 	TargetAngle?: number;
 
+	/** PortalLink: Used to link a remote to its target asset. */
+	PortalLinkCode?: string;
 }
 
 interface ItemProperties extends ItemPropertiesBase, AssetDefinitionProperties, ItemPropertiesCustom { }

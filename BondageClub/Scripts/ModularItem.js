@@ -608,6 +608,7 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.PunishStandup === "boolean") mergedProperty.PunishStandup = Property.PunishStandup;
 	if (typeof Property.NextShockTime === "number") mergedProperty.NextShockTime = Property.NextShockTime;
 	if (typeof Property.TargetAngle === "number") mergedProperty.TargetAngle = Property.TargetAngle;
+	if (typeof Property.PortalLinkCode === "string" && PortalLinkCodeRegex.test(Property.PortalLinkCode)) mergedProperty.PortalLinkCode = Property.PortalLinkCode;
 	if (Array.isArray(Property.Texts)) mergedProperty.Texts = Property.Texts;
 	return mergedProperty;
 }

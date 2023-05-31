@@ -864,8 +864,9 @@ function ActivityBuildChatTag(character, group, activity, is_label = false) {
  * @param {Character} acted - Character on which the activity was triggered
  * @param {AssetGroup} targetGroup - The group targetted by the activity
  * @param {ItemActivity} ItemActivity - The activity performed, with its optional item used
+ * @param {boolean} sendMessage - Whether to send a message to the chat or not
  */
-function ActivityRun(actor, acted, targetGroup, ItemActivity) {
+function ActivityRun(actor, acted, targetGroup, ItemActivity, sendMessage=true) {
 	const Activity = ItemActivity.Activity;
 	const UsedAsset = ItemActivity && ItemActivity.Item ? ItemActivity.Item.Asset : null;
 
@@ -885,7 +886,7 @@ function ActivityRun(actor, acted, targetGroup, ItemActivity) {
 	ActivityRunSelf(actor, acted, Activity, group, UsedAsset);
 
 	// The text result can be outputted in the chatroom or in the NPC dialog
-	if (CurrentScreen == "ChatRoom") {
+	if (CurrentScreen == "ChatRoom" && sendMessage) {
 
 		// Publishes the activity to the chatroom
 		/** @type {ChatMessageDictionary} */

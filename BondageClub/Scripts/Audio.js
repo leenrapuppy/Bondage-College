@@ -89,11 +89,11 @@ var AudioActions = [
 		GetSoundEffect: () => "Unlock"
 	},
 	{
-		IsAction: (data) => data.Content === "FuturisticCollarTriggerLockdown",
+		IsAction: (data) => ["FuturisticCollarTriggerLockdown", "PortalLinkFunctionLock"].some(A => data.Content === A),
 		GetSoundEffect: () => "HydraulicLock"
 	},
 	{
-		IsAction: (data) => data.Content === "FuturisticCollarTriggerUnlock",
+		IsAction: (data) => ["FuturisticCollarTriggerUnlock", "PortalLinkFunctionUnlock"].some(A => data.Content === A),
 		GetSoundEffect: () => "HydraulicUnlock"
 	},
 	{

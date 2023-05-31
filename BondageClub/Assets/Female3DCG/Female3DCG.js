@@ -4383,10 +4383,9 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalPanties", Category: ["SciFi"], Fetish: ["Latex", "Metal"], Value: 50, Top: 395, Left: 127, Difficulty: 50, Time: 15, RemoveTime: 12, AllowLock: true,
-				Prerequisite: ["AccessCrotch"],
+				Name: "PortalPanties", Category: ["SciFi"], Fetish: ["Latex", "Metal"], Value: 50, Top: 395, Left: 127, Difficulty: 50, Time: 15, RemoveTime: 12, AllowLock: true, DrawLocks: false,
+				Prerequisite: ["AccessCrotch"], Attribute: ["PortalLinkLockable", "PortalLinkChastityCrotchShield"],
 				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing", "ItemVulvaPlasticChastityCage1", "ItemVulvaPlasticChastityCage2", "ItemVulvaTechnoChastityCage", "ItemVulvaFlatChastityCage", "ItemVulvaVibeEggPenisBase"],
-				ArousalZone: "ItemVulva",
 				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true, HasType: false, ParentGroup: null,
 				Layer: [
 					{ Name: "Base", ParentGroup: "BodyLower", },
@@ -5836,7 +5835,8 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalTablet", ParentGroup: null, Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Effect: ["Unlock-PortalPanties"], HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"]
+				Name: "PortalTablet", ParentGroup: null, BuyGroup: "PortalTablet", Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Extended: true,
+				HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"],
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -8453,6 +8453,7 @@ var AssetFemale3DCG = [
 			{ Name: "PandoraPadlock", Value: -1, Time: 10, Wear: false, Effect: [], IsLock: true},
 			{ Name: "ExclusivePadlock", Value: 50, Time: 10, Wear: false, Effect: [], IsLock: true},
 			{ Name: "SafewordPadlock", Value: 40, Random: false, Wear: false, Effect: [], IsLock: true, AllowType: ["Password", "Hint", "LockSet"], Extended: true},
+			{ Name: "PortalLinkPadlock", Value: -1, BuyGroup: "PortalTablet", Random: false, Wear: false, Enable: false, Effect: [], IsLock: true, ExclusiveUnlock: true, },
 			{ Name: "MetalPadlockKey", Value: 10, Wear: false, Effect: ["Unlock-MetalPadlock"] },
 			{ Name: "OwnerPadlockKey", Value: 60, Wear: false, OwnerOnly: true, Effect: ["Unlock-OwnerPadlock", "Unlock-OwnerTimerPadlock"] },
 			{ Name: "LoversPadlockKey", Value: 40, Wear: false, LoverOnly: true, Effect: ["Unlock-LoversPadlock", "Unlock-LoversTimerPadlock"] },
