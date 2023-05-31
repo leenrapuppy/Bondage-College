@@ -1,0 +1,116 @@
+###_NPC
+(She looks at you and giggles.)  I'm guessing you lost your last game?
+（她看着你，呵呵地笑了起来。）我猜你输掉了上一场比赛？
+That was a great victory, congratulations!  You're ready to face real opponents in the Club or we can do another practice.
+那是一场伟大的胜利，恭喜！你已经准备好在俱乐部面对真正的对手，或者我们可以再做一次练习。
+Don't be bitter about that defeat, we can play another practice game if you want.  It's the best way to learn.
+不要为那次失败而苦恼，如果你愿意，我们可以再进行一次练习赛。这是最好的学习方式。
+Welcome to the Club Card Lounge.  Can I help you?
+欢迎来到俱乐部卡牌大厅。有什么我可以帮你的？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName.  I'm the BDSM Club Card tutor.
+我是DialogCharacterName。我是BDSM俱乐部卡牌导师。
+###_PLAYER
+What's going on here?
+这里发生了什么？
+###_NPC
+I teach members on how to play the Club Card game.  Would you like to learn?
+我教会员如何玩俱乐部卡牌游戏。你想学习吗？
+###_PLAYER
+What is the Club Card game?
+什么是俱乐部卡牌游戏？
+###_NPC
+It's a kinky trading card game you can play with other members.  Would you like more details?
+这是一款可以与其他成员一起玩的色情集换式卡牌游戏。你想了解更多详情吗？
+###_PLAYER
+I have questions on the rules.
+我对规则有疑问。
+###_NPC
+Of course.  How can I help you?
+当然。有什么我可以帮你的？
+###_PLAYER
+Can we practice a game?
+我们可以来一场练习赛吗？
+###_NPC
+Yes!  The best way to learn is to practice.  Don't worry, there are no consequences for winning or losing.
+当然！最好的学习方法就是实践。别担心，输赢没有任何后果。
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+(She laughs.)  The usual wager is that winner will restrain the loser.  But here we only play to learn the game.
+（她笑了。）通常的赌注是赢家会束缚输家。但在这里我们玩游戏只是来学习游戏。
+###_PLAYER
+I need to go.  (Leave her.)
+我要走了。（离开她。）
+Who can play this game?
+谁可以玩这个游戏？
+###_NPC
+Anyone can play the game, there are no restrictions.  You can find players everywhere in the club.
+任何人都可以玩这个游戏，没有任何限制。你可以在俱乐部的任何地方找到玩家。
+###_PLAYER
+How much does it cost?
+它要多少钱？
+###_NPC
+The game is free, each player gets the basic cards for no cost.  But if you want unique cards, you'll need to defeat some girls in the club first.
+游戏是免费的，每个玩家都可以免费获得基本卡牌。但是如果你想要独特的卡片，你需要先打败俱乐部里的一些女孩。
+###_PLAYER
+How do you win?
+你怎么赢？
+###_NPC
+The goal of the game is to build the best BDSM club in town, obtaining 100 Fame before your opponent.
+游戏的目标是建立镇上最好的BDSM俱乐部，先于你的对手获得100点声望。
+###_PLAYER
+How do I gain fame?
+我如何获得声望？
+###_NPC
+You need to play cards that will increase your fame.  You'll need money to make your club bigger and invite more members.
+你需要打牌来增加你的声望。你也需要金钱来扩大你的俱乐部并邀请更多会员。
+###_PLAYER
+Which card can I play?
+我可以打出哪张卡牌？
+###_NPC
+You can use the basic deck or build your own deck.  All decks must have 30 cards.
+你可以使用基本套牌或构建自己的套牌。所有套牌必须有30张牌。
+###_PLAYER
+Thanks for your time.
+谢谢你的耐心。
+###_NPC
+No problem.  Is there anything else you want?
+没问题。你还有什么需要的吗？
+###_PLAYER
+Who begins the game?
+谁先手开始游戏？
+###_NPC
+It's random.  The player that begins draws 5 cards, the other draws 6.
+随机决定。先手玩家抽5张牌，另一个玩家抽6张。
+###_PLAYER
+How many cards can I play?
+我可以打出多少张牌？
+###_NPC
+You can only play one card per turn.  But some cards might alter that rule when they are in play.
+你每回合只能打一张牌。但有些牌在比赛时可能会改变这一规则。
+###_PLAYER
+When do I gain money and fame?
+我什么时候获得金钱和声望？
+###_NPC
+At the end of your turn.
+在你的回合结束时。
+###_PLAYER
+What happens if I go negative?
+如果我变成负数会怎样？
+###_NPC
+Fame can go negative, taking you further away from winning.  If money goes negative, you cannot gain any new fame.
+声望可能会变坏，让你离胜利更远。如果金钱变成负数，你就无法获得任何声望。
+###_PLAYER
+(Play a Club Card game with her.)
+（和她玩俱乐部纸牌游戏。）
+I've changed my mind.
+我改变主意了。
+(Play another game.)
+（再玩一次。）
+Thanks.  I've had enough.
+谢谢。我已经足够了。
