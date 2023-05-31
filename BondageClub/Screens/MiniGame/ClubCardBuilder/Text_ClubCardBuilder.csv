@@ -1,9 +1,13 @@
 Exit,Exit the deck builder
 SelectDeck,Select the deck to modify
 DeckNumber,Deck #
+Clear,Clear
+Default,Default
 SelectCards,Select the cards to put in deck #
 ClickCard,Click on a card to zoom it
 UndoChanges,Undo changes
 SaveChanges,Save your deck
 NextCards,Next 30 cards
 PreviousCards,Previous 30 cards
+ClearHover,Unselect all cards
+DefaultHover,Reset to default deck

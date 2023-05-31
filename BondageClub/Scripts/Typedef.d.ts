@@ -1574,6 +1574,7 @@ interface Character {
 		MagicBattle?: GameMagicBattleParameters,
 		GGTS?: GameGGTSParameters,
 		Poker?: GamePokerParameters,
+		ClubCard?: GameClubCardParameters,
 	};
 	BlackList: number[];
 	RunScripts?: boolean;
@@ -3055,6 +3056,10 @@ interface GamePokerParameters {
 	Challenge?: string;
 }
 
+interface GameClubCardParameters {
+	Deck: string[];
+}
+
 //#endregion
 
 // #region Online Games
@@ -3671,20 +3676,21 @@ interface WheelFortuneOptionType {
 // #end region
 
 interface ClubCard {
-	ID: number,
-	Name: string,
-	Type?: string,
-	Title?: string,
-	Text?: string,
-	Unique?: boolean,
-	MoneyPerTurn?: number,
-	FamePerTurn?: number,
-	RequiredLevel?: number,
-	ExtraTime?: number,
-	ExtraDraw?: number,
-	ExtraPlay?: number,
-	Group?: any[],
-	Location?: string,
+	ID: number;
+	Name: string;
+	Type?: string;
+	Title?: string;
+	Text?: string;
+	Unique?: boolean;
+	MoneyPerTurn?: number;
+	FamePerTurn?: number;
+	RequiredLevel?: number;
+	ExtraTime?: number;
+	ExtraDraw?: number;
+	ExtraPlay?: number;
+	Group?: any[];
+	Location?: string;
+	GlowTimer?: number;
 	OnTurnEnd?: (C: ClubCardPlayer) => void;
 	OnBoardEntry?: (C: ClubCardPlayer) => void;
 }

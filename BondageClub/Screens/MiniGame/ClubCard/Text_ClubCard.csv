@@ -11,6 +11,10 @@ EndDraw,Draw a card
 Concede,Concede
 Yes,Yes
 No,No
+DeckNumber,Deck #
+NoValidDeckFound,Deck #DECKNUMBER isn't valid.  Using the default deck instead.
+SelectDeck,Select the deck to play with.
+UsingDeck,You will play with deck #DECKNUMBER.
 ConfirmConcede,Do you really want to concede this game?
 VictoryForPlayer,Congratulations!  You reached 100 Fame and won the game.
 VictoryForAI,Your opponent reached 100 Fame and won the game.
@@ -18,7 +22,7 @@ Return,End the game
 OpponentPlaying,Your opponent is playing...
 PlayACard,PLAYERNAME plays CARDNAME.
 PlayACardOpponentBoard,PLAYERNAME plays CARDNAME on the opponent board.
-PlayerAnotherCard,PLAYER can play another card.  The turn continues.
+PlayAnotherCard,PLAYER can play another card.  The turn continues.
 StartPlayer,You've been chosen to start the game.  Select a card to play or end your turn by drawing.
 StartOpponent,Your opponent has been chosen to start the game.  Please wait for her move.
 EndTurnPlayer,FAMEMONEY.  It's your opponent turn.
@@ -85,13 +89,13 @@ Text Secretary,Your 3 turns event cards will last one extra turn.
 Title Associate,Associate
 Text Associate,You can play one extra card per turn.
 Title Human Resource,Human Resource
-Human Resource,Draw an extra card each time you draw a card.
+Text Human Resource,Draw an extra card each time you draw a card.
 Title Policewoman,Policewoman
 Text Policewoman,<F>I took the job for the free handcuffs.
 Title Pusher,Pusher
 Text Pusher,Will leave the club at the end of a turn if a Police is present.
 Title Junkie,Junkie
-Text Junkie,+2 Money per turn if Pusher is present.  Will leave the club at the end of a turn if a Police is present.
+Text Junkie,+2 Money per turn if Pusher is present.  Leave club at the end of turn if a Police is present.
 Title Zealous Cop,Zealous Cop
 Text Zealous Cop,"<F>Rules are rules, and I'll make sure they will be followed."
 Title Maid Lover,Maid Lover
@@ -112,8 +116,8 @@ Title Porn Amateur,Porn Amateur
 Text Porn Amateur,<F>I'll be the next Marylin Cumroe.
 Title Porn Movie Director,Porn Movie Director
 Text Porn Movie Director,+1 Fame per turn and +1 Money per turn for each Porn Actress present.
-Title Porn Professional,Porn Professional
-Text Porn Professional,+1 Fame per turn if at least one other Porn Actress is present.
+Title Porn Lesbian,Porn Lesbian
+Text Porn Lesbian,+1 Fame per turn if at least one other Porn Actress is present.
 Title Porn Veteran,Porn Veteran
 Text Porn Veteran,<F>My body count?  You don't want to know.
 Title Porn Star,Porn Star
@@ -190,10 +194,10 @@ Title College Freshwoman,College Freshwoman
 Text College Freshwoman,+1 Fame per turn if Julia is present.
 Title College Nerd,College Nerd
 Text College Nerd,+1 Money per turn if Julia is present.
-Title College Hidden Genius,College Hidden Genius
+Title College Hidden Genius,Hidden Genius
 Text College Hidden Genius,+4 Fame per turn if Mildred is present.
-Title College Teacher,College Teacher
-College Teacher,+1 Fame per turn for each College Student present.
+Title Substitute Teacher,Substitute Teacher
+Text Substitute Teacher,+1 Fame per turn for each College Student present.
 Title Julia,Julia
 Text Julia,<F>Seeing them learn and grow is magnifico.
 Title Yuki,Yuki

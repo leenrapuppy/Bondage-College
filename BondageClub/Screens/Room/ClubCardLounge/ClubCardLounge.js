@@ -8,7 +8,7 @@ var ClubCardLoungeTutor = null;
  * @returns {void} - Nothing
  */
 function ClubCardLoungeLoad() {
-	CommonReadCSV("NoArravVar", "MiniGame", "ClubCard", "Text_ClubCard");
+	ClubCardCommonLoad();
 	if (ClubCardLoungeTutor == null) {
 		ClubCardLoungeTutor = CharacterLoadNPC("NPC_ClubCardLounge_Tutor");
 		ClubCardLoungeTutor.AllowItem = false;

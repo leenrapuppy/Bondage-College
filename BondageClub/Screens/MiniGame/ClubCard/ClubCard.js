@@ -7,13 +7,12 @@ var ClubCardColor = ["#808080", "#FFFFFF", "#B0FFB0", "#B0B0FF", "#FF80FF", "#FF
 var ClubCardOpponent = null;
 var ClubCardHover = null;
 var ClubCardFocus = null;
-var ClubCardFirstTurn = true;
 var ClubCardTurnIndex = 0;
 var ClubCardTurnCardPlayed = 0;
 var ClubCardTurnEndDraw = false;
 var ClubCardFameGoal = 100;
 var ClubCardPopup = null;
-var ClubCardLevelLimit = [0, 4, 7, 12, 20, 40];
+var ClubCardLevelLimit = [0, 5, 8, 13, 20, 40];
 var ClubCardLevelCost = [0, 0, 10, 20, 40, 80];
 /** @type {ClubCardPlayer[]} */
 var ClubCardPlayer = [];
@@ -292,7 +291,7 @@ var ClubCardList = [
 		}
 	},
 	{
-		ID: 5002,
+		ID: 5003,
 		Name: "Porn Veteran",
 		Group: ["PornActress"],
 		MoneyPerTurn: 1,
@@ -300,7 +299,7 @@ var ClubCardList = [
 		RequiredLevel: 4
 	},
 	{
-		ID: 5003,
+		ID: 5004,
 		Name: "Porn Star",
 		Group: ["PornActress"],
 		MoneyPerTurn: 1,
@@ -608,7 +607,7 @@ var ClubCardList = [
 	},
 	{
 		ID: 11007,
-		Name: "College Teacher",
+		Name: "Substitute Teacher",
 		Group: ["CollegeTeacher"],
 		MoneyPerTurn: -1,
 		OnTurnEnd: function(CCPlayer) {
@@ -643,7 +642,6 @@ var ClubCardList = [
 
 ];
 
-
 /**
  * Adds a text entry to the game log
  * @param {string} LogEntry - The club card player
@@ -670,15 +668,17 @@ function ClubCardPlayerAddMoney(CCPlayer, Amount) {
 
 /**
  * Creates a popop in the middle of the board that pauses the game
- * @param {string} Text - The text to display
- * @param {string} Button1 - The label of the first button
+ * @param {string} Mode - The popup mode "DECK", "TEXT" or "YESNO"
+ * @param {string|null} Text - The text to display
+ * @param {string|null} Button1 - The label of the first button
  * @param {string|null} Button2 - The label of the second button
- * @param {string} Function1 - The function of the first button
+ * @param {string|null} Function1 - The function of the first button
  * @param {string|null} Function2 - The function of the second button
  * @returns {void} - Nothing
  */
-function ClubCardCreatePopup(Text, Button1, Button2, Function1, Function2) {
+function ClubCardCreatePopup(Mode, Text = null, Button1 = null, Button2 = null, Function1 = null, Function2 = null) {
 	ClubCardPopup = {
+		Mode: Mode,
 		Text: Text,
 		Button1: Button1,
 		Button2: Button2,
@@ -847,6 +847,37 @@ function ClubCardLoadDeck(InDeck) {
 }
 
 /**
+ * Builds a deck array of object from a deck array of numbers
+ * @param {number} DeckNum - The array of number deck
+ * @returns {void} - The resulting deck
+ */
+function ClubCardLoadDeckNumber(DeckNum) {
+
+	// Invalid decks cannot be loaded, we get the default one if that's the case
+	let Deck = [];
+	if ((Player.Game.ClubCard.Deck.length <= DeckNum) || (Player.Game.ClubCard.Deck[DeckNum].length != ClubCardBuilderDeckSize)) {
+		ClubCardLogAdd(TextGet("NoValidDeckFound").replace("DECKNUMBER", (DeckNum + 1).toString()));
+		Deck = ClubCardBuilderDefaultDeck.slice();
+	} else {
+		ClubCardLogAdd(TextGet("UsingDeck").replace("DECKNUMBER", (DeckNum + 1).toString()));
+		for (let Index = 0; Index < ClubCardBuilderDeckSize; Index++)
+			Deck.push(Player.Game.ClubCard.Deck[DeckNum].charCodeAt(Index));
+	}
+
+	// Loads the deck and shuffles it
+	ClubCardPlayer[0].Deck = ClubCardShuffle(ClubCardLoadDeck(Deck));
+	ClubCardPlayer[0].FullDeck = ClubCardLoadDeck(Deck);
+
+	// Starts the game with the loaded deck
+	ClubCardLogAdd(ClubCardTextGet("Start" + ((ClubCardTurnIndex == 0) ? "Player" : "Opponent")));
+	ClubCardPlayerDrawCard(ClubCardPlayer[0], (ClubCardTurnIndex == 0) ? 5 : 6);
+	ClubCardPlayerDrawCard(ClubCardPlayer[1], (ClubCardTurnIndex == 1) ? 5 : 6);
+	ClubCardDestroyPopup();
+	ClubCardAIStart();
+
+}
+
+/**
  * Draw the club card player hand on screen, show only sleeves if not controlled by player
  * @param {Character} Char - The character to link to that club card player
  * @param {String} Cont - The control linked to that player
@@ -868,7 +899,6 @@ function ClubCardAddPlayer(Char, Cont, Cards) {
 		Fame: 0
 	};
 	ClubCardPlayer.push(P);
-	ClubCardPlayerDrawCard(P, (P.Index == ClubCardTurnIndex) ? 5 : 6);
 }
 
 /**
@@ -899,7 +929,7 @@ function ClubCardEndTurn(Draw = false) {
 		MiniGameVictory = (CCPlayer.Control == "Player");
 		MiniGameEnded = true;
 		ClubCardLogAdd(TextGet("VictoryFor" + CCPlayer.Control));
-		ClubCardCreatePopup(TextGet("VictoryFor" + CCPlayer.Control), TextGet("Return"), null, "ClubCardEndGame()", null);
+		ClubCardCreatePopup("TEXT", TextGet("VictoryFor" + CCPlayer.Control), TextGet("Return"), null, "ClubCardEndGame()", null);
 		return;
 	}
 
@@ -1002,6 +1032,7 @@ function ClubCardPlayCard(CCPlayer, Card) {
 				Target.Board.push(Card);
 				CCPlayer.Hand.splice(Index, 1);
 				Card.Location = "Board";
+				Card.GlowTimer = CommonTime() + 10000;
 			}
 			Index++;
 		}
@@ -1093,6 +1124,10 @@ function ClubCardTextGet(Text) {
  */
 function ClubCardLoadCaption() {
 	if ((ClubCardList[0].Title == null) && (ClubCardTextGet("Title Kinky Neighbor") != "")) {
+		for (let Card of ClubCardBuilderList) {
+			Card.Title = ClubCardTextGet("Title " + Card.Name);
+			Card.Text = ClubCardTextGet("Text " + Card.Name);
+		}
 		for (let Card of ClubCardList) {
 			Card.Title = ClubCardTextGet("Title " + Card.Name);
 			Card.Text = ClubCardTextGet("Text " + Card.Name);
@@ -1115,8 +1150,18 @@ function ClubCardLoadCaption() {
 				Card.Text = ClubCardTextGet("Text " + Card.Name);
 			}
 		}
-		ClubCardLogAdd(ClubCardTextGet("Start" + ((ClubCardTurnIndex == 0) ? "Player" : "Opponent")));
 	}
+}
+
+/**
+ * Assigns the club card object if needed and loads the CSV file
+ * @returns {void} - Nothing
+ */
+function ClubCardCommonLoad() {
+	if (Player.Game == null) Player.Game = {};
+	if (Player.Game.ClubCard == null) Player.Game.ClubCard = { Deck: [] };
+	ClubCardList[0].Title = null;
+	CommonReadCSV("NoArravVar", "MiniGame", "ClubCard", "Text_ClubCard");
 }
 
 /**
@@ -1124,18 +1169,17 @@ function ClubCardLoadCaption() {
  * @returns {void} - Nothing
  */
 function ClubCardLoad() {
-	ClubCardList[0].Title = null;
-	ClubCardFirstTurn = true;
+	ClubCardCommonLoad();
 	ClubCardTurnCardPlayed = 0;
 	ClubCardLogText = "";
-	ClubCardPopup = null;
+	ClubCardFocus = null;
 	ClubCardLogScroll = false;
 	ClubCardLog = [];
 	ClubCardTurnIndex = Math.floor(Math.random() * 2);
 	ClubCardPlayer = [];
-	ClubCardAddPlayer(Player, "Player", ClubCardBuilderDefaultDeck);
+	ClubCardAddPlayer(Player, "Player", []);
 	ClubCardAddPlayer(ClubCardOpponent, "AI", ClubCardBuilderDefaultDeck);
-	ClubCardAIStart();
+	ClubCardCreatePopup("DECK");
 }
 
 /**
@@ -1221,13 +1265,13 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 		let GroupText = ClubCardGetGroupText(Card.Group);
 		if (GroupText != "") {
 			MainCanvas.font = "bold " + Math.round(W / 16) + "px arial";
-			DrawTextWrap(GroupText, X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.1, "Black");
+			DrawTextWrap(GroupText, X + W * 0.05, Y + W * 1.5, W * 0.925, W * 0.1, "Black");
 			MainCanvas.font = ((Card.Text.startsWith("<F>")) ? "italic " : "bold") + Math.round(W / 12) + "px arial";
-			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.6, W * 0.9, W * 0.38, "Black", null, null, Math.round(W / 20));
+			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.6, W * 0.925, W * 0.38, "Black", null, null, Math.round(W / 20));
 		}
 		else {
 			MainCanvas.font = ((Card.Text.startsWith("<F>")) ? "italic " : "bold") + Math.round(W / 12) + "px arial";
-			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.5, W * 0.9, W * 0.48, "Black", null, null, Math.round(W / 20));
+			DrawTextWrap(Card.Text.replace("<F>", ""), X + W * 0.05, Y + W * 1.5, W * 0.925, W * 0.48, "Black", null, null, Math.round(W / 20));
 		}
 	}
 	MainCanvas.font = CommonGetFont(36);
@@ -1262,9 +1306,11 @@ function ClubCardRenderBoard(CCPlayer, X, Y, W, H, Mirror) {
 		PosX = X;
 		IncX = Math.round(W / CCPlayer.Board.length);
 	}
+	let Time = CommonTime();
 	for (let C of CCPlayer.Board) {
 		let PosY = Mirror ? Y + H - (H * 0.65) : Y + (H * 0.1);
 		ClubCardRenderCard(C, PosX + 5, PosY, (W / 12) - 5);
+		if ((C.GlowTimer != null) && (C.GlowTimer > Time)) DrawEmptyRect(PosX + 5, PosY, (W / 12) - 5, ((W / 12) - 5) * 2, "#FFFF00" + Math.round((C.GlowTimer - Time) / 40).toString(16), 4);
 		PosX = PosX + IncX;
 	}
 
@@ -1319,6 +1365,12 @@ function ClubCardRenderPanel() {
 		ClubCardLogScroll = false;
 	}
 	
+	// In deck popup mode
+	if ((ClubCardPopup != null) && (ClubCardPopup.Mode == "DECK")) {
+		DrawTextWrap(TextGet("SelectDeck"), 1735, 870, 250, 100, "White");
+		return;
+	}
+
 	// Draw the bottom butttons and texts
 	if (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") {
 		DrawButton(1725, 860, 250, 60, TextGet("EndDraw"), "White");
@@ -1335,14 +1387,29 @@ function ClubCardRenderPanel() {
  * @returns {void} - Nothing
  */
 function ClubCardRenderPopup() {
+
+	// Exit on no popup
 	if (ClubCardPopup == null) return;
+
+	// In deck mode, we draw 10 deck buttons
+	if (ClubCardPopup.Mode == "DECK") {
+		DrawRect(648, 298, 404, 404, "White");
+		DrawRect(650, 300, 400, 400, "Black");
+			for (let Deck = 0; Deck < 10; Deck++)
+			DrawButton(660 + Math.floor(Deck / 5) * 200, 310 + (Deck % 5) * 80, 180, 60, TextGet("DeckNumber") + (Deck + 1).toString(), "White");
+		return;
+	}
+
+	// Draw the yes/no/text popups
 	DrawRect(648, 348, 404, 304, "White");
 	DrawRect(650, 350, 400, 300, "Black");
 	DrawTextWrap(ClubCardPopup.Text, 670, 360, 370, 210, "White");
-	if (ClubCardPopup.Button2 != null) {
+	if (ClubCardPopup.Mode == "TEXT") DrawButton(700, 570, 300, 60, ClubCardPopup.Button1, "White");
+	if (ClubCardPopup.Mode == "YESNO") {
 		DrawButton(660, 570, 180, 60, ClubCardPopup.Button1, "White");
 		DrawButton(860, 570, 180, 60, ClubCardPopup.Button2, "White");
-	} else DrawButton(700, 570, 300, 60, ClubCardPopup.Button1, "White");
+	}
+
 }
 
 /**
@@ -1370,9 +1437,13 @@ function ClubCardClick() {
 	
 	// In popup mode, no other clicks can be done but the popup buttons
 	if (ClubCardPopup != null) {
-		if ((ClubCardPopup.Button2 == null) && MouseIn(700, 570, 300, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
-		if ((ClubCardPopup.Button2 != null) && MouseIn(660, 570, 180, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
-		if ((ClubCardPopup.Button2 != null) && MouseIn(860, 570, 180, 60)) CommonDynamicFunction(ClubCardPopup.Function2);
+		if ((ClubCardPopup.Mode == "TEXT") && MouseIn(700, 570, 300, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
+		if ((ClubCardPopup.Mode == "YESNO") && MouseIn(660, 570, 180, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
+		if ((ClubCardPopup.Mode == "YESNO") && MouseIn(860, 570, 180, 60)) CommonDynamicFunction(ClubCardPopup.Function2);
+		if (ClubCardPopup.Mode == "DECK")
+			for (let Deck = 0; Deck < 10; Deck++)
+				if (MouseIn(660 + Math.floor(Deck / 5) * 200, 310 + (Deck % 5) * 80, 180, 60))
+					ClubCardLoadDeckNumber(Deck);
 		return;
 	}
 
@@ -1380,7 +1451,7 @@ function ClubCardClick() {
 	if (MouseIn(1725, 300, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && ClubCardCanPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus)) return ClubCardPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus);
 	if (MouseIn(1700, 0, 300, 600) && (ClubCardFocus != null)) return ClubCardFocus = null;
 	if (MouseIn(1725, 860, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardEndTurn(true);
-	if (MouseIn(1725, 930, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardCreatePopup(TextGet("ConfirmConcede"), TextGet("Yes"), TextGet("No"), "ClubCardConcede()", "ClubCardDestroyPopup()");
+	if (MouseIn(1725, 930, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardCreatePopup("YESNO", TextGet("ConfirmConcede"), TextGet("Yes"), TextGet("No"), "ClubCardConcede()", "ClubCardDestroyPopup()");
 	if (MouseIn(1390, 435, 300, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && (ClubCardPlayer[ClubCardTurnIndex].Level < ClubCardLevelCost.length - 1) && (ClubCardPlayer[ClubCardTurnIndex].Money >= ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1])) return ClubCardUpgradeLevel(ClubCardPlayer[ClubCardTurnIndex]);
 
 	// Sets the focus card if nothing else was clicked
