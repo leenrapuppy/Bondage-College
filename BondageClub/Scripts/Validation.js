@@ -817,6 +817,17 @@ function ValidationSanitizeLock(C, item) {
 			}
 	}
 
+	// Ensure a family-only lock is still valid
+	if (lock.Asset.FamilyOnly) {
+		const selfCanUseFamilyLocks = !C.IsPlayer() || !LogQuery("BlockOwnerLockSelf", "OwnerRule");
+		const lockNumberValid = (lockedBySelf && selfCanUseFamilyLocks) || lockedByOwner;
+		if (!(C.IsOwned() || typeof ownerNumber === "number") || !lockNumberValid)
+			if (!(C.IsOwned() && !C.IsOwnedByPlayer() && !lockNumberValid)) {
+				console.warn(`Removing invalid family-only lock with member number: ${lockNumber}`);
+				return ValidationDeleteLock(property);
+			}
+	}
+
 	// Ensure the lock & its member number is valid on lover-only locks
 	if (lock.Asset.LoverOnly) {
 		const hasLovers = !!C.GetLoversNumbers().length;
