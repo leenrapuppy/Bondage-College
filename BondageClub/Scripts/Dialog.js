@@ -798,10 +798,14 @@ function DialogEndExpression() {
 function DialogMenuBack() {
 	switch (DialogMenuMode) {
 		case "activities":
-		case "colorItem":
 		case "crafted":
 		case "locked":
 		case "locking":
+			DialogChangeMode("items");
+			break;
+
+		case "colorItem":
+			ItemColorCancelAndExit();
 			DialogChangeMode("items");
 			break;
 
@@ -885,7 +889,8 @@ function DialogLeaveFocusItem() {
 			DialogChangeMode("items");
 	} else if (DialogFocusItem != null) {
 		ExtendedItemExit();
-		DialogChangeMode("items");
+		if (!DialogFocusItem)
+			DialogChangeMode("items");
 	}
 }
 

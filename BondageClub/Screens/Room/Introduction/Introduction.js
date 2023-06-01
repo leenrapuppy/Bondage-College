@@ -144,7 +144,8 @@ function IntroductionChangeMaidOpinion(Bonus) {
  * @returns {void} - Nothing
  */
 function IntroductionSetZone(NewZone) {
-	CurrentCharacter.FocusGroup = Player.FocusGroup =  /** @type {AssetItemGroup} */ (AssetGroupGet("Female3DCG", NewZone));
+	DialogChangeFocusToGroup(CurrentCharacter, NewZone);
+	DialogChangeFocusToGroup(Player, NewZone);
 }
 
 /**
