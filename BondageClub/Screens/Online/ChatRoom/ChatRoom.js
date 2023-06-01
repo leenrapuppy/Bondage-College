@@ -2729,6 +2729,8 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 		ChatRoomReceiveSuitcaseMoney();
 	} else if (data.Content.substr(0, 4) == "GGTS") {
 		AsylumGGTSHiddenMessage(SenderCharacter, data.Content, data);
+	} else if (data.Content.startsWith("PortalLink")) {
+		PortalLinkProcessMessage(SenderCharacter, data);
 	}
 	return true;
 }

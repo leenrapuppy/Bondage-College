@@ -2217,7 +2217,10 @@ function DialogClick() {
 						ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
 					}
 				}
-				ActivityRun(C, item);
+				ActivityRun(Player, C, C.FocusGroup, item);
+				// Leave the dialog so we see the character's reaction
+				if (CurrentScreen === "ChatRoom")
+					DialogLeave();
 				return true;
 			}
 		});

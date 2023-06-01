@@ -787,6 +787,9 @@ function ValidationSanitizeLock(C, item) {
 	// If there is no lock, or the item in its current state does not permit locks
 	if (!lock || !InventoryDoesItemAllowLock(item)) {
 		return ValidationDeleteLock(property);
+	} else if (lock.Asset.Name === "PortalLinkPadlock" && !InventoryGetItemProperty(item, "Attribute").includes("PortalLinkLockable")) {
+		// Protect against using the PortalLink lock on incompatible items
+		return ValidationDeleteLock(property);
 	}
 
 	let changed = false;

@@ -4383,18 +4383,18 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalPanties", Category: ["SciFi"], Fetish: ["Latex", "Metal"], Value: 50, Top: 395, Left: 127, Difficulty: 50, Time: 15, RemoveTime: 12, AllowLock: true,
-				Prerequisite: ["AccessCrotch"],
-				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing", "ItemVulvaPiercingsChastityClitShield", "ItemVulvaPiercingsHighSecurityVulvaShield", "ItemVulvaPlasticChastityCage1", "ItemVulvaPlasticChastityCage2", "ItemVulvaTechnoChastityCage", "ItemVulvaFlatChastityCage", "ItemVulvaVibeEggPenisBase"],
-				Hide: ["Pussy"], Effect: [ "Chaste", "UseRemote", ], ArousalZone: "ItemVulva", Block: [],
-				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true, HasType: false,
+				Name: "PortalPanties", Category: ["SciFi"], Fetish: ["Latex", "Metal"], Value: 50, Top: 395, Left: 127, Difficulty: 50, Time: 15, RemoveTime: 12, AllowLock: true, DrawLocks: false,
+				Prerequisite: ["AccessCrotch"], Attribute: ["PortalLinkLockable", "PortalLinkChastityCrotchShield"],
+				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing", "ItemVulvaPlasticChastityCage1", "ItemVulvaPlasticChastityCage2", "ItemVulvaTechnoChastityCage", "ItemVulvaFlatChastityCage", "ItemVulvaVibeEggPenisBase"],
+				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true, HasType: false, ParentGroup: null,
 				Layer: [
-					{ Name: "Base",  HasType: false, },
-					{ Name: "Slit",  HasType: false, AllowModuleTypes: ["co0"] },
-					{ Name: "Metal",  HasType: false, AllowModuleTypes: ["co1"] },
-					{ Name: "MetalHex",  HasType: false, CopyLayerColor: "Metal", },
-					{ Name: "Glow1",  HasType: false, AllowModuleTypes: ["co1"] },
-					{ Name: "Glow2", AllowColorize: true, AllowModuleTypes: ["co1"], CopyLayerColor: "Glow1", },
+					{ Name: "Base", ParentGroup: "BodyLower", },
+					{ Name: "MetalHex", ParentGroup: "BodyLower", },
+					{ Name: "GlowCrotch", AllowModuleTypes: ["c0"], CopyLayerColor: "GlowTubes", },
+					{ Name: "Shield", AllowModuleTypes: ["c1", "c2", "c3"], },
+					{ Name: "GlowShield", AllowModuleTypes: ["c1", "c2", "c3"], CopyLayerColor: "GlowTubes", },
+					{ Name: "Tubes", },
+					{ Name: "GlowTubes", },
 				]
 			},
 		],
@@ -5835,7 +5835,8 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PortalTablet", ParentGroup: null, Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Effect: ["Unlock-PortalPanties"], HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"]
+				Name: "PortalTablet", ParentGroup: null, BuyGroup: "PortalTablet", Priority: 46, Value: 15, Random: false, Left: 128, Top: 300, Extended: true,
+				HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "TapedHands", "Yoked"],
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -8452,6 +8453,7 @@ var AssetFemale3DCG = [
 			{ Name: "PandoraPadlock", Value: -1, Time: 10, Wear: false, Effect: [], IsLock: true},
 			{ Name: "ExclusivePadlock", Value: 50, Time: 10, Wear: false, Effect: [], IsLock: true},
 			{ Name: "SafewordPadlock", Value: 40, Random: false, Wear: false, Effect: [], IsLock: true, AllowType: ["Password", "Hint", "LockSet"], Extended: true},
+			{ Name: "PortalLinkPadlock", Value: -1, BuyGroup: "PortalTablet", Random: false, Wear: false, Enable: false, Effect: [], IsLock: true, ExclusiveUnlock: true, },
 			{ Name: "MetalPadlockKey", Value: 10, Wear: false, Effect: ["Unlock-MetalPadlock"] },
 			{ Name: "OwnerPadlockKey", Value: 60, Wear: false, OwnerOnly: true, Effect: ["Unlock-OwnerPadlock", "Unlock-OwnerTimerPadlock"] },
 			{ Name: "LoversPadlockKey", Value: 40, Wear: false, LoverOnly: true, Effect: ["Unlock-LoversPadlock", "Unlock-LoversTimerPadlock"] },

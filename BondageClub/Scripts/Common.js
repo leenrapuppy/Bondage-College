@@ -1143,7 +1143,7 @@ function CommonGenerateGrid(items, offset, grid, callback) {
 	let index;
 	let x = grid.x;
 	let y = grid.y;
-	for (index = offset; index < items.length && y <= grid.height; index++) {
+	for (index = offset; index < items.length && y <= grid.y + grid.height; index++) {
 		if (callback(items[index], x, y, grid.itemWidth, grid.itemHeight))
 			break;
 		x += grid.itemWidth + marginX;

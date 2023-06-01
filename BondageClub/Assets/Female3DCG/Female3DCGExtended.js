@@ -8335,52 +8335,54 @@ var AssetFemale3DCGExtended = {
 		PortalPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
+			ChangeWhenLocked: false,
 			Modules: [
 				{
+					Name: "Code", Key: "o",
+					Options: [
+						{ HasSubscreen: true, ChangeWhenLocked: false, },
+					],
+				},
+				{
 					Name: "CrotchShield", Key: "c",
-					DrawImages: false,
+					Hidden: true,
 					Options: [
 						{}, // 0 - open
 						{ // 1 - close front
-							Prerequisite: ["CanCoverVulva"],
 							Property: {
 								Effect: ["Chaste"],
 								Block: ["ItemVulva", "ItemVulvaPiercings"],
+								Attribute: ["PortalLinkTargetItemVulva", "PortalLinkActivityCaress", "PortalLinkActivityKiss", "PortalLinkActivitySlap", "PortalLinkActivityMasturbateHand", "PortalLinkActivityMasturbateTongue"],
+								Hide: ["Pussy"],
 							},
 						},
 						{ // 2 - close back
 							Property: {
 								Effect: ["Chaste"],
 								Block: ["ItemButt"],
+								Attribute: ["PortalLinkTargetItemButt", "PortalLinkActivityCaress", "PortalLinkActivityKiss", "PortalLinkActivitySlap", "PortalLinkActivityMasturbateHand", "PortalLinkActivityMasturbateTongue"],
+								Hide: ["Pussy"],
 							},
 						},
 						{ // 3 - close both
-							Prerequisite: ["CanCoverVulva"],
 							Property: {
 								Effect: ["Chaste"],
 								Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+								Hide: ["Pussy"],
 							},
 						},
 					],
 				},
-				{
-					Name: "CrotchCover", Key: "co",
-					Options: [
-						{ // co0 - Remove Cover
-							Property: { Effect: [] }
-						},
-						{ // co1 - Add cover
-							Property: { Effect: [] }
-						},
-					]
-				},
 			],
+			BaselineProperty: {
+				PortalLinkCode: "00000000",
+			},
 			ScriptHooks: {
 				Load: FuturisticAccessLoad,
 				Click: FuturisticAccessClick,
 				Draw: FuturisticAccessDraw,
 				Exit: FuturisticAccessExit,
-			},
+			}
 		},
 		LoveChastityBelt: {
 			Archetype: ExtendedArchetype.MODULAR,

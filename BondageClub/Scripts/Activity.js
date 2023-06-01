@@ -860,57 +860,54 @@ function ActivityBuildChatTag(character, group, activity, is_label = false) {
 
 /**
  * Launches a sexual activity for a character and sends the chatroom message if applicable.
- * @param {Character} C - Character on which the activity was triggered
- * @param {ItemActivity} ItemActivity - Activity performed
- * @returns {void} - Nothing
+ * @param {Character} actor - Character which is performing the activity
+ * @param {Character} acted - Character on which the activity was triggered
+ * @param {AssetGroup} targetGroup - The group targetted by the activity
+ * @param {ItemActivity} ItemActivity - The activity performed, with its optional item used
+ * @param {boolean} sendMessage - Whether to send a message to the chat or not
  */
-function ActivityRun(C, ItemActivity) {
+function ActivityRun(actor, acted, targetGroup, ItemActivity, sendMessage=true) {
 	const Activity = ItemActivity.Activity;
 	const UsedAsset = ItemActivity && ItemActivity.Item ? ItemActivity.Item.Asset : null;
 
-	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
+	let group = ActivityGetGroupOrMirror(acted.AssetFamily, targetGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
-	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
-		if ((C.ID == 0) || C.IsNpc())
-			ActivityEffect(Player, C, Activity, group.Name, 0, UsedAsset);
+	if ((acted.ArousalSettings.Active == "Hybrid") || (acted.ArousalSettings.Active == "Automatic"))
+		if (acted.IsPlayer() || acted.IsNpc())
+			ActivityEffect(actor, acted, Activity, group.Name, 0, UsedAsset);
 
-	if (C.ID == 0) {
+	if (acted.IsPlayer()) {
 		if (Activity.MakeSound) {
 			PropertyAutoPunishHandled = new Set();
 		}
 	}
 
 	// If the player does the activity on someone else, we calculate the progress for the player right away
-	ActivityRunSelf(Player, C, Activity, group, UsedAsset);
+	ActivityRunSelf(actor, acted, Activity, group, UsedAsset);
 
 	// The text result can be outputted in the chatroom or in the NPC dialog
-	if (CurrentScreen == "ChatRoom") {
+	if (CurrentScreen == "ChatRoom" && sendMessage) {
 
 		// Publishes the activity to the chatroom
 		/** @type {ChatMessageDictionary} */
 		const Dictionary = [
-			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-			{ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(actor), MemberNumber: actor.MemberNumber },
+			{ Tag: "TargetCharacter", Text: CharacterNickname(acted), MemberNumber: acted.MemberNumber },
 			{ FocusGroupName: group.Name },
 			{ ActivityName: Activity.Name },
 		];
 		if (ItemActivity.Item) {
 			const A = ItemActivity.Item.Asset;
 			Dictionary.push({ Tag: "ActivityAsset", AssetName: A.Name, GroupName: A.Group.Name });
-			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(Player).toLowerCase() });
+			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(actor).toLowerCase() });
 		}
-		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
+		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(acted, group, Activity), Type: "Activity", Dictionary: Dictionary });
 
 		// If the activity is a stimulation trigger, run it if the target is the player
-		if (C.IsPlayer() && Activity.StimulationAction) {
+		if (acted.IsPlayer() && Activity.StimulationAction) {
 			ChatRoomStimulationMessage(Activity.StimulationAction);
 		}
-
-		// Exits from dialog to see the result
-		DialogLeave();
-
 	}
-
 }
 
 /**
