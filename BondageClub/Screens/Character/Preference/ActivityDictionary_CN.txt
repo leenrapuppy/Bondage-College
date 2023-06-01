@@ -106,6 +106,14 @@ Step
 踩
 Kick
 踢
+Sisters Hug
+姐妹般的拥抱
+Brothers Handshake
+兄弟般的握手
+Siblings Cheek Kiss
+兄弟姐妹般地亲吻脸颊
+Sip
+喝一口
 SourceCharacter is tormented by the vibrations, struggling to keep PronounPossessive cool.
 SourceCharacter在欲望和快感的交替中,苦苦保持着自己为数不多的清明和理智.
 SourceCharacter struggles against the intense vibrations, hardly able to control PronounPossessiveself.
@@ -878,6 +886,8 @@ SourceCharacter tickles TargetCharacter's arms.
 SourceCharacter挠了挠TargetCharacter的手臂.
 SourceCharacter tickles TargetCharacter's arm with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠TargetCharacter的手臂。
+SourceCharacter shares a warm sisterly hug with TargetCharacter.
+SourceCharacter与TargetCharacter互相如姐妹般温暖拥抱。
 SourceCharacter bites TargetCharacter's foot.
 SourceCharacter咬了一口TargetCharacter的脚.
 SourceCharacter caresses TargetCharacter's feet.
@@ -1108,6 +1118,8 @@ SourceCharacter sucks on TargetCharacter's fingers.
 SourceCharacter吮吸TargetCharacter的手指.
 SourceCharacter cleans and polishes TargetCharacter's nails.
 SourceCharacter清洁TargetCharacter的指甲，并涂了指甲油。
+SourceCharacter does his secret brothers handshake with TargetCharacter.
+SourceCharacter与TargetCharacter进行了兄弟间的秘密握手动作。
 SourceCharacter bites TargetCharacter's hair.
 SourceCharacter咬了一口TargetCharacter的头发.
 SourceCharacter caresses TargetCharacter's face.
@@ -1212,6 +1224,8 @@ SourceCharacter gives TargetCharacter a sip from PronounPossessive UsedAsset.
 SourceCharacter让TargetCharacter从PronounObject的UsedAsset喝了一口。
 SourceCharacter tickles TargetCharacter's mouth with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠TargetCharacter的嘴。
+SourceCharacter shares a kind sibling cheek kiss with TargetCharacter.
+SourceCharacter与TargetCharacter互相如兄弟姐妹般亲吻脸颊。
 SourceCharacter bites TargetCharacter's neck.
 SourceCharacter咬了一口TargetCharacter的脖子.
 SourceCharacter caresses TargetCharacter's neck.

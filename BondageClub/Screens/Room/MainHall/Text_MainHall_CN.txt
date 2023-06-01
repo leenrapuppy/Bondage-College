@@ -1,7 +1,7 @@
-"Synchronizing with server, please wait..."
-"正在与服务器同步，请稍候..."
+Synchronizing with server, please wait...
+正在与服务器同步，请稍候……
 A rescue maid is coming...
-救援女仆正在赶来...
+救援女仆正在赶来……
 Online Members:
 在线人数：
 Introduction Class
@@ -52,6 +52,8 @@ Bondage Brawl
 束缚格斗
 Item Crafting
 物品制作
+Club Card Lounge
+俱乐部卡牌大厅
 Leave the Club
 离开俱乐部
 Do you want to leave the club?
@@ -76,6 +78,8 @@ Arcade by Ada18980
 街机店 by Ada18980
 Request maid service
 呼叫女仆服务
+Open the changelog
+打开更新记录
 This game is for adults only.  Minors must leave immediately.
 本游戏仅限成人游玩. 未成年人请即刻离开.
 All game characters are considered adults, no exceptions.
@@ -84,8 +88,8 @@ Please be courteous and polite.  Help new members to get started.
 请礼貌待人. 记得帮助萌新.
 Console cheating can break your account forever.  Please be careful.
 控制台可能造成永久死档！请小心操作。
-"Have an open mind, your fetishes might be different from others."
-"要观念开放,你和其他人的口味可能有所不同"
+Have an open mind, your fetishes might be different from others.
+保持观念开放，你和其他人的口味可能有所不同。
 Following a player web link can get you a virus or steal your account.
 点击陌生网址可能会被盗号或电脑中毒。
 Please respect other players limits.  Enforce your own limits.
@@ -118,6 +122,28 @@ Type /help in a chatroom to know the available chat commands.
 在聊天框中输入/help来显示可用的聊天指令。
 Try visiting your graphics preferences if you are experiencing performance issues.
 如果你遇到了性能问题，请尝试访问你的图像偏好。
+Don't forget to do the daily job in the Introduction Room.
+不要忘记做介绍处房间里的每日工作。
+Corsets can be worn both as clothing and a restraint.
+束腰可以当做衣服穿，也可以当做束缚穿。
+Chat rooms are where you can interact with other people, stay safe.
+聊天室是你能和其他人互动的地方，注意安全。
+Locks make restraints impossible to get out of by yourself.
+锁能让束缚无法通过你自己解开。
+Ring the bell if you get stuck, a maid will be with you shortly.
+如果你被困住了，可以弄响铃铛，女仆会很快来照看你。
+Certain actions train different skills, making you better with restraints.
+特定的动作会训练不同的技能，让你更擅长于束缚。
+The Maid Quarters is always looking to pay those that help out.
+女仆协会总是乐于为给予帮助的人支付薪水。
+The Kidnapper's League pays quite a bit for those that can catch others.
+束缚俱乐部为那些能抓住别人的家伙支付不少钱。
+The Asylum also has its own chat room, along with payment as a Nurse.
+收容所里面有它自己的聊天室，并且作为护士工作能得到工资。
+Your profile has a LOT of settings, feel free to take a look.
+你的资料中有一大堆设置，请随意查看。
+Need a stat boost? The Cafe might have something to help.
+需要提升属性？咖啡店里可能有些能帮到你的东西。
 (A woman blocks your path.)  DialogPlayerName!  You've been a nuisance for Pandora's Box for far too long.  Surrender now or you will get hurt.
 （一个女人挡住了你的去路。）DialogPlayerName！你给潘多拉魔盒造成困扰的时间实在是太久了。立即投降，否则你会受伤的。
 (A girl taps on your shoulder.)  Here you are!  Pandora's Box sent me to get you.  Get on your knees right now or there will be trouble.

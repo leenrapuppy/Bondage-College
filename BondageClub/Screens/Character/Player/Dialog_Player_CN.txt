@@ -104,6 +104,12 @@
 (给自己拍张照片。)
 (Craft an item.)
 (制作一件物品。)
+(Boot Kinky Dungeon)
+(启动淫靡地城)
+###_NPC
+(The helmet chimes as Kinky Dungeon starts up)
+(淫靡地城启动的时候，头盔叮铃作响)
+###_PLAYER
 (Play Kinky Dungeon)
 (玩淫靡地城)
 ###_NPC
@@ -241,10 +247,16 @@ Select an item to use.
 选择物品以使用
 Select an item to use on the GroupName.
 请选择要用在GroupName的物品
-Select an activity.
-请选择动作
+Select a lock to use on the GroupName.
+请选择钥用在GroupName的锁。
+This looks like its locked by a AssetName.
+这看起来被AssetName锁上了。
+This looks like its locked by something.
+这看起来被什么东西锁上了。
 Select an activity to use on the GroupName.
 请选择要对GroupName做的动作.
+No activity available on the GroupName.
+在GroupName上没有可用的动作。
 Crafted item properties.
 制作的物品的特性。
 Cannot use on yourself.
@@ -327,6 +339,8 @@ Must remove shackles first.
 必须先移除镣铐
 Must remove face mask first.
 必须先摘下面具
+Cannot close on shaft.
+在支柱上无法封闭。
 Must empty vulva first.
 必须先清空阴道
 Must remove clitoris piercings first
@@ -409,6 +423,8 @@ Unlock the item
 解锁物品
 Try to pick the lock
 尝试开锁
+Unable to pick the lock due to player permissions
+由于玩家权限设置无法撬锁
 Try to pick the lock (jammed)
 尝试开锁（卡住了）
 Return to the item menu
@@ -441,8 +457,8 @@ Show all zones
 显示所有区域
 Use the butt plug's pump
 使用肛塞气泵
-Pick default color
-下一件物品的颜色
+Select default color
+选择默认颜色
 Unable to change color due to player permissions
 因玩家权限设置无法更改颜色
 Change item color
@@ -563,6 +579,10 @@ Hide Mouth
 遮住嘴
 Bundled
 堆起来
+Choose options.
+选择选项。
+Opacity
+透明度
 SourceCharacter changes the style of DestinationCharacter hood.
 SourceCharacter改变了DestinationCharacter头套的样式。
 Pump gag level: Empty
@@ -1105,6 +1125,10 @@ Your owner has confiscated your keys.  All your regular keys are lost.
 你的主人没收了你的钥匙。你失去了你所有的一般钥匙。
 Your owner is now preventing you from getting new keys.  The club shop will not sell keys to you anymore.
 你的主人现在不允许你获取新的钥匙。俱乐部商店将不再向你出售钥匙。
+Your owner is now allowing you to use family keys.
+你的主人现在允许你使用家族钥匙。
+Your owner is now preventing you from using family keys.
+你的主人现在禁止你使用家族钥匙。
 Your owner is now allowing to using owner locks on yourself.
 你的主人现在允许你在自己身上使用主人锁。
 Your owner is now preventing you from using owner locks on yourself.
@@ -1556,15 +1580,21 @@ You can restart the timer but cannot unlock
 "Never forget who you belong to"
 "永远不要忘记你属于谁"
 Can only be locked or unlocked by TargetPronounPossessive owner
-只能被主人上锁或打开
+只能被TargetPronounObject的主人上锁或打开
 Can only be unlocked or extended by TargetPronounPossessive owner
-只能被主人打开或延长时间
+只能被TargetPronounObject的主人打开或延长时间
 "A loving embrace"
 "一个爱的拥抱"
 Can only be locked or unlocked by TargetPronounPossessive lover
-只能被恋人上锁或打开
+只能被TargetPronounObject的恋人上锁或打开
 Can only be unlocked or extended by TargetPronounPossessive lover
-只能被恋人打开或延长时间
+只能被TargetPronounObject的恋人打开或延长时间
+"Family bonds are unbreakable"
+“家族纽带坚不可摧”
+Can only be used by members of TargetPronounPossessive D/s family
+只能被TargetPronounObject的主奴家族使用
+Your owner forbids you from using family keys
+你的主人禁止你使用家族钥匙
 Can only be locked or unlocked by a Club Mistress
 只能被俱乐部女主人们上锁或打开
 "Once inside the Box, you may never leave."
@@ -1717,6 +1747,10 @@ SourceCharacter detaches the chain from DestinationCharacter HighStyle Steel ank
 SourceCharacter解开了DestinationCharacter高品位钢质腿铐上的锁链。
 SourceCharacter attaches the HighStyle Steel ankle cuffs chain on DestinationCharacter ankles.
 SourceCharacter将DestinationCharacter脚踝上的高品位钢质腿铐上的锁链连在一起。
+SourceCharacter detaches the chain from DestinationCharacter Leather Deluxe ankle cuffs.
+SourceCharacter解开了DestinationCharacter皮革豪华脚铐上的锁链。
+SourceCharacter attaches the Leather Deluxe ankle cuffs chain on DestinationCharacter ankles.
+SourceCharacter将DestinationCharacter脚踝上的皮革豪华脚铐的锁链连在一起。
 How tight do you want to strap the jacket?
 你想把拘束衣拉到多紧？
 Snug
@@ -2597,6 +2631,32 @@ SourceCharacter adds a full-length binder to DestinationCharacter AssetName.
 SourceCharacter在DestinationCharacterAssetName上添加了完整长度的束缚。
 SourceCharacter adds a half-length binder to DestinationCharacter AssetName.
 SourceCharacter在DestinationCharacterAssetName上添加了一半长度的束缚。
+Choose Design
+选择设计
+Style
+样式
+Style Options
+样式选项
+Boot
+靴子
+Boot with Sock
+靴子和袜子
+Thigh High Boot
+大腿靴
+SourceCharacter shortens DestinationCharacter boots.
+SourceCharacter缩短了DestinationCharacter靴子。
+SourceCharacter extends the sock on DestinationCharacter boots.
+SourceCharacter延长了DestinationCharacter靴子上的袜子。
+SourceCharacter extends DestinationCharacter boots.
+SourceCharacter延长了DestinationCharacter靴子。
+Bands
+带子
+Band Options
+带子选项
+SourceCharacter removes the bands from DestinationCharacter boots.
+SourceCharacter移除了DestinationCharacter靴子上的带子。
+SourceCharacter adds bands to DestinationCharacter boots.
+SourceCharacter在DestinationCharacter靴子上添加了带子。
 Configure settings:
 配置选项：
 Configure display:
@@ -2951,6 +3011,10 @@ SourceCharacter uses rope on TargetCharacter to do a crossed boxtie.
 SourceCharacter用绳子在TargetCharacter身上绑了一个十字后手缚。
 SourceCharacter uses rope to hogtie TargetCharacter.
 SourceCharacter用绳子把TargetCharacter绑成驷马缚。
+SourceCharacter uses rope to suspend and hogtie TargetCharacter.
+SourceCharacter用绳子把TargetCharacter吊起来并绑了一个驷马缚。
+SourceCharacter uses rope to suspend and hogtie TargetCharacter upside down.
+SourceCharacter用绳子把TargetCharacter吊起来并绑了一个倒立驷马缚。
 SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind TargetPronounPossessive back.
 SourceCharacter用绳子把DestinationCharacter手腕和手肘在TargetPronounObject的身后绑在一起。
 SourceCharacter uses rope to tie DestinationCharacter wrists together behind TargetPronounPossessive back.
@@ -2961,8 +3025,14 @@ SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a har
 SourceCharacter用绳子在DestinationCharacter身上绑了一个绳缚，并把TargetPronounObject的手腕和手肘在TargetPronounObject的身后绑在一起。
 SourceCharacter uses rope on TargetCharacter to have TargetPronounObject crawling on all fours.
 SourceCharacter用绳子把TargetCharacter绑起来，让TargetPronounObject只能四肢着地。
+SourceCharacter uses rope on TargetCharacter to suspend and have TargetPronounObject crawling on all fours.
+SourceCharacter用绳子把TargetCharacter吊起来并绑成了四肢着地的姿势。
+SourceCharacter uses rope on TargetCharacter to suspend and have TargetPronounObject crawling on all fours upside down.
+SourceCharacter用绳子把TargetCharacter吊起来并绑成了四肢着地并肚子朝天的姿势。
 SourceCharacter uses rope to hogtie TargetCharacter on TargetPronounPossessive knees.
 SourceCharacter用绳子把TargetCharacter绑成驷马缚，并让TargetPronounObject跪在地上。
+SourceCharacter uses rope to suspend and hogtie TargetCharacter on TargetPronounPossessive knees.
+SourceCharacter用绳子把TargetCharacter吊起来并绑了一个跪姿驷马缚。
 SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
 SourceCharacter用绳子把DestinationCharacter手臂绑到床柱上。
 Select Rope Bondage.
@@ -3567,8 +3637,6 @@ SourceCharacter attaches a leash to DestinationCharacter nose ring.
 SourceCharacter将一根牵引绳连接到DestinationCharacter鼻环。
 Use Remote
 使用遥控器
-Change Layers
-更换层级
 Penis
 阴茎
 Glans
@@ -3657,12 +3725,64 @@ SourceCharacter unzips DestinationCharacter suit.
 SourceCharacter解开了DestinationCharacter套装拉链。
 SourceCharacter attaches a wand to DestinationCharacter suit.
 SourceCharacter将一根按摩棒DestinationCharacter附在的套装上。
-Configure suit's zippers
-配置套装的拉链
+Configure suit and what is worn over the suit.
+配置拘束服以及拘束服外的穿戴
+Zips, seamless or fully exposed
+拉链，无缝或者露出
+Limb straps
+肢体束带
+Wear clothes over suit
+衣服在拘束服外
+Wear underwear over suit
+内衣在拘束服外
+Suit zippers
+拘束服拉链
+Extra straps
+额外束带
+Clothes over suit
+衣服在拘束服外
+Underwear over suit
+内衣在拘束服外
+Zipped up
+拉上拉链
+Seamless
+无缝
 Exposed
 露出
-SourceCharacter unzips DestinationCharacter suit and fully exposes TargetPronounPossessive breasts and pussy.
-SourceCharacter拉开了DestinationCharacter套装上的拉链，将TargetPronounObject的胸部和阴部完全展示出来。
+Removed
+移除
+Fitted
+贴身
+Hidden
+隐藏
+Visible
+显示
+Underwear Visible
+显示内衣
+Underwear and Socks Visible
+显示内衣和袜子
+SourceCharacter zips up DestinationCharacter AssetName.
+SourceCharacter拉上了DestinationCharacterAssetName的拉链。
+SourceCharacter unzips DestinationCharacter AssetName.
+SourceCharacter拉开了DestinationCharacterAssetName的拉链。
+SourceCharacter uses a seamless AssetName on DestinationCharacterName body, fully covering TargetPronounObject.
+SourceCharacter在DestinationCharacterName身体上使用了无缝的AssetName，完全盖住了TargetPronounObject。
+SourceCharacter unzips DestinationCharacter AssetName and fully exposes TargetPronounPossessive breasts and pussy.
+SourceCharacter拉开了DestinationCharacterNameAssetName的拉链，让TargetPronounObject的胸和阴部完全裸露。
+SourceCharacter removes the extra straps from DestinationCharacter AssetName.
+SourceCharacter从DestinationCharacterAssetName移除了额外的束带。
+SourceCharacter adds extra straps to DestinationCharacter suAssetNameit.
+SourceCharacter在DestinationCharacterAssetName添加了额外的束带。
+SourceCharacter dresses DestinationCharacter with the AssetName over TargetPronounPossessive clothes.
+SourceCharacter把DestinationCharacter的AssetName穿戴到TargetPronounObject的衣服外面。
+SourceCharacter dresses DestinationCharacter with clothes over TargetPronounPossessive AssetName.
+SourceCharacter把DestinationCharacter的衣服穿戴到TargetPronounObject的AssetName外面。
+SourceCharacter dresses DestinationCharacter with the AssetName over TargetPronounPossessive underwear.
+SourceCharacter把DestinationCharacter的AssetName穿戴到TargetPronounObject的内衣外面。
+SourceCharacter dresses DestinationCharacter with underwear over TargetPronounPossessive AssetName.
+SourceCharacter把DestinationCharacter的内衣穿戴到TargetPronounObject的AssetName外面。
+SourceCharacter dresses DestinationCharacter with underwear and socks over TargetPronounPossessive AssetName.
+SourceCharacter把DestinationCharacter的内衣和袜子穿戴到TargetPronounObject的AssetName外面。
 Select egg intensity
 选择跳蛋强度
 Select dildo intensity
@@ -3671,8 +3791,6 @@ Egg Intensity
 跳蛋强度
 Dildo Intensity
 假阳具强度
-SourceCharacter chains DestinationCharacter mittens to the baby harness.
-SourceCharacter用锁链把DestinationCharacter无指手套连接到婴儿束带。
 Select front shield
 选择前部护盾
 Select back shield
@@ -4141,6 +4259,8 @@ SourceCharacter uses chains on TargetCharacter to do a box tie.
 SourceCharacter用锁链在TargetCharacter身上绑了一个后手缚。
 SourceCharacter uses chains to hogtie TargetCharacter.
 SourceCharacter用锁链在TargetCharacter身上绑了一个蛙缚。
+SourceCharacter uses chains to suspend and hogtie TargetCharacter.
+SourceCharacter用链条把TargetCharacter吊起来并绑了一个驷马缚。
 SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind TargetPronounPossessive back.
 SourceCharacter用锁链把DestinationCharacter手腕和手肘在TargetPronounObject的身后绑在一起。
 SourceCharacter uses chains to tie DestinationCharacter wrists together behind TargetPronounPossessive back.
@@ -4411,10 +4531,6 @@ Breasts
 胸部
 Pelvis and Vulva
 小腹和前阴
-Hidden
-隐藏
-Visible
-显示
 DestinationCharacterName clothes are now hidden when wearing TargetPronounPossessive AssetName.
 DestinationCharacterName现在穿戴着AssetName时，衣服会被隐藏。
 DestinationCharacterName clothes are now visible when wearing TargetPronounPossessive AssetName.
@@ -4477,8 +4593,6 @@ Blush
 脸红
 Eyebrows
 眉毛
-Opacity
-透明度
 Mask Style
 面罩模式
 Wink
@@ -4551,6 +4665,8 @@ No whispers around your owner
 在你主人身边时无法悄悄话
 Blocked: Normal keys
 禁止:普通钥匙
+Blocked: Family keys
+禁止:家族钥匙
 Blocked: Remotes on anyone
 禁止:所有人的遥控器
 Blocked: Remotes on yourself
@@ -4571,6 +4687,8 @@ NW-SE
 西北-东南
 SourceCharacter changes the text orientation of DestinationCharacterName AssetName
 SourceCharacter修改DestinationCharacterNameAssetName上的文本方向
+Configure item text
+配置物品文本
 SourceCharacter removes the text from DestinationCharacterName AssetName
 SourceCharacter移除了DestinationCharacterNameAssetName上的文本
 SourceCharacter changes the text on DestinationCharacterName AssetName to read "NewText"
@@ -5043,6 +5161,8 @@ Held
 手持
 Lovers only
 仅限恋人
+D/s Family only
+仅限主奴家族
 Owner only
 仅限主人
 Automatically locks
@@ -5069,6 +5189,8 @@ Blinds
 遮眼
 Heavily blinds
 重度遮眼
+Locked with a AssetName
+被AssetName锁住了
 Cannot use this option when wearing the item
 已经佩戴时无法使用该选项
 Configure Collar
@@ -5523,8 +5645,6 @@ Select Right Eyebrow Piercing
 选择右侧眉毛穿刺
 Select Left Eyebrow Piercing
 选择左侧眉毛穿刺
-Style
-样式
 Right Piercing
 右侧穿刺
 Left Piercing
@@ -6547,8 +6667,6 @@ SourceCharacter unfolds DestinationCharacter folding screen.
 SourceCharacter展开了DestinationCharacter折叠屏风。
 Change Text:
 改变文字：
-Choose Design
-选择设计
 Choose Pattern
 选择样式
 Stripe
@@ -6651,3 +6769,148 @@ SourceCharacter fits the hood's collar around DestinationCharacter neck.
 SourceCharacter将头套的项圈系在DestinationCharacter的脖子上。
 SourceCharacter removes the collar from DestinationCharacter hood.
 SourceCharacter从DestinationCharacter头套上移除了项圈。
+Choose style
+选择样式
+Back Hood
+后背头套
+Set back hood style
+选择后背头套样式
+Down
+拉下
+Pulled Up
+拉起
+SourceCharacter adds a hood to DestinationCharacter latex tank top.
+SourceCharacter在DestinationCharacter乳胶坎肩上添加了头套。
+SourceCharacter pulls up the hood on DestinationCharacter latex tank top.
+SourceCharacter拉起了DestinationCharacter乳胶坎肩上的头套。
+Reverse Hood
+反向头套
+Set front hood style
+选择前头套样式
+SourceCharacter adds a front hood to DestinationCharacter latex tank top.
+SourceCharacter在DestinationCharacter乳胶坎肩上添加了前头套。
+SourceCharacter pulls up the front hood on DestinationCharacter latex tank top.
+SourceCharacter拉起了DestinationCharacter乳胶坎肩上的前头套。
+Choose options
+选择选项
+Breathplay
+呼吸控制
+Choose breathplay options
+选择呼吸控制选项
+Pump
+呼吸泵
+SourceCharacter clears DestinationCharacter vachood's breathing tube.
+SourceCharacter清空了DestinationCharacter真空头套的呼吸管。
+SourceCharacter adds a pump to DestinationCharacter vachood's breathing tube.
+SourceCharacter在DestinationCharacter真空头套的呼吸管上添加了一个呼吸泵。
+SourceCharacter adds a rebreather bag to DestinationCharacter vachood's breathing tube.
+SourceCharacter在DestinationCharacter真空头套的呼吸管上添加了一个循环呼吸袋。
+Plastic Clip
+塑料夹子
+Plastic Clip Options
+塑料夹子选项
+No Clip
+没有夹子
+Clipped Tube
+夹住软管
+SourceCharacter removes the clip from DestinationCharacter vachood's breathing tube.
+SourceCharacter移除了DestinationCharacter真空头套的呼吸管上的夹子。
+SourceCharacter adds a clip to DestinationCharacter vachood's breathing tube.
+SourceCharacter在DestinationCharacter真空头套的呼吸管上添加了夹子。
+ Select options
+选择选项
+Select Cover
+选择覆盖
+Crotch Cover
+裆部覆盖
+Select Crotch Cover
+选择裆部覆盖
+Detached Unit
+解除单元
+Attached Unit
+附加单元
+SourceCharacter detaches the unit on DestinationCharacter portal panties.
+SourceCharacter解除了DestinationCharacter传送门内裤上的单元。
+SourceCharacter attaches the unit on DestinationCharacter portal panties.
+SourceCharacter在DestinationCharacter传送门内裤添加了单元。
+The front and rear chastity shields on DestinationCharacterName AssetName open.
+DestinationCharacterNameAssetName上前后的贞操护盾打开了。
+The front chastity shield on DestinationCharacterName AssetName closes.
+DestinationCharacterNameAssetName上前面的贞操护盾关闭了。
+The read chastity shield on DestinationCharacterName AssetName closes.
+DestinationCharacterNameAssetName上前面的贞操护盾关闭了。
+The front and rear chastity shields on DestinationCharacterName AssetName close.
+DestinationCharacterNameAssetName上前后的贞操护盾关闭了。
+Boot Options
+靴子选项
+No Boot
+没有靴子
+Wear Boot
+穿上靴子
+SourceCharacter removes pants from DestinationCharacter boots.
+SourceCharacter移除了DestinationCharacter靴子上的裤子。
+SourceCharacter adds pants to DestinationCharacter boots.
+SourceCharacter在DestinationCharacter的靴子上添加了裤子。
+Stripe Options
+条纹选项
+Regular Design
+常规设计
+Prison Stripes
+监狱条纹
+SourceCharacter removes the stripes on DestinationCharacter boots.
+SourceCharacter移除了DestinationCharacter靴子上的条纹。
+SourceCharacter reveals the stripes on DestinationCharacter boots.
+SourceCharacter让DestinationCharacter靴子上的条纹显露。
+Pattern Options
+图案选项
+Colored Sides
+彩色侧边
+SourceCharacter removes DestinationCharacter straitjacket pattern.
+SourceCharacter移除了DestinationCharacter拘束衣的图案。
+SourceCharacter adds DestinationCharacter straitjacket stripes.
+SourceCharacter在DestinationCharacter拘束衣上添加了条纹。
+SourceCharacter adds DestinationCharacter straitjacket sides.
+SourceCharacter在DestinationCharacter拘束衣上添加了侧边。
+Zipper
+拉链
+Zipper Options
+拉链选项
+SourceCharacter closes the zipper of DestinationCharacter prison straitjacket.
+SourceCharacter拉上了DestinationCharacter监狱拘束衣的拉链。
+SourceCharacter opens the zipper of DestinationCharacter prison straitjacket.
+SourceCharacter打开了DestinationCharacter监狱拘束衣的拉链。
+Option already set
+选项已设置
+Unchained
+无锁链
+Chained
+有锁链
+SourceCharacter detaches DestinationCharacter padded mittens from the harness.
+SourceCharacter解开了DestinationCharacter衬套无指手套和束带的连接。
+SourceCharacter chains DestinationCharacter padded mittens to the harness.
+SourceCharacter用锁链把DestinationCharacter衬套无指手套连接到束带。
+SourceCharacter detaches DestinationCharacter paw mittens from the harness.
+SourceCharacter解开了DestinationCharacter猫爪无指手套和束带的连接。
+SourceCharacter chains DestinationCharacter paw mittens to the harness.
+SourceCharacter用锁链把DestinationCharacter猫爪无指手套连接到束带。
+Pick default color
+选择默认颜色
+
+########################
+### DEPRECATED LINES ###
+########################
+Select an activity.
+请选择动作
+SourceCharacter adds extra straps to DestinationCharacter AssetName.
+SourceCharacter在DestinationCharacterAssetName添加了额外的束带。
+The rear chastity shield on DestinationCharacterName AssetName closes.
+DestinationCharacterNameAssetName上后面的贞操护盾关闭了。
+下一件物品的颜色
+Change Layers
+更换层级
+Configure suit's zippers
+配置套装的拉链
+SourceCharacter unzips DestinationCharacter suit and fully exposes TargetPronounPossessive breasts and pussy.
+SourceCharacter拉开了DestinationCharacter套装上的拉链，将TargetPronounObject的胸部和阴部完全展示出来。
+SourceCharacter chains DestinationCharacter mittens to the baby harness.
+SourceCharacter用锁链把DestinationCharacter无指手套连接到婴儿束带。

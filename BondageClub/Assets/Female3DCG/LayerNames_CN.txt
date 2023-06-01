@@ -86,6 +86,10 @@ Rope
 绳子
 Chains
 锁链
+ Latex
+乳胶
+ Frills
+花边
 Chain
 锁链
 Lock
@@ -258,6 +262,10 @@ Body
 主体
 Core
 核心
+Tuft
+耳心毛
+Line
+线条
  Fluff
 绒毛
  Base
@@ -312,10 +320,14 @@ Cuffs
 锁铐
 Gems
 珠宝
+Frame
+框架
 Display
 显示屏
 Rings
 环圈
+Edging
+边缘
 Bed Straps
 床束带
 Lower Belt
@@ -342,6 +354,14 @@ Dildo
 假阳具
 End
 顶端
+ Belt
+皮带
+ Lock
+锁
+ Valve
+阀门
+ Butterfly Vibe
+蝴蝶振动器
 Thread
 线条
 Ring
@@ -384,8 +404,6 @@ Left Tape Strip
 左侧胶带
 Right Tape Strip
 右侧胶带
-Frame
-框架
 Piercings
 穿刺
 Weights
@@ -674,6 +692,18 @@ Collar Link
 耳朵内侧
  Outer Ear
 耳朵外侧
+ Lens
+镜片
+ Breathing Tube
+呼吸管
+ Clip
+夹子
+ Clipped Hose
+卡箍软管
+ Pump
+泵
+ Rebreather Bag
+循环呼吸袋
 Boots
 靴子
 Heels
@@ -690,6 +720,14 @@ Fins
 鳍
 Inner & Laces
 内侧和系带
+ Shoe
+鞋
+ Boot
+靴
+ Sock
+袜
+ Band
+带子
  Metal
 金属
  Straps
@@ -725,7 +763,7 @@ Shoe
 Lips
 嘴唇
 Muzzle
-Muzzle
+口套
 Icon
 标志
 Light
@@ -868,14 +906,16 @@ Veins
 脉络
 Shade
 阴影
+Goggles
+护目镜
 Bar
 穿刺棒
 Holemesh
-Holemesh
+网格
 Bulge
-Bulge
+凸起
 Side Straps
-Side Straps
+侧边束带
 Cock Ring
 阴茎环
 Penis
@@ -926,3 +966,61 @@ Waist and Wrists
 腰和手腕
 Markings
 标记
+Bra Cup
+罩杯
+Lining
+线条
+Tickler
+挠痒器
+Wiring
+电线
+ Ear Canal
+耳道
+ Ear
+耳朵 
+ Fuzz
+绒毛
+ Face
+脸
+ Pantyhose
+裤袜
+ Hair
+头发 
+ Tank Top
+坎肩
+ Collar
+领子
+ Loose Hood
+松垮头套
+ Pulled Hood
+拉起头套
+ Hoddie Up
+拉起兜帽
+ Hoodie Down
+放下兜帽
+Breathing Tube
+呼吸管
+Clipped Hose
+卡箍软管
+Pump
+泵
+Rebreather Bag
+循环呼吸袋
+ Slit
+肉缝
+ Portal Unit
+传送单元
+ Hex
+六边形
+ LED
+发光二极管
+Tablet
+平板电脑
+Latex
+乳胶
+Boot
+靴子
+ Silencer
+隔音器
+ Lips
+嘴唇

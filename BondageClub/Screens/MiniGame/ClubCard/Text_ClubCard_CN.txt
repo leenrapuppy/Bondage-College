@@ -1,0 +1,400 @@
+Exit the game
+退出游戏
+Apartment
+公寓
+Cottage
+小屋
+House
+房屋
+Mansion
+豪宅
+Manor
+庄园
+Fame:
+声望：
+Money:
+金钱：
+Play this card
+打出这张卡牌
+Draw a card
+抽一张卡牌
+Concede
+认输
+Yes
+是
+No
+否
+Do you really want to concede this game?
+你真的想要在这场游戏里认输吗？
+Congratulations!  You reached 100 Fame and won the game.
+恭喜！你达到了100声望，并赢得了这场游戏。
+Your opponent reached 100 Fame and won the game.
+你的对手达到了100声望并赢得了游戏。
+End the game
+结束游戏
+Your opponent is playing...
+你的对手正在打出卡牌……
+PLAYERNAME plays CARDNAME.
+PLAYERNAME打出了CARDNAME。
+PLAYERNAME plays CARDNAME on the opponent board.
+PLAYERNAME将CARDNAME打出到了对手的区域。
+PLAYER can play another card.  The turn continues.
+PLAYER可以打出另一张拍。回合继续。
+You've been chosen to start the game.  Select a card to play or end your turn by drawing.
+由你开始游戏。选择一张卡牌打出，或者抽牌来结束回合。
+Your opponent has been chosen to start the game.  Please wait for her move.
+由你的对手开始游戏。请等待她的行动。
+FAMEMONEY.  It's your opponent turn.
+FAMEMONEY。到你的对手的回合。
+FAMEMONEY.  It's your turn.
+FAMEMONEY。到你的回合。
+FAMEMONEY.  You draw a card.  It's your opponent turn.
+FAMEMONEY。你抽了一张卡牌。到你的对手的回合。
+FAMEMONEY.  Your opponent draws a card.  It's your turn.
+FAMEMONEY。你的对手抽了一张卡牌。到你的回合。
+Get Cottage (MONEY)
+获得小屋(MONEY)
+Get House (MONEY)
+获得房屋(MONEY)
+Get Mansion (MONEY)
+获得豪宅(MONEY)
+Get Manor (MONEY)
+获得庄园(MONEY)
+PLAYERNAME upgraded to Cottage for MONEY.
+PLAYERNAME花费MONEY升级到小屋。
+PLAYERNAME upgraded to House for MONEY.
+PLAYERNAME花费MONEY升级到房屋。
+PLAYERNAME upgraded to Mansion for MONEY.
+PLAYERNAME花费MONEY升级到豪宅。
+PLAYERNAME upgraded to Manor for MONEY.
+PLAYERNAME花费MONEY升级到庄园。
+Liability
+可靠度
+Staff
+工作人员
+Police
+警察
+Criminal
+罪犯
+Fetishist
+恋物癖者
+Porn Actress
+色情演员
+Maid
+女仆
+Asylum Patient
+收容所病人
+Asylum Nurse
+收容所护士
+Dominant
+支配者
+Mistress
+女主人
+ABDL Baby
+ABDL宝宝
+ABDL Mommy
+ABDL妈咪
+College Student
+大学学生
+College Teacher
+大学老师
+Kinky Neighbor
+变态邻居
++2 Money per turn if Cute Girl Next Door is present.
+如果可爱邻家女孩在场，每回合+2金钱。
+Cute Girl Next Door
+可爱邻家女孩
+<F>The neighborhood is getting better everyday.
+<F>每天邻居都在变得更好。
+Voyeur
+窥视癖
++4 Money per turn if Exhibitionist is present.
+如果露出癖在场，每回合+4金币。
+Exhibitionist
+露出癖
+<F>We prefer the term naturist.
+<F>我们更喜欢自然主义者这个称呼。
+Party Animal
+聚会动物
+<F>The best plans always begin by: Hold my beer.
+<F>最好的计划开头：那起啤酒。
+Auctioneer
+拍卖师
+Double all bonuses from auctions.
+拍卖所有加价翻倍。
+Uptown Girl
+麻辣宝贝
+<F>She's been living in her white bread world.
+<F>她活在她的精致世界里。
+Tourist
+游客
+<F>I'll need a vacation from my vacation.
+<F>我的假期需要一个假期。
+Diplomat
+交涉家
+<F>Business or leasure?  Pain and pleasure.
+<F>业务或休闲？痛苦和快乐。
+Gambler
+赌徒
++4 Money when she enters your club.
+当她进入你的俱乐部时，+4金钱。
+Red Twin
+红色双子
+<F>We don't share minds but can share orgasms.
+<F>我们不能共享思维，但能共享高潮。
+Blue Twin
+蓝色双子
++4 Fame per turn if Red Twin is present.
+如果蓝色双子在场，每回合+4声望。
+Rope Bunny
+小绳兔
++1 Money per turn if at least one Dominant is present.
+如果至少一个支配者在场，每回合+1金钱。
+Waitress
+女招待
++1 Money per turn if Party Animal is present.
+如果聚会动物在场，每回合+1金钱。
+Bouncer
+门卫
+<F>Your ass will bounce on the street if you make me mad.
+<F>如果你惹我生气，你的屁股会撞上街。
+Accountant
+会计
++1 Money per turn at Cottage level or better.  +1 Money per turn at Manor level.
+如果在小屋等级或更高，每回合+1金钱。如果在庄园等级，每回合+1金钱。
+Secretary
+秘书
+Your 3 turns event cards will last one extra turn.
+你的3回合时间卡牌能额外持续一回合。
+Associate
+助理
+You can play one extra card per turn.
+每回合你能打出额外一张卡牌。
+Human Resource
+人力资源
+Draw an extra card each time you draw a card.
+每当你抽牌时，抽额外一张卡牌。
+Policewoman
+女警察
+<F>I took the job for the free handcuffs.
+<F>我为了免费的手铐选择这个工作。
+Pusher
+毒贩
+Will leave the club at the end of a turn if a Police is present.
+如果警察在场，在回合结束时会离开俱乐部。
+Junkie
+瘾君子
++2 Money per turn if Pusher is present.  Will leave the club at the end of a turn if a Police is present.
+如果毒贩在场，每回合+2金钱。如果警察在场，在回合结束时会离开俱乐部。
+Zealous Cop
+狂热条子
+<F>Rules are rules, and I'll make sure they will be followed.
+<F>规则就是规则，我会保证规则被遵守。
+Maid Lover
+女仆爱好者
++1 Money per turn for each Maid present.
+每有一个女仆在场，每回合+1金钱。
+College-Girl Fan
+大学女孩爱好者
++1 Money per turn per College Student present.
+每有一个大学学生在场，每回合+1金钱。
+Masochist
+受虐狂
++1 Fame per turn and +1 Money per turn if at least one Dominant is present.
+如果至少一个支配者在场，每回合+1声望，每回合+1金钱。
+Feet Worshiper
+足崇拜者
++2 Money per turn if at least one Dominant is present.
+如果至少一个支配者在场，每回合+2金钱。
+Fin-Dom Simp
+取款机小虾奴
++1 Money per turn for each Dominant present.
+如果至少一个支配者在场，每回合+1金钱。
+Fin-Dom Whale
+取款机大鲸奴
++1 Money per turn for each Dominant present and +2 Money per turn for each Mistress present.
+如果至少一个支配者在场，每回合+1金钱。每有一个女主人在场，每回合+2金钱。
+Porn Addict
+色情成瘾
++1 Money per turn for each Porn member present.
+每有一个色情会员在场，每回合+1金钱
+Porn Amateur
+业余色情工作者
+<F>I'll be the next Marylin Cumroe.
+<F>我就是下一个玛丽莲·猛撸。
+Porn Movie Director
+色情电影导演
++1 Fame per turn and +1 Money per turn for each Porn Actress present.
+每有一个色情演员在场，每回合+1声望，每回合+1金钱。
+Porn Professional
+色情专家
++1 Fame per turn if at least one other Porn Actress is present.
+至少有一个其他色情演员在场，每回合+1声望。
+Porn Veteran
+色情老手
+<F>My body count?  You don't want to know.
+<F>我上过多少人？你不会想知道的。
+Porn Star
+色情明星
+<F>My father would not approve, until I got him a new house.
+<F>我爸不会同意的，直到我给他买了间房子。
+Rookie Maid
+菜鸟女仆
+<F>I can't wait for the sorority initiation.
+<F>我等不及参加协会入会式了。
+Coat Check Maid
+衣帽女仆
+<F>Do not lose your receipt ticket.
+<F>不要弄丢你的收据。
+Regular Maid
+常规女仆
+<F>Should I refresh your drink Miss?
+<F>要续杯饮料吗，女士？
+French Maid
+法国女仆
+Pour un service impécable et coquin.
+（法语）为您带来无可挑剔的调皮服务。
+Head Maid
+女仆长
++1 Fame per turn for each other Maid present.
+每有一个女仆在场，每回合+1声望。
+Curious Patient
+好奇病人
+<F>Why are the walls padded?
+<F>为什么墙壁有软垫？
+Part-Time Patient
+业余病人
++6 Money when she enters your club.
+当她进入你的俱乐部时，+6金钱。
+Rookie Nurse
+菜鸟护士
++1 Fame per turn for each Asylum Patient present.
+每有一个收容所病人在场，每回合+1声望。
+Commited Patient
+忠诚病人
+<F>My jacket is never tight enough.
+<F>我的拘束衣永远不够紧。
+Veteran Nurse
+老练护士
++2 Fame per turn for each Asylum Patient present.
+每有一个收容所病人在场，每回合+2声望。
+Permanent Patient
+永久病人
+<F>Monday exam is quite similar to therapy Tuesday.
+<F>周一的检查和周二的治疗差不多。
+Doctor
+医生
++3 Fame per turn for each Asylum Patient present.
+每有一个收容所病人在场，每回合+3声望。
+Amateur Rigger
+业余绳师
+<F>Purple hands?  I'm sure it's normal.
+<F>手发紫？我确定这是正常的。
+Domme
+支配者
+<F>Your knees will be soar tonight.
+<F>今晚你的膝盖会悲鸣。
+Madam
+夫人
+<F>I will take care of your needs and your money.
+<F>我会照顾你的需求，和你的钱。
+<F>This collar will remind you of my power.
+<F>这项圈会让你想起我的力量。
+Dominatrix
+女王
+<F>Bring your credit card slave.
+<F>带上你的信用卡，奴隶。
+Mistress Sophie
+女主人Sophie
+<F>Votre douleur est mon plaisir.
+<F>（法语）你的痛苦就是我的快乐。
+Scammer
+骗子
+<F>This new crypto will change everything.
+<F>这种新的加密会改变一切。
+Pyramid Schemer
+传销骗子
+<F>You recruit five friends, who recruit five friends, who...
+<F>你召集了五个朋友，这些人召集了五个朋友，这些人召集了五个朋友
+Ponzi Schemer
+庞氏骗子
+<F>This police ankle bracelet isn't real, it's a kink of mine.
+<F>这个警察的脚链不是真的，这只是我的癖好。
+Party Pooper
+派对冷场客
+<F>Why is everyone so boring nowadays?
+<F>为什么最近大家都这么无聊。
+College Dropout
+大学肄业人
+-1 Fame per turn for each College Student present.
+每有一个大学学生在场，每回合-1声望。
+Union Leader
+工会领袖
+-1 Money per turn for each Maid and Staff present.
+每有一个女仆和工作人员在场，每回合-1金钱。
+No-Fap Advocate
+不撸倡议者
+-2 Fame per turn for each Porn Actress present.
+每有一个色情演员在场，每回合-2声望。
+Baby Girl
+女宝宝
++1 Money per turn if at least one ABDL Mommy is present.
+如果至少一个ABDL妈咪在场，每回合+1金钱。
+Caring Mother
+贴心妈妈
+<F>Mother do you think they'll try to break my balls.
+<F>妈妈，你觉得她们会弄坏我的球球吗。
+Diaper Lover
+尿布爱好者
++2 Money per turn if at least one Maid is present.
+如果至少一个女仆在场，每回合+2金钱。
+Sugar Baby
+糖果宝贝
+<F>This baby wants a diamond pacifier.
+<F>这个宝贝想要一个钻石奶嘴。
+Babysitter
+保姆
++2 Fame per turn for each ABDL Baby present.
+每有一个ABDL宝宝在场，每回合+2声望。
+Amanda
+Amanda
+Immune to Ransomware.
+免疫勒索软件。
+Sarah
+Sarah
++1 Fame per turn if Amanda is present.  -1 Fame per turn if Sidney is present.
+如果Amanda在场，每回合+1声望。如果Sidney在场，每回合-1声望。
+Sidney
+Sidney
+Double all College Party bonuses.
+加倍所有大学阵营的加成。
+Jennifer
+Jennifer
+Remove one of your member cards when she enters your club.
+当她进入你的俱乐部时，移除一张你的会员卡牌。
+College Freshwoman
+大学女新生
++1 Fame per turn if Julia is present.
+如果Julia在场，每回合+1声望。
+College Nerd
+大学书呆子
++1 Money per turn if Julia is present.
+如果Julia在场，每回合+1金钱。
+College Hidden Genius
+大学的隐藏天才
++4 Fame per turn if Mildred is present.
+如果Mildred在场，每回合+4声望
++1 Fame per turn for each College Student present.
+每有一个大学学生在场，每回合+1声望。
+Julia
+Julia
+<F>Seeing them learn and grow is magnifico.
+<F>看着她们学习成长，真是奇迹。
+Yuki
+Yuki
+<F>You cannot learn with a closed mind or closed legs.
+<F>闭上脑子或者闭上腿，你都无法学习。
+Mildred
+Mildred
+<F>In my class,  silence is gold and will be enforced.
+<F>在我的课上，沉默是金，并且强制执行。

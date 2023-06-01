@@ -1,0 +1,18 @@
+Exit the deck builder
+退出牌组构筑
+Select the deck to modify
+选择要编辑的牌组
+Deck #
+牌组#
+Select the cards to put in deck #
+选择卡牌放入牌组#
+Click on a card to zoom it
+点击卡牌放大
+Undo changes
+取消改变
+Save your deck
+保存你的卡牌
+Next 30 cards
+后30张牌
+Previous 30 cards
+前30张牌

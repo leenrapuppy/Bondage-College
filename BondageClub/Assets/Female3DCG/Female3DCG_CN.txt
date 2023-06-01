@@ -136,8 +136,12 @@ Slave Rags
 奴隶破布
 Cropped Hoodie
 齐胸兜帽衫
+Latex Tank Top
+乳胶坎肩
 Cheerleader Top
 啦啦队上衣
+Latex Frilled Shirt
+乳胶褶边衬衫
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -316,6 +320,10 @@ Cheerleader Skirt
 啦啦队短裙
 Cross Skirt (light)
 十字装饰裙（浅色）
+Fitted Pleated Skirt
+合身百褶裙
+Long Latex Pants
+长乳胶裤
 Suit Lower
 套装(下身)
  Catsuit Panties
@@ -434,6 +442,8 @@ Coconut Bra
 椰子文胸
 Dominatrix Leotard
 女王高叉衣
+ Strap Bra
+束带文胸
 Corset
 束腰
 Corset + Garters
@@ -448,6 +458,8 @@ Latex Corset
 乳胶束腰
 Noble Corset
 皇家束腰
+Boned Underbust Corset
+撑骨胸下束腰
 Panties
 内裤
 String Bikini
@@ -596,12 +608,16 @@ Sneakers Light
 浅色运动鞋
 Sneakers Dark
 深色运动鞋
+Sneakers Sport
+运动鞋
 Heels
 高跟鞋
 Heels Strap
 箍带高跟鞋
 Boots
 靴子
+Ankle Boots
+脚踝靴
 Mistress Boots
 女王靴
 Pony Boots
@@ -632,6 +648,10 @@ Futuristic Heels
 未来高跟鞋
 Fuzzy Boots
 毛绒靴子
+ Latex Heels
+乳胶高跟鞋
+ Latex ThighBoots
+乳胶大腿靴
 Hat
 帽子
 Hair Band
@@ -778,6 +798,8 @@ Unicorn Horn
 独角兽角
 Dildocorn Horn
 独角兽阳具角
+Lynx Ears
+猞猁耳
 Ears
 耳朵
 UnicornHorn
@@ -812,6 +834,8 @@ Biker Gloves
 单车手套
 Pom Poms
 绒球
+Latex Gloves
+乳胶手套
 Left Hand
 左手
 Rings
@@ -852,6 +876,8 @@ V Glasses
 V眼镜
 Gradient Sunglasses
 渐变太阳镜
+Goggles
+护目镜
 Mask
 面具
 Venetian Mask
@@ -1148,12 +1174,28 @@ None
 无
 Style 15b
 样式 15b
+Style 18b
+样式 18b
+Style 19b
+样式 19b
+Style 20b
+样式 20b
 Style 49
 样式 49
 Style 50
 样式 50
 Style 51
 样式 51
+Style 52
+样式 52
+Style 53
+样式 53
+Style 54
+样式 54
+Style 55
+样式 55
+Style 56
+样式 56
 Left eye
 左眼
 Right eye
@@ -1230,10 +1272,14 @@ Sturdy Leather Belt
 坚固皮带
 Irish 8 Feet Cuffs
 爱尔兰制8尺铐
+Heavy Ankle Cuffs
+重型脚铐
 Duct Tape
 胶带
 Leather Ankle Cuffs
 皮革脚铐
+Leather Deluxe Ankle Cuffs
+皮革豪华脚铐
 Floor Shackles
 地板脚镣
 Steel Ankle Cuffs
@@ -1248,6 +1294,8 @@ HighStyle Steel Ankle Cuffs
 高品位钢质脚铐
  Metal Leg Spreader
 金属分腿棍
+ Heavy Leg Spreader
+重型分腿器
 Ball And Chain
 铁球和锁链
  Ankle Shackles
@@ -1274,6 +1322,8 @@ Legs
 腿
 Leather Leg Cuffs
 皮革腿铐
+Leather Deluxe Leg Cuffs
+皮革豪华腿铐
 Futuristic Leg Cuffs
 未来腿铐
 Ornate Leg Cuffs
@@ -1348,6 +1398,8 @@ Techno Chastity Cage
 科技贞操笼
 Flat Chastity Cage
 平板贞操笼
+ Inflatable Vibrating Panties
+充气振动内裤
 Clitoris
 阴蒂
 Straight Clitoris Piercing
@@ -1488,6 +1540,8 @@ Hybrid Chastity Belt
 混合贞操带
 Obedience Belt
 服从贞操带
+Portal Panties
+传送门内裤
 Torso
 躯干
 Leather Harness
@@ -1556,6 +1610,8 @@ Nipple Stretchers
 乳头拉扯器
  Nipple Clamps 2
 乳头夹2
+ Nipple Vibrator
+乳头振动器
 Straight Piercings
 直穿环
 Round Piercings
@@ -1592,6 +1648,8 @@ Futuristic Bra
 未来文胸
 Ornate Chastity Bra
 华丽贞操文胸
+ Tickle Bra
+挠痒文胸
 Arms
 手臂
 Metal Cuffs
@@ -1602,6 +1660,8 @@ Armbinder Jacket
 单手套衣
 Leather Cuffs
 皮革手铐
+Leather Deluxe Cuffs
+皮革豪华手铐
 Ceiling Shackles
 吊顶手镣
 Steel Cuffs
@@ -1612,8 +1672,6 @@ Ornate Cuffs
 华丽手铐
 HighStyle Steel Cuffs
 高品位钢质手铐
-Mittens Chain
-连指手套链
 Four Limbs Shackles
 四肢束缚铐
 Manacles
@@ -1648,6 +1706,8 @@ Seamless Open Crotch Strait Dress
 无缝开档拘束连衣裙
 Yoke
 轭
+Heavy Yoke
+重型轭
 Pillory
 颈手枷
 Full LockDown Latex Suit
@@ -1706,6 +1766,8 @@ Canvas Straitjacket 1
 画布拘束衣1
 SleepSac
 睡袋
+Prison Straitjacket
+监狱拘束衣
 Padded Mittens
 衬套无指手套
 Paw Mittens
@@ -1743,7 +1805,7 @@ Cattle Prod
 Tennis Racket
 网球拍
 For Sale Sign
-出售标志
+待售标志
 Rainbow Wand
 彩虹魔杖
 Gavel
@@ -1828,10 +1890,14 @@ Medical Injector
 医用注射器
 Mug
 马克杯
+Tablet
+平板电脑
 Neck
 颈部
 Leather Collar
 皮革项圈
+ Leather Deluxe Collar
+皮革豪华项圈
 Bell Collar
 铃铛项圈
 Bow Collar
@@ -2242,6 +2308,14 @@ Latex Dog Mask
 乳胶狗狗面具
 Latex Bunny
 乳胶兔兔
+Fox Hood
+狐狸头套
+Panty Hood
+内裤头套
+ Vac Hood
+真空头套
+Sensory Hood
+感官封闭头套
 Light Duty Ear Plugs
 轻型耳塞
 Heavy Duty Ear Plugs
@@ -2276,6 +2350,8 @@ Owner Timer Padlock
 主人计时锁
 Lovers Padlock
 爱人锁
+D/s Family Padlock
+主奴家族锁
 Lovers Timer Padlock
 爱人计时锁
 Mistress Padlock
@@ -2294,6 +2370,8 @@ Owner Padlock Key
 主人锁钥匙
 Lovers Padlock Key
 爱人锁钥匙
+D/s Family Padlock Key
+主奴家族锁钥匙
 Mistress Padlock Key
 女王锁钥匙
 Pandora's Box Padlock Key
