@@ -3,7 +3,7 @@ var ClubCardBackground = "ClubCardPlayBoard1";
 var ClubCardLog = [];
 var ClubCardLogText = "";
 var ClubCardLogScroll = false;
-var ClubCardColor = ["#808080", "#FFFFFF", "#D0FFD0", "#D0D0FF", "#FFD0D0", "#E0A0FF", "#FFE080"];
+var ClubCardColor = ["#808080", "#FFFFFF", "#E0E0E0", "#D0FFD0", "#D0D0FF", "#FFD0D0", "#FFE080"];
 var ClubCardOpponent = null;
 var ClubCardHover = null;
 var ClubCardFocus = null;
@@ -1299,7 +1299,7 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 
 	// Draw the images and texts on the screen
 	DrawImageResize("Screens/MiniGame/ClubCard/Frame/Member" + ((Card.Unique == true) ? "6" : Level.toString()) + ".png", X, Y, W, W * 2);
-	DrawImageResize("Screens/MiniGame/ClubCard/Card/" + Card.Name + ".png", X + W * 0.05, Y + W * 0.18, W * 0.9, W * 1.8);
+	DrawImageResize("Screens/MiniGame/ClubCard/Card/" + Card.Name + ".png", X + W * 0.05, Y + W * 0.16, W * 0.9, W * 1.8);
 	MainCanvas.font = "bold " + Math.round(W / 12) + "px arial";
 	DrawTextWrap(Card.Title, X + W * 0.05, Y + W * 0.05, W * 0.9, W * 0.1, "Black");
 	let BubblePos = Y + W * 0.2;
