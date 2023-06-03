@@ -7,15 +7,19 @@ Level5,Manor
 Fame,Fame:
 Money,Money:
 PlayCard,Play this card
-EndDraw,Draw a card
-Concede,Concede
+Draw,Draw and end your turn
+Bankrupt,Go bankrupt
+Concede,Concede the game
 Yes,Yes
 No,No
 DeckNumber,Deck #
 NoValidDeckFound,Deck #DECKNUMBER isn't valid.  Using the default deck instead.
 SelectDeck,Select the deck to play with.
 UsingDeck,You will play with deck #DECKNUMBER.
+ConfirmBankrupt,Go bankrupt and start a fresh new club?
 ConfirmConcede,Do you really want to concede this game?
+BankruptPlayer,You've gone bankrupt and started a new club.
+BankruptOpponent,Your opponent has gone bankrupt and started a new club.
 VictoryForPlayer,Congratulations!  You reached 100 Fame and won the game.
 VictoryForAI,Your opponent reached 100 Fame and won the game.
 Return,End the game

@@ -795,6 +795,23 @@ function ClubCardRemoveFromBoard(Board, Card) {
 }
 
 /**
+ * Removes all cards that belong to a group (ex: Liability) from a board
+ * @param {Array} Board - The board on which to remove the card
+ * @param {String} GroupName - The group name to remove
+ * @returns {void} - Nothing
+ */
+ function ClubCardRemoveGroupFromBoard(Board, GroupName) {
+	if (Board == null) return;
+	for (let C of Board)
+		if (C.Group != null)
+			for (let Pos = 0; Pos < C.Group.length; Pos++)
+				if (C.Group[Pos] == GroupName) {
+					Board = Board.splice(Pos, 1);
+					break;
+				}
+}
+
+/**
  * Shuffles an array of cards
  * @param {Array} array - The array of cards to shuffle
  * @returns {Array} - The shuffled cards
@@ -816,7 +833,7 @@ function ClubCardShuffle(array) {
  * @param {number|null} Amount - The amount of cards to draw, 1 if null
  * @returns {void} - Nothing
  */
-function ClubCardPlayerDrawCard(CCPlayer, Amount = 1) {
+function ClubCardPlayerDrawCard(CCPlayer, Amount = null) {
 	if ((CCPlayer == null) || (CCPlayer.Deck == null) || (CCPlayer.Hand == null)) return;
 	if (Amount == null) Amount = ClubCardDrawCardCount(CCPlayer);
 	while (Amount > 0) {
@@ -1075,6 +1092,10 @@ function ClubCardAIPlay() {
 	if (ValidCards.length > 0)
 		return ClubCardPlayCard(CCPlayer, CommonRandomItemFromList(null, ValidCards));
 
+	// If nothing can be played and money or fame is going negative, the computer can go bankrupt
+	if ((CCPlayer.LastMoneyPerTurn != null) && (CCPlayer.LastFamePerTurn != null) && (CCPlayer.LastMoneyPerTurn + CCPlayer.LastFamePerTurn <= 0) && (100 - CCPlayer.Money - CCPlayer.Fame > Math.random() * 100))
+		return ClubCardBankrupt();
+
 	// Since nothing could be done, we end the turn by skipping
 	ClubCardEndTurn(true);
 
@@ -1096,6 +1117,32 @@ function ClubCardAIStart() {
 function ClubCardConcede() {
 	ClubCardDestroyPopup();
 	ClubCardEndGame(false);
+}
+
+/**
+ * When a player goes bankrupt, she restarts her club from scratch, draws 5 new cards and ends her turn
+ * @returns {void} - Nothing
+ */
+ function ClubCardBankrupt() {
+
+	// Resets that player game & board
+	let CCPlayer = ClubCardPlayer[ClubCardTurnIndex];
+	CCPlayer.Money = 5;
+	CCPlayer.Fame = 0;
+	CCPlayer.Board = [];
+	CCPlayer.Hand = [];
+	CCPlayer.Deck = ClubCardShuffle(CCPlayer.FullDeck.slice());
+	ClubCardPlayerDrawCard(CCPlayer, 5);
+
+	// The opponent loses all liability cards on her board
+	let Opponent = ClubCardPlayer[(ClubCardTurnIndex == 0) ? 1 : 0];
+	ClubCardRemoveGroupFromBoard(Opponent.Board, "Liability");
+
+	// Announces the bankrupty and jumps to the next turn
+	ClubCardLogAdd(ClubCardTextGet("Bankrupt" + ((ClubCardTurnIndex == 0) ? "Player" : "Opponent")));
+	ClubCardDestroyPopup();
+	ClubCardEndTurn(false);
+
 }
 
 /**
@@ -1358,7 +1405,7 @@ function ClubCardRenderPanel() {
 		Elem.style.backgroundColor = "#000000";
 		Elem.style.color = "#FFFFFF";
 	}
-	ElementPositionFix("CCLog", 20, 1705, (ClubCardFocus == null) ? 10 : 600, 285, (ClubCardFocus == null) ? 830 : 240);
+	ElementPositionFix("CCLog", 20, 1705, (ClubCardFocus == null) ? 10 : 600, 285, (ClubCardFocus == null) ? 880 : 290);
 	ElementValue("CCLog", ClubCardLogText);
 	if (ClubCardLogScroll) {
 		ElementScrollToEnd("CCLog");
@@ -1367,17 +1414,18 @@ function ClubCardRenderPanel() {
 	
 	// In deck popup mode
 	if ((ClubCardPopup != null) && (ClubCardPopup.Mode == "DECK")) {
-		DrawTextWrap(TextGet("SelectDeck"), 1735, 870, 250, 100, "White");
+		DrawTextWrap(TextGet("SelectDeck"), 1735, 897, 250, 100, "White");
 		return;
 	}
 
 	// Draw the bottom butttons and texts
 	if (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") {
-		DrawButton(1725, 860, 250, 60, TextGet("EndDraw"), "White");
-		DrawButton(1725, 930, 250, 60, TextGet("Concede"), "White");
+		DrawButton(1905, 905, 90, 90, null, "White", "Screens/MiniGame/ClubCard/Button/Concede.png", TextGet("Concede"));
+		DrawButton(1805, 905, 90, 90, null, "White", "Screens/MiniGame/ClubCard/Button/Bankrupt.png", TextGet("Bankrupt"));
+		DrawButton(1705, 905, 90, 90, null, "White", "Screens/MiniGame/ClubCard/Button/Draw.png", TextGet("Draw"));
 		if (ClubCardCanPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus)) DrawButton(1725, 300, 250, 60, TextGet("PlayCard"), "White");
 	} else {
-		DrawTextWrap(TextGet("OpponentPlaying"), 1735, 870, 250, 100, "White");
+		DrawTextWrap(TextGet("OpponentPlaying"), 1735, 897, 250, 100, "White");
 	}
 
 }
@@ -1450,8 +1498,9 @@ function ClubCardClick() {
 	// Runs the basic game buttons
 	if (MouseIn(1725, 300, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && ClubCardCanPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus)) return ClubCardPlayCard(ClubCardPlayer[ClubCardTurnIndex], ClubCardFocus);
 	if (MouseIn(1700, 0, 300, 600) && (ClubCardFocus != null)) return ClubCardFocus = null;
-	if (MouseIn(1725, 860, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardEndTurn(true);
-	if (MouseIn(1725, 930, 250, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardCreatePopup("YESNO", TextGet("ConfirmConcede"), TextGet("Yes"), TextGet("No"), "ClubCardConcede()", "ClubCardDestroyPopup()");
+	if (MouseIn(1705, 905, 90, 90) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardEndTurn(true);
+	if (MouseIn(1805, 905, 90, 90) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardCreatePopup("YESNO", TextGet("ConfirmBankrupt"), TextGet("Yes"), TextGet("No"), "ClubCardBankrupt()", "ClubCardDestroyPopup()");
+	if (MouseIn(1905, 905, 90, 90) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player")) return ClubCardCreatePopup("YESNO", TextGet("ConfirmConcede"), TextGet("Yes"), TextGet("No"), "ClubCardConcede()", "ClubCardDestroyPopup()");
 	if (MouseIn(1390, 435, 300, 60) && (ClubCardPlayer[ClubCardTurnIndex].Control == "Player") && (ClubCardPlayer[ClubCardTurnIndex].Level < ClubCardLevelCost.length - 1) && (ClubCardPlayer[ClubCardTurnIndex].Money >= ClubCardLevelCost[ClubCardPlayer[ClubCardTurnIndex].Level + 1])) return ClubCardUpgradeLevel(ClubCardPlayer[ClubCardTurnIndex]);
 
 	// Sets the focus card if nothing else was clicked
