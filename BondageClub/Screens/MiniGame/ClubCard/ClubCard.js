@@ -3,7 +3,7 @@ var ClubCardBackground = "ClubCardPlayBoard1";
 var ClubCardLog = [];
 var ClubCardLogText = "";
 var ClubCardLogScroll = false;
-var ClubCardColor = ["#808080", "#FFFFFF", "#B0FFB0", "#B0B0FF", "#FF80FF", "#FF8080", "#FFD700"];
+var ClubCardColor = ["#808080", "#FFFFFF", "#D0FFD0", "#D0D0FF", "#FFD0D0", "#E0A0FF", "#FFE080"];
 var ClubCardOpponent = null;
 var ClubCardHover = null;
 var ClubCardFocus = null;
@@ -229,7 +229,7 @@ var ClubCardList = [
 		Name: "Feet Worshiper",
 		Group: ["Fetishist"],
 		OnTurnEnd: function(CCPlayer) {
-			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Dominant"))
+			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Dominant") || ClubCardGroupIsOnBoard(CCPlayer.Board, "ABDLMommy"))
 				ClubCardPlayerAddMoney(CCPlayer, 2);
 		}
 	},
