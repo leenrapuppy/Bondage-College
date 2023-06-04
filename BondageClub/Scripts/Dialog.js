@@ -2853,8 +2853,10 @@ function DialogDrawExpressionMenu() {
 		// Draw the table with expressions
 		if (i == DialogFacialExpressionsSelected) {
 			const nPages = Math.ceil(FE.ExpressionList.length / DialogFacialExpressionsPerPage);
-			DrawButton(155, 785, 90, 90, "", nPages > 1 ? "White" : "Gray", `Icons/Prev.png`, DialogFindPlayer("PrevExpressions"), nPages <= 1);
-			DrawButton(255, 785, 90, 90, "", nPages > 1 ? "White" : "Gray", `Icons/Next.png`, DialogFindPlayer("NextExpressions"), nPages <= 1);
+			if (nPages > 1) {
+				DrawButton(155, 785, 90, 90, "", "White", `Icons/Prev.png`, DialogFindPlayer("PrevExpressions"));
+				DrawButton(255, 785, 90, 90, "", "White", `Icons/Next.png`, DialogFindPlayer("NextExpressions"));
+			}
 			const expressionSubset = FE.ExpressionList.slice(
 				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage,
 				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage + DialogFacialExpressionsPerPage,
