@@ -270,6 +270,8 @@ HatBallCapFrontVisor,Visor
 HatBallCapFrontPrint,Print
 HatSwimCapCap,Cap
 HatSwimCapStripes1,Pattern
+HatCowboyHatHat,Hat
+HatCowboyHatBand,Band
 HairAccessory1KittenEars1Outer,Outer Ear
 HairAccessory1KittenEars1Inner,Inner Ear
 HairAccessory1FoxEars2Inner,Inner Ear
@@ -1598,11 +1600,11 @@ ItemBreastTickleBraWire,Wiring
 ItemHoodFoxHoodBase, Base
 ItemHoodFoxHoodLens, Lenses
 ItemHoodFoxHoodInnerEar, Ear Canal
-ItemHoodFoxHoodOuterEar, Ear 
+ItemHoodFoxHoodOuterEar, Ear
 ItemHoodFoxHoodEarFuzz, Fuzz
 ItemHoodFoxHoodFace, Face
 ItemHoodPantyHoodBase, Pantyhose
-ItemHoodPantyHoodHairUnder, Hair 
+ItemHoodPantyHoodHairUnder, Hair
 ClothLatexTankTopBase, Tank Top
 ClothLatexTankTopCollar, Collar
 ClothLatexTankTopHoodDown, Loose Hood
