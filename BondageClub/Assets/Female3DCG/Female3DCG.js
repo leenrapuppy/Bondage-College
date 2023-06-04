@@ -3422,8 +3422,8 @@ var AssetFemale3DCG = [
 		Left: 225,
 		Top: 500,
 		AllowNone: false,
-		AllowExpression: ["Hard"],
-		ExpressionPrerequisite: ["HasPenis"],
+		AllowExpression: [null, "Hard"],
+		ExpressionPrerequisite: ["HasPenis", "CanHaveErection"],
 		Asset: [
 			{ Name: "PussyLight1", Gender: "F", Attribute: ["PussyLayer"] },
 			{ Name: "PussyLight2", Gender: "F", Attribute: ["PussyLayer"] },
