@@ -130,6 +130,7 @@ function VariableHeightLoad(data) {
 	}
 
 	// Create the function to apply the user's setting changes
+	/** @type {(heightValue: number, elementId: string) => void} */
 	const changeHeight = function (heightValue, elementId) {
 		VariableHeightChange(heightValue, maxHeight, minHeight, setHeight, elementId);
 	};
@@ -222,11 +223,13 @@ function VariableHeightClick(data) {
  * @param {number} height - The new height value for the character
  * @param {number} maxHeight - The maximum height value for the character
  * @param {number} minHeight - The minimum height value for the character
- * @param {(Property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void} setHeight - The control that triggered the change
+ * @param {VariableHeightSetHeightCallback} setHeight - The control that triggered the change
  * @param {string} fromElementId - The element ID
  * @returns {void} - Nothing
  */
-const VariableHeightChange = CommonLimitFunction((height, maxHeight, minHeight, setHeight, fromElementId) => {
+const VariableHeightChange = CommonLimitFunction(
+	/** @type {(height: number, maxHeight: number, minHeight: number, setHeight: VariableHeightSetHeightCallback, fromElementId: string) => void} */
+	(height, maxHeight, minHeight, setHeight, fromElementId) => {
 	// Validate the value
 	if (isNaN(height) || height < 0 || height > 1 || !DialogFocusItem) return;
 
@@ -235,7 +238,7 @@ const VariableHeightChange = CommonLimitFunction((height, maxHeight, minHeight, 
 
 	// Update values on controls, except the one just changed
 	if (fromElementId !== VariableHeightSliderId) {
-		ElementValue(VariableHeightSliderId, height);
+		ElementValue(VariableHeightSliderId, height.toString());
 	}
 	if (fromElementId !== VariableHeightNumerId) {
 		ElementValue(VariableHeightNumerId, String(Math.round(height * 100)));

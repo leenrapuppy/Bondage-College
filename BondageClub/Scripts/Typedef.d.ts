@@ -2948,6 +2948,19 @@ interface StateAndIntensity {
 
 //#region Variable Height items
 
+/** The function that handles applying the height setting to the character */
+type VariableHeightGetHeightCallback = (
+	property: ItemProperties,
+) => number | null;
+
+/** The function that handles finding the current variable height setting */
+type VariableHeightSetHeightCallback = (
+	property: ItemProperties,
+	height: number,
+	maxHeight: number,
+	minHeight: number,
+) => void;
+
 /**
  * An object containing typed item configuration for an asset. Contains all of the necessary information for the item's
  * load, draw & click handlers.
@@ -2969,9 +2982,9 @@ interface VariableHeightData extends ExtendedItemData<VariableHeightOption> {
 	};
 	scriptHooks: ExtendedItemScriptHookStruct<VariableHeightData, VariableHeightOption>;
 	/** The function that handles finding the current variable height setting */
-	getHeight: (property: ItemProperties) => number | null;
+	getHeight: VariableHeightGetHeightCallback;
 	/** The function that handles applying the height setting to the character */
-	setHeight: (property: ItemProperties, height: number, maxHeight: number, minHeight: number) => void;
+	setHeight: VariableHeightSetHeightCallback;
 	chatSetting: "default";
 	drawData: ExtendedItemDrawData<ElementMetaData.VariableHeight>;
 }
