@@ -684,14 +684,14 @@ function ClubCardCreatePopup(Mode, Text = null, Button1 = null, Button2 = null, 
 		Button2: Button2,
 		Function1: Function1,
 		Function2: Function2
-	}
+	};
 }
 
 /**
  * Destroys the current popup
  * @returns {void} - Nothing
  */
- function ClubCardDestroyPopup() {
+function ClubCardDestroyPopup() {
 	ClubCardPopup = null;
 }
 
@@ -773,8 +773,8 @@ function ClubCardGroupOnBoardCount(Board, CardGroup) {
 	for (let Card of Board)
 		if (Card.Group != null)
 			for (let Group of Card.Group)
-					if (Group === CardGroup)
-						Count++;
+				if (Group === CardGroup)
+					Count++;
 	return Count;
 }
 
@@ -800,7 +800,7 @@ function ClubCardRemoveFromBoard(Board, Card) {
  * @param {String} GroupName - The group name to remove
  * @returns {void} - Nothing
  */
- function ClubCardRemoveGroupFromBoard(Board, GroupName) {
+function ClubCardRemoveGroupFromBoard(Board, GroupName) {
 	if (Board == null) return;
 	for (let C of Board)
 		if (C.Group != null)
@@ -939,7 +939,7 @@ function ClubCardEndTurn(Draw = false) {
 	if ((CCPlayer.Money < 0) && (CCPlayer.Fame > StartingFame)) CCPlayer.Fame = StartingFame;
 	CCPlayer.LastFamePerTurn = CCPlayer.Fame - StartingFame;
 	CCPlayer.LastMoneyPerTurn = CCPlayer.Money - StartingMoney;
-	FameMoneyText = ((CCPlayer.LastFamePerTurn >= 0) ? "+" : "") + CCPlayer.LastFamePerTurn.toString() + " Fame,  " + ((CCPlayer.LastMoneyPerTurn >= 0) ? "+" : "") + CCPlayer.LastMoneyPerTurn.toString() + " Money"
+	FameMoneyText = ((CCPlayer.LastFamePerTurn >= 0) ? "+" : "") + CCPlayer.LastFamePerTurn.toString() + " Fame,  " + ((CCPlayer.LastMoneyPerTurn >= 0) ? "+" : "") + CCPlayer.LastMoneyPerTurn.toString() + " Money";
 
 	// If that player wins the game from Fame gain
 	if (CCPlayer.Fame >= ClubCardFameGoal) {
@@ -978,7 +978,7 @@ function ClubCardTurnPlayableCardCount(CCPlayer) {
 	for (let Card of CCPlayer.Board)
 		if (Card.ExtraPlay != null)
 			Count = Count + Card.ExtraPlay;
-	if (Count < 1) Count = 1; 
+	if (Count < 1) Count = 1;
 	return Count;
 }
 
@@ -987,13 +987,13 @@ function ClubCardTurnPlayableCardCount(CCPlayer) {
  * @param {ClubCardPlayer} CCPlayer - The club card player
  * @returns {Number} - The number of cards to draw
  */
- function ClubCardDrawCardCount(CCPlayer) {
+function ClubCardDrawCardCount(CCPlayer) {
 	if ((CCPlayer == null) || (CCPlayer.Board == null)) return 1;
 	let Count = 1;
 	for (let Card of CCPlayer.Board)
 		if (Card.ExtraDraw != null)
 			Count = Count + Card.ExtraDraw;
-	if (Count < 1) Count = 1; 
+	if (Count < 1) Count = 1;
 	return Count;
 }
 
@@ -1057,7 +1057,7 @@ function ClubCardPlayCard(CCPlayer, Card) {
 	if (Card.OnBoardEntry != null) Card.OnBoardEntry(CCPlayer);
 	if (ClubCardTurnCardPlayed >= ClubCardTurnPlayableCardCount(CCPlayer)) return ClubCardEndTurn();
 
-	// If that player can play more than one card per turn, we announce it 
+	// If that player can play more than one card per turn, we announce it
 	Text = TextGet("PlayAnotherCard");
 	Text = Text.replace("PLAYERNAME", CharacterNickname(CCPlayer.Character));
 	ClubCardLogAdd(Text);
@@ -1123,7 +1123,7 @@ function ClubCardConcede() {
  * When a player goes bankrupt, she restarts her club from scratch, draws 5 new cards and ends her turn
  * @returns {void} - Nothing
  */
- function ClubCardBankrupt() {
+function ClubCardBankrupt() {
 
 	// Resets that player game & board
 	let CCPlayer = ClubCardPlayer[ClubCardTurnIndex];
@@ -1158,7 +1158,7 @@ function ClubCardEndGame(Victory) {
 }
 
 function ClubCardTextGet(Text) {
-	if ((CommonCSVCache != null) && (CommonCSVCache["Screens/MiniGame/ClubCard/Text_ClubCard.csv"] != null)) 
+	if ((CommonCSVCache != null) && (CommonCSVCache["Screens/MiniGame/ClubCard/Text_ClubCard.csv"] != null))
 		for (let T of CommonCSVCache["Screens/MiniGame/ClubCard/Text_ClubCard.csv"])
 			if (T[0] == Text)
 				return T[1];
@@ -1235,7 +1235,7 @@ function ClubCardLoad() {
  * @param {number} X - The X on screen position
  * @param {number} Y - The Y on screen position
  * @param {number} W - The width of the card
- * @param {string} Image - The buble 
+ * @param {string} Image - The buble
  * @returns {Number} - The next bubble Y position
  */
 function ClubCardRenderBubble(Value, X, Y, W, Image) {
@@ -1411,7 +1411,7 @@ function ClubCardRenderPanel() {
 		ElementScrollToEnd("CCLog");
 		ClubCardLogScroll = false;
 	}
-	
+
 	// In deck popup mode
 	if ((ClubCardPopup != null) && (ClubCardPopup.Mode == "DECK")) {
 		DrawTextWrap(TextGet("SelectDeck"), 1735, 897, 250, 100, "White");
@@ -1443,7 +1443,7 @@ function ClubCardRenderPopup() {
 	if (ClubCardPopup.Mode == "DECK") {
 		DrawRect(648, 298, 404, 404, "White");
 		DrawRect(650, 300, 400, 400, "Black");
-			for (let Deck = 0; Deck < 10; Deck++)
+		for (let Deck = 0; Deck < 10; Deck++)
 			DrawButton(660 + Math.floor(Deck / 5) * 200, 310 + (Deck % 5) * 80, 180, 60, TextGet("DeckNumber") + (Deck + 1).toString(), "White");
 		return;
 	}
@@ -1482,7 +1482,7 @@ function ClubCardRun() {
  * @returns {void} - Nothing
  */
 function ClubCardClick() {
-	
+
 	// In popup mode, no other clicks can be done but the popup buttons
 	if (ClubCardPopup != null) {
 		if ((ClubCardPopup.Mode == "TEXT") && MouseIn(700, 570, 300, 60)) CommonDynamicFunction(ClubCardPopup.Function1);
