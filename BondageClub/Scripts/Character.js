@@ -1578,6 +1578,22 @@ function CharacterResetFacialExpression(C) {
 }
 
 /**
+ * Checks if a given expression is allowed on a character
+ * @param {Character} C
+ * @param {Item} Item
+ * @param {ExpressionName} Expression
+ */
+function CharacterIsExpressionAllowed(C, Item, Expression) {
+	if (!C || !Item) return false;
+
+	const allowedExpr = InventoryGetItemProperty(Item, "AllowExpression", true);
+	const exprPres = InventoryGetItemProperty(Item, "ExpressionPrerequisite", true);
+	const exprPre = exprPres[allowedExpr.indexOf(Expression)];
+
+	return (allowedExpr.includes(Expression) && (!exprPre || InventoryPrerequisiteMessage(C, exprPre) === ""));
+}
+
+/**
  * Gets the currently selected character
  * @returns {Character|null} - Currently selected character
  */

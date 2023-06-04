@@ -1464,8 +1464,10 @@ function DialogFacialExpressionsBuild() {
 		const PA = Player.Appearance[I];
 		const ExpressionList = [...(PA.Asset.Group.AllowExpression || [])];
 		if (!ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
-		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
+		// Make sure the default expression always appear
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);
+		// If there are no allowed expression, skip the group entirely
+		if (!ExpressionList.some(expr => CharacterIsExpressionAllowed(Player, PA, expr))) continue;
 		/** @type {ExpressionItem} */
 		const Item = {
 			Appearance: PA,
@@ -2864,7 +2866,10 @@ function DialogDrawExpressionMenu() {
 			for (const [j, expression] of expressionSubset.entries()) {
 				const EOffsetX = 155 + 100 * (j % 3);
 				const EOffsetY = 185 + 100 * Math.floor(j / 3);
-				DrawButton(EOffsetX, EOffsetY, 90, 90, "", (expression == FE.CurrentExpression ? "Pink" : "White"), "Assets/Female3DCG/" + FE.Group + (expression ? "/" + expression : "") + "/Icon.png");
+				const allowed = CharacterIsExpressionAllowed(Player, FE.Appearance, expression);
+				const color = (expression == FE.CurrentExpression ? "Pink" : (!allowed ? "#888" : "White"));
+				const icon = "Assets/Female3DCG/" + FE.Group + (expression ? "/" + expression : "") + "/Icon.png";
+				DrawButton(EOffsetX, EOffsetY, 90, 90, "", color, icon);
 			}
 		}
 	}
@@ -2956,7 +2961,7 @@ function DialogClickExpressionMenu() {
 			for (const [j, expression] of expressionSubset.entries()) {
 				const EOffsetX = 155 + 100 * (j % 3);
 				const EOffsetY = 185 + 100 * Math.floor(j / 3);
-				if (MouseIn(EOffsetX, EOffsetY, 90, 90)) {
+				if (MouseIn(EOffsetX, EOffsetY, 90, 90) && CharacterIsExpressionAllowed(Player, FE.Appearance, expression)) {
 					CharacterSetFacialExpression(Player, FE.Group, expression);
 					FE.CurrentExpression = expression;
 				}
