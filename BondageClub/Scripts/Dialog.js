@@ -2846,7 +2846,7 @@ function DialogDrawExpressionMenu() {
 	DrawButton(20, 50, 90, 90, "", "White", "Icons/Reset.png", DialogFindPlayer("ClearFacialExpressions"));
 	if (!DialogFacialExpressions || !DialogFacialExpressions.length) DialogFacialExpressionsBuild();
 
-	DialogFacialExpressions.forEach((FE, i) => {
+	for (const [i, FE] of DialogFacialExpressions.entries()) {
 		const OffsetY = 185 + 100 * i;
 		DrawButton(20, OffsetY, 90, 90, "", i == DialogFacialExpressionsSelected ? "Cyan" : "White", "Assets/Female3DCG/" + FE.Group + (FE.CurrentExpression ? "/" + FE.CurrentExpression : "") + "/Icon.png");
 
@@ -2859,13 +2859,13 @@ function DialogDrawExpressionMenu() {
 				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage,
 				DialogFacialExpressionsSelectedPage * DialogFacialExpressionsPerPage + DialogFacialExpressionsPerPage,
 			);
-			expressionSubset.forEach((expression, j) => {
+			for (const [j, expr] of expressionSubset.entries()) {
 				const EOffsetX = 155 + 100 * (j % 3);
 				const EOffsetY = 185 + 100 * Math.floor(j / 3);
 				DrawButton(EOffsetX, EOffsetY, 90, 90, "", (expression == FE.CurrentExpression ? "Pink" : "White"), "Assets/Female3DCG/" + FE.Group + (expression ? "/" + expression : "") + "/Icon.png");
-			});
+			}
 		}
-	});
+	}
 }
 
 /**
