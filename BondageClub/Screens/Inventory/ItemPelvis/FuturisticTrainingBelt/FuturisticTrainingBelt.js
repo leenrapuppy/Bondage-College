@@ -326,9 +326,10 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(data, C, Persis
 
 		const newOption = data.options.find(o => o.Name === VibeMode);
 		const previousOption = TypedItemFindPreviousOption(Item, data.options, "Mode");
-		if (ExtendedItemSetOption(data, C, Item, newOption, { ...previousOption, ChangeWhenLocked: true }, true)) {
+		if (TypedItemValidateOption(C, Item, newOption, { ...previousOption, ChangeWhenLocked: true })) {
 			return;
 		}
+		ExtendedItemSetOption(data, C, Item, newOption, previousOption, true);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 
 		if (CurrentScreen == "ChatRoom") {

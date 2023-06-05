@@ -465,12 +465,14 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
 		return msg;
 	}
 
-	const requirementMessage = ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
 	if (requirementMessage) {
-		if (requirementMessage && newOption.Name !== previousOption.Name) {
+		if (newOption.Name !== previousOption.Name) {
 			console.warn(`${warningMessage}: ${requirementMessage}`);
 		}
-		return DialogFindPlayer(requirementMessage);
+		return requirementMessage;
+	} else {
+		ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
 	}
 }
 
@@ -517,7 +519,12 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 
 	const newOption = CommonRandomItemFromList(null, availableOptions);
 	const previousOption = TypedItemFindPreviousOption(item, data.options);
-	return ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
+	if (requirementMessage) {
+		return requirementMessage;
+	} else {
+		ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
+	}
 }
 
 /**
@@ -710,15 +717,17 @@ function TypedItemSetType(data, C, newOption) {
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, data.options, typeField);
 
-	// Do not sync appearance while in the wardrobe
-	/** @type {Parameters<ExtendedItemCallbacks.SetOption<TypedItemOption | VibratingItemOption>>} */
-	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
-	/** @type {string | undefined} */
-	const requirementMessage = CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
-	} else if (data.archetype === ExtendedArchetype.VIBRATING) {
+	}
+
+	// Do not sync appearance while in the wardrobe
+	/** @type {Parameters<ExtendedItemCallbacks.SetOption<TypedItemOption | VibratingItemOption>>} */
+	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
+	CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
+	if (data.archetype === ExtendedArchetype.VIBRATING) {
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${DialogFocusItem.Property.Intensity}`);
 	}
 

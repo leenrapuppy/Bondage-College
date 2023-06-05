@@ -196,15 +196,9 @@ function VibratorModeRegister(asset, config, parentOption=null) {
  * @param {VibratingItemOption} previousOption - The previously applied extended item option
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
- * @returns {string|undefined} - undefined or an empty string if the option was set correctly. Otherwise, returns a string
- * informing the player of the requirements that are not met.
  */
 function VibratorModeSetOption(data, C, item, newOption, previousOption, push=false) {
-	const msg = ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
-	if (msg) {
-		return msg;
-	}
-
+	ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
 	switch (newOption.Name) {
 		case "Random":
 			item.Property.Intensity = CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]);

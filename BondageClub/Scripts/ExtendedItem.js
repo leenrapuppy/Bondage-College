@@ -521,21 +521,23 @@ function ExtendedItemCheckBuyGroups(Option) {
  * @template {ExtendedItemOption} T
  * @param {Character} C - The character wearing the item
  * @param {Item} Item - The extended item to validate
- * @param {T} Option - The selected option
- * @param {T} CurrentOption - The currently applied option on the item
+ * @param {T} newOption - The selected option
+ * @param {T} previousOption - The currently applied option on the item
  * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
  */
-function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
+function ExtendedItemValidate(C, Item, newOption, previousOption) {
 	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
-	const canChangeWhenLocked = typeof CurrentOption.ChangeWhenLocked === "boolean" ? CurrentOption.ChangeWhenLocked : true;
+	const canChangeWhenLocked = typeof previousOption.ChangeWhenLocked === "boolean" ? previousOption.ChangeWhenLocked : true;
 
-	if (!canChangeWhenLocked && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
+	if (newOption.Name === previousOption.Name) {
+		return newOption.HasSubscreen ? "" : DialogFindPlayer("AlreadySet");
+	} else if (!canChangeWhenLocked && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
 		return DialogFindPlayer("CantChangeWhileLocked");
-	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
+	} else if (newOption.Prerequisite && !InventoryAllow(C, Item.Asset, newOption.Prerequisite, true)) {
 		// Otherwise use the standard prerequisite check
 		return DialogText;
-	} else if (CurrentOption.AllowLock && !AllowLock && InventoryItemHasEffect(Item, "Lock", true)) {
+	} else if (previousOption.AllowLock && !newOption.AllowLock && InventoryItemHasEffect(Item, "Lock", true)) {
 		// We're switching from a locked, lockable option to one that can't be locked. Prevent that.
 		return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
 	}
@@ -873,20 +875,8 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
  * @param {OptionType} previousOption - The previously applied extended item option
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
- * @returns {string|undefined} - undefined or an empty string if the option was set correctly. Otherwise, returns a string
- * informing the player of the requirements that are not met.
  */
 function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=false) {
-	// TODO: decouple `...Validate` from `...SetOption`
-	if (newOption.Name === previousOption.Name && !newOption.HasSubscreen) {
-		return DialogFindPlayer("AlreadySet");
-	}
-
-	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
-	if (requirementMessage) {
-		return requirementMessage;
-	}
-
 	/** @type {ItemProperties} */
 	let previousOptionProperty;
 	/** @type {ItemProperties} */

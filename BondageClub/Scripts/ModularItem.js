@@ -643,17 +643,17 @@ function ModularItemSetType(module, index, data) {
 	const moduleIndex = data.modules.indexOf(module);
 	const previousOption = module.Options[currentModuleValues[moduleIndex]];
 
-	// Do not sync appearance while in the wardrobe
-	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-
-	/** @type {Parameters<ExtendedItemCallbacks.SetOption<ModularItemOption>>} */
-	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
-	/** @type {string | undefined} */
-	const requirementMessage = CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
 	}
+
+	// Do not sync appearance while in the wardrobe
+	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
+	/** @type {Parameters<ExtendedItemCallbacks.SetOption<ModularItemOption>>} */
+	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
+	CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
 
 	if (!IsCloth) {
 		const groupName = data.asset.Group.Name;
@@ -717,9 +717,11 @@ function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = fals
 		i += 1;
 		const newOption = mod.Options[newModuleValues[i]];
 		const previousOption = mod.Options[previousModuleValues[i]];
-		const requirementMessage = ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
 		if (requirementMessage && newOption.Name !== previousOption.Name) {
 			console.warn(`Cannot set option for ${groupName}:${assetName} to ${newOption.Name}: ${DialogFindPlayer(requirementMessage)}`);
+		} else {
+			ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
 		}
 	}
 
