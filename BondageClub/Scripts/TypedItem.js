@@ -114,6 +114,33 @@ function TypedItemBuildOptions(protoOptions, asset, changeWhenLocked) {
 }
 
 /**
+ * Parse the passed typed item draw data as passed via the extended item config
+ * @param {Asset} asset - The asset in question
+ * @param {ExtendedItemConfigDrawData<{ drawImage?: boolean }> | undefined} drawData - The to-be parsed draw data
+ * @param {number} nOptions - The number of extended item options
+ * @param {boolean} drawImage - Whether to draw images or not
+ * @return {ExtendedItemDrawData<ElementMetaData.Typed>} - The parsed draw data
+ */
+function TypedItemGetDrawData(asset, drawData, nOptions, drawImage=true) {
+	const IsCloth = asset.Group.Clothing;
+	const standardPositions = !IsCloth ? (drawImage ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
+	const height = drawImage ? 275 : 55;
+	const itemsPerPage = Math.min(standardPositions.length - 1, nOptions);
+
+	/** @type {ElementData<ElementMetaData.Typed>[]} */
+	const elementData = [];
+	for (let length = nOptions; length > 0; length -= itemsPerPage) {
+		const index = Math.min(length, itemsPerPage);
+		elementData.push(...standardPositions[index].map(xy => {
+			/** @type {RectTuple} */
+			const position = [...xy, 225, height];
+			return { position, drawImage, hidden: false };
+		}));
+	}
+	return ExtendedItemGetDrawData(drawData, { elementData, itemsPerPage });
+}
+
+/**
  * Generates an asset's typed item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {TypedItemConfig} config - The item's extended item configuration
@@ -128,6 +155,7 @@ function TypedItemCreateTypedItemData(asset, {
 	DrawImages,
 	ChangeWhenLocked,
 	ScriptHooks,
+	DrawData,
 	BaselineProperty=null,
 }) {
 	const optionsParsed = TypedItemBuildOptions(Options, asset, ChangeWhenLocked);
@@ -154,9 +182,9 @@ function TypedItemCreateTypedItemData(asset, {
 		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
-		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 		parentOption: null,
+		drawData: TypedItemGetDrawData(asset, DrawData, optionsParsed.length, DrawImages),
 	};
 }
 
@@ -524,11 +552,9 @@ function TypedItemInit(Data, C, Item, Refresh=true) {
  * Draws the extended item type selection screen
  * @param {TypedItemData | VibratingItemData} data - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
- * @param {number} [OptionsPerPage] - The number of options displayed on each page
- * @param {readonly [number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
-function TypedItemDraw({ functionPrefix, options, drawImages, parentOption, dialogPrefix }, OptionsPerPage, XYPositions=null) {
+function TypedItemDraw({ functionPrefix, options, parentOption, dialogPrefix, drawData, archetype }) {
 	// If an option's subscreen is open, it overrides the standard screen
 	if (ExtendedItemSubscreen && parentOption == null) {
 		CommonCallFunctionByNameWarn(`${functionPrefix}${ExtendedItemSubscreen}Draw`);
@@ -537,36 +563,27 @@ function TypedItemDraw({ functionPrefix, options, drawImages, parentOption, dial
 
 	const Asset = DialogFocusItem.Asset;
 	const ItemOptionsOffset = ExtendedItemGetOffset();
-	if (XYPositions === null) {
-		const XYPositionsArray = ExtendedItemGetXY(Asset, drawImages);
-		OptionsPerPage = OptionsPerPage || Math.min(options.length, XYPositionsArray.length - 1);
-		XYPositions = XYPositionsArray[OptionsPerPage];
-	} else {
-		OptionsPerPage = OptionsPerPage || Math.min(options.length, XYPositions.length - 1);
-	}
 
 	// If we have to paginate, draw the back/next button
-	if (options.length > OptionsPerPage) {
-		const currPage = Math.ceil(ExtendedItemGetOffset() / OptionsPerPage) + 1;
-		const totalPages = Math.ceil(options.length / OptionsPerPage);
-		DrawBackNextButton(1675, 240, 300, 90, DialogFindPlayer("Page") + " " + currPage.toString() + " / " + totalPages.toString(), "White", "", () => "", () => "");
+	if (drawData.paginate) {
+		const currPage = Math.ceil(ExtendedItemGetOffset() / drawData.itemsPerPage) + 1;
+		DrawBackNextButton(1675, 240, 300, 90, `${DialogFindPlayer("Page")} ${currPage} / ${drawData.pageCount}`, "White", "", () => "", () => "");
 	}
 
 	// Draw the header and item
 	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
-	const isVibe = (options.length && options[0].OptionType === "VibratingItemOption");
+	const isVibe = archetype === ExtendedArchetype.VIBRATING;
 	const typeField = isVibe ? "Mode" : "Type";
 	const CurrentOption = /** @type {(VibratingItemOption | TypedItemOption)[]} */(options).find(O => (isVibe ? O.Name : O.Property[typeField]) === DialogFocusItem.Property[typeField]);
 
 	// Draw the possible variants and their requirements, arranged based on the number per page
-	for (let I = ItemOptionsOffset; I < options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
-		const PageOffset = I - ItemOptionsOffset;
-		const X = XYPositions[PageOffset][0];
-		const Y = XYPositions[PageOffset][1];
-		ExtendedItemDrawButton(options[I], CurrentOption, dialogPrefix.option, X, Y, drawImages);
-	}
+	const elementData = drawData.elementData.slice(ItemOptionsOffset, ItemOptionsOffset + drawData.itemsPerPage);
+	elementData.forEach((buttonData, i) => {
+		i += ItemOptionsOffset;
+		ExtendedItemDrawButton(options[i], CurrentOption, dialogPrefix.option, buttonData);
+	});
 
 	// Permission mode toggle
 	DrawButton(1775, 25, 90, 90, "", "White",
@@ -585,11 +602,9 @@ function TypedItemDraw({ functionPrefix, options, drawImages, parentOption, dial
 /**
  * Handles clicks on the extended item type selection screen
  * @param {TypedItemData | VibratingItemData} data
- * @param {number} [OptionsPerPage] - The number of options displayed on each page
- * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
-function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
+function TypedItemClick(data) {
 	const C = CharacterGetCurrent();
 
 	// If an option's subscreen is open, pass the click into it
@@ -599,14 +614,6 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 	}
 
 	const ItemOptionsOffset = ExtendedItemGetOffset();
-	const ImageHeight = data.drawImages ? 220 : 0;
-	if (XYPositions === null) {
-		const XYPositionsArray = ExtendedItemGetXY(DialogFocusItem.Asset, data.drawImages);
-		OptionsPerPage = OptionsPerPage || Math.min(data.options.length, XYPositionsArray.length - 1);
-		XYPositions = XYPositionsArray[OptionsPerPage];
-	} else {
-		OptionsPerPage = OptionsPerPage || Math.min(data.options.length, XYPositions.length - 1);
-	}
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
@@ -630,13 +637,13 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 	}
 
 	// Pagination buttons
-	if (MouseIn(1675, 240, 150, 90) && data.options.length > OptionsPerPage) {
-		if (ItemOptionsOffset - OptionsPerPage < 0) ExtendedItemSetOffset(OptionsPerPage * (Math.ceil(data.options.length / OptionsPerPage) - 1));
-		else ExtendedItemSetOffset(ItemOptionsOffset - OptionsPerPage);
+	if (MouseIn(1675, 240, 150, 90) && data.drawData.paginate) {
+		if (ItemOptionsOffset - data.drawData.itemsPerPage < 0) ExtendedItemSetOffset(data.drawData.itemsPerPage * (data.drawData.pageCount - 1));
+		else ExtendedItemSetOffset(ItemOptionsOffset - data.drawData.itemsPerPage);
 	}
-	else if (MouseIn(1825, 240, 150, 90) && data.options.length > OptionsPerPage) {
-		if (ItemOptionsOffset + OptionsPerPage >= data.options.length) ExtendedItemSetOffset(0);
-		else ExtendedItemSetOffset(ItemOptionsOffset + OptionsPerPage);
+	else if (MouseIn(1825, 240, 150, 90) && data.drawData.paginate) {
+		if (ItemOptionsOffset + data.drawData.itemsPerPage >= data.options.length) ExtendedItemSetOffset(0);
+		else ExtendedItemSetOffset(ItemOptionsOffset + data.drawData.itemsPerPage);
 	}
 
 	// If the assets allows tightening / loosening
@@ -646,15 +653,14 @@ function TypedItemClick(data, OptionsPerPage, XYPositions=null) {
 	}
 
 	// Options
-	for (let I = ItemOptionsOffset; I < data.options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
-		const PageOffset = I - ItemOptionsOffset;
-		const X = XYPositions[PageOffset][0];
-		const Y = XYPositions[PageOffset][1];
-		const Option = data.options[I];
-		if (MouseIn(X, Y, 225, 55 + ImageHeight)) {
+	const positions = data.drawData.elementData.slice(ItemOptionsOffset, ItemOptionsOffset + data.drawData.itemsPerPage);
+	positions.forEach(({ position }, i) => {
+		i += ItemOptionsOffset;
+		const Option = data.options[i];
+		if (MouseIn(...position)) {
 			TypedItemHandleOptionClick(data, C, Option);
 		}
-	}
+	});
 }
 
 /**

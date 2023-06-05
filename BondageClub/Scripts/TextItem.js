@@ -36,6 +36,21 @@ function TextItemRegister(asset, config, parentOption=null, createCallbacks=true
 }
 
 /**
+ * Parse the passed text item draw data as passed via the extended item config
+ * @param {readonly TextItemNames[]} fieldNames
+ * @param {ExtendedItemConfigDrawData<{}> | undefined} drawData - The to-be parsed draw data
+ * @return {ExtendedItemDrawData<ElementMetaData.Text>} - The parsed draw data
+ */
+function TextItemGetDrawData(fieldNames, drawData) {
+	const itemsPerPage = 8;
+	/** @type {ElementData<ElementMetaData.Text>[]} */
+	const elementData = fieldNames.map((_, i) => {
+		return { position: [1505, 600 + 80 * (i % itemsPerPage), 400, 40] };
+	});
+	return ExtendedItemGetDrawData(drawData, { elementData, itemsPerPage });
+}
+
+/**
  * Generates an asset's typed item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {TextItemConfig} config - The item's extended item configuration
@@ -63,15 +78,6 @@ function TextItemCreateTextItemData(asset, {
 		if (typeof eventListeners[name] !== "function") {
 			eventListeners[name] = asset.DynamicAfterDraw ? TextItemChange : TextItemChangeNoCanvas;
 		}
-	}
-
-	DrawData = DrawData || {};
-	const itemsPerPage = DrawData.ItemsPerPage || 8;
-	const positions = DrawData.Positions || textNames.map((name, i) => {
-		return [1505, 600 + (80 * (i % itemsPerPage))];
-	});
-	if (positions.length !== textNames.length) {
-		console.error(`${asset.Group.Name}:${asset.Name}: text archetype MaxLength and drawdata Positions must be of the same length`);
 	}
 
 	const baselineProperty = BaselineProperty || {};
@@ -103,18 +109,11 @@ function TextItemCreateTextItemData(asset, {
 		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		dictionary: Dictionary || [],
 		chatSetting: "default",
-		drawImages: false,
 		baselineProperty,
 		eventListeners,
 		textNames,
 		parentOption,
-		drawData: {
-			itemsPerPage,
-			positions,
-			drawImages: false,
-			paginate: positions.length > itemsPerPage,
-			pageCount: Math.ceil(positions.length / itemsPerPage),
-		},
+		drawData: TextItemGetDrawData(textNames, DrawData),
 		pushOnPublish: typeof PushOnPublish === "boolean" ? PushOnPublish : true,
 	};
 }
@@ -196,11 +195,11 @@ const TextItem = {
 
 		const item = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
 		const offset = ExtendedItemGetOffset();
-		const positions = drawData.positions.slice(offset, offset + drawData.itemsPerPage);
-		positions.forEach(([x, y, width, height], i) => {
+		const elementData = drawData.elementData.slice(offset, offset + drawData.itemsPerPage);
+		elementData.forEach(({ position }, i) => {
 			const name = textNames[i];
 			const ID = PropertyGetID(name, item);
-			ElementPosition(ID, x, y, width || 400, height);
+			ElementPosition(ID, ...position);
 		});
 	},
 	/**

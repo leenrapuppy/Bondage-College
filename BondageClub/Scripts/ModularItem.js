@@ -158,11 +158,13 @@ function ModularItemDraw(data) {
  */
 function ModularItemBuildModules(asset, modules, changeWhenLocked) {
 	return modules.map(protoMod => {
+		const drawImages = typeof protoMod.DrawImages === "boolean" ? protoMod.DrawImages : true;
 		/** @type {ModularItemModule} */
 		return {
 			...protoMod,
+			drawData: TypedItemGetDrawData(asset, protoMod.DrawData, protoMod.Options.length, drawImages),
 			OptionType: "ModularItemModule",
-			DrawImages: typeof protoMod.DrawImages === "boolean" ? protoMod.DrawImages : true,
+			DrawImages: drawImages,
 			Options: protoMod.Options.map((protoOption, i) => {
 				/** @type {ModularItemOption} */
 				const option = {
@@ -204,15 +206,15 @@ function ModularItemCreateModularData(asset, {
 	DialogPrefix,
 	ScriptHooks,
 	Dictionary,
+	DrawData,
 	BaselineProperty=null,
 	DrawImages=null,
 }) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
 	const ModulesParsed = ModularItemBuildModules(asset, Modules, ChangeWhenLocked);
-	const VisibleModules = ModulesParsed.filter(m => !m.Hidden);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
-	const BaseDrawImages = (typeof DrawImages !== "boolean") ? VisibleModules.every((m) => m.DrawImages) : DrawImages;
+	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 
 	const key = `${asset.Group.Name}${asset.Name}`;
 	DialogPrefix = DialogPrefix || {};
@@ -238,54 +240,23 @@ function ModularItemCreateModularData(asset, {
 		modules: ModulesParsed,
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
-		drawData: { [ModularItemBase]: ModularItemCreateDrawData(VisibleModules.length, asset, BaseDrawImages) },
+		drawData: TypedItemGetDrawData(asset, DrawData, ModulesParsed.length, BaseDrawImages),
 		scriptHooks: ExtendedItemParseScriptHooks(ScriptHooks || {}),
 		drawFunctions: {},
 		clickFunctions: {},
 		baselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
-		drawImages: BaseDrawImages,
 		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
 		parentOption: null,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
-	for (const module of VisibleModules) {
+	for (const module of ModulesParsed) {
 		data.pages[module.Name] = 0;
-		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length, asset, module.DrawImages);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);
 		data.clickFunctions[module.Name] = () => ModularItemClickModule(module, data);
 		data.typeCount *= module.Options.length;
 	}
 	return data;
-}
-
-/**
- * Generates drawing data for a given module. This includes button positions, whether pagination is necessary, and the
- * total page count for that module.
- * @param {number} itemCount - The number of items in the module
- * @param {Asset} asset - The relevant asset
- * @param {boolean} drawImages - Whether button images should be drawn or not
- * @returns {ModularItemDrawData} - An object containing required drawing for
- * a module with the given item count.
- */
-function ModularItemCreateDrawData(itemCount, asset, drawImages) {
-	const XYArray = ExtendedItemGetXY(asset, drawImages);
-	const itemsPerPage = XYArray.length - 1;
-	const paginate = itemCount > itemsPerPage;
-	const pageCount = Math.ceil(itemCount / itemsPerPage);
-
-	/** @type {[number, number][]} */
-	const positions = [];
-	let i = 0;
-	while (i < itemCount) {
-		i += itemsPerPage;
-		let j = itemsPerPage;
-		if (i > itemCount) {
-			j += (itemCount - i);
-		}
-		positions.push(...XYArray[j]);
-	}
-	return { paginate, pageCount, positions, drawImages, itemsPerPage };
 }
 
 /**
@@ -297,13 +268,12 @@ function ModularItemCreateDrawBaseFunction(data) {
 	return () => {
 		/** @type {ModularItemButtonDefinition[]} */
 		const buttonDefinitions = data.modules
-			.filter((m) => !m.Hidden)
 			.map((module, i) => {
 				const currentValues = ModularItemParseCurrent(data);
 				const currentOption = module.Options[currentValues[i]];
 				return [module, currentOption, data.dialogPrefix.module];
 			});
-		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
+		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data, data.drawData);
 	};
 }
 
@@ -325,9 +295,15 @@ function ModularItemMapOptionToButtonDefinition(option, module, { dialogPrefix }
  * @param {string} moduleName - The name of the module whose page is being drawn
  * @param {readonly ModularItemButtonDefinition[]} buttonDefinitions - A list of button definitions to draw
  * @param {ModularItemData} data - The modular item's data
+ * @param {ExtendedItemDrawData<ElementMetaData.Modular>} drawData
  * @returns {void} - Nothing
  */
-function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, drawData }) {
+function ModularItemDrawCommon(
+	moduleName,
+	buttonDefinitions,
+	data,
+	{ paginate, pageCount, elementData, itemsPerPage },
+) {
 	if (ExtendedItemSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
 		return;
@@ -343,14 +319,12 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"),
 	);
 
-	const { paginate, pageCount, positions, drawImages, itemsPerPage } = drawData[moduleName];
-	const pageNumber = Math.min(pageCount - 1, pages[moduleName] || 0);
+	const pageNumber = Math.min(pageCount - 1, data.pages[moduleName] || 0);
 	const pageStart = pageNumber * itemsPerPage;
 	const page = buttonDefinitions.slice(pageStart, pageStart + itemsPerPage);
 
 	for (const [i, [option, currentOption, prefix]] of page.entries()) {
-		const [x, y] = positions[i];
-		ExtendedItemDrawButton(option, currentOption, prefix, x, y, drawImages);
+		ExtendedItemDrawButton(option, currentOption, prefix, elementData[i]);
 	}
 
 	if (paginate) {
@@ -370,7 +344,7 @@ function ModularItemDrawModule(module, data) {
 	const currentValues = ModularItemParseCurrent(data);
 	const buttonDefinitions = module.Options.map(
 		(option) => ModularItemMapOptionToButtonDefinition(option, module, data, currentValues[moduleIndex]));
-	ModularItemDrawCommon(module.Name, buttonDefinitions, data);
+	ModularItemDrawCommon(module.Name, buttonDefinitions, data, module.drawData);
 }
 
 /**
@@ -379,7 +353,7 @@ function ModularItemDrawModule(module, data) {
  * @returns {function(): void} - A click handler for the modular item's module selection screen
  */
 function ModularItemCreateClickBaseFunction(data) {
-	const DrawData = data.drawData[ModularItemBase];
+	const DrawData = data.drawData;
 	return () => {
 		ModularItemClickCommon(
 			DrawData,
@@ -411,7 +385,7 @@ function ModularItemCreateClickBaseFunction(data) {
  * @returns {void} - Nothing
  */
 function ModularItemClickModule(module, data) {
-	const DrawData = data.drawData[module.Name];
+	const DrawData = module.drawData;
 	ModularItemClickCommon(
 		DrawData,
 		() => ModularItemModuleTransition(ModularItemBase, data),
@@ -438,13 +412,13 @@ function ModularItemClickModule(module, data) {
 /**
  * A common click handler for modular item screens. Note that pagination is not currently handled, but will be added
  * in the future.
- * @param {ModularItemDrawData} drawData
+ * @param {ExtendedItemDrawData<ElementMetaData.Modular>} drawData
  * @param {function(): void} exitCallback - A callback to be called when the exit button has been clicked
  * @param {function(number): void} itemCallback - A callback to be called when an item has been clicked
  * @param {function(number): void} paginateCallback - A callback to be called when a pagination button has been clicked
  * @returns {void} - Nothing
  */
-function ModularItemClickCommon({ paginate, positions, drawImages }, exitCallback, itemCallback, paginateCallback) {
+function ModularItemClickCommon({ paginate, elementData }, exitCallback, itemCallback, paginateCallback) {
 	if (ExtendedItemSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click");
 		return;
@@ -468,9 +442,8 @@ function ModularItemClickCommon({ paginate, positions, drawImages }, exitCallbac
 		else if (MouseIn(1775, 240, 90, 90)) return paginateCallback(1);
 	}
 
-	const ImageHeight = (drawImages) ? 275 : 50;
-	positions.some((p, i) => {
-		if (MouseIn(...p, 225, ImageHeight)) {
+	elementData.some((data, i) => {
+		if (MouseIn(...data.position)) {
 			itemCallback(i);
 			return true;
 		}

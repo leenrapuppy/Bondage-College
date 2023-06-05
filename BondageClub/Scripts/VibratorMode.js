@@ -173,8 +173,8 @@ function VibratorModeRegister(asset, config, parentOption=null) {
 		/** @type {ExtendedItemCallbackStruct<VibratingItemOption>} */
 		const defaultCallbacks = {
 			load: () => VibratorModeLoad(data),
-			click: () => VibratorModeClick(data),
-			draw: () => VibratorModeDraw(data),
+			click: () => TypedItemClick(data),
+			draw: () => TypedItemDraw(data),
 			validate: VibratorModeValidate,
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
 			init: (...args) => VibratorModeInit(data, ...args),
@@ -225,13 +225,35 @@ function VibratorModeSetOption(data, C, item, newOption, previousOption, push=fa
 }
 
 /**
+ * Parse the passed typed item draw data as passed via the extended item config
+ * @param {readonly VibratorModeSet[]} modeSet - The vibrator mode sets for the item
+ * @param {ExtendedItemConfigDrawData<{ drawImage?: false }> | undefined} drawData - The to-be parsed draw data
+ * @param {number} y - The y-coordinate at which to start drawing the controls
+ * @return {ExtendedItemDrawData<ElementMetaData.Vibrating>} - The parsed draw data
+ */
+function VibratorModeGetDrawData(modeSet, drawData, y=450) {
+	/** @type {ElementData<ElementMetaData.Vibrating>[]} */
+	const elementData = [];
+	modeSet.forEach((modeName) => {
+		const options = VibratorModeOptions[modeName];
+		options.forEach((_, i) => {
+			const x = 1135 + (i % 3) * 250;
+			if (i % 3 === 0) y += 80;
+			elementData.push({ position: [x, y, 225, 50], drawImage: false, hidden: false });
+		});
+		y += 40;
+	});
+	return ExtendedItemGetDrawData(drawData, { elementData, itemsPerPage: elementData.length });
+}
+
+/**
  * Generates an asset's vibrating item data
  * @param {Asset} asset - The asset to generate vibrating item data for
  * @param {VibratingItemConfig} config - The item's extended item configuration
  * @returns {VibratingItemData} - The generated vibrating item data for the asset
  */
 function VibratorModeCreateData(asset,
-	{ Options, ScriptHooks, BaselineProperty, Dictionary, DialogPrefix },
+	{ Options, ScriptHooks, BaselineProperty, Dictionary, DialogPrefix, DrawData },
 	parentOption=null,
 ) {
 	const key = `${asset.Group.Name}${asset.Name}${parentOption ? parentOption.Name : ""}`;
@@ -253,7 +275,6 @@ function VibratorModeCreateData(asset,
 			option: DialogPrefix.Option || "",
 		},
 		chatSetting: "default",
-		drawImages: false,
 		baselineProperty: CommonIsObject(BaselineProperty) ? BaselineProperty : null,
 		dictionary: Array.isArray(Dictionary) ? Dictionary : [],
 		chatTags: [
@@ -261,6 +282,7 @@ function VibratorModeCreateData(asset,
 			CommonChatTags.DEST_CHAR,
 			CommonChatTags.ASSET_NAME,
 		],
+		drawData: VibratorModeGetDrawData(modeSet, DrawData),
 	};
 }
 
@@ -376,49 +398,6 @@ function VibratorModeSetEffect({asset}) {
 	asset.Effect = Array.isArray(asset.Effect) ? [...asset.Effect] : [];
 	// @ts-ignore: ignore `readonly` while still building the asset
 	CommonArrayConcatDedupe(asset.Effect, ["Egged"]);
-}
-
-/**
- * Generate coordinates for vibrator buttons
- * @param {readonly VibratorModeSet[]} modeSet - The vibrator mode sets for the item
- * @param {number} Y - The y-coordinate at which to start drawing the controls
- * @returns {[X: number, Y: number][]} - The button coordinates
- */
-function VibratorModeGenerateCoords(modeSet, Y=450) {
-	/** @type {[X: number, Y: number][]} */
-	const coords = [];
-	modeSet.forEach((modeName) => {
-		const OptionGroup = VibratorModeOptions[modeName];
-		OptionGroup.forEach((_, i) => {
-			const X = 1135 + (i % 3) * 250;
-			if (i % 3 === 0) Y += 80;
-			coords.push([X, Y]);
-		});
-		Y += 40;
-	});
-	return coords;
-}
-
-/**
- * Common draw function for vibrators
- * @param {VibratingItemData} data
- * @param {number} [Y] - The y-coordinate at which to start drawing the controls
- * @returns {void} - Nothing
- */
-function VibratorModeDraw(data, Y=450) {
-	const coords = VibratorModeGenerateCoords(data.modeSet, Y);
-	TypedItemDraw(data, coords.length, coords);
-}
-
-/**
- * Common click function for vibrators
- * @param {VibratingItemData} data
- * @param {number} [Y] - The y-coordinate at which the extended item controls were drawn
- * @returns {void} - Nothing
- */
-function VibratorModeClick(data, Y=450) {
-	const coords = VibratorModeGenerateCoords(data.modeSet, Y);
-	TypedItemClick(data, coords.length, coords);
 }
 
 /**
