@@ -68,10 +68,8 @@ function CommonDrawAppearanceBuild(C, {
 			const MirroredItem = InventoryGet(C, Layer.MirrorExpression);
 			CurrentExpression = InventoryGetItemProperty(MirroredItem, "Expression");
 		}
-		if (CurrentExpression) {
-			if (InventoryGetItemProperty(CA, "AllowExpression", true).includes(CurrentExpression)) {
-				Expression = CurrentExpression + "/";
-			}
+		if (CurrentExpression && CharacterIsExpressionAllowed(C, CA, CurrentExpression)) {
+			Expression = CurrentExpression + "/";
 		}
 
 		let GroupName = A.DynamicGroupName;
