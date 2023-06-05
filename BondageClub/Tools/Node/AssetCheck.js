@@ -273,7 +273,7 @@ function gatherDifferenceFromTo(prefixIter, suffixIter, referenceSet, diffSet) {
  * @returns {Set<string>}
  */
 function testTypedItemDialog(groupName, assetName, config, dialogSet) {
-	const chatSetting = config.ChatSetting ?? "toOnly";
+	const chatSetting = config.ChatSetting ?? "default";
 	/** @type {Partial<TypedItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
 		Header: `${groupName}${assetName}Select`,
@@ -294,7 +294,7 @@ function testTypedItemDialog(groupName, assetName, config, dialogSet) {
 	const optionNames = config.Options?.map(o => !o.HasSubscreen ? o.Name : undefined) ?? [];
 	gatherDifference([dialogConfig.Option], optionNames, dialogSet, ret);
 	gatherDifference([dialogConfig.Header], [""], dialogSet, ret);
-	if (chatSetting === "toOnly") {
+	if (chatSetting === "default") {
 		gatherDifference([dialogConfig.Chat], optionNames, dialogSet, ret);
 	} else if (chatSetting === "fromTo") {
 		gatherDifferenceFromTo([dialogConfig.Chat], optionNames, dialogSet, ret);
@@ -312,7 +312,7 @@ function testTypedItemDialog(groupName, assetName, config, dialogSet) {
  * @returns {Set<string>}
  */
 function testModularItemDialog(groupName, assetName, config, dialogSet) {
-	const chatSetting = config.ChatSetting ?? "perOption";
+	const chatSetting = config.ChatSetting ?? "default";
 	/** @type {Partial<ModularItemConfig["DialogPrefix"]>} */
 	const dialogConfig = {
 		Header: `${groupName}${assetName}Select`,
@@ -336,7 +336,7 @@ function testModularItemDialog(groupName, assetName, config, dialogSet) {
 	const ret = new Set();
 	gatherDifference([dialogConfig.Header, dialogConfig.Module], modulesNames, dialogSet, ret);
 	gatherDifference([dialogConfig.Option], optionNames, dialogSet, ret);
-	if (chatSetting === "perOption") {
+	if (chatSetting === "default") {
 		gatherDifference([dialogConfig.Chat], optionNames, dialogSet, ret);
 	} else if (chatSetting === "perModule") {
 		// Ignore a module if every single one of its options links to a subscreen

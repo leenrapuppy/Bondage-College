@@ -2322,6 +2322,9 @@ declare namespace ExtendedItemScriptHookCallbacks {
 	> = ExtendedItemScriptHookCallback<DataType, [drawData: DynamicScriptCallbackData<PersistentData>]>;
 }
 
+/** Union of all (archetype-specific) {@link ExtendedItemData.chatSetting} allowed values. */
+type ExtendedItemChatSetting = "default" | TypedItemChatSetting | ModularItemChatSetting;
+
 /**
  * Abstract extended item data interface that all archetypical item data interfaces must implement.
  * Archetypes are free to demand any appropriate subtype for a given property.
@@ -2332,9 +2335,9 @@ interface ExtendedItemData<OptionType extends ExtendedItemOption> {
 	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
-	 * If an archetype does not support multiple chat messages settings it should use the `"default"` literal string.
+	 * Archetypes must use the `"default"` literal string as default value.
 	 */
-	chatSetting: string;
+	chatSetting: ExtendedItemChatSetting;
 	/** A record containing various dialog keys used by the extended item screen */
 	dialogPrefix: ExtendedItemDialog<OptionType>;
 	/**

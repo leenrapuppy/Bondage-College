@@ -64,8 +64,8 @@ const ModularItemDataLookup = {};
  * @type {Record<"PER_MODULE"|"PER_OPTION", ModularItemChatSetting>}
  */
 const ModularItemChatSetting = {
+	PER_OPTION: "default",
 	PER_MODULE: "perModule",
-	PER_OPTION: "perOption",
 };
 
 /** A regular expression that knows how to split modular types into [module key, option index] components */
