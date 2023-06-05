@@ -584,7 +584,8 @@ function InventoryCraftPropertyIs(Item, Property) {
 }
 
 /**
-* Sets the craft and type on the item, uses the achetype properties if possible
+* Sets the craft and type on the item, uses the achetype properties if possible.
+* Note that appearance changes are _not_ pushed to the server.
 * @param {Item} Item - The item being applied
 * @param {Character} C - The character that must wear the item
 * @param {CraftingItem} [Craft] - The crafting properties of the item
@@ -596,14 +597,14 @@ function InventoryWearCraft(Item, C, Craft) {
 	switch(Item.Asset.Archetype) {
 		case ExtendedArchetype.TYPED:
 			if (Craft.Type != null) {
-				TypedItemSetOptionByName(C, Item, Craft.Type);
+				TypedItemSetOptionByName(C, Item, Craft.Type, false, Player);
 			}
 			break;
 		case ExtendedArchetype.MODULAR:
-			ModularItemSetOptionByName(C, Item, Craft.Type);
+			ModularItemSetOptionByName(C, Item, Craft.Type, false, Player);
 			break;
 		case ExtendedArchetype.VIBRATING:
-			VibratorModeSetOptionByName(C, Item, Craft.Type);
+			VibratorModeSetOptionByName(C, Item, Craft.Type, false, Player);
 			break;
 	}
 }
@@ -729,9 +730,10 @@ function InventoryWearRandom(C, GroupName, Difficulty, Refresh = true, MustOwn =
  * Randomly extends an item (sets an item type, etc.) on a character
  * @param {Character} C - The character wearing the item
  * @param {AssetGroupName} GroupName - The name of the item's group
+ * @param {null | Character} [C_Source] - The character setting the new item option. If `null`, assume that it is _not_ the player character.
  * @returns {void} - Nothing
  */
-function InventoryRandomExtend(C, GroupName) {
+function InventoryRandomExtend(C, GroupName, C_Source=null) {
 	const Item = InventoryGet(C, GroupName);
 
 	if (!Item || !Item.Asset.Archetype) {
@@ -740,7 +742,7 @@ function InventoryRandomExtend(C, GroupName) {
 
 	switch (Item.Asset.Archetype) {
 		case ExtendedArchetype.TYPED:
-			TypedItemSetRandomOption(C, Item);
+			TypedItemSetRandomOption(C, Item, false, C_Source);
 			break;
 		default:
 			// Archetype does not yet support random extension

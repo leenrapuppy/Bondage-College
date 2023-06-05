@@ -685,10 +685,11 @@ function ModularItemSetType(module, index, data) {
  * @param {string} optionNames - The name of the option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | Character} [C_Source] - The character setting the new item option. If `null`, assume that it is _not_ the player character.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = false) {
+function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = false, C_Source=null) {
 	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
 	if (!item) return;
 
@@ -712,12 +713,14 @@ function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = fals
 	const newModuleValues = ModularItemParseCurrent(data, optionNames);
 	const previousModuleValues = ModularItemParseCurrent(data, item.Property && item.Property.Type);
 
+	// A number of validation checks assume that the option is applied by the player; skip them if this is not the case
+	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
 	let i = -1;
 	for (const mod of data.modules) {
 		i += 1;
 		const newOption = mod.Options[newModuleValues[i]];
 		const previousOption = mod.Options[previousModuleValues[i]];
-		const requirementMessage = ExtendedItemRequirementCheckMessage(C, item, newOption, previousOption);
+		const requirementMessage = validationCallback(C, item, newOption, previousOption);
 		if (requirementMessage && newOption.Name !== previousOption.Name) {
 			console.warn(`Cannot set option for ${groupName}:${assetName} to ${newOption.Name}: ${DialogFindPlayer(requirementMessage)}`);
 		} else {

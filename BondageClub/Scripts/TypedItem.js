@@ -422,10 +422,11 @@ function TypedItemValidateOption(C, item, option, previousOption) {
  * @param {string} optionName - The name of the option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | Character} [C_Source] - The character setting the new item option. If `null`, assume that it is _not_ the player character.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
+function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false, C_Source=null) {
 	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
 
 	if (!item) return;
@@ -465,7 +466,9 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
 		return msg;
 	}
 
-	const requirementMessage = ExtendedItemRequirementCheckMessage(C, item, newOption, previousOption);
+	// A number of validation checks assume that the option is applied by the player; skip them if this is not the case
+	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
+	const requirementMessage = validationCallback(C, item, newOption, previousOption);
 	if (requirementMessage) {
 		if (newOption.Name !== previousOption.Name) {
 			console.warn(`${warningMessage}: ${requirementMessage}`);
@@ -497,10 +500,11 @@ function TypedItemFindPreviousOption(item, options, typeField="Type") {
  * @param {Item | AssetGroupName} itemOrGroupName - The item whose type to set, or the group name for the item
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | Character} [C_Source] - The character setting the new item option. If `null`, assume that it is _not_ the player character.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
+function TypedItemSetRandomOption(C, itemOrGroupName, push = false, C_Source=null) {
 	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
 
 	if (!item || item.Asset.Archetype !== ExtendedArchetype.TYPED) {
@@ -519,7 +523,8 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 
 	const newOption = CommonRandomItemFromList(null, availableOptions);
 	const previousOption = TypedItemFindPreviousOption(item, data.options);
-	const requirementMessage = ExtendedItemRequirementCheckMessage(C, item, newOption, previousOption);
+	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
+	const requirementMessage = validationCallback(C, item, newOption, previousOption);
 	if (requirementMessage) {
 		return requirementMessage;
 	} else {
