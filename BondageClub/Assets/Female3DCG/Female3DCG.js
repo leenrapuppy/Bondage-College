@@ -3233,6 +3233,20 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "HairBack8", AllowPose: ["Suspension", "AllFours"], HideForPose: ["Hogtied"] },
+			{
+				Name: "HairBack9", Random: false,
+				Layer: [
+					{ Name: "Left" },
+					{ Name: "Right" },
+				]
+			},
+			{
+				Name: "HairBack9b", Random: false,
+				Layer: [
+					{ Name: "Left" },
+					{ Name: "Right" },
+				]
+			},
 			{ Name: "HairBack10", AllowPose: ["Suspension"] },
 			{ Name: "HairBack10b" },
 			{ Name: "HairBack11", AllowPose: ["Suspension", "Hogtied", "AllFours"] },

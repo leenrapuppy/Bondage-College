@@ -1633,9 +1633,13 @@ ItemHoodSensoryDeprivationHoodBase, Latex
 ItemHoodSensoryDeprivationHoodEarCover, Silencer
 ItemHoodSensoryDeprivationHoodLips, Lips
 GlovesLatexShortGloves,Glove
-HairFrontHairFront49Left,Left
-HairFrontHairFront49Right,Right
-HairFrontHairFront50Left,Left
-HairFrontHairFront50Right,Right
-HairBackHairBack7MainLeft,Left
-HairBackHairBack7MainRight,Right
+HairFrontHairFront49Left,Right
+HairFrontHairFront49Right,Left
+HairFrontHairFront50Left,Right
+HairFrontHairFront50Right,Left
+HairBackHairBack7MainLeft,Right
+HairBackHairBack7MainRight,Left
+HairBackHairBack9Left,Right
+HairBackHairBack9Right,Left
+HairBackHairBack9bLeft,Right
+HairBackHairBack9bRight,Left
