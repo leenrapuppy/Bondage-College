@@ -192,7 +192,7 @@ function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
  * @param {VibratingItemOption} previousOption
  */
 function InventoryItemVulvaFuturisticVibratorSetMode(data, C, Item, newOption, previousOption) {
-	if (TypedItemValidateOption(C, Item, newOption, { ...previousOption, ChangeWhenLocked: true })) {
+	if (TypedItemValidateOption(data, C, Item, newOption, { ...previousOption, ChangeWhenLocked: true })) {
 		return;
 	}
 	ExtendedItemSetOption(data, C, Item, newOption, previousOption, true);

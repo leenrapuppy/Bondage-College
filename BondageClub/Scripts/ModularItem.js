@@ -91,7 +91,7 @@ function ModularItemRegister(asset, config) {
 			load: () => ModularItemLoad(data),
 			click: () => ModularItemClick(data),
 			draw: () => ModularItemDraw(data),
-			validate: ExtendedItemValidate,
+			validate: (...args) => ExtendedItemValidate(data, ...args),
 			publishAction: (...args) => ModularItemPublishAction(data, ...args),
 			init: (...args) => ModularItemInit(data, ...args),
 			setOption: (...args) => ExtendedItemSetOption(data, ...args),
@@ -643,7 +643,7 @@ function ModularItemSetType(module, index, data) {
 	const moduleIndex = data.modules.indexOf(module);
 	const previousOption = module.Options[currentModuleValues[moduleIndex]];
 
-	const requirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, newOption, previousOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, newOption, previousOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
@@ -720,7 +720,7 @@ function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = fals
 		i += 1;
 		const newOption = mod.Options[newModuleValues[i]];
 		const previousOption = mod.Options[previousModuleValues[i]];
-		const requirementMessage = validationCallback(C, item, newOption, previousOption);
+		const requirementMessage = validationCallback(data, C, item, newOption, previousOption);
 		if (requirementMessage && newOption.Name !== previousOption.Name) {
 			console.warn(`Cannot set option for ${groupName}:${assetName} to ${newOption.Name}: ${DialogFindPlayer(requirementMessage)}`);
 		} else {

@@ -60,7 +60,7 @@ function TypedItemRegister(asset, config) {
 			load: () => ExtendedItemLoad(data),
 			click: () => TypedItemClick(data),
 			draw: () => TypedItemDraw(data),
-			validate: ExtendedItemValidate,
+			validate: (...args) => ExtendedItemValidate(data, ...args),
 			publishAction: (...args) => TypedItemPublishAction(data, ...args),
 			init: (...args) => TypedItemInit(data, ...args),
 			setOption: (...args) => ExtendedItemSetOption(data, ...args),
@@ -373,6 +373,7 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * the validation function indicates that the new option is not compatible with the character's current state (generally
  * due to prerequisites or other requirements).
  * @template {ExtendedItemOption} T
+ * @param {null | ExtendedItemData<T>} data
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose options are being validated
  * @param {T} option - The new option
@@ -380,7 +381,7 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * @returns {string|undefined} - undefined or an empty string if the validation passes. Otherwise, returns a string
  * message informing the player of the requirements that are not met.
  */
-function TypedItemValidateOption(C, item, option, previousOption) {
+function TypedItemValidateOption(data, C, item, option, previousOption) {
 	let PermissionFailure = false;
 	switch (option.OptionType) {
 		case "ModularItemOption":
@@ -411,7 +412,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 	if (typeof validationMessage === "string") {
 		return validationMessage;
 	} else {
-		return ExtendedItemValidate(C, item, option, previousOption);
+		return ExtendedItemValidate(data, C, item, option, previousOption);
 	}
 }
 
@@ -468,7 +469,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false, C_
 
 	// A number of validation checks assume that the option is applied by the player; skip them if this is not the case
 	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
-	const requirementMessage = validationCallback(C, item, newOption, previousOption);
+	const requirementMessage = validationCallback(data, C, item, newOption, previousOption);
 	if (requirementMessage) {
 		if (newOption.Name !== previousOption.Name) {
 			console.warn(`${warningMessage}: ${requirementMessage}`);
@@ -524,7 +525,7 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false, C_Source=nul
 	const newOption = CommonRandomItemFromList(null, availableOptions);
 	const previousOption = TypedItemFindPreviousOption(item, data.options);
 	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
-	const requirementMessage = validationCallback(C, item, newOption, previousOption);
+	const requirementMessage = validationCallback(data, C, item, newOption, previousOption);
 	if (requirementMessage) {
 		return requirementMessage;
 	} else {
@@ -698,7 +699,7 @@ function TypedItemHandleOptionClick(data, C, Option) {
 		const CurrentType = DialogFocusItem.Property[typeField] || (IsVibeArch ? VibratorModeOff.Property.Mode : null);
 		const CurrentOption = data.options.find(O => O.Property[typeField] === CurrentType);
 		// use the unmemoized function to ensure we make a final check to the requirements
-		const RequirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, Option, CurrentOption);
+		const RequirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
 		} else {
@@ -722,7 +723,7 @@ function TypedItemSetType(data, C, newOption) {
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, data.options, typeField);
 
-	const requirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, newOption, previousOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, newOption, previousOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;

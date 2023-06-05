@@ -175,7 +175,7 @@ function VibratorModeRegister(asset, config, parentOption=null) {
 			load: () => VibratorModeLoad(data),
 			click: () => TypedItemClick(data),
 			draw: () => TypedItemDraw(data),
-			validate: VibratorModeValidate,
+			validate: (...args) => VibratorModeValidate(data, ...args),
 			publishAction: (...args) => VibratorModePublishAction(data, ...args),
 			init: (...args) => VibratorModeInit(data, ...args),
 			scriptDraw: VibratorModeScriptDraw,
@@ -305,17 +305,25 @@ function VibratorModeLoad({ dialogPrefix: { header } }) {
 	DialogExtendedMessage = DialogFindPlayer(`${header}${intensity}`);
 }
 
-/** @type {ExtendedItemCallbacks.Validate<ExtendedItemOption>} */
-function VibratorModeValidate(C, item, option, currentOption) {
+/**
+ * @param {VibratingItemData} data
+ * @param {Character} C - The character on whom the item is equipped
+ * @param {Item} item - The item whose options are being validated
+ * @param {VibratingItemOption} newOption - The new option
+ * @param {VibratingItemOption} previousOption - The previously applied option
+ * @returns {string|undefined} - undefined or an empty string if the validation passes. Otherwise, returns a string
+ * message informing the player of the requirements that are not met.
+ */
+function VibratorModeValidate(data, C, item, newOption, previousOption) {
 	if (
-		option.Property
-		&& VibratorModesAdvanced.includes(option.Property.Mode)
+		newOption.Property
+		&& VibratorModesAdvanced.includes(newOption.Property.Mode)
 		&& C.ArousalSettings
 		&& C.ArousalSettings.DisableAdvancedVibes
 	) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	} else {
-		return ExtendedItemValidate(C, item, option, currentOption);
+		return ExtendedItemValidate(data, C, item, newOption, previousOption);
 	}
 }
 
