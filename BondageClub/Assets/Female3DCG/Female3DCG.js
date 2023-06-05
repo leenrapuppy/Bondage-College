@@ -3183,13 +3183,13 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront51", Random: false,
 				Layer: [
 					{ Name: "Main" },
-					{ Name: "Front"},
+					{ Name: "Front", Priority: 55},
 				],
 			},//HairFront51
 			{ Name: "HairFront51b", Random: false,
 				Layer: [
 					{ Name: "Main" },
-					{ Name: "Front"},
+					{ Name: "Front", Priority: 55},
 				],
 			},//HairFront51b
 		],
