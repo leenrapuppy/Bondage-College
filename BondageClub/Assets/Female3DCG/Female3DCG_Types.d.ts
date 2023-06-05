@@ -424,7 +424,7 @@ interface ExtendedItemConfig<OptionType extends ExtendedItemOption> {
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item.
 	 */
-	ChatSetting?: string;
+	ChatSetting?: ExtendedItemChatSetting;
 	/** A record containing various dialog keys used by the extended item screen */
 	DialogPrefix?: ExtendedItemCapsDialog<OptionType>;
 	/**
@@ -572,7 +572,7 @@ type ExtendedItemNPCCallback<OptionType extends ExtendedItemOption> = (
 
 //#region Typed items
 
-type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
+type TypedItemChatSetting = "default" | "fromTo" | "silent";
 
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig extends ExtendedItemConfig<TypedItemOption> {
@@ -662,7 +662,7 @@ interface ModularItemConfig extends ExtendedItemConfig<ModularItemOption> {
 	ScriptHooks?: ExtendedItemCapsScriptHooksStruct<ModularItemData, ModularItemOption>;
 }
 
-type ModularItemChatSetting = "perModule" | "perOption";
+type ModularItemChatSetting = "default" | "perModule";
 
 /** A (partially parsed) object describing a single module for a modular item. */
 interface ModularItemModuleBase {

@@ -39,7 +39,7 @@ const TypedItemDataLookup = {};
  * @type {Record<"TO_ONLY"|"FROM_TO"|"SILENT", TypedItemChatSetting>}
  */
 const TypedItemChatSetting = {
-	TO_ONLY: "toOnly",
+	TO_ONLY: "default",
 	FROM_TO: "fromTo",
 	SILENT: "silent",
 };
