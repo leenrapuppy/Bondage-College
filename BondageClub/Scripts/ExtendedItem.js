@@ -65,8 +65,8 @@ const ExtendedXYClothes = [
 
 /** Memoization of the requirements check */
 const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage, [
-	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
 	(character) => character.ID.toString(),
+	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
 	(option) => option.Name,
 	(option) => option.Name,
 ]);
@@ -341,7 +341,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 	}
 	if (Option.OptionType !== "ModularItemModule") {
 		HasSubscreen = Option.HasSubscreen || false;
-		FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
+		FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(C, Item, Option, CurrentOption);
 	}
 
 	let ButtonColor;
@@ -451,14 +451,14 @@ function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=fa
  * Checks whether the character meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
  * @template {ExtendedItemOption} T
- * @param {Item} item - The item in question
  * @param {Character} C - The character in question
+ * @param {Item} item - The item in question
  * @param {T} Option - The selected type definition
  * @param {T} CurrentOption - The current type definition
  * @returns {string|null} null if the player meets the option requirements. Otherwise a string message informing them
  * of the requirements they do not meet
  */
-function ExtendedItemRequirementCheckMessage(item, C, Option, CurrentOption) {
+function ExtendedItemRequirementCheckMessage(C, item, Option, CurrentOption) {
 	return TypedItemValidateOption(C, item, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
 		|| ExtendedItemCheckBuyGroups(Option)
@@ -704,7 +704,7 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
 		// Check if the option is blocked/limited/etc.
 		/** @type {ExtendedItemOption} */
 		const Option = { OptionType: "ExtendedItemOption", Name: Name };
-		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, CharacterGetCurrent(), Option, Option);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(CharacterGetCurrent(), DialogFocusItem, Option, Option);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return false;

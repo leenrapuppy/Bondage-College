@@ -465,7 +465,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
 		return msg;
 	}
 
-	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(C, item, newOption, previousOption);
 	if (requirementMessage) {
 		if (newOption.Name !== previousOption.Name) {
 			console.warn(`${warningMessage}: ${requirementMessage}`);
@@ -519,7 +519,7 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 
 	const newOption = CommonRandomItemFromList(null, availableOptions);
 	const previousOption = TypedItemFindPreviousOption(item, data.options);
-	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(C, item, newOption, previousOption);
 	if (requirementMessage) {
 		return requirementMessage;
 	} else {
@@ -693,7 +693,7 @@ function TypedItemHandleOptionClick(data, C, Option) {
 		const CurrentType = DialogFocusItem.Property[typeField] || (IsVibeArch ? VibratorModeOff.Property.Mode : null);
 		const CurrentOption = data.options.find(O => O.Property[typeField] === CurrentType);
 		// use the unmemoized function to ensure we make a final check to the requirements
-		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
+		const RequirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
 		} else {
@@ -717,7 +717,7 @@ function TypedItemSetType(data, C, newOption) {
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, data.options, typeField);
 
-	const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, newOption, previousOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;

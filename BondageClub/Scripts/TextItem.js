@@ -234,7 +234,7 @@ const TextItem = {
 		if (publishAction) {
 			const C = CharacterGetCurrent();
 			const { newOption, previousOption } = TextItemConstructOptions(data, DialogFocusItem);
-			const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+			const requirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, newOption, previousOption);
 			if (requirementMessage) {
 				TextItemPropertyRevert(data, DialogFocusItem);
 			} else {

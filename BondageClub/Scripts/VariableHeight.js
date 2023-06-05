@@ -185,7 +185,7 @@ function VariableHeightClick(data) {
 	if (MouseIn(1350, 700, 300, 64)) {
 		const C = CharacterGetCurrent();
 		const { newOption, previousOption } = VariableHeightConstructOptions(DialogFocusItem);
-		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(C, DialogFocusItem, newOption, previousOption);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return;
