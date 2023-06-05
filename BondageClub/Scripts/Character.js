@@ -1237,6 +1237,10 @@ function CharacterRefreshDialog(C) {
 			DialogFocusItem = focusItem;
 		}
 
+		// Reset the cached extended item requirement checks
+		if (DialogFocusItem.Asset.Extended) {
+			ExtendedItemRequirementCheckMessageMemo.clearCache();
+		}
 	} else if (DialogMenuMode === "colorItem") {
 		const itemRemovedOrDifferent = !focusItem || InventoryGetItemProperty(ItemColorItem, "Name") !== InventoryGetItemProperty(focusItem, "Name");
 		if (itemRemovedOrDifferent) {
