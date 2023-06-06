@@ -3252,9 +3252,9 @@ var AssetFemale3DCG = [
 			{ 
 				Name: "HairBack7", Random: false,
 				Layer: [
-					{Name: "MainLeft", Priority: 48},
+					{Name: "MainLeft", Priority: 32},
 					{Name: "BehindLeft", CopyLayerColor: "MainLeft"},
-					{Name: "MainRight", Priority: 48},
+					{Name: "MainRight", Priority: 32},
 					{Name: "BehindRight", CopyLayerColor: "MainRight"},
 				]
 			},
