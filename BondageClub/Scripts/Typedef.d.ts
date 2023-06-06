@@ -353,7 +353,7 @@ type CraftingPropertyType =
 
 type AssetAttribute =
 	"Skirt" |
-	"ShortHair" | "SmallEars" | "NoEars" | "NoseRing" | "HoodieFix" |
+	"ShortHair" | "SmallEars" | "NoEars" | "AltEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens" |
 	"PenisLayer" | "PussyLayer" | "GenitaliaCover" |
 	"CagePlastic2" | "CageTechno" | "CageFlat" |
