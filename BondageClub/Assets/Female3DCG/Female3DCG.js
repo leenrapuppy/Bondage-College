@@ -8254,7 +8254,7 @@ var AssetFemale3DCG = [
 					{ Name: "HairUnder", Priority: 8, HasType: false, AllowModuleTypes: ["x1h1","x1h2","x1h3","z1","z2","z3","z4"], InheritColor: "HairFront",HideColoring: true, Top: 32 },
 					{ Name: "PanelHead", HasType: false, AllowModuleTypes: ["x0"], ColorGroup: "Panels" },
 					{ Name: "PanelHeadTransparent", HasType: false, AllowModuleTypes: ["x1"], CopyLayerColor: "PanelHead" },
-					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: true }, // master colour for highlighting
+					{ Name: "PanelHeadHighlight", HasType: false, HideColoring: false, ColorGroup: "Shine" }, // master colour for highlighting
 
 					// Eye Panel Parts
 					{ Name: "PanelNoEye", HasType: false, AllowModuleTypes: ["e0"], ColorGroup: "Panels" }, // master colour for eye panel
