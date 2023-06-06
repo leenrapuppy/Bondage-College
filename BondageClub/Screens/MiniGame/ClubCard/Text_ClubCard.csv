@@ -133,7 +133,7 @@ Text Coat Check Maid,<F>Do not lose your receipt ticket.
 Title Regular Maid,Regular Maid
 Text Regular Maid,<F>Should I refresh your drink Miss?
 Title French Maid,French Maid
-Text French Maid,Pour un service impécable et coquin.
+Text French Maid,<F>Pour un service impécable et coquin.
 Title Head Maid,Head Maid
 Text Head Maid,+1 Fame per turn for each other Maid present.
 Title Curious Patient,Curious Patient
