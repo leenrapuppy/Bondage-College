@@ -2834,8 +2834,8 @@ var AssetFemale3DCG = [
 					{ Name: "OuterShine", AllowColorize: false },
 				],
 			},
-			{ 
-				Name: "LionTail", Fetish: ["Pet"], Value: 20, Top: 100, 
+			{
+				Name: "LionTail", Fetish: ["Pet"], Value: 20, Top: 100,
 				Layer: [
 					{ Name: "Tail"},
 					{ Name: "Plume"}
@@ -3249,7 +3249,7 @@ var AssetFemale3DCG = [
 			{ Name: "HairBack5b" },
 			{ Name: "HairBack6" },
 			{ Name: "HairBack6b" },
-			{ 
+			{
 				Name: "HairBack7", Random: false,
 				Layer: [
 					{Name: "MainLeft", Priority: 48},
