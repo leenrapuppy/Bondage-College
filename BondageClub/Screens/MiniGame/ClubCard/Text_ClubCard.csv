@@ -81,13 +81,15 @@ Text Red Twin,<F>We don't share minds but can share orgasms.
 Title Blue Twin,Blue Twin
 Text Blue Twin,+4 Fame per turn if Red Twin is present.
 Title Rope Bunny,Rope Bunny
-Text Rope Bunny,+1 Money per turn if at least one Dominant is present.
+Text Rope Bunny,+2 Money per turn if at least one Dominant is present.
+Title Shy Submissive,Shy Submissive
+Text Shy Submissive,Will leave your club at end of turn if there are more than 6 members.
 Title Waitress,Waitress
-Text Waitress,+1 Money per turn if Party Animal is present.
+Text Waitress,+1 Money per turn if Party Animal is present.  +1 Money per turn if Tourist is present.
 Title Bouncer,Bouncer
 Text Bouncer,<F>Your ass will bounce on the street if you make me mad.
 Title Accountant,Accountant
-Text Accountant,+1 Money per turn at Cottage level or better.  +1 Money per turn at Manor level.
+Text Accountant,+1 Money per turn at House level or better.  +1 Money per turn at Manor level.
 Title Secretary,Secretary
 Text Secretary,Your 3 turns event cards will last one extra turn.
 Title Associate,Associate
@@ -97,19 +99,21 @@ Text Human Resource,Draw an extra card each time you draw a card.
 Title Policewoman,Policewoman
 Text Policewoman,<F>I took the job for the free handcuffs.
 Title Pusher,Pusher
-Text Pusher,Will leave the club at the end of a turn if a Police is present.
+Text Pusher,Will leave the club at end of turn if a Police is present.
 Title Junkie,Junkie
-Text Junkie,+2 Money per turn if Pusher is present.  Leave club at the end of turn if a Police is present.
+Text Junkie,+2 Money per turn if Pusher is present.  Leave club at end of turn if a Police is present.
 Title Zealous Cop,Zealous Cop
 Text Zealous Cop,"<F>Rules are rules, and I'll make sure they will be followed."
+Title Gangster,Gangster
+Text Gangster,+2 Money per turn per Criminal present.  Leave the club at end of turn if a Police is present.
 Title Maid Lover,Maid Lover
 Text Maid Lover,+1 Money per turn for each Maid present.
-Title College-Girl Fan,College-Girl Fan
-Text College-Girl Fan,+1 Money per turn per College Student present.
+Title Diaper Lover,Diaper Lover
+Text Diaper Lover,+1 Money per turn for each ABDL Baby present.
 Title Masochist,Masochist
 Text Masochist,+1 Fame per turn and +1 Money per turn if at least one Dominant is present.
 Title Feet Worshiper,Feet Worshiper
-Text Feet Worshiper,+2 Money per turn if at least one Dominant or ABDL Mommy is present.
+Text Feet Worshiper,+2 Money per turn if at least one Porn Actress or ABDL Mommy is present.
 Title Fin-Dom Simp,Fin-Dom Simp
 Text Fin-Dom Simp,+1 Money per turn for each Dominant present.
 Title Fin-Dom Whale,Fin-Dom Whale
@@ -167,7 +171,7 @@ Text Scammer,<F>This new crypto will change everything.
 Title Pyramid Schemer,Pyramid Schemer
 Text Pyramid Schemer,"<F>You recruit five friends, who recruit five friends, who..."
 Title Ponzi Schemer,Ponzi Schemer
-Text Ponzi Schemer,"<F>This police ankle bracelet isn't real, it's a kink of mine."
+Text Ponzi Schemer,"<F>Trust me, this police ankle bracelet is only a kink of mine."
 Title Party Pooper,Party Pooper
 Text Party Pooper,<F>Why is everyone so boring nowadays?
 Title College Dropout,College Dropout
@@ -176,28 +180,34 @@ Title Union Leader,Union Leader
 Text Union Leader,-1 Money per turn for each Maid and Staff present.
 Title No-Fap Advocate,No-Fap Advocate
 Text No-Fap Advocate,-2 Fame per turn for each Porn Actress present.
+Title Pandora Infiltrator,Pandora Infiltrator
+Text Pandora Infiltrator,<F>Pssssst, you want to try a real BDSM club?
+Title Uncontrollable Sub,Uncontrollable Sub
+Text Uncontrollable Sub,-1 Fame per turn for each Dominant present.  -1 Fame per turn for each Mistress present.
 Title Baby Girl,Baby Girl
 Text Baby Girl,+1 Money per turn if at least one ABDL Mommy is present.
 Title Caring Mother,Caring Mother
 Text Caring Mother,<F>Mother do you think they'll try to break my balls.
-Title Diaper Lover,Diaper Lover
-Text Diaper Lover,+2 Money per turn if at least one Maid is present.
+Title Diaper Baby,Diaper Baby
+Text Diaper Baby,+3 Money per turn if at least one Maid is present.
 Title Sugar Baby,Sugar Baby
 Text Sugar Baby,<F>This baby wants a diamond pacifier.
 Title Babysitter,Babysitter
 Text Babysitter,+2 Fame per turn for each ABDL Baby present.
+Title Soap Opera Mother,Soap Opera Mother
+Text Soap Opera Mother,+25 Fame and -25 Money when she enters your club.
 Title Amanda,Amanda
 Text Amanda,Immune to Ransomware.
 Title Sarah,Sarah
-Text Sarah,+1 Fame per turn if Amanda is present.  -1 Fame per turn if Sidney is present.
+Text Sarah,+2 Fame per turn if Amanda is present.  -2 Fame per turn if Sidney is present.
 Title Sidney,Sidney
 Text Sidney,Double all College Party bonuses.
 Title Jennifer,Jennifer
 Text Jennifer,Remove one of your member cards when she enters your club.
 Title College Freshwoman,College Freshwoman
-Text College Freshwoman,+1 Fame per turn if Julia is present.
+Text College Freshwoman,+1 Fame per turn if Julia is present.  +1 Fame per turn if Yuki is present.
 Title College Nerd,College Nerd
-Text College Nerd,+1 Money per turn if Julia is present.
+Text College Nerd,+1 Money per turn if Julia is present.  +1 Fame per turn if Yuki is present.
 Title College Hidden Genius,Hidden Genius
 Text College Hidden Genius,+4 Fame per turn if Mildred is present.
 Title Substitute Teacher,Substitute Teacher
@@ -207,4 +217,12 @@ Text Julia,<F>Seeing them learn and grow is magnifico.
 Title Yuki,Yuki
 Text Yuki,<F>You cannot learn with a closed mind or closed legs.
 Title Mildred,Mildred
-Text Mildred,"<F>In my class,  silence is gold and will be enforced."
+Text Mildred,"<F>In my class, silence is gold and will be enforced."
+Title Scratch and Win,Scratch and Win
+Text Scratch and Win,+7 Money.
+Title Kinky Garage Sale,Kinky Garage Sale
+Text Kinky Garage Sale,+12 Money.
+Title Second Mortgage,Second Mortgage
+Text Second Mortgage,+20 Money.
+Title Foreign Investment,Foreign Investment
+Text Foreign Investment,+30 Money.

@@ -2,7 +2,7 @@
 var ClubCardBuilderBackground = "ClubCardPlayBoard1";
 var ClubCardBuilderDeckIndex = -1;
 var ClubCardBuilderFocus = null;
-var ClubCardBuilderDefaultDeck = [1000, 1001, 1002, 1003, 1004, 1006, 1007, 1009, 2000, 2002, 2004, 2005, 4000, 4002, 4003, 4004, 4005, 6000, 6001, 6002, 6003, 6004, 8000, 8001, 8002, 8003, 8004, 9000, 9001, 9002];
+var ClubCardBuilderDefaultDeck = [1000, 1001, 1002, 1003, 1004, 1006, 1007, 1009, 2000, 2002, 2004, 2005, 4000, 4002, 4003, 4004, 4005, 6000, 6001, 6002, 6003, 6004, 8000, 8001, 8002, 8003, 8004, 9000, 9001, 30000];
 var ClubCardBuilderList = [];
 var ClubCardBuilderOffset = 0;
 var ClubCardBuilderDeckCurrent = [];
@@ -59,7 +59,7 @@ function ClubCardBuilderLoad() {
 	for (let Card of ClubCardBuilderList)
 		if (Card.RequiredLevel == null)
 			Card.RequiredLevel = 1;
-	ClubCardBuilderList.sort((a, b) => a.RequiredLevel * 10 - b.RequiredLevel * 10 + ((a.Name > b.Name) ? 1 : ((b.Name > a.Name) ? -1 : 0)));
+	ClubCardBuilderList.sort((a, b) => (((a.Type == null) || (a.Type == "Member")) ? 0 : 100) - (((b.Type == null) || (b.Type == "Member")) ? 0 : 100) + a.RequiredLevel * 10 - b.RequiredLevel * 10 + ((a.Name > b.Name) ? 1 : ((b.Name > a.Name) ? -1 : 0)));
 }
 
 /**

@@ -3745,8 +3745,9 @@ interface ClubCard {
 	Group?: any[];
 	Location?: string;
 	GlowTimer?: number;
+	GlowColor?: string;
+	OnPlay?: (C: ClubCardPlayer) => void;
 	OnTurnEnd?: (C: ClubCardPlayer) => void;
-	OnBoardEntry?: (C: ClubCardPlayer) => void;
 }
 
 interface ClubCardPlayer {
