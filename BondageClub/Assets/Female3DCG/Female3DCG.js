@@ -3182,25 +3182,25 @@ var AssetFemale3DCG = [
 				], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150
 			},//HairFront47
 			{ Name: "HairFront48", Priority: 8, Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
-			{ Name: "HairFront49", Random: false,
+			{ Name: "HairFront49", Attribute: ["ShortHair"], Random: false,
 				Layer: [
 					{ Name: "Right" },
 					{ Name: "Left"},
 				],
 			},//HairFront49
-			{ Name: "HairFront50", Left: 100, Random: false,
+			{ Name: "HairFront50", Attribute: ["ShortHair"], Left: 100, Random: false,
 				Layer: [
 					{ Name: "Right" },
 					{ Name: "Left"},
 				],
 			},//HairFront50
-			{ Name: "HairFront51", Random: false,
+			{ Name: "HairFront51", Attribute: ["ShortHair"], Random: false,
 				Layer: [
 					{ Name: "Main" },
 					{ Name: "Front", Priority: 55},
 				],
 			},//HairFront51
-			{ Name: "HairFront51b", Random: false,
+			{ Name: "HairFront51b", Attribute: ["ShortHair"], Random: false,
 				Layer: [
 					{ Name: "Main" },
 					{ Name: "Front", Priority: 55},
