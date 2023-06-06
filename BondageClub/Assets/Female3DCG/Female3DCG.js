@@ -3006,14 +3006,14 @@ var AssetFemale3DCG = [
 			"HairFront15", "HairFront16", "HairFront17",
 			{ Name: "HairFront17b",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "Main", HideForAttribute: ["AltEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
 			},
 			{ Name: "HairFront18",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "Main", HideForAttribute: ["AltEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3021,14 +3021,14 @@ var AssetFemale3DCG = [
 			"HairFront19",
 			{ Name: "HairFront20",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "Main", HideForAttribute: ["AltEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
 			},
 			{ Name: "HairFront21",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "Main", HideForAttribute: ["AltEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3069,7 +3069,7 @@ var AssetFemale3DCG = [
 			}, //HairFront23b
 			{ Name: "HairFront24",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "Main", HideForAttribute: ["AltEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3077,7 +3077,7 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront25" },
 			{ Name: "HairFront26",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
+					{ Name: "Main", HideForAttribute: ["AltEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
