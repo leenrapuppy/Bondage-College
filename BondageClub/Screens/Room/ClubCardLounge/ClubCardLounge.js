@@ -57,5 +57,5 @@ function ClubCardLoungePraticeGameEnd() {
 	CommonSetScreen("Room", "ClubCardLounge");
 	CharacterSetCurrent(ClubCardLoungeTutor);
 	ClubCardLoungeTutor.CurrentDialog = DialogFind(ClubCardLoungeTutor, MiniGameVictory ? "AfterVictory" : "AfterDefeat");
-	ClubCardLoungeTutor.Stage = "40";
+	ClubCardLoungeTutor.Stage = "50";
 }
