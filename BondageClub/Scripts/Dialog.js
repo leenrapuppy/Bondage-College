@@ -1187,7 +1187,6 @@ function DialogMenuButtonBuild(C) {
 	const ItemBlockedOrLimited = !!Item && InventoryBlockedOrLimited(C, Item);
 	const IsItemLocked = InventoryItemHasEffect(Item, "Lock", true);
 	const IsGroupBlocked = InventoryGroupIsBlocked(C);
-	const CanAccessLockpicks = Player.CanInteract() || Player.CanWalk(); // If the character can access her tools. Maybe in the future you will be able to hide a lockpick in your panties :>
 
 	if (DialogMenuMode === "colorDefault") {
 		DialogMenuButton.push("ColorCancel");
