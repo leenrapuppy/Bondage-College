@@ -1547,7 +1547,7 @@ HairFrontHairFront47Fade,Fade
 EyebrowsEyebrows2Main,Eyebrow
 EyebrowsEyebrows2EyebrowBarRight,Piercings
 ItemHoodCustomLatexHoodPanelHead,Head
-ItemHoodCustomLatexHoodPanelHeadHighlight,Shine
+ItemHoodCustomLatexHoodShine,Highlights
 ItemHoodCustomLatexHoodLiningRoundFace,Face Lining
 ItemHoodCustomLatexHoodLiningRoundEye,Eye Lining
 ItemHoodCustomLatexHoodLiningRoundMouth,Mouth Lining
@@ -1558,7 +1558,6 @@ ItemHoodCustomLatexHoodFillRoundMouth,Mouth Fill Panel
 ItemHoodCustomLatexHoodHairUnder,Hair Inside Hood
 ItemHoodCustomLatexHoodZipperHoodOpen,Cover Hood
 ItemHoodCustomLatexHoodZipperHoodOpenZipper,Zipper
-ItemHoodCustomLatexHoodPanelHeadHighlight,Highlights
 ItemHoodHarnessCatMaskBase,Harness
 ItemHoodHarnessCatMaskEarsUnder,Ears
 ItemHoodHarnessCatMaskMetal,Metal
