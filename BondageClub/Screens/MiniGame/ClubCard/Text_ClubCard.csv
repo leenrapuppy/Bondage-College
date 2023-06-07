@@ -195,7 +195,7 @@ Text Sugar Baby,<F>This baby wants a diamond pacifier.
 Title Babysitter,Babysitter
 Text Babysitter,+2 Fame per turn for each ABDL Baby present.
 Title Soap Opera Mother,Soap Opera Mother
-Text Soap Opera Mother,+25 Fame and -25 Money when she enters your club.
+Text Soap Opera Mother,+25 Fame and -25 Money when she enters your club if at least one ABDL Baby is present.
 Title Amanda,Amanda
 Text Amanda,Immune to Ransomware.
 Title Sarah,Sarah
@@ -209,7 +209,7 @@ Text College Freshwoman,+1 Fame per turn if Julia is present.  +1 Fame per turn 
 Title College Nerd,College Nerd
 Text College Nerd,+1 Money per turn if Julia is present.  +1 Fame per turn if Yuki is present.
 Title College Hidden Genius,Hidden Genius
-Text College Hidden Genius,+4 Fame per turn if Mildred is present.
+Text College Hidden Genius,+5 Fame per turn if Mildred is present.
 Title Substitute Teacher,Substitute Teacher
 Text Substitute Teacher,+1 Fame per turn for each College Student present.
 Title Julia,Julia

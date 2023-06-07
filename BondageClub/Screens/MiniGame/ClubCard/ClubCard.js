@@ -208,7 +208,7 @@ var ClubCardList = [
 	},
 	{
 		ID: 3004,
-		Name: "Gangter",
+		Name: "Gangster",
 		Group: ["Criminal"],
 		MoneyPerTurn: 3,
 		FamePerTurn: -2,
@@ -591,8 +591,10 @@ var ClubCardList = [
 		Group: ["ABDLMommy"],
 		RequiredLevel: 5,
 		OnPlay: function(CCPlayer) {
-			ClubCardPlayerAddMoney(CCPlayer, -25);
-			ClubCardPlayerAddFame(CCPlayer, 25);
+			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "ABDLBaby")) {
+				ClubCardPlayerAddMoney(CCPlayer, -25);
+				ClubCardPlayerAddFame(CCPlayer, 25);
+			}
 		}
 	},
 
@@ -655,7 +657,7 @@ var ClubCardList = [
 		Name: "College Hidden Genius",
 		Group: ["CollegeStudent"],
 		OnTurnEnd: function(CCPlayer) {
-			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Mildred")) ClubCardPlayerAddFame(CCPlayer, 4);
+			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Mildred")) ClubCardPlayerAddFame(CCPlayer, 5);
 		}
 	},
 	{
