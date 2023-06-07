@@ -60,7 +60,7 @@ function TypedItemRegister(asset, config) {
 			load: () => ExtendedItemLoad(data),
 			click: () => TypedItemClick(data),
 			draw: () => TypedItemDraw(data),
-			validate: ExtendedItemValidate,
+			validate: (...args) => ExtendedItemValidate(data, ...args),
 			publishAction: (...args) => TypedItemPublishAction(data, ...args),
 			init: (...args) => TypedItemInit(data, ...args),
 			setOption: (...args) => ExtendedItemSetOption(data, ...args),
@@ -373,6 +373,7 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * the validation function indicates that the new option is not compatible with the character's current state (generally
  * due to prerequisites or other requirements).
  * @template {ExtendedItemOption} T
+ * @param {null | ExtendedItemData<T>} data
  * @param {Character} C - The character on whom the item is equipped
  * @param {Item} item - The item whose options are being validated
  * @param {T} option - The new option
@@ -380,7 +381,7 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * @returns {string|undefined} - undefined or an empty string if the validation passes. Otherwise, returns a string
  * message informing the player of the requirements that are not met.
  */
-function TypedItemValidateOption(C, item, option, previousOption) {
+function TypedItemValidateOption(data, C, item, option, previousOption) {
 	let PermissionFailure = false;
 	switch (option.OptionType) {
 		case "ModularItemOption":
@@ -411,7 +412,7 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 	if (typeof validationMessage === "string") {
 		return validationMessage;
 	} else {
-		return ExtendedItemValidate(C, item, option, previousOption);
+		return ExtendedItemValidate(data, C, item, option, previousOption);
 	}
 }
 
@@ -422,10 +423,11 @@ function TypedItemValidateOption(C, item, option, previousOption) {
  * @param {string} optionName - The name of the option to set
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | Character} [C_Source] - The character setting the new item option. If `null`, assume that it is _not_ the player character.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
+function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false, C_Source=null) {
 	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
 
 	if (!item) return;
@@ -465,12 +467,16 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push=false) {
 		return msg;
 	}
 
-	const requirementMessage = ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
+	// A number of validation checks assume that the option is applied by the player; skip them if this is not the case
+	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
+	const requirementMessage = validationCallback(data, C, item, newOption, previousOption);
 	if (requirementMessage) {
-		if (requirementMessage && newOption.Name !== previousOption.Name) {
+		if (newOption.Name !== previousOption.Name) {
 			console.warn(`${warningMessage}: ${requirementMessage}`);
 		}
-		return DialogFindPlayer(requirementMessage);
+		return requirementMessage;
+	} else {
+		ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
 	}
 }
 
@@ -495,10 +501,11 @@ function TypedItemFindPreviousOption(item, options, typeField="Type") {
  * @param {Item | AssetGroupName} itemOrGroupName - The item whose type to set, or the group name for the item
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
+ * @param {null | Character} [C_Source] - The character setting the new item option. If `null`, assume that it is _not_ the player character.
  * @returns {string|undefined} - undefined or an empty string if the type was set correctly. Otherwise, returns a string
  * informing the player of the requirements that are not met.
  */
-function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
+function TypedItemSetRandomOption(C, itemOrGroupName, push = false, C_Source=null) {
 	const item = typeof itemOrGroupName === "string" ? InventoryGet(C, itemOrGroupName) : itemOrGroupName;
 
 	if (!item || item.Asset.Archetype !== ExtendedArchetype.TYPED) {
@@ -517,7 +524,13 @@ function TypedItemSetRandomOption(C, itemOrGroupName, push = false) {
 
 	const newOption = CommonRandomItemFromList(null, availableOptions);
 	const previousOption = TypedItemFindPreviousOption(item, data.options);
-	return ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
+	const validationCallback = C_Source && C_Source.IsPlayer() ? ExtendedItemRequirementCheckMessage : TypedItemValidateOption;
+	const requirementMessage = validationCallback(data, C, item, newOption, previousOption);
+	if (requirementMessage) {
+		return requirementMessage;
+	} else {
+		ExtendedItemSetOption(data, C, item, newOption, previousOption, push);
+	}
 }
 
 /**
@@ -686,7 +699,7 @@ function TypedItemHandleOptionClick(data, C, Option) {
 		const CurrentType = DialogFocusItem.Property[typeField] || (IsVibeArch ? VibratorModeOff.Property.Mode : null);
 		const CurrentOption = data.options.find(O => O.Property[typeField] === CurrentType);
 		// use the unmemoized function to ensure we make a final check to the requirements
-		const RequirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, Option, CurrentOption);
+		const RequirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, Option, CurrentOption);
 		if (RequirementMessage) {
 			DialogExtendedMessage = RequirementMessage;
 		} else {
@@ -710,15 +723,17 @@ function TypedItemSetType(data, C, newOption) {
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const previousOption = TypedItemFindPreviousOption(DialogFocusItem, data.options, typeField);
 
-	// Do not sync appearance while in the wardrobe
-	/** @type {Parameters<ExtendedItemCallbacks.SetOption<TypedItemOption | VibratingItemOption>>} */
-	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
-	/** @type {string | undefined} */
-	const requirementMessage = CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, newOption, previousOption);
 	if (requirementMessage) {
 		DialogExtendedMessage = requirementMessage;
 		return;
-	} else if (data.archetype === ExtendedArchetype.VIBRATING) {
+	}
+
+	// Do not sync appearance while in the wardrobe
+	/** @type {Parameters<ExtendedItemCallbacks.SetOption<TypedItemOption | VibratingItemOption>>} */
+	const optionArgs = [C, DialogFocusItem, newOption, previousOption, !IsCloth];
+	CommonCallFunctionByNameWarn(`${data.functionPrefix}SetOption`, ...optionArgs);
+	if (data.archetype === ExtendedArchetype.VIBRATING) {
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogPrefix.header}${DialogFocusItem.Property.Intensity}`);
 	}
 

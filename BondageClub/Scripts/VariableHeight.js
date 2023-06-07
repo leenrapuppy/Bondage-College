@@ -38,6 +38,7 @@ function VariableHeightRegister(asset, config, parentOption=null) {
 			exit: VariableHeightExit,
 			publishAction: (...args) => VariableHeightPublishAction(data, ...args),
 			init: (...args) => VariableHeightInit(data, ...args),
+			validate: (...args) => ExtendedItemValidate(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
@@ -117,7 +118,8 @@ function VariableHeightCreateData(asset,
 /**
  * @param {VariableHeightData} data - The variable height data for the asset
  */
-function VariableHeightLoad({ maxHeight, minHeight, drawData, getHeight, setHeight, dialogPrefix }) {
+function VariableHeightLoad(data) {
+	const { maxHeight, minHeight, getHeight, setHeight, dialogPrefix, drawData } = data;
 	DialogExtendedMessage = DialogFindPlayer(dialogPrefix.header);
 	DialogFocusItem.Property.Revert = true;
 
@@ -132,17 +134,33 @@ function VariableHeightLoad({ maxHeight, minHeight, drawData, getHeight, setHeig
 		VariableHeightChange(heightValue, maxHeight, minHeight, setHeight, elementId);
 	};
 
+	// Lock the UI if the validation fails (_e.g._ when the item is locked)
+	const C = CharacterGetCurrent();
+	const { newOption, previousOption } = VariableHeightConstructOptions(DialogFocusItem);
+	const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, newOption, previousOption);
+	let disabled = false;
+	if (requirementMessage) {
+		DialogExtendedMessage = requirementMessage;
+		disabled = true;
+	}
+
 	// Create the controls and listeners
 	const currentHeight = getHeight(DialogFocusItem.Property);
 	const heightSlider = ElementCreateRangeInput(VariableHeightSliderId, currentHeight, 0, 1, 0.01, drawData.elementData[0].icon, true);
 	if (heightSlider) {
 		heightSlider.addEventListener("input", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value), VariableHeightSliderId));
+		if (disabled) {
+			heightSlider.setAttribute("disabled", true);
+		}
 	}
 	const heightNumber = ElementCreateInput(VariableHeightNumerId, "number", String(Math.round(currentHeight * 100)), "");
 	if (heightNumber) {
 		heightNumber.setAttribute("min", "0");
 		heightNumber.setAttribute("max", "100");
 		heightNumber.addEventListener("change", (e) => changeHeight(Number(/** @type {HTMLInputElement} */ (e.target).value) / 100, VariableHeightNumerId));
+		if (disabled) {
+			heightNumber.setAttribute("disabled", true);
+		}
 	}
 }
 
@@ -185,7 +203,7 @@ function VariableHeightClick(data) {
 	if (MouseIn(1350, 700, 300, 64)) {
 		const C = CharacterGetCurrent();
 		const { newOption, previousOption } = VariableHeightConstructOptions(DialogFocusItem);
-		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, newOption, previousOption);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return;

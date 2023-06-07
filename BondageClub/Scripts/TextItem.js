@@ -28,6 +28,7 @@ function TextItemRegister(asset, config, parentOption=null, createCallbacks=true
 			publishAction: (...args) => TextItem.PublishAction(data, ...args),
 			init: (...args) => TextItem.Init(data, ...args),
 			exit: () => TextItem.Exit(data),
+			validate: (...args) => ExtendedItemValidate(data, ...args),
 		};
 		ExtendedItemCreateCallbacks(data, defaultCallbacks);
 	}
@@ -164,6 +165,16 @@ const TextItem = {
 		const { asset, eventListeners, maxLength } = data;
 		const item = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
 		const C = CharacterGetCurrent();
+
+		// Lock the UI if the validation fails (_e.g._ when the item is locked)
+		const { newOption, previousOption } = TextItemConstructOptions(data, item);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, item, newOption, previousOption);
+		let disabled = false;
+		if (requirementMessage) {
+			DialogExtendedMessage = requirementMessage;
+			disabled = true;
+		}
+
 		for (const [name, length] of CommonEntries(maxLength)) {
 			const ID = PropertyGetID(name, item);
 			if (!PropertyOriginalValue.has(ID)) {
@@ -178,6 +189,9 @@ const TextItem = {
 					const innerItem = (asset.IsLock) ? DialogFocusSourceItem : DialogFocusItem;
 					callback(C, innerItem, name, /** @type {HTMLInputElement} */ (e.target).value);
 				});
+				if (disabled) {
+					textInput.setAttribute("disabled", true);
+				}
 			}
 		}
 	},
@@ -234,7 +248,7 @@ const TextItem = {
 		if (publishAction) {
 			const C = CharacterGetCurrent();
 			const { newOption, previousOption } = TextItemConstructOptions(data, DialogFocusItem);
-			const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, C, newOption, previousOption);
+			const requirementMessage = ExtendedItemRequirementCheckMessage(data, C, DialogFocusItem, newOption, previousOption);
 			if (requirementMessage) {
 				TextItemPropertyRevert(data, DialogFocusItem);
 			} else {
@@ -255,7 +269,7 @@ const TextItem = {
 		}
 	},
 	/**
-	 * Exit function for items with text input fields.
+	 * PublishAction function for items with text input fields.
 	 * @param {TextItemData} data - The items extended item data
 	 * @param {Character} C - The character in question
 	 * @param {Item} item - The item in question
@@ -289,7 +303,7 @@ const TextItem = {
 				{ Content: `${prefix}${suffix}`, Type: "Action", Dictionary: dictionary.build() }
 			);
 		}
-	}
+	},
 };
 
 /**

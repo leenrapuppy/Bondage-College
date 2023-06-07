@@ -65,8 +65,9 @@ const ExtendedXYClothes = [
 
 /** Memoization of the requirements check */
 const ExtendedItemRequirementCheckMessageMemo = CommonMemoize(ExtendedItemRequirementCheckMessage, [
-	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
+	(data) => data ? data.Archetype : "",
 	(character) => character.ID.toString(),
+	(item) => `${item.Asset.Group.Name}${item.Asset.Name}`,
 	(option) => option.Name,
 	(option) => option.Name,
 ]);
@@ -341,7 +342,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 	}
 	if (Option.OptionType !== "ModularItemModule") {
 		HasSubscreen = Option.HasSubscreen || false;
-		FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Item, C, Option, CurrentOption);
+		FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(null, C, Item, Option, CurrentOption);
 	}
 
 	let ButtonColor;
@@ -451,15 +452,16 @@ function ExtendedItemSetProperty(C, item, previousProperty, newProperty, push=fa
  * Checks whether the character meets the requirements for an extended type option. This will check against their Bondage
  * skill if applying the item to another character, or their Self Bondage skill if applying the item to themselves.
  * @template {ExtendedItemOption} T
- * @param {Item} item - The item in question
+ * @param {null | ExtendedItemData<T>} data
  * @param {Character} C - The character in question
+ * @param {Item} item - The item in question
  * @param {T} Option - The selected type definition
  * @param {T} CurrentOption - The current type definition
  * @returns {string|null} null if the player meets the option requirements. Otherwise a string message informing them
  * of the requirements they do not meet
  */
-function ExtendedItemRequirementCheckMessage(item, C, Option, CurrentOption) {
-	return TypedItemValidateOption(C, item, Option, CurrentOption)
+function ExtendedItemRequirementCheckMessage(data, C, item, Option, CurrentOption) {
+	return TypedItemValidateOption(data, C, item, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
 		|| ExtendedItemCheckBuyGroups(Option)
 		|| ExtendedItemCheckSkillRequirements(C, item, Option);
@@ -519,23 +521,32 @@ function ExtendedItemCheckBuyGroups(Option) {
 /**
  * Checks whether a change from the given current option to the newly selected option is valid.
  * @template {ExtendedItemOption} T
+ * @param {null | ExtendedItemData<T>} data - The extended item data
  * @param {Character} C - The character wearing the item
  * @param {Item} Item - The extended item to validate
- * @param {T} Option - The selected option
- * @param {T} CurrentOption - The currently applied option on the item
+ * @param {T} newOption - The selected option
+ * @param {T} previousOption - The currently applied option on the item
  * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
  */
-function ExtendedItemValidate(C, Item, { Prerequisite, AllowLock }, CurrentOption) {
-	const CurrentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
-	const canChangeWhenLocked = typeof CurrentOption.ChangeWhenLocked === "boolean" ? CurrentOption.ChangeWhenLocked : true;
+function ExtendedItemValidate(data, C, Item, newOption, previousOption) {
+	// In the case of susbscreens the super screens `ChangeWhenLocked` value takes priority
+	let canChangeWhenLocked = true;
+	if (data && data.parentOption && typeof data.parentOption.ChangeWhenLocked === "boolean") {
+		canChangeWhenLocked = data.parentOption.ChangeWhenLocked;
+	} else if (typeof previousOption.ChangeWhenLocked === "boolean") {
+		canChangeWhenLocked = previousOption.ChangeWhenLocked;
+	}
+	const currentLockedBy = InventoryGetItemProperty(Item, "LockedBy");
 
-	if (!canChangeWhenLocked && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
+	if (newOption.Name === previousOption.Name) {
+		return newOption.HasSubscreen ? "" : DialogFindPlayer("AlreadySet");
+	} else if (!canChangeWhenLocked && currentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
 		return DialogFindPlayer("CantChangeWhileLocked");
-	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
+	} else if (newOption.Prerequisite && !InventoryAllow(C, Item.Asset, newOption.Prerequisite, true)) {
 		// Otherwise use the standard prerequisite check
 		return DialogText;
-	} else if (CurrentOption.AllowLock && !AllowLock && InventoryItemHasEffect(Item, "Lock", true)) {
+	} else if (previousOption.AllowLock && !newOption.AllowLock && InventoryItemHasEffect(Item, "Lock", true)) {
 		// We're switching from a locked, lockable option to one that can't be locked. Prevent that.
 		return DialogFindPlayer("ExtendedItemUnlockBeforeChange");
 	}
@@ -702,7 +713,7 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
 		// Check if the option is blocked/limited/etc.
 		/** @type {ExtendedItemOption} */
 		const Option = { OptionType: "ExtendedItemOption", Name: Name };
-		const requirementMessage = ExtendedItemRequirementCheckMessage(DialogFocusItem, CharacterGetCurrent(), Option, Option);
+		const requirementMessage = ExtendedItemRequirementCheckMessage(null, CharacterGetCurrent(), DialogFocusItem, Option, Option);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return false;
@@ -873,20 +884,8 @@ function ExtendedItemGatherSubscreenProperty(item, option) {
  * @param {OptionType} previousOption - The previously applied extended item option
  * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
  * player) - defaults to false.
- * @returns {string|undefined} - undefined or an empty string if the option was set correctly. Otherwise, returns a string
- * informing the player of the requirements that are not met.
  */
 function ExtendedItemSetOption(data, C, item, newOption, previousOption, push=false) {
-	// TODO: decouple `...Validate` from `...SetOption`
-	if (newOption.Name === previousOption.Name && !newOption.HasSubscreen) {
-		return DialogFindPlayer("AlreadySet");
-	}
-
-	const requirementMessage = ExtendedItemRequirementCheckMessage(item, C, newOption, previousOption);
-	if (requirementMessage) {
-		return requirementMessage;
-	}
-
 	/** @type {ItemProperties} */
 	let previousOptionProperty;
 	/** @type {ItemProperties} */
