@@ -271,26 +271,26 @@ type EffectName =
 	;
 
 interface ExpressionNameMap {
-	Eyebrows: "Raised" | "Lowered" | "OneRaised" | "Harsh" | "Angry" | "Soft",
+	Eyebrows: null | "Raised" | "Lowered" | "OneRaised" | "Harsh" | "Angry" | "Soft",
 	Eyes: (
-		"Closed" | "Dazed" | "Shy" | "Sad" | "Horny" | "Lewd" | "VeryLewd" |
+		null | "Closed" | "Dazed" | "Shy" | "Sad" | "Horny" | "Lewd" | "VeryLewd" |
 		"Heart" | "HeartPink" | "LewdHeart" | "LewdHeartPink" | "Dizzy" | "Daydream" |
 		"ShylyHappy" | "Angry" | "Surprised" | "Scared"
 	),
 	Eyes2: ExpressionNameMap["Eyes"],
 	Mouth: (
-		"Frown" | "Sad" | "Pained" | "Angry" | "HalfOpen" | "Open" | "Ahegao" | "Moan" |
+		null | "Frown" | "Sad" | "Pained" | "Angry" | "HalfOpen" | "Open" | "Ahegao" | "Moan" |
 		"TonguePinch" | "LipBite" | "Happy" | "Devious" | "Laughing" | "Grin" | "Smirk" | "Pout"
 	),
-	Pussy: "Hard",
-	Blush: "Low" | "Medium" | "High" | "VeryHigh" | "Extreme" | "ShortBreath",
+	Pussy: null | "Hard",
+	Blush: null | "Low" | "Medium" | "High" | "VeryHigh" | "Extreme" | "ShortBreath",
 	Fluids: (
-		"DroolLow" | "DroolMedium" | "DroolHigh" | "DroolSides" | "DroolMessy" | "DroolTearsLow" |
+		null | "DroolLow" | "DroolMedium" | "DroolHigh" | "DroolSides" | "DroolMessy" | "DroolTearsLow" |
 		"DroolTearsMedium" | "DroolTearsHigh" | "DroolTearsMessy" | "DroolTearsSides" |
 		"TearsHigh" | "TearsMedium" | "TearsLow"
 	),
 	Emoticon: (
-		"Afk" | "Whisper" | "Sleep" | "Hearts" | "Tear" | "Hearing" | "Confusion" | "Exclamation" |
+		null | "Afk" | "Whisper" | "Sleep" | "Hearts" | "Tear" | "Hearing" | "Confusion" | "Exclamation" |
 		"Annoyed" | "Read" | "RaisedHand" | "Spectator" | "ThumbsDown" | "ThumbsUp" | "LoveRope" |
 		"LoveGag" | "LoveLock" | "Wardrobe" | "Gaming" | "Coffee"
 	),
