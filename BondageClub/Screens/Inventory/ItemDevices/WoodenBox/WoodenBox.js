@@ -67,9 +67,11 @@ function InventoryItemDevicesWoodenBoxPublishActionHook(data, originalFunction, 
 
 /**
  * Dynamic AfterDraw function. Draws text onto the box.
- * @type {ExtendedItemCallbacks.AfterDraw}
+ * @type {ExtendedItemScriptHookCallbacks.AfterDraw<TypedItemData>}
  */
-function AssetsItemDevicesWoodenBoxAfterDraw(
+function AssetsItemDevicesWoodenBoxAfterDrawHook(
+	_,
+	originalFunction,
 	{ C, A, CA, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }
 ) {
 	const data = ExtendedItemGetData(CA, ExtendedArchetype.TEXT);
