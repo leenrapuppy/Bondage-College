@@ -343,6 +343,13 @@ function VariableHeightInit(Data, C, Item, Refresh) {
 	if (!CommonIsObject(Item.Property)) {
 		Item.Property = {};
 	}
+	if (!CommonIsObject(Item.Property.OverrideHeight)) {
+		// TODO: Review which assumptions `getHeight` & `setHeight` are allowed
+		// to make regarding the presence/absence of properties
+
+		// @ts-expect-error: OverrideHeight properties are initialized by `Data.setHeight`
+		Item.Property.OverrideHeight = {};
+	}
 
 	let currentHeight = Data.getHeight(Item.Property);
 	if (typeof currentHeight === "number") {
