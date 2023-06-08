@@ -3495,12 +3495,12 @@ var AssetFemale3DCG = [
 		AllowExpression: [null, "Hard"],
 		ExpressionPrerequisite: ["HasPenis", "CanHaveErection"],
 		Asset: [
-			{ Name: "PussyLight1", Gender: "F", Attribute: ["PussyLayer"] },
-			{ Name: "PussyLight2", Gender: "F", Attribute: ["PussyLayer"] },
-			{ Name: "PussyLight3", Gender: "F", Attribute: ["PussyLayer"] },
-			{ Name: "PussyDark1", Gender: "F", Attribute: ["PussyLayer"] },
-			{ Name: "PussyDark2", Gender: "F", Attribute: ["PussyLayer"] },
-			{ Name: "PussyDark3", Gender: "F", Attribute: ["PussyLayer"] },
+			{ Name: "PussyLight1", Gender: "F", Attribute: ["PussyLayer", "PussyLight1"] },
+			{ Name: "PussyLight2", Gender: "F", Attribute: ["PussyLayer", "PussyLight2"] },
+			{ Name: "PussyLight3", Gender: "F", Attribute: ["PussyLayer", "PussyLight3"] },
+			{ Name: "PussyDark1", Gender: "F", Attribute: ["PussyLayer", "PussyDark1"] },
+			{ Name: "PussyDark2", Gender: "F", Attribute: ["PussyLayer", "PussyDark2"] },
+			{ Name: "PussyDark3", Gender: "F", Attribute: ["PussyLayer", "PussyDark3"] },
 			{ Name: "Penis", Random: false, Left: 200, Top: 410, Priority: 23, Gender: "M", InheritColor: "BodyUpper", AllowActivity: ["PenetrateItem"], Attribute: ["PenisLayer"]}
 		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"],
@@ -4465,6 +4465,52 @@ var AssetFemale3DCG = [
 					{ Name: "GlowShield", AllowModuleTypes: ["c1", "c2", "c3"], CopyLayerColor: "GlowTubes", },
 					{ Name: "Tubes", },
 					{ Name: "GlowTubes", },
+				]
+			},
+			{
+				Name: "HeavyDutyBelt", Attribute: ["GenitaliaCover"], Fetish: ["Metal", "Chastity"], Value: 100, Top: 379, Left: 126,
+				Difficulty: 50, Time: 15, RemoveTime: 12,
+				Extended: true, Random: false, AllowLock: true, DrawLocks: false,
+				DefaultColor: ["Default", "Default", "#FF98EC"], Prerequisite: ["AccessCrotch"],
+				Effect: ["UseRemote"], ArousalZone: "ItemVulva", Block: [],
+				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], HasType: false,
+				HideItem: ["ItemVulvaVibratingLatexPanties", "ItemVulvaInflatableVibratingPanties"],
+				Layer: [
+				//Attributes used in this layering:
+				//PenisLayer denotes the player uses a penis
+				//PussyLayer denotes the player uses a pussy
+				//PussyLight/Dark(1/2/3) for showing hair while spread
+					//Backside
+					{ Name: "Backside", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, Priority: 1},
+					//Spread pussy
+					{ Name: "SpreadPussyLight1", Top: 372, Left: 126, Priority: 10, ShowForAttribute: ["PussyLight1"], ParentGroup: null, InheritColor: "Pussy", AllowModuleTypes: ["m1", "m3"], HideColoring: true},
+					{ Name: "SpreadPussyLight2", Top: 372, Left: 126, Priority: 10, ShowForAttribute: ["PussyLight2"], ParentGroup: null, InheritColor: "Pussy", AllowModuleTypes: ["m1", "m3"], HideColoring: true},
+					{ Name: "SpreadPussyLight3", Top: 372, Left: 126, Priority: 10, ShowForAttribute: ["PussyLight3"], ParentGroup: null, InheritColor: "Pussy", AllowModuleTypes: ["m1", "m3"], HideColoring: true},
+					{ Name: "SpreadPussyDark1", Top: 372, Left: 126, Priority: 10, ShowForAttribute: ["PussyDark1"], ParentGroup: null, InheritColor: "Pussy", AllowModuleTypes: ["m1", "m3"], HideColoring: true},
+					{ Name: "SpreadPussyDark2", Top: 372, Left: 126, Priority: 10, ShowForAttribute: ["PussyDark2"], ParentGroup: null, InheritColor: "Pussy", AllowModuleTypes: ["m1", "m3"], HideColoring: true},
+					{ Name: "SpreadPussyDark3", Top: 372, Left: 126, Priority: 10, ShowForAttribute: ["PussyDark3"], ParentGroup: null, InheritColor: "Pussy", AllowModuleTypes: ["m1", "m3"], HideColoring: true},
+					//Small Penis, used for cage module and shields. Blocks erect penis visually.
+					{ Name: "Penis", ShowForAttribute: ["PenisLayer"], ParentGroup: null, Priority: 10, InheritColor: "BodyUpper", AllowModuleTypes: ["c1", "m1", "m2", "m3"], HideColoring: true},
+					//Modules
+					//Cage & Spreader
+					{ Name: "Cage", ColorGroup: "Metal", ParentGroup: null, Priority: 10, ShowForAttribute: ["PenisLayer"], AllowModuleTypes: ["m1", "m3"], HasType: false },
+					{ Name: "Spreaderstraps", ColorGroup: "Rubber", Top: 372, Left: 126, ParentGroup: null, Priority: 10, ShowForAttribute: ["PussyLayer"], AllowModuleTypes: ["m1", "m3"], HasType: false },
+					{ Name: "Spreaderclips", ColorGroup: "Metal", Top: 372, Left: 126, ParentGroup: null, Priority: 10, ShowForAttribute: ["PussyLayer"], AllowModuleTypes: ["m1", "m3"], HasType: false },
+					//Rotors
+					{ Name: "RotorstickPenis", ColorGroup: "Metal", ParentGroup: null, Priority: 10, ShowForAttribute: ["PenisLayer"], AllowModuleTypes: ["m2", "m3"], HasType: false },
+					{ Name: "RotortipPenis", ParentGroup: null, Priority: 10, ShowForAttribute: ["PenisLayer"], AllowModuleTypes: ["m2", "m3"], HasType: false },
+					{ Name: "RotorstickPussy", Top: 372, Left: 126, CopyLayerColor: "RotorstickPenis", ParentGroup: null, Priority: 10, ShowForAttribute: ["PussyLayer"], AllowModuleTypes: ["m2", "m3"], HasType: false },
+					{ Name: "RotortipPussy", Top: 372, Left: 126, CopyLayerColor: "RotortipPenis", ParentGroup: null, Priority: 10, ShowForAttribute: ["PussyLayer"], AllowModuleTypes: ["m2", "m3"], HasType: false },
+					//Shields
+					{ Name: "TransparentShield", ParentGroup: null, AllowModuleTypes: ["c1"], HasType: false, HideColoring: true },
+					{ Name: "MetalShield", ColorGroup: "Metal", ParentGroup: null, AllowModuleTypes: ["c2"], HasType: false },
+					//Belt
+					{ Name: "RubberBelt", ColorGroup: "Rubber", ParentGroup: null, HasType: false },
+					{ Name: "RubberBeltUnder1", CopyLayerColor: "RubberBelt", ParentGroup: null, HasType: false, Priority: 10, AllowModuleTypes: ["c0"] },
+					{ Name: "RubberBeltUnder2", CopyLayerColor: "RubberBelt", ParentGroup: null, HasType: false, AllowModuleTypes: ["c1", "c2"], Alpha: [{Group: ["ItemVulva", "ItemVulvaPiercings"], Masks: [[0, 549, 500, 500],[265, 500, 500, 500],[257, 545, 8, 10],[231, 540, 8, 10],[0, 500, 231, 200]], }] },
+					{ Name: "MetalBelt", ColorGroup: "Metal", ParentGroup: null, HasType: false },
+					{ Name: "MetalBeltUnder1", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, Priority: 10, AllowModuleTypes: ["c0"] },
+					{ Name: "MetalBeltUnder2", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, AllowModuleTypes: ["c1", "c2"] },
 				]
 			},
 		],

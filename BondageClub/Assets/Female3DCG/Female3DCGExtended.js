@@ -8511,6 +8511,100 @@ var AssetFemale3DCGExtended = {
 				PublicModePermission: 0,
 			},
 		}, // FuturisticTrainingBelt
+		HeavyDutyBelt: {
+			Archetype: ExtendedArchetype.MODULAR,
+			ChatTags: [
+				CommonChatTags.SOURCE_CHAR,
+				CommonChatTags.DEST_CHAR,
+				CommonChatTags.DEST_CHAR_NAME,
+				CommonChatTags.ASSET_NAME,
+			],
+			ChangeWhenLocked: false,
+			Modules: [
+				{
+					Name: "CrotchShield", Key: "c",
+					Options: [
+						{}, // 0 - open
+						{ // 1 - transparent
+							Prerequisite: ["CanCoverVulva"],
+							Property: {
+								Effect: ["Chaste"],
+								Block: ["ItemVulva", "ItemVulvaPiercings"],
+								Hide: ["Pussy"]
+							}
+						},
+						{ // 2 - metal
+							Prerequisite: ["CanCoverVulva"],
+							Property: {
+								Effect: ["Chaste"],
+								Block: ["ItemVulva", "ItemVulvaPiercings"],
+								HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing", "ItemVulvaPiercingsChastityClitShield", "ItemVulvaPiercingsHighSecurityVulvaShield", "ItemVulvaPlasticChastityCage1", "ItemVulvaPlasticChastityCage2", "ItemVulvaTechnoChastityCage", "ItemVulvaFlatChastityCage", "ItemVulvaVibeEggPenisBase"],
+								Hide: ["Pussy"]
+							}
+						},
+					],
+				},
+				{
+					Name: "BackShield", Key: "b",
+					DrawImages: false,
+					Options: [
+						{}, // 0 - open
+						{ // 1 - close back
+							Property: {
+								Block: ["ItemButt"],
+							}
+						},
+					],
+				},
+				{
+					Name: "Modules", Key: "m",
+					Options: [
+						{}, // 0 - none
+						{ // 1 - cage/spreader
+							Prerequisite: ["CanCoverVulva"],
+							Property: {
+								Effect: ["Chaste"],
+								Block: ["ItemVulva", "ItemVulvaPiercings"],
+								Hide: ["Pussy"]
+							}
+						},
+						{ // 2 - rotors
+							Property: {
+								Hide: ["Pussy"]
+							}
+						},
+						{ // 3 - both
+							Prerequisite: ["CanCoverVulva"],
+							Property: {
+								Effect: ["Chaste"],
+								Block: ["ItemVulva", "ItemVulvaPiercings"],
+								Hide: ["Pussy"]
+							}
+						},
+					],
+				},
+				{
+					Name: "Intensity", Key: "i",
+					DrawImages: false,
+					Options: [
+						{ Property: { Intensity: -1, Effect: ["Egged"] } }, // i0 - Turn Off
+						{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // i1 - Low
+						{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // i2 - Medium
+						{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // i3 - High
+						{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // i4 - Maximum
+					],
+				},
+				{
+					Name: "OrgasmLock", Key: "o",
+					DrawImages: false,
+					Options: [
+						{}, // o0 - Normal
+						{ Property: { Effect: ["DenialMode"] } }, // o1 - Edge
+						{ Property: { Effect: ["DenialMode", "RuinOrgasms"] } }, // o2 - Deny
+					],
+				},
+			],
+		},//HeavyDutyBelt
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {

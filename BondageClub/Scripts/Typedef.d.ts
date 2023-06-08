@@ -355,7 +355,7 @@ type AssetAttribute =
 	"Skirt" |
 	"ShortHair" | "SmallEars" | "NoEars" | "AltEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens" |
-	"PenisLayer" | "PussyLayer" | "GenitaliaCover" |
+	"PenisLayer" | "PussyLayer" | "GenitaliaCover" | "PussyLight1" | "PussyLight2" | "PussyLight3" | "PussyDark1" | "PussyDark2" | "PussyDark3" |
 	"CagePlastic2" | "CageTechno" | "CageFlat" |
 	"FuturisticRecolor" | "FuturisticRecolorDisplay" |
 	"PortalLinkLockable" | `PortalLinkChastity${string}` | `PortalLinkActivity${ActivityName}` | `PortalLinkTarget${AssetGroupItemName}`
