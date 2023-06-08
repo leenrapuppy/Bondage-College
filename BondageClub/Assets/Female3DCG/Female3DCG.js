@@ -2835,7 +2835,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "LionTail", Fetish: ["Pet"], Value: 20, Top: 100,
+				Name: "LionTailStrap", Fetish: ["Pet"], Value: 20, Top: 100,
 				Layer: [
 					{ Name: "Tail"},
 					{ Name: "Plume"}
