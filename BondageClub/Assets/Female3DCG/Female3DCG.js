@@ -4471,7 +4471,7 @@ var AssetFemale3DCG = [
 				Name: "HeavyDutyBelt", Attribute: ["GenitaliaCover"], Fetish: ["Metal", "Chastity"], Value: 100, Top: 379, Left: 126,
 				Difficulty: 50, Time: 15, RemoveTime: 12,
 				Extended: true, Random: false, AllowLock: true, DrawLocks: false,
-				DefaultColor: ["Default", "Default", "FF98EC"], Prerequisite: ["AccessCrotch"],
+				DefaultColor: ["Default", "Default", "#FF98EC"], Prerequisite: ["AccessCrotch"],
 				Effect: ["UseRemote"], ArousalZone: "ItemVulva", Block: [],
 				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], HasType: false,
 				HideItem: ["ItemVulvaVibratingLatexPanties", "ItemVulvaInflatableVibratingPanties"],
