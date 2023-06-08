@@ -194,7 +194,7 @@ var ClubCardList = [
 		MoneyPerTurn: 1,
 		FamePerTurn: -1,
 		OnTurnEnd: function(CCPlayer) {
-			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Pusher")) ClubCardPlayerAddMoney(CCPlayer, 2);
+			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Pusher")) ClubCardPlayerAddMoney(CCPlayer, 3);
 			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Police")) ClubCardRemoveFromBoard(CCPlayer.Board, this);
 		}
 	},

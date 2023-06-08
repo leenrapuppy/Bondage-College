@@ -101,7 +101,7 @@ Text Policewoman,<F>I took the job for the free handcuffs.
 Title Pusher,Pusher
 Text Pusher,Will leave the club at end of turn if a Police is present.
 Title Junkie,Junkie
-Text Junkie,+2 Money per turn if Pusher is present.  Leave club at end of turn if a Police is present.
+Text Junkie,+3 Money per turn if Pusher is present.  Leave club at end of turn if a Police is present.
 Title Zealous Cop,Zealous Cop
 Text Zealous Cop,"<F>Rules are rules, and I'll make sure they will be followed."
 Title Gangster,Gangster
