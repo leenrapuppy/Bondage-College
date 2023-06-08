@@ -973,6 +973,24 @@ function ExtendedItemManualRegister() {
 				},
 			},
 		},
+		{
+			group: "ItemDevices",
+			name: "TransportWoodenBox",
+			config: {
+				Archetype: ExtendedArchetype.TEXT,
+				MaxLength: { Text: 20 },
+				Font: "'Saira Stencil One', 'Arial', sans-serif",
+				PushOnPublish: false,
+				DrawData: {
+					elementData: [
+						{ position: [1505, 850] },
+					],
+				},
+				DialogPrefix: {
+					Header: "ItemDevicesWoodenBoxSelect",
+				},
+			},
+		},
 	];
 
 	for (const { group, name, config } of items) {

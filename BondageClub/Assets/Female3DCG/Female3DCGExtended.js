@@ -5032,6 +5032,7 @@ var AssetFemale3DCGExtended = {
 				Draw: InventoryItemDevicesWoodenBoxDrawHook,
 				Exit: InventoryItemDevicesWoodenBoxExitHook,
 				PublishAction: InventoryItemDevicesWoodenBoxPublishActionHook,
+				AfterDraw: AssetsItemDevicesWoodenBoxAfterDrawHook,
 			},
 		}, // WoodenBox
 		TransportWoodenBox: {
