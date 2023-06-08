@@ -4512,7 +4512,7 @@ var AssetFemale3DCG = [
 					{ Name: "MetalBeltUnder1", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, Priority: 10, AllowModuleTypes: ["c0"] },
 					{ Name: "MetalBeltUnder2", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, AllowModuleTypes: ["c1", "c2"] },
 				]
-			},			
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
