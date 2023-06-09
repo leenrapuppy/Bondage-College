@@ -1141,6 +1141,7 @@ var AssetFemale3DCGExtended = {
 			ChangeWhenLocked: false,
 		}, // BitchSuit
 		ShinyPetSuit: {
+            Archetype: ExtendedArchetype.TYPED,
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
 				Options: [
 					{
