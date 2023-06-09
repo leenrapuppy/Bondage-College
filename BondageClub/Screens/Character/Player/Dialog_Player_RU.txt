@@ -3726,6 +3726,12 @@ Unzipped
 Расстегнутый
 Exposed
 Обнаженный
+Closed Up
+Закрытый
+Opened
+Открытый
+Classic
+Классический
 Wand Attachment
 Насадка для жезла
 SourceCharacter zips up DestinationCharacter suit.
@@ -3736,6 +3742,12 @@ SourceCharacter unzips DestinationCharacter suit and fully exposes TargetPronoun
 SourceCharacter расстегивает костюм DestinationCharacter и полностью обнажает TargetPronounPossessive грудь и киску.
 SourceCharacter attaches a wand to DestinationCharacter suit.
 SourceCharacter прикрепляет жезл к костюму DestinationCharacter .
+SourceCharacter close up DestinationCharacter suit.
+SourceCharacter застегивает костюм DestinationCharacter .
+SourceCharacter opened DestinationCharacter suit.
+SourceCharacter расстегивает костюм DestinationCharacter .
+SourceCharacter opened DestinationCharacter suit and fully exposes her breasts and pussy.
+SourceCharacter расстегивает костюм DestinationCharacter и полностью обнажает TargetPronounPossessive грудь и киску.
 Configure suit
 Настроить костюм
 Zip or unzip the suit

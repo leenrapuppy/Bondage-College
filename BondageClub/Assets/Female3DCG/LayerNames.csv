@@ -617,6 +617,11 @@ ItemArmsBitchSuitZips,Zippers
 ItemArmsBitchSuitStraps,Straps
 ItemArmsBitchSuitBuckles,Buckles
 ItemArmsBitchSuitLock,Locks
+ItemArmsShinyPetSuitLatex,Suit
+ItemArmsShinyPetSuitZips,Shine
+ItemArmsShinyPetSuitStraps,Straps
+ItemArmsShinyPetSuitBuckles,Buckles
+ItemArmsShinyPetSuitLock,Locks
 ItemArmsTentaclesLowerInner,Inner
 ItemArmsTentaclesLowerSucker,Suckers
 ItemArmsTentaclesLowerOuter,Outer
@@ -659,6 +664,8 @@ ItemNeckOrnateCollarCollar,Collar
 ItemNeckOrnateCollarGem,Gems
 ItemNeckHighStyleSteelCollarCollar,Collar
 ItemNeckHighStyleSteelCollarPanel,Panel
+ItemNeckPetSuitShockCollarCollar, Collar
+ItemNeckPetSuitShockCollarBuckles, Buckles
 ItemNeckShinySteelCollarCollar,Collar
 ItemNeckShinySteelCollarRing,Ring
 ItemNeckGothicCollarCollar,Collar

@@ -1140,6 +1140,45 @@ var AssetFemale3DCGExtended = {
 			],
 			ChangeWhenLocked: false,
 		}, // BitchSuit
+		ShinyPetSuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Closed",
+						Property: {
+							Type: null,
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
+						}
+					},
+					{
+						Name: "Open",
+						Property: {
+							Type: "z1",
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+						}
+					},
+					{
+						Name: "Exposed",
+						Property: {
+							Type: "z2",
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+						}
+					},
+					{
+						Name: "Classic",
+						Property: {
+							Type: "z3",
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
+						}
+					},
+				],
+				ChangeWhenLocked: false,
+			},
+		}, // ShinyPetSuit
 		LeatherArmbinder: {
 			Archetype: ExtendedArchetype.TYPED,
 			Options: [
@@ -4563,7 +4602,7 @@ var AssetFemale3DCGExtended = {
 						SetPose: ["AllFours"],
 						Hide: ["ItemArms", "ItemButt", "TailStraps", "Wings"],
 						HideItem: ["ItemMiscTeddyBear"],
-						HideItemExclude: ["ItemArmsBitchSuit", "ItemArmsBitchSuitExposed"],
+						HideItemExclude: ["ItemArmsBitchSuit", "ItemArmsBitchSuitExposed", "ItemArmsShinyPetSuit"],
 						Block: [
 							"ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemBoots",
 							"ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings",
