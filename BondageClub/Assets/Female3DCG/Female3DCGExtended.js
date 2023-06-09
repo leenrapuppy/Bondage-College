@@ -2536,7 +2536,7 @@ var AssetFemale3DCGExtended = {
 		}, // BonedNeckCorset
 		ShockCollar: {
 			Archetype: ExtendedArchetype.TYPED,
-			CopyConfig: { GroupNaautoautome: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
 			DialogPrefix: {
 				Header: "ItemNeckAccessoriesCollarShockUnitSelect",
 				Option: "ItemNeckAccessoriesCollarShockUnit",
