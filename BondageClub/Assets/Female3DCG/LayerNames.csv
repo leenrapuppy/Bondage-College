@@ -392,6 +392,7 @@ ItemFeetLeatherDeluxeAnkleCuffsCuffs,Cuffs
 ItemFeetLeatherDeluxeAnkleCuffsRings,Edging
 ItemFeetLeatherDeluxeAnkleCuffsBuckets,Buckles
 ItemFeetLeatherDeluxeAnkleCuffsChain,Chain
+ItemFeetLeatherDeluxeAnkleCuffsLock,Lock
 ItemFeetMedicalBedRestraintsBase,Bed Straps
 ItemFeetMedicalBedRestraintsStraps,Cuffs
 ItemFeetSturdyLeatherBeltsLowerBelt,Lower Belt
@@ -421,6 +422,7 @@ ItemLegsLeatherDeluxeLegCuffsCuffs,Cuffs
 ItemLegsLeatherDeluxeLegCuffsRings,Edging
 ItemLegsLeatherDeluxeLegCuffsBuckets,Buckles
 ItemLegsLeatherDeluxeLegCuffsChain,Chain
+ItemLegsLeatherDeluxeLegCuffsLock,Lock
 ItemLegsLegBinderLatex,Binder
 ItemLegsLegBinderBelts,Belts
 ItemLegsHobbleSkirtLatex,Skirt
@@ -532,6 +534,7 @@ ItemArmsLeatherCuffsRings,Rings
 ItemArmsLeatherDeluxeCuffsCuffs,Cuffs
 ItemArmsLeatherDeluxeCuffsRings,Edging
 ItemArmsLeatherDeluxeCuffsBuckets,Buckles
+ItemArmsLeatherDeluxeCuffsLock,Lock
 ItemArmsOrnateCuffsCuffs,Cuffs
 ItemArmsOrnateCuffsGems,Gems
 ItemArmsHighStyleSteelCuffsCuffs,Cuffs
@@ -651,6 +654,7 @@ ItemNeckLeatherCollarRing,Ring
 ItemNeckLeatherDeluxeCollarCollar,Collar
 ItemNeckLeatherDeluxeCollarRings,Edging
 ItemNeckLeatherDeluxeCollarBuckets,Buckles
+ItemNeckLeatherDeluxeCollarLock,Lock
 ItemNeckLeatherChokerLeather,Leather
 ItemNeckLeatherChokerMetal,Metal
 ItemNeckMaidCollarFrills,Frills

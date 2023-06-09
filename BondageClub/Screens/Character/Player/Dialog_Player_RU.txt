@@ -3748,6 +3748,8 @@ SourceCharacter opened DestinationCharacter suit.
 SourceCharacter расстегивает костюм DestinationCharacter .
 SourceCharacter opened DestinationCharacter suit and fully exposes her breasts and pussy.
 SourceCharacter расстегивает костюм DestinationCharacter и полностью обнажает TargetPronounPossessive грудь и киску.
+SourceCharacter chose the classic look of the costume on DestinationCharacter.
+SourceCharacter выбирает классический вид костюма на DestinationCharacter.
 Configure suit
 Настроить костюм
 Zip or unzip the suit
