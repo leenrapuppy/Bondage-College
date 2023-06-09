@@ -1141,8 +1141,6 @@ var AssetFemale3DCGExtended = {
 			ChangeWhenLocked: false,
 		}, // BitchSuit
 		ShinyPetSuit: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
 				Options: [
 					{
@@ -1177,7 +1175,6 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChangeWhenLocked: false,
-			},
 		}, // ShinyPetSuit
 		LeatherArmbinder: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2539,7 +2536,7 @@ var AssetFemale3DCGExtended = {
 		}, // BonedNeckCorset
 		ShockCollar: {
 			Archetype: ExtendedArchetype.TYPED,
-			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			CopyConfig: { GroupNaautoautome: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
 			DialogPrefix: {
 				Header: "ItemNeckAccessoriesCollarShockUnitSelect",
 				Option: "ItemNeckAccessoriesCollarShockUnit",
@@ -2557,6 +2554,18 @@ var AssetFemale3DCGExtended = {
 				Chat: "ItemNeckAccessoriesCollarAutoShockUnitSet",
 			},
 		}, // AutoShockCollar
+		PetSuitShockCollar: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarAutoShockUnit" },
+			Config: {
+				Dialog: {
+					Select: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
+					ModulePrefix: "ItemNeckAccessoriesCollarAutoShockUnitModule",
+					OptionPrefix: "ItemNeckAccessoriesCollarAutoShockUnitOption",
+					ChatPrefix: "ItemNeckAccessoriesCollarAutoShockUnitSet",
+				},
+			},
+		}, // PetSuitShockCollar
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
