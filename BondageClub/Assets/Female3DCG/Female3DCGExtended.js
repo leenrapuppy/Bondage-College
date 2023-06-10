@@ -1145,6 +1145,12 @@ var AssetFemale3DCGExtended = {
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
 				Options: [
 					{
+						Name: "Exposed",
+						Property: {
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+						}
+					},
+					{
 						Name: "Closed",
 						Property: {
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
@@ -1153,12 +1159,6 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Open",
-						Property: {
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
-					},
-					{
-						Name: "Exposed",
 						Property: {
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
 						}
