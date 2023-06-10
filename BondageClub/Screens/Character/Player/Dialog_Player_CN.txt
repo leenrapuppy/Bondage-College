@@ -4768,7 +4768,7 @@ Select the style.
 That side →
 那一侧 →
 Both
-两侧
+都有
 Select leg spreader width.
 选择分腿杆宽度.
 Narrow
@@ -6924,7 +6924,7 @@ Too many links
 Target not found
 目标未找到
 PortalLink established
-已建立传送么连接
+已建立传送门连接
 No functions detected
 未探测到功能
 Available functions detected:
