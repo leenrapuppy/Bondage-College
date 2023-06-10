@@ -1160,7 +1160,6 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Exposed",
 						Property: {
-							Type: "z2",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
 						}
 					},
