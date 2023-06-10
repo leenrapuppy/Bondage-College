@@ -1166,7 +1166,6 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Classic",
 						Property: {
-							Type: "z3",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
 							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
 						}
