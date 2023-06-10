@@ -880,6 +880,10 @@ Thread Right
 右侧线条
 Thread Left
 左侧线条
+Legs
+腿
+Joints
+关节
 Ears
 耳朵
 Right Eye
@@ -977,7 +981,7 @@ Wiring
  Ear Canal
 耳道
  Ear
-耳朵 
+耳朵
  Fuzz
 绒毛
  Face
@@ -985,7 +989,7 @@ Wiring
  Pantyhose
 裤袜
  Hair
-头发 
+头发
  Tank Top
 坎肩
  Collar
@@ -1006,21 +1010,31 @@ Pump
 泵
 Rebreather Bag
 循环呼吸袋
- Slit
-肉缝
- Portal Unit
+Latex
+乳胶
+Portal Unit
 传送单元
- Hex
+Hex
 六边形
- LED
+LED
 发光二极管
 Tablet
 平板电脑
-Latex
-乳胶
 Boot
 靴子
  Silencer
 隔音器
  Lips
 嘴唇
+Spreader Straps
+开阴器束带
+Spreader Clips
+开阴器架子
+Brush sticks
+刷子棒
+Brushes
+刷子
+Transparent Shield
+透明挡板
+Shield
+挡板

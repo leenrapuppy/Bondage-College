@@ -32,6 +32,12 @@ I have questions on the rules.
 Of course.  How can I help you?
 当然。有什么我可以帮你的？
 ###_PLAYER
+Tell me more about the cards.
+再跟我介绍一下卡牌。
+###_NPC
+It would be my pleasure.  What would you like to know about the cards?
+这是我的荣幸。关于卡牌你有什么想了解的？
+###_PLAYER
 Can we practice a game?
 我们可以来一场练习赛吗？
 ###_NPC
@@ -49,8 +55,8 @@ I need to go.  (Leave her.)
 Who can play this game?
 谁可以玩这个游戏？
 ###_NPC
-Anyone can play the game, there are no restrictions.  You can find players everywhere in the club.
-任何人都可以玩这个游戏，没有任何限制。你可以在俱乐部的任何地方找到玩家。
+Anyone can play the game, there are no restrictions.  You can find players everywhere in the club or invite them to play in your private room.
+任何人都可以玩这个游戏，没有任何限制。你可以在俱乐部的任何地方找到玩家，或者邀请他们去你的私人房间玩。
 ###_PLAYER
 How much does it cost?
 它要多少钱？
@@ -61,19 +67,19 @@ The game is free, each player gets the basic cards for no cost.  But if you want
 How do you win?
 你怎么赢？
 ###_NPC
-The goal of the game is to build the best BDSM club in town, obtaining 100 Fame before your opponent.
-游戏的目标是建立镇上最好的BDSM俱乐部，先于你的对手获得100点声望。
+The goal of the game is to build the best BDSM club in town.  You win by having 100 Fame or more at the end of your turn.
+游戏的目标是建立镇上最好的BDSM俱乐部。在你的回合结束时，拥有100点或更多声望来取胜。
 ###_PLAYER
 How do I gain fame?
 我如何获得声望？
 ###_NPC
-You need to play cards that will increase your fame.  You'll need money to make your club bigger and invite more members.
+You need to play cards that will increase your fame.  You'll also need money to make your club bigger and invite more members.
 你需要打牌来增加你的声望。你也需要金钱来扩大你的俱乐部并邀请更多会员。
 ###_PLAYER
-Which card can I play?
-我可以打出哪张卡牌？
+Which deck can I use?
+我可以使用哪个套牌？
 ###_NPC
-You can use the basic deck or build your own deck.  All decks must have 30 cards.
+You can use the default deck or build your own deck.  All decks must have 30 cards.
 你可以使用基本套牌或构建自己的套牌。所有套牌必须有30张牌。
 ###_PLAYER
 Thanks for your time.
@@ -85,26 +91,62 @@ No problem.  Is there anything else you want?
 Who begins the game?
 谁先手开始游戏？
 ###_NPC
-It's random.  The player that begins draws 5 cards, the other draws 6.
-随机决定。先手玩家抽5张牌，另一个玩家抽6张。
+It's random.  The player that begins draws 5 cards, the other draws 6.  The turns alternate from player to player.
+随机决定。先手玩家抽5张牌，另一个玩家抽6张。玩家之间轮流进行回合。
 ###_PLAYER
-How many cards can I play?
-我可以打出多少张牌？
+What do I do when it's my turn?
+在我的回合里我要做什么？
 ###_NPC
-You can only play one card per turn.  But some cards might alter that rule when they are in play.
-你每回合只能打一张牌。但有些牌在比赛时可能会改变这一规则。
+You can play a card from your hand or draw an additional card.  Both playing and drawing will end your turn.
+你可以从手里打出牌或者额外抽一张牌。打牌或者抽牌都会结束你的回合。
 ###_PLAYER
-When do I gain money and fame?
-我什么时候获得金钱和声望？
+What happens when my turn ends?
+当我的回合结束时会发生什么？
 ###_NPC
-At the end of your turn.
-在你的回合结束时。
+Depending on the cards played on your board, you will gain or lose Fame & Money.  If you reach 100 Fame you win.  Then the other player turn begins.
+取决于你的面板上的卡牌，你获得或者失去声望和金钱。如果你到达了100声望，你就赢了。之后另一位玩家的回合开始。
 ###_PLAYER
 What happens if I go negative?
 如果我变成负数会怎样？
 ###_NPC
-Fame can go negative, taking you further away from winning.  If money goes negative, you cannot gain any new fame.
-声望可能会变坏，让你离胜利更远。如果金钱变成负数，你就无法获得任何声望。
+Fame can go negative, taking you further away from winning.  If your Money is negative, you will not gain Fame at the end of your turn and cannot win the game.
+声望可以是负数，并让你离胜利更远。如果金钱变成负数，你在回合结束时无法获得任何声望，并且无法胜利。
+###_PLAYER
+How many cards can be present on my board?
+我的面板上可以有多少张牌？
+###_NPC
+It depends on your club size.  Your club begins as an apartment that can accommodate 5 members.  You can upgrade it with Money to allow more members.
+根据你的俱乐部规模决定。你的俱乐部开始时是公寓，并且能容纳5个会员。你可以花费金钱升级它，从而容纳更多会员。
+###_PLAYER
+What kinds of cards are available?
+有哪些卡牌可用？
+###_NPC
+Member cards have a girl image, they will stay on your board after being played.  Event cards have an object image and will only have a one-time effect.
+会员卡牌上有一个女孩的配图，这些牌会在打出后保留在你的面板上。事件卡牌有一个物品配图，并且只有一次性的效果。
+###_PLAYER
+Why cards have different colors?
+卡牌为什么有不同颜色？
+###_NPC
+White cards have no requirement to be played.  Gray cards require a cottage.  Green require a house.  Blue require a mansion.  Red require a manor.
+白色卡牌打出没有需求。灰色卡牌需要一个小屋。绿色卡牌需要房屋。蓝色卡牌需要豪宅。红色卡牌需要庄园。
+###_PLAYER
+What about gold cards?
+金色卡牌是什么？
+###_NPC
+Gold cards are unique cards that you can only get by defeating other club members.  They work like the regular cards though.
+金色卡牌是特殊的卡牌，你只能通过击败其他俱乐部会员获得。这些卡牌如同普通的卡牌一般运作。
+###_PLAYER
+What are the numbers on the top left?
+左上角的那些数字是什么？
+###_NPC
+The number in the house is the required club level, matching the color.  The one in the square is Fame per turn.  The one in the circle is Money per turn.
+在房屋里的数字是俱乐部登记，对应着颜色。在方块里的是每回合的声望。在圆圈里的是每回合的金钱。
+###_PLAYER
+Cards have categories?
+卡牌有类别吗？
+###_NPC
+Yes, these categories go below the image.  For example, a card with the Maid category will have an impact on all other cards that gives bonuses for maids.
+是的，卡牌的类别在图片下面。例如，有女仆类别的卡牌，会影响所有其他因为女仆而产生增益的卡牌。
 ###_PLAYER
 (Play a Club Card game with her.)
 （和她玩俱乐部纸牌游戏。）

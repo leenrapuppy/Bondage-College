@@ -16,16 +16,32 @@ Money:
 金钱：
 Play this card
 打出这张卡牌
-Draw a card
-抽一张卡牌
-Concede
+Draw and end your turn
+抽牌并结束你的回合
+Go bankrupt
+宣布破产
+Concede the game
 认输
 Yes
 是
 No
 否
+Deck #
+套牌#
+Deck #DECKNUMBER isn't valid.  Using the default deck instead.
+套牌#DECKNUMBER不可用。改为使用默认套牌。
+Select the deck to play with.
+选择要游玩的套牌。
+You will play with deck #DECKNUMBER.
+你将要使用套牌#DECKNUMBER游玩。
+Go bankrupt and start a fresh new club?
+宣布破产并重新开始一个新的俱乐部？
 Do you really want to concede this game?
 你真的想要在这场游戏里认输吗？
+You've gone bankrupt and started a new club.
+你已经宣布破产，并开始了一个新的俱乐部。
+Your opponent has gone bankrupt and started a new club.
+你的对手已经宣布破产，并开始了一个新的俱乐部。
 Congratulations!  You reached 100 Fame and won the game.
 恭喜！你达到了100声望，并赢得了这场游戏。
 Your opponent reached 100 Fame and won the game.
@@ -69,7 +85,7 @@ PLAYERNAME花费MONEY升级到豪宅。
 PLAYERNAME upgraded to Manor for MONEY.
 PLAYERNAME花费MONEY升级到庄园。
 Liability
-可靠度
+闹事者
 Staff
 工作人员
 Police
@@ -117,13 +133,13 @@ Exhibitionist
 Party Animal
 聚会动物
 <F>The best plans always begin by: Hold my beer.
-<F>最好的计划开头：那起啤酒。
+<F>最好的计划开头：拿起我的啤酒。
 Auctioneer
 拍卖师
 Double all bonuses from auctions.
 拍卖所有加价翻倍。
 Uptown Girl
-麻辣宝贝
+上城女孩
 <F>She's been living in her white bread world.
 <F>她活在她的精致世界里。
 Tourist
@@ -148,20 +164,24 @@ Blue Twin
 如果蓝色双子在场，每回合+4声望。
 Rope Bunny
 小绳兔
-+1 Money per turn if at least one Dominant is present.
-如果至少一个支配者在场，每回合+1金钱。
++2 Money per turn if at least one Dominant is present.
+如果至少一个支配者在场，每回合+2金钱。
+Shy Submissive
+羞涩顺从者
+Will leave your club at end of turn if there are more than 6 members.
+如果有超过6个会员在场，在回合结束时会离开你的俱乐部。
 Waitress
 女招待
-+1 Money per turn if Party Animal is present.
-如果聚会动物在场，每回合+1金钱。
++1 Money per turn if Party Animal is present.  +1 Money per turn if Tourist is present.
+如果聚会动物在场，每回合+1金钱。如果游客在场，每回合+1金钱。
 Bouncer
 门卫
 <F>Your ass will bounce on the street if you make me mad.
 <F>如果你惹我生气，你的屁股会撞上街。
 Accountant
 会计
-+1 Money per turn at Cottage level or better.  +1 Money per turn at Manor level.
-如果在小屋等级或更高，每回合+1金钱。如果在庄园等级，每回合+1金钱。
++1 Money per turn at House level or better.  +1 Money per turn at Manor level.
+如果在房屋等级或更高，每回合+1金钱。如果在庄园等级，每回合+1金钱。
 Secretary
 秘书
 Your 3 turns event cards will last one extra turn.
@@ -180,32 +200,36 @@ Policewoman
 <F>我为了免费的手铐选择这个工作。
 Pusher
 毒贩
-Will leave the club at the end of a turn if a Police is present.
+Will leave the club at end of turn if a Police is present.
 如果警察在场，在回合结束时会离开俱乐部。
 Junkie
 瘾君子
-+2 Money per turn if Pusher is present.  Will leave the club at the end of a turn if a Police is present.
-如果毒贩在场，每回合+2金钱。如果警察在场，在回合结束时会离开俱乐部。
++3 Money per turn if Pusher is present.  Leave club at end of turn if a Police is present.
+如果毒贩在场，每回合+3金钱。如果警察在场，在回合结束时会离开俱乐部。
 Zealous Cop
 狂热条子
 <F>Rules are rules, and I'll make sure they will be followed.
 <F>规则就是规则，我会保证规则被遵守。
+Gangster
+歹徒
++2 Money per turn per Criminal present.  Leave the club at end of turn if a Police is present.
+每有一个罪犯在场，每回合+2金钱。如果警察在场，在回合结束时会离开俱乐部。
 Maid Lover
 女仆爱好者
 +1 Money per turn for each Maid present.
 每有一个女仆在场，每回合+1金钱。
-College-Girl Fan
-大学女孩爱好者
-+1 Money per turn per College Student present.
-每有一个大学学生在场，每回合+1金钱。
+Diaper Lover
+尿布爱好者
++1 Money per turn for each ABDL Baby present.
+每有一个ABDL宝宝在场，每回合+1金钱。
 Masochist
 受虐狂
 +1 Fame per turn and +1 Money per turn if at least one Dominant is present.
 如果至少一个支配者在场，每回合+1声望，每回合+1金钱。
 Feet Worshiper
 足崇拜者
-+2 Money per turn if at least one Dominant is present.
-如果至少一个支配者在场，每回合+2金钱。
++2 Money per turn if at least one Porn Actress or ABDL Mommy is present.
+如果至少有一个色情女演员或者ABDL妈咪在场，每回合+2金钱。
 Fin-Dom Simp
 取款机小虾奴
 +1 Money per turn for each Dominant present.
@@ -215,7 +239,7 @@ Fin-Dom Whale
 +1 Money per turn for each Dominant present and +2 Money per turn for each Mistress present.
 如果至少一个支配者在场，每回合+1金钱。每有一个女主人在场，每回合+2金钱。
 Porn Addict
-色情成瘾
+色情成瘾者
 +1 Money per turn for each Porn member present.
 每有一个色情会员在场，每回合+1金钱
 Porn Amateur
@@ -226,8 +250,8 @@ Porn Movie Director
 色情电影导演
 +1 Fame per turn and +1 Money per turn for each Porn Actress present.
 每有一个色情演员在场，每回合+1声望，每回合+1金钱。
-Porn Professional
-色情专家
+Porn Lesbian
+色情女同性恋
 +1 Fame per turn if at least one other Porn Actress is present.
 至少有一个其他色情演员在场，每回合+1声望。
 Porn Veteran
@@ -237,7 +261,7 @@ Porn Veteran
 Porn Star
 色情明星
 <F>My father would not approve, until I got him a new house.
-<F>我爸不会同意的，直到我给他买了间房子。
+<F>我爸不会同意的，直到我给他买了新房子。
 Rookie Maid
 菜鸟女仆
 <F>I can't wait for the sorority initiation.
@@ -252,8 +276,8 @@ Regular Maid
 <F>要续杯饮料吗，女士？
 French Maid
 法国女仆
-Pour un service impécable et coquin.
-（法语）为您带来无可挑剔的调皮服务。
+<F>Pour un service impécable et coquin.
+<F>（法语）为您带来无可挑剔的调皮服务。
 Head Maid
 女仆长
 +1 Fame per turn for each other Maid present.
@@ -318,8 +342,8 @@ Pyramid Schemer
 <F>你召集了五个朋友，这些人召集了五个朋友，这些人召集了五个朋友
 Ponzi Schemer
 庞氏骗子
-<F>This police ankle bracelet isn't real, it's a kink of mine.
-<F>这个警察的脚链不是真的，这只是我的癖好。
+<F>Trust me, this police ankle bracelet is only a kink of mine.
+<F>相信我，这个警用脚链不是真的，这只是我的癖好。
 Party Pooper
 派对冷场客
 <F>Why is everyone so boring nowadays?
@@ -336,6 +360,14 @@ No-Fap Advocate
 不撸倡议者
 -2 Fame per turn for each Porn Actress present.
 每有一个色情演员在场，每回合-2声望。
+Pandora Infiltrator
+潘多拉潜入者
+<F>Pssssst
+<F>嘘——
+Uncontrollable Sub
+失控顺从者
+-1 Fame per turn for each Dominant present.  -1 Fame per turn for each Mistress present.
+每有一个支配者在场，每回合-1声望。每有一个女主人在场，每回合-1声望。
 Baby Girl
 女宝宝
 +1 Money per turn if at least one ABDL Mommy is present.
@@ -344,10 +376,10 @@ Caring Mother
 贴心妈妈
 <F>Mother do you think they'll try to break my balls.
 <F>妈妈，你觉得她们会弄坏我的球球吗。
-Diaper Lover
-尿布爱好者
-+2 Money per turn if at least one Maid is present.
-如果至少一个女仆在场，每回合+2金钱。
+Diaper Baby
+尿布宝宝
++3 Money per turn if at least one Maid is present.
+如果至少一个女仆在场，每回合+3金钱。
 Sugar Baby
 糖果宝贝
 <F>This baby wants a diamond pacifier.
@@ -356,14 +388,18 @@ Babysitter
 保姆
 +2 Fame per turn for each ABDL Baby present.
 每有一个ABDL宝宝在场，每回合+2声望。
+Soap Opera Mother
+肥皂剧妈妈
++25 Fame and -25 Money when she enters your club if at least one ABDL Baby is present.
+如果至少一个ABDL宝宝在场，当她进入你的俱乐部时，+25声望并-25金币。
 Amanda
 Amanda
 Immune to Ransomware.
 免疫勒索软件。
 Sarah
 Sarah
-+1 Fame per turn if Amanda is present.  -1 Fame per turn if Sidney is present.
-如果Amanda在场，每回合+1声望。如果Sidney在场，每回合-1声望。
++2 Fame per turn if Amanda is present.  -2 Fame per turn if Sidney is present.
+如果Amanda在场，每回合+2声望。如果Sidney在场，每回合-2声望。
 Sidney
 Sidney
 Double all College Party bonuses.
@@ -374,16 +410,18 @@ Remove one of your member cards when she enters your club.
 当她进入你的俱乐部时，移除一张你的会员卡牌。
 College Freshwoman
 大学女新生
-+1 Fame per turn if Julia is present.
-如果Julia在场，每回合+1声望。
++1 Fame per turn if Julia is present.  +1 Fame per turn if Yuki is present.
+如果Julia在场，每回合+1声望。如果Yuki在场，每回合+1声望。
 College Nerd
 大学书呆子
-+1 Money per turn if Julia is present.
-如果Julia在场，每回合+1金钱。
-College Hidden Genius
-大学的隐藏天才
-+4 Fame per turn if Mildred is present.
-如果Mildred在场，每回合+4声望
++1 Money per turn if Julia is present.  +1 Fame per turn if Yuki is present.
+如果Julia在场，每回合+1声望。如果Yuki在场，每回合+1声望。
+Hidden Genius
+隐藏天才
++5 Fame per turn if Mildred is present.
+如果Mildred在场，每回合+5声望
+Substitute Teacher
+代课老师
 +1 Fame per turn for each College Student present.
 每有一个大学学生在场，每回合+1声望。
 Julia
@@ -396,5 +434,21 @@ Yuki
 <F>闭上脑子或者闭上腿，你都无法学习。
 Mildred
 Mildred
-<F>In my class,  silence is gold and will be enforced.
+<F>In my class, silence is gold and will be enforced.
 <F>在我的课上，沉默是金，并且强制执行。
+Scratch and Win
+刮刮彩
++7 Money.
++7金钱。
+Kinky Garage Sale
+变态车库销售会
++12 Money.
++12金钱。
+Second Mortgage
+次级贷款
++20 Money.
++20金币。
+Foreign Investment
+外部投资
++30 Money.
++30金钱。

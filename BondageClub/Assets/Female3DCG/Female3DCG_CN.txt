@@ -184,6 +184,8 @@ Smoochy Lipstick
 浪漫唇膏
 Lipstick Marks
 唇印
+Bug Legs
+虫虫腿
 Necklace
 项链
 Fancy Necklace
@@ -720,6 +722,8 @@ Baseball Cap Front
 棒球帽前
 Swim Cap
 游泳帽
+Cowboy Hat
+牛仔帽
 Hair Accessory
 发饰
 Hair Ribbon 1
@@ -968,6 +972,8 @@ Bunny Tail Strap
 穿戴式兔子尾巴
 Dragon Tail Strap
 穿戴式龙尾
+Plumed Tail Strap
+穿戴式蓬顶尾巴
 Wings
 翅膀
 Succubus Feather
@@ -1154,6 +1160,14 @@ Style 47
 样式 47
 Style 48
 样式 48
+Style 49
+样式 49
+Style 50
+样式 50
+Style 51
+样式 51
+Style 51b
+样式 51b
 Facial Hair
 胡子
 Goatee
@@ -1180,12 +1194,6 @@ Style 19b
 样式 19b
 Style 20b
 样式 20b
-Style 49
-样式 49
-Style 50
-样式 50
-Style 51
-样式 51
 Style 52
 样式 52
 Style 53
@@ -1540,8 +1548,10 @@ Hybrid Chastity Belt
 混合贞操带
 Obedience Belt
 服从贞操带
-Portal Panties
-传送门内裤
+PortalLink Panties
+传送门连接内裤
+Heavy Duty Belt
+重型使命贞操带
 Torso
 躯干
 Leather Harness
@@ -1890,8 +1900,8 @@ Medical Injector
 医用注射器
 Mug
 马克杯
-Tablet
-平板电脑
+PortalLink Tablet
+传送门连接平板
 Neck
 颈部
 Leather Collar
@@ -2376,6 +2386,8 @@ Mistress Padlock Key
 女王锁钥匙
 Pandora's Box Padlock Key
 潘多拉魔盒锁钥匙
+PortalLink Padlock
+传送门连接锁
 Metal Cuffs Key
 手铐钥匙
 Lockpicks
