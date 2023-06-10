@@ -1230,7 +1230,10 @@ function DialogMenuButtonBuild(C) {
 	}
 
 	else if (DialogMenuMode === "locking") {
-		// No buttons there
+		if ((DialogInventory != null) && (DialogInventory.length > 12)) {
+			DialogMenuButton.push("Next");
+			DialogMenuButton.push("Prev");
+		}
 	}
 
 	// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
