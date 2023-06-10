@@ -691,10 +691,12 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
 function ExtendedItemCustomDraw(Name, X, Y, drawImage=false, IsSelected=false) {
 	// Use a `name` for a "fictional" item option for interfacing with the extended item API
 	/** @type {ExtendedItemOption} */
-	const Option = { OptionType: "ExtendedItemOption", Name: Name };
+	const newOption = { OptionType: "ExtendedItemOption", Name: Name };
+	/** @type {ExtendedItemOption} */
+	const previousOption = { OptionType: "ExtendedItemOption", Name: `${Name}Previous` };
 	/** @type {ElementData<{ drawImage: boolean }>} */
 	const elementData = { position: [X, Y, 225, drawImage ? 275 : 50], drawImage };
-	return ExtendedItemDrawButton(Option, Option, "", elementData, DialogFocusItem, IsSelected);
+	return ExtendedItemDrawButton(newOption, previousOption, "", elementData, DialogFocusItem, IsSelected);
 }
 
 /**
@@ -712,8 +714,10 @@ function ExtendedItemCustomClick(Name, Callback, Worn=false) {
 	} else {
 		// Check if the option is blocked/limited/etc.
 		/** @type {ExtendedItemOption} */
-		const Option = { OptionType: "ExtendedItemOption", Name: Name };
-		const requirementMessage = ExtendedItemRequirementCheckMessage(null, CharacterGetCurrent(), DialogFocusItem, Option, Option);
+		const newOption = { OptionType: "ExtendedItemOption", Name: Name };
+		/** @type {ExtendedItemOption} */
+		const previousOption = { OptionType: "ExtendedItemOption", Name: `${Name}Previous` };
+		const requirementMessage = ExtendedItemRequirementCheckMessage(null, CharacterGetCurrent(), DialogFocusItem, newOption, previousOption);
 		if (requirementMessage) {
 			DialogExtendedMessage = requirementMessage;
 			return false;
