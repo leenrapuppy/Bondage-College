@@ -1233,7 +1233,7 @@ function AppearanceClick() {
 					// Open the clothing group screen
 					// This is a cheat to get DialogInventoryBuild to work and reuse its output. We don't actually need the group.
 					C.FocusGroup = /** @type {AssetItemGroup} */ (Group);
-					DialogInventoryBuild(C, null, false);
+					DialogInventoryBuild(C, true, false);
 					AppearancePreviewBuild(C, true);
 					CharacterAppearanceCloth = InventoryGet(C, C.FocusGroup.Name);
 					CharacterAppearanceMode = "Cloth";
@@ -1308,7 +1308,7 @@ function AppearanceClick() {
 							DialogExtendItem(CurrentItem);
 						} else {
 							CharacterAppearanceSetItem(C, C.FocusGroup.Name, DialogInventory[I].Asset);
-							DialogInventoryBuild(C, DialogInventoryOffset);
+							DialogInventoryBuild(C);
 							AppearancePreviewBuild(C, true);
 							AppearanceMenuBuild(C);
 						}

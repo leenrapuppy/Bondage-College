@@ -1230,7 +1230,10 @@ function DialogMenuButtonBuild(C) {
 	}
 
 	else if (DialogMenuMode === "locking") {
-		// No buttons there
+		if ((DialogInventory != null) && (DialogInventory.length > 12)) {
+			DialogMenuButton.push("Next");
+			DialogMenuButton.push("Prev");
+		}
 	}
 
 	// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
@@ -1392,16 +1395,18 @@ function DialogCanUseFamilyLockOn(target) {
  * Build the inventory listing for the dialog which is what's equipped,
  * the player's inventory and the character's inventory for that group
  * @param {Character} C - The character whose inventory must be built
- * @param {number} [Offset] - The offset to be at, if specified.
+ * @param {boolean} [resetOffset=false] - The offset to be at, if specified.
  * @param {boolean} [locks=false] - If TRUE we build a list of locks instead.
  * @returns {void} - Nothing
  */
-function DialogInventoryBuild(C, Offset, locks = false) {
+function DialogInventoryBuild(C, resetOffset=false, locks=false) {
 
-	// Make sure there's a focused group
-	DialogInventoryOffset = Offset == null ? 0 : Offset;
+	if (resetOffset)
+		DialogInventoryOffset = 0;
 
 	DialogInventory = [];
+
+	// Make sure there's a focused group
 	if (C.FocusGroup == null) return;
 
 	if (locks) {
@@ -1410,6 +1415,7 @@ function DialogInventoryBuild(C, Offset, locks = false) {
 				DialogInventoryAdd(C, item, false);
 			}
 		}
+		DialogInventoryOffset = Math.max(0, Math.min(DialogInventory.length, DialogInventoryOffset));
 		DialogInventorySort();
 		return;
 	}
@@ -1480,6 +1486,7 @@ function DialogInventoryBuild(C, Offset, locks = false) {
 
 	}
 
+	DialogInventoryOffset = Math.max(0, Math.min(DialogInventory.length, DialogInventoryOffset));
 	DialogInventorySort();
 }
 
@@ -1980,8 +1987,9 @@ function DialogInventoryTogglePermission(item, worn) {
  * Changes the dialog mode and perform the initial setup.
  *
  * @param {DialogMenuMode} mode The new mode for the dialog.
+ * @param {boolean} reset Whether to reset the mode back to its defaults
  */
-function DialogChangeMode(mode) {
+function DialogChangeMode(mode, reset=false) {
 	// In permission-mode, send a character update so that others
 	// catch up on our (maybe) updated item permissions
 	if (DialogMenuMode == "permissions" && CurrentScreen == "ChatRoom") {
@@ -1997,6 +2005,7 @@ function DialogChangeMode(mode) {
 		C.FocusGroup = DialogExpressionGroup;
 	}
 
+	const modeChange = DialogMenuMode !== mode || reset;
 	DialogMenuMode = mode;
 
 	// Clear status so that messages don't bleed through from one group to another
@@ -2010,7 +2019,7 @@ function DialogChangeMode(mode) {
 		case "permissions":
 		case "items":
 		case "locked":
-			DialogInventoryBuild(C, null);
+			DialogInventoryBuild(C, modeChange);
 			DialogMenuButtonBuild(C);
 			DialogBuildActivities(C);
 			// Ensure we don't leave that set, that's only for "locking" mode
@@ -2018,7 +2027,7 @@ function DialogChangeMode(mode) {
 			break;
 
 		case "locking":
-			DialogInventoryBuild(C, null, true);
+			DialogInventoryBuild(C, true, true);
 			DialogMenuButtonBuild(C);
 			DialogBuildActivities(C);
 			break;
@@ -2101,7 +2110,7 @@ function DialogChangeFocusToGroup(C, Group) {
 		// If we're changing permissions on ourself, don't change to the item list
 		// Same for activities, keep us in that mode if the focus moves around
 		if (!(DialogMenuMode === "permissions" && C.IsPlayer() || DialogMenuMode === "activities")) {
-			DialogChangeMode("items");
+			DialogChangeMode("items", true);
 		}
 		// Set the mode back to itself to trigger a refresh of the state variables.
 		DialogChangeMode(DialogMenuMode);
@@ -2588,7 +2597,7 @@ function DialogDrawCrafting(C, Item) {
  */
 function DialogDrawItemMenu(C) {
 	// Safe-guard against the item list not being set
-	if (DialogInventory == null) DialogInventoryBuild(C, 0, DialogMenuMode === "locking");
+	if (DialogInventory == null) DialogInventoryBuild(C, true, DialogMenuMode === "locking");
 
 	CommonGenerateGrid(DialogInventory, DialogInventoryOffset, DialogInventoryGrid, (item, x, y, width, height) => {
 		const Hover = MouseIn(x, y, width, height) && !CommonIsMobile;

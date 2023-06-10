@@ -294,7 +294,7 @@ function SarahCheckShackles() {
 	SarahActivityRun();
 	IntroductionSetZone("ItemArms");
 	Player.FocusGroup = null;
-	DialogInventoryBuild(Sarah);
+	DialogInventoryBuild(Sarah, true);
 	Sarah.CurrentDialog = DialogFind(Sarah, "FoundWayToUnlock");
 }
 
