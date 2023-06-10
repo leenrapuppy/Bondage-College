@@ -5102,7 +5102,7 @@ var AssetFemale3DCG = [
 				SelfUnlock: false
 			},
 			{
-				Name: "ShinyPetSuit", Gender: "F", Fetish: ["Latex", "Pet"], Priority: 21, Value: 1, Difficulty: 20, SelfBondage: 6, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, Top: 150,
+				Name: "ShinyPetSuit", Gender: "F", Fetish: ["Latex", "Pet"], Priority: 21, Value: 100, Difficulty: 20, SelfBondage: 6, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, Top: 150,
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel", "HasBreasts"],
 				AllowPose: ["BackElbowTouch", "Kneel", "AllFours"],
 				AllowActivePose: ["BackElbowTouch", "Kneel", "AllFours"],
@@ -5135,7 +5135,7 @@ var AssetFemale3DCG = [
 					{ Name: "Buckles_Closed2", AllowTypes: ["Classic"], CopyLayerColor: "Buckles", },
 					{ Name: "Buckles_Open", AllowTypes: ["Open"], CopyLayerColor: "Buckles", },
 					{ Name: "Lock", LockLayer: true, AllowTypes: ["Classic", "Exposed", "Open"], AllowColorize: true},
-					{ Name: "Lock_Closed", LockLayer: true, AllowColorize: true, AllowTypes: [""], CopyLayerColor: "Lock", },
+					{ Name: "Lock_Closed", LockLayer: true, AllowColorize: true, AllowTypes: ["Closed"], CopyLayerColor: "Lock", },
 				],
 				SelfUnlock: false
 			},
