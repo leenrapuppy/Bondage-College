@@ -1249,7 +1249,7 @@ function CharacterRefreshDialog(C) {
 			return;
 		}
 	} else if (DialogMenuMode === "locking" || DialogMenuMode === "locked") {
-		if (!focusItem || DialogMenuMode === "locking" && !DialogCanCheckLock(C, focusItem)) {
+		if (!focusItem || DialogMenuMode === "locked" && !DialogCanCheckLock(C, focusItem)) {
 			// Focused item was removed, or lost its lock
 			DialogChangeMode("items");
 		} else {
