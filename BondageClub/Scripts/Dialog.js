@@ -1342,11 +1342,50 @@ function DialogCanUseCraftedItem(C, Craft) {
 		if ((A.Name == Craft.Item) && A.OwnerOnly && !C.IsOwnedByPlayer()) return false;
 		if ((A.Name == Craft.Item) && A.LoverOnly && !C.IsLoverOfPlayer()) return false;
 		if ((A.Name == Craft.Item) && A.FamilyOnly && !C.IsFamilyOfPlayer()) return false;
-		if ((Craft.Lock != null) && (A.Name == Craft.Lock) && A.OwnerOnly && !C.IsOwnedByPlayer()) return false;
-		if ((Craft.Lock != null) && (A.Name == Craft.Lock) && A.LoverOnly && !C.IsLoverOfPlayer()) return false;
-		if ((Craft.Lock != null) && (A.Name == Craft.Lock) && A.FamilyOnly && !C.IsFamilyOfPlayer()) return false;
+		if (Craft.Lock != null && A.Name === Craft.Lock) {
+			if (A.OwnerOnly && !DialogCanUseOwnerLockOn(C)) return false;
+			if (A.LoverOnly && !DialogCanUseLoverLockOn(C)) return false;
+			if (A.FamilyOnly && !DialogCanUseFamilyLockOn(C)) return false;
+		}
 	}
 	return true;
+}
+
+/**
+ * Returns TRUE if the player can use owner locks on the target character
+ * @param {Character} target - The target to (potentially) lock
+ * @returns {Boolean} - TRUE if the player can use owner locks on the target, FALSE otherwise
+ */
+function DialogCanUseOwnerLockOn(target) {
+	return target.IsPlayer()
+		? !LogQuery("BlockOwnerLockSelf", "OwnerRule")
+		: target.IsOwnedByPlayer();
+}
+
+/**
+ * Returns TRUE if the player can use lover locks on the target character
+ * @param {Character} target - The target to (potentially) lock
+ * @returns {Boolean} - TRUE if the player can use lover locks on the target, FALSE otherwise
+ */
+function DialogCanUseLoverLockOn(target) {
+	return target.IsPlayer()
+		? !LogQuery("BlockLoverLockSelf", "LoverRule")
+		: target.IsOwnedByPlayer()
+			? !LogQueryRemote(target, "BlockLoverLockOwner", "LoverRule")
+			: target.IsLoverOfPlayer();
+}
+
+/**
+ * Returns TRUE if the player can use family locks on the target character
+ * @param {Character} target - The target to (potentially) lock
+ * @returns {Boolean} - TRUE if the player can use family locks on the target, FALSE otherwise
+ */
+function DialogCanUseFamilyLockOn(target) {
+	return target.IsPlayer()
+		? !LogQuery("BlockOwnerLockSelf", "OwnerRule")
+		: target.IsOwner() // Owner is in family, but you can't use family locks on them
+			? false
+			: target.IsFamilyOfPlayer();
 }
 
 /**
