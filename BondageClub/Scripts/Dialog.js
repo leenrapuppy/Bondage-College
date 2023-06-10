@@ -865,6 +865,13 @@ function DialogModeShowsInventory() {
 }
 
 /**
+ * Helper used to check whether the player is in the Appearance screen
+ */
+function DialogIsInWardrobe() {
+	return CurrentScreen === "Appearance";
+}
+
+/**
  * Leaves the item menu for both characters.
  *
  * This exits the item-selecting UI and switches back to the current character's dialog options.
@@ -889,7 +896,10 @@ function DialogLeaveFocusItem() {
 			DialogChangeMode("items");
 	} else if (DialogFocusItem != null) {
 		ExtendedItemExit();
-		if (!DialogFocusItem)
+		// Special-case for when extended screens are used from the wardrobe, as FocusGroup doesn't make sense there
+		if (DialogIsInWardrobe())
+			DialogLeave();
+		else if (!DialogFocusItem)
 			DialogChangeMode("items");
 	}
 }
