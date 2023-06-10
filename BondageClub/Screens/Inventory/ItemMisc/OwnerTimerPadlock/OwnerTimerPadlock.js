@@ -72,7 +72,7 @@ function InventoryItemMiscOwnerTimerPadlockDraw(validator=InventoryItemMiscOwner
 	}
 
 	// Draw buttons to add/remove time if available
-	if (Player.CanInteract() && C.IsOwnedByPlayer()) {
+	if (Player.CanInteract() && validator(C)) {
 		DrawButton(1100, 910, 250, 70, DialogFindPlayer("AddTimerTime"), "White");
 		DrawBackNextButton(1400, 910, 250, 70, OwnerTimerChooseList[OwnerTimerChooseIndex] + " " + DialogFindPlayer("Hours"), "White", "",
 			() => OwnerTimerChooseList[(OwnerTimerChooseList.length + OwnerTimerChooseIndex - 1) % OwnerTimerChooseList.length] + " " + DialogFindPlayer("Hours"),
