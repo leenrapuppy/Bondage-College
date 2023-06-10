@@ -7,6 +7,7 @@ var ClubCardColor = ["#808080", "#FFFFFF", "#E0E0E0", "#D0FFD0", "#D0D0FF", "#FF
 var ClubCardOpponent = null;
 var ClubCardHover = null;
 var ClubCardFocus = null;
+var ClubCardTextCache = null;
 var ClubCardTurnIndex = 0;
 var ClubCardTurnCardPlayed = 0;
 var ClubCardTurnEndDraw = false;
@@ -1269,11 +1270,15 @@ function ClubCardEndGame(Victory) {
 }
 
 function ClubCardTextGet(Text) {
-	if ((CommonCSVCache != null) && (CommonCSVCache["Screens/MiniGame/ClubCard/Text_ClubCard.csv"] != null))
-		for (let T of CommonCSVCache["Screens/MiniGame/ClubCard/Text_ClubCard.csv"])
-			if (T[0] == Text)
-				return T[1];
-	return "";
+	if(!ClubCardTextCache){
+		const CardTextPath = "Screens/MiniGame/ClubCard/Text_ClubCard.csv";
+		ClubCardTextCache = TextAllScreenCache.get(CardTextPath);
+		if(!ClubCardTextCache){
+			ClubCardTextCache = new TextCache(CardTextPath,"");
+			TextAllScreenCache.set(CardTextPath, ClubCardTextCache);
+		}
+	}
+	return ClubCardTextCache ? ClubCardTextCache.get(Text) : "";
 }
 
 /**
