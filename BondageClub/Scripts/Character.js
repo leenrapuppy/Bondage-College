@@ -985,7 +985,7 @@ function CharacterLoadPose(C) {
 
 	for (let i = 0, Item = null; i < C.Appearance.length; i++) {
 		Item = C.Appearance[i];
-		C.AllowedActivePose.concat(InventoryGetItemProperty(Item, "AllowActivePose"));
+		C.AllowedActivePose.push(...InventoryGetItemProperty(Item, "AllowActivePose"));
 		CharacterAddPose(C, InventoryGetItemProperty(Item, "SetPose", true));
 	}
 
