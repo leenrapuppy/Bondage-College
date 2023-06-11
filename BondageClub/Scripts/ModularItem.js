@@ -442,8 +442,8 @@ function ModularItemClickCommon({ paginate, elementData }, exitCallback, itemCal
 		else if (MouseIn(1775, 240, 90, 90)) return paginateCallback(1);
 	}
 
-	elementData.some((data, i) => {
-		if (MouseIn(...data.position)) {
+	elementData.some(({ position, hidden }, i) => {
+		if (!hidden && MouseIn(...position)) {
 			itemCallback(i);
 			return true;
 		}
