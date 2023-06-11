@@ -1198,6 +1198,9 @@ function CharacterRefreshDialog(C) {
 	// Get a reference to the currently focused item
 	const focusItem = C && C.FocusGroup ? InventoryGet(C, C.FocusGroup.Name) : null;
 
+	// Skip refreshing anything dialog-related when we're in the wardrobe
+	if (DialogIsInWardrobe()) return;
+
 	if (DialogMenuMode === "items" || DialogMenuMode === "activities" || DialogMenuMode === "permissions") {
 		// We were looking at some inventory, reload it to update the UI
 		DialogChangeMode(DialogMenuMode);
