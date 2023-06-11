@@ -667,10 +667,10 @@ function TypedItemClick(data) {
 
 	// Options
 	const positions = data.drawData.elementData.slice(ItemOptionsOffset, ItemOptionsOffset + data.drawData.itemsPerPage);
-	positions.forEach(({ position }, i) => {
+	positions.forEach(({ position, hidden }, i) => {
 		i += ItemOptionsOffset;
 		const Option = data.options[i];
-		if (MouseIn(...position)) {
+		if (!hidden && MouseIn(...position)) {
 			TypedItemHandleOptionClick(data, C, Option);
 		}
 	});
