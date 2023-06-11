@@ -381,10 +381,10 @@ View next items
 查看后续物品
 View previous items
 查看之前物品
-View next expressions
-查看后续表情
 View previous expressions
 查看之前表情
+View next expressions
+查看后续表情
 Crafted properties
 制作特性
 Crafter: MemberName (MemberNumber)
@@ -1609,6 +1609,10 @@ Can be opened by anyone but the wearer
 "谁捡到就是谁的"
 Can be opened only with the correct password
 只有输入密码才能打开
+"Accidents hurts… Safety First!"
+"危险意外……安全第一！"
+Can only be opened using a PortalLink Tablet
+只能被传送门连接平板打开
 In-front of body
 在身体前面
 Behind back
@@ -3771,7 +3775,7 @@ SourceCharacter unzips DestinationCharacter AssetName and fully exposes TargetPr
 SourceCharacter拉开了DestinationCharacterNameAssetName的拉链，让TargetPronounObject的胸和阴部完全裸露。
 SourceCharacter removes the extra straps from DestinationCharacter AssetName.
 SourceCharacter从DestinationCharacterAssetName移除了额外的束带。
-SourceCharacter adds extra straps to DestinationCharacter suAssetNameit.
+SourceCharacter adds extra straps to DestinationCharacter AssetName.
 SourceCharacter在DestinationCharacterAssetName添加了额外的束带。
 SourceCharacter dresses DestinationCharacter with the AssetName over TargetPronounPossessive clothes.
 SourceCharacter把DestinationCharacter的AssetName穿戴到TargetPronounObject的衣服外面。
@@ -4764,7 +4768,7 @@ Select the style.
 That side →
 那一侧 →
 Both
-两侧
+都有
 Select leg spreader width.
 选择分腿杆宽度.
 Narrow
@@ -6821,6 +6825,12 @@ SourceCharacter在DestinationCharacter真空头套的呼吸管上添加了夹子
 选择选项
 Select Cover
 选择覆盖
+Portal options
+传送门选项
+Open configuration screen
+打开配置屏幕
+Configuration screen
+配置屏幕
 Crotch Cover
 裆部覆盖
 Select Crotch Cover
@@ -6837,8 +6847,8 @@ The front and rear chastity shields on DestinationCharacterName AssetName open.
 DestinationCharacterNameAssetName上前后的贞操护盾打开了。
 The front chastity shield on DestinationCharacterName AssetName closes.
 DestinationCharacterNameAssetName上前面的贞操护盾关闭了。
-The read chastity shield on DestinationCharacterName AssetName closes.
-DestinationCharacterNameAssetName上前面的贞操护盾关闭了。
+The rear chastity shield on DestinationCharacterName AssetName closes.
+DestinationCharacterNameAssetName上后面的贞操护盾关闭了。
 The front and rear chastity shields on DestinationCharacterName AssetName close.
 DestinationCharacterNameAssetName上前后的贞操护盾关闭了。
 Boot Options
@@ -6893,24 +6903,95 @@ SourceCharacter detaches DestinationCharacter paw mittens from the harness.
 SourceCharacter解开了DestinationCharacter猫爪无指手套和束带的连接。
 SourceCharacter chains DestinationCharacter paw mittens to the harness.
 SourceCharacter用锁链把DestinationCharacter猫爪无指手套连接到束带。
-Pick default color
-选择默认颜色
-
-########################
-### DEPRECATED LINES ###
-########################
-Select an activity.
-请选择动作
-SourceCharacter adds extra straps to DestinationCharacter AssetName.
-SourceCharacter在DestinationCharacterAssetName添加了额外的束带。
-The rear chastity shield on DestinationCharacterName AssetName closes.
-DestinationCharacterNameAssetName上后面的贞操护盾关闭了。
-下一件物品的颜色
-Change Layers
-更换层级
-Configure suit's zippers
-配置套装的拉链
-SourceCharacter unzips DestinationCharacter suit and fully exposes TargetPronounPossessive breasts and pussy.
-SourceCharacter拉开了DestinationCharacter套装上的拉链，将TargetPronounObject的胸部和阴部完全展示出来。
-SourceCharacter chains DestinationCharacter mittens to the baby harness.
-SourceCharacter用锁链把DestinationCharacter无指手套连接到婴儿束带。
+Sync code:
+同步代码：
+Invalid code
+无效代码
+Clipboard error
+剪贴板错误
+Valid code
+有效代码
+Searching
+搜索中
+Searching.
+搜索中.
+Searching..
+搜索中..
+Searching...
+搜索中...
+Too many links
+过多链接
+Target not found
+目标未找到
+PortalLink established
+已建立传送门连接
+No functions detected
+未探测到功能
+Available functions detected:
+探测到可用功能：
+DestinationCharacterName AssetName get locked remotely.
+DestinationCharacterNameAssetName被远程锁上了。
+DestinationCharacterName AssetName get unlocked remotely.
+DestinationCharacterNameAssetName被远程解锁了了。
+Cycle chastity
+循环贞操锁设置
+Caress
+抚摸
+SourceCharacter caresses RecieverCharacter FocusAssetGroup through the AssetName portal.
+SourceCharacter通过AssetName的传送门抚摸RecieverCharacterFocusAssetGroup。
+Kiss
+亲吻
+SourceCharacter kisses RecieverCharacter FocusAssetGroup through the AssetName portal.
+SourceCharacter通过AssetName的传送门亲吻RecieverCharacterFocusAssetGroup。
+Slap
+拍打
+SourceCharacter slaps RecieverCharacter FocusAssetGroup through the AssetName portal.
+SourceCharacter通过AssetName的传送门拍打RecieverCharacterFocusAssetGroup。
+Masturbate
+抚慰
+SourceCharacter masturbates RecieverCharacter FocusAssetGroup through the AssetName portal.
+SourceCharacter通过AssetName的传送门抚慰RecieverCharacterFocusAssetGroup。
+SourceCharacter tongues RecieverCharacter FocusAssetGroup through the AssetName portal.
+SourceCharacter通过AssetName的传送门舔弄RecieverCharacterFocusAssetGroup。
+Select modules
+选择模块
+Modules
+无模块
+Metal
+金属
+Cage/Spreader
+贞操笼/开阴器
+Brushes
+毛刷
+The front chastity shield on DestinationCharacterName AssetName opens.
+DestinationCharacterNameAssetName的前部贞操挡板打开了。
+The front chastity shield on DestinationCharacterName AssetName turns into a transparent shield.
+DestinationCharacterNameAssetName的前部贞操挡板转换为透明挡板。
+The front chastity shield on DestinationCharacterName AssetName turns into a metal shield.
+DestinationCharacterNameAssetName的前部贞操挡板转换为金属挡板。
+The rear chastity shield on DestinationCharacterName AssetName opens.
+DestinationCharacterNameAssetName的后部贞操挡板打开了。
+All modules on DestinationCharacterName AssetName are deactivated.
+DestinationCharacterNameAssetName的所有模块关闭了。
+The Cage/Spreader module on DestinationCharacterName AssetName is activated.
+DestinationCharacterNameAssetName的贞操笼/开阴器模块启动了。
+The Brushes module on DestinationCharacterName AssetName is activated.
+DestinationCharacterNameAssetName的毛刷模块启动了。
+All modules on DestinationCharacterName AssetName are activated.
+DestinationCharacterNameAssetName的所有模块启动了。
+DestinationCharacterName AssetName rotation mode is deactivated.
+DestinationCharacterNameAssetName的旋转模式关闭了。
+DestinationCharacterName AssetName goes to tease rotor mode.
+DestinationCharacterNameAssetName进入逗弄旋转模式。
+DestinationCharacterName AssetName goes to rotation level 1.
+DestinationCharacterNameAssetName旋转强度1。
+DestinationCharacterName AssetName starts teasing at rotation level 2!.
+DestinationCharacterNameAssetName开始以级别2的强度逗弄！
+DestinationCharacterName AssetName jumps up to rotation level 3!.
+DestinationCharacterNameAssetName突然变为级别2的强度！
+The special mode on DestinationCharacterName AssetName deactivates, allowing orgasms again.
+DestinationCharacterNameAssetName的特殊模式关闭了，现在允许高潮。
+The edging mode on DestinationCharacterName AssetName activates, preventing orgasms no matter what.
+DestinationCharacterNameAssetName的寸止模式启动了，无论如何也不会再得到高潮。
+The denial mode on DestinationCharacterName AssetName activates, teasing them endlessly.
+DestinationCharacterNameAssetName的拒绝模式启动了，开始无休止地逗弄。

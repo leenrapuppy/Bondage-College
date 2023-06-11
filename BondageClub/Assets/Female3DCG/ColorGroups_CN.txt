@@ -64,6 +64,8 @@ Panels
 面板
 Cover Hood Parts
 兜帽组件
+Shine
+光亮
 Fixing
 固定
 Tubes
@@ -72,3 +74,5 @@ Glow
 发光
 Eyes
 眼睛
+Rubber
+橡胶

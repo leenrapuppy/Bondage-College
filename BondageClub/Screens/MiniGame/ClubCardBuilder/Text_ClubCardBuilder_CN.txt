@@ -1,11 +1,15 @@
 Exit the deck builder
-退出牌组构筑
+退出套牌构筑
 Select the deck to modify
-选择要编辑的牌组
+选择要编辑的套牌
 Deck #
-牌组#
+套牌#
+Clear
+清空
+Default
+默认
 Select the cards to put in deck #
-选择卡牌放入牌组#
+选择卡牌放入套牌#
 Click on a card to zoom it
 点击卡牌放大
 Undo changes
@@ -16,3 +20,7 @@ Next 30 cards
 后30张牌
 Previous 30 cards
 前30张牌
+Unselect all cards
+取消选择所有卡牌
+Reset to default deck
+重置为默认套牌
