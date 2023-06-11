@@ -1817,6 +1817,8 @@ Bolero Straitjacket
 Смирительная рубашка-жакет
 Pet Suit
 Костюм питомца
+Shiny Pet Suit
+Полированный Петсьют
 Pet Suit Exposed
 Костюм питомца Открытый
 Holding Leash
@@ -2031,6 +2033,8 @@ Shock Collar
 шоковый ошейник
 Automatic Shock Collar
 Автоматический шоковый ошейник
+PetSuit Shock Collar
+Дрессировочный ошейник
 Shock Collar Remote
 шоковый ошейник дистанционный
 Bat Collar
