@@ -8390,7 +8390,6 @@ var AssetFemale3DCGExtended = {
 		PortalPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
-			ChangeWhenLocked: false,
 			Modules: [
 				{
 					Name: "Code", Key: "o",

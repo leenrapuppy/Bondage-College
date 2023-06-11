@@ -722,7 +722,7 @@ function ModularItemSetOptionByName(C, itemOrGroupName, optionNames, push = fals
 		const previousOption = mod.Options[previousModuleValues[i]];
 		const requirementMessage = validationCallback(data, C, item, newOption, previousOption);
 		if (requirementMessage && newOption.Name !== previousOption.Name) {
-			console.warn(`Cannot set option for ${groupName}:${assetName} to ${newOption.Name}: ${DialogFindPlayer(requirementMessage)}`);
+			console.warn(`Cannot set option for ${groupName}:${assetName} to ${newOption.Name}: ${requirementMessage}`);
 		} else {
 			ExtendedItemSetOption(data, C, item, newOption, previousOption, false);
 		}

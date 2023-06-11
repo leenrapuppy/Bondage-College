@@ -184,7 +184,14 @@ function PortalLinkTransmitterDraw() {
 
 	// Draw the header and item
 	ExtendedItemDrawHeader(1387, 125);
+	if (!C.IsPlayer() || !C.CanInteract()) {
+		// Only if we're the tablet wearer and we can interact with it
+		DrawText(DialogFindPlayer("PortalLinkInaccessibleLabel"), 1500, 440, "white");
+		return;
+	}
+
 	DrawText(DialogFindPlayer("PortalLinkScreenLabel"), 1500, 440, "white");
+
 
 	PortalLinkSyncCodeInputDraw(false);
 
@@ -222,6 +229,11 @@ function PortalLinkTransmitterClick() {
 	}
 
 	const C = CharacterGetCurrent();
+
+	if (!C.IsPlayer() || !C.CanInteract()) {
+		// Only if we're the tablet wearer and we can interact with it
+		return;
+	}
 
 	PortalLinkSyncCodeInputClick(false);
 
@@ -522,9 +534,10 @@ function PortalLinkPublishMessage(target, item, func) {
 
 /**
  *
+ * @param {Character} sender
  * @param {Item} item
  */
-function PortalLinkCycleChastityModule(item) {
+function PortalLinkCycleChastityModule(sender, item) {
 	const attr = InventoryGetItemProperty(item, "Attribute").find(a => a.startsWith("PortalLinkChastity"));
 	if (!attr) return;
 	const chastityTarget = attr.substring("PortalLinkChastity".length);
@@ -549,7 +562,7 @@ function PortalLinkCycleChastityModule(item) {
 
 		const idx = (shieldIndex + 1) % shield.Options.length;
 
-		ModularItemSetOptionByName(Player, item, ModularItemConstructType(modularData.modules, [0, idx]), true);
+		ModularItemSetOptionByName(Player, item, ModularItemConstructType(modularData.modules, [0, idx]), true, sender);
 		ModularItemPublishAction(modularData, Player, item, shield.Options[idx], shield.Options[shieldIndex]);
 	}
 }
@@ -610,7 +623,7 @@ function PortalLinkProcessMessage(sender, data) {
 				break;
 
 			case "PortalLinkFunctionCycleChastity":
-				PortalLinkCycleChastityModule(item);
+				PortalLinkCycleChastityModule(sender, item);
 				// We handled updating the appearance and sending the chat message, bail out.
 				return;
 
