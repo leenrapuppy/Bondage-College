@@ -230,7 +230,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		}
 		case "CanUsePenis":
 			if (acting.HasPenis())
-				return InventoryPrerequisiteMessage(acting, "AccessCrotch") === "";
+				return InventoryPrerequisiteMessage(acting, "AccessVulva") === "";
 			break;
 		case "Sisters":
 			return !acting.HasPenis() && !acted.HasPenis() && (acting.Ownership != null) && (acted.Ownership != null) && (acted.Ownership.MemberNumber == acting.Ownership.MemberNumber);
