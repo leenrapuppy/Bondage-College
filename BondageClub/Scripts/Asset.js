@@ -316,7 +316,7 @@ function AssetBuildExtended(A, baseConfig, extendedConfig, parentOption=null, cr
 			break;
 	}
 
-	if (!A.Archetype) {
+	if (!A.Archetype && parentOption == null) {
 		A.Archetype = config.Archetype;
 	}
 	return data;
