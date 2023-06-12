@@ -5115,7 +5115,7 @@ var AssetFemale3DCG = [
 				AllowActivityOn: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld"],
 				Extended: true,
 				DrawLocks: false,
-				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
+				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 70, 238], [290, 462, 70, 238], [215, 545, 70, 155]]}],
 				HasType: false,
 				DefaultColor: ["Default", "Default", "Default", "Default", "Default"],
 				Layer: [
