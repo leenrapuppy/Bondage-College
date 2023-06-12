@@ -179,7 +179,7 @@ function InventoryAvailable(C, InventoryName, InventoryGroup) {
 * Returns an error message if a prerequisite clashes with the character's items and clothes
 * @param {Character} C - The character on which we check for prerequisites
 * @param {AssetPrerequisite} Prerequisite - The name of the prerequisite
-* @returns {String} - The error tag, can be converted to an error message
+* @returns {string} - The error tag, can be converted to an error message
 */
 function InventoryPrerequisiteMessage(C, Prerequisite) {
 	switch (Prerequisite) {
@@ -258,10 +258,11 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 				return "RemoveClothesForItem";
 
 			// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
-			if (InventoryDoItemsBlockGroup(C, target, ["ItemPelvis", "ItemVulvaPiercings"]))
+			if (InventoryDoItemsBlockGroup(C, target, ["ItemPelvis", "ItemVulvaPiercings"]) || C.IsVulvaChaste())
 				return "RemoveChastityFirst";
+
+			return "";
 		}
-			break;
 
 		case "AccessCrotch":
 			return (InventoryDoItemsBlockGroup(C, "ItemPelvis", ["Cloth", "ClothLower", "Socks"])
