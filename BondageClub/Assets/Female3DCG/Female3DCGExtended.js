@@ -1147,28 +1147,28 @@ var AssetFemale3DCGExtended = {
 				{
 					Name: "Exposed",
 					Property: {
-						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-					}
+						Block: ["ItemLegs", "ItemFeet", "ItemHands", "ItemHandheld"],
+					},
 				},
 				{
 					Name: "Closed",
 					Property: {
-						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemLegs", "ItemFeet","ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
 						Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
-					}
+					},
 				},
 				{
 					Name: "Open",
 					Property: {
-						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-					}
+						Block: ["ItemLegs", "ItemFeet", "ItemHands", "ItemHandheld"],
+					},
 				},
 				{
 					Name: "Classic",
 					Property: {
-						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemLegs", "ItemFeet","ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
 						Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
-					}
+					},
 				},
 			],
 			ChangeWhenLocked: false,
