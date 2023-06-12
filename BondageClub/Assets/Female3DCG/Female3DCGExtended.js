@@ -1141,37 +1141,37 @@ var AssetFemale3DCGExtended = {
 			ChangeWhenLocked: false,
 		}, // BitchSuit
 		ShinyPetSuit: {
-            Archetype: ExtendedArchetype.TYPED,
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
-				Options: [
-					{
-						Name: "Exposed",
-						Property: {
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
+			Archetype: ExtendedArchetype.TYPED,
+			ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+			Options: [
+				{
+					Name: "Exposed",
+					Property: {
+						Block: ["ItemLegs", "ItemFeet", "ItemHands", "ItemHandheld"],
 					},
-					{
-						Name: "Closed",
-						Property: {
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
-						}
+				},
+				{
+					Name: "Closed",
+					Property: {
+						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemLegs", "ItemFeet","ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+						Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
 					},
-					{
-						Name: "Open",
-						Property: {
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-						}
+				},
+				{
+					Name: "Open",
+					Property: {
+						Block: ["ItemLegs", "ItemFeet", "ItemHands", "ItemHandheld"],
 					},
-					{
-						Name: "Classic",
-						Property: {
-							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
-						}
+				},
+				{
+					Name: "Classic",
+					Property: {
+						Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemLegs", "ItemFeet","ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+						Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
 					},
-				],
-				ChangeWhenLocked: false,
+				},
+			],
+			ChangeWhenLocked: false,
 		}, // ShinyPetSuit
 		LeatherArmbinder: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2554,13 +2554,11 @@ var AssetFemale3DCGExtended = {
 		PetSuitShockCollar: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarAutoShockUnit" },
-			Config: {
-				Dialog: {
-					Select: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
-					ModulePrefix: "ItemNeckAccessoriesCollarAutoShockUnitModule",
-					OptionPrefix: "ItemNeckAccessoriesCollarAutoShockUnitOption",
-					ChatPrefix: "ItemNeckAccessoriesCollarAutoShockUnitSet",
-				},
+			DialogPrefix: {
+				Header: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
+				Module: "ItemNeckAccessoriesCollarAutoShockUnitModule",
+				Option: "ItemNeckAccessoriesCollarAutoShockUnitOption",
+				Chat: "ItemNeckAccessoriesCollarAutoShockUnitSet",
 			},
 		}, // PetSuitShockCollar
 	}, // ItemNeck
