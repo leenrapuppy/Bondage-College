@@ -882,18 +882,6 @@ function CharacterDeleteAllOnline() {
 }
 
 /**
- * Adds a pose to a character's pose list, does not add it if it's already there
- * @param {Character} C - Character for which to add a pose to its list
- * @param {readonly AssetPoseName[]} NewPose - The name of the pose to add
- * @returns {void} - Nothing
- */
-function CharacterAddPose(C, NewPose) {
-	for (let E = 0; E < NewPose.length; E++)
-		if (C.Pose.indexOf(NewPose[E]) < 0)
-			C.Pose.push(NewPose[E]);
-}
-
-/**
  * Checks whether the given character can change to the named pose unaided
  * @param {Character} C - The character to check
  * @param {AssetPoseName} poseName - The name of the pose to check for
@@ -986,7 +974,7 @@ function CharacterLoadPose(C) {
 	for (let i = 0, Item = null; i < C.Appearance.length; i++) {
 		Item = C.Appearance[i];
 		C.AllowedActivePose.push(...InventoryGetItemProperty(Item, "AllowActivePose"));
-		CharacterAddPose(C, InventoryGetItemProperty(Item, "SetPose", true));
+		C.Pose = CommonArrayConcatDedupe(C.Pose, InventoryGetItemProperty(Item, "SetPose", true));
 	}
 
 	// Add possible active poses (Bodyfull can only be alone, and cannot have two of upperbody or bodylower)
