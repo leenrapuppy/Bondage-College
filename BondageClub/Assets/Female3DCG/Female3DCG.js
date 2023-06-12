@@ -895,15 +895,15 @@ var AssetFemale3DCG = [
 		Asset: [
 			// Vagina Compatible Clothing
 			{
-				Name: "Catsuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower"], HideItem: ["SocksPantyhose1"],
+				Name: "Catsuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower"], HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"],
 				Layer: [
 					{ Name: "Base" },
 					{ Name: "Zip" }
 				]
 			},
-			{ Name: "SeamlessCatsuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower"], HideItem: ["SocksPantyhose1"] },
-			{ Name: "CatsuitPanties", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings"], AllowPose: ["Hogtied"] },
-			{ Name: "PilotSuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#282828"], Hide: ["ItemVulvaPiercings", "BodyLower"], HideItem: ["SocksPantyhose1"],
+			{ Name: "SeamlessCatsuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower"], HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"] },
+			{ Name: "CatsuitPanties", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings"], AllowPose: ["Hogtied"], Attribute: ["SuitLower"] },
+			{ Name: "PilotSuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#282828"], Hide: ["ItemVulvaPiercings", "BodyLower"], HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"],
 				HideForPose: ["KneelingSpread"],
 				Layer: [
 					{ Name: "Layer1", AllowColorize: true },
@@ -912,30 +912,30 @@ var AssetFemale3DCG = [
 					{ Name: "Layer4", AllowColorize: true }
 				]
 			},
-			{ Name: "PilotPanties", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#282828"], Hide: ["ItemVulvaPiercings"], DynamicGroupName: "Panties", AllowPose: [],
+			{ Name: "PilotPanties", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#282828"], Hide: ["ItemVulvaPiercings"], DynamicGroupName: "Panties", AllowPose: [], Attribute: ["SuitLower"],
 				Layer: [
 					{ Name: "Layer1", AllowColorize: true },
 					{ Name: "Layer2", AllowColorize: true },
 					{ Name: "Layer3", AllowColorize: true },
 				]
 			},
-			{ Name: "SeethroughSuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "SeethroughSuit", HideItem: ["SocksPantyhose1"] },
+			{ Name: "SeethroughSuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "SeethroughSuit", HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"] },
 			{
-				Name: "SeethroughSuitZip", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "SeethroughSuit", HideItem: ["SocksPantyhose1"],
+				Name: "SeethroughSuitZip", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex"], Value: -1, BuyGroup: "SeethroughSuit", HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"],
 				Layer: [
 					{ Name: "Base" },
 					{ Name: "Zip" }
 				]
 			},
 			{ Name: "ReverseBunnySuit", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Latex", "Pet"], Value: -1, BuyGroup: "ReverseBunnySuit" },
-			{ Name: "Pantyhose1", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], BuyGroup: "Pantyhose", Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], DynamicGroupName: "Socks" },
+			{ Name: "Pantyhose1", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], BuyGroup: "Pantyhose", Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], DynamicGroupName: "Socks", Attribute: ["SuitLower"] },
 			{ Name: "Pantyhose2", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, BuyGroup: "Pantyhose2", DynamicGroupName: "Socks" },
 			{ Name: "Stockings1", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Left: 125, Top: 400, BuyGroup: "Stockings1", DynamicGroupName: "Socks" },
 			{ Name: "Stockings2", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Left: 125, Top: 400, BuyGroup: "Stockings2", DynamicGroupName: "Socks" },
 			{ Name: "Stockings3", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, BuyGroup: "Stockings3", DynamicGroupName: "Socks" },
 			{ Name: "Stockings4", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, Left: 125, Top: 400, BuyGroup: "Stockings4", DynamicGroupName: "Socks" },
 			{
-				Name: "MaleSeamlessCatsuit", Gender: "M", Prerequisite: ["HasPenis"], DefaultColor: ["Default", "#000000"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower", "Pussy", "ItemVulva"], HideItem: ["SocksPantyhose1"],
+				Name: "MaleSeamlessCatsuit", Gender: "M", Prerequisite: ["HasPenis"], DefaultColor: ["Default", "#000000"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "BodyLower", "Pussy", "ItemVulva"], HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"],
 				Layer: [
 					{ Name: "Base", HasType: false },
 					{ Name: "Bulge", CopyLayerColor: "Base", HasType: false, AllowTypes: ["Bulge", "Lock"] },
@@ -944,7 +944,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "MaleCatsuitPanties", Gender: "M", Prerequisite: ["HasPenis"], DefaultColor: ["Default", "#000000"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "Pussy", "ItemVulva"], HideItem: ["SocksPantyhose1"],
+				Name: "MaleCatsuitPanties", Gender: "M", Prerequisite: ["HasPenis"], DefaultColor: ["Default", "#000000"], Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemVulvaPiercings", "Pussy", "ItemVulva"], HideItem: ["SocksPantyhose1"], Attribute: ["SuitLower"],
 				Layer: [
 					{ Name: "Base", HasType: false },
 					{ Name: "Bulge", CopyLayerColor: "Base", HasType: false, AllowTypes: ["Bulge", "Lock"] },
@@ -2953,6 +2953,7 @@ var AssetFemale3DCG = [
 				Name: "Large",
 				Extended: true,
 				Gender: "F",
+				Attribute: ["UpperLarge"],
 				Layer: [
 					{ Name: "", ParentGroup: null, HasType: false },
 				],
@@ -2961,6 +2962,7 @@ var AssetFemale3DCG = [
 				Name: "XLarge",
 				Extended: true,
 				Gender: "F",
+				Attribute: ["UpperLarge"],
 				Layer: [
 					{ Name: "", ParentGroup: null, HasType: false },
 				],
@@ -4507,12 +4509,16 @@ var AssetFemale3DCG = [
 					{ Name: "TransparentShield", ParentGroup: null, AllowModuleTypes: ["c1"], HasType: false, HideColoring: true },
 					{ Name: "MetalShield", ColorGroup: "Metal", ParentGroup: null, AllowModuleTypes: ["c2"], HasType: false },
 					//Belt
-					{ Name: "RubberBelt", ColorGroup: "Rubber", ParentGroup: null, HasType: false },
+					{ Name: "RubberBelt", ColorGroup: "Rubber", ParentGroup: null, HasType: false, HideForAttribute: ["UpperLarge"] },
+					{ Name: "RubberBeltLarge", CopyLayerColor: "RubberBelt", ParentGroup: null, HasType: false, ShowForAttribute: ["UpperLarge"] }, //Shows for Large/XLarge upperbody
 					{ Name: "RubberBeltUnder1", CopyLayerColor: "RubberBelt", ParentGroup: null, HasType: false, Priority: 10, AllowModuleTypes: ["c0"] },
 					{ Name: "RubberBeltUnder2", CopyLayerColor: "RubberBelt", ParentGroup: null, HasType: false, AllowModuleTypes: ["c1", "c2"], Alpha: [{Group: ["ItemVulva", "ItemVulvaPiercings"], Masks: [[0, 549, 500, 500],[265, 500, 500, 500],[257, 545, 8, 10],[231, 540, 8, 10],[0, 500, 231, 200]], }] },
-					{ Name: "MetalBelt", ColorGroup: "Metal", ParentGroup: null, HasType: false },
+					{ Name: "RubberBeltUnder3", CopyLayerColor: "RubberBelt", ParentGroup: null, HasType: false, ShowForAttribute: ["SuitLower"], Alpha: [{Group: ["ItemVulva", "ItemVulvaPiercings"], Masks: [[0, 549, 500, 500],[265, 500, 500, 500],[257, 545, 8, 10],[231, 540, 8, 10],[0, 500, 231, 200]], }] }, //Shows only for Suitlower
+					{ Name: "MetalBelt", ColorGroup: "Metal", ParentGroup: null, HasType: false, HideForAttribute: ["UpperLarge"] },
+					{ Name: "MetalBeltLarge", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, ShowForAttribute: ["UpperLarge"] }, //Shows for Large/XLarge upperbody
 					{ Name: "MetalBeltUnder1", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, Priority: 10, AllowModuleTypes: ["c0"] },
 					{ Name: "MetalBeltUnder2", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, AllowModuleTypes: ["c1", "c2"] },
+					{ Name: "MetalBeltUnder3", CopyLayerColor: "MetalBelt", ParentGroup: null, HasType: false, ShowForAttribute: ["SuitLower"] }, //Shows only for Suitlower
 				]
 			},
 		],
