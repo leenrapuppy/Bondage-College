@@ -41,6 +41,10 @@ UpgradedToLevel2,PLAYERNAME upgraded to Cottage for MONEY.
 UpgradedToLevel3,PLAYERNAME upgraded to House for MONEY.
 UpgradedToLevel4,PLAYERNAME upgraded to Mansion for MONEY.
 UpgradedToLevel5,PLAYERNAME upgraded to Manor for MONEY.
+GainFame,SOURCEPLAYER gained AMOUNT Fame.
+GainMoney,SOURCEPLAYER gained AMOUNT Money.
+StealFame,SOURCEPLAYER stole AMOUNT Fame from OPPONENTPLAYER.
+StealMoney,SOURCEPLAYER stole AMOUNT Money from OPPONENTPLAYER.
 GroupLiability,Liability
 GroupStaff,Staff
 GroupPolice,Police
@@ -108,6 +112,8 @@ Title Gangster,Gangster
 Text Gangster,+2 Money per turn per Criminal present.  Leave the club at end of turn if a Police is present.
 Title Paroled Thief,Paroled Thief
 Text Paroled Thief,Opponent gets +1 Money at end of turn.  Leave the club at end of turn if a Police is present.
+Title Police Cadet,Police Cadet
+Text Police Cadet,<F>Hey!  Give me back my keys!
 Title Maid Lover,Maid Lover
 Text Maid Lover,+1 Money per turn for each Maid present.
 Title Diaper Lover,Diaper Lover
@@ -197,7 +203,7 @@ Text Sugar Baby,<F>This baby wants a diamond pacifier.
 Title Babysitter,Babysitter
 Text Babysitter,+2 Fame per turn for each ABDL Baby present.
 Title Soap Opera Mother,Soap Opera Mother
-Text Soap Opera Mother,+25 Fame and -25 Money when she enters your club if at least one ABDL Baby is present.
+Text Soap Opera Mother,+25 Fame when she enters your club if at least one ABDL Baby is present.
 Title Amanda,Amanda
 Text Amanda,Immune to Ransomware.
 Title Sarah,Sarah
@@ -228,3 +234,13 @@ Title Second Mortgage,Second Mortgage
 Text Second Mortgage,+20 Money.
 Title Foreign Investment,Foreign Investment
 Text Foreign Investment,+30 Money.
+Title Cat Burglar,Cat Burglar
+Text Cat Burglar,Steals up to 4 Money from opponent.  Money must be positive.  Won't work if opponent has Police.
+Title Money Heist,Money Heist
+Text Money Heist,Steals up to 12 Money from opponent.  Money must be positive.  Won't work if opponent has Police.
+Title BDSM Ball,BDSM Ball
+Text BDSM Ball,"+1 Fame for each member that's not Dominant, Liability, Maid or Staff."
+Title Vampire Ball,Vampire Ball
+Text Vampire Ball,"+3 Fame for each member that's not Dominant, Liability, Maid or Staff."
+Title Straitjacket Saturday,Straitjacket Saturday
+Text Straitjacket Saturday,+4 Money for each Asylum Patient and Asylum Nurse.

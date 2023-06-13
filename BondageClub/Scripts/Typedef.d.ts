@@ -3761,6 +3761,7 @@ interface ClubCard {
 	GlowColor?: string;
 	OnPlay?: (C: ClubCardPlayer) => void;
 	OnTurnEnd?: (C: ClubCardPlayer) => void;
+	CanPlay?: (C: ClubCardPlayer) => boolean;
 }
 
 interface ClubCardPlayer {
