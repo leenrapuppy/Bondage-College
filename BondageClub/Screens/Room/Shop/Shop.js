@@ -122,7 +122,7 @@ function ShopRun() {
 			const Description = ShopCart[A].Description + " $" + (Math.ceil(ShopCart[A].Value * (ShopBuyMode ? 1 : 0.5))).toString();
 			const Foreground = InventoryAvailable(Player, ShopCart[A].Name, ShopCart[A].Group.Name) ? "green" : "red";
 			const Icons = DialogGetAssetIcons(ShopCart[A]);
-			DrawAssetPreview(X, Y, ShopCart[A], { Description, Foreground, Icons });
+			DrawAssetPreview(X, Y, ShopCart[A], { Hover: true, Description, Foreground, Icons });
 			X = X + 250;
 			if (X > 1800) {
 				X = 1000;
