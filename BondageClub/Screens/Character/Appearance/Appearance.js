@@ -373,8 +373,8 @@ function CharacterAppearanceIsLayerVisible(C, layer, asset, type= "") {
 	if (layer.HideForPose && layer.HideForPose.includes(CommonDrawResolveAssetPose(C, asset, layer)))
 		return false;
 
-	// Hide the layer if the character has every matching attribute
-	if (layer.HideForAttribute && layer.HideForAttribute.every((attribute) => C.HasAttribute(attribute)))
+	// Hide the layer if the character has any matching attribute
+	if (layer.HideForAttribute && layer.HideForAttribute.some((attribute) => C.HasAttribute(attribute)))
 		return false;
 
 	// Hide the layer if the character has no matching attribute
