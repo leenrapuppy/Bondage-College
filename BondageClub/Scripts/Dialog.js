@@ -719,19 +719,20 @@ function DialogIntro() {
  * @returns {void} - Nothing
  */
 function DialogLeave() {
-	if (!CurrentCharacter) return;
 
 	DialogLeaveFocusItem();
 
 	// Reset the character's height
-	if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
+	if (CurrentCharacter && CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
 		CharacterAppearanceForceUpCharacter = -1;
 		CharacterRefresh(CurrentCharacter, false);
 	}
 
-	DialogChangeFocusToGroup(CurrentCharacter, null);
-
-	// Deselect the character, exiting the dialog
+	// Reset the mode, selected group & character, exiting the dialog
+	DialogMenuMode = null;
+	if (CurrentCharacter) {
+		DialogChangeFocusToGroup(CurrentCharacter, null);
+	}
 	CurrentCharacter = null;
 
 	// Reset the state of the self menu
