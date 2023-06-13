@@ -219,6 +219,17 @@ var ClubCardList = [
 			if (ClubCardGroupIsOnBoard(CCPlayer.Board, "Police")) ClubCardRemoveFromBoard(CCPlayer.Board, this);
 		}
 	},
+	{
+		ID: 3005,
+		Name: "Paroled Thief",
+		Group: ["Liability", "Criminal"],
+		RequiredLevel: 2,
+		MoneyPerTurn: -1,
+		OnTurnEnd: function(CCPlayer) {
+			let Opponent = (CCPlayer.Index == 0) ? ClubCardPlayer[1] : ClubCardPlayer[0];
+			ClubCardPlayerAddMoney(Opponent, 1);
+		}
+	},
 
 	// 4000 - Fetishists (Synergies with other groups)
 	{
@@ -388,7 +399,7 @@ var ClubCardList = [
 	},
 	{
 		ID: 7002,
-		Name: "Rookie Nurse",
+		Name: "Novice Nurse",
 		Group: ["AsylumNurse"],
 		OnTurnEnd: function(CCPlayer) {
 			ClubCardPlayerAddFame(CCPlayer, ClubCardGroupOnBoardCount(CCPlayer.Board, "AsylumPatient"));

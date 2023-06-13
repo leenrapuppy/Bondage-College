@@ -106,6 +106,8 @@ Title Zealous Cop,Zealous Cop
 Text Zealous Cop,"<F>Rules are rules, and I'll make sure they will be followed."
 Title Gangster,Gangster
 Text Gangster,+2 Money per turn per Criminal present.  Leave the club at end of turn if a Police is present.
+Title Paroled Thief,Paroled Thief
+Text Paroled Thief,Opponent gets +1 Money at end of turn.  Leave the club at end of turn if a Police is present.
 Title Maid Lover,Maid Lover
 Text Maid Lover,+1 Money per turn for each Maid present.
 Title Diaper Lover,Diaper Lover
@@ -144,8 +146,8 @@ Title Curious Patient,Curious Patient
 Text Curious Patient,<F>Why are the walls padded?
 Title Part-Time Patient,Part-Time Patient
 Text Part-Time Patient,+6 Money when she enters your club.
-Title Rookie Nurse,Rookie Nurse
-Text Rookie Nurse,+1 Fame per turn for each Asylum Patient present.
+Title Novice Nurse,Novice Nurse
+Text Novice Nurse,+1 Fame per turn for each Asylum Patient present.
 Title Commited Patient,Commited Patient
 Text Commited Patient,<F>My jacket is never tight enough.
 Title Veteran Nurse,Veteran Nurse

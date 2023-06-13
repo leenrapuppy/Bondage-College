@@ -290,7 +290,7 @@ Part-Time Patient
 业余病人
 +6 Money when she enters your club.
 当她进入你的俱乐部时，+6金钱。
-Rookie Nurse
+Novice Nurse
 菜鸟护士
 +1 Fame per turn for each Asylum Patient present.
 每有一个收容所病人在场，每回合+1声望。
