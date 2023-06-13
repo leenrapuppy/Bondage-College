@@ -50,6 +50,16 @@ var ChatRoomSlowtimer = 0;
  * @type {boolean}
  */
 var ChatRoomSlowStop = false;
+/**
+ * Default position of the chat log field
+ * @type {RectTuple}
+ */
+var ChatRoomChatLogRect = [1005, 66, 988, 835];
+/**
+ * Default position of the chat input field
+ * @type {RectTuple}
+ */
+var ChatRoomChatInputRect = [1456, 950, 900, 82];
 var ChatRoomChatHidden = false;
 var ChatRoomCharacterCount = 0;
 /** @type {Character[]} */
@@ -371,9 +381,7 @@ function ChatRoomCanStartWheelFortune() { return (CurrentCharacter != null) && I
  */
 function ChatRoomStartWheelFortune() {
 	if ((CurrentCharacter == null) || !InventoryIsWorn(CurrentCharacter, "WheelFortune", "ItemDevices")) return;
-	document.getElementById("InputChat").style.display = "none";
-	document.getElementById("TextAreaChatLog").style.display = "none";
-	ChatRoomChatHidden = true;
+	ChatRoomHideElements();
 	WheelFortuneEntryModule = CurrentModule;
 	WheelFortuneEntryScreen = CurrentScreen;
 	WheelFortuneBackground = ChatRoomData.Background;
@@ -698,6 +706,7 @@ function ChatRoomCreateElement() {
 		document.getElementById("InputChat").setAttribute("maxLength", 1000);
 		document.getElementById("InputChat").setAttribute("autocomplete", "off");
 		document.getElementById("InputChat").addEventListener("keyup", ChatRoomStatusUpdateTalk);
+		ElementPosition("InputChat", ...ChatRoomChatInputRect);
 		ElementFocus("InputChat");
 	} else if (document.getElementById("InputChat").style.display == "none") ElementFocus("InputChat");
 
@@ -706,7 +715,7 @@ function ChatRoomCreateElement() {
 
 		// Sets the size and position
 		ElementCreateDiv("TextAreaChatLog");
-		ElementPositionFix("TextAreaChatLog", ChatRoomFontSize, 1005, 5, 988, 859);
+		ElementPositionFix("TextAreaChatLog", ChatRoomFontSize, ...ChatRoomChatLogRect);
 		ElementScrollToEnd("TextAreaChatLog");
 		ChatRoomRefreshChatSettings();
 
@@ -726,7 +735,34 @@ function ChatRoomCreateElement() {
 		setTimeout(() => ElementScrollToEnd("TextAreaChatLog"), 100);
 		ChatRoomRefreshChatSettings();
 	}
+}
 
+/** Hide the UI elements of the chatroom screen */
+function ChatRoomShowElements() {
+	document.getElementById("InputChat").style.display = "";
+	document.getElementById("TextAreaChatLog").style.display = "";
+	ChatRoomChatHidden = false;
+}
+
+/** Show the UI elements of the chatroom screen */
+function ChatRoomHideElements() {
+	document.getElementById("InputChat").style.display = "none";
+	document.getElementById("TextAreaChatLog").style.display = "none";
+	ChatRoomChatHidden = true;
+}
+
+/**
+ * Append an element to the chatroom's chat log, scroll it down and restore focus
+ * @param {HTMLElement} div
+ */
+function ChatRoomAppendChat(div) {
+	const Refocus = document.activeElement.id == "InputChat";
+	const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
+	if (document.getElementById("TextAreaChatLog") != null) {
+		document.getElementById("TextAreaChatLog").appendChild(div);
+		if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
+		if (Refocus) ElementFocus("InputChat");
+	}
 }
 
 /**
@@ -1235,9 +1271,7 @@ function ChatRoomFocusCharacter(C) {
 	if (ChatRoomOwnerPresenceRule("BlockAccessSelf", C)) return;
 	if (ChatRoomOwnerPresenceRule("BlockAccessOther", C)) return;
 	if (C == null) return;
-	document.getElementById("InputChat").style.display = "none";
-	document.getElementById("TextAreaChatLog").style.display = "none";
-	ChatRoomChatHidden = true;
+	ChatRoomHideElements();
 	ChatRoomBackground = ChatRoomData.Background;
 	C.AllowItem = C.ID === 0 || ServerChatRoomGetAllowItem(Player, C);
 	ChatRoomOwnershipOption = "";
@@ -1507,8 +1541,8 @@ function ChatRoomResize(load) {
 		&& document.getElementById("InputChat")
 		&& document.getElementById("TextAreaChatLog")
 	) {
-		ElementPositionFix("TextAreaChatLog", ChatRoomFontSize, 1005, 66, 988, 835);
-		ElementPosition("InputChat", 1456, 950, 900, 82);
+		ElementPositionFix("TextAreaChatLog", ChatRoomFontSize, ...ChatRoomChatLogRect);
+		ElementPosition("InputChat", ...ChatRoomChatInputRect);
 	}
 }
 
@@ -1782,9 +1816,9 @@ function ChatRoomRun() {
 	DrawRect(0, 0, 2000, 1000, "Black");
 	ChatRoomDrawCharacter(false);
 	if (ChatRoomChatHidden) {
-		ChatRoomChatHidden = false;
-		ChatRoomResize(false);
+		ChatRoomShowElements();
 	}
+	ChatRoomResize(false);
 	DrawButton(1905, 908, 90, 90, "", "White", "Icons/Chat.png");
 	if (!ChatRoomCanLeave() && ChatRoomSlowtimer != 0){//Player got interrupted while trying to leave. (Via a bind)
 		const Dictionary = new DictionaryBuilder()
@@ -1976,8 +2010,7 @@ function ChatRoomMenuClick() {
 					break;
 				case "GameOption":
 					// The cut button can become the game option button if there's an online game going on
-					document.getElementById("InputChat").style.display = "none";
-					document.getElementById("TextAreaChatLog").style.display = "none";
+					ChatRoomHideElements();
 					CommonSetScreen("Online", "Game" + ChatRoomGame);
 					break;
 				case "Kneel":
@@ -2020,8 +2053,7 @@ function ChatRoomMenuClick() {
 				case "Dress":
 					// When the user wants to change clothes
 					if (Player.CanChangeOwnClothes()) {
-						document.getElementById("InputChat").style.display = "none";
-						document.getElementById("TextAreaChatLog").style.display = "none";
+						ChatRoomHideElements();
 						CharacterAppearanceReturnRoom = "ChatRoom";
 						CharacterAppearanceReturnModule = "Online";
 						ChatRoomStatusUpdate("Wardrobe");
@@ -2030,8 +2062,7 @@ function ChatRoomMenuClick() {
 					break;
 				case "Profile":
 					// When the user checks her profile
-					document.getElementById("InputChat").style.display = "none";
-					document.getElementById("TextAreaChatLog").style.display = "none";
+					ChatRoomHideElements();
 					ChatRoomStatusUpdate("Preference");
 					InformationSheetLoadCharacter(Player);
 					break;
@@ -2039,8 +2070,7 @@ function ChatRoomMenuClick() {
 					// When the user enters the room administration screen
 					if ((ChatRoomData != null) && ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) return AsylumGGTSMessage("NoAdminPrivate");
 					if ((ChatRoomData != null) && ChatRoomData.Locked && (ChatRoomData.Game == "GGTS")) return AsylumGGTSMessage("NoAdminLocked");
-					document.getElementById("InputChat").style.display = "none";
-					document.getElementById("TextAreaChatLog").style.display = "none";
+					ChatRoomHideElements();
 					ChatRoomStatusUpdate("Preference");
 					CommonSetScreen("Online", "ChatAdmin");
 					break;
@@ -3168,13 +3198,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	if (typeof data.Timeout === 'number' && data.Timeout > 0) setTimeout(() => div.remove(), data.Timeout);
 
 	// Returns the focus on the chat box
-	var Refocus = document.activeElement.id == "InputChat";
-	var ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
-	if (document.getElementById("TextAreaChatLog") != null) {
-		document.getElementById("TextAreaChatLog").appendChild(div);
-		if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
-		if (Refocus) ElementFocus("InputChat");
-	}
+	ChatRoomAppendChat(div);
 }
 
 /**
@@ -4245,9 +4269,7 @@ function ChatRoomSetRule(data) {
 				if (C.IsOwner())
 					CharacterSetCurrent(C);
 			if ((CurrentCharacter == null) || !CurrentCharacter.IsOwner() || !InventoryIsWorn(CurrentCharacter, "WheelFortune", "ItemDevices")) return;
-			document.getElementById("InputChat").style.display = "none";
-			document.getElementById("TextAreaChatLog").style.display = "none";
-			ChatRoomChatHidden = true;
+			ChatRoomHideElements();
 			WheelFortuneEntryModule = CurrentModule;
 			WheelFortuneEntryScreen = CurrentScreen;
 			WheelFortuneBackground = ChatRoomData.Background;
@@ -4771,13 +4793,7 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 		div.setAttribute('data-time', ChatRoomCurrentTime());
 		div.setAttribute('data-sender', Player.MemberNumber.toString());
 		div.innerHTML = "<b><i>" + TextGet("OwnerPresence" + RuleName) + "</i></b>";
-		const Refocus = document.activeElement.id == "InputChat";
-		const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
-		if (document.getElementById("TextAreaChatLog") != null) {
-			document.getElementById("TextAreaChatLog").appendChild(div);
-			if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
-			if (Refocus) ElementFocus("InputChat");
-		}
+		ChatRoomAppendChat(div);
 	}
 
 	// If all validations passed, we enforce the rule

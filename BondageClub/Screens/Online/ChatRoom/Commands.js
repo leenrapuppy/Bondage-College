@@ -95,13 +95,7 @@ function CommandParse(msg) {
 			div.setAttribute('data-sender', Player.MemberNumber.toString());
 			div.textContent = TextGet("WhisperTo") + " " + TargetName + ": " + msg;
 
-			const Refocus = document.activeElement.id == "InputChat";
-			const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
-			if (document.getElementById("TextAreaChatLog") != null) {
-				document.getElementById("TextAreaChatLog").appendChild(div);
-				if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
-				if (Refocus) ElementFocus("InputChat");
-			}
+			ChatRoomAppendChat(div);
 		}
 	} else {
 		// Throw an error message
@@ -555,9 +549,7 @@ const CommonCommands = [
 	{
 		Tag: "craft",
 		Action: () => {
-			document.getElementById("InputChat").style.display = "none";
-			document.getElementById("TextAreaChatLog").style.display = "none";
-			ChatRoomChatHidden = true;
+			ChatRoomHideElements();
 			CraftingShowScreen(true);
 		},
 	},
@@ -586,9 +578,7 @@ const CommonCommands = [
 		Tag: "wheel",
 		Action: () => {
 			if (!InventoryAvailable(Player, "WheelFortune", "ItemDevices")) return;
-			document.getElementById("InputChat").style.display = "none";
-			document.getElementById("TextAreaChatLog").style.display = "none";
-			ChatRoomChatHidden = true;
+			ChatRoomHideElements();
 			WheelFortuneEntryModule = CurrentModule;
 			WheelFortuneEntryScreen = CurrentScreen;
 			WheelFortuneBackground = ChatRoomData.Background;
