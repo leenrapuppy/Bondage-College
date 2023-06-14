@@ -373,7 +373,7 @@ function ModularItemCreateClickBaseFunction(data) {
 					ModularItemModuleTransition(module.Name, data);
 				}
 			},
-			(delta) => ModularItemChangePage(ModularItemBase, delta, data)
+			(delta) => ModularItemChangePage(ModularItemBase, delta, data, DrawData)
 		);
 	};
 }
@@ -405,7 +405,7 @@ function ModularItemClickModule(module, data) {
 				}
 			}
 		},
-		(delta) => ModularItemChangePage(module.Name, delta, data),
+		(delta) => ModularItemChangePage(module.Name, delta, data, DrawData),
 	);
 }
 
@@ -455,10 +455,10 @@ function ModularItemClickCommon({ paginate, elementData }, exitCallback, itemCal
  * @param {string} moduleName - The name of the module whose page should be modified
  * @param {number} delta - The page delta to apply to the module's current page
  * @param {ModularItemData} data - The modular item's data
+ * @param {ExtendedItemDrawData<ElementMetaData.Modular>} drawData
  * @returns {void} - Nothing
  */
-function ModularItemChangePage(moduleName, delta, data) {
-	const { pageCount } = data.drawData[moduleName];
+function ModularItemChangePage(moduleName, delta, data, { pageCount }) {
 	const currentPage = data.pages[moduleName];
 	data.pages[moduleName] = (currentPage + pageCount + delta) % pageCount;
 }
