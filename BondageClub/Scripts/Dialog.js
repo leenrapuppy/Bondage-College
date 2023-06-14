@@ -86,9 +86,9 @@ var DialogAllowFluids = false;
 
 /**
  * The group that was selected before we entered the expression coloring screen
- * @type {AssetItemGroup}
+ * @type {{mode: DialogMenuMode, group: AssetItemGroup}}
  */
-var DialogExpressionGroup = null;
+var DialogExpressionPreviousMode = null;
 
 /** @type {ExpressionItem[]} */
 var DialogFacialExpressions = [];
@@ -816,8 +816,12 @@ function DialogMenuBack() {
 			DialogChangeMode("items");
 			break;
 
-		case "colorExpression":
-			DialogChangeFocusToGroup(Player, DialogExpressionGroup);
+		case "colorExpression": {
+			const { mode, group } = DialogExpressionPreviousMode;
+			DialogChangeMode(mode || "dialog");
+			DialogChangeFocusToGroup(Player, group);
+			DialogExpressionPreviousMode = null;
+		}
 			break;
 
 		case "dialog":
@@ -2009,11 +2013,9 @@ function DialogChangeMode(mode, reset=false) {
 
 	const C = CharacterGetCurrent();
 
-	// Handle changing to/from the expression color picker having to restore the selected group
-	if (mode === "colorExpression") {
-		DialogExpressionGroup = C.FocusGroup;
-	} else if (DialogMenuMode === "colorExpression") {
-		C.FocusGroup = DialogExpressionGroup;
+	// Handle changing to the expression color picker having to restore the selected mode & group
+	if (mode === "colorExpression" && (!DialogExpressionPreviousMode || DialogExpressionPreviousMode.mode !== "colorExpression")) {
+		DialogExpressionPreviousMode = { mode: DialogMenuMode, group: C.FocusGroup };
 	}
 
 	const modeChange = DialogMenuMode !== mode || reset;
@@ -2980,8 +2982,7 @@ function DialogClickExpressionMenu() {
 			Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(Player.AssetFamily, GroupName));
 			ItemColorLoad(Player, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((save) => {
-				DialogChangeMode("items");
-				DialogExpressionGroup = null;
+				DialogMenuBack();
 				if (save && !CommonColorsEqual(originalColor, Item.Color)) {
 					ServerPlayerAppearanceSync();
 					ChatRoomCharacterItemUpdate(Player, GroupName);
