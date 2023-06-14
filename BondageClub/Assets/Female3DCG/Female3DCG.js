@@ -6053,7 +6053,7 @@ var AssetFemale3DCG = [
 				Name: "PetSuitShockCollar", Fetish: ["Leather", "Masochism"], Value: 15, Difficulty: 50, Time: 15,
 				Random: false, AllowLock: true, BuyGroup: "ShockCollar", Effect: ["ReceiveShock", "UseRemote"],
 				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true,
-				AlwaysExtend: true, HasType: false, DefaultColor: ["Default", "Default", "#2C2C2C", "#E54141"],
+				AlwaysExtend: true, HasType: false, DefaultColor: ["Default", "Default", "#2C2C2C" ],
 				Layer: [
 					{ Name: "Collar" },
 					{ Name: "Buckles" },
