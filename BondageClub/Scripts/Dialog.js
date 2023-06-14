@@ -2061,15 +2061,17 @@ function DialogChangeMode(mode, reset=false) {
 	}
 
 	// Set the status message
-	if (DialogMenuMode === "items") {
+	if (!C.FocusGroup) {
+		// Ignore setting a message if we have no focused group
+	} else if (DialogMenuMode === "items") {
 		DialogSetStatus(DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "permissions") {
 		DialogSetStatus(DialogFind(Player, "DialogPermissionMode"));
 	} else if (DialogMenuMode === "activities") {
 		if (DialogActivity.length > 0)
-			DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
+			DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 		else
-			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
+			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "locking") {
 		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "locked") {
