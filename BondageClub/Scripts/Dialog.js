@@ -2005,12 +2005,6 @@ function DialogInventoryTogglePermission(item, worn) {
  * @param {boolean} reset Whether to reset the mode back to its defaults
  */
 function DialogChangeMode(mode, reset=false) {
-	// In permission-mode, send a character update so that others
-	// catch up on our (maybe) updated item permissions
-	if (DialogMenuMode == "permissions" && CurrentScreen == "ChatRoom") {
-		ChatRoomCharacterUpdate(Player);
-	}
-
 	const C = CharacterGetCurrent();
 
 	// Handle changing to the expression color picker having to restore the selected mode & group
