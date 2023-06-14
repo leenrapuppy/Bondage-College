@@ -2114,6 +2114,7 @@ function DialogChangeFocusToGroup(C, Group) {
 	}
 
 	// Now set the selected group and refresh
+	const previousGroup = C.FocusGroup;
 	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
 	if (C.FocusGroup) {
 		// If we're changing permissions on ourself, don't change to the item list
@@ -2122,7 +2123,7 @@ function DialogChangeFocusToGroup(C, Group) {
 			DialogChangeMode("items", true);
 		}
 		// Set the mode back to itself to trigger a refresh of the state variables.
-		DialogChangeMode(DialogMenuMode);
+		DialogChangeMode(DialogMenuMode, !previousGroup || C.FocusGroup.Name !== previousGroup.Name);
 	} else {
 		// We don't have a focused group anymore. Switch to dialog mode.
 		DialogChangeMode("dialog");
