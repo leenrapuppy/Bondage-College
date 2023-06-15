@@ -30,6 +30,7 @@ AfterDefeat,,,"Don't be bitter about that defeat, we can play another practice g
 30,,What about gold cards?,Gold cards are unique cards that you can only get by defeating other club members.  They work like the regular cards though.,
 30,,What are the numbers on the top left?,"The number in the house is the required club level, matching the color.  The one in the square is Fame per turn.  The one in the circle is Money per turn.",
 30,,Cards have categories?,"Yes, these categories go below the image.  For example, a card with the Maid category will have an impact on all other cards that gives bonuses for maids.",
+30,,Why would I go bankrupt?,"Going bankrupt resets your board and hand, without losing the game.  It can be used if you're in a dead-end, losing too much each turn or got a bad starting hand.",
 30,20,I have questions on the rules.,Of course.  How can I help you?,
 30,0,Thanks for your time.,No problem.  Is there anything else you want?,
 40,,(Play a Club Card game with her.),,PraticeGameStart()
