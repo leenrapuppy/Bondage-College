@@ -3787,6 +3787,20 @@ SourceCharacter dresses DestinationCharacter with underwear over TargetPronounPo
 SourceCharacter把DestinationCharacter的内衣穿戴到TargetPronounObject的AssetName外面。
 SourceCharacter dresses DestinationCharacter with underwear and socks over TargetPronounPossessive AssetName.
 SourceCharacter把DestinationCharacter的内衣和袜子穿戴到TargetPronounObject的AssetName外面。
+Customize the look of the suit
+自定义宠物服外观
+Closed Up
+关上
+Classic
+标准
+SourceCharacter close up DestinationCharacter suit.
+SourceCharacter关上了DestinationCharacter宠物服。
+SourceCharacter opened DestinationCharacter suit.
+SourceCharacter打开了DestinationCharacter宠物服。
+SourceCharacter opened DestinationCharacter suit and fully exposes her breasts and pussy.
+SourceCharacter打开了DestinationCharacter宠物服，完全露出她的胸和阴部。
+SourceCharacter chose the classic look of the costume on DestinationCharacter.
+SourceCharacter将DestinationCharacter宠物服选择为标准外观。
 Select egg intensity
 选择跳蛋强度
 Select dildo intensity
@@ -6903,6 +6917,8 @@ SourceCharacter detaches DestinationCharacter paw mittens from the harness.
 SourceCharacter解开了DestinationCharacter猫爪无指手套和束带的连接。
 SourceCharacter chains DestinationCharacter paw mittens to the harness.
 SourceCharacter用锁链把DestinationCharacter猫爪无指手套连接到束带。
+Cannot access this tablet
+无法使用此平板
 Sync code:
 同步代码：
 Invalid code

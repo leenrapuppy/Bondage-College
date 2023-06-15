@@ -1706,6 +1706,8 @@ Bolero Straitjacket
 波蕾若拘束衣
 Pet Suit
 宠物拘束服
+Shiny Pet Suit
+闪亮宠物拘束服
 Strait Dress
 拘束连衣裙
 Open Crotch Strait Dress
@@ -1920,6 +1922,8 @@ Shock Collar
 电击项圈
 Automatic Shock Collar
 自动电击项圈
+PetSuit Shock Collar
+宠物服电击项圈
 Bat Collar
 蝙蝠项圈
 Posture Collar
