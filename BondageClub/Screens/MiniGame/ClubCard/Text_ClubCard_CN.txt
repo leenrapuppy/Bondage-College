@@ -84,6 +84,14 @@ PLAYERNAME upgraded to Mansion for MONEY.
 PLAYERNAME花费MONEY升级到豪宅。
 PLAYERNAME upgraded to Manor for MONEY.
 PLAYERNAME花费MONEY升级到庄园。
+SOURCEPLAYER gained AMOUNT Fame.
+SOURCEPLAYER获得了AMOUNT声望。
+SOURCEPLAYER gained AMOUNT Money.
+SOURCEPLAYER获得了AMOUNT金钱。
+SOURCEPLAYER stole AMOUNT Fame from OPPONENTPLAYER.
+SOURCEPLAYER从OPPONENTPLAYER偷取了AMOUNT声望。
+SOURCEPLAYER stole AMOUNT Money from OPPONENTPLAYER.
+SOURCEPLAYER从OPPONENTPLAYER偷取了AMOUNT金钱。
 Liability
 闹事者
 Staff
@@ -214,6 +222,14 @@ Gangster
 歹徒
 +2 Money per turn per Criminal present.  Leave the club at end of turn if a Police is present.
 每有一个罪犯在场，每回合+2金钱。如果警察在场，在回合结束时会离开俱乐部。
+Paroled Thief
+假释小偷
+Opponent gets +1 Money at end of turn.  Leave the club at end of turn if a Police is present.
+对手在回合结束时，+1金钱。如果警察在场，在回合结束时会离开俱乐部。
+Police Cadet
+警察学院
+<F>Hey!  Give me back my keys!
+<F>嘿！把我的钥匙还给我！
 Maid Lover
 女仆爱好者
 +1 Money per turn for each Maid present.
@@ -362,8 +378,8 @@ No-Fap Advocate
 每有一个色情演员在场，每回合-2声望。
 Pandora Infiltrator
 潘多拉潜入者
-<F>Pssssst
-<F>嘘——
+<F>Pssssst, you want to try a real BDSM club?
+<F>嘘——你想试试一个真正的BDSM俱乐部吗？
 Uncontrollable Sub
 失控顺从者
 -1 Fame per turn for each Dominant present.  -1 Fame per turn for each Mistress present.
@@ -390,8 +406,8 @@ Babysitter
 每有一个ABDL宝宝在场，每回合+2声望。
 Soap Opera Mother
 肥皂剧妈妈
-+25 Fame and -25 Money when she enters your club if at least one ABDL Baby is present.
-如果至少一个ABDL宝宝在场，当她进入你的俱乐部时，+25声望并-25金币。
++25 Fame when she enters your club if at least one ABDL Baby is present.
+如果至少一个ABDL宝宝在场，当她进入你的俱乐部时，+25声望。
 Amanda
 Amanda
 Immune to Ransomware.
@@ -452,3 +468,23 @@ Foreign Investment
 外部投资
 +30 Money.
 +30金钱。
+Cat Burglar
+入室盗贼
+Steals up to 4 Money from opponent.  Money must be positive.  Won't work if opponent has Police.
+从对手偷取至多4金钱。金钱必须是正数。如果对手有警察，则不生效。
+Money Heist
+金钱大盗
+Steals up to 12 Money from opponent.  Money must be positive.  Won't work if opponent has Police.
+从对手偷取至多12金钱。金钱必须是正数。如果对手有警察，则不生效。
+BDSM Ball
+BDSM舞会
++1 Fame for each member that's not Dominant, Liability, Maid or Staff.
+每有一个不是支配者、闹事者、女仆或者工作人员的会员，+1声望。
+Vampire Ball
+吸血鬼舞会
++3 Fame for each member that's not Dominant, Liability, Maid or Staff.
+每有一个不是支配者、闹事者、女仆或者工作人员的会员，+3声望。
+Straitjacket Saturday
+拘束衣周末
++4 Money for each Asylum Patient and Asylum Nurse.
+每有一个收容所病人和收容所护士，+4金钱。
