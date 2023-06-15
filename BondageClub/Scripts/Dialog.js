@@ -2446,8 +2446,8 @@ function DialogStatusDraw(C) {
 		DialogStatusClear();
 	}
 
-	// Only draw status if we can interact
-	if (!Player.CanInteract() || InventoryGroupIsBlocked(C)) return;
+	// Don't draw status in items mode if we can't interact, as the screen shows a blocked message in that case
+	if ((!Player.CanInteract() || InventoryGroupIsBlocked(C)) && DialogMenuMode === "items") return;
 
 	if (["extended", "tighten", "colorDefault", "colorExpression", "colorItem", "struggle", "crafted"].includes(DialogMenuMode)) return;
 
