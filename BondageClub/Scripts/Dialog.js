@@ -2108,6 +2108,11 @@ function DialogChangeFocusToGroup(C, Group) {
 	AudioDialogStop();
 	DialogEndExpression();
 
+	// Stop any strugling minigame
+	if(StruggleMinigameIsRunning()) {
+		StruggleMinigameStop();
+	}
+
 	// If we're in the two-character dialog, clear their focused group
 	if (!CurrentCharacter.IsPlayer()) {
 		Player.FocusGroup = null;
