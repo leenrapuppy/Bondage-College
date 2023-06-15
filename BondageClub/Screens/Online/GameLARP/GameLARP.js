@@ -809,14 +809,7 @@ function GameLARPAddChatLog(Msg, Source, Target, Description, RNG, Odds, Color) 
 	div.setAttribute('data-time', ChatRoomCurrentTime());
 	if ((Color != null) && (Color != "")) div.style.color = Color;
 	div.innerHTML = Msg;
-	var Refocus = document.activeElement.id == "InputChat";
-	var ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
-	if (document.getElementById("TextAreaChatLog") != null) {
-		document.getElementById("TextAreaChatLog").appendChild(div);
-		if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
-		if (Refocus) ElementFocus("InputChat");
-	}
-
+	ChatRoomAppendChat(div);
 }
 
 /**

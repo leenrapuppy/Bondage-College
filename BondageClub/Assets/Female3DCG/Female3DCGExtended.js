@@ -5319,7 +5319,7 @@ var AssetFemale3DCGExtended = {
 		}, // VibratingLatexPanties
 		InflatableVibratingPanties: {
 			Archetype: ExtendedArchetype.MODULAR,
-			ChatTags: [CommonChatTags.ASSET_NAME],
+			ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
 			Modules: [
 				{
 					Name: "InflateLevel",

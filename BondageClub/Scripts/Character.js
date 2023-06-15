@@ -1130,6 +1130,7 @@ function CharacterLoadCanvasAll() {
  */
 function CharacterSetCurrent(C) {
 	CurrentCharacter = C;
+	DialogMenuMode = "dialog";
 	var NewDialog = DialogIntro();
 	if (!Player.CanTalk()) NewDialog = DialogFind(CurrentCharacter, "PlayerGagged", "");
 	if (NewDialog != "") C.CurrentDialog = NewDialog;

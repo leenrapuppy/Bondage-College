@@ -258,7 +258,9 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 				return "RemoveClothesForItem";
 
 			// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
-			if (InventoryDoItemsBlockGroup(C, target, ["ItemPelvis", "ItemVulvaPiercings"]) || C.IsVulvaChaste())
+			if (InventoryDoItemsBlockGroup(C, target, ["ItemPelvis", "ItemVulvaPiercings"])
+				|| Prerequisite === "AccessVulva" && C.IsVulvaChaste()
+				|| Prerequisite === "AccessButt" && C.IsButtChaste())
 				return "RemoveChastityFirst";
 
 			return "";

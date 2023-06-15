@@ -157,8 +157,7 @@ function GameMagicBattleClickProcess() {
 		if (Time >= 6)
 			for (let B = 0; B < GameMagicBattleButton.length; B++)
 				if (MouseIn(GameMagicBattleButton[B].X, GameMagicBattleButton[B].Y, GameMagicBattleButton[B].W, GameMagicBattleButton[B].H)) {
-					document.getElementById("InputChat").style.display = "none";
-					document.getElementById("TextAreaChatLog").style.display = "none";
+					ChatRoomHideElements();
 					MagicPuzzleSpell = MagicBattleAvailSpell[B];
 					MagicPuzzleAutoExit = true;
 					MagicPuzzleBackground = ChatRoomData.Background;
@@ -178,8 +177,7 @@ function GameMagicBattlePuzzleEnd() {
 	GameMagicBattleFocusCharacter = null;
 	GameMagicBattleTurnDone = true;
 	CommonSetScreen("Online", "ChatRoom");
-	document.getElementById("InputChat").style.display = "";
-	document.getElementById("TextAreaChatLog").style.display = "";
+	ChatRoomShowElements();
 }
 
 /**
@@ -385,14 +383,7 @@ function GameMagicBattleAddChatLog(Msg, Source, Target, Data, Color) {
 	div.setAttribute('data-time', ChatRoomCurrentTime());
 	if ((Color != null) && (Color != "")) div.style.color = Color;
 	div.innerText = Msg;
-	var Refocus = document.activeElement.id == "InputChat";
-	var ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
-	if (document.getElementById("TextAreaChatLog") != null) {
-		document.getElementById("TextAreaChatLog").appendChild(div);
-		if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
-		if (Refocus) ElementFocus("InputChat");
-	}
-
+	ChatRoomAppendChat(div);
 }
 
 /**

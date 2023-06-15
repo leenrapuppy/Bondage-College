@@ -86,9 +86,9 @@ var DialogAllowFluids = false;
 
 /**
  * The group that was selected before we entered the expression coloring screen
- * @type {AssetItemGroup}
+ * @type {{mode: DialogMenuMode, group: AssetItemGroup}}
  */
-var DialogExpressionGroup = null;
+var DialogExpressionPreviousMode = null;
 
 /** @type {ExpressionItem[]} */
 var DialogFacialExpressions = [];
@@ -719,19 +719,20 @@ function DialogIntro() {
  * @returns {void} - Nothing
  */
 function DialogLeave() {
-	if (!CurrentCharacter) return;
 
 	DialogLeaveFocusItem();
 
 	// Reset the character's height
-	if (CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
+	if (CurrentCharacter && CharacterAppearanceForceUpCharacter == CurrentCharacter.MemberNumber) {
 		CharacterAppearanceForceUpCharacter = -1;
 		CharacterRefresh(CurrentCharacter, false);
 	}
 
-	DialogChangeFocusToGroup(CurrentCharacter, null);
-
-	// Deselect the character, exiting the dialog
+	// Reset the mode, selected group & character, exiting the dialog
+	DialogMenuMode = null;
+	if (CurrentCharacter) {
+		DialogChangeFocusToGroup(CurrentCharacter, null);
+	}
 	CurrentCharacter = null;
 
 	// Reset the state of the self menu
@@ -815,8 +816,12 @@ function DialogMenuBack() {
 			DialogChangeMode("items");
 			break;
 
-		case "colorExpression":
-			DialogChangeFocusToGroup(Player, DialogExpressionGroup);
+		case "colorExpression": {
+			const { mode, group } = DialogExpressionPreviousMode;
+			DialogChangeMode(mode || "dialog");
+			DialogChangeFocusToGroup(Player, group);
+			DialogExpressionPreviousMode = null;
+		}
 			break;
 
 		case "dialog":
@@ -2003,19 +2008,11 @@ function DialogInventoryTogglePermission(item, worn) {
  * @param {boolean} reset Whether to reset the mode back to its defaults
  */
 function DialogChangeMode(mode, reset=false) {
-	// In permission-mode, send a character update so that others
-	// catch up on our (maybe) updated item permissions
-	if (DialogMenuMode == "permissions" && CurrentScreen == "ChatRoom") {
-		ChatRoomCharacterUpdate(Player);
-	}
-
 	const C = CharacterGetCurrent();
 
-	// Handle changing to/from the expression color picker having to restore the selected group
-	if (mode === "colorExpression") {
-		DialogExpressionGroup = C.FocusGroup;
-	} else if (DialogMenuMode === "colorExpression") {
-		C.FocusGroup = DialogExpressionGroup;
+	// Handle changing to the expression color picker having to restore the selected mode & group
+	if (mode === "colorExpression" && (!DialogExpressionPreviousMode || DialogExpressionPreviousMode.mode !== "colorExpression")) {
+		DialogExpressionPreviousMode = { mode: DialogMenuMode, group: C.FocusGroup };
 	}
 
 	const modeChange = DialogMenuMode !== mode || reset;
@@ -2063,15 +2060,17 @@ function DialogChangeMode(mode, reset=false) {
 	}
 
 	// Set the status message
-	if (DialogMenuMode === "items") {
+	if (!C.FocusGroup) {
+		// Ignore setting a message if we have no focused group
+	} else if (DialogMenuMode === "items") {
 		DialogSetStatus(DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "permissions") {
 		DialogSetStatus(DialogFind(Player, "DialogPermissionMode"));
 	} else if (DialogMenuMode === "activities") {
 		if (DialogActivity.length > 0)
-			DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
+			DialogSetStatus(DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 		else
-			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase().toLowerCase()));
+			DialogSetStatus(DialogFindPlayer("SelectActivityNone").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "locking") {
 		DialogSetStatus(DialogFindPlayer("SelectLock").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase()));
 	} else if (DialogMenuMode === "locked") {
@@ -2123,6 +2122,7 @@ function DialogChangeFocusToGroup(C, Group) {
 	}
 
 	// Now set the selected group and refresh
+	const previousGroup = C.FocusGroup;
 	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
 	if (C.FocusGroup) {
 		// If we're changing permissions on ourself, don't change to the item list
@@ -2131,7 +2131,7 @@ function DialogChangeFocusToGroup(C, Group) {
 			DialogChangeMode("items", true);
 		}
 		// Set the mode back to itself to trigger a refresh of the state variables.
-		DialogChangeMode(DialogMenuMode);
+		DialogChangeMode(DialogMenuMode, !previousGroup || C.FocusGroup.Name !== previousGroup.Name);
 	} else {
 		// We don't have a focused group anymore. Switch to dialog mode.
 		DialogChangeMode("dialog");
@@ -2985,8 +2985,7 @@ function DialogClickExpressionMenu() {
 			Player.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(Player.AssetFamily, GroupName));
 			ItemColorLoad(Player, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((save) => {
-				DialogChangeMode("items");
-				DialogExpressionGroup = null;
+				DialogMenuBack();
 				if (save && !CommonColorsEqual(originalColor, Item.Color)) {
 					ServerPlayerAppearanceSync();
 					ChatRoomCharacterItemUpdate(Player, GroupName);

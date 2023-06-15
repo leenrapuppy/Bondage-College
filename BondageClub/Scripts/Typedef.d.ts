@@ -352,7 +352,7 @@ type CraftingPropertyType =
 	;
 
 type AssetAttribute =
-	"Skirt" | "Suitlower" | "UpperLarge" |
+	"Skirt" | "SuitLower" | "UpperLarge" |
 	"ShortHair" | "SmallEars" | "NoEars" | "AltEars" | "NoseRing" | "HoodieFix" |
 	"CanAttachMittens" |
 	"PenisLayer" | "PussyLayer" | "GenitaliaCover" | "PussyLight1" | "PussyLight2" | "PussyLight3" | "PussyDark1" | "PussyDark2" | "PussyDark3" |
