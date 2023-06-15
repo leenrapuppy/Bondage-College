@@ -940,14 +940,17 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 		// Don't allow gendered assets in the opposite-gender-only space
 		if (!CharacterAppearanceGenderAllowed(asset)) return;
 
-		// Make sure we do not duplicate the item in the list, including crafted items
-		for (let I = 0; I < DialogInventory.length; I++)
-			if ((DialogInventory[I].Asset.Group.Name == asset.Group.Name) && (DialogInventory[I].Asset.Name == asset.Name)) {
-				if ((item.Craft == null) && (DialogInventory[I].Craft != null)) continue;
-				if ((item.Craft != null) && (DialogInventory[I].Craft == null)) continue;
-				if ((item.Craft != null) && (DialogInventory[I].Craft != null) && (item.Craft.Name != DialogInventory[I].Craft.Name)) continue;
+		// Make sure we do not duplicate the item in the list
+		for (const invItem of DialogInventory) {
+			if (
+				invItem.Asset.Name === item.Asset.Name
+				&& invItem.Asset.Group.Name === item.Asset.Group.Name
+				&& invItem.Craft == null
+				&& item.Craft == null
+			) {
 				return;
 			}
+		}
 	}
 
 	// Adds the item to the selection list
@@ -1480,7 +1483,7 @@ function DialogInventoryBuild(C, resetOffset=false, locks=false) {
 		}
 
 		// Sixth. we add all crafted items from the character that matches that slot
-		if (C.Crafting != null) {
+		if (C.Crafting != null && !C.IsPlayer()) {
 			let Crafting = CraftingDecompressServerData(C.Crafting);
 			for (let Craft of Crafting)
 				if ((Craft != null) && (Craft.Item != null))
