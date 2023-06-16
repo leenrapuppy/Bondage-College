@@ -2208,7 +2208,7 @@ function DialogClick() {
 	}
 
 	// Block out clicking on anything else if we're not supposed to interact with the selected character
-	if (C.FocusGroup === null || !CurrentCharacter.AllowItem || DialogIntro() === "") return;
+	if (C.FocusGroup === null || !C.AllowItem || DialogIntro() === "") return;
 
 	/** The item currently sitting in the focused group */
 	const FocusItem = InventoryGet(C, C.FocusGroup.Name);
@@ -2769,7 +2769,7 @@ function DialogDraw() {
 	}
 
 	// Block out drawing anything else if we're not supposed to interact with the selected character
-	if (C.FocusGroup === null || !CurrentCharacter.AllowItem || DialogIntro() === "") return;
+	if (C.FocusGroup === null || !C.AllowItem || DialogIntro() === "") return;
 
 	// Reset the status text to the default after 5 seconds
 	if (DialogTextDefaultTimer < CommonTime())
