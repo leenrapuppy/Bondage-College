@@ -2608,24 +2608,24 @@ var AssetFemale3DCG = [
 				Value: 50,
 				Layer: [
 					{ Name: "SeptumRing1", HasType: false, AllowModuleTypes: ["n1"], HideForAttribute: ["NoseRing"] },
-					{ Name: "EarHoopLeft", HasType: false, AllowModuleTypes: ["e3"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarHoopRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a3"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarRingLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e2","e8","e9","e11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarRingRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a2","a8","a9","a11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarRing2Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e8","e9"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarRing2Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a8","a9"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarRing3Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e9","e10"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarRing3Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a9","a10"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarStudLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e1","e6","e7"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarStudRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a1","a6","a7"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarStud2Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e6","e7","e11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarStud2Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a6","a7","a11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarStud3Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e7","e11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarStud3Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a7","a11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarBigstudLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e5"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarBigstudRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a5"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarIndustLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e4","e11"], HideForAttribute: ["AltEars"], },
-					{ Name: "EarIndustRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a4","a11"], HideForAttribute: ["AltEars"], },
+					{ Name: "EarHoopLeft", HasType: false, AllowModuleTypes: ["e3"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarHoopRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a3"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarRingLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e2","e8","e9","e11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarRingRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a2","a8","a9","a11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarRing2Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e8","e9"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarRing2Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a8","a9"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarRing3Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e9","e10"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarRing3Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a9","a10"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarStudLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e1","e6","e7"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarStudRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a1","a6","a7"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarStud2Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e6","e7","e11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarStud2Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a6","a7","a11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarStud3Left", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e7","e11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarStud3Right", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a7","a11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarBigstudLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e5"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarBigstudRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a5"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarIndustLeft", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["e4","e11"], HideForAttribute: ["NoEars","SmallEars"], },
+					{ Name: "EarIndustRight", HasType: false, CopyLayerColor: "EarHoopLeft", AllowModuleTypes: ["a4","a11"], HideForAttribute: ["NoEars","SmallEars"], },
 					{ Name: "NoseStudLeft", HasType: false, CopyLayerColor: "SeptumRing1", AllowModuleTypes: ["n3"] },
 					{ Name: "NoseStudRight", HasType: false, CopyLayerColor: "SeptumRing1", AllowModuleTypes: ["n2"] },
 					{ Name: "NoseRingLeft", HasType: false, CopyLayerColor: "SeptumRing1", AllowModuleTypes: ["n5"], HideForAttribute: ["NoseRing"] },
@@ -3015,14 +3015,14 @@ var AssetFemale3DCG = [
 			"HairFront15", "HairFront16", "HairFront17",
 			{ Name: "HairFront17b",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["AltEars"], },
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
 			},
 			{ Name: "HairFront18",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["AltEars"], },
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3030,14 +3030,14 @@ var AssetFemale3DCG = [
 			"HairFront19",
 			{ Name: "HairFront20",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["AltEars"], },
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
 			},
 			{ Name: "HairFront21",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["AltEars"], },
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3078,7 +3078,7 @@ var AssetFemale3DCG = [
 			}, //HairFront23b
 			{ Name: "HairFront24",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["AltEars"], },
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3086,7 +3086,7 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront25" },
 			{ Name: "HairFront26",
 				Layer: [
-					{ Name: "Main", HideForAttribute: ["AltEars"], },
+					{ Name: "Main", HideForAttribute: ["SmallEars","NoEars"], },
 					{ Name: "SmallEars", CopyLayerColor: "Main", ShowForAttribute: ["SmallEars"], },
 					{ Name: "NoEars", CopyLayerColor: "Main", ShowForAttribute: ["NoEars"], },
 				]
@@ -3528,12 +3528,12 @@ var AssetFemale3DCG = [
 			{ Name: "Default"},
 			{
 				Name: "SmallEars",
-				Attribute: ["SmallEars","AltEars"],
+				Attribute: ["SmallEars"],
 				Random: false,
 			},
 			{
 				Name: "NoEars",
-				Attribute: ["NoEars","AltEars"],
+				Attribute: ["NoEars"],
 				Random: false,
 			},
 		],
