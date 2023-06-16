@@ -1685,12 +1685,13 @@ var AssetFemale3DCG = [
 				HideItem: ["SocksSocks4", "SocksSocks5", "LeftAnkletRibbon1", "RightAnkletRibbon1"],
 				Alpha: [{ Group: ["BodyLower", "Socks", "SocksRight", "SocksLeft", "SuitLower"], Masks: [[75, 875, 350, 200]] }],
 				Height: 35, Extended: true, AllowPose: ["LegsClosed", "Spread", "Kneel", "KneelingSpread"],
+				HasType: false,
 				Layer: [
 
-					{ Name: "Base", HasType: false, },
-					{ Name: "Thigh", HasType: false, AllowModuleTypes: ["l1"]},
-					{ Name: "Layer", HasType: false, CopyLayerColor: "Base", AllowModuleTypes: ["l2"], },
-					{ Name: "Band", HasType: false, },
+					{ Name: "Base", },
+					{ Name: "Thigh", AllowModuleTypes: ["l1"]},
+					{ Name: "Layer", CopyLayerColor: "Base", AllowModuleTypes: ["l2"], },
+					{ Name: "Band", AllowModuleTypes: ["b1"], },
 
 				],
 			},
