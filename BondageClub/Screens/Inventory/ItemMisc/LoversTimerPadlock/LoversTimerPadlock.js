@@ -23,12 +23,12 @@ function InventoryItemMiscLoversTimerPadlockValidator(C) {
 
 /** @type {ExtendedItemCallbacks.Draw} */
 function InventoryItemMiscLoversTimerPadlockDraw() {
-	InventoryItemMiscOwnerTimerPadlockDraw(InventoryItemMiscOwnerTimerPadlockValidator);
+	InventoryItemMiscOwnerTimerPadlockDraw(InventoryItemMiscLoversTimerPadlockValidator);
 }
 
 /** @type {ExtendedItemCallbacks.Click} */
 function InventoryItemMiscLoversTimerPadlockClick() {
-	InventoryItemMiscOwnerTimerPadlockClick(InventoryItemMiscOwnerTimerPadlockValidator);
+	InventoryItemMiscOwnerTimerPadlockClick(InventoryItemMiscLoversTimerPadlockValidator);
 }
 
 /** @type {ExtendedItemCallbacks.Exit} */
