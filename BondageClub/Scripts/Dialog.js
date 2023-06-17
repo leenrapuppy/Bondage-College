@@ -2884,7 +2884,7 @@ function DialogDraw() {
  * @param {string} msg - The explanation message to draw
  */
 function DialogDrawItemMessage(C, msg, item) {
-	if (item !== null && !C.CanInteract()) {
+	if (item !== null) {
 		DrawItemPreview(item, C, 1387, 250);
 	}
 	DrawText(msg, 1500, 700, "White", "Black");
