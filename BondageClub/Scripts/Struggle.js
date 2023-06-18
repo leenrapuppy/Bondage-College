@@ -215,7 +215,7 @@ function StruggleMinigameDrawCommon(Offset) {
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
 		DrawItemPreview(StruggleProgressPrevItem, Player, 1200, 250 + Offset);
-		DrawItemPreview(StruggleProgressNextItem, Player, 1200, 250 + Offset);
+		DrawItemPreview(StruggleProgressNextItem, Player, 1575, 250 + Offset);
 	} else {
 		let Item = StruggleProgressPrevItem != null ? StruggleProgressPrevItem : StruggleProgressNextItem;
 		DrawItemPreview(Item, Player, 1387, 250 + Offset);
