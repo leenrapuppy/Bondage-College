@@ -1201,7 +1201,7 @@ function CharacterRefreshDialog(C) {
 		}
 
 		// We were looking at an extended screen
-		const wasLock = DialogFocusItem.Asset.IsLock;
+		const wasLock = DialogFocusItem && DialogFocusItem.Asset.IsLock;
 		const sourceItem = wasLock ? DialogFocusSourceItem : DialogFocusItem;
 		const previousItem = sourceItem ? InventoryGet(C, sourceItem.Asset.Group.Name) : null;
 		if (!previousItem || previousItem.Asset.Name !== focusItem.Asset.Name) {
