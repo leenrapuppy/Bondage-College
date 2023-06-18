@@ -811,6 +811,7 @@ function DialogMenuBack() {
 			break;
 
 		case "colorDefault":
+			ColorPickerHide();
 			DialogColorSelect = null;
 			ElementRemove("InputColor");
 			DialogChangeMode("items");
@@ -1801,6 +1802,7 @@ function DialogMenuButtonClick() {
 			// When the user selects a color, applies it to the item
 			else if (DialogMenuButton[I] == "ColorSelect" && CommonIsColor(ElementValue("InputColor"))) {
 				DialogColorSelect = ElementValue("InputColor");
+				ColorPickerHide();
 				ElementRemove("InputColor");
 				DialogChangeMode("items");
 				return true;
@@ -1809,6 +1811,7 @@ function DialogMenuButtonClick() {
 			// When the user cancels out of color picking, we recall the original color
 			else if (DialogMenuButton[I] == "ColorCancel") {
 				DialogColorSelect = null;
+				ColorPickerHide();
 				ElementRemove("InputColor");
 				DialogChangeMode("items");
 				return true;
@@ -2105,6 +2108,10 @@ function DialogChangeFocusToGroup(C, Group) {
 	DialogLeaveFocusItem();
 	if (DialogMenuMode === "colorExpression" || DialogMenuMode === "colorItem")
 		ItemColorCancelAndExit();
+	else if (DialogMenuMode === "colorDefault") {
+		ColorPickerHide();
+		ElementRemove("InputColor");
+	}
 
 	// Stop sounds & expressions from struggling/swapping items
 	AudioDialogStop();
