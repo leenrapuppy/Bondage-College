@@ -1380,7 +1380,7 @@ function DialogCanUseCraftedItem(C, Craft) {
  */
 function DialogCanUseOwnerLockOn(target) {
 	return target.IsPlayer()
-		? !LogQuery("BlockOwnerLockSelf", "OwnerRule")
+		? (target.IsOwned() && !LogQuery("BlockOwnerLockSelf", "OwnerRule"))
 		: target.IsOwnedByPlayer();
 }
 
@@ -1391,7 +1391,7 @@ function DialogCanUseOwnerLockOn(target) {
  */
 function DialogCanUseLoverLockOn(target) {
 	return target.IsPlayer()
-		? !LogQuery("BlockLoverLockSelf", "LoverRule")
+		? (target.GetLoversNumbers(true).length > 0 && !LogQuery("BlockLoverLockSelf", "LoverRule"))
 		: target.IsOwnedByPlayer()
 			? !LogQueryRemote(target, "BlockLoverLockOwner", "LoverRule")
 			: target.IsLoverOfPlayer();
@@ -1404,7 +1404,7 @@ function DialogCanUseLoverLockOn(target) {
  */
 function DialogCanUseFamilyLockOn(target) {
 	return target.IsPlayer()
-		? !LogQuery("BlockOwnerLockSelf", "OwnerRule")
+		? (target.IsOwned() && !LogQuery("BlockOwnerLockSelf", "OwnerRule"))
 		: target.IsOwner() // Owner is in family, but you can't use family locks on them
 			? false
 			: target.IsFamilyOfPlayer();
