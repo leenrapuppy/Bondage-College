@@ -1026,13 +1026,16 @@ function ClubCardRemoveFromBoard(Board, Card) {
  */
 function ClubCardRemoveGroupFromBoard(Board, GroupName) {
 	if (Board == null) return;
-	for (let C of Board)
-		if (C.Group != null)
-			for (let Pos = 0; Pos < C.Group.length; Pos++)
-				if (C.Group[Pos] == GroupName) {
-					Board = Board.splice(Pos, 1);
+	for (let Pos = 0; Pos < Board.length; Pos++) {
+		let Card = Board[Pos];
+		if (Card.Group != null)
+			for (let G of Card.Group)
+				if (G == GroupName) {
+					Board.splice(Pos, 1);
+					Pos--;
 					break;
 				}
+	}
 }
 
 /**
