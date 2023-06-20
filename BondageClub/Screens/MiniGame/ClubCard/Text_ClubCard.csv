@@ -8,7 +8,7 @@ Fame,Fame:
 Money,Money:
 PlayCard,Play this card
 Draw,Draw and end your turn
-CannotDraw,Cannot draw when you played
+CannotDraw,End your turn
 Bankrupt,Go bankrupt
 Concede,Concede the game
 Yes,Yes
