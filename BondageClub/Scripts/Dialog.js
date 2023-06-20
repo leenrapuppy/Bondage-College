@@ -2741,6 +2741,10 @@ function DialogDraw() {
 	DrawCharacter(CurrentCharacter, 500, 0, 1);
 
 	const C = CharacterGetCurrent();
+
+	// Drawing the character causes ScriptDraw hooks to be called, some of which
+	// can cause the dialog to close (like the Futuristic Training Belt)
+	if (!C) return;
 	CharacterCheckHooks(C, true);
 
 	// Draw the menu for facial expressions if the player clicked on herself
