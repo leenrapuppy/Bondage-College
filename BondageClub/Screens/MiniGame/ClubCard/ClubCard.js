@@ -1345,7 +1345,7 @@ function ClubCardAIPlay() {
 		return ClubCardBankrupt();
 
 	// Since nothing could be done, we end the turn by skipping
-	ClubCardEndTurn(true);
+	ClubCardEndTurn((ClubCardTurnCardPlayed == 0));
 
 }
 
