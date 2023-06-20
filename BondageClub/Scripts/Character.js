@@ -936,10 +936,13 @@ function CharacterItemsHavePose(C, Pose, ExcludeClothes = false) {
  * @returns {boolean} - Returns true if the character is wearing an item that sets the given pose, false otherwise
  */
 function CharacterDoItemsSetPose(C, pose, excludeClothes = false) {
+	if (C == null) return false;
 	return C.Appearance
 		.filter(item => !excludeClothes || !item.Asset.Group.Clothing)
 		.some(item => {
-			return InventoryGetItemProperty(item, "SetPose", true).includes(pose);
+			let Value = InventoryGetItemProperty(item, "SetPose", true);
+			if (Value == null) return false;
+			return Value.includes(pose);
 		});
 }
 
