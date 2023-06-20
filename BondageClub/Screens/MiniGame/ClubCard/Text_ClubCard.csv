@@ -8,6 +8,7 @@ Fame,Fame:
 Money,Money:
 PlayCard,Play this card
 Draw,Draw and end your turn
+CannotDraw,Cannot draw when you played
 Bankrupt,Go bankrupt
 Concede,Concede the game
 Yes,Yes
@@ -26,7 +27,7 @@ Return,End the game
 OpponentPlaying,Your opponent is playing...
 PlayACard,PLAYERNAME plays CARDNAME.
 PlayACardOpponentBoard,PLAYERNAME plays CARDNAME on the opponent board.
-PlayAnotherCard,PLAYER can play another card.  The turn continues.
+PlayAnotherCard,PLAYERNAME can play another card.  The turn continues.
 StartPlayer,You've been chosen to start the game.  Select a card to play or end your turn by drawing.
 StartOpponent,Your opponent has been chosen to start the game.  Please wait for her move.
 EndTurnPlayer,FAMEMONEY.  It's your opponent turn.
