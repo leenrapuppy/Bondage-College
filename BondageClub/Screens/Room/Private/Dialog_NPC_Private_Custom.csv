@@ -282,6 +282,36 @@ OwnerBeepFail,,,"(She looks angry.)  Little submissive, when I call you, you nee
 OwnerBeepFail,,,"(She slaps your face.)  Slave!  When I beep you, you need to come here quicker.",,,OwnerBeepFail,Serious|Violent
 OwnerBeepFail,,,"Slut!  When I'm wet and I fucking beep your cunt, you better come faster.",,,OwnerBeepFail,Rude|Horny
 OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very disappointing when I summon you and you don't come in a timely manner.",,,OwnerBeepFail,Wise|Peaceful
+ClubCardVsFriendVictory,,,Good game!  I'll have to do better next time.  You can do what you want with me.,,,ClubCardVsFriendVictory,
+ClubCardVsFriendVictory,,,"(She throws her cards away.)  Fine, you win!  Make it painful to teach me a lesson.",,,ClubCardVsFriendVictory,Serious|Violent
+ClubCardVsFriendVictory,,,You're good at that game you know?  (She winks at you.)  You can fuck me now.,,,ClubCardVsFriendVictory,Rude|Horny
+ClubCardVsFriendVictory,,,"Congratulations, I'll have to review my strategies and deck building.  It seems that I'm your spoils of war.",,,ClubCardVsFriendVictory,Wise|Peaceful
+ClubCardVsFriendVictory,,,"I'll never understand that stupid game!  You win, but don't go crazy on me, there are limits.",,,ClubCardVsFriendVictory,Frigid|Dumb
+ClubCardVsFriendDefeat,,,Victory!  That was a good game.  Now it's time to get you in trouble.,,,ClubCardVsFriendDefeat,
+ClubCardVsFriendDefeat,,,You never had a chance.  (She grins.)  Now it's time to get your skin red.,,,ClubCardVsFriendDefeat,Serious|Violent
+ClubCardVsFriendDefeat,,,Holy hell!  I won!  Get ready to cum hard prisoner.,,,ClubCardVsFriendDefeat,Rude|Horny
+ClubCardVsFriendDefeat,,,"(She puts away her cards carefully and smiles.)  I can help you review your tactics later, but for now you'll be my victim.",,,ClubCardVsFriendDefeat,Wise|Peaceful
+ClubCardVsFriendDefeat,,,"What?  Did I win?  Hahaha, awesome!  I can put you in bondage now.",,,ClubCardVsFriendDefeat,Frigid|Dumb
+ClubCardVsOwnerVictory,,,"Good game my girl!  I'll have to do better next time.  You can do what you want with me, but don't go too far or you'll be punished.",,,ClubCardVsOwnerVictory,
+ClubCardVsOwnerVictory,,,"(She throws her cards away.)  Fine, you win!  Make it painful to teach me a lesson slave.",,,ClubCardVsOwnerVictory,Serious|Violent
+ClubCardVsOwnerVictory,,,You're good at that game you know?  (She winks at you.)  You can fuck me now my slave.,,,ClubCardVsOwnerVictory,Rude|Horny
+ClubCardVsOwnerVictory,,,"Congratulations my submissive, I'll have to review my strategies and deck building.  It seems that I'm your spoils of war.",,,ClubCardVsOwnerVictory,Wise|Peaceful
+ClubCardVsOwnerVictory,,,"I'll never understand that stupid game!  You win my girl, but don't go crazy on me, there are limits.",,,ClubCardVsOwnerVictory,Frigid|Dumb
+ClubCardVsOwnerDefeat,,,Victory!  That was a good game.  Now it's time to get you in trouble my girl.,,,ClubCardVsOwnerDefeat,
+ClubCardVsOwnerDefeat,,,You never had a chance slave.  (She grins.)  Now it's time to get your skin red.,,,ClubCardVsOwnerDefeat,Serious|Violent
+ClubCardVsOwnerDefeat,,,Holy hell!  I won!  Get ready to cum hard slave.,,,ClubCardVsOwnerDefeat,Rude|Horny
+ClubCardVsOwnerDefeat,,,"(She puts away her cards carefully and smiles.)  I can help you review your tactics later, but for now you'll be my lovely victim.",,,ClubCardVsOwnerDefeat,Wise|Peaceful
+ClubCardVsOwnerDefeat,,,"What?  Did I win?  Hahaha, awesome!  I can put you in even more bondage now.",,,ClubCardVsOwnerDefeat,Frigid|Dumb
+ClubCardVsSubVictory,,,"Good game Mistress!  I'll have to do better next time.  As usual, you can do what you want with me.",,,ClubCardVsSubVictory,
+ClubCardVsSubVictory,,,"(She throws her cards away.)  Fine, you win!  Mistress, please make it painful to teach me a lesson.",,,ClubCardVsSubVictory,Serious|Violent
+ClubCardVsSubVictory,,,You're good at that game you know?  (She winks at you.)  You can fuck me now Miss.,,,ClubCardVsSubVictory,Rude|Horny
+ClubCardVsSubVictory,,,"Congratulations Madam, I'll have to review my strategies and deck building.  It seems that I'm your spoils of war.",,,ClubCardVsSubVictory,Wise|Peaceful
+ClubCardVsSubVictory,,,"I'll never understand that stupid game!  You win Mistress, I'm yours.",,,ClubCardVsSubVictory,Frigid|Dumb
+ClubCardVsSubDefeat,,,Victory!  That was a good game Mistress.  I can't believe I will get you in trouble.,,,ClubCardVsSubDefeat,
+ClubCardVsSubDefeat,,,You never had a chance Mistress.  (She grins.)  It will be great to get your skin red.,,,ClubCardVsSubDefeat,Serious|Violent
+ClubCardVsSubDefeat,,,Holy hell!  I won!  Get ready to cum hard Miss.,,,ClubCardVsSubDefeat,Rude|Horny
+ClubCardVsSubDefeat,,,"(She puts away her cards carefully and smiles.)  I can help you review your tactics later, but for now you'll be my respected victim.",,,ClubCardVsSubDefeat,Wise|Peaceful
+ClubCardVsSubDefeat,,,"What?  Did I win?  Hahaha, awesome!  Mistress, I'm allowed to put you in bondage?  Wow!",,,ClubCardVsSubDefeat,Frigid|Dumb
 0,,,Happy Bondage Club birthday!,,IsPlayerBirthday(),IntroBirthday,
 0,,,Have a great Bondage Club birthday girl.  Get spanked.,,IsPlayerBirthday(),IntroBirthday,Dominant|Violent
 0,,,"Miss, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),IntroBirthday,Submissive|Serious
@@ -452,6 +482,11 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,(Invite her to your bed.),(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBedGag(),AskBedNoGag,Frigid
 0,,(Invite her to your bed.),No.  Can we do something more productive?,,WillNotJoinBedGag(),AskBedNoGag,Serious
 0,,(Invite her to your bed.),(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBedGag(),AskBedNoGag,Playful
+0,80,How about a game of Club Cards?,"That's a good plan.  But if I win, I'll get you in tight trouble.",,CanPlayClubCard(),ClubCardVsFriend,
+0,80,How about a game of Club Cards?,"That's an interesting idea girl.  After my victory, you will end up in chastity for a long time.",,CanPlayClubCard(),ClubCardVsFriend,Dominant|Frigid
+0,80,How about a game of Club Cards?,A tactical game to prove superiority?  Very well.  Your posterior will glow crimson if I'm victorious.,,CanPlayClubCard(),ClubCardVsFriend,Polite|Violent
+0,80,How about a game of Club Cards?,Oh hell yeah!  Get ready for a tough time.  I ain't gonna hold any punches.,,CanPlayClubCard(),ClubCardVsFriend,Rude|Serious
+0,80,How about a game of Club Cards?,What cards now?  (She thinks for a while and giggles.)  Oh yeah!  I think I remember the rules.  Let's play a game.,,CanPlayClubCard(),ClubCardVsFriend,Dumb|Playful
 0,90,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 0,,(Leave her.),,DialogLeave(),,,
 10,,,What's on your mind?,,,,
@@ -676,6 +711,8 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 55,10,Wait!  I've changed my mind.,(She grumbles and pouts.)  This is not funny.,NPCInteraction(-10),,,
 70,0,(Join her in bed.),What would you like to do now?,JoinInBed(),,,
 70,0,(Check your room first.),What would you like to do now?,DialogLeave(),,,
+80,,(Play Club Cards with her.),,ClubCardVsFriendStart(),,,
+80,0,I've changed my mind.,Alright.  What would you like to do then?,,,,
 90,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 90,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 90,0,(Leave her.),(She seems curious.)  What would you like to do?,DialogLeave(),,,
@@ -704,8 +741,23 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 100,,(Masturbate her.),"(You masturbate her slowly as she shakes her hips and hums a sexy song.)  Oooohh yeah, this feels sooooo good.",NPCInteraction(1),CanMasturbate(),PlayMasturbate,Horny|Playful
 100,,(Masturbate her.),"(You masturbate her lovingly, but she doesn't seem to enjoy it.)  I'll be blunt ok?  I'm not in that fricking club for sex.",NPCInteraction(-1),CanMasturbate(),PlayMasturbate,Frigid|Rude
 100,,(Masturbate her.),"(You masturbate her with passion as she moans and blushes.)  Miss, it would be an honor to become your love slave one day.",,CanMasturbate(),PlayMasturbate,Submissive|Polite
-100,0,(Stop playing.),(You take a step back.),,,,
+100,0,(Stop playing.),(You take a step back.),,!ClubCardVictoryModeActive(),,
+100,110,(Stop playing.),(You take a step back.),,ClubCardVictoryModeActive(),,
 100,,(Leave her.),,DialogLeave(),,,
+110,,It was a good game.,Absolutely.  Being your prisoner for a little while be good also.,,,GoodGameVictory,
+110,,It was a good game.,Yeah!  And losing to you always makes me horny.  (She giggles.),,,GoodGameVictory,Horny|Playful
+110,,It was a good game.,"Shit, shit, shit!  I'll do better next time.  You can have your ways for now.",,,GoodGameVictory,Frigid|Rude
+110,,It was a good game.,"Indeed, it was.  (She nods politely.)  I surrender to you, body and soul, until our next match of course.",,,GoodGameVictory,Submissive|Polite
+110,100,(Play with her.),(You get closer to her.),,,,
+110,,(Dress her up.),(She nods as you help her to dress back up.),"Change(""Cloth"")",,,
+110,,(Get her in her underwear.),(She looks down as you strip her down to her underwear.),"Change(""Underwear"")",,,
+110,,(Strip her.),(She blushes as you strip her naked.),"Change(""Naked"")",,,
+110,0,That's enough.,(She nods.)  Very well.  Would you like to play another game?,EndClubCardVictoryMode(),,,
+110,,(Leave her.),,DialogLeave(),,,
+120,,What will you do?,,ClubCardDefeatActivity(),,,
+120,,Please be gentle.,,ClubCardDefeatActivity(),,,
+120,,Do your worse.,,ClubCardDefeatActivity(),,,
+120,,(Bow your head.),,ClubCardDefeatActivity(),,,
 1000,,,Happy Bondage Club birthday my girl!,,IsPlayerBirthday(),DomIntroBirthday,
 1000,,,Have a great Bondage Club birthday my slave.  You will get spanked a lot.,,IsPlayerBirthday(),DomIntroBirthday,Dominant|Violent
 1000,,,"You're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),DomIntroBirthday,Submissive|Serious
@@ -834,6 +886,11 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,1070,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Serious
 1000,1070,(Invite her to your bed.),(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Playful
 1000,,(Invite her to your bed.),"No girl, I'm not in the mood.",,WillNotJoinBedGag(),,
+1000,1080,"Mistress, would you like to play Club Cards?","That's a good plan my girl.  But if I win, I'll get you in even tighter trouble.",,CanPlayClubCard(),ClubCardVsOwner,
+1000,1080,"Mistress, would you like to play Club Cards?","That's an interesting idea my slave.  After my victory, you will end up in chastity for a long time.",,CanPlayClubCard(),ClubCardVsOwner,Dominant|Frigid
+1000,1080,"Mistress, would you like to play Club Cards?",A tactical game to prove my superiority?  Very well.  Your posterior will glow crimson very soon.,,CanPlayClubCard(),ClubCardVsOwner,Polite|Violent
+1000,1080,"Mistress, would you like to play Club Cards?",Oh hell yeah!  Get ready for a tough time slave.  I ain't gonna hold any punches.,,CanPlayClubCard(),ClubCardVsOwner,Rude|Serious
+1000,1080,"Mistress, would you like to play Club Cards?",What cards now?  (She thinks for a while and giggles.)  Oh yeah!  I think I remember the rules.  Let's play a game my subbie.,,CanPlayClubCard(),ClubCardVsOwner,Dumb|Playful
 1000,1090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 1000,,(Leave her.),,DialogLeave(),,,
 1001,,,(She looks angry.)  What do you want now?,,,DomAngry,
@@ -1055,9 +1112,52 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1062,,(Listen to her.),,StartActivity(),!Player.CanTalk(),,
 1070,1000,(Join her in bed.),(She seems curious.)  What would you like to do my girl?,JoinInBed(),,,
 1070,1000,(Check your room first.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
+1080,,(Play Club Cards with her.),,ClubCardVsOwnerStart(),,,
+1080,1000,I've changed my mind.,Alright my girl.  What would you like to do then?,,,,
 1090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 1090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 1090,1000,(Leave her.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
+1100,,,Cherish this time when you can dominate me my girl.  It won't happen often.,,,,
+1100,,(Tickle her.),"(You tickle her on the ribs and tummy.  She seems to enjoy it and cannot resist laughing.)  Hehehe, it tickles my subbie!",,Player.CanInteract(),DomPlayTickle,
+1100,,(Tickle her.),(You tickle her on the ribs and tummy.  She laughs out loud and almost cries.)  Eeeeeaaahahaha!  You're so funnyyyyahaha!,NPCInteraction(1),Player.CanInteract(),DomPlayTickle,Playful|Peaceful
+1100,,(Tickle her.),(You tickle her on the ribs and tummy.  She barely laughs and doesn't seem to enjoy it.)  That's child play slave.  You can do better than that.,NPCInteraction(-1),Player.CanInteract(),DomPlayTickle,Serious|Violent
+1100,,(Tickle her.),"(You tickle her on the ribs and tummy.  She laughs a little and blushes.)  Hahahaaaaha, ya can tickle me between ma legs if ya want.",,Player.CanInteract(),DomPlayTickle,Horny|Rude
+1100,,(Kiss her.),"(You get close to each other and share a lovely kiss on the lips.)  Mmmmh, this is nice my sub.",,NobodyGagged(),DomPlayKiss,
+1100,,(Kiss her.),(You get close to her to share a kiss.  She really likes it and forcefully pushes her tongue in your mouth.),NPCInteraction(1),NobodyGagged(),DomPlayKiss,Horny|Violent
+1100,,(Kiss her.),(She blushes as you get closer for a kiss.  You share a sober but lovely embrace on the lips.)  You certainly share your affection with fervor.,,NobodyGagged(),DomPlayKiss,Polite|Peaceful
+1100,,(Kiss her.),"(She doesn't react much as you share a slow kiss.)  Kisses have a cultural and emotional impact on most, but it doesn't do much for me.",NPCInteraction(-1),NobodyGagged(),DomPlayKiss,Frigid|Wise
+1100,,(Fondle her breast.),(You fondle her breast as she blushes.)  You have wonderful hands my submissive.  I'll use them later.,,CanFondle(),DomPlayFondle,
+1100,,(Fondle her breast.),(You fondle her breast as she moans loudly.)  Your loving hands are such a pleasure on my tender skin.,NPCInteraction(1),CanFondle(),DomPlayFondle,Horny|Polite
+1100,,(Fondle her breast.),"(You fondle her breast, but she doesn't react much.)  Is that the best you can do my girl?  Smack them, pinch them, whip them!",NPCInteraction(-1),CanFondle(),DomPlayFondle,Violent|Playful
+1100,,(Fondle her breast.),(You fondle her breast as she moans lightly.)  You're good girl.  Maybe I could have you trained as a masseuse.,,CanFondle(),DomPlayFondle,Serious|Dominant
+1100,,(Slap her.),(She's stunned as you slap her on the face.)  You're pushing your luck my girl.,,Player.CanInteract(),DomPlaySlap,
+1100,,(Slap her.),"(You slap her hard on the face, but she stands her ground.)  I've been slapped all my life.  I can take it.",NPCInteraction(1),Player.CanInteract(),DomPlaySlap,Violent|Dumb
+1100,,(Slap her.),(She whimpers and bows her head as you slap her hard.)  Such a harsh treatment isn't deserved my submissive.,NPCInteraction(-1),Player.CanInteract(),DomPlaySlap,Polite|Peaceful
+1100,,(Slap her.),(She grumbles as you slap her on the face.)  Violence can enforce good behavior temporarily but can also instigate repressed fears and panics.,,Player.CanInteract(),DomPlaySlap,Serious|Wise
+1100,,(Spank her.),"(You spank her on the butt, and she jumps from the pain.)  Ow!  You're a naughty sub.",,Player.CanInteract(),DomPlaySpank,
+1100,,(Spank her.),"(You spank her hard on the butt and she seems to enjoy the pain.)  That's nice.  But if you're serious on inflicting pain, you could get a crop or a whip.",NPCInteraction(1),Player.CanInteract(),DomPlaySpank,Violent|Serious
+1100,,(Spank her.),"(She whimpers as you spank her pretty hard on the butt.)  This punishment seems unfair, it was a small tactical defeat.",,Player.CanInteract(),DomPlaySpank,Frigid|Polite
+1100,,(Spank her.),(She cowers from the pain and sharply inhales with each hit.)  Fuck it hurts!  Why the hell are you doing that?,NPCInteraction(-1),Player.CanInteract(),DomPlaySpank,Peaceful|Rude
+1100,,(Masturbate her.),(You masturbate her lovingly as she breathes faster and faster.)  Is it getting hot in here little sub?,,CanMasturbate(),DomPlayMasturbate,
+1100,,(Masturbate her.),"(You masturbate her slowly as she shakes her hips and hums a sexy song.)  Oooohh yeah, this feels sooooo good.",NPCInteraction(1),CanMasturbate(),DomPlayMasturbate,Horny|Playful
+1100,,(Masturbate her.),"(You masturbate her lovingly, but she doesn't seem to enjoy it.)  I'll be blunt ok?  I'm not in that fricking club for sex.",NPCInteraction(-1),CanMasturbate(),DomPlayMasturbate,Frigid|Rude
+1100,,(Masturbate her.),"(You masturbate her with passion as she moans and blushes.)  My girl, you could be a good caring Domme someday.",,CanMasturbate(),DomPlayMasturbate,Submissive|Polite
+1100,1110,(Stop playing.),(You take a step back.)  Enjoy your loot while you can my girl.,,,,
+1100,,(Leave her.),,DialogLeave(),,,
+1110,,It was a good game.,Absolutely my subbie.  And being your prisoner for a little might be fun also.,,,DomGoodGameVictory,
+1110,,It was a good game.,Yeah little slut!  And losing to you always makes me horny.  (She giggles.)  Enjoy fucking me.,,,DomGoodGameVictory,Horny|Playful
+1110,,It was a good game.,"Shit, shit, shit!  I'll do better next time slave girl.  You can have your ways for now.",,,DomGoodGameVictory,Frigid|Rude
+1110,,It was a good game.,"Indeed, it was.  (She nods politely.)  I surrender to you my submissive, enjoy it while it lasts.",,,DomGoodGameVictory,Submissive|Polite
+1110,1100,(Play with her.),(You get closer to her.),,,,
+1110,,(Dress her up.),(She nods as you help her to dress back up.),"Change(""Cloth"")",,,
+1110,,(Get her in her underwear.),(She looks down as you strip her down to her underwear.),"Change(""Underwear"")",,,
+1110,,(Strip her.),(She blushes as you strip her naked.),"Change(""Naked"")",,,
+1110,0,That's enough.,(She nods.)  Very well.  Would you like to play another game?,EndClubCardVictoryMode(),,,
+1110,,(Leave her.),,DialogLeave(),,,
+1120,,What will you do Miss?,,ClubCardDefeatActivity(),,,
+1120,,Please be gentle Mistress.,,ClubCardDefeatActivity(),,,
+1120,,Do your worse Boss.,,ClubCardDefeatActivity(),,,
+1120,,(Bow your head submissively.),,ClubCardDefeatActivity(),,,
 ActivityStop,,,Fine!  (She pushes you back.)  You can play without me girl.,,,DomActivityStop,
 ActivityStop,,,(She pushes you back.)  If you cannot obey then you're not worth my time.,,,DomActivityStop,Wise
 ActivityStop,,,(She pushes you back.)  Back off!,,,DomActivityStop,Dumb
@@ -1569,6 +1669,11 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2000,,Stand up.,"Tremendous!  (She stands up slowly.)  I must confess, my legs were starting to hurt.","DialogSetPose(CurrentCharacter, """")",CanStandUp(),SubStandUp,Peaceful|Polite
 2000,,(Point at the floor then upward.),(She nods and stands up.),"DialogSetPose(CurrentCharacter, """")",CanStandUpGagged(),,
 2000,,Stand up.,(She wiggles her restrained legs and shrugs.),,CannotStandUp(),,
+2000,2045,We will play Club Cards.,That's a good plan Mistress.  It's a rare chance for me to get you in trouble.,,CanPlayClubCard(),ClubCardVsSub,
+2000,2045,We will play Club Cards.,That's an interesting idea Miss.  I hope to get you in chastity after my victory.,,CanPlayClubCard(),ClubCardVsSub,Dominant|Frigid
+2000,2045,We will play Club Cards.,A tactical game Madam?  Very well.  It will be a privilege to make your posterior glow crimson.,,CanPlayClubCard(),ClubCardVsSub,Polite|Violent
+2000,2045,We will play Club Cards.,Oh hell yeah!  Get ready for a tough time Mistress.  I ain't gonna hold any punches.,,CanPlayClubCard(),ClubCardVsSub,Rude|Serious
+2000,2045,We will play Club Cards.,What cards now?  (She thinks for a while and giggles.)  Oh yeah!  I think I remember the rules.  Let's play Mistress.,,CanPlayClubCard(),ClubCardVsSub,Dumb|Playful
 2000,2095,It's time to get to bed my girl.,(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,
 2000,2095,It's time to get to bed my girl.,(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Horny
 2000,2095,It's time to get to bed my girl.,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),SubAskBedYes,Frigid
@@ -1721,6 +1826,8 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2041,2000,Forget it.  It's too expensive.,Yes Mistress.  What would you like to do then?,,,,
 2042,2000,Fine.  Forget it girl.,Very well.  What would you like to do then?,,,,
 2042,2000,You'll get punished now if you don't obey.,(She gulps and give you her college outfit.)  Yes Mistress.  I'll try to find a good excuse for losing them.,GetCollegeClothes(),,,
+2045,,(Play Club Cards with her.),,ClubCardVsSubStart(),,,
+2045,2000,I've changed my mind.,Yes Mistress.  What would you like to do then?,,,,
 2050,,Would you like to be auctioned?,I'm not sure I would like it.  Are you sure this is a good idea Mistress?,,,SubSlaveMarketLikeAuction,
 2050,,Would you like to be auctioned?,I've made vows to remain loyal to you Mistress.  I wouldn't want to break them.,,,SubSlaveMarketLikeAuction,Serious
 2050,,Would you like to be auctioned?,I love kinky adventures and being sold must be quite a thrill.,,,SubSlaveMarketLikeAuction,Playful
@@ -1851,3 +1958,127 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2100,,(Masturbate her.),"(You masturbate her with passion as she moans and blushes.)  Mistress, being your slave is such a thrill.",,CanMasturbate(),SubPlayMasturbate,Submissive|Polite
 2100,2000,(Stop playing.),(You take a step back.),,,,
 2100,,(Leave her.),,DialogLeave(),,,
+2110,2000,It was a good game my girl.,Absolutely Mistress.  And being your prisoner is always a thrill for me.  How can I serve you?,NPCInteraction(5),,SubGoodGameVictory,
+2110,2000,It was a good game my girl.,Yes Miss!  And losing to you always makes me horny.  (She giggles.)  Do you need any sexual service?,NPCInteraction(5),,SubGoodGameVictory,Horny|Playful
+2110,2000,It was a good game my girl.,"Shit, shit, shit!  I'll do better next time Madam.  Punish and lock me any way you see fit.",NPCInteraction(5),,SubGoodGameVictory,Frigid|Rude
+2110,2000,It was a good game my girl.,"Indeed, it was.  (She nods politely.)  I surrender to you Mistress, body and soul forever.",NPCInteraction(5),,SubGoodGameVictory,Submissive|Polite
+2110,2000,"Slave, you're horrible at this game.",(She seems disappointed.)  I'm sorry Mistress.  Feel free to punish me.,NPCInteraction(-5),,,
+2110,2000,Enough cards for now.,Yes Mistress.  What would you like to do then?,,,,
+2120,,What will you do my girl?,,ClubCardDefeatActivity(),,,
+2120,,Please be gentle my subbie.,,ClubCardDefeatActivity(),,,
+2120,,Do your worse slave.,,ClubCardDefeatActivity(),,,
+2120,,(Bow your head and stay silent.),,ClubCardDefeatActivity(),,,
+ClubCardConsequenceCageIntro,,,"A fair consequence I like to impose is some cage time.  I see that you have some cages around here, you will fit in perfectly.",,,,
+ClubCardConsequenceCage0,ClubCardConsequenceCage1,A cage?  That's unfair!,(She smirks and points at a cage.)  You can stay in here for a few minutes and review your game strategies.,,,,
+ClubCardConsequenceCage0,ClubCardConsequenceCage1,It's a fair punishment.,(She nods and points at a cage.)  You can stay in here for a few minutes and review your game strategies.,,,,
+ClubCardConsequenceCage0,ClubCardConsequenceCage1,Fine.  Bring the stupid cage.,(She grumbles and points at a cage.)  You can stay in here for a few minutes and review your game strategies.,,,,
+ClubCardConsequenceCage0,ClubCardConsequenceCage1,(Nod politely.),(She smiles and points at a cage.)  You can stay in here for a few minutes and review your game strategies.,,,,
+ClubCardConsequenceCage1,,(Get in the cage very slowly.),,"ClubCardDoConsequence(""Cage"", ""-5"")",,,
+ClubCardConsequenceCage1,,(Quickly get in the cage.),,"ClubCardDoConsequence(""Cage"", ""5"")",,,
+ClubCardConsequenceCage1,,(Get in the cage.),,"ClubCardDoConsequence(""Cage"")",,,
+ClubCardConsequenceBoundIntro,,,The best consequence for losing a Club Card game is certainly to get in bondage yourself.  It's time to strap you up.,,,,
+ClubCardConsequenceBound0,ClubCardConsequenceBound1,"Yes, I agree.",Very good.  Please give me your hands.,,,,
+ClubCardConsequenceBound0,ClubCardConsequenceBound1,I'll get you soon.,"We'll see about that.  For now, give me your hands.",,,,
+ClubCardConsequenceBound0,ClubCardConsequenceBound1,(Nod slowly.),This will be fun.  Give me your hands.,,,,
+ClubCardConsequenceBound1,,(Offer your hands rapidly.),,"ClubCardDoConsequence(""Bound"", ""5"")",,,
+ClubCardConsequenceBound1,,(Give her some trouble to bind you.),,"ClubCardDoConsequence(""Bound"", ""-5"")",,,
+ClubCardConsequenceBound1,,(Let her bind you.),,"ClubCardDoConsequence(""Bound"")",,,
+ClubCardConsequenceBoundPetIntro,,,"Since you lost, you will be my bound pet for a while.",,,,
+ClubCardConsequenceBoundPet0,ClubCardConsequenceBoundPet1,I'm not a pet!,You will be soon.  I'll get you properly restrained.,,,,
+ClubCardConsequenceBoundPet0,ClubCardConsequenceBoundPet1,It sounds fun.,It will be fun.  I'll get you properly restrained.,,,,
+ClubCardConsequenceBoundPet0,ClubCardConsequenceBoundPet1,(Nods slowly.),I'll get you properly restrained.,,,,
+ClubCardConsequenceBoundPet1,,(Let her restrain you.),,"ClubCardDoConsequence(""BoundPet"")",,,
+ClubCardConsequenceBoundPet1,,(Make a sad face and let her bind you.),,"ClubCardDoConsequence(""BoundPet"", ""-5"")",,,
+ClubCardConsequenceBoundPet1,,(Wiggle your butt and let her bind you.),,"ClubCardDoConsequence(""BoundPet"", ""5"")",,,
+ClubCardConsequenceShibariIntro,,,"As consequence for losing, I'll try some shibari on you.",,,,
+ClubCardConsequenceShibari0,ClubCardConsequenceShibari1,That's a wild plan!,You will enjoy the ropes.  Get naked and give me your hands.,,,,
+ClubCardConsequenceShibari0,ClubCardConsequenceShibari1,Shibari?  What is that?,Let me show you.  Get naked and give me your hands.,,,,
+ClubCardConsequenceShibari0,ClubCardConsequenceShibari1,Are you sure this is a good idea?,"Trust me, it's a great idea.  Get naked and give me your hands.",,,,
+ClubCardConsequenceShibari0,ClubCardConsequenceShibari1,(Gulps and nods.),Get naked and give me your hands.,,,,
+ClubCardConsequenceShibari1,,(Get naked and let her bind you.),,"ClubCardDoConsequence(""Shibari"")",,,
+ClubCardConsequenceShibari1,,(Get naked happily for some shibari.),,"ClubCardDoConsequence(""Shibari"", ""5"")",,,
+ClubCardConsequenceShibari1,,(Sigh and get naked reluctantly.),,"ClubCardDoConsequence(""Shibari"", ""-5"")",,,
+ClubCardConsequenceForceNakedIntro,,,"I'm in a kinky mood, as punishment for losing, you should be naked for a while.  I'll confiscate your clothes.",,,,
+ClubCardConsequenceForceNaked0,ClubCardConsequenceForceNaked1,You cannot do that!,"Don't worry, it won't be for too long.  Only thirty minutes.  Give me your clothes.",,,,
+ClubCardConsequenceForceNaked0,ClubCardConsequenceForceNaked1,For how long?,(She smiles.)  Only thirty minutes.  Give me your clothes.,,,,
+ClubCardConsequenceForceNaked0,ClubCardConsequenceForceNaked1,I will be cold.,"Don't worry, I'll keep you warm.  It's only for thirty minutes.  Give me your clothes.",,,,
+ClubCardConsequenceForceNaked0,ClubCardConsequenceForceNaked1,(Gulps and nods.),"Don't be scared, it's only for thirty minutes.  Give me your clothes.",,,,
+ClubCardConsequenceForceNaked1,,(Protest and give your clothes.),,"ClubCardDoConsequence(""ForceNaked"", ""-5"")",,,
+ClubCardConsequenceForceNaked1,,(Give her your clothes.),,"ClubCardDoConsequence(""ForceNaked"")",,,
+ClubCardConsequenceForceNaked1,,(Surrender your clothes happily.),,"ClubCardDoConsequence(""ForceNaked"", ""5"")",,,
+ClubCardConsequenceChastityIntro,,,(She grins.)  I think chastity would be a good consequence for losing that game.  Don't you agree?,,,,
+ClubCardConsequenceChastity0,ClubCardConsequenceChastity1,I don't!  This is too much!,"Don't be so shy, it will be fun.  Now give me these hips.",,,,
+ClubCardConsequenceChastity0,ClubCardConsequenceChastity1,Just wait until you lose.,(She laughs.)  Maybe you will lose again.  Now give me these hips.,,,,
+ClubCardConsequenceChastity0,ClubCardConsequenceChastity1,I agree.  It's a fair consequence.,(She nods and smirks.)  Give me these hips.,,,,
+ClubCardConsequenceChastity0,ClubCardConsequenceChastity1,I can escape any device.,We'll see about that.  Now give me these hips.,,,,
+ClubCardConsequenceChastity0,ClubCardConsequenceChastity1,(Shivers and nods.),Give me these hips.,,,,
+ClubCardConsequenceChastity1,,(Grumble and get locked up.),,"ClubCardDoConsequence(""Chastity"", ""-5"")",,,
+ClubCardConsequenceChastity1,,(Smile and let her lock you up.),,"ClubCardDoConsequence(""Chastity"", ""5"")",,,
+ClubCardConsequenceChastity1,,(Let her lock you up.),,"ClubCardDoConsequence(""Chastity"")",,,
+ClubCardConsequenceSpankIntro,,,(She smirks.)  A good spanking will help you to improve your game.  Get naked and show me your butt.,,,,
+ClubCardConsequenceSpank0,ClubCardConsequenceSpank1,Fine!  Make it quick.  (Present your butt.),(You present your butt and she spanks it quickly.)  You will count up to ten.,"ClubCardKinkyConsequence(""Angry"", ""Naked"")",,,
+ClubCardConsequenceSpank0,ClubCardConsequenceSpank1,Very well.  (Present your butt.),(You present your butt and she spanks it quickly.)  You will count up to ten.,"ClubCardKinkyConsequence(""Angry"", ""Naked"")",,,
+ClubCardConsequenceSpank0,ClubCardConsequenceSpank1,I'll spank you later.  (Present your butt.),(You present your butt and she spanks it quickly.)  You will count up to ten.,"ClubCardKinkyConsequence(""Angry"", ""Naked"")",,,
+ClubCardConsequenceSpank0,ClubCardConsequenceSpank1,(Nod and present your butt.),(You present your butt and she spanks it quickly.)  You will count up to ten.,"ClubCardKinkyConsequence(""Angry"", ""Naked"")",,,
+ClubCardConsequenceSpank1,ClubCardConsequenceSpank2,One.,(She spanks you again and laughs.),"ClubCardKinkyConsequence(""Closed"")",,,
+ClubCardConsequenceSpank2,ClubCardConsequenceSpank3,Two.,(She hits you hard and stares at you.)  Best way to get better at cards.,"ClubCardKinkyConsequence(""Scared"")",,,
+ClubCardConsequenceSpank3,ClubCardConsequenceSpank4,Three.,(She spanks from the flip side and watches your moves.),"ClubCardKinkyConsequence(""Angry"")",,,
+ClubCardConsequenceSpank4,ClubCardConsequenceSpank5,Four.,(She hits you harder and smirks.)  I hope you felt that one.,"ClubCardKinkyConsequence(""Closed"")",,,
+ClubCardConsequenceSpank5,ClubCardConsequenceSpank6,Five.,(She takes a few seconds to target and spanks you pretty hard.),"ClubCardKinkyConsequence(""Scared"")",,,
+ClubCardConsequenceSpank5,ClubCardConsequenceSpank6,Enough!,"No, you still have five to go.  (She takes a few seconds to target and spanks you pretty hard.)","ClubCardKinkyConsequence(""Angry"")",,,
+ClubCardConsequenceSpank5,ClubCardConsequenceSpank6,Can we make a deal?,"The deal is done, ten spankings!  (She takes a few seconds to target and spanks you pretty hard.)","ClubCardKinkyConsequence(""Closed"")",,,
+ClubCardConsequenceSpank6,ClubCardConsequenceSpank7,Six.,(She raises her hand higher and spanks harder.)  That must hurt!,"ClubCardKinkyConsequence(""Angry"")",,,
+ClubCardConsequenceSpank7,ClubCardConsequenceSpank8,Seven.,(She caresses your butt and quickly shifts for another spanking.),"ClubCardKinkyConsequence(""Scared"")",,,
+ClubCardConsequenceSpank8,ClubCardConsequenceSpank9,Eight.,(She laughs and looks at your red butt before spanking it again.)  Almost done!,"ClubCardKinkyConsequence(""Angry"")",,,
+ClubCardConsequenceSpank9,ClubCardConsequenceSpank10,Nine.,(She aims carefully to make sure she hits the worst spot.)  Count!,"ClubCardKinkyConsequence(""Closed"")",,,
+ClubCardConsequenceSpank10,ClubCardConsequenceSpank11,Ten.,Good!  Very good!  Your punishment is over.  We'll see if you play better now.,,,,
+ClubCardConsequenceSpank11,,Thanks for that lesson.  (Leave her.),,"ClubCardDoConsequence(""Spank"", ""5"")",,,
+ClubCardConsequenceSpank11,,That was quite painful.  (Leave her.),,"ClubCardDoConsequence(""Spank"")",,,
+ClubCardConsequenceSpank11,,I'll get you for that.  (Leave her.),,"ClubCardDoConsequence(""Spank"", ""-5"")",,,
+ClubCardConsequenceTickleIntro,,,(She laughs out loud.)  I'm not in a harsh mood.  Your consequence for losing will be some undies tickling.,,,,
+ClubCardConsequenceTickle0,ClubCardConsequenceTickle1,You're getting soft.,Oh yeah?  Soft?  We'll see who gets soft.  (She starts to tickle your ribs.),"ClubCardKinkyConsequence(""Shy"", ""Underwear"")",,,
+ClubCardConsequenceTickle0,ClubCardConsequenceTickle1,That's easy enough.,There are worse punishments out there.  (She starts to tickle your ribs.),"ClubCardKinkyConsequence(""Shy"", ""Underwear"")",,,
+ClubCardConsequenceTickle0,ClubCardConsequenceTickle1,You're not putting much effort.,Try not to laugh then!  (She starts to tickle your ribs.),"ClubCardKinkyConsequence(""Shy"", ""Underwear"")",,,
+ClubCardConsequenceTickle0,ClubCardConsequenceTickle1,It sounds fun.,It will be fun!  (She starts to tickle your ribs.),"ClubCardKinkyConsequence(""Shy"", ""Underwear"")",,,
+ClubCardConsequenceTickle0,ClubCardConsequenceTickle1,(Giggle playfully.),(She also giggles and starts to tickle your ribs.),"ClubCardKinkyConsequence(""Shy"", ""Underwear"")",,,
+ClubCardConsequenceTickle1,ClubCardConsequenceTickle2,Hey!  Hahaha!  Unfair!,(She laughs with you and begins to tickle your tummy.),"ClubCardKinkyConsequence(""Surprised"")",,,
+ClubCardConsequenceTickle1,ClubCardConsequenceTickle2,(Giggle and wiggle your hips.),(She also giggles and begins to tickle your tummy.),"ClubCardKinkyConsequence(""Shy"")",,,
+ClubCardConsequenceTickle1,ClubCardConsequenceTickle2,(Pretend you're not ticklish.),(She doubles-down and begins to tickle your tummy.),,,,
+ClubCardConsequenceTickle2,ClubCardConsequenceTickle3,You're so kinky.,It's a kinky consequence for sure.  (She moves up to tickle your arm pits.),"ClubCardKinkyConsequence(""Shy"")",,,
+ClubCardConsequenceTickle2,ClubCardConsequenceTickle3,That's not funny!,It's your consequence for losing.  (She moves up to tickle your arm pits.),,,,
+ClubCardConsequenceTickle3,ClubCardConsequenceTickle4,(Laugh without control.),(She seems to enjoy your laughs and moves down to tickle your thighs.),"ClubCardKinkyConsequence(""Surprised"")",,,
+ClubCardConsequenceTickle3,ClubCardConsequenceTickle4,Eeeeeaahahaha!,(She seems to enjoy your laughs and moves down to tickle your thighs.),"ClubCardKinkyConsequence(""Surprised"")",,,
+ClubCardConsequenceTickle3,ClubCardConsequenceTickle4,(Stay silent and defiant.),(She takes a deep breath and moves down to tickle your thighs.),,,,
+ClubCardConsequenceTickle4,ClubCardConsequenceTickle5,Oh lord!  Enough!,We're almost done.  (She moves down and tickles your feet without mercy.),"ClubCardKinkyConsequence(""Shy"")",,,
+ClubCardConsequenceTickle4,ClubCardConsequenceTickle5,(Snort and laugh madly.),(She gets on her knees and tickles your feet without mercy.),"ClubCardKinkyConsequence(""Surprised"")",,,
+ClubCardConsequenceTickle5,ClubCardConsequenceTickle6,(Tremble and giggle playfully.),"(She looks at you and smiles.)  That's enough.  Your punishment is over, I hope you enjoyed it.",,,,
+ClubCardConsequenceTickle5,ClubCardConsequenceTickle6,(Stay strong and stoic.),"You're a tough cookie you know?  Oh well, I guess your punishment is over, I hope you enjoyed it.",,,,
+ClubCardConsequenceTickle5,ClubCardConsequenceTickle6,(Laugh out loud and cry.),"Hahaha, that was fun, but it's enough.  Your punishment is over, I hope you enjoyed it.",,,,
+ClubCardConsequenceTickle6,,"Yep, that was ok.  (Leave her.)",,"ClubCardDoConsequence(""Tickle"")",,,
+ClubCardConsequenceTickle6,,I'll find a better punishment for you.  (Leave her.),,"ClubCardDoConsequence(""Tickle"", ""-5"")",,,
+ClubCardConsequenceTickle6,,(Laugh some more and leave her.),,"ClubCardDoConsequence(""Tickle"", ""5"")",,,
+ClubCardConsequenceOrgasmIntro,,,"(She smirks.)  Guess what?  I'm in a naughty mood right now.  For losing, you will get some naked orgasms!",,,,
+ClubCardConsequenceOrgasm0,ClubCardConsequenceOrgasm1,You're such a naughty tiger.,"Grrr!  (She pounces on you, making sure you're naked.  She starts to caress your breast.)","ClubCardKinkyConsequence(""Lewd"", ""Naked"")",,,
+ClubCardConsequenceOrgasm0,ClubCardConsequenceOrgasm1,Can we do another consequence?,"Nope!  (She pounces on you, making sure you're naked.  She starts to caress your breast.)","ClubCardKinkyConsequence(""Lewd"", ""Naked"")",,,
+ClubCardConsequenceOrgasm0,ClubCardConsequenceOrgasm1,It's always kinky with you.,"Yes!  (She pounces on you, making sure you're naked.  She starts to caress your breast.)","ClubCardKinkyConsequence(""Lewd"", ""Naked"")",,,
+ClubCardConsequenceOrgasm0,ClubCardConsequenceOrgasm1,(Blow her a kiss.),"(She blows a kiss back and pounces on you, making sure you're naked.  She starts to caress your breast.)","ClubCardKinkyConsequence(""LewdHeartPink"")",IsLover(),,
+ClubCardConsequenceOrgasm1,ClubCardConsequenceOrgasm2,I love you!,I love you so much.  (She massages your breast with one hand and caresses your thigh with the other.),"ClubCardKinkyConsequence(""LewdHeartPink"")",IsLover(),,
+ClubCardConsequenceOrgasm1,ClubCardConsequenceOrgasm2,You have wonderful hands.,These hands can do a lot.  (She massages your breast with one hand and caresses your thigh with the other.),"ClubCardKinkyConsequence(""Lewd"")",,,
+ClubCardConsequenceOrgasm1,ClubCardConsequenceOrgasm2,(Stay cold.),(She massages your breast with one hand and caresses your thigh with the other.),,,,
+ClubCardConsequenceOrgasm2,ClubCardConsequenceOrgasm3,(Try to resist.),(She smirks and slowly masturbates your clitoris.  Watching your every move.),,,,
+ClubCardConsequenceOrgasm2,ClubCardConsequenceOrgasm3,Oooooooh!,(She smiles and slowly masturbates your clitoris.  Watching your every move.),"ClubCardKinkyConsequence(""VeryLewd"")",,,
+ClubCardConsequenceOrgasm2,ClubCardConsequenceOrgasm3,Can I touch you also?,No touching!  (She slowly masturbates your clitoris.  Watching your every move.),"ClubCardKinkyConsequence(""Lewd"")",,,
+ClubCardConsequenceOrgasm3,ClubCardConsequenceOrgasm4,Aaaaah!  AAAAHH!,So cute!  (She swirls her thumb on your clitoris and masturbates your pussy lovingly with her other fingers.),"ClubCardKinkyConsequence(""VeryLewd"")",,,
+ClubCardConsequenceOrgasm3,ClubCardConsequenceOrgasm4,(Bite your lips not to scream.),Adorable!  (She swirls her thumb on your clitoris and masturbates your pussy lovingly with her other fingers.),"ClubCardKinkyConsequence(""Lewd"")",,,
+ClubCardConsequenceOrgasm3,ClubCardConsequenceOrgasm4,mmmMMMmmm!,Enjoy!  (She swirls her thumb on your clitoris and masturbates your pussy lovingly with her other fingers.),"ClubCardKinkyConsequence(""VeryLewd"")",,,
+ClubCardConsequenceOrgasm3,ClubCardConsequenceOrgasm4,(Try to stay in control.),I'll break you!  (She swirls her thumb on your clitoris and masturbates your pussy lovingly with her other fingers.),,,,
+ClubCardConsequenceOrgasm4,ClubCardConsequenceOrgasm5,More!  Please more!,Here's more.  (She slides two fingers inside and masturbates you rapidly and skillfully.),"ClubCardKinkyConsequence(""VeryLewd"")",,,
+ClubCardConsequenceOrgasm4,ClubCardConsequenceOrgasm5,Best lover ever!,"Oh no, you're the best lover ever.  (She slides two fingers inside and masturbates you rapidly and skillfully.)","ClubCardKinkyConsequence(""LewdHeartPink"")",IsLover(),,
+ClubCardConsequenceOrgasm4,ClubCardConsequenceOrgasm5,You won't get me.,We'll see if you're right.  (She slides two fingers inside and masturbates you rapidly and skillfully.),,,,
+ClubCardConsequenceOrgasm5,ClubCardConsequenceOrgasm6,(Let out a shattering orgasm.),"(She pulls her hand away and smiles.)  Wow!  That was strong.  Your kinky consequence is over now, I hope it was heavenly.","ClubCardKinkyConsequence(""Dazed"")",,,
+ClubCardConsequenceOrgasm5,ClubCardConsequenceOrgasm6,(Gulp and stay in control.),"(She pulls her hand away and frowns.)  You're tough, and your kinky consequence is over now, I hope it was somewhat good.",,,,
+ClubCardConsequenceOrgasm5,ClubCardConsequenceOrgasm6,(Look dazzled and try to catch your breath.),"(She pulls her hand away and giggles.)  That was quite an experience.  Your kinky consequence is over, I hope it was good.","ClubCardKinkyConsequence(""Dazed"")",,,
+ClubCardConsequenceOrgasm6,,I've had better.  (Leave her.),,"ClubCardDoConsequence(""Orgasm"", ""-5"")",,,
+ClubCardConsequenceOrgasm6,,That was nice.  (Leave her.),,"ClubCardDoConsequence(""Orgasm"")",,,
+ClubCardConsequenceOrgasm6,,Best consequence ever!  (Leave her.),,"ClubCardDoConsequence(""Orgasm"", ""5"")",,,
+ClubCardConsequenceOrgasm6,,Let's share our next orgasm my love.  (Leave.),,"ClubCardDoConsequence(""Orgasm"", ""10"")",IsLover(),,

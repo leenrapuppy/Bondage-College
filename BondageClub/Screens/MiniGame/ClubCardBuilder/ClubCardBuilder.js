@@ -54,7 +54,7 @@ function ClubCardBuilderLoad() {
 	ClubCardBuilderList = [];
 	ClubCardBuilderOffset = 0;
 	for (let Card of ClubCardList)
-		if ((Card.Unique == null) || (Card.Unique == false))
+		if ((Card.Reward == null) || (Player.Game.ClubCard.Reward.indexOf(String.fromCharCode(Card.ID)) >= 0))
 			ClubCardBuilderList.push({...Card});
 	for (let Card of ClubCardBuilderList)
 		if (Card.RequiredLevel == null)

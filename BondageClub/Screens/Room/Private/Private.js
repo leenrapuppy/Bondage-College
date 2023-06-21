@@ -24,6 +24,8 @@ var PrivateLoverActivity = "";
 var PrivateLoverActivityList = ["Skip1", "Skip2", "Kiss", "FrenchKiss", "Caress", "Rub", "MasturbateHand", "MasturbateTongue", "MasturbatePlayer", "MasturbateSelf", "Underwear", "Naked", "EggInsert", "LockBelt", "UnlockBelt", "EggSpeedUp", "EggSpeedDown", "Bed", "LoverLock", "LoverUnlock"];
 var PrivateBeltList = ["LeatherChastityBelt", "SleekLeatherChastityBelt", "StuddedChastityBelt", "MetalChastityBelt", "PolishedChastityBelt", "OrnateChastityBelt", "SteelChastityPanties"];
 var PrivateEntryEvent = true;
+var PrivateClubCardVictoryMode = false;
+var PrivateClubCardDefeatConsequence = ["Cage", "Bound", "BoundPet", "Chastity", "ForceNaked", "Spank", "Tickle", "Orgasm", "Shibari"];
 
 /**
  * Checks if the player is caged.
@@ -411,6 +413,20 @@ function PrivateWillJoinBedGag() {
  */
 function PrivateWillNotJoinBedGag() {
 	return (PrivateBedActive() && PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+}
+/**
+ * Returns TRUE if the both players can play club cards (no restraints or gag)
+ * @returns {boolean} - TRUE if both parties can play
+ */
+function PrivateCanPlayClubCard() {
+	return (Player.CanTalk() && CurrentCharacter.CanTalk() && Player.CanInteract() && CurrentCharacter.CanInteract() && !Player.Cage && !CurrentCharacter.Cage);
+}
+/**
+ * Returns TRUE if the club card victory mode is active
+ * @returns {boolean} - TRUE if active
+ */
+function PrivateClubCardVictoryModeActive() {
+	return PrivateClubCardVictoryMode;
 }
 
 /**
@@ -1916,4 +1932,195 @@ function PrivateRandomBed() {
 				CurrentCharacter = null;
 			}
 		}
+}
+
+/**
+ * When the club card game against a friend NPC starts
+ * @returns {void} - Nothing
+ */
+ function PrivateClubCardVsFriendStart() {
+	ClubCardOpponent = CurrentCharacter;
+	MiniGameStart("ClubCard", 0, "PrivateClubCardVsFriendEnd");
+}
+
+/**
+ * When the club card game against a friend NPC ends
+ * @returns {void} - Nothing
+ */
+ function PrivateClubCardVsFriendEnd() {
+	CommonSetScreen("Room", "Private");
+	CharacterSetCurrent(ClubCardOpponent);
+	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, MiniGameVictory ? "ClubCardVsFriendVictory" : "ClubCardVsFriendDefeat");
+	CurrentCharacter.Stage = MiniGameVictory ? "110" : "120";
+	if (MiniGameVictory) {
+		CurrentCharacter.AllowItem = true;
+		PrivateClubCardVictoryMode = true;
+	}
+	PrivateNPCInteraction(5);
+}
+
+/**
+ * When the club card game against an owner NPC starts
+ * @returns {void} - Nothing
+ */
+ function PrivateClubCardVsOwnerStart() {
+	ClubCardOpponent = CurrentCharacter;
+	MiniGameStart("ClubCard", 0, "PrivateClubCardVsOwnerEnd");
+}
+
+/**
+ * When the club card game against an owner NPC ends
+ * @returns {void} - Nothing
+ */
+ function PrivateClubCardVsOwnerEnd() {
+	CommonSetScreen("Room", "Private");
+	CharacterSetCurrent(ClubCardOpponent);
+	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, MiniGameVictory ? "ClubCardVsOwnerVictory" : "ClubCardVsOwnerDefeat");
+	CurrentCharacter.Stage = MiniGameVictory ? "1110" : "1120";
+	if (MiniGameVictory) CurrentCharacter.AllowItem = true;
+	PrivateNPCInteraction(5);
+}
+
+/**
+ * When the club card game against a submissive NPC starts
+ * @returns {void} - Nothing
+ */
+ function PrivateClubCardVsSubStart() {
+	ClubCardOpponent = CurrentCharacter;
+	MiniGameStart("ClubCard", 0, "PrivateClubCardVsSubEnd");
+}
+
+/**
+ * When the club card game against a submissive NPC ends
+ * @returns {void} - Nothing
+ */
+ function PrivateClubCardVsSubEnd() {
+	CommonSetScreen("Room", "Private");
+	CharacterSetCurrent(ClubCardOpponent);
+	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, MiniGameVictory ? "ClubCardVsSubVictory" : "ClubCardVsSubDefeat");
+	CurrentCharacter.Stage = MiniGameVictory ? "2110" : "2120";
+	PrivateNPCInteraction(5);
+}
+
+/**
+ * When the club card game victory mode ends
+ * @returns {void} - Nothing
+ */
+function PrivateEndClubCardVictoryMode() {
+	PrivateClubCardVictoryMode = false;
+}
+
+/**
+ * When the NPC does an activity on the player after winning at club card
+ * @returns {void} - Nothing
+ */
+function PrivateClubCardDefeatActivity() {
+
+	// First, we find a valid activity / consequence to do (Bound will always work)
+	let Act = "";
+	while (Act == "") {
+		Act = CommonRandomItemFromList("", PrivateClubCardDefeatConsequence);
+		switch (Act) {
+			case "Cage": if (!LogQuery("Cage", "PrivateRoom") || (NPCTraitGet(CurrentCharacter, "Dominant") < 0)) Act = ""; break;
+			case "BoundPet": if (NPCTraitGet(CurrentCharacter, "Playful") < 0) Act = ""; break;
+			case "Shibari": if (NPCTraitGet(CurrentCharacter, "Wise") < 0) Act = ""; break;
+			case "ForceNaked": if (!Player.CanChangeOwnClothes() || (NPCTraitGet(CurrentCharacter, "Horny") < 0)) Act = ""; break;
+			case "Chastity": if (Player.IsChaste() || (NPCTraitGet(CurrentCharacter, "Frigid") < 0)) Act = ""; break;
+			case "Orgasm": if (Player.IsChaste() || (NPCTraitGet(CurrentCharacter, "Horny") < 0)) Act = ""; break;
+			case "Spank": if (NPCTraitGet(CurrentCharacter, "Violent") < 0) Act = ""; break;
+			case "Tickle": if (NPCTraitGet(CurrentCharacter, "Playful") < 0) Act = ""; break;
+		}
+	}
+
+	// Starts the activity
+	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, "ClubCardConsequence" + Act + "Intro");
+	CurrentCharacter.Stage = "ClubCardConsequence" + Act + "0";
+
+}
+
+/**
+ * The consequence activity to do
+ * @param {string} Act - The activity to do
+ * @param {string} LoveFactor - The love to change
+ * @returns {void} - Nothing. 
+ */
+function PrivateClubCardDoConsequence(Act, LoveFactor) {
+
+	// Do the activity
+	switch (Act) {
+		case "Cage": {
+			Player.Cage = true;
+			LogAdd("BlockCage", "Rule", CurrentTime + 150000);
+			break;
+		}
+		case "Bound": {
+			PrivateReleaseTimer = CommonTime() + 300000;
+			if (NPCTraitGet(CurrentCharacter, "Playful") > 0) CharacterFullRandomRestrain(Player, "FEW");
+			else if (NPCTraitGet(CurrentCharacter, "Playful") === 0) CharacterFullRandomRestrain(Player);
+			else if (NPCTraitGet(CurrentCharacter, "Serious") > 0) CharacterFullRandomRestrain(Player, "LOT");
+			InventorySetDifficulty(Player, "ItemArms", 12);
+			break;
+		}
+		case "BoundPet": {
+			PrivateReleaseTimer = CommonTime() + 300000;
+			InventoryRemove(Player, "ItemLegs");
+			InventoryRemove(Player, "ItemFeet");
+			InventoryRemove(Player, "Hat");
+			InventoryRemove(Player, "HairAccessory2");
+			InventoryRemove(Player, "HairAccessory3");
+			InventoryWearRandom(Player, "ItemMouth");
+			InventoryWear(Player, CommonRandomItemFromList("", ["BitchSuit", "ShinyPetSuit"]), "ItemArms");
+			InventoryWear(Player, "PuppyEars1", "HairAccessory1");
+			InventoryWear(Player, "PuppyTailPlug", "ItemButt");
+			InventorySetDifficulty(Player, "ItemArms", 12);
+			break;
+		}
+		case "Shibari": {
+			PrivateReleaseTimer = CommonTime() + 300000;
+			CharacterNaked(Player);
+			CharacterSetActivePose(Player, null);
+			InventoryRemove(Player, "ItemHood");
+			InventoryRemove(Player, "ItemHead");
+			ShibariRandomBondage(Player, 3);
+			InventoryWearRandom(Player, "ItemMouth");
+			InventorySetDifficulty(Player, "ItemArms", 12);
+			break;
+		}
+		case "ForceNaked": {
+			LogAdd("BlockChange", "Rule", CurrentTime + 1800000);
+			CharacterNaked(Player);
+			break;
+		}
+		case "Chastity": {
+			CharacterNaked(Player);
+			InventoryWear(Player, "MetalChastityBra", "ItemBreast");
+			InventoryLock(Player, "ItemBreast", "ExclusivePadlock");
+			InventoryWearRandom(Player, "ItemPelvis", null, null, false, true, PrivateBeltList, true);
+			InventoryLock(Player, "ItemPelvis", "ExclusivePadlock");
+			break;
+		}
+	}
+
+	// Applies a change to the NPC love if needed
+	let Love = parseInt(LoveFactor);
+	if (!isNaN(Love)) PrivateNPCInteraction(Love);
+
+	// Returns to the base stage for the NPC and exits dialog for most consequences
+	CurrentCharacter.Stage = CurrentCharacter.IsOwnedByPlayer() ? "2000" : (CurrentCharacter.IsOwner() ? "1000" : "0");
+	DialogLeave();
+
+}
+
+/**
+ * Do the spanking club card consequence on the player
+ * @param {ExpressionName} Eyes - The eye experssion to apply
+ * @param {string} Strip - Underwear, Naked or NULL to strip the player or not
+ * @returns {void} - Nothing.
+ */
+function PrivateClubCardKinkyConsequence(Eyes, Strip) {
+	if (Strip === "Underwear") CharacterUnderwear(Player, Player.Appearance);
+	if (Strip === "Naked") CharacterNaked(Player);
+	CharacterSetFacialExpression(Player, "Blush", "Medium", 5);
+	CharacterSetFacialExpression(Player, "Eyes", Eyes, 5);
+	CharacterSetFacialExpression(Player, "Eyes2", Eyes, 5);
 }

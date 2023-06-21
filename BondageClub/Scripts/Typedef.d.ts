@@ -3125,6 +3125,7 @@ interface GamePokerParameters {
 
 interface GameClubCardParameters {
 	Deck: string[];
+	Reward?: string;
 }
 
 //#endregion
@@ -3748,7 +3749,7 @@ interface ClubCard {
 	Type?: string;
 	Title?: string;
 	Text?: string;
-	Unique?: boolean;
+	Reward?: string;
 	MoneyPerTurn?: number;
 	FamePerTurn?: number;
 	RequiredLevel?: number;

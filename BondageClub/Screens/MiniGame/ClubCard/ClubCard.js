@@ -5,6 +5,7 @@ var ClubCardLogText = "";
 var ClubCardLogScroll = false;
 var ClubCardColor = ["#808080", "#FFFFFF", "#E0E0E0", "#D0FFD0", "#D0D0FF", "#FFD0D0", "#FFE080"];
 var ClubCardOpponent = null;
+var ClubCardReward = null;
 var ClubCardHover = null;
 var ClubCardFocus = null;
 var ClubCardTextCache = null;
@@ -487,7 +488,7 @@ var ClubCardList = [
 		ID: 8005,
 		Name: "Mistress Sophie",
 		Group: ["Dominant", "Mistress"],
-		Unique: true,
+		Reward: "NPC-Sophie",
 		RequiredLevel: 5,
 		MoneyPerTurn: -5,
 		FamePerTurn: 8
@@ -622,14 +623,14 @@ var ClubCardList = [
 		ID: 11000,
 		Name: "Amanda",
 		Group: ["CollegeStudent"],
-		Unique: true,
+		Reward: "NPC-Amanda",
 		FamePerTurn: 1
 	},
 	{
 		ID: 11001,
 		Name: "Sarah",
 		Group: ["CollegeStudent"],
-		Unique: true,
+		Reward: "NPC-Sarah",
 		FamePerTurn: 1,
 		OnTurnEnd: function(CCPlayer) {
 			if (ClubCardNameIsOnBoard(CCPlayer.Board, "Amanda")) ClubCardPlayerAddFame(CCPlayer, 2);
@@ -640,14 +641,14 @@ var ClubCardList = [
 		ID: 11002,
 		Name: "Sidney",
 		Group: ["CollegeStudent"],
-		Unique: true,
+		Reward: "NPC-Sidney",
 		FamePerTurn: 1
 	},
 	{
 		ID: 11003,
 		Name: "Jennifer",
 		Group: ["CollegeStudent"],
-		Unique: true,
+		Reward: "NPC-Jennifer",
 		FamePerTurn: 1
 		// Remove one of your current member on entry
 	},
@@ -692,7 +693,7 @@ var ClubCardList = [
 		ID: 11008,
 		Name: "Julia",
 		Group: ["CollegeTeacher"],
-		Unique: true,
+		Reward: "NPC-Julia",
 		RequiredLevel: 2,
 		FamePerTurn: 2
 	},
@@ -700,7 +701,7 @@ var ClubCardList = [
 		ID: 11009,
 		Name: "Yuki",
 		Group: ["CollegeTeacher"],
-		Unique: true,
+		Reward: "NPC-Yuki",
 		RequiredLevel: 3,
 		FamePerTurn: 2,
 		MoneyPerTurn: 1,
@@ -709,7 +710,7 @@ var ClubCardList = [
 		ID: 11010,
 		Name: "Mildred",
 		Group: ["CollegeTeacher"],
-		Unique: true,
+		Reward: "NPC-Mildred",
 		RequiredLevel: 4,
 		FamePerTurn: 3,
 	},
@@ -1133,8 +1134,26 @@ function ClubCardLoadDeckNumber(DeckNum) {
 	ClubCardLogAdd(ClubCardTextGet("Start" + ((ClubCardTurnIndex == 0) ? "Player" : "Opponent")));
 	ClubCardPlayerDrawCard(ClubCardPlayer[0], (ClubCardTurnIndex == 0) ? 5 : 6);
 	ClubCardPlayerDrawCard(ClubCardPlayer[1], (ClubCardTurnIndex == 1) ? 5 : 6);
-	ClubCardDestroyPopup();
-	ClubCardAIStart();
+
+	// If a card can be won against the NPC
+	ClubCardReward = null;
+	if (ClubCardPlayer[1].Character.IsNpc())
+		for (let Card of ClubCardList)
+			if ((Card.Reward === "NPC-" + ClubCardPlayer[1].Character.Name) || (Card.Reward === ClubCardPlayer[1].Character.AccountName)) {
+				let Char = String.fromCharCode(Card.ID);
+				if ((Player.Game == null) || (Player.Game.ClubCard == null) || (Player.Game.ClubCard.Reward == null) || (Player.Game.ClubCard.Reward.indexOf(Char) < 0)) {
+					ClubCardReward = Card;
+					break;
+				}
+			}
+
+	// Show the winnable card or start the game right away
+	if (ClubCardReward != null) {
+		if (ClubCardReward.Type == null) ClubCardReward.Type = "Member";
+		ClubCardFocus = ClubCardReward;
+		ClubCardPlayer[1].Hand.push({...ClubCardReward});
+		ClubCardCreatePopup("TEXT", TextGet("CanWinNewCard") + " " + ClubCardReward.Title, TextGet("Play"), null, "ClubCardAIStart()", null);
+	} else ClubCardAIStart();
 
 }
 
@@ -1160,6 +1179,20 @@ function ClubCardAddPlayer(Char, Cont, Cards) {
 		Fame: 0
 	};
 	ClubCardPlayer.push(P);
+}
+
+/**
+ * The player can get rewarded with a new card if she wins VS a specific opponent
+ * @returns {void} - Nothing
+ */
+function ClubCardGetReward() {
+	let Char = String.fromCharCode(ClubCardReward.ID);
+	if (Player.Game.ClubCard.Reward.indexOf(Char) < 0) {
+		ClubCardFocus = ClubCardReward;
+		Player.Game.ClubCard.Reward = Player.Game.ClubCard.Reward + Char;
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+		ClubCardCreatePopup("TEXT", TextGet("WonNewCard") + " " + ClubCardReward.Title, TextGet("Return"), null, "ClubCardEndGame()", null);
+	}
 }
 
 /**
@@ -1191,6 +1224,7 @@ function ClubCardEndTurn(Draw = false) {
 		MiniGameEnded = true;
 		ClubCardLogAdd(TextGet("VictoryFor" + CCPlayer.Control));
 		ClubCardCreatePopup("TEXT", TextGet("VictoryFor" + CCPlayer.Control), TextGet("Return"), null, "ClubCardEndGame()", null);
+		if (MiniGameVictory && (ClubCardReward != null)) ClubCardGetReward();
 		return;
 	}
 
@@ -1354,6 +1388,7 @@ function ClubCardAIPlay() {
  * @returns {void} - Nothing
  */
 function ClubCardAIStart() {
+	ClubCardDestroyPopup();
 	if (!MiniGameEnded && ClubCardPlayer[ClubCardTurnIndex].Control == "AI")
 		setTimeout(ClubCardAIPlay, 3000);
 }
@@ -1461,6 +1496,7 @@ function ClubCardLoadCaption() {
 function ClubCardCommonLoad() {
 	if (Player.Game == null) Player.Game = {};
 	if (Player.Game.ClubCard == null) Player.Game.ClubCard = { Deck: [] };
+	if (Player.Game.ClubCard.Reward == null) Player.Game.ClubCard.Reward = "";
 	ClubCardList[0].Title = null;
 	CommonReadCSV("NoArravVar", "MiniGame", "ClubCard", "Text_ClubCard");
 }
@@ -1549,11 +1585,11 @@ function ClubCardRenderCard(Card, X, Y, W, Sleeve = null, Source = null) {
 
 	// Gets the text and frame color
 	let Level = ((Card.RequiredLevel == null) || (Card.RequiredLevel <= 1)) ? 1 : Card.RequiredLevel;
-	let Color = ClubCardColor[(Card.Unique == true) ? 6 : Level];
+	let Color = ClubCardColor[(Card.Reward != null) ? 6 : Level];
 	if (Card.Type == null) Card.Type = "Member";
 
 	// Draw the images and texts on the screen
-	DrawImageResize("Screens/MiniGame/ClubCard/Frame/" + Card.Type + ((Card.Unique == true) ? "6" : Level.toString()) + ".png", X, Y, W, W * 2);
+	DrawImageResize("Screens/MiniGame/ClubCard/Frame/" + Card.Type + ((Card.Reward != null) ? "6" : Level.toString()) + ".png", X, Y, W, W * 2);
 	DrawImageResize("Screens/MiniGame/ClubCard/" + (Card.Type) + "/" + Card.Name + ".png", X + W * 0.05, Y + W * 0.16, W * 0.9, W * 1.8);
 	MainCanvas.font = "bold " + Math.round(W / 12) + "px arial";
 	DrawTextWrap(Card.Title, X + W * 0.05, Y + W * 0.05, W * 0.9, W * 0.1, "Black");
